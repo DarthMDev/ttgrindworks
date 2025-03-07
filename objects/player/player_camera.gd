@@ -20,6 +20,12 @@ func _unhandled_input(event) -> void:
 		rotation.x -= event.relative.y * Globals.SENSITIVITY * SaveFileService.settings_file.camera_sensitivity
 		rotation.x = clamp(rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
+func _input(event):
+	if event is InputEventScreenDrag:
+		rotate_y(deg_to_rad(-event.relative.x  * SaveFileService.settings_file.camera_sensitivity))
+		var new_pitch = rotation_degrees.x - (event.relative.y  * SaveFileService.settings_file.camera_sensitivity)
+		rotation_degrees.x = clamp(new_pitch, -89, 89)
+		
 func _process(_delta: float) -> void:
 	global_position = player.get_global_transform_interpolated().origin + Vector3(0, y_offset, 0)
 

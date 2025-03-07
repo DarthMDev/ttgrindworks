@@ -53,6 +53,9 @@ signal s_action_finished(action: BattleAction)
 signal s_ui_initialized
 
 func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
+	player.joystick_left.hide()
+	player.touch_jump.hide()
+	player.pause_button.hide()
 	cogs = cog_array
 	battle_node = battlenode
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -258,6 +261,10 @@ func end_battle() -> void:
 		SceneLoader.add_persistent_node(partner)
 	s_round_ended.emit()
 	s_battle_ended.emit()
+	if OS.has_feature("touch"):
+		player.joystick_left.show()
+		player.touch_jump.show()
+		player.pause_button.show()
 
 func is_target_dead(target: Node3D) -> bool:
 	var health_ratio: float = float(target.stats.hp) / float(target.stats.max_hp)

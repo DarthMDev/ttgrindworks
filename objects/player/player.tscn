@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://wpoc3xs1yy0"]
+[gd_scene load_steps=38 format=3 uid="uid://wpoc3xs1yy0"]
 
 [ext_resource type="Script" uid="uid://b4cxlqwfntoba" path="res://objects/player/player.gd" id="1_nexlg"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="2_mf0eg"]
@@ -24,6 +24,11 @@
 [ext_resource type="Script" uid="uid://dmbp7gb7omh12" path="res://objects/player/floor_label.gd" id="21_dh5ch"]
 [ext_resource type="PackedScene" uid="uid://5hvtmu8sf5ub" path="res://objects/player/ui/timer/game_timer.tscn" id="22_0c65h"]
 [ext_resource type="Script" uid="uid://bnmo4cxoda23r" path="res://objects/player/boost_text_queue.gd" id="23_468de"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="25_r5k7d"]
+[ext_resource type="Texture2D" uid="uid://bfm26ms0aoov0" path="res://ui_assets/battle/target_select/PckMn_Arrow_Dn.png" id="26_no36w"]
+[ext_resource type="Texture2D" uid="uid://cthojhm1w7mns" path="res://ui_assets/battle/target_select/PckMn_Arrow_Rlvr.png" id="27_tk20p"]
+[ext_resource type="Texture2D" uid="uid://d0h1ustg0fvfo" path="res://ui_assets/misc/BookIcon_CLSD.png" id="28_1g4tr"]
+[ext_resource type="Texture2D" uid="uid://cgugkgelrg1jy" path="res://ui_assets/misc/BookIcon_RLVR.png" id="29_ja0yg"]
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("2_mf0eg")
@@ -172,13 +177,16 @@ font = ExtResource("20_fnojw")
 font_size = 24
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head_node")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head_node", "joystick_left", "touch_jump", "pause_button")]
 collision_layer = 6
 collision_mask = 5
 floor_max_angle = 1.309
 script = ExtResource("1_nexlg")
 stats = SubResource("Resource_wdmji")
 head_node = NodePath("Head")
+joystick_left = NodePath("Virtual Joystick Left")
+touch_jump = NodePath("JumpButton")
+pause_button = NodePath("PauseButton")
 
 [node name="Toon" parent="." instance=ExtResource("5_ryhr4")]
 
@@ -267,3 +275,40 @@ offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("23_468de")
+
+[node name="Virtual Joystick Left" parent="." instance=ExtResource("25_r5k7d")]
+clip_contents = true
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -118.0
+offset_top = 358.0
+offset_right = 362.0
+offset_bottom = 752.0
+grow_vertical = 1
+visibility_mode = 1
+action_up = "move_forward"
+action_down = "move_back"
+
+[node name="Base" parent="Virtual Joystick Left" index="0"]
+offset_left = 44.0
+offset_top = -172.0
+offset_right = 244.0
+offset_bottom = 28.0
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+position = Vector2(918, 421)
+scale = Vector2(1, 2.05769)
+texture_normal = ExtResource("26_no36w")
+texture_pressed = ExtResource("27_tk20p")
+action = "jump"
+visibility_mode = 1
+
+[node name="PauseButton" type="TouchScreenButton" parent="."]
+position = Vector2(986, 24)
+texture_normal = ExtResource("28_1g4tr")
+texture_pressed = ExtResource("29_ja0yg")
+action = "pause"
+visibility_mode = 1
+
+[editable path="Virtual Joystick Left"]

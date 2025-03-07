@@ -31,7 +31,9 @@ const DEBUG_COLLISION_PRINT := false
 		print('stats set')
 @export var head_node: Node3D
 @export var partners: Array[CharacterBody3D] = []
-
+@export var joystick_left : VirtualJoystick
+@export var touch_jump : TouchScreenButton
+@export var pause_button: TouchScreenButton
 ## Child References
 @onready var camera := %PlayerCamera
 @onready var camera_dist: float:
@@ -148,7 +150,7 @@ func _physics_process(delta: float) -> void:
 	# Temp
 	if Input.is_action_just_pressed('ui_focus_next') and laff_lock_enabled:
 		laff_lock = not laff_lock
-
+		
 func _physics_process_walk(delta: float) -> void:
 	# Ensure mouse is captured while moving
 	if Util.window_focused and not Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -180,9 +182,8 @@ func _physics_process_walk(delta: float) -> void:
 	
 	if speed != target_speed:
 		speed = lerp(speed, target_speed, 0.2)
-	
 	if control_style:
-		# Get the input/direction vectors
+		# Get the input/direction vectors			
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		direction = direction.rotated(Vector3(0, 1, 0), camera.rotation.y)

@@ -11,8 +11,14 @@ signal s_choice_made(menu_choice: MenuChoice)
 @onready var node_viewer: TextureRect = %NodeViewer
 
 var toon: Toon
+var player: Player
 
 func _ready() -> void:
+	player = Util.get_player()
+	if player:
+		player.joystick_left.hide()
+		player.touch_jump.hide()
+		player.pause_button.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	%DefeatedBy.text = "Defeated by %s" % Util.get_player().last_damage_source
 	Engine.time_scale = 1.0

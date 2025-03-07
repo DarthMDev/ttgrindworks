@@ -38,6 +38,7 @@ signal s_floor_ended
 
 var anomalies: Array[FloorModifier] = []
 
+var player: Player
 
 func _ready() -> void:
 	unloaded_rooms = Node3D.new()
@@ -47,6 +48,12 @@ func _ready() -> void:
 		room_count += 1
 	Util.floor_number += 1
 	generate_floor()
+	player = Util.get_player()
+	if player:
+		if OS.has_feature("touch"):
+			player.joystick_left.show()
+			player.touch_jump.show()
+			player.pause_button.show()
 
 func generate_floor() -> void:
 	if not floor_variant:
@@ -126,7 +133,7 @@ func generate_floor() -> void:
 	
 	var entrance = room_node.get_child(0)
 	
-	var player := Util.get_player()
+	player = Util.get_player()
 	if not player:
 		player = load("res://objects/player/player.tscn").instantiate()
 		SceneLoader.add_persistent_node(player)

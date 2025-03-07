@@ -1,6 +1,6 @@
 extends CanvasLayer
 class_name BattleUI
-
+var player: Player
 # Child References
 @onready var gag_tracks := %Tracks
 @onready var attack_label := %AttackLabel
@@ -44,7 +44,7 @@ func _ready():
 	fire_action.action_name = "FIRE"
 	check_pink_slips()
 
-	status_container.target = Util.get_player()
+	status_container.target = player
 
 func gag_selected(gag: BattleAction) -> void:
 	if remaining_turns <= 0:

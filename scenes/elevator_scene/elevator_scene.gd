@@ -28,7 +28,9 @@ func _ready():
 	player.set_animation('neutral')
 	camera.current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	player.joystick_left.hide()
+	player.touch_jump.hide()
+	player.pause_button.hide()
 	# Close the elevator doors
 	elevator.animator.play('open')
 	elevator.animator.seek(0.0)
