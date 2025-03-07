@@ -17,3 +17,7 @@
 *.dmg
 
 *.zip
+
+# Mods
+mods-unpacked/
+mods/
