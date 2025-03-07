@@ -261,7 +261,7 @@ func end_battle() -> void:
 		SceneLoader.add_persistent_node(partner)
 	s_round_ended.emit()
 	s_battle_ended.emit()
-	if OS.has_feature("touch"):
+	if OS.has_feature("mobile"):
 		player.joystick_left.show()
 		player.touch_jump.show()
 		player.pause_button.show()

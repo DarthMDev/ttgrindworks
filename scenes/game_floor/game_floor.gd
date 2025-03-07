@@ -50,7 +50,7 @@ func _ready() -> void:
 	generate_floor()
 	player = Util.get_player()
 	if player:
-		if OS.has_feature("touch"):
+		if OS.has_feature("mobile"):
 			player.joystick_left.show()
 			player.touch_jump.show()
 			player.pause_button.show()
