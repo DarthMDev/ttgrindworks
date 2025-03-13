@@ -16,3 +16,4 @@ visible = false
 description = "Union buster logic"
 status_name = "Union buster logic"
 id = 19
+_generate_id = false

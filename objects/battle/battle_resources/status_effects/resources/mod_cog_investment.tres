@@ -14,3 +14,4 @@ visible = true
 description = "Heals 33% HP every other round"
 status_name = "Investment"
 id = 7
+_generate_id = false

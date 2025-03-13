@@ -54,6 +54,5 @@ func steal_money(who : Player, quantity : int) -> int:
 	
 	if total_stolen > 0:
 		manager.battle_text(who, "-%d Jellybeans!" % total_stolen, BattleText.colors.orange[0], BattleText.colors.orange[1])
-		DiscordManager.update_presence()
 	return total_stolen
 	

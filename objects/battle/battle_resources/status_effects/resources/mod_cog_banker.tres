@@ -16,3 +16,4 @@ visible = true
 description = "+8% Damage every turn"
 status_name = "Banker"
 id = 24
+_generate_id = false

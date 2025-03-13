@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cw1uc2h671fc0"
-valid=false
+path="res://.godot/imported/toon_button.fbx-9e69772207ffb222e234cd4501a09c54.scn"
 
 [deps]
 
 source_file="res://models/props/gags/button/toon_button.fbx"
+dest_files=["res://.godot/imported/toon_button.fbx-9e69772207ffb222e234cd4501a09c54.scn"]
 
 [params]
 

@@ -121,7 +121,6 @@ func purchase() -> void:
 	ui.set_item(null, -1)
 	if toon and toon_speaks:
 		toon.speak("It's all yours. Enjoy!")
-	DiscordManager.update_presence()
 
 func exit() -> void:
 	ui.hide()

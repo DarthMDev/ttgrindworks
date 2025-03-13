@@ -16,3 +16,4 @@ visible = true
 description = "Perfect Accuracy, + 10% Damage"
 status_name = "Status Effect"
 id = 8
+_generate_id = false
