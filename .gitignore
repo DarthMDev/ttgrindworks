@@ -20,3 +20,5 @@
 /xcode-project
 /mods-unpacked
 /mods
+*.apk
+/android

@@ -7,7 +7,9 @@ env:
   GODOT_VERSION: 4.4
   EXPORT_NAME: ttgrindworks
   PROJECT_PATH: .
-
+  ANDROID_HOME: /usr/lib/android-sdk
+  PATH: $ANDROID_HOME/cmdline-tools/latest/bin:${PATH}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  
 jobs:
   export-windows:
     name: Windows Export
@@ -89,3 +91,56 @@ jobs:
         with:
           name: mac
           path: build/mac
+
+  prep-android:
+      name: Prepare Android Environment
+      runs-on: ubuntu-22.04
+      steps:
+        - name: Install OpenJDK 17
+          run: sudo apt-get update && sudo apt-get install -y openjdk-17-jdk-headless
+  
+        - name: Download and Set Up Android SDK
+          run: |
+            sudo mkdir -p /usr/lib/android-sdk/cmdline-tools
+            wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
+            sudo unzip commandlinetools-linux-7583922_latest.zip -d /usr/lib/android-sdk/cmdline-tools
+            sudo mv /usr/lib/android-sdk/cmdline-tools/cmdline-tools /usr/lib/android-sdk/cmdline-tools/latest
+            rm -f commandlinetools-linux-7583922_latest.zip
+  
+        - name: Install Android SDK Components
+          run: |
+            yes | /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+            /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;33.0.2" "platforms;android-33" "cmdline-tools;latest" "cmake;3.22.1" "ndk;25.2.9519653"
+  
+        - name: Configure Godot Editor Settings
+          run: |
+            mkdir -p ~/.config/godot
+            echo 'export/android/java_sdk_path = "/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.config/godot/editor_settings-${GODOT_VERSION}.tres
+            echo 'export/android/android_sdk_path = "/usr/lib/android-sdk"' >> ~/.config/godot/editor_settings-${GODOT_VERSION}.tres
+
+            
+  export-android:
+    name: Android Export
+    runs-on: ubuntu-22.04  # Use 22.04 with godot 4
+    needs: prep-android
+    container:
+      image: barichello/godot-ci:4.4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      - name: Android Build
+        run: |
+          mkdir -v -p build/android
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --export-release "Android" "$EXPORT_DIR/android/$EXPORT_NAME.apk"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android
