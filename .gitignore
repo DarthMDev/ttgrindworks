@@ -18,3 +18,5 @@
 
 *.zip
 /xcode-project
+/mods-unpacked
+/mods
