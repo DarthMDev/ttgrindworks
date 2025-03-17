@@ -36,7 +36,7 @@ func action():
 		if not get_immunity(target):
 			s_hit.emit()
 			AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_throw_stormcloud.ogg"))
-			manager.affect_target(target, 'hp', damage, false)
+			manager.affect_target(target, damage)
 			if target.lured:
 				manager.knockback_cog(target)
 			else:

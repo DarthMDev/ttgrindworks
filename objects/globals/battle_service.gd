@@ -6,6 +6,7 @@ var battle_node : BattleNode:
 		battle_node = x
 		s_battle_initialized.emit(x)
 
+signal s_battle_spawned(battle : BattleNode)
 signal s_battle_started(manager: BattleManager)
 signal s_battle_initialized(battle_node: BattleNode)
 signal s_round_started(turn_array: Array[BattleAction])

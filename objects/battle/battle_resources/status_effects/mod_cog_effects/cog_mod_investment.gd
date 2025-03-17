@@ -46,7 +46,7 @@ func renew() -> void:
 	movie.tween_callback(cog.speak.bind(RandomService.array_pick_random('true_random', PHRASES)))
 	movie.tween_callback(cog.set_animation.bind('phone'))
 	movie.tween_interval(2.0)
-	movie.tween_callback(manager.affect_target.bind(cog, 'hp', heal_amount, false))
+	movie.tween_callback(manager.affect_target.bind(cog, heal_amount))
 	movie.tween_interval(4.0)
 
 	await Task.delay(0.4)

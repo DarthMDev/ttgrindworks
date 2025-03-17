@@ -106,6 +106,7 @@ func participant_died(participant : Node3D) -> void:
 		return
 	elif participant is Cog:
 		cog = participant
+		if cog.virtual_cog: return
 	
 	if specific_cog:
 		if cog.fusion:

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://yufkd5v70f3d"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://yufkd5v70f3d"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_jgdk7"]
+[ext_resource type="AudioStream" uid="uid://7ma308jln3fn" path="res://audio/sfx/items/big_chomp.ogg" id="2_s3040"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_u7ct4"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Zippy Zap"
 item_description = "Speed up!"
 big_description = "+ 3% speed"
 model = ExtResource("1_jgdk7")
+pickup_sfx = ExtResource("2_s3040")
 stats_add = {
 "speed": 0.03
 }

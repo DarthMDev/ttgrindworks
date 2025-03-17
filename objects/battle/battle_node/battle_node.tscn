@@ -23,6 +23,7 @@ item_pool = ExtResource("2_5be2w")
 transform = Transform3D(1, 0, 0, 0, 0.48481, 0.87462, 0, -0.87462, 0.48481, 0, 6.75, 4)
 
 [node name="BattleCamera" type="Camera3D" parent="BirdsEye"]
+physics_interpolation_mode = 2
 fov = 48.8
 
 [node name="ArrowReference" type="MeshInstance3D" parent="."]

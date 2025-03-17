@@ -7,7 +7,7 @@ class_name UBLiabilityWaiverEffect
 
 var response_lines: Array[String] = [
 	"This won't be good for my health.",
-	"Suppose its worth the promotion."
+	"I suppose it's worth the promotion."
 ]
 
 var union_buster: Cog
@@ -36,7 +36,7 @@ func redirect_damage(_action: BattleAction, cog: Node3D, amount: int):
 	if (not is_instance_valid(target)) or target.stats.hp <= 0:
 		return
 	
-	manager.affect_target(target, "hp", amount * damage_redirected, false)
+	manager.affect_target(target, amount * damage_redirected)
 	target.set_animation("pie-small")
 	await manager.barrier(target.animator.animation_finished, 4.0)
 	await manager.check_pulses([target])

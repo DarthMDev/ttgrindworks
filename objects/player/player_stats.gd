@@ -38,13 +38,21 @@ signal s_gained_money
 		luck = x
 		s_luck_changed.emit(x)
 		print("Luck set to %.2f" % x)
+
 @export var crit_mult := 1.25
 @export var mod_cog_dmg_mult := 1.0
 @export var shop_discount := 0
+@export var healing_effectiveness := 1.0
+
+# Gag specific boosts
 @export var throw_heal_boost := 0.15
 @export var squirt_defense_boost := 0.8
 @export var drop_aftershock_round_boost := 0
+@export var trap_knockback_percent := 0.0
+
 @export var anomaly_boost := 0
+# Extra value on laff boosts
+@export var laff_boost_boost := 0
 @export var extra_lives := 0:
 	set(x):
 		extra_lives = x

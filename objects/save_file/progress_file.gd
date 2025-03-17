@@ -38,7 +38,6 @@ func start_listening() -> void:
 	BattleService.s_battle_started.connect(on_battle_start)
 	BattleService.s_boss_died.connect(func(_cog): boss_cogs_defeated += 1)
 	Util.s_floor_ended.connect(on_floor_end)
-	Util.s_player_assigned.connect(player_created)
 	initialize_achievements()
 
 func on_battle_start(manager: BattleManager) -> void:
@@ -68,10 +67,6 @@ func add_cog_defeat(cog: String) -> void:
 
 func on_floor_end() -> void:
 	floors_cleared += 1
-
-func player_created(player: Player) -> void:
-	player.s_died.connect(func(): deaths += 1)
-
 
 #region ACHIEVEMENTS
 

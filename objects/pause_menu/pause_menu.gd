@@ -47,6 +47,8 @@ func _ready() -> void:
 	if AnimatePauseMenu:
 		$AnimationPlayer.play("pause_on")
 		show()
+	
+	Globals.s_game_paused.emit(self)
 
 func apply_stat_labels() -> void:
 	for stat_array: Array in StatInfo:

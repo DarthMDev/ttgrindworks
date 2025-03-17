@@ -34,7 +34,7 @@ func action():
 		if do_money_steal:
 			money_stolen = steal_money(target, damage)
 		if money_stolen == 0:
-			manager.affect_target(target,'hp',damage,false)
+			manager.affect_target(target, damage)
 	else:
 		manager.battle_text(target,"MISSED")
 	

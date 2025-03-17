@@ -1,8 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr1htfcl3unfw"]
+[gd_scene load_steps=14 format=3 uid="uid://cr1htfcl3unfw"]
 
 [ext_resource type="PackedScene" uid="uid://da1tvwj2tpa75" path="res://objects/modules/office/base_rooms/office_diamond_room.tscn" id="1_0iljn"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_0r0bh"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_wb8bq"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="4_v8uxk"]
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="5_lm132"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="6_61dwa"]
@@ -11,49 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://b4kk4sdrhkn2g" path="res://objects/props/office/cardboard_box.tscn" id="9_de0rd"]
 [ext_resource type="PackedScene" uid="uid://dm86vgodo58fx" path="res://objects/props/office/potted_plant.tscn" id="10_philj"]
 [ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="11_17f2a"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="12_eox1m"]
 [ext_resource type="PackedScene" uid="uid://b1cl5gdttc2ps" path="res://objects/props/office/lamp_small.tscn" id="12_j7ett"]
 [ext_resource type="PackedScene" uid="uid://umat7c5gw2t3" path="res://objects/props/office/filing_cabinet_open.tscn" id="13_bbhfm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7xauv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6b8kx"]
 size = Vector3(13.5222, 9.50684, 8.9672)
 
 [node name="Root Scene" instance=ExtResource("1_0iljn")]
 
-[node name="Battles" type="Node3D" parent="." index="10"]
-
-[node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_0r0bh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, -12.7438)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
-focus_cog = NodePath("Cog2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="2"]
-transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
-shape = SubResource("BoxShape3D_7xauv")
-
-[node name="Cog" parent="Battles/BattleNode" index="3" instance=ExtResource("3_wb8bq")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, -3.39404, -2.38419e-07, -1.34126)
-
-[node name="Cog2" parent="Battles/BattleNode" index="4" instance=ExtResource("3_wb8bq")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, -0.187364, -2.38419e-07, -1.31155)
-
-[node name="Cog3" parent="Battles/BattleNode" index="5" instance=ExtResource("3_wb8bq")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, 2.74607, -2.38419e-07, -1.28436)
-
-[node name="BattleNode2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("2_0r0bh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, 13.1897)
-cogs = [NodePath("Cog"), NodePath("Cog2")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode2" index="2"]
-transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
-shape = SubResource("BoxShape3D_7xauv")
-
-[node name="Cog" parent="Battles/BattleNode2" index="3" instance=ExtResource("3_wb8bq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82466, -2.38419e-07, -1.46152)
-
-[node name="Cog2" parent="Battles/BattleNode2" index="4" instance=ExtResource("3_wb8bq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38202, -2.38419e-07, -1.43181)
-
-[node name="Props" type="Node3D" parent="." index="11"]
+[node name="Props" type="Node3D" parent="." index="10"]
 
 [node name="Bookshelves" type="Node3D" parent="Props" index="0"]
 
@@ -187,3 +152,25 @@ transform = Transform3D(2.08067, 0, -1.05974, 0, 2.335, 0, 1.05974, 0, 2.08067, 
 
 [node name="filing_cabinet_open" parent="Props" index="24" instance=ExtResource("13_bbhfm")]
 transform = Transform3D(-1.31758, 0, -0.716934, 0, 1.5, 0, 0.716934, 0, -1.31758, -10.9666, 0, -1.4057)
+
+[node name="Battles" type="Node3D" parent="." index="11"]
+
+[node name="BattleNodeDynamic" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("12_eox1m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, -12.7438)
+cog_range = Vector2i(2, 3)
+cog_dist = 0.5
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
+transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
+shape = SubResource("BoxShape3D_6b8kx")
+
+[node name="BattleNodeDynamic2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("12_eox1m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, 13.1897)
+cog_range = Vector2i(2, 3)
+cog_dist = 0.0
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]
+transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
+shape = SubResource("BoxShape3D_6b8kx")

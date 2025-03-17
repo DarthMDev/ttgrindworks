@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl04a2v3qyrq4"]
+
+[ext_resource type="PackedScene" uid="uid://drc1ci1o3bkj8" path="res://objects/modules/factory/base_rooms/catwalk_straight_spacious.tscn" id="1_erjkm"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_4yie3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh8ep"]
+size = Vector3(12.3935, 17.6676, 10.9199)
+
+[node name="CatwalkBattle" instance=ExtResource("1_erjkm")]
+
+[node name="ENTRANCE" parent="." index="2"]
+transform = Transform3D(2.13163e-14, -1.69407e-21, -1, -4.37114e-08, 1, -6.38312e-37, 1, 4.37114e-08, 2.13163e-14, 13.8801, -1.53142, -4.76837e-07)
+
+[node name="BattleNodeDynamic" parent="." index="4" instance=ExtResource("2_4yie3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.427136, -1.5378, 0)
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546478, 8.33379, -2.45712)
+shape = SubResource("BoxShape3D_kh8ep")

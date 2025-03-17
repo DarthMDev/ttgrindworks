@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bmfbgvlyor8tw"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bmfbgvlyor8tw"]
 
 [ext_resource type="PackedScene" uid="uid://liel1wnqugwq" path="res://objects/items/custom/toonups/pixie_item.tscn" id="1_tiwq4"]
+[ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_08lmc"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_i3qd4"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Pixie Dust"
 item_description = "20% laff regeneration"
 big_description = ""
 model = ExtResource("1_tiwq4")
+pickup_sfx = ExtResource("2_08lmc")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

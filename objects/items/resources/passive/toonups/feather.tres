@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c5cavaivrrvb"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c5cavaivrrvb"]
 
 [ext_resource type="PackedScene" uid="uid://cp3jaujrj4tyk" path="res://objects/items/custom/toonups/feather_item.tscn" id="2_32jj2"]
+[ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_p5fcy"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_l5yp1"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Feather"
 item_description = "Defense Boost"
 big_description = ""
 model = ExtResource("2_32jj2")
+pickup_sfx = ExtResource("2_p5fcy")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

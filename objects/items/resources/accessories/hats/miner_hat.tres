@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://cfbue0oddrpiu"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://3wcn86brtody"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_y0aan"]
 [ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_q5nqt"]
@@ -42,7 +42,7 @@ scale = Vector3(0.3, 0.3, 0.25)
 script = ExtResource("2_q5nqt")
 species = 0
 head_index = 3
-position = Vector3(0.01, -0.46, -0.2)
+position = Vector3(0.01, -0.62, -0.2)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
@@ -50,7 +50,7 @@ scale = Vector3(0.35, 0.35, 0.35)
 script = ExtResource("2_q5nqt")
 species = 0
 head_index = 2
-position = Vector3(0.01, -0.46, -0.2)
+position = Vector3(0.01, -0.62, -0.2)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
@@ -58,17 +58,17 @@ scale = Vector3(0.35, 0.35, 0.35)
 script = ExtResource("2_q5nqt")
 species = 0
 head_index = 1
-position = Vector3(0.01, -0.15, -0.4)
+position = Vector3(0.01, -0.22, -0.39)
 rotation = Vector3(-22.76, 0, 0)
-scale = Vector3(0.35, 0.35, 0.35)
+scale = Vector3(0.34, 0.34, 0.34)
 
 [sub_resource type="Resource" id="Resource_ri0uk"]
 script = ExtResource("2_q5nqt")
 species = 0
 head_index = 0
-position = Vector3(0.01, -0.15, -0.4)
+position = Vector3(0.01, -0.22, -0.39)
 rotation = Vector3(-22.76, 0, 0)
-scale = Vector3(0.35, 0.35, 0.35)
+scale = Vector3(0.34, 0.34, 0.34)
 
 [sub_resource type="Resource" id="Resource_iuwe1"]
 script = ExtResource("2_q5nqt")

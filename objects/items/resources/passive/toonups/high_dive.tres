@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ne6tolrsnqmn"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ne6tolrsnqmn"]
 
 [ext_resource type="PackedScene" uid="uid://cdfhi2qb2lm0h" path="res://objects/items/custom/toonups/ladder_item.tscn" id="1_7x86c"]
+[ext_resource type="AudioStream" uid="uid://di6qrbes0f1pu" path="res://audio/sfx/battle/gags/delighted_06.ogg" id="2_46gtl"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_vtgrh"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "High Dive"
 item_description = "All stats boost"
 big_description = ""
 model = ExtResource("1_7x86c")
+pickup_sfx = ExtResource("2_46gtl")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

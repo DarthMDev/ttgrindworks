@@ -28,7 +28,7 @@ func action():
 	if manager.roll_for_accuracy(self) or target.lured:
 		var was_lured: bool = target.lured
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_neonwatergun.ogg"))
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 		var splat = load("res://objects/battle/effects/splat/splat.tscn").instantiate()
 		if Util.get_player().stats.has_item('Witch Hat'):
 			splat.modulate = POISON_COLOR

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://jntxin7vcjnp"]
+[gd_scene load_steps=7 format=3 uid="uid://jntxin7vcjnp"]
 
 [ext_resource type="PackedScene" uid="uid://cv2afui5p28af" path="res://objects/modules/mint/base_rooms/mint_diamond_room.tscn" id="1_4nthc"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_hfd3l"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_clf15"]
 [ext_resource type="PackedScene" uid="uid://byrmf687ynghb" path="res://objects/props/mint/pipes/pipes_d1.tscn" id="4_7e7io"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="4_mtmw1"]
 [ext_resource type="PackedScene" uid="uid://drpj1lganwu6n" path="res://objects/props/mint/crossbeam.tscn" id="5_r2wtc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1bh8a"]
@@ -22,37 +21,23 @@ shape = SubResource("ConcavePolygonShape3D_1bh8a")
 
 [node name="Battles" type="Node3D" parent="." index="4"]
 
-[node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_hfd3l")]
+[node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("4_mtmw1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, -12.7438)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
-focus_cog = NodePath("Cog2")
+cog_range = Vector2i(2, 3)
+cog_dist = 0.5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
 shape = SubResource("BoxShape3D_adqon")
 
-[node name="Cog" parent="Battles/BattleNode" index="3" instance=ExtResource("3_clf15")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, -3.39404, -2.38419e-07, -1.34126)
-
-[node name="Cog2" parent="Battles/BattleNode" index="4" instance=ExtResource("3_clf15")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, -0.187364, -2.38419e-07, -1.31155)
-
-[node name="Cog3" parent="Battles/BattleNode" index="5" instance=ExtResource("3_clf15")]
-transform = Transform3D(0.987976, 0, 0.154607, 0, 1, 0, -0.154607, 0, 0.987976, 2.74607, -2.38419e-07, -1.28436)
-
-[node name="BattleNode2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("2_hfd3l")]
+[node name="BattleNodeDynamic2" parent="Battles" index="1" instance=ExtResource("4_mtmw1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, 13.1897)
-cogs = [NodePath("Cog"), NodePath("Cog2")]
+cog_range = Vector2i(2, 3)
+cog_dist = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode2" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]
 transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
 shape = SubResource("BoxShape3D_adqon")
-
-[node name="Cog" parent="Battles/BattleNode2" index="3" instance=ExtResource("3_clf15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82466, -2.38419e-07, -1.46152)
-
-[node name="Cog2" parent="Battles/BattleNode2" index="4" instance=ExtResource("3_clf15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38202, -2.38419e-07, -1.43181)
 
 [node name="Pipes" type="Node3D" parent="." index="11"]
 

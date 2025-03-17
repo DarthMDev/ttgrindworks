@@ -20,7 +20,7 @@ head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
 scale = 2.5
 head_textures = Array[Texture2D]([ExtResource("5_j4xuo")])
-hand_color = Color(0.94902, 0.74902, 0.74902, 1)
+hand_color = Color(0.941176, 0.745098, 0.741176, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
@@ -31,7 +31,7 @@ status_effects = Array[ExtResource("6_ldukp")]([])
 is_mod_cog = false
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["We're going to do this my way.", "Well, you've managed to find me.", "I can be very intimidating.", "I'll take care of you in no time.", "Oh good, a project.", "I may be small, but I'm also tough.", "I'm going to get in your business!", "No job is too small for me.", "I want the job done right, so I'll do it myself.", "I'm going to get into your business.", "I'm going to be breathing down your neck.", "Sometimes big hurts come in small packages.", "You need someone to manage your assets.", "Sometimes big problems can lead to little misunderstandings.", "It looks like you need some managing."])
+battle_phrases = Array[String](["We're going to do this my way.", "Well, you've managed to find me.", "I can be very intimidating.", "I'll take care of you in no time.", "Oh good, a project.", "I may be small, but I'm also tough.", "I'm going to get in your business!", "No job is too small for me.", "I want the job done right, so I'll do it myself.", "I'm going to be breathing down your neck.", "Sometimes big hurts come in small packages.", "You need someone to manage your assets.", "Sometimes big problems can lead to little misunderstandings.", "It looks like you need some managing."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []
