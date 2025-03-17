@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2jegw5afysdk"]
+[gd_scene load_steps=4 format=3 uid="uid://c2jegw5afysdk"]
 
 [ext_resource type="Script" uid="uid://bbn6jelvh5r7t" path="res://objects/modules/cgc/variants/cgc_maze_room.gd" id="1_exayl"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_fkpp2"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_xtok1"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_pcyau"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu5aq"]
 size = Vector3(18.2068, 4.69336, 6.36267)
@@ -12,17 +11,10 @@ script = ExtResource("1_exayl")
 
 [node name="RoomArea" type="Area3D" parent="."]
 
-[node name="BattleNode" parent="." node_paths=PackedStringArray("cogs") instance=ExtResource("2_fkpp2")]
+[node name="BattleNode" parent="." instance=ExtResource("2_pcyau")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.8102, 0, -25.4665)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
-
-[node name="Cog" parent="BattleNode" instance=ExtResource("3_xtok1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04928, 0, 0)
-
-[node name="Cog2" parent="BattleNode" instance=ExtResource("3_xtok1")]
-
-[node name="Cog3" parent="BattleNode" instance=ExtResource("3_xtok1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09217, 0, 0)
+cog_range = Vector2i(3, 4)
+cog_dist = 1.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31517, 2.32129, 2.68134)

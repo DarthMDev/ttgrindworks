@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="18_qqvjc"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="18_wcv2t"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t71be"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -27,7 +27,7 @@ roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
 uv1_offset = Vector3(0, -0.894446, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu46h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pshe4"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -72,7 +72,7 @@ const HIT_DIALOGUE := [
 	\"HOOOOOOONK!!!!!!\",
 ]
 
-const BOSS_MUSIC := preload(\"res://audio/music/ground_floor_investor.ogg\")
+var BOSS_MUSIC := LazyLoader.defer(\"res://audio/music/ground_floor_investor.ogg\")
 const EXPLOSION := preload(\"res://models/cogs/misc/explosion/cog_explosion.tscn\")
 
 @onready var drop_shadow_template: Node3D = %DropShadowTemplate
@@ -190,7 +190,7 @@ func begin_game() -> void:
 	set_conveyor_coll_enabled.call_deferred(true)
 	Util.get_player().camera.make_current()
 	Util.get_player().state = Player.PlayerState.WALK
-	AudioManager.set_music(BOSS_MUSIC)
+	AudioManager.set_music(BOSS_MUSIC.load())
 	button_quota = get_button_quota()
 	randomize_conveyor_speed()
 	stomper_task = Task.delayed_call(self, get_random_stomp_time(), random_stomp)
@@ -548,7 +548,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -3.57613)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_t71be")
+platform_mat = SubResource("StandardMaterial3D_huelx")
 speed = 0.0
 
 [node name="CB2" parent="." index="9" instance=ExtResource("4_dm27t")]
@@ -556,7 +556,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1.65557)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_pu46h")
+platform_mat = SubResource("StandardMaterial3D_pshe4")
 speed = 0.0
 
 [node name="BeginColl" type="Area3D" parent="." index="10"]

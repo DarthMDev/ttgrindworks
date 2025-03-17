@@ -76,7 +76,14 @@ func _ready() -> void:
 	BattleService.ongoing_battle.s_battle_ending.connect(battle_ending)
 
 func try_add_cogs(_actions: Array[BattleAction]) -> void:
-	if BattleService.ongoing_battle.current_round % 2 == 0 and (boss_one_alive or boss_two_alive):
+	var cooldown := 2
+
+	# HE NEEDS THE COGS GIVE HIM THE COGS GIVE HIM THE COGS NOW!!!!
+	for cog: Cog in battle.cogs:
+		if cog.dna.cog_name == "Union Buster":
+			cooldown = 1
+		
+	if BattleService.ongoing_battle.current_round % cooldown == 0 and (boss_one_alive or boss_two_alive):
 		var new_reinforcements := ElevatorReinforcements.new()
 		new_reinforcements.user = self
 		BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
@@ -140,6 +147,7 @@ func end_game() -> void:
 		partner.queue_free()
 	Util.get_player().queue_free()
 	SaveFileService.delete_run_file()
+	SaveFileService._save_progress()
 	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
 
 func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:

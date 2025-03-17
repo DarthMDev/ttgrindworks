@@ -27,7 +27,6 @@ func backup_prev_settings() -> void:
 @onready var fullscreen_button: GeneralButton = %FullscreenButton
 @onready var fps_button: GeneralButton = %FPSButton
 @onready var alias_button: GeneralButton = %AliasButton
-
 const FPSOptionText: Dictionary = {
 	0: "60",
 	1: "90",
@@ -50,7 +49,7 @@ func _sync_video_settings() -> void:
 	Util.s_fullscreen_toggled.connect(func(_fullscreen: bool): fullscreen_button.text = get_toggle_text(get_setting('fullscreen')))
 	fps_button.text = FPSOptionText[get_setting('fps_idx')]
 	alias_button.text = get_toggle_text(get_setting('anti_aliasing'))
-
+	
 func toggle_full_screen() -> void:
 	toggle_setting('fullscreen')
 	if get_setting('fullscreen'):
@@ -116,6 +115,9 @@ func toggle_ambient_sfx() -> void:
 @onready var stuck_element : HBoxContainer = %ImStuck
 @onready var intro_skip_button : GeneralButton = %IntroSkipButton
 @onready var intro_skip_element : HBoxContainer = %IntroSkip
+@onready var discord_rpc_element: HBoxContainer = %DiscordRPC
+@onready var discord_rpc_button: GeneralButton = %DiscordRPCButton
+@onready var custom_cogs_button : GeneralButton = %CustomCogsButton
 
 func _sync_gameplay_settings() -> void:
 	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
@@ -125,10 +127,12 @@ func _sync_gameplay_settings() -> void:
 	cam_sens_slider.value = get_setting("camera_sensitivity")
 	timer_button.text = get_toggle_text(get_setting('show_timer'))
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	if not is_instance_valid(Util.floor_manager) or Util.stuck_lock:
 		stuck_element.queue_free()
 	if not SaveFileService.progress_file.characters_unlocked > 1:
 		intro_skip_element.queue_free()
+	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
 
 func change_speed() -> void:
 	var curr_idx: int = get_setting('battle_speed_idx')
@@ -162,6 +166,18 @@ func toggle_timer() -> void:
 func toggle_intro_skip() -> void:
 	toggle_setting('skip_intro')
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
+
+func toggle_discord_rpc() -> void:
+	toggle_setting('discord_rpc')
+	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
+	if get_setting('discord_rpc'):
+		DiscordManager.menu()
+	else:
+		DiscordManager.stop()
+func toggle_custom_cogs() -> void:
+	toggle_setting('use_custom_cogs')
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
+	Globals.import_custom_cogs()
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:

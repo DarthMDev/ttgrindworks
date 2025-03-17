@@ -45,10 +45,9 @@ func action():
 	# Hit or not hit
 	if hit:
 		target.set_animation('conked')
-		manager.affect_target(target,'hp',damage,false)
-		#await manager.check_pulses(targets)
+		manager.affect_target(target, damage)
 	else:
-		manager.battle_text(target,"MISSED")
+		manager.battle_text(target, "MISSED")
 	
 	# End
 	if target.stats.hp > 0:

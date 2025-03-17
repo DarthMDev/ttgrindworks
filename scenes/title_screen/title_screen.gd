@@ -108,6 +108,8 @@ func _ready() -> void:
 	
 	AudioManager.stop_music(true)
 	AudioManager.set_default_music(load("res://audio/music/main_theme.ogg"))
+	
+	Globals.s_title_screen_entered.emit(self)
 
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:
@@ -238,6 +240,7 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	player.reset_stats()
 	player.stats.max_out()
 	SceneLoader.add_persistent_node(player)
+	DiscordManager.update_presence()
 	SaveFileService.progress_file.new_games += 1
 	if falling_scene:
 		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn")

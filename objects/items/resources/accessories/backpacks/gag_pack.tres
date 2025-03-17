@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://ba7mgoe7i5oq4"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://ba7mgoe7i5oq4"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_gjp8m"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_ltiyy"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_tr8t1"]
 [ext_resource type="PackedScene" uid="uid://6jkyqth37wnj" path="res://models/accessories/backpacks/gag_pack/gag_pack.glb" id="2_xgj81"]
 [ext_resource type="Texture2D" uid="uid://badpu7on0uiuo" path="res://models/accessories/backpacks/gag_pack/gag_pack.glb-pix-1.png" id="3_6exoy"]
+[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="5_hor22"]
 
 [sub_resource type="Resource" id="Resource_lhhvb"]
 script = ExtResource("2_tr8t1")
@@ -42,6 +43,7 @@ item_name = "Gag Attack Pack"
 item_description = "Always come prepared!"
 big_description = "Decreases the point cost of gags by 1."
 model = ExtResource("2_xgj81")
+pickup_sfx = ExtResource("5_hor22")
 stats_add = {
 "gag_discount": 1
 }

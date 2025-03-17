@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_ko6e5")
-contract_limit_cooldown = 2
-liability_waiver_cooldown = 2
+contract_limit_cooldown = 0
+liability_waiver_cooldown = 0
 quality = 2
 rounds = -1
 icon_color = Color(1, 1, 1, 1)

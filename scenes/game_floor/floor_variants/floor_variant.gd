@@ -11,6 +11,7 @@ const DIFFICULTY_ROOM_ADDITION := 2
 const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overheal.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
 ]
 const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
@@ -88,6 +89,12 @@ func get_anomalies() -> Array[Script]:
 	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
 	var anomaly_files_neutral: Array[String] = ANOMALIES_NEUTRAL.duplicate()
 	var anomaly_files_neg: Array[String] = ANOMALIES_NEGATIVE.duplicate()
+
+	var no_negative_anomalies := false
+	if Util.get_player() and Util.get_player().no_negative_anomalies:
+		no_negative_anomalies = true
+		anomaly_files_neg = []
+
 	for i in mod_count:
 		var rng_val := RandomService.randf_channel('floor_mods')
 		var mod_array: Array[String]
@@ -103,7 +110,7 @@ func get_anomalies() -> Array[Script]:
 				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_pos, anomaly_files_neg])
 		# Negative anomalies
 		else:
-			if Util.get_player() and Util.get_player().no_negative_anomalies:
+			if no_negative_anomalies:
 				continue
 
 			mod_array = anomaly_files_neg

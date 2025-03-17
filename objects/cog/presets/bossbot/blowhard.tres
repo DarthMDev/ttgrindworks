@@ -37,7 +37,7 @@ status_effects = Array[ExtResource("11_i4jfh")]([ExtResource("12_iirv8")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["I'll huff, and I'll puff, and I'll blow you down.", "We'll have a whale of a time.", "There's a blustering breeze rolling through.", "Save your breath.", "Not to brag, but you'll never beat me.", "Watch out, this whale is killer."])
+battle_phrases = Array[String](["I'll huff, and I'll puff, and I'll blow you down.", "We'll have a whale of a time.", "There's a blustering breeze rolling through.", "Save your breath.", "Not to brag, but you'll never beat me.", "Watch out, this whale is killer.", "Beating me will be your white whale."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

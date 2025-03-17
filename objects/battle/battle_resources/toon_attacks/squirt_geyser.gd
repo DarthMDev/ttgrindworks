@@ -32,7 +32,7 @@ func action() -> void:
 			movie.tween_callback(s_hit.emit)
 			# Play geyser anim, parent cog to cog root
 			movie.tween_callback(cog_flyup.bind(cog))
-			movie.tween_callback(manager.affect_target.bind(cog, 'hp', damage, false))
+			movie.tween_callback(manager.affect_target.bind(cog, damage))
 			movie.tween_interval(0.01)
 			movie.tween_callback(cog.body_root.reparent.bind(geyser.get_node('CogRoot')))
 			movie.tween_interval(0.5)

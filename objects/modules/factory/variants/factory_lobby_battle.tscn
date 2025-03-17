@@ -1,38 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://b37r6570oqicm"]
+[gd_scene load_steps=6 format=3 uid="uid://b37r6570oqicm"]
 
 [ext_resource type="PackedScene" uid="uid://dmapsp85ra1fb" path="res://objects/modules/factory/base_rooms/factory_lobby.tscn" id="1_m4s6q"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="4_bjvtu"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_3v2vx"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_dbm36"]
 [ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="5_6hqde"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="5_bt586"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_amdc7"]
 size = Vector3(5.20801, 2.72021, 14.6855)
 
 [node name="FactoryLobby" instance=ExtResource("1_m4s6q")]
 
-[node name="BattleNode" parent="." index="4" node_paths=PackedStringArray("cogs") instance=ExtResource("4_bjvtu")]
+[node name="BattleNodeDynamic" parent="." index="4" instance=ExtResource("2_3v2vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9779, 0, -47.7207)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
 
-[node name="Cog" parent="BattleNode" index="3" instance=ExtResource("5_bt586")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.556)
-
-[node name="Cog2" parent="BattleNode" index="4" instance=ExtResource("5_bt586")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.556)
-
-[node name="Cog3" parent="BattleNode" index="5" instance=ExtResource("5_bt586")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.556)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode" index="6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393066, 1.36011, -4.74718)
 shape = SubResource("BoxShape3D_amdc7")
 
 [node name="FanBlade1" parent="factory_lobby" index="1"]
-transform = Transform3D(18.0807, -6.24666, -7.3852e-07, -6.24666, -18.0807, 7.38522e-07, -2.12677e-06, -1.03457e-06, -8.44768, 24.7621, 2.51024, -60.6563)
+transform = Transform3D(9.15265, -16.7977, -7.3852e-07, -16.7977, -9.15265, 7.38523e-07, -2.26865e-06, 6.68343e-07, -8.44768, 24.7621, 2.51024, -60.6563)
 
 [node name="FanBlade2" parent="factory_lobby" index="2"]
-transform = Transform3D(16.8783, 9.00307, -7.3852e-07, 9.00307, -16.8783, 7.38519e-07, -6.88476e-07, -2.26262e-06, -8.44768, 28.4435, 2.51024, -60.6563)
+transform = Transform3D(1.67541, 19.0558, -7.3852e-07, 19.0558, -1.67541, 7.3852e-07, 1.51944e-06, -1.81238e-06, -8.44768, 28.4435, 2.51024, -60.6563)
 
 [node name="treasure_chest" parent="." index="8" instance=ExtResource("4_dbm36")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.90566, 0, -36.7857)

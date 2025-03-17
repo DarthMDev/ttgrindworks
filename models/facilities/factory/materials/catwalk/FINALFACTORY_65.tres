@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqc31140pw6nh"]
+
+[ext_resource type="Texture2D" uid="uid://ckjvdqmnty5ng" path="res://models/facilities/factory/FINALFACTORY_65.png" id="1_5mrbv"]
+
+[resource]
+resource_name = "FINALFACTORY_65"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_5mrbv")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0

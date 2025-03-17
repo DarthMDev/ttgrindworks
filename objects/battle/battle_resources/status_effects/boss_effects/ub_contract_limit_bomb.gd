@@ -10,8 +10,8 @@ const SCALE_MULT: float = 0.1
 const SCALE_LIM: float = 8.0
 
 var response_lines: Array[String] = [
-	"Ah. Well. It was a good run.",
-	"Wait what? I thought I was doing good work."
+	"Ah... Well... It was a good run.",
+	"Wait, what? I thought I was doing good work!"
 ]
 
 var union_buster: Cog
@@ -73,9 +73,9 @@ func renew() -> void:
 	
 	scale_vector.clamp(Vector3.ZERO, Vector3(SCALE_LIM, SCALE_LIM, SCALE_LIM))
 
-	apply_buff(target, boost_amount)
+	apply_buff(union_buster, boost_amount)
 	# Cog dies, uh oh!
-	movie.tween_callback(manager.show_action_name.bind('Times up!', "You are busted!"))
+	movie.tween_callback(manager.show_action_name.bind('Time/`s up!', "You are busted!"))
 	movie.tween_callback(target.set_animation.bind("soak"))
 	movie.tween_interval(1.6)
 	movie.tween_callback(target.animator.pause)

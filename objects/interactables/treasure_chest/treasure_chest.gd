@@ -13,8 +13,8 @@ var SFX_OPEN := LazyLoader.defer("res://audio/sfx/misc/diving_treasure_pick_up.o
 
 const EXTRA_TURN := preload(ExtraTurnItem.BASE_ITEM)
 const POINT_BOOST := preload(PointBoostItem.BASE_ITEM)
-const LAFF_BOOST := preload("res://objects/items/resources/passive/laff_boost.tres")
-const SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
+var LAFF_BOOST := load("res://objects/items/resources/passive/laff_boost.tres")
+var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	0: null,
 	1: EXTRA_TURN,
 	2: POINT_BOOST,
@@ -48,7 +48,7 @@ func open():
 
 func assign_item(world_item: WorldItem):
 	if scripted_progression and SCRIPTED_PROGRESSION_ITEMS[Util.floor_number] != null:
-		var scripted_item: Item = SCRIPTED_PROGRESSION_ITEMS[Util.floor_number]
+		var scripted_item = SCRIPTED_PROGRESSION_ITEMS[Util.floor_number]
 		# 5th floor has a +8 laff boost
 		if scripted_item == LAFF_BOOST:
 			scripted_item = scripted_item.duplicate()

@@ -12,7 +12,7 @@ func action():
 	Util.get_player().set_animation('cringe')
 	manager.s_focus_char.emit(Util.get_player())
 	Util.get_player().last_damage_source = "Molten Lava"
-	manager.affect_target(Util.get_player(), 'hp', damage, false)
+	manager.affect_target(Util.get_player(), damage)
 	await Util.get_player().animator.animation_finished
 	await manager.check_pulses([Util.get_player()])
 	
@@ -20,7 +20,7 @@ func action():
 	targets = manager.cogs
 	manager.battle_node.focus_cogs()
 	for target in targets:
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 		target.set_animation('pie-small')
 	await targets[0].animator.animation_finished
 	await manager.check_pulses(targets)

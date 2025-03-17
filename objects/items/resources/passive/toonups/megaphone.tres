@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dua74bqlj5ep1"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dua74bqlj5ep1"]
 
+[ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_bpegd"]
 [ext_resource type="PackedScene" uid="uid://ccvkulvc6sjox" path="res://objects/items/custom/toonups/megaphone_item.tscn" id="2_ejggo"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_yikpy"]
 
@@ -17,6 +18,7 @@ item_name = "Megaphone"
 item_description = "Attack Boost"
 big_description = ""
 model = ExtResource("2_ejggo")
+pickup_sfx = ExtResource("2_bpegd")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

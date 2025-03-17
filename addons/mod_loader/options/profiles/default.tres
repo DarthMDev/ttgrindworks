@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ModLoaderOptionsProfile" load_steps=2 format=3 uid="uid://dse5tf8fx2til"]
+
+[ext_resource type="Script" uid="uid://c4ikn48l84g4s" path="res://addons/mod_loader/resources/options_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enable_mods = true
+locked_mods = Array[String]([])
+disabled_mods = Array[String]([])
+allow_modloader_autoloads_anywhere = false
+customize_script_path = ""
+log_level = 3
+ignore_deprecated_errors = false
+ignored_mod_names_in_log = Array[String]([])
+hint_color = Color(0.439216, 0.729412, 0.980392, 1)
+steam_id = 0
+semantic_version = "0.0.0"
+load_from_steam_workshop = false
+load_from_local = true
+load_from_unpacked = true
+override_path_to_mods = ""
+override_path_to_configs = ""
+override_path_to_workshop = ""
+override_path_to_hook_pack = ""
+override_hook_pack_name = ""
+restart_notification_scene_path = "res://addons/mod_loader/restart_notification.tscn"
+disable_restart = false
+game_version_validation = 0

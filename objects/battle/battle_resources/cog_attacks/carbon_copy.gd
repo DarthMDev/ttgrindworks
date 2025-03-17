@@ -23,6 +23,8 @@ func action() -> void:
 	copy.skelecog_chance = 0
 	copy.virtual_cog = user.virtual_cog
 	manager.battle_node.add_child(copy)
+	copy.stats.hp = user.stats.hp
+	copy.update_health_light()
 	copy.global_transform = user.global_transform
 	
 	# Add the copy to the battle

@@ -29,7 +29,7 @@ func action() -> void:
 	var anim := ''
 	if hit:
 		anim = 'slip_forwards'
-		manager.affect_target(target,'hp',damage,false)
+		manager.affect_target(target, damage)
 	else:
 		manager.battle_text(target,"MISSED")
 		anim = 'happy'

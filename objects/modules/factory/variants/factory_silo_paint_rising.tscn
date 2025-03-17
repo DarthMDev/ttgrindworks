@@ -1596,6 +1596,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.15802, -9.69864)
 curve = SubResource("Curve3D_ng43k")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.9988)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1606,7 +1607,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.02651, 0.873352)
 curve = SubResource("Curve3D_gflmi")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00119972, 0)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1617,6 +1618,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98055, 7.81042, 0.842331)
 curve = SubResource("Curve3D_upte8")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.9988)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1652,7 +1654,6 @@ transform = Transform3D(0.703122, 0, 0.711069, 0, 1, 0, -0.711069, 0, 0.703122, 
 curve = SubResource("Curve3D_4t780")
 
 [node name="ElevatingPlatform" parent="Platforms/ThirdFloorObstacles/GoalPlatform" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.73282, 0)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -1702,6 +1703,7 @@ shape = SubResource("BoxShape3D_kd26n")
 [connection signal="body_entered" from="Model/faucet1/PaintStream/MeshInstance3D/Area3D" to="." method="paint_stream_entered"]
 [connection signal="body_entered" from="Model/faucet2/PaintStream/MeshInstance3D/Area3D" to="." method="paint_stream_entered"]
 [connection signal="body_entered" from="Model/faucet3/PaintStream/MeshInstance3D/Area3D" to="." method="paint_stream_entered"]
+[connection signal="s_elevator_entered" from="sellbot_elevator" to="." method="elevator_entered"]
 [connection signal="s_pressed" from="Platforms/FinalButtonRush/CogButton" to="." method="button_pressed"]
 [connection signal="s_pressed" from="Platforms/FinalButtonRush/CogButton2" to="." method="button_pressed"]
 [connection signal="s_pressed" from="Platforms/FinalButtonRush/CogButton3" to="." method="button_pressed"]

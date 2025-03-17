@@ -85,14 +85,17 @@ func squash_player(player: Player) -> void:
 	if automatic:
 		delay_next_stomp = true
 	
-	# Damage player
-	player.quick_heal(damage)
-	
 	# Set player to stopped state
 	player.state = Player.PlayerState.STOPPED
 	
 	# Move player to our y pos
 	player.global_position.y = global_position.y
+
+	if player.immune_to_crush_damage:
+		Util.do_3d_text(player, "Immune!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+	else:
+		# Damage player
+		player.quick_heal(damage)
 
 	# Skip special animations if they're already dead
 	if player.stats.hp <= 0:

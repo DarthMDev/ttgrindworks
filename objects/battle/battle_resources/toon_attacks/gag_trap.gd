@@ -26,3 +26,12 @@ func apply_trap_effect(who: Cog) -> void:
 	var effect := get_trap_effect()
 	effect.target = who
 	manager.add_status_effect(effect)
+
+func apply_extra_knockback(cog: Cog) -> void:
+	if not activating_lure:
+		return
+	if (not Util.get_player()) or is_equal_approx(Util.get_player().stats.trap_knockback_percent, 0.0):
+		return
+
+	var boost_percent: float = Util.get_player().stats.trap_knockback_percent
+	manager.do_standalone_knockback_damage(cog, roundi(activating_lure.get_lure_effect().knockback_effect * boost_percent))

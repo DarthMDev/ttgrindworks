@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bvukmcjmx00ho"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bvukmcjmx00ho"]
 
 [ext_resource type="PackedScene" uid="uid://bxx831rxwj7ka" path="res://objects/items/custom/toonups/lipstick_item.tscn" id="1_fjbjg"]
+[ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_ijwgf"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_fuu5d"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Lipstick"
 item_description = "40% Toon-Up"
 big_description = ""
 model = ExtResource("1_fjbjg")
+pickup_sfx = ExtResource("2_ijwgf")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://dyl7r5ve67tbs"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_h8b75"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_vk0wk"]
+[ext_resource type="Texture2D" uid="uid://chxy7dyn2oe0o" path="res://models/accessories/backpacks/pixie_wings/pixie_wings-pix-1.png" id="3_swtvt"]
+[ext_resource type="PackedScene" uid="uid://devfa8s6hrb8m" path="res://models/accessories/backpacks/pixie_wings/pixie_wings.tscn" id="4_h8b75"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="6_qcybi"]
+
+[sub_resource type="Resource" id="Resource_xqi40"]
+script = ExtResource("2_vk0wk")
+body_type = 0
+position = Vector3(0, 0.23, -1)
+rotation = Vector3(12.23, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_bsqs6"]
+script = ExtResource("2_vk0wk")
+body_type = 1
+position = Vector3(0, 0.3, -0.73)
+rotation = Vector3(18.4, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_n1he7"]
+script = ExtResource("2_vk0wk")
+body_type = 2
+position = Vector3(0, 0.56, -0.73)
+rotation = Vector3(14.29, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("6_qcybi")
+accessory_placements = Array[ExtResource("1_h8b75")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+qualitoon = 1
+rarity = 4
+evergreen = false
+realtime = false
+slot = 3
+world_scale = 0.11
+want_ui_spin = true
+ui_cam_offset = 0.4
+item_name = "Pixie Wings"
+item_description = "A gentler touch..."
+big_description = "+ 20% healing effectiveness
+- 5% damage"
+model = ExtResource("4_h8b75")
+stats_add = {
+"damage": -0.05,
+"healing_effectiveness": 0.2
+}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+remember_item = true
+icon = ExtResource("3_swtvt")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

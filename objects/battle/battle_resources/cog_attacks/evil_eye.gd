@@ -41,7 +41,7 @@ func action():
 		await grow_tween.finished
 		eye.queue_free()
 		target.set_animation('cringe')
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 	else:
 		manager.s_focus_char.emit(target)
 		target.set_animation('duck')

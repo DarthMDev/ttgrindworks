@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://rytsv7bygrwl"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://rytsv7bygrwl"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_fiq5e"]
+[ext_resource type="AudioStream" uid="uid://7ma308jln3fn" path="res://audio/sfx/items/big_chomp.ogg" id="2_3hyy0"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_ff16f"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Chance-Chew"
 item_description = "Luck up!"
 big_description = "+ 3% luck"
 model = ExtResource("1_fiq5e")
+pickup_sfx = ExtResource("2_3hyy0")
 stats_add = {
 "luck": 0.03
 }

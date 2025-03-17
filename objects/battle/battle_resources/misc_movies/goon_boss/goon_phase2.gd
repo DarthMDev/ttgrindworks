@@ -12,7 +12,7 @@ func action() -> void:
 	var audio_player := AudioManager.play_snippet(goon.SFX_ALERT, 0.0, 2.2)
 	audio_player.pitch_scale = 0.85
 	
-	for i in 3:
+	for i in 4:
 		var cog := COG.instantiate()
 		cog.virtual_cog = true
 		cog.skelecog = true

@@ -49,6 +49,8 @@ func _ready():
 			cog.skelecog_chance = 0
 			cog.skelecog = false
 			cog.randomize_cog()
+	
+	BattleService.s_battle_spawned.emit(self)
 
 func body_entered(body: Node3D):
 	if body is Player:
@@ -287,6 +289,8 @@ func get_mod_cog_chance() -> float:
 	if not SaveFileService.progress_file.proxies_unlocked:
 		return 0.0
 
+	var test : CogPool = Globals.GRUNT_COG_POOL.load()
+
 	var floor_num := Util.floor_number
 	var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
 	if mod_cogs >= max_mod_cogs:
@@ -296,3 +300,8 @@ func get_mod_cog_chance() -> float:
 	if Util.get_player() and not is_equal_approx(Util.get_player().stats.proxy_chance_boost, 0.0):
 		chance += Util.get_player().stats.proxy_chance_boost
 	return chance
+
+
+func get_cog_orgin_point() -> Vector3:
+	var cog_center := get_local_position(global_position - (global_transform.basis.z * cog_toon_distance * 0.33))
+	return cog_center

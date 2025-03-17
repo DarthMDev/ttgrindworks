@@ -34,7 +34,7 @@ func action():
 	var heal_amount : int = -ceil(target.stats.max_hp * HEAL_PERCENT)
 	manager.s_focus_char.emit(target)
 	target.toon.speak('Ha Ha Ha')
-	manager.affect_target(target,'hp',heal_amount,false)
+	manager.affect_target(target, heal_amount)
 	target.set_animation('happy')
 	await target.animator.animation_finished
 	

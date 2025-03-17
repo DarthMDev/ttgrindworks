@@ -61,7 +61,7 @@ func action():
 		AudioManager.play_sound(sfx_hit)
 		target.set_animation('drop')
 		if not get_immunity(target):
-			var damage_dealt: int = manager.affect_target(target, 'hp', damage, false)
+			var damage_dealt: int = manager.affect_target(target, damage)
 			apply_debuff(target, damage_dealt)
 			await Task.delay(0.5)
 			manager.battle_text(target, "Aftershock!", BattleText.colors.orange[0], BattleText.colors.orange[1])

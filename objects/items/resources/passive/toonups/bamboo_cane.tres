@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cp2b6gwnfjlib"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cp2b6gwnfjlib"]
 
 [ext_resource type="PackedScene" uid="uid://d4d0ila1f8k7o" path="res://objects/items/custom/toonups/cane_item.tscn" id="1_atcwe"]
+[ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_h5ma3"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_syry0"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Bamboo Cane"
 item_description = "Evasiveness Boost"
 big_description = ""
 model = ExtResource("1_atcwe")
+pickup_sfx = ExtResource("2_h5ma3")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

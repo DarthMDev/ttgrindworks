@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cqrejftx6uyso"]
+[gd_scene load_steps=27 format=3 uid="uid://cqrejftx6uyso"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_n4mhl"]
 [ext_resource type="Texture2D" uid="uid://dqmp1vpb7ao0u" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_qsgki"]
@@ -16,8 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bftnews8dsdpb" path="res://objects/props/office/paper_twist_stacks.tscn" id="13_oywbu"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="14_jdina"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="15_mtvhr"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="17_ee6ra"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="18_rw77d"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="17_s50cb"]
 [ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="20_olsst"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="21_nxy5u"]
 [ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="22_mdenv"]
@@ -192,23 +191,12 @@ beam_length_mult = 0.7
 [node name="Path3D" type="Path3D" parent="Goon1" index="1"]
 curve = SubResource("Curve3D_hxjwl")
 
-[node name="BattleNode" parent="." index="9" node_paths=PackedStringArray("cogs") instance=ExtResource("17_ee6ra")]
+[node name="BattleNodeDynamic" parent="." index="9" instance=ExtResource("17_s50cb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5906, 0.00379369, -13.5478)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
+cog_range = Vector2i(3, 4)
+cog_dist = 1.75
 
-[node name="Cog" parent="BattleNode" index="3" instance=ExtResource("18_rw77d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
-
-[node name="Cog2" parent="BattleNode" index="4" instance=ExtResource("18_rw77d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
-
-[node name="Cog3" parent="BattleNode" index="5" instance=ExtResource("18_rw77d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
-
-[node name="Cog4" parent="BattleNode" index="6" instance=ExtResource("18_rw77d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode" index="7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573364, 4.69458, -0.234771)
 shape = SubResource("BoxShape3D_78c2p")
 

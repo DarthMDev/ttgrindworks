@@ -8,7 +8,7 @@ func renew() -> void:
 		return
 	
 	manager.battle_node.focus_character(target)
-	manager.affect_target(target, 'hp', amount, false)
+	manager.affect_target(target, amount)
 	if target is Player:
 		target.set_animation('cringe')
 	else:

@@ -44,7 +44,7 @@ func action():
 	# Hurt player if hit
 	if hit:
 		target.set_animation('cringe')
-		manager.affect_target(target,'hp',damage,false)
+		manager.affect_target(target, damage)
 	
 	# Cleanup
 	await manager.barrier(target.animator.animation_finished, 4.0)
