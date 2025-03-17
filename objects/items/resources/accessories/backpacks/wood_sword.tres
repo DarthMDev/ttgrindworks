@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://bgw6nin360tg5"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bgw6nin360tg5"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_3oga0"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_m45yl"]
 [ext_resource type="PackedScene" uid="uid://cv2ggfkfd3fpd" path="res://models/accessories/backpacks/wood_sword/sword.glb" id="1_q43vh"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_ebtjf"]
 [ext_resource type="Texture2D" uid="uid://b5qdvfwiyfsm5" path="res://models/accessories/backpacks/wood_sword/sword.glb-pix-1.png" id="3_fmyad"]
+[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="5_s8sik"]
 
 [sub_resource type="Resource" id="Resource_dtwuu"]
 script = ExtResource("2_ebtjf")
@@ -42,6 +43,7 @@ item_name = "Wooden Sword"
 item_description = "Don't hold back!"
 big_description = "+ 15% Damage"
 model = ExtResource("1_q43vh")
+pickup_sfx = ExtResource("5_s8sik")
 stats_add = {
 "damage": 0.15
 }

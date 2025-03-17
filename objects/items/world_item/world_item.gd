@@ -159,6 +159,8 @@ func apply_item() -> void:
 			if stat == 'money':
 				print("Calling special money func")
 				stats.add_money(item.stats_add[stat])
+			elif stat == 'max_hp' or stat == 'hp':
+				stats[stat] += item.stats_add[stat] + stats.laff_boost_boost
 			else:
 				stats[stat] += item.stats_add[stat]
 	
@@ -169,6 +171,7 @@ func apply_item() -> void:
 			var track: String = stat.get_slice(":", 1)
 			if track in stats.gag_effectiveness:
 				stats.gag_effectiveness[track] *= item.stats_multiply[stat]
+	
 	
 	# Set player values
 	for value in item.player_values:

@@ -290,13 +290,15 @@ func barrier(_signal: Signal, timeout: float = 10.0) -> Signal:
 	return SignalBarrier.new([_signal, Task.delay(timeout)], SignalBarrier.BarrierType.ANY).s_complete
 
 ## Returns a positive value if it deals damage, negative if it heals.
-func affect_target(target: Node3D, stat: String, amount: float, multiply: bool, ignore_current_action := false) -> int:
+func affect_target(target: Node3D, amount: float, ignore_current_action := false) -> int:
 	# Some cog attacks may want to do "true damage" and ignore all incoming and outgoing stats.
 	# If so, they will set to ignore the current action, making the incoming damage the "true damage"
 	if current_action and is_instance_of(current_action, CogAttack) and current_action.ignore_stats:
 		ignore_current_action = true
 
-	if stat == 'hp' and not ignore_current_action:
+	var stat: String = 'hp'
+
+	if not ignore_current_action:
 		amount = get_damage(amount, current_action, target)
 	
 	# Error if stat doesn't exist
@@ -312,50 +314,53 @@ func affect_target(target: Node3D, stat: String, amount: float, multiply: bool, 
 	
 	# Get the stat's current value
 	var pre_stat = target.stats.get(stat)
-	match multiply:
-		true:
-			pre_stat = battle_stats[target].get(stat)
-			battle_stats[target].set(stat, pre_stat * amount)
-			if amount > 1.0:
-				text_color = Color('00ff00')
-				outline_color = Color('007100')
-			string = stat.to_upper() + ' x' + str(amount)
-		false:
-			var should_crit := false
-			# Check for crit on non-player target
-			if (current_action and current_action.user and current_action.user is Player) and (not target is Player) and amount > 0:
-				should_crit = roll_for_crit(current_action)
-				if should_crit:
-					amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
-			target.stats.set(stat, pre_stat - amount)
-			if sign(target.stats.get(stat) - pre_stat) == -1:
-				if target is Player:
-					string = str(target.stats.get(stat) - pre_stat)
-					if current_action and current_action.user and current_action.user is Cog:
-						# If target is the player, and this guy is a cog,
-						# mark it as the player's last damage source for the death screen
-						target.last_damage_source = current_action.user.dna.cog_name
-					# Also apply a custom death source message if we have one
-					if current_action and current_action.custom_player_death_source:
-						target.last_damage_source = current_action.custom_player_death_source
-				else:
-					if should_crit:
-						raise_height = 0.4
-						string = str("%s\nCRIT!" % -roundi(amount))
-						text_color = BattleText.colors.yellow[0]
-						outline_color = BattleText.colors.yellow[1]
-						AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
-						BattleService.s_toon_crit.emit()
-					else:
-						string = str(-roundi(amount))
-						if current_action and current_action.user is Player:
-							BattleService.s_toon_didnt_crit.emit()
-					if current_action and current_action.user is Player and target is Cog:
-						BattleService.s_toon_dealt_damage.emit(current_action, target, amount)
+
+	var should_crit := false
+	# Is player action
+	if (current_action and current_action.user and current_action.user is Player):
+		# Check for crit on non-player target
+		if (not target is Player) and amount > 0:
+			should_crit = roll_for_crit(current_action)
+			if should_crit:
+				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
+
+	# Check for healing effectiveness on player target
+	if target is Player and amount < 0:
+		amount = roundi(amount * battle_stats[target].get_stat("healing_effectiveness"))
+
+	target.stats.set(stat, pre_stat - amount)
+
+	# Damaging action
+	if sign(target.stats.get(stat) - pre_stat) == -1:
+		if target is Player:
+			string = str(target.stats.get(stat) - pre_stat)
+			if current_action and current_action.user and current_action.user is Cog:
+				# If target is the player, and this guy is a cog,
+				# mark it as the player's last damage source for the death screen
+				target.last_damage_source = current_action.user.dna.cog_name
+			# Also apply a custom death source message if we have one
+			if current_action and current_action.custom_player_death_source:
+				target.last_damage_source = current_action.custom_player_death_source
+		else:
+			if should_crit:
+				raise_height = 0.4
+				string = str("%s\nCRIT!" % -roundi(amount))
+				text_color = BattleText.colors.yellow[0]
+				outline_color = BattleText.colors.yellow[1]
+				AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
+				BattleService.s_toon_crit.emit()
 			else:
-				text_color = Color('00ff00')
-				outline_color = Color('007100')
-				string = '+' + str(roundi(target.stats.get(stat) - pre_stat))
+				string = str(-roundi(amount))
+				if current_action and current_action.user is Player:
+					BattleService.s_toon_didnt_crit.emit()
+			if current_action and current_action.user is Player and target is Cog:
+				BattleService.s_toon_dealt_damage.emit(current_action, target, amount)
+	# Healing action
+	else:
+		text_color = Color('00ff00')
+		outline_color = Color('007100')
+		string = '+' + str(roundi(target.stats.get(stat) - pre_stat))
+
 	if text_color:
 		battle_text(target, string, text_color, outline_color, raise_height)
 	else:
@@ -664,6 +669,13 @@ func knockback_cog(cog : Cog) -> void:
 	await kb_tween.finished
 	kb_tween.kill()
 	battle_text(cog,"-"+str(damage),Color('ff4d00'),Color('802200'))
+
+## Used for knockback damage that isn't necessarily linked to a regular knockback attack,
+## such as Safari Hat's extra knockback damage.
+func do_standalone_knockback_damage(cog: Cog, damage: int) -> void:
+	await Task.delay(0.5)
+	cog.stats.hp -= damage
+	battle_text(cog, "-" + str(damage), Color('ff4d00'), Color('802200'))
 
 func get_knockback_damage(cog: Cog) -> int:
 	return find_cog_lure(cog).knockback_effect

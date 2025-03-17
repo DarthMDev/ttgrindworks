@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://chtdvbuf0ivvt"]
+[gd_scene load_steps=39 format=3 uid="uid://chtdvbuf0ivvt"]
 
 [ext_resource type="PackedScene" uid="uid://cv2afui5p28af" path="res://objects/modules/mint/base_rooms/mint_diamond_room.tscn" id="1_h2rqk"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_alx7d"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="7_42kli"]
 [ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="8_suqae"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="9_4i7n6"]
-[ext_resource type="Resource" uid="uid://ct1l0ln1js2xw" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/toon_up.tres" id="10_p0q4k"]
 [ext_resource type="Resource" uid="uid://5dld88ul3rb5" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/trap.tres" id="11_hy8sk"]
 [ext_resource type="Resource" uid="uid://dqldfsmn7g606" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/lure.tres" id="12_ex1ui"]
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="13_d0tkq"]
@@ -24,10 +23,10 @@
 [ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="17_aepo7"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="23_16xtn"]
 [ext_resource type="Resource" uid="uid://ba7mgoe7i5oq4" path="res://objects/items/resources/accessories/backpacks/gag_pack.tres" id="24_1xuw6"]
-[ext_resource type="Resource" uid="uid://bf2i5ld0s7yri" path="res://objects/items/resources/accessories/hats/detective_hat.tres" id="25_66vty"]
-[ext_resource type="Resource" uid="uid://dxf17redyyn30" path="res://objects/items/resources/accessories/glasses/heart_glasses.tres" id="26_ouruu"]
+[ext_resource type="Resource" uid="uid://divycml3lyvqr" path="res://objects/items/resources/accessories/hats/detective_hat.tres" id="25_66vty"]
+[ext_resource type="Resource" uid="uid://b4pssn72ke7uu" path="res://objects/items/resources/accessories/glasses/heart_glasses.tres" id="26_ouruu"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="27_4p2an"]
-[ext_resource type="Resource" uid="uid://bb2aknsfptslx" path="res://objects/items/resources/accessories/hats/fedora.tres" id="28_qncha"]
+[ext_resource type="Resource" uid="uid://dwo2a46e1wwew" path="res://objects/items/resources/accessories/hats/fedora.tres" id="28_qncha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pfdn"]
 size = Vector3(14.6639, 5.65576, 10.2309)
@@ -82,7 +81,7 @@ bottoms = SubResource("Resource_b54tc")
 
 [sub_resource type="Resource" id="Resource_s4oci"]
 script = ExtResource("17_aepo7")
-loadout = Array[ExtResource("9_4i7n6")]([ExtResource("10_p0q4k"), ExtResource("11_hy8sk"), ExtResource("12_ex1ui"), ExtResource("13_eed60"), ExtResource("14_ww67o"), ExtResource("15_h0hwy"), ExtResource("16_diqeu")])
+loadout = Array[ExtResource("9_4i7n6")]([ExtResource("11_hy8sk"), ExtResource("12_ex1ui"), ExtResource("13_eed60"), ExtResource("14_ww67o"), ExtResource("15_h0hwy"), ExtResource("16_diqeu")])
 
 [sub_resource type="Resource" id="Resource_br8l0"]
 script = ExtResource("13_d0tkq")
@@ -107,7 +106,6 @@ gags_unlocked = Dictionary[String, int]({
 "Sound": 7,
 "Squirt": 7,
 "Throw": 7,
-"Toon-Up": 7,
 "Trap": 7
 })
 gag_balance = Dictionary[String, int]({
@@ -116,7 +114,6 @@ gag_balance = Dictionary[String, int]({
 "Sound": 10,
 "Squirt": 10,
 "Throw": 10,
-"Toon-Up": 10,
 "Trap": 10
 })
 gag_effectiveness = Dictionary[String, float]({
@@ -125,7 +122,6 @@ gag_effectiveness = Dictionary[String, float]({
 "Sound": 1.0,
 "Squirt": 1.0,
 "Throw": 1.05,
-"Toon-Up": 1.0,
 "Trap": 1.0
 })
 gag_regeneration = Dictionary[String, int]({
@@ -134,7 +130,6 @@ gag_regeneration = Dictionary[String, int]({
 "Sound": 5,
 "Squirt": 5,
 "Throw": 5,
-"Toon-Up": 5,
 "Trap": 5
 })
 gag_vouchers = Dictionary[String, int]({
@@ -143,19 +138,18 @@ gag_vouchers = Dictionary[String, int]({
 "Sound": 1,
 "Squirt": 1,
 "Throw": 1,
-"Toon-Up": 1,
 "Trap": 1
 })
 gag_battle_start_point_boost = Dictionary[String, int]({})
 global_battle_start_point_boost = 0
 toonups = Dictionary[int, int]({
-0: 1,
-1: 1,
-2: 1,
-3: 1,
-4: 1,
-5: 1,
-6: 0
+0: 10,
+1: 10,
+2: 10,
+3: 10,
+4: 10,
+5: 10,
+6: 10
 })
 gag_cap = 100
 gag_discount = -1
@@ -167,10 +161,13 @@ luck = 1.0
 crit_mult = 1.25
 mod_cog_dmg_mult = 1.0
 shop_discount = 0
+healing_effectiveness = 1.0
 throw_heal_boost = 0.1
 squirt_defense_boost = 0.8
 drop_aftershock_round_boost = 0
+trap_knockback_percent = 0.0
 anomaly_boost = 0
+laff_boost_boost = 0
 extra_lives = 0
 sellbot_boost = 1.0
 cashbot_boost = 1.0
@@ -223,7 +220,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13974, 2.82789, 1.11899)
 shape = SubResource("BoxShape3D_5pfdn")
 
 [node name="Player" parent="." instance=ExtResource("4_fefq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22207, 0, -10.4431)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4345, 0, -10.4431)
 state = 0
 stats = SubResource("Resource_vs51t")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://cha3dccp1m281"]
+[gd_scene load_steps=92 format=3 uid="uid://cha3dccp1m281"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_py1ix"]
 [ext_resource type="Script" uid="uid://b2tqjgqv6xn1p" path="res://scenes/title_screen/credits/credits_panel.gd" id="2_3oeyj"]
@@ -35,8 +35,10 @@
 [ext_resource type="Texture2D" uid="uid://decaeba2ox0yf" path="res://scenes/title_screen/credits/icons/icon_moth.png" id="24_q8jnd"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="25_o5hyb"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="26_vw3sy"]
+[ext_resource type="Texture2D" uid="uid://bkcjr8w1brcn1" path="res://scenes/title_screen/credits/icons/icon_demetri.png" id="27_bxmax"]
 [ext_resource type="Texture2D" uid="uid://ngsvdsnhp76n" path="res://scenes/title_screen/credits/icons/icon_sandy.png" id="27_xwo8y"]
 [ext_resource type="Texture2D" uid="uid://cyuwqr76tu2ae" path="res://scenes/title_screen/credits/icons/icon_trd.png" id="29_p23p7"]
+[ext_resource type="Texture2D" uid="uid://c37iueu6orhrx" path="res://scenes/title_screen/credits/icons/icon_blu_toon.jpg" id="30_5eg4f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yadbj"]
 font = ExtResource("3_8rgp0")
@@ -356,6 +358,20 @@ icon = ExtResource("14_ronfa")
 name = "Greetings"
 role = ""
 
+[sub_resource type="Resource" id="Resource_bsh7l"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("30_5eg4f")
+name = "Just a BLU Toon"
+role = ""
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="Resource" id="Resource_id6o1"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("27_bxmax")
+name = "Niji"
+role = ""
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
 [sub_resource type="Resource" id="Resource_ohm68"]
 script = ExtResource("3_ksngi")
 icon = ExtResource("27_xwo8y")
@@ -399,7 +415,7 @@ offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
 credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_c5kur")])
-special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_m42v0"), SubResource("Resource_ohm68")])
+special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_m42v0"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
 

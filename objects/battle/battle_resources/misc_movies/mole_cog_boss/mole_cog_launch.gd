@@ -49,11 +49,11 @@ func action() -> void:
 		# Toon flies away into the stratosphere
 		movie.tween_callback(AudioManager.play_sound.bind(SFX_LAUNCH))
 		movie.tween_callback(player.set_animation.bind('run'))
-		movie.tween_property(player.toon,'position:y',20,1.5)
-		movie.tween_property(player.toon,'position:y',0.0,1.5)
+		movie.tween_property(player.toon, 'position:y', 20, 1.5)
+		movie.tween_property(player.toon, 'position:y', 0.0, 1.5)
 		movie.parallel().tween_callback(player.set_animation.bind('slip_forwards')).set_delay(1.0)
-		movie.parallel().tween_property(mole_hill.mole_surprised,'position:y', -1.0, 1.0)
-		movie.tween_callback(manager.affect_target.bind(player, 'hp', damage, false))
+		movie.parallel().tween_property(mole_hill.mole_surprised, 'position:y', -1.0, 1.0)
+		movie.tween_callback(manager.affect_target.bind(player, damage))
 		movie.tween_callback(AudioManager.play_sound.bind(SFX_GRUNT))
 		movie.tween_callback(AudioManager.play_sound.bind(SFX_IMPACT))
 	else:

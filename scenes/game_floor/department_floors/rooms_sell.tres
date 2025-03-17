@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=37 format=3 uid="uid://c1kumm74qwmtf"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=39 format=3 uid="uid://c1kumm74qwmtf"]
 
 [ext_resource type="AudioStream" uid="uid://b8q4035btjkkk" path="res://audio/music/CHQ_FACT_bg.ogg" id="1_57p8i"]
 [ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_mxwab"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cff1bqr5tt2g7" path="res://objects/modules/factory/variants/factory_doublesilo_battle.tscn" id="8_cdyu7"]
 [ext_resource type="PackedScene" uid="uid://b37r6570oqicm" path="res://objects/modules/factory/variants/factory_lobby_battle.tscn" id="9_f51yy"]
 [ext_resource type="PackedScene" uid="uid://bablbd6r8nx4u" path="res://objects/modules/factory/variants/factory_silo_paint_rising.tscn" id="10_jwuoc"]
+[ext_resource type="PackedScene" uid="uid://dl04a2v3qyrq4" path="res://objects/modules/factory/variants/factory_catwalk_battle.tscn" id="10_x2jwy"]
 [ext_resource type="PackedScene" uid="uid://cenu6j4tpqfhh" path="res://objects/modules/factory/variants/factory_shop.tscn" id="11_jhxxv"]
 [ext_resource type="PackedScene" uid="uid://dwxw7pxsu8i2y" path="res://objects/modules/factory/base_rooms/sales_director_boss_room.tscn" id="11_pe7pm"]
 [ext_resource type="PackedScene" uid="uid://c3q05xmc0boca" path="res://objects/modules/factory/variants/factory_pipe_room_goons.tscn" id="11_wd5jg"]
@@ -52,6 +53,12 @@ rarity_weight = 1.0
 script = ExtResource("3_jw8rd")
 room = ExtResource("9_f51yy")
 rarity_weight = 1.0
+
+[sub_resource type="Resource" id="Resource_3x6g4"]
+script = ExtResource("3_jw8rd")
+room = ExtResource("10_x2jwy")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
 
 [sub_resource type="Resource" id="Resource_yfkbg"]
 script = ExtResource("3_jw8rd")
@@ -96,7 +103,7 @@ rarity_weight = 1.0
 [resource]
 script = ExtResource("1_mxwab")
 entrances = Array[PackedScene]([ExtResource("4_n2qep")])
-battle_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_4qbtu"), SubResource("Resource_m8i4a"), SubResource("Resource_cekil"), SubResource("Resource_jixe6"), SubResource("Resource_fwme7"), SubResource("Resource_7l1tc")])
+battle_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_4qbtu"), SubResource("Resource_m8i4a"), SubResource("Resource_cekil"), SubResource("Resource_jixe6"), SubResource("Resource_fwme7"), SubResource("Resource_7l1tc"), SubResource("Resource_3x6g4")])
 obstacle_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_gtsco"), SubResource("Resource_0wcom"), SubResource("Resource_ue4yj"), SubResource("Resource_tmynw")])
 connectors = Array[PackedScene]([ExtResource("6_x0vb2"), ExtResource("7_hui64")])
 pre_final_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_vqx64")])

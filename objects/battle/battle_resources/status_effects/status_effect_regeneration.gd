@@ -7,11 +7,11 @@ class_name StatEffectRegeneration
 
 func apply():
 	if instant_effect:
-		manager.affect_target(target,'hp',-amount,false)
+		manager.affect_target(target, -amount)
 
 func renew():
 	manager.s_focus_char.emit(target)
-	manager.affect_target(target,'hp',-amount,false)
+	manager.affect_target(target, -amount)
 	if target is Player:
 		target.toon.speak('Ha Ha Ha')
 		target.set_animation('happy')

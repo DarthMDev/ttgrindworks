@@ -129,6 +129,8 @@ func apply_item(player: Player) -> void:
 			if stat == 'money':
 				print("Calling special money func")
 				stats.add_money(stats_add[stat])
+			elif stat == 'max_hp' or stat == 'hp':
+				stats[stat] += stats_add[stat] + player.stats.laff_boost_boost
 			else:
 				stats[stat] += stats_add[stat]
 	

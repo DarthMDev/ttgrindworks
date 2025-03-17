@@ -51,7 +51,7 @@ func action() -> void:
 	movie2.tween_callback(player.toon.animator.seek.bind(0.5))
 	movie2.tween_property(player.toon, 'position:y', 0.0, 0.25)
 	if not game_won:
-		movie2.tween_callback(manager.affect_target.bind(player, 'hp', damage, false))
+		movie2.tween_callback(manager.affect_target.bind(player, damage))
 	movie2.tween_interval(3.0)
 	await movie2.finished
 	movie2.kill()
@@ -63,7 +63,7 @@ func do_damage(player: Player) -> void:
 	while damage_active:
 		if manager.roll_for_accuracy(self):
 			player.last_damage_source = "Quicksand"
-			manager.affect_target(player, 'hp', ceili(damage / 3), false)
+			manager.affect_target(player, ceili(damage / 3))
 		else:
 			manager.battle_text(player, 'MISSED')
 		await Task.delay(1.5)

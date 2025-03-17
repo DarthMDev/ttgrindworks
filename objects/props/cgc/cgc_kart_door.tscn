@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://htqva4ris6a4"]
+[gd_scene load_steps=39 format=4 uid="uid://htqva4ris6a4"]
 
 [ext_resource type="Texture2D" uid="uid://csmkpukc6maca" path="res://models/facilities/cgc/textures/StoneWall1e.png" id="1_jhn07"]
 [ext_resource type="Texture2D" uid="uid://dshqhxjrtkw3w" path="res://models/facilities/cgc/textures/smoothwall_4.png" id="2_41ber"]
@@ -45,6 +45,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uclqw")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dlnjw"]
+data = PackedVector3Array(345.697, 116.258, 68.7721, 345.697, 97.4736, 68.7721, 611.981, 98.0057, 68.6994, 611.981, 98.0057, 68.6994, 611.981, 116.257, 68.6994, 345.697, 116.258, 68.7721, 611.941, 91.229, -81.0841, 345.656, 91.2127, -81.0114, 345.656, 116.258, -81.0114, 345.656, 116.258, -81.0114, 611.941, 116.257, -81.0841, 611.941, 91.229, -81.0841, 345.697, 97.4736, 68.7721, 345.697, 28.8185, 68.7721, 611.981, 31.7771, 68.6994, 611.981, 31.7771, 68.6994, 611.981, 98.0057, 68.6994, 345.697, 97.4736, 68.7721, 611.94, 3.282, -81.0841, 345.656, 3.2825, -81.0114, 345.656, 30.9161, -81.0114, 345.656, 30.9161, -81.0114, 611.941, 32.7491, -81.0841, 611.94, 3.282, -81.0841, 611.941, 32.7491, -81.0841, 345.656, 30.9161, -81.0114, 345.656, 91.2127, -81.0114, 345.656, 91.2127, -81.0114, 611.941, 91.229, -81.0841, 611.941, 32.7491, -81.0841, 345.697, 28.8185, 68.7721, 345.697, 3.2824, 68.7721, 611.981, 3.2819, 68.6994, 611.981, 3.2819, 68.6994, 611.981, 31.7771, 68.6994, 345.697, 28.8185, 68.7721, 611.441, 116.257, -81.0839, 611.481, 116.257, 68.6996, 611.481, 92.7296, 68.6996, 611.481, 92.7296, 68.6996, 611.441, 91.5686, -81.0839, 611.441, 116.257, -81.0839, 611.441, 91.5686, -81.0839, 611.481, 92.7296, 68.6996, 611.481, 32.3972, 68.6996, 611.481, 32.3972, 68.6996, 611.441, 29.5011, -81.084, 611.441, 91.5686, -81.0839, 611.441, 29.5011, -81.084, 611.481, 32.3972, 68.6996, 611.481, 3.2819, 68.6996, 611.481, 3.2819, 68.6996, 611.44, 3.282, -81.084, 611.441, 29.5011, -81.084)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b33le"]
 resource_name = "lambert4"
@@ -771,6 +774,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 568.359, 59.7698, 104.03)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -568.359, -59.7698, -104.03)
 mesh = SubResource("ArrayMesh_ha8s1")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/pCube137/GeometryTransformHelper85"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/pCube137/GeometryTransformHelper85/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dlnjw")
 
 [node name="pCube138" type="Node3D" parent="door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 568.359, 116.257, 104.03)

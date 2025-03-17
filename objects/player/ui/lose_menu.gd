@@ -30,13 +30,13 @@ func _ready() -> void:
 		dna = Util.get_player().toon.toon_dna
 		Util.get_player().hide()
 
+	toon.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	toon.construct_toon(dna)
 	toon.set_animation('lose')
 	toon.rotation_degrees.y = 210.0
 	toon.body.animator.seek(3.73, true)
 	toon.body.animator.pause()
 	toon.set_eyes(Toon.Emotion.SAD)
-	toon.reset_physics_interpolation()
 
 	Sequence.new([
 		LerpProperty.new(root, ^"modulate:a", 1.0, 1.0).interp(Tween.EASE_IN, Tween.TRANS_QUAD)

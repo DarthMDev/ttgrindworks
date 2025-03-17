@@ -15,13 +15,14 @@ const TITLE_SCENE := "res://scenes/title_screen/title_screen.tscn"
 
 var menu_index := 0
 
-
 func _ready() -> void:
 	Globals.import_custom_cogs()
 	
 	# Duplicate the Cog's DNA so we aren't editing anything important wink wink
 	cog.set_dna(safe_cogs.cogs[RandomService.randi_channel('true_random') % safe_cogs.cogs.size()].duplicate())
 	cog.set_animation("neutral")
+	cog.dna.external_assets['head_model'] = cog.dna.head.resource_path
+	cog.dna.head = null
 	
 	_prepare_menus()
 
@@ -30,6 +31,7 @@ func _prepare_menus() -> void:
 	_ready_body()
 	_ready_head_mod()
 	_ready_head_tex()
+	_ready_head_modifiers()
 	_ready_colors()
 	_ready_attribute()
 	_ready_attacks()
@@ -57,13 +59,13 @@ func _ready_header() -> void:
 func populate_dna_files() -> void:
 	var files : Array[UIFile] = []
 	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
-		if not file_name.get_extension() == "tres":
+		if not file_name.get_extension() == "cog":
 			continue
-		var loaded_file = ResourceLoader.load(COG_SAVE_PATH + file_name)
+		var loaded_file = Globals.loaded_custom_cogs[COG_SAVE_PATH + file_name]
 		if loaded_file is CogDNA:
 			var new_file := UIFile.new()
 			new_file.file_path = COG_SAVE_PATH + file_name
-			new_file.icon = await Util.get_cog_head_icon(loaded_file)
+			new_file.model = loaded_file.get_head()
 			files.append(new_file)
 	file_opener.show_custom_file_list(files)
 	attach_delete_buttons()
@@ -97,15 +99,18 @@ func set_menu(index : int) -> void:
 	prev_menu_button.disabled = index == 0
 	next_menu_button.disabled = index == menus.size() - 1
 
+func open_custom_cogs_folder() -> void:
+	OS.shell_open(ProjectSettings.globalize_path(COG_SAVE_PATH))
+
 func new_pressed() -> void:
 	cog.randomize_cog()
 	opened_file = ""
 	_prepare_menus()
 
 func save_file() -> void:
-	ResourceSaver.save(cog.dna, cog_to_file_name(cog.dna.cog_name))
-	populate_dna_files()
+	Globals.save_cog_dna(cog.dna, cog_to_file_name(cog.dna.cog_name))
 	Globals.import_cog_dna()
+	populate_dna_files()
 
 func exit_pressed() -> void:
 	SceneLoader.load_into_scene(TITLE_SCENE)
@@ -120,7 +125,7 @@ func close_open_menu() -> void:
 
 func open_file(file : UIFile) -> void:
 	close_open_menu()
-	cog.set_dna(ResourceLoader.load(file.file_path).duplicate())
+	cog.set_dna(Globals.loaded_custom_cogs[file.file_path].duplicate())
 	_prepare_menus()
 	opened_file = file.file_path
 
@@ -131,7 +136,7 @@ func cog_to_file_name(cog_name : String) -> String:
 		var try := 1
 		while FileAccess.file_exists(COG_SAVE_PATH + file_name + ".tres"):
 			file_name = cog_name + "_%d" % try
-		opened_file = COG_SAVE_PATH + file_name + ".tres"
+		opened_file = COG_SAVE_PATH + file_name + ".cog"
 	return opened_file
 
 func help_pressed() -> void:
@@ -200,31 +205,31 @@ func update_scale(new_scale : float) -> void:
 
 var head_models: Array[UIFile] = []
 
+
 func _ready_head_mod() -> void:
 	head_models.clear()
 	gather_head_models()
 
 func gather_head_models() -> void:
+	mouse_blocker.show()
 	for head in head_model_files:
 		await append_cog_head(head)
 	for head in Globals.custom_cog_head_directory:
 		await append_cog_head(Globals.custom_cog_head_directory[head])
 	
 	head_model_directory.show_custom_file_list(head_models)
+	mouse_blocker.hide()
 
 func append_cog_head(head : PackedScene) -> void:
 	var new_file := UIModelFile.new()
 	new_file.file_path = head.resource_path
-	new_file.model = head
+	new_file.model = head.instantiate()
 	new_file.icon = await Util.get_ortho_model_tex(head)
 	head_models.append(new_file)
 
 func set_head(file : UIModelFile) -> void:
-	if file.file_path.begins_with("res://"):
-		cog.dna.head = file.model
-	else:
-		cog.dna.head = null
-		cog.dna.external_assets['head_model'] = file.file_path
+	cog.dna.head = null
+	cog.dna.external_assets['head_model'] = file.file_path
 	_refresh_cog()
 
 func new_head_loaded(head : Variant, file_path : String) -> void:
@@ -235,7 +240,7 @@ func new_head_loaded(head : Variant, file_path : String) -> void:
 	new_file.icon = await Util.get_ortho_model_tex(head)
 	var packed_scene := PackedScene.new()
 	packed_scene.pack(head)
-	new_file.model = packed_scene
+	new_file.model = packed_scene.instantiate()
 	new_file.file_path = file_path
 	head_models.append(new_file)
 	head_model_directory.show_custom_file_list(head_models)
@@ -268,11 +273,8 @@ func gather_head_textures() -> void:
 	head_tex_directory.show_custom_file_list(head_textures)
 
 func set_head_texture(file : UIFile) -> void:
-	if file.file_path.begins_with("res://"):
-		cog.dna.head_textures = [load(file.file_path)]
-	else:
-		cog.dna.head_textures = []
-		cog.dna.external_assets['head_textures'] = [file.file_path]
+	cog.dna.head_textures = []
+	cog.dna.external_assets['head_textures'] = [file.file_path]
 	
 	_refresh_cog()
 
@@ -290,6 +292,36 @@ func reset_textures() -> void:
 	cog.dna.head_textures.clear()
 	cog.dna.external_assets['head_textures'].clear()
 	_refresh_cog()
+
+#endregion
+
+#region HEAD MODIFIERS
+@onready var nametag_offset_slider : HSlider = $Menus/HeadModifiers/OptionContainer/NametagOffset/HSlider
+@onready var nametag_offset_label : Label = $Menus/HeadModifiers/OptionContainer/NametagOffset/Label
+@onready var head_scale_slider : HSlider = $Menus/HeadModifiers/OptionContainer/NametagOffset2/HSlider
+@onready var head_scale_label : Label = $Menus/HeadModifiers/OptionContainer/NametagOffset2/Label
+
+func _ready_head_modifiers() -> void:
+	nametag_offset_slider.set_value(cog.dna.custom_nametag_height)
+	head_scale_slider.set_value(cog.dna.head_scale.x)
+	refresh_nametag_offset_label()
+	refresh_head_scale_label()
+
+func set_nametag_offset(value : float) -> void:
+	cog.dna.custom_nametag_height = value
+	_refresh_cog()
+	refresh_nametag_offset_label()
+
+func refresh_nametag_offset_label() -> void:
+	nametag_offset_label.set_text("Nametag Offset: %10.1f" % cog.dna.custom_nametag_height)
+
+func set_head_scale(value : float) -> void:
+	cog.dna.head_scale = Vector3.ONE * value
+	_refresh_cog()
+	refresh_head_scale_label()
+
+func refresh_head_scale_label() -> void:
+	head_scale_label.set_text("Head Scale: %10.2f" % cog.dna.head_scale.x)
 
 #endregion
 
@@ -331,7 +363,9 @@ func set_hand_color(color : Color) -> void:
 @onready var level_max_slider : HSlider = $Menus/AtrributeSelectors/VBoxContainer/LevelMaximum/HSlider
 @onready var level_max_label : Label = $Menus/AtrributeSelectors/VBoxContainer/LevelMaximum/Label
 @onready var proxy_button : CheckBox = $Menus/AtrributeSelectors/VBoxContainer/ProxyToggle/CheckBox
-
+@onready var ability_count_slider : HSlider = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider/HSlider
+@onready var ability_count_label : Label = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider/Label
+@onready var ability_count_element : VBoxContainer = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider
 
 func _ready_attribute() -> void:
 	name_editor.set_text(cog.dna.cog_name)
@@ -339,6 +373,9 @@ func _ready_attribute() -> void:
 	level_min_slider.set_value(cog.dna.level_low)
 	refresh_plural_name()
 	proxy_button.set_pressed(cog.dna.is_mod_cog)
+	if cog.dna.is_mod_cog:
+		ability_count_element.show()
+	set_ability_count(get_ability_count(cog.dna))
 
 func set_cog_name(new_name : String) -> void:
 	cog.dna.cog_name = new_name
@@ -346,7 +383,10 @@ func set_cog_name(new_name : String) -> void:
 	refresh_plural_name()
 
 func refresh_plural_name() -> void:
-	name_plural_editor.placeholder_text = cog.dna.cog_name + "s"
+	if not cog.dna.get_plural_name() == "":
+		name_plural_editor.set_text(cog.dna.get_plural_name())
+	else:
+		name_plural_editor.placeholder_text = cog.dna.cog_name + "s"
 
 func set_plural_name(new_name : String) -> void:
 	cog.dna.name_plural = new_name
@@ -361,7 +401,7 @@ func set_minimum_level(value : float) -> void:
 
 func set_maximum_level(value : float) -> void:
 	level_max_label.set_text("Maximum Level: %d" % value)
-	cog.dna.level_high = round(value)
+	cog.dna.level_high = roundi(value)
 	if value < level_min_slider.value:
 		level_min_slider.set_value(value)
 	if cog.level > cog.dna.level_high:
@@ -371,11 +411,29 @@ const PROXY_EFFECT := preload('res://objects/battle/battle_resources/status_effe
 func proxy_toggled(yes : bool) -> void:
 	if yes:
 		cog.dna.is_mod_cog = true
-		cog.dna.status_effects.append(PROXY_EFFECT)
+		set_ability_count(1)
 	else:
 		cog.dna.is_mod_cog = false
-		cog.dna.status_effects.erase(PROXY_EFFECT)
+		while cog.dna.status_effects.has(PROXY_EFFECT):
+			cog.dna.status_effects.erase(PROXY_EFFECT)
 	_refresh_cog()
+	ability_count_element.visible = yes
+
+func set_ability_count(new_count : float) -> void:
+	while get_ability_count(cog.dna) < new_count:
+		cog.dna.status_effects.append(PROXY_EFFECT)
+	while get_ability_count(cog.dna) > new_count:
+		cog.dna.status_effects.erase(PROXY_EFFECT)
+	ability_count_label.set_text("Ability Count: %d" % roundi(new_count))
+	ability_count_slider.set_value_no_signal(new_count)
+	_refresh_cog()
+ 
+func get_ability_count(dna : CogDNA) -> int:
+	var count := 0
+	for effect in dna.status_effects:
+		if effect == PROXY_EFFECT:
+			count += 1
+	return count
 
 #endregion
 
@@ -493,8 +551,10 @@ func speak_phrase(phrase : String) -> void:
 
 #endregion
 
+var test_dna : CogDNA
 func _refresh_cog() -> void:
-	cog.set_dna(cog.dna)
+	test_dna = CogDNA.from_json(cog.dna.to_json())
+	cog.set_dna(test_dna)
 	cog.set_animation('neutral')
 
 func files_loading() -> void:

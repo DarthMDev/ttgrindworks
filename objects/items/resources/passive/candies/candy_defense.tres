@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cckkv76gxoem3"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cckkv76gxoem3"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_15ae4"]
+[ext_resource type="AudioStream" uid="uid://7ma308jln3fn" path="res://audio/sfx/items/big_chomp.ogg" id="2_awe76"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_r7ewt"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Stand-Up Gumdrop"
 item_description = "Defense up!"
 big_description = "+ 5% defense"
 model = ExtResource("1_15ae4")
+pickup_sfx = ExtResource("2_awe76")
 stats_add = {
 "defense": 0.05
 }

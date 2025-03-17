@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://danb3hsfnfror"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://danb3hsfnfror"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_jfus4"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_wdv1x"]
+[ext_resource type="AudioStream" uid="uid://7ma308jln3fn" path="res://audio/sfx/items/big_chomp.ogg" id="2_ovsaj"]
 
 [resource]
 script = ExtResource("1_wdv1x")
@@ -17,6 +18,7 @@ item_name = "Punch-Up Bubblegum"
 item_description = "Damage up!"
 big_description = "+ 3% damage"
 model = ExtResource("1_jfus4")
+pickup_sfx = ExtResource("2_ovsaj")
 stats_add = {
 "damage": 0.03
 }

@@ -27,7 +27,7 @@ head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
 scale = 6.75
 head_textures = Array[Texture2D]([ExtResource("6_ve288")])
-hand_color = Color(0.94902, 0.74902, 0.74902, 1)
+hand_color = Color(0.941176, 0.745098, 0.741176, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
@@ -38,7 +38,7 @@ status_effects = Array[ExtResource("8_y3efp")]([ExtResource("9_mu5fl")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["Big things are coming.", "No job is too big for me.", "I'm the big boss now.", "I used to be small, but now I'm standing tall."])
+battle_phrases = Array[String](["Big things are coming.", "No job is too big for me.", "I'm the big boss now.", "I used to be small, but now I'm standing tall.", "You're in big trouble now.", "I don't have time for the small stuff anymore.", "Hurry this up, I have bigger things to do."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

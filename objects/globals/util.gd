@@ -157,6 +157,15 @@ func universal_load(file_path : String) -> Variant:
 		file_path = file_path.trim_suffix('.remap')
 	return load(file_path)
 
+func file_exists(file_path : String) -> bool:
+	if file_path.begins_with('res://'):
+		if not FileAccess.file_exists(file_path + '.remap'):
+			return FileAccess.file_exists(file_path)
+		else:
+			return FileAccess.file_exists(file_path + '.remap')
+	else:
+		return FileAccess.file_exists(file_path)
+
 func load_gltf_at_runtime(file_path : String) -> Node3D:
 	var gltf_doc := GLTFDocument.new()
 	var gltf_state := GLTFState.new()

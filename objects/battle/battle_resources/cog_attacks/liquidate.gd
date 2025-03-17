@@ -45,7 +45,7 @@ func action():
 	
 	manager.s_focus_char.emit(target)
 	if hit:
-		manager.affect_target(target,'hp',damage,false)
+		manager.affect_target(target, damage)
 		if not melt_toon:
 			target.set_animation('duck')
 		else:

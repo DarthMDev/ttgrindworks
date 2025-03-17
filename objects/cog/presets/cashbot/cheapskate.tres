@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://d0fkce5etr6u5"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tfs8n"]
+[ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_i2rwj"]
+[ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_rcwu8"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="3_rgdai"]
+[ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="5_6oi81"]
+[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="5_p86il"]
+[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="6_risj6"]
+[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="7_8oe0n"]
+[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="7_08uoh"]
+[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="8_0mcs0"]
+[ext_resource type="Texture2D" uid="uid://b5t0toxtfxiw2" path="res://models/cogs/heads/robberman.png" id="9_risj6"]
+[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="12_risj6"]
+
+[resource]
+script = ExtResource("7_8oe0n")
+department = 1
+suit = 0
+custom_blazer_tex = ExtResource("6_risj6")
+custom_arm_tex = ExtResource("5_p86il")
+custom_leg_tex = ExtResource("7_08uoh")
+cog_name = "Cheapskate"
+name_plural = ""
+head = ExtResource("5_6oi81")
+head_scale = Vector3(1, 1, 1)
+head_pos = Vector3(0, 0, 0)
+scale = 4.125
+head_textures = Array[Texture2D]([ExtResource("9_risj6")])
+hand_color = Color(0.662745, 0.756863, 0.733333, 1)
+head_color = Color(1, 1, 1, 1)
+custom_nametag_height = 12.0
+custom_nametag_suffix = ""
+attacks = Array[ExtResource("1_tfs8n")]([ExtResource("3_rcwu8"), ExtResource("3_rgdai"), ExtResource("2_i2rwj")])
+level_low = 3
+level_high = 10
+status_effects = Array[ExtResource("8_0mcs0")]([ExtResource("12_risj6")])
+is_mod_cog = true
+is_admin = false
+health_mod = 1.0
+battle_phrases = Array[String](["A winning smile pays for a lot in this world.", "Let's make this quick, I've got checks to skip.", "I refuse to pay for my misdeeds.", "I'll have to pay you back next time.", "I'm an expert at skating by the consequences.", "Add this to my IOU?", "Losing to a Toon is outside my budget."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

@@ -117,10 +117,22 @@ func create_new_toonup(level: int, count: int) -> Control:
 	button_copy.get_node('Quantity').set_text("x%d" % count)
 	button_copy.get_node('GagSprite').set_disabled(count == 0)
 	button_copy.get_node('GagSprite').pressed.connect(use_toonup.bind(level))
-	button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind(TOON_UP.gags[level].custom_description))
+	button_copy.get_node('GagSprite').mouse_entered.connect(hover_toonup.bind(level))
 	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
 	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
 	return button_copy
+
+func hover_toonup(level: int) -> void:
+	HoverManager.hover(get_toonup_description(level))
+
+func get_toonup_description(level: int) -> String:
+	match level:
+		2:
+			return "%s%% Toon-Up" % roundi(40.0 * Util.get_player().stats.healing_effectiveness)
+		4:
+			return "%s%% laff regeneration" % roundi(20.0 * Util.get_player().stats.healing_effectiveness)
+		_:
+			return TOON_UP.gags[level].custom_description
 
 func _clear_toonup() -> void:
 	for child in toonup_container.get_children():

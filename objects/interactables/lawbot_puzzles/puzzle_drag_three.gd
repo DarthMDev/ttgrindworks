@@ -42,7 +42,7 @@ func panel_shape_changed(panel : PuzzlePanel,shape : PuzzlePanel.PanelShape) -> 
 			panel.set_color(Color.RED)
 
 func player_stepped_on(panel : PuzzlePanel) -> void:
-	if not player_panel:
+	if not player_panel and not panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 		player_panel = panel
 		return
 	if panel.panel_shape == PuzzlePanel.PanelShape.SKULL:

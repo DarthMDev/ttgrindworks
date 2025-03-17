@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c3sjb3vivkvux"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c3sjb3vivkvux"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_mjn23"]
 [ext_resource type="PackedScene" uid="uid://dfwa4083sf5u8" path="res://objects/items/custom/laff_boost/laff_boost.tscn" id="1_p7xa2"]
+[ext_resource type="AudioStream" uid="uid://ddfex83kibm71" path="res://audio/sfx/items/laff_boost_pickup.ogg" id="2_1u7f5"]
 
 [resource]
 script = ExtResource("1_mjn23")
@@ -17,6 +18,7 @@ item_name = "Laff Boost"
 item_description = "You feel happier!"
 big_description = "Increases your maximum laff."
 model = ExtResource("1_p7xa2")
+pickup_sfx = ExtResource("2_1u7f5")
 stats_add = {
 "max_hp": 0
 }

@@ -6,3 +6,29 @@ Check your ToonTasks on the pause menu!
 Some items are exclusive to certain item pools.
 Not all items are good.
 Gag Vouchers are saved for use in-battle.
+Toon-Up items can save you in a pinch!
+Shops come before big challenges. Stock up!
+You can maintain the momentum from moving platforms with a jump.
+Jumping while on conveyor belts can give you more control.
+Check your stats on the pause menu!
+Accessories you pick up won't override the effects of others.
+Drink motor oil...?
+You can walk diagonally on laser grids if you're careful.
+Battle speed can be adjusted in the Settings menu.
+The Settings menu has lots of options for customization.
+Different jellybean colors give different quantities of beans.
+Items range in quality from 1 to 5 stars.
+Items with more stars are more powerful.
+Every floor will end with a challenging encounter...
+There are hidden facilities. Keep your eyes peeled...
+Not every battle is required, but some give great rewards.
+Have a Doodle? Keep an eye on its mood.
+Stuck? In the settings, the "I'm stuck!" button will help you out! 
+Squirt can make Cogs more vulnerable to damage.
+Trap deals the most damage, but requires a setup turn.
+Single lures stun the Cog, group lures lower the damage of up to 3.
+Lures deal knockback damage with Squirt and Throw.
+Sound hits 3 Cogs, with the pink arrows indicating which take splash damage.
+Throw's self heal is the best way to maintain your laff!
+Drop's aftershock is affected by crits.
+Hitting a Cog with multiple drop gags can stack aftershock!

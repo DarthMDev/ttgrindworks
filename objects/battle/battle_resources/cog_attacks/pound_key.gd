@@ -42,7 +42,7 @@ func action():
 	if hit:
 		manager.s_focus_char.emit(target)
 		target.set_animation(hit_anim)
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 	else:
 		manager.s_focus_char.emit(target)
 		manager.battle_text(target, "MISSED")

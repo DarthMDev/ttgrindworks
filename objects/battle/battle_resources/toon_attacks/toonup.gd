@@ -45,10 +45,10 @@ func apply(target: Player) -> void:
 			new_effect.target = target
 			if movie_type == MovieType.PIXIE:
 				new_effect.amount = ceili(target.stats.max_hp * 0.2)
-				BattleService.ongoing_battle.affect_target(target, 'hp', -new_effect.amount, false)
+				BattleService.ongoing_battle.affect_target(target, -new_effect.amount)
 			BattleService.ongoing_battle.add_status_effect(new_effect)
 		elif movie_type == MovieType.LIPSTICK:
-			BattleService.ongoing_battle.affect_target(target, 'hp', -(target.stats.max_hp * 0.4), false)
+			BattleService.ongoing_battle.affect_target(target, -(target.stats.max_hp * 0.4))
 
 	var unite: GPUParticles3D = load('res://objects/battle/effects/unite/unite.tscn').instantiate()
 	Util.get_player().add_child(unite)
@@ -93,7 +93,7 @@ func get_regen(regen: StatEffectRegeneration) -> StatEffectRegeneration:
 	new_regen.instant_effect = regen.instant_effect
 	new_regen.rounds = 2
 	new_regen.icon = load("res://ui_assets/battle/statuses/investment_cog_heal.png")
-	new_regen.description = "20% laff regeneration"
+	new_regen.description = "%s%% laff regeneration" % roundi(20.0 * Util.get_player().stats.healing_effectiveness)
 	return new_regen
 
 ## Get properly registered version of toonup effect.

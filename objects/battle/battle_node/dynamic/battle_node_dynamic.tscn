@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1rus4vu8jrlg"]
+
+[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="1_ygob0"]
+[ext_resource type="Script" uid="uid://byca1oqgh32c" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.gd" id="2_5ak2l"]
+
+[node name="BattleNodeDynamic" node_paths=PackedStringArray("cogs") instance=ExtResource("1_ygob0")]
+script = ExtResource("2_5ak2l")
+cog_range = Vector2i(2, 4)
+cog_dist = 0.0
+cogs = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+
+[node name="Cogs" type="Node3D" parent="." index="1"]
+unique_name_in_owner = true
+
+[editable path="SkipButton"]

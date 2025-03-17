@@ -44,11 +44,12 @@ func renew() -> void:
 	# Focus Player
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('cringe'))
-	movie.tween_callback(manager.affect_target.bind(player, 'hp', damage, false))
+	movie.tween_callback(manager.affect_target.bind(player, damage))
 	movie.tween_interval(3.5)
 
 	await movie.finished
 	movie.kill()
+	await manager.check_pulses([player])
 
 func application_movie() -> void:
 	# Movie Start
@@ -71,7 +72,7 @@ func application_movie() -> void:
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('slip_forwards'))
 	movie.tween_callback(player.add_child.bind(fire))
-	movie.tween_callback(manager.affect_target.bind(player, 'hp', damage, false))
+	movie.tween_callback(manager.affect_target.bind(player, damage))
 	movie.tween_interval(4.0)
 
 	dot_visual_status = VISUAL_DOT.duplicate()
@@ -82,3 +83,4 @@ func application_movie() -> void:
 
 	await movie.finished
 	movie.kill()
+	await manager.check_pulses([player])

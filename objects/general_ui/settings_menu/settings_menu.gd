@@ -118,6 +118,7 @@ func toggle_ambient_sfx() -> void:
 @onready var intro_skip_element : HBoxContainer = %IntroSkip
 @onready var discord_rpc_element: HBoxContainer = %DiscordRPC
 @onready var discord_rpc_button: GeneralButton = %DiscordRPCButton
+@onready var custom_cogs_button : GeneralButton = %CustomCogsButton
 
 func _sync_gameplay_settings() -> void:
 	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
@@ -127,6 +128,7 @@ func _sync_gameplay_settings() -> void:
 	cam_sens_slider.value = get_setting("camera_sensitivity")
 	timer_button.text = get_toggle_text(get_setting('show_timer'))
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	if not is_instance_valid(Util.floor_manager) or Util.stuck_lock:
 		stuck_element.queue_free()
 	if not SaveFileService.progress_file.characters_unlocked > 1:
@@ -173,6 +175,10 @@ func toggle_discord_rpc() -> void:
 		DiscordManager.menu()
 	else:
 		DiscordManager.stop()
+func toggle_custom_cogs() -> void:
+	toggle_setting('use_custom_cogs')
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
+	Globals.import_custom_cogs()
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:

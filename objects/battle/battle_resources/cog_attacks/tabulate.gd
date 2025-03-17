@@ -36,7 +36,7 @@ func action():
 	manager.s_focus_char.emit(target)
 	if hit:
 		target.set_animation('conked')
-		manager.affect_target(target,'hp',damage,false)
+		manager.affect_target(target, damage)
 	else:
 		target.set_animation('sidestep_left')
 		manager.battle_text(target,"MISSED")

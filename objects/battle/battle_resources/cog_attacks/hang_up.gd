@@ -37,7 +37,7 @@ func action() -> void:
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	if hit:
 		movie.tween_callback(player.set_animation.bind(ANIM_HIT))
-		movie.tween_callback(manager.affect_target.bind(player,'hp',damage, false))
+		movie.tween_callback(manager.affect_target.bind(player, damage))
 		movie.tween_interval(3.5)
 	else:
 		movie.tween_callback(player.set_animation.bind(ANIM_MISS))

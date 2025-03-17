@@ -76,7 +76,7 @@ func action() -> void:
 			win_sfx.play()
 	else:
 		player.last_damage_source = "Hubris"
-		manager.affect_target(player, 'hp', damage, false)
+		manager.affect_target(player, damage)
 		player.toon.set_emotion(Toon.Emotion.SAD)
 		player.set_animation("slip_backward")
 		if lose_sfx:

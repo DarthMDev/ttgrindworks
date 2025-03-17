@@ -66,5 +66,5 @@ func apply_cooked() -> void:
 		manager.add_status_effect(cooked)
 
 	# No instant effect, so do it ourselves.
-	manager.affect_target(targets[0], 'hp', 10, false)
+	manager.affect_target(targets[0], 10)
 	await manager.check_pulses(targets)

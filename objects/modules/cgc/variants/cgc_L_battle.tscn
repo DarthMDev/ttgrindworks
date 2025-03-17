@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://da0irj81d7pb8"]
+[gd_scene load_steps=21 format=3 uid="uid://da0irj81d7pb8"]
 
 [ext_resource type="PackedScene" uid="uid://dpqpwpljhfswb" path="res://objects/modules/cgc/base_rooms/golf_course_l_shape_room.tscn" id="1_fptfh"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_0j782"]
 [ext_resource type="PackedScene" uid="uid://bln8k5hdfnymx" path="res://objects/props/cgc/resizeable_wall.tscn" id="2_bl02i"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_qs1ux"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_8k8w4"]
 [ext_resource type="PackedScene" uid="uid://dashkj2a6dgb0" path="res://objects/props/cgc/cgc_flat_tree_a.tscn" id="3_bavcb"]
 [ext_resource type="PackedScene" uid="uid://d3br8qv0sep7h" path="res://objects/props/cgc/tree1.tscn" id="3_fxgjf"]
@@ -39,17 +40,12 @@ size = Vector3(16.675, 0.15, 2.705)
 
 [node name="CGCLBattle" instance=ExtResource("1_fptfh")]
 
-[node name="BattleNode2" parent="." index="4" node_paths=PackedStringArray("cogs") instance=ExtResource("2_0j782")]
+[node name="BattleNodeDynamic" parent="." index="4" instance=ExtResource("2_qs1ux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90778, 0, 3.08615)
-cogs = [NodePath("Cog"), NodePath("Cog2")]
+cog_range = Vector2i(1, 3)
+cog_dist = 1.75
 
-[node name="Cog" parent="BattleNode2" index="3" instance=ExtResource("3_8k8w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
-
-[node name="Cog2" parent="BattleNode2" index="4" instance=ExtResource("3_8k8w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode2" index="5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0965672, 3.3999, -4.2619)
 shape = SubResource("BoxShape3D_g1gbn")
 
@@ -276,5 +272,5 @@ transform = Transform3D(0.75, 0, 0, 0, 2.3, 0, 0, 0, 1.9, 11.8009, 0, -16.9151)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4213, 0, -17.3215)
 volume = Vector3(18.84, 6.095, 4.795)
 
-[connection signal="s_battle_end" from="BattleNode2" to="FenceGate" method="open"]
+[connection signal="s_battle_end" from="BattleNodeDynamic" to="FenceGate" method="open"]
 [connection signal="s_battle_end" from="BattleNode3" to="FenceGate2" method="open"]

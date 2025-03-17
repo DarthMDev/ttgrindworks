@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ewhq7f4agtnn"]
+[gd_scene load_steps=27 format=3 uid="uid://ewhq7f4agtnn"]
 
 [ext_resource type="Texture2D" uid="uid://bfms6y76d307c" path="res://ui_assets/quests/questCard.png" id="1_fkhaq"]
 [ext_resource type="Script" uid="uid://b0bjdhw5lkq75" path="res://objects/quests/scroll/quest_scroll.gd" id="2_ov785"]
@@ -52,6 +52,11 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="LabelSettings" id="LabelSettings_piibh"]
 font = ExtResource("6_o77g1")
 font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_51sdj"]
+font = ExtResource("6_o77g1")
+font_size = 24
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5h5h4"]
 length = 0.001
@@ -350,6 +355,17 @@ texture_hover = ExtResource("13_qsmcp")
 texture_disabled = null
 hover_db_offset = 6.0
 press_db_offset = 0.0
+
+[node name="RerollLabel" type="Label" parent="QuestBG"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -21.0
+offset_top = 42.0
+offset_right = 37.0
+offset_bottom = 73.0
+text = "Reroll"
+label_settings = SubResource("LabelSettings_51sdj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
