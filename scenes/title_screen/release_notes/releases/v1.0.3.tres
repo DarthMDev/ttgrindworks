@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://c4mwq02ptpmdy"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_r7icy"]
+
+[resource]
+script = ExtResource("1_r7icy")
+release_version = "v1.0.3"
+notes = "[TITLE]Items
+Added Pixie Wings (2-Star)
+Added Big Weight Hat (2-Star)
+Added Heart Headband (3-Star)
+Added Safari Hat (4-Star)
+Monocle has been given an additional ability
+Added new pick-up sound effects for some items
+Adjusted some more accessory placements
+[TITLE]Proxy Cogs
+A new proxy Cog has appeared in Cog HQ
+Adjusted the apperance of two proxy cogs
+[TITLE]Cog Creator
+Custom Cogs now use JSON formatting for storage 
+On first boot, any custom Cogs you have from previous versions will be converted to the new system
+Added a proxy ability slider
+Fixed an issue where certain Cog heads would clip the bounds of the UI
+Fixed an issue where Cogs could be assigned multiple Proxy abilities
+Fixed Custom Cogs being assigned the debug Cog attack even when they have attacks specified
+[TITLE]Facilities
+Added a new Factory battle room
+Introduced a new anomaly
+Cogs per battle will now vary slightly
+[TITLE]Bosses
+Ground Floor Investor now has the Attentive status effect
+Ground Floor Investor's platform will now sink a bit faster, and the damage over time is a bit stronger
+Mole Cog's Reinforcement call will now happen at the end of the first round
+The Security Goon's projection system has been upgraded to support 4 Cogs
+Reinforcement Cogs will now try to shuffle in between the directors in the Penthouse encounter
+[TITLE]Tweaks
+Added a mod loader
+Hovering over a Toontask reward will now show you a description of the item
+Hovering over a Task reroll button on the pause menu will now display a \"Reroll\" tooltip
+Tweaked the Clerk Clara achievement icon
+Toon Tips will now appear in the elevator scene
+Added a setting to disable/enable custom Cogs
+Hid the floor selection in the elevator scene when you reach the final floor
+Adjusted most cog hand colors to better match their head color
+Corporate Gains will now display a status effect on the Cog that used it
+The player's speed will now hard cap at 2.0
+Added Eviction Notice to Bloodsucker's attacks
+[TITLE]Bugfixes
+Fixed occasional detached Toon head on the sad screen
+Fixed the wrong icon being used for Bookkeeper's Cooked effect
+Fixed custom Cog heads not loading in the Faulty Factory
+Fixed an edge-case with Rainbow Wig that could cause negative anomalies to still show up
+Fixed Toons not properly going sad to the Fire Sale proxy effect
+Fixed a skip for the puzzles in a D.A. Office Room
+Fixed an issue where you could match the Skulls in \"Drag three of a color in a row\"
+Fixed an issue where Union Buster would buff the Cog he's destroying, rather than himself
+Carbon Copy now properly sets the Cog's HP to the original Cog's HP
+Fixed stat boost stacking not applying properly
+Fixed an issue where an impossible 6x6 skull finder could spawn in the D.A. Office
+Virtual Skelecogs no longer contribute to task progress
+Gave the kart tunnel in the Fairway Fiend boss fight collisions
+Progress File will now save as you re-enter the title screen to fix edge cases where progress was lost after winning a run
+Fixed some typos"

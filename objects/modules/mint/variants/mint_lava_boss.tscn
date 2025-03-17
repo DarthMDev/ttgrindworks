@@ -1,8 +1,8 @@
-[gd_scene load_steps=129 format=4 uid="uid://b2ia8h86cdjo2"]
+[gd_scene load_steps=130 format=4 uid="uid://b2ia8h86cdjo2"]
 
 [ext_resource type="Texture2D" uid="uid://brg7tsqoenlxv" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
 [ext_resource type="Texture2D" uid="uid://c72xdn0nwkaug" path="res://models/facilities/mint/textures/CFOCeiling2.png" id="2_xdjiy"]
-[ext_resource type="Texture2D" uid="uid://2yv2gsrwpljc" path="res://models/facilities/mint/textures/CementFloorx4.png" id="4_e4xhb"]
+[ext_resource type="Texture2D" uid="uid://bixkesses7em4" path="res://models/facilities/mint/textures/CementFloorx4.png" id="4_e4xhb"]
 [ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="5_lxubv"]
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="6_evdwi"]
 [ext_resource type="Texture2D" uid="uid://bgpgnhnm622sk" path="res://models/facilities/mint/textures/RollUpDoors.png" id="7_v68sw"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dnip6uj60poax" path="res://objects/props/mint/pipes/pipes_c.tscn" id="16_3kylo"]
 [ext_resource type="PackedScene" uid="uid://modfjavgnpjq" path="res://objects/props/factory/grate.tscn" id="17_257sr"]
 [ext_resource type="PackedScene" uid="uid://cfmtdq84k5wwh" path="res://objects/props/mint/pipes/kit/pipe_connector.tscn" id="17_ht7gh"]
+[ext_resource type="AudioStream" uid="uid://02mc3k3k1brp" path="res://audio/music/ground_floor_investor.ogg" id="17_xovc6"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="18_hum0e"]
 [ext_resource type="PackedScene" uid="uid://ds050pq3gfubn" path="res://objects/props/mint/pipes/kit/large_straight_pipe_1.tscn" id="18_yjgi0"]
 [ext_resource type="PackedScene" uid="uid://7q6wova01fov" path="res://objects/props/mint/pipes/kit/elbow_pipe.tscn" id="19_j1tso"]
@@ -1318,6 +1319,7 @@ material = SubResource("StandardMaterial3D_vhyyy")
 [sub_resource type="Resource" id="Resource_8vpei"]
 script = ExtResource("13_tfm2o")
 skippable = true
+override_music = ExtResource("17_xovc6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ih2xx"]
 size = Vector3(4.56714, 6.29126, 1)
@@ -1342,9 +1344,9 @@ script/source = "extends Node3D
 @export var intro_pos: Node3D
 @export var sink_pos: Node3D
 
-var sink_unit := 1.1
+var sink_unit := 1.47
 var round_count := 0
-const MAX_ROUNDS = 8
+const MAX_ROUNDS = 6
 
 func _ready():
 	BattleService.s_battle_started.connect(test_battle)
@@ -1363,7 +1365,7 @@ func on_round_begin(_round_actions : Array[BattleAction]):
 	var action: ActionScript
 	if round_count >= MAX_ROUNDS:
 		action = BurnAll.new()
-		action.damage = round_count
+		action.damage = -Util.get_hazard_damage(-round_count)
 	else:
 		action = BossLavaSink.new()
 	action.user = self

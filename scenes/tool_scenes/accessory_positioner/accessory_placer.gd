@@ -35,6 +35,7 @@ func load_accessory(path : String) -> void:
 	
 	item = accessory
 	model = accessory.model.instantiate()
+	model.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	
 	placement = get_placement(item)
 	

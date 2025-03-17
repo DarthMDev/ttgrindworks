@@ -25,4 +25,4 @@ func get_mod_icon() -> Texture2D:
 	return load("res://ui_assets/player_ui/pause/RecordProfits.png")
 
 func get_description() -> String:
-	return "Destroyed Cogs drop jellybeans"
+	return "Destroyed Cogs may drop jellybeans"

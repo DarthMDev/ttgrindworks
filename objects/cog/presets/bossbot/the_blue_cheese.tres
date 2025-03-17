@@ -26,7 +26,7 @@ head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
 scale = 7.0
 head_textures = Array[Texture2D]([ExtResource("5_jjdvb")])
-hand_color = Color(0.538216, 0.704478, 0.740404, 1)
+hand_color = Color(0.380392, 0.52549, 0.560784, 1)
 head_color = Color(0.537255, 0.705882, 0.741176, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
@@ -37,7 +37,7 @@ status_effects = Array[ExtResource("7_ae4ce")]([ExtResource("8_0otlb")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["You'll find I'm an acquired taste.", "Feeling blue?", "Your chances are looking blue.", "You're about to get shredded."])
+battle_phrases = Array[String](["You'll find I'm an acquired taste.", "Feeling blue?", "Your chances are looking blue.", "You're about to get shredded.", "I'm as sharp as a block of Roquefort.", "You can't seize my Roquefort.", "I'm cheesed to meet you."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

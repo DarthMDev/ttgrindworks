@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ThrowPaper" load_steps=3 format=3 uid="uid://c31yj6hc78hh3"]
+
+[ext_resource type="PackedScene" uid="uid://ceg2xgfw3sggn" path="res://models/props/cog_props/shredder_paper/shredder_paper.fbx" id="1_do6ww"]
+[ext_resource type="Script" uid="uid://itkxki65d0v7" path="res://objects/battle/battle_resources/cog_attacks/throw_paper.gd" id="1_sib8b"]
+
+[resource]
+script = ExtResource("1_sib8b")
+prop = ExtResource("1_do6ww")
+wait_time = 3.2
+custom_method = "eviction_notice"
+accuracy = 75
+damage = 3
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["It's moving time.", "Pack your bags, Toon.", "Time to make some new living arrangements.", "Consider yourself served.", "You're behind on your lease.", "This will be extremely unsettling.", "You're about to be uprooted.", "I'm going to send you packing.", "You're out of place.", "Prepare to be relocated.", "You're in a hostel position."])
+target_type = 0
+action_name = "Eviction Notice"
+one_time_use = false
+metadata/_custom_type_script = "uid://itkxki65d0v7"

@@ -20,7 +20,7 @@ func renew() -> void:
 		return
 	
 	manager.battle_node.focus_character(target)
-	manager.affect_target(target, 'hp', amount, false, true)
+	manager.affect_target(target, amount, true)
 	if target is Player:
 		target.last_damage_source = "Spontaneous Combustion"
 		target.set_animation('cringe')
@@ -35,9 +35,6 @@ func cleanup() -> void:
 
 func get_status_name() -> String:
 	return "Cooked"
-
-func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/statuses/fire_sale_dot.png")
 
 func get_description() -> String:
 	return "%s damage per round" % amount

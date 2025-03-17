@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c01shgle6r07p"]
+[gd_scene load_steps=14 format=3 uid="uid://c01shgle6r07p"]
 
 [ext_resource type="PackedScene" uid="uid://bbmpk0bcnkij1" path="res://objects/modules/cgc/base_rooms/cgc_long_room.tscn" id="1_i5wd2"]
 [ext_resource type="PackedScene" uid="uid://bwu5l3d7uncro" path="res://objects/props/cgc/hedge_pillar_spiked.tscn" id="2_buf3o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="5_solxo"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="6_cfak5"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="7_vavb8"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="8_3hqq5"]
 [ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="9_eiid2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jh6qj"]
@@ -97,19 +98,12 @@ transform = Transform3D(1.3, 0, 0, 0, 2.9, 0, 0, 0, 1.3, 5.96326, -0.024991, -5.
 [node name="Tree14" parent="Trees" index="13" instance=ExtResource("5_fpsao")]
 transform = Transform3D(1.2, 0, 0, 0, 2.9, 0, 0, 0, 1.2, 8.42639, -0.024991, -8.30751)
 
-[node name="BattleNode" parent="." index="7" node_paths=PackedStringArray("cogs") instance=ExtResource("5_solxo")]
+[node name="BattleNodeDynamic" parent="." index="7" instance=ExtResource("8_3hqq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.75858)
-cogs = [NodePath("Cog"), NodePath("Cog3"), NodePath("Cog2")]
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
 
-[node name="Cog" parent="BattleNode" index="3" instance=ExtResource("6_cfak5")]
-transform = Transform3D(0.999533, 0.0305734, 0, -0.0305734, 0.999533, 0, 0, 0, 1, -3, 0, 0)
-
-[node name="Cog2" parent="BattleNode" index="4" instance=ExtResource("6_cfak5")]
-
-[node name="Cog3" parent="BattleNode" index="5" instance=ExtResource("6_cfak5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode" index="6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857437, 4.53503, -2.95248)
 shape = SubResource("BoxShape3D_85i77")
 

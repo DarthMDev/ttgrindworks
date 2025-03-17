@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://be4btivsjwqhe"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://be4btivsjwqhe"]
 
 [ext_resource type="PackedScene" uid="uid://eqtswktr1h3j" path="res://objects/items/custom/gag_voucher/gag_voucher.tscn" id="1_47fq5"]
+[ext_resource type="AudioStream" uid="uid://ba7r434bfqtfx" path="res://audio/sfx/items/voucher_pickup.ogg" id="2_6ekd7"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_gmhl7"]
 
 [resource]
@@ -17,6 +18,7 @@ item_name = "Gag Voucher"
 item_description = "Restock!"
 big_description = ""
 model = ExtResource("1_47fq5")
+pickup_sfx = ExtResource("2_6ekd7")
 stats_add = {}
 stats_multiply = {}
 player_values = {}

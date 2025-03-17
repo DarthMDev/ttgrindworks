@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtaq2wty6bytx"]
+[gd_scene load_steps=15 format=3 uid="uid://dtaq2wty6bytx"]
 
 [ext_resource type="PackedScene" uid="uid://bwm67lsp8m00r" path="res://objects/modules/office/base_rooms/office_battle_room.tscn" id="1_sgdmf"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_nm1gp"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_5tbv4"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_854qf"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="4_pjnun"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="5_82ivb"]
 [ext_resource type="PackedScene" uid="uid://b4kk4sdrhkn2g" path="res://objects/props/office/cardboard_box.tscn" id="6_2rcjo"]
 [ext_resource type="PackedScene" uid="uid://dn6p7pcjhawfb" path="res://objects/props/office/chair.tscn" id="7_4ub7n"]
@@ -24,36 +23,24 @@ size = Vector3(14.3852, 12.1217, 8.6762)
 
 [node name="Battles" type="Node3D" parent="." index="5"]
 
-[node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("2_nm1gp")]
+[node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("4_pjnun")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-cogs = [NodePath("Cog2"), NodePath("Cog")]
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.891198, 10.251, 0.119884)
 shape = SubResource("BoxShape3D_0akml")
 
-[node name="Cog" parent="Battles/BattleNode" index="3" instance=ExtResource("3_5tbv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38274, 0.0154257, -6.04416e-08)
-
-[node name="Cog2" parent="Battles/BattleNode" index="4" instance=ExtResource("3_5tbv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6966, 0.0152935, 7.41604e-08)
-
-[node name="BattleNode2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("2_nm1gp")]
+[node name="BattleNodeDynamic2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("4_pjnun")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.85901, 0, 14.1972)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
+cog_range = Vector2i(3, 4)
+cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode2" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685585, 6.13991, 1.33647)
 shape = SubResource("BoxShape3D_q3bqs")
-
-[node name="Cog" parent="Battles/BattleNode2" index="3" instance=ExtResource("3_5tbv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0154257, 0)
-
-[node name="Cog2" parent="Battles/BattleNode2" index="4" instance=ExtResource("3_5tbv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07934, 0.0152935, 1.34602e-07)
-
-[node name="Cog3" parent="Battles/BattleNode2" index="5" instance=ExtResource("3_5tbv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7842, 0.0155883, -1.65413e-07)
 
 [node name="treasure_chest" parent="." index="6" instance=ExtResource("4_854qf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.33771, 2.59479, -9.93839)

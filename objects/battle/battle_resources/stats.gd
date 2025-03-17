@@ -27,7 +27,9 @@ class_name BattleStats
 		if self is PlayerStats:
 			print('accuracy set to ' + str(x))
 		s_accuracy_changed.emit(x)
-			
+
+const MIN_SPEED := 0.6
+const MAX_SPEED := 2.0
 @export var speed := 1.0:
 	set(x):
 		speed = x
@@ -84,6 +86,14 @@ func get_stat(stat: String) -> float:
 					additive_total += multiplier.amount
 				else:
 					multiplier_total += multiplier.amount
-		return (base_stat + additive_total) * multiplier_total
+		return clamp_stat(stat, (base_stat + additive_total) * multiplier_total)
 	else:
 		return 1.0
+
+## Can be added to over time if stats need to be hard capped
+func clamp_stat(stat : String, amount : float) -> float:
+	match stat:
+		'speed':
+			return clampf(amount, MIN_SPEED, MAX_SPEED)
+		_:
+			return amount

@@ -30,6 +30,12 @@ signal s_quest_rerolled
 		#quest.s_quest_updated.connect(update_quest)
 		update_quest()
 
+func _ready() -> void:
+	%NodeViewer.mouse_entered.connect(hover_item)
+	%NodeViewer.mouse_exited.connect(HoverManager.stop_hover)
+	reroll_button.mouse_entered.connect(func(): if not reroll_button.disabled: %RerollLabel.show())
+	reroll_button.mouse_exited.connect(%RerollLabel.hide)
+
 func update_quest() -> void:
 	title.set_text(quest.title)
 	if quest.quota == 1:
@@ -67,6 +73,9 @@ func set_item(item: Item) -> void:
 	%NodeViewer.want_spin_tween = item.want_ui_spin
 	if item_model.has_method('setup'):
 		item_model.setup(item)
+
+func hover_item() -> void:
+	Util.do_item_hover(quest.item_reward)
 
 ## Complete the quest and reset
 func complete_quest() -> void:

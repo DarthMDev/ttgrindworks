@@ -37,7 +37,7 @@ status_effects = Array[ExtResource("10_f4rxc")]([ExtResource("11_6fvbj")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["My glare is stone cold.", "Try not to crumble under the pressure.", "Between a rock and a hard place, Toon?", "My directive is concrete."])
+battle_phrases = Array[String](["My glare is stone cold.", "Try not to crumble under the pressure.", "Between a rock and a hard place, Toon?", "My directive is concrete.", "You've hit rock bottom.", "I'm the foundation of this corporation.", "I refuse to be taken for granite.", "You're nothing but a pebble beneath my boot."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

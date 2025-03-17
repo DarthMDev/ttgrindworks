@@ -43,9 +43,7 @@ func action():
 	
 	if hit:
 		target.set_animation('slip_forwards')
-		manager.affect_target(target,'hp',damage,false)
-	
-	
+		manager.affect_target(target, damage)
 	
 	await manager.barrier(target.animator.animation_finished, 4.0)
 	pencil.queue_free()

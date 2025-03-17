@@ -108,6 +108,8 @@ func _ready() -> void:
 	
 	AudioManager.stop_music(true)
 	AudioManager.set_default_music(load("res://audio/music/main_theme.ogg"))
+	
+	Globals.s_title_screen_entered.emit(self)
 
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ThrowPaper" load_steps=3 format=3 uid="uid://l385j58744f6"]
+
+[ext_resource type="PackedScene" uid="uid://ceg2xgfw3sggn" path="res://models/props/cog_props/shredder_paper/shredder_paper.fbx" id="1_ndkg4"]
+[ext_resource type="Script" uid="uid://itkxki65d0v7" path="res://objects/battle/battle_resources/cog_attacks/throw_paper.gd" id="2_2kk61"]
+
+[resource]
+script = ExtResource("2_2kk61")
+prop = ExtResource("1_ndkg4")
+wait_time = 3.2
+custom_method = "eviction_notice"
+accuracy = 75
+damage = 3
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["You should show a little restraint.", "I'm slapping you with a restraining order!", "You can't come within five feet of me.", "Perhaps you better keep your distance.", "You should be restrained.", "Cogs! Restrain that Toon!", "Try and restrain yourself", "I hope I'm being too much of a restraint on you.", "See if you can lift these restraints!", "I'm ordering you to restrain!", "Why don't we start with basic restraining?"])
+target_type = 0
+action_name = "Restraining Order"
+one_time_use = false
+metadata/_custom_type_script = "uid://itkxki65d0v7"

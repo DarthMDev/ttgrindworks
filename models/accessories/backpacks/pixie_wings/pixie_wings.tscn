@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://devfa8s6hrb8m"]
+
+[ext_resource type="PackedScene" uid="uid://fijwyiv0x7q4" path="res://models/accessories/backpacks/butterfly_wings/butterfly_wings.tscn" id="1_fe1gq"]
+[ext_resource type="Texture2D" uid="uid://5sqij7rumhn8" path="res://models/accessories/backpacks/pixie_wings/pixie_wings.png" id="2_7dlnw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7b7ur"]
+resource_name = "default.287"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_7dlnw")
+
+[node name="tt_m_chr_avt_acc_pac_butterflyWings" instance=ExtResource("1_fe1gq")]
+
+[node name="tt_m_chr_avt_acc_pac_butterflyWingsStyle1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7b7ur")

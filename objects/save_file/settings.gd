@@ -34,11 +34,12 @@ const SpeedOptions = [1.0, 1.25, 1.5, 1.75]
 @export var camera_sensitivity := 1.0:
 	set(x):
 		camera_sensitivity = clampf(x, 0.5, 1.5)
-@export var item_reactions := false
+@export var item_reactions := true
 @export var auto_sprint := true
 @export var show_timer := false
 @export var skip_intro := false
 @export var dev_tools := false
+@export var use_custom_cogs := true
 
 ## CONTROLS
 # To preserve the ordering of controls, we must have two dictionaries

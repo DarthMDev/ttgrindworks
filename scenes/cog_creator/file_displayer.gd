@@ -8,6 +8,7 @@ const MAX_STRING_LENGTH := 12
 
 @onready var icon_rect : TextureRect = $Elements/Icon
 @onready var filename_label : Label = $Elements/FileName
+@onready var model_viewer : TextureRect = $Elements/ModelView
 
 var file_name : String:
 	get:
@@ -26,6 +27,10 @@ func set_file(new_file : UIFile) -> void:
 func refresh() -> void:
 	icon_rect.set_texture(file.icon)
 	filename_label.set_text(get_file_name(file.file_path))
+	if file.model:
+		model_viewer.node = file.model
+		model_viewer.show()
+		icon_rect.hide()
 
 func get_file_name(file_path : String) -> String:
 	var split_path := file_path.split("/")

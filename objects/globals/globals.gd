@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.0.2"
+const VERSION_NUMBER := "v1.0.3"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -51,38 +51,64 @@ var ALL_COGS_POOL := LazyLoader.defer("res://objects/cog/presets/pools/all_cogs.
 const COG_SAVE_PATH := "user://save/custom_cogs/"
 const ACCEPTED_MODELS := ["glb", "gltf"]
 const ACCEPTED_TEXTURES := ["png", "gltf"]
-var loaded_custom_cogs : Array[CogDNA] = []
+var loaded_custom_cogs : Dictionary[String, CogDNA] = {}
 var custom_cog_head_directory := {}
 var custom_cog_tex_directory := {}
 
 func import_custom_cogs() -> void:
+	clean_old_custom_dna()
 	clear_custom_cogs()
 	if DirAccess.dir_exists_absolute(COG_SAVE_PATH):
 		import_cog_heads()
 		import_cog_head_textures()
 		import_cog_dna()
 
+## Converts existing custom cog dna files to json
+func clean_old_custom_dna() -> void:
+	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
+		if file_name.get_extension() == "tres":
+			var loaded_file = ResourceLoader.load(COG_SAVE_PATH + file_name)
+			if loaded_file is CogDNA:
+				save_cog_dna(loaded_file, cog_to_file_name(loaded_file.cog_name))
+				DirAccess.remove_absolute(COG_SAVE_PATH + file_name)
+				print("Converted %s dna to json format." % loaded_file.cog_name)
+
+func save_cog_dna(dna : CogDNA, path : String) -> void:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_line(dna.to_json())
+	file.close()
+
+func cog_to_file_name(cog_name : String) -> String:
+	cog_name = (cog_name.replace(" ", "_")).to_lower()
+	var file_name := cog_name
+	return COG_SAVE_PATH + file_name + ".cog"
+
 func import_cog_dna() -> void:
 	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
-		if not file_name.get_extension() == "tres":
+		if not file_name.get_extension() == "cog":
 			continue
-		var loaded_file = ResourceLoader.load(COG_SAVE_PATH + file_name)
-		if loaded_file is CogDNA:
-			if not loaded_file.is_mod_cog:
-				add_standard_cog(loaded_file)
+		var loaded_file := FileAccess.open(COG_SAVE_PATH + file_name, FileAccess.READ)
+		var json_string := ""
+		while loaded_file.get_position() < loaded_file.get_length():
+			json_string += loaded_file.get_line()
+		var new_dna := CogDNA.from_json(json_string)
+		loaded_custom_cogs[COG_SAVE_PATH + file_name] = new_dna
+		if SaveFileService.settings_file.use_custom_cogs:
+			if new_dna.is_mod_cog:
+				add_proxy(new_dna)
 			else:
-				add_proxy(loaded_file)
-			loaded_custom_cogs.append(loaded_file)
+				add_standard_cog(new_dna)
 
 func clear_custom_cogs() -> void:
-	for cog : Variant in GRUNT_COG_POOL.load().cogs:
-		if cog.resource_path.begins_with("user://"):
-			if not cog.is_mod_cog:
-				remove_standard_cog(cog)
-			else:
-				remove_proxy(cog)
+	clear_custom_dna(GRUNT_COG_POOL.load())
+	clear_custom_dna(MOD_COG_POOL.load())
 	custom_cog_head_directory.clear()
 	custom_cog_tex_directory.clear()
+
+func clear_custom_dna(pool : CogPool) -> void:
+	for cog in pool.cogs.duplicate():
+		if cog in loaded_custom_cogs.values():
+			pool.cogs.erase(cog)
 
 func import_cog_heads() -> void:
 	for file in DirAccess.get_files_at(COG_SAVE_PATH):
@@ -416,3 +442,9 @@ func on_floor_start(game_floor: GameFloor) -> void:
 		s_secret_floor.emit()
 
 const MaxToonupConsumables := 3
+
+
+#region Global Signals
+signal s_game_paused(pause_menu)
+signal s_title_screen_entered(title_screen)
+#endregion

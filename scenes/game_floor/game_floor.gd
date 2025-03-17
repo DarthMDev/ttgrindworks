@@ -212,6 +212,11 @@ func append_room(room: PackedScene):
 		
 		# Reset entrance node pos
 		new_entrance.position = entrance_pos
+		
+		# For doorways mostly
+		if not new_entrance.visible or not prev_exit.visible:
+			new_entrance.hide()
+			prev_exit.hide()
 	
 	# Connect the body entered signal from the room to adjust the room renders
 	new_module.get_node('RoomArea').body_entered.connect(body_entered_room.bind(room_order.size()))

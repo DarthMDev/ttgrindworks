@@ -15,6 +15,10 @@ var next_floors: Array[FloorVariant] = []
 
 
 func _ready():
+	if Util.floor_number == 5:
+		$ElevatorUI.arrow_left.hide()
+		$ElevatorUI.arrow_right.hide()
+	
 	# Get the player in here or so help me
 	player = Util.get_player()
 	if not player:

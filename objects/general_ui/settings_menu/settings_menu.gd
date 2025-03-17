@@ -116,6 +116,7 @@ func toggle_ambient_sfx() -> void:
 @onready var stuck_element : HBoxContainer = %ImStuck
 @onready var intro_skip_button : GeneralButton = %IntroSkipButton
 @onready var intro_skip_element : HBoxContainer = %IntroSkip
+@onready var custom_cogs_button : GeneralButton = %CustomCogsButton
 
 func _sync_gameplay_settings() -> void:
 	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
@@ -125,6 +126,7 @@ func _sync_gameplay_settings() -> void:
 	cam_sens_slider.value = get_setting("camera_sensitivity")
 	timer_button.text = get_toggle_text(get_setting('show_timer'))
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	if not is_instance_valid(Util.floor_manager) or Util.stuck_lock:
 		stuck_element.queue_free()
 	if not SaveFileService.progress_file.characters_unlocked > 1:
@@ -162,6 +164,11 @@ func toggle_timer() -> void:
 func toggle_intro_skip() -> void:
 	toggle_setting('skip_intro')
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
+
+func toggle_custom_cogs() -> void:
+	toggle_setting('use_custom_cogs')
+	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
+	Globals.import_custom_cogs()
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgikj7t8vhs6m"]
+[gd_scene load_steps=10 format=3 uid="uid://cgikj7t8vhs6m"]
 
 [ext_resource type="PackedScene" uid="uid://dfhgbjrdoxhau" path="res://objects/modules/mint/base_rooms/mint_goon_room.tscn" id="1_kb4d2"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="2_hul5y"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="3_s628r"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="4_8p65n"]
 [ext_resource type="PackedScene" uid="uid://bsb5ku08jbkdy" path="res://objects/props/mint/pipes/pipes_e.tscn" id="5_0yy82"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="5_xxpfd"]
 [ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="6_sv4dy"]
 [ext_resource type="PackedScene" uid="uid://dnip6uj60poax" path="res://objects/props/mint/pipes/pipes_c.tscn" id="6_tcwsp"]
 [ext_resource type="PackedScene" uid="uid://drpj1lganwu6n" path="res://objects/props/mint/crossbeam.tscn" id="8_jmg4y"]
@@ -12,8 +11,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qus3"]
 size = Vector3(13.6777, 8.89194, 9.95801)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gu0an"]
-size = Vector3(14.2567, 8.89194, 8.15967)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7pmsu"]
+size = Vector3(13.8569, 9.66125, 5.88867)
 
 [node name="Root Scene" instance=ExtResource("1_kb4d2")]
 
@@ -46,36 +45,24 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.173
 
 [node name="Battles" type="Node3D" parent="." index="5"]
 
-[node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("3_s628r")]
+[node name="BattleNodeDynamic1" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("5_xxpfd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.8599, 0, 0.503852)
-cogs = [NodePath("Cog"), NodePath("Cog2")]
+cog_range = Vector2i(2, 3)
+cog_dist = 0.0
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic1" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115341, 4.45668, -4.479)
 shape = SubResource("BoxShape3D_3qus3")
 
-[node name="Cog" parent="Battles/BattleNode" index="3" instance=ExtResource("4_8p65n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30099, 0, -2.7861)
+[node name="BattleNodeDynamic" parent="Battles" index="1" instance=ExtResource("5_xxpfd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.41382, 0, 0)
+cog_range = Vector2i(3, 4)
+cog_dist = 0.0
 
-[node name="Cog2" parent="Battles/BattleNode" index="4" instance=ExtResource("4_8p65n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635221, 0, -2.7861)
-
-[node name="BattleNode2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("3_s628r")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.36867, 0, 0.132555)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode2" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394615, 4.45668, -5.37817)
-shape = SubResource("BoxShape3D_gu0an")
-
-[node name="Cog" parent="Battles/BattleNode2" index="3" instance=ExtResource("4_8p65n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450562, 0, -2.7861)
-
-[node name="Cog2" parent="Battles/BattleNode2" index="4" instance=ExtResource("4_8p65n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98127, 0, -2.7861)
-
-[node name="Cog3" parent="Battles/BattleNode2" index="5" instance=ExtResource("4_8p65n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13619, 0, -2.7861)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492432, 4.84343, -0.914063)
+shape = SubResource("BoxShape3D_7pmsu")
 
 [node name="Pipes" type="Node3D" parent="." index="9"]
 

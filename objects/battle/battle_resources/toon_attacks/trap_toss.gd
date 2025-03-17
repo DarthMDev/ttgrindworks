@@ -165,12 +165,13 @@ func banana():
 	shrink_tween.tween_property(path if path else prop, 'scale', Vector3(.001, .001, .001), 0.75)
 	await Task.delay(0.55)
 	AudioManager.play_sound(HIT_GROUND_SFX)
-	await Task.delay(0.45)
+	await Task.delay(0.21)
 	shrink_tween.kill()
 	if activating_lure:
 		activating_lure.current_activating_trap = self
 	if not get_immunity(target):
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
+		apply_extra_knockback(target)
 	else:
 		manager.battle_text(target, "IMMUNE")
 	if activating_lure:
@@ -189,7 +190,8 @@ func rake():
 	if activating_lure:
 		activating_lure.current_activating_trap = self
 	if not get_immunity(target):
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
+		apply_extra_knockback(target)
 	else:
 		manager.battle_text(target, "IMMUNE")
 	if activating_lure:
@@ -203,7 +205,8 @@ func tnt():
 	if activating_lure:
 		activating_lure.current_activating_trap = self
 	if not get_immunity(target):
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
+		apply_extra_knockback(target)
 	else:
 		manager.battle_text(target, "IMMUNE")
 	if activating_lure:

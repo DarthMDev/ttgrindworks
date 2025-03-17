@@ -65,7 +65,7 @@ func action():
 			if get_immunity(target):
 				manager.battle_text(target, 'IMMUNE')
 			else:
-				manager.affect_target(target, 'hp', real_damage, false)
+				manager.affect_target(target, real_damage)
 			if not target.lured or not do_knockback:
 				target.set_animation('squirt-small')
 			elif not get_immunity(target):

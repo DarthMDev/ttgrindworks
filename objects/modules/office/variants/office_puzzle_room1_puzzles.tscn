@@ -134,25 +134,22 @@ transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 
 [node name="law_bookshelf3" parent="Props" index="7" instance=ExtResource("8_7b8ah")]
 transform = Transform3D(-1.12983, 0, 0.986654, 0, 1.5, 0, -0.986654, 0, -1.12983, -9.12063, 0.01, 14.3679)
 
-[node name="law_bookshelf6" parent="Props" index="8" instance=ExtResource("8_7b8ah")]
-transform = Transform3D(-1.10086, 0, -1.01887, 0, 1.5, 0, 1.01887, 0, -1.10086, 8.23291, 0.01, 15.385)
-
-[node name="law_bookshelf4" parent="Props" index="9" instance=ExtResource("8_7b8ah")]
+[node name="law_bookshelf4" parent="Props" index="8" instance=ExtResource("8_7b8ah")]
 transform = Transform3D(-1.12983, 0, 0.986654, 0, 1.5, 0, -0.986654, 0, -1.12983, -12.1403, 0.01, 11.7309)
 
-[node name="law_bookshelf5" parent="Props" index="10" instance=ExtResource("8_7b8ah")]
+[node name="law_bookshelf5" parent="Props" index="9" instance=ExtResource("8_7b8ah")]
 transform = Transform3D(-1.12983, 0, 0.986654, 0, 1.5, 0, -0.986654, 0, -1.12983, -15.1674, 0.01, 9.08737)
 
-[node name="lamp_big" parent="Props" index="11" instance=ExtResource("9_v3reh")]
+[node name="lamp_big" parent="Props" index="10" instance=ExtResource("9_v3reh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81149, 0, -9.85803)
 
-[node name="lamp_big2" parent="Props" index="12" instance=ExtResource("9_v3reh")]
+[node name="lamp_big2" parent="Props" index="11" instance=ExtResource("9_v3reh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00578, 0, -9.85803)
 
-[node name="lamp_big3" parent="Props" index="13" instance=ExtResource("9_v3reh")]
+[node name="lamp_big3" parent="Props" index="12" instance=ExtResource("9_v3reh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81149, 0, 5.05013)
 
-[node name="lamp_big4" parent="Props" index="14" instance=ExtResource("9_v3reh")]
+[node name="lamp_big4" parent="Props" index="13" instance=ExtResource("9_v3reh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00578, 0, 5.05013)
 
 [node name="Puzzles" type="Node3D" parent="." index="5"]

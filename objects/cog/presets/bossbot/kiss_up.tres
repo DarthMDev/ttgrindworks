@@ -38,7 +38,7 @@ status_effects = Array[ExtResource("8_orhpk")]([ExtResource("9_rpq43")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["Pucker up, Toon.", "Aren't you just darling?", "Is this a good shade on me?", "This will leave a mark.", "My superiors will love this."])
+battle_phrases = Array[String](["Pucker up, Toon.", "Aren't you just darling?", "Is this a good shade on me?", "This will leave a mark.", "My superiors will love this.", "Nobody can gloss over my talents.", "Kiss your chances goodbye."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []
