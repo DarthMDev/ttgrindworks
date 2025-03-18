@@ -40,6 +40,12 @@ HoverManager="*res://objects/globals/hover_manager.tscn"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 DiscordManager="*res://objects/globals/discord_manager.gd"
 
+[crowd_control]
+
+common/game_id="Toontown- The Grindworks"
+common/game_name="Toontown- The Grindworks"
+common/effects="res://effects/effects.tres"
+
 [debug]
 
 gdscript/warnings/unassigned_variable=0
