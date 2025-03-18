@@ -1,8 +1,11 @@
-[gd_resource type="CCEffectEntries" load_steps=6 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=11 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
 [ext_resource type="Script" uid="uid://b54k754wrsmtq" path="res://effects/CCDamage.gd" id="3_f8hh1"]
+[ext_resource type="Script" uid="uid://6dpsk6kilthf" path="res://effects/CCOneHp.gd" id="4_6jwl3"]
+[ext_resource type="Texture2D" uid="uid://cnnvt1t70mcub" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky.glb-pix-1.png" id="5_c4fse"]
+[ext_resource type="Script" uid="uid://t3aeaknl7gcd" path="res://effects/CCAccessory.gd" id="6_sqy00"]
 
 [sub_resource type="CCEffect" id="CCEffect_iv8u2"]
 morality = 1
@@ -21,5 +24,23 @@ display_name = "Damage Player"
 description = "Damages a player by a range of 1-25"
 script = ExtResource("3_f8hh1")
 
+[sub_resource type="CCEffect" id="CCEffect_rvgu7"]
+morality = 2
+id = &"OneHp"
+display_name = "\"Reduce HP To 1\""
+description = "Reduces the player's toon to 1 laff point"
+price = 1500
+script = ExtResource("4_6jwl3")
+metadata/_custom_type_script = "uid://6dpsk6kilthf"
+
+[sub_resource type="CCEffect" id="CCEffect_46vmo"]
+icon = ExtResource("5_c4fse")
+id = &"GiveAccessory"
+display_name = "Give Accessory"
+description = "Gives a random accessory to the player's toon. Can be a duplicate. Can be a bad item or a good item."
+price = 225
+script = ExtResource("6_sqy00")
+metadata/_custom_type_script = "uid://t3aeaknl7gcd"
+
 [resource]
-effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s")]
+effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo")]

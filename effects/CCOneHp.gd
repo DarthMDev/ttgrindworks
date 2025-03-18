@@ -1,13 +1,13 @@
+# Reduces the player's health to 1
 extends CCEffect
 
-class_name CCDamage
-# take 1 - 25 damage
+class_name CCOneHp
+
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-	randomize()
 	var player = Util.get_player()
 	if player != null:
-		player.stats.hp -= randi() % 25 + 1
+		player.stats.hp = 1
 	return SUCCESS
 
 func _can_run() -> bool:
-	return Util.get_player() != null and Util.get_player().stats.hp > 0
+	return Util.get_player() != null and Util.get_player().stats.hp > 1
