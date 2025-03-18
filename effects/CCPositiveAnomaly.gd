@@ -16,12 +16,9 @@ const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_out_of_touch.gd",
 ]
 
-func _trigger(effect: CCEffectInstance) -> EffectResult:
+func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	randomize()
-	var anomaly_script := ANOMALIES_POSITIVE[randi() % ANOMALIES_POSITIVE.size()]
-	var anomaly_instance := load(anomaly_script).new()
 	# add the anomaly to the floor
-	
 	
 	return SUCCESS
 

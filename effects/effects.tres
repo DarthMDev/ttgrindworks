@@ -1,15 +1,25 @@
-[gd_resource type="CCEffectEntries" script_class="CCPositiveAnomaly" load_steps=4 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=6 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
+[ext_resource type="Script" uid="uid://b54k754wrsmtq" path="res://effects/CCDamage.gd" id="3_f8hh1"]
 
 [sub_resource type="CCEffect" id="CCEffect_iv8u2"]
 morality = 1
 icon = ExtResource("1_i3r68")
-display_name = "Positive Anamoly"
-description = "Gives a random positive anomaly that stays till the end of the floor"
+id = &"PositiveAnomaly"
+display_name = "\"Positive Anomaly\""
+description = "Spawns a random Positive Anomaly that lasts until the end of the floor."
 price = 150
+script = ExtResource("2_f8hh1")
+metadata/_custom_type_script = "uid://kqhd3f31c57h"
+
+[sub_resource type="CCEffect" id="CCEffect_8o45s"]
+morality = 2
+id = &"DamagePlayer"
+display_name = "Damage Player"
+description = "Damages a player by a range of 1-25"
+script = ExtResource("3_f8hh1")
 
 [resource]
-effects = [SubResource("CCEffect_iv8u2")]
-script = ExtResource("2_f8hh1")
+effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s")]
