@@ -99,11 +99,11 @@ func get_random_roll_fail_item() -> Item:
 
 func get_random_accessory() -> ItemAccessory:
 	var player := Util.get_player()
-	var items: Array[Item] = player.stats.items
+	var item_pool =  load("://res/objects/items/pools/accessories.tres")
 	var hat: ItemAccessory
 	var glasses: ItemAccessory
 	var backpack: ItemAccessory
-	for item in items:
+	for item in item_pool.items:
 		match item.slot:
 			Item.ItemSlot.HAT:
 				hat = item
