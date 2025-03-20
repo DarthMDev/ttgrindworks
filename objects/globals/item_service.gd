@@ -98,27 +98,7 @@ func get_random_roll_fail_item() -> Item:
 	return get_random_item(load("res://objects/items/pools/item_roll_fails.tres"), true)
 
 func get_random_accessory() -> ItemAccessory:
-	var player := Util.get_player()
-	var item_pool =  load("://res/objects/items/pools/accessories.tres")
-	var hat: ItemAccessory
-	var glasses: ItemAccessory
-	var backpack: ItemAccessory
-	for item in item_pool.items:
-		match item.slot:
-			Item.ItemSlot.HAT:
-				hat = item
-			Item.ItemSlot.GLASSES:
-				glasses = item
-			Item.ItemSlot.BACKPACK:
-				backpack = item
-	var accessories: Array[ItemAccessory] = [hat, glasses, backpack]
-	var accessory_pool: Array[ItemAccessory] = []
-	for accessory in accessories:
-		if accessory:
-			accessory_pool.append(accessory)
-	if accessory_pool.size() == 0:
-		return null
-	return RandomService.array_pick_random('accessory_rolls', accessory_pool)
+	return get_random_item(load("res://objects/items/pools/accessories.tres"), true)
 
 func seen_item(item: Item):
 	if not item in seen_items:
