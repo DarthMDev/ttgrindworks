@@ -161,6 +161,38 @@ func apply_item(player: Player) -> void:
 		print('added %s to item list' % item_name)
 		ItemService.s_item_applied.emit(self)
 
+## Removes item stats and script.
+func remove_item(player: Player) -> void:	
+	var stats := player.stats
+	
+	for stat in stats_add:
+		if str(stat) in stats:
+			if stat == 'money':
+				print("Calling special money func")
+				stats.add_money(-stats_add[stat])
+			elif stat == 'max_hp' or stat == 'hp':
+				stats[stat] -= stats_add[stat] + player.stats.laff_boost_boost
+			else:
+				stats[stat] -= stats_add[stat]
+	
+	for stat in stats_multiply:
+		if str(stat) in stats:
+			stats[stat] /= stats_multiply[stat]
+		elif stat.begins_with("gag_boost:"):
+			var track: String = stat.get_slice(":",1)
+			if track in stats.gag_effectiveness:
+				stats.gag_effectiveness[track] /= stats_multiply[stat]
+	
+	for value in player_values:
+		player.set(value, 0)
+	
+	if remember_item:
+		var place := player.stats.items.find(self)
+		if place != -1:
+			player.stats.items.remove_at(place)
+		print('removed %s from item list' % item_name)
+		ItemService.s_item_removed.emit(self)
+
 const SFX_FALLBACK := 'res://audio/sfx/misc/MG_pairing_all_matched.ogg'
 func play_collection_sound() -> void:
 	if pickup_sfx:

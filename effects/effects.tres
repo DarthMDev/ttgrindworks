@@ -1,4 +1,4 @@
-[gd_resource type="CCEffectEntries" load_steps=17 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=27 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
@@ -10,6 +10,12 @@
 [ext_resource type="Script" uid="uid://c7eonuwonua73" path="res://effects/CCReduceMaxLaff.gd" id="8_rvgu7"]
 [ext_resource type="Texture2D" uid="uid://dexb4j8qjxcfn" path="res://models/props/treasure_chest/treasure_chest-d399a15272bb3709c253ceb8e58370d8_treasure_lock.png" id="9_46vmo"]
 [ext_resource type="Script" uid="uid://b4iye32wuor2b" path="res://effects/CCTreasureChest.gd" id="10_1fwbl"]
+[ext_resource type="Script" uid="uid://5my32jh2m2gx" path="res://effects/CCReduceStats.gd" id="11_oxd6h"]
+[ext_resource type="Texture2D" uid="uid://bfr0abg8111kf" path="res://ui_assets/player_ui/pause/RecordProfits.png" id="12_r58ri"]
+[ext_resource type="Script" uid="uid://cdhqeg5bavxi3" path="res://effects/CCJellybean.gd" id="13_7f2sj"]
+[ext_resource type="Script" uid="uid://ckph56ffdh4u6" path="res://effects/CCGravity.gd" id="14_r58ri"]
+[ext_resource type="Texture2D" uid="uid://4asee1toscuu" path="res://ui_assets/player_ui/pause/tightened_security.png" id="15_d036k"]
+[ext_resource type="Script" uid="uid://bcxenxobkxcy1" path="res://effects/CCNoAccessories.gd" id="16_sf0ka"]
 
 [sub_resource type="CCEffect" id="CCEffect_iv8u2"]
 morality = 1
@@ -66,5 +72,40 @@ price = 300
 script = ExtResource("10_1fwbl")
 metadata/_custom_type_script = "uid://b4iye32wuor2b"
 
+[sub_resource type="CCEffect" id="CCEffect_d036k"]
+morality = 2
+id = &"ReduceStat"
+display_name = "Reduce A Stat"
+description = "Reduces a random stat of the player's toon by 10%."
+price = 175
+script = ExtResource("11_oxd6h")
+metadata/_custom_type_script = "uid://5my32jh2m2gx"
+
+[sub_resource type="CCEffect" id="CCEffect_sf0ka"]
+morality = 1
+icon = ExtResource("12_r58ri")
+id = &"Jellybean"
+display_name = "Give a Jellybean"
+description = "Gives a random jellybean that could be   3,5,7,10,15, or 20 beans"
+price = 100
+script = ExtResource("13_7f2sj")
+
+[sub_resource type="CCEffectTimed" id="CCEffectTimed_7f2sj"]
+duration = 15.0
+id = &"LowGravity"
+display_name = "Low Gravity"
+description = "Gives the player's toon a low gravity effect for 15 seconds"
+price = 100
+script = ExtResource("14_r58ri")
+
+[sub_resource type="CCEffect" id="CCEffect_765t3"]
+morality = 2
+icon = ExtResource("15_d036k")
+id = &"NoAccessories"
+display_name = "Remove All Accessories"
+description = "Removes all accessories from the player's toon"
+script = ExtResource("16_sf0ka")
+metadata/_custom_type_script = "uid://bcxenxobkxcy1"
+
 [resource]
-effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv")]
+effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3")]

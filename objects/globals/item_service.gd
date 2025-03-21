@@ -2,6 +2,7 @@ extends Node
 
 ## Used for UI. Only applies to items with "remember_item" true
 signal s_item_applied(item: Item)
+signal s_item_removed(item: Item)
 
 var seen_items: Array[Item] = []
 # Items currently available for collection in any way
@@ -100,6 +101,9 @@ func get_random_roll_fail_item() -> Item:
 func get_random_accessory() -> ItemAccessory:
 	return get_random_item(load("res://objects/items/pools/accessories.tres"), true)
 
+func get_random_jellybean() -> Item:
+	return get_random_item(BEAN_POOL, true)
+	
 func seen_item(item: Item):
 	if not item in seen_items:
 		seen_items.append(item)
