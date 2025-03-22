@@ -1,4 +1,4 @@
-[gd_resource type="CCEffectEntries" load_steps=27 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=41 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
@@ -16,6 +16,15 @@
 [ext_resource type="Script" uid="uid://ckph56ffdh4u6" path="res://effects/CCGravity.gd" id="14_r58ri"]
 [ext_resource type="Texture2D" uid="uid://4asee1toscuu" path="res://ui_assets/player_ui/pause/tightened_security.png" id="15_d036k"]
 [ext_resource type="Script" uid="uid://bcxenxobkxcy1" path="res://effects/CCNoAccessories.gd" id="16_sf0ka"]
+[ext_resource type="Texture2D" uid="uid://d23er1qplly1g" path="res://ui_assets/battle/statuses/fire_sale_dot.png" id="17_rmwwo"]
+[ext_resource type="Script" uid="uid://d0xbae3xmcbn8" path="res://effects/CCDOTEffect.gd" id="18_s6q5v"]
+[ext_resource type="Texture2D" uid="uid://cy5g6qdrrhvmm" path="res://models/props/treasure_chest/treasure_chest-d399a15272bb3709c253ceb8e58370d8_treasure_beans.png" id="19_10vbh"]
+[ext_resource type="Script" uid="uid://uk76biyejc1o" path="res://effects/CCTakeJellybeans.gd" id="20_tqgp3"]
+[ext_resource type="Script" uid="uid://ch6elyw7b57u5" path="res://effects/CCLaffBoost.gd" id="21_hps62"]
+[ext_resource type="Texture2D" uid="uid://cto8jw1fuwx" path="res://objects/items/custom/treasure/zzz.png" id="22_nnjwj"]
+[ext_resource type="Script" path="res://effects/CCFullheal.gd" id="23_e1ma0"]
+[ext_resource type="Texture2D" uid="uid://cmaiqamk4cdyh" path="res://ui_assets/player_ui/pause/Volatile_Market.png" id="24_dv4dc"]
+[ext_resource type="Script" path="res://effects/CCNoJumping.gd" id="25_d5qei"]
 
 [sub_resource type="CCEffect" id="CCEffect_iv8u2"]
 morality = 1
@@ -107,5 +116,54 @@ description = "Removes all accessories from the player's toon"
 script = ExtResource("16_sf0ka")
 metadata/_custom_type_script = "uid://bcxenxobkxcy1"
 
+[sub_resource type="CCEffect" id="CCEffect_d8nx5"]
+morality = 2
+icon = ExtResource("17_rmwwo")
+id = &"DOTEffect"
+display_name = "Apply A DOT Effect"
+description = "Applies a damage over time effect (only while in battle) that lasts for 3 rounds"
+price = 250
+script = ExtResource("18_s6q5v")
+metadata/_custom_type_script = "uid://d0xbae3xmcbn8"
+
+[sub_resource type="CCEffect" id="CCEffect_picxm"]
+morality = 2
+icon = ExtResource("19_10vbh")
+id = &"TakeJellybeans"
+display_name = "Take Jellybeans"
+description = "Take a random amount of jellybeans between 1 and 20"
+price = 125
+script = ExtResource("20_tqgp3")
+metadata/_custom_type_script = "uid://uk76biyejc1o"
+
+[sub_resource type="CCEffect" id="CCEffect_ay7vo"]
+morality = 1
+icon = ExtResource("1_i3r68")
+id = &"LaffBoost"
+display_name = "Give a laff boost"
+description = "Increases the player's toon's max health (laff) by 1-6"
+price = 100
+script = ExtResource("21_hps62")
+metadata/_custom_type_script = "uid://ch6elyw7b57u5"
+
+[sub_resource type="CCEffect" id="CCEffect_83it1"]
+morality = 1
+icon = ExtResource("22_nnjwj")
+id = &"FullHeal"
+display_name = "Full Heal"
+description = "Fully heals the player's toon to max health."
+price = 500
+script = ExtResource("23_e1ma0")
+
+[sub_resource type="CCEffectTimed" id="CCEffectTimed_uywln"]
+duration = 15.0
+morality = 2
+icon = ExtResource("24_dv4dc")
+id = &"NoJumping"
+display_name = "Disable Jumping"
+description = "Disables jumping for 15 seconds."
+price = 500
+script = ExtResource("25_d5qei")
+
 [resource]
-effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3")]
+effects = [SubResource("CCEffect_iv8u2"), SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3"), SubResource("CCEffect_d8nx5"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln")]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://be2ibh8owt5l6"]
+
+[ext_resource type="Texture2D" uid="uid://d23er1qplly1g" path="res://ui_assets/battle/statuses/fire_sale_dot.png" id="1_jy1ug"]
+[ext_resource type="Script" uid="uid://qhy2xpnraygj" path="res://objects/battle/battle_resources/status_effects/crowd_control_burn.gd" id="2_g72re"]
+
+[resource]
+script = ExtResource("2_g72re")
+quality = 0
+rounds = 3
+icon = ExtResource("1_jy1ug")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Burns the toon for 3 rounds"
+status_name = "Crowd Control Burn"
+id = 0
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

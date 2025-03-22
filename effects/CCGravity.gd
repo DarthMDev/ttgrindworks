@@ -24,3 +24,8 @@ func _can_run() -> bool:
 func _cleanup() -> void:
     player.gravity = original_gravity
 
+func _resume() -> void:
+    player.gravity *= GRAVITY_MULTIPLIER
+
+func _pause() -> void:
+    player.gravity = original_gravity
