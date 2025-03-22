@@ -68,3 +68,9 @@ func refresh_anomalies(anomaly_list : Array[Script]) -> void:
 		var icon : Control = ANOMALY_ICON.load().instantiate()
 		icon.anomaly = anomaly
 		anomaly_container.add_child(icon)
+
+## The game already saves when you enter the scene
+## The button says "Save and Quit" as emotional support for worried players
+func quit_to_title() -> void:
+	SceneLoader.clear_persistent_nodes()
+	SceneLoader.load_into_scene("res://scenes/title_screen/title_screen.tscn")

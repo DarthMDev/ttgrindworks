@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt42sn63or30c"]
+[gd_scene load_steps=13 format=3 uid="uid://dt42sn63or30c"]
 
 [ext_resource type="Script" uid="uid://bfuflsubgj4yw" path="res://scenes/elevator_scene/ui/elevator_ui.gd" id="1_40t5q"]
 [ext_resource type="PackedScene" uid="uid://dlp6mtytyn20m" path="res://scenes/elevator_scene/ui/floor_type_button/floor_type_button.tscn" id="2_oy686"]
@@ -6,12 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://bkbmvj823roof" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDown.png" id="4_6hq0i"]
 [ext_resource type="Texture2D" uid="uid://xhprgs7k8i2r" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDisabled.png" id="5_tp3de"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="6_cc51c"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="7_epr1m"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="8_waig3"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="9_3jat1"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="10_a4f0k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q8ve"]
 font = ExtResource("6_cc51c")
 font_size = 32
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.776471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5cuv"]
+font = ExtResource("6_cc51c")
+font_size = 24
 
 [node name="ElevatorUI" type="Control"]
 layout_mode = 3
@@ -111,6 +119,33 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="ContinueButton" parent="." instance=ExtResource("7_epr1m")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.0
+offset_right = 0.0
+offset_bottom = 72.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+texture_normal = ExtResource("8_waig3")
+texture_pressed = ExtResource("9_3jat1")
+texture_hover = ExtResource("10_a4f0k")
+texture_disabled = null
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Save & Quit"
+
+[node name="Label" parent="ContinueButton" index="0"]
+text = "Save & Quit"
+label_settings = SubResource("LabelSettings_b5cuv")
+
 [connection signal="s_floor_selected" from="FloorChooser/FloorTypeButton" to="." method="floor_selected"]
 [connection signal="pressed" from="FloorChooser/ArrowLeft" to="." method="move_floor_index" binds= [-1]]
 [connection signal="pressed" from="FloorChooser/ArrowRight" to="." method="move_floor_index" binds= [1]]
+[connection signal="pressed" from="ContinueButton" to="." method="quit_to_title"]
+
+[editable path="ContinueButton"]

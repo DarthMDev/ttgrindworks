@@ -28,7 +28,7 @@ class_name BattleStats
 			print('accuracy set to ' + str(x))
 		s_accuracy_changed.emit(x)
 
-const MIN_SPEED := 0.6
+const MIN_SPEED := 0.7
 const MAX_SPEED := 2.0
 @export var speed := 1.0:
 	set(x):

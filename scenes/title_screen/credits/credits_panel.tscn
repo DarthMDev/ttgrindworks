@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cha3dccp1m281"]
+[gd_scene load_steps=99 format=3 uid="uid://cha3dccp1m281"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_py1ix"]
 [ext_resource type="Script" uid="uid://b2tqjgqv6xn1p" path="res://scenes/title_screen/credits/credits_panel.gd" id="2_3oeyj"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="26_vw3sy"]
 [ext_resource type="Texture2D" uid="uid://bkcjr8w1brcn1" path="res://scenes/title_screen/credits/icons/icon_demetri.png" id="27_bxmax"]
 [ext_resource type="Texture2D" uid="uid://ngsvdsnhp76n" path="res://scenes/title_screen/credits/icons/icon_sandy.png" id="27_xwo8y"]
+[ext_resource type="Texture2D" uid="uid://b58id8ex3i11a" path="res://scenes/title_screen/credits/icons/icon_dj.png" id="28_5eg4f"]
+[ext_resource type="Texture2D" uid="uid://c663pknfxf1mk" path="res://scenes/title_screen/credits/icons/icon_squiddy.png" id="29_id6o1"]
 [ext_resource type="Texture2D" uid="uid://cyuwqr76tu2ae" path="res://scenes/title_screen/credits/icons/icon_trd.png" id="29_p23p7"]
 [ext_resource type="Texture2D" uid="uid://c37iueu6orhrx" path="res://scenes/title_screen/credits/icons/icon_blu_toon.jpg" id="30_5eg4f"]
 
@@ -52,7 +54,7 @@ shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 script = ExtResource("3_ksngi")
 icon = ExtResource("4_h6qo8")
 name = "Evan"
-role = "Project Lead, Programmer & Designer"
+role = "Project Lead, Programmer & Game Designer"
 label_settings = SubResource("LabelSettings_yadbj")
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8ymr"]
@@ -97,8 +99,22 @@ shadow_color = Color(0.0861411, 0.321197, 0.101117, 0.58)
 script = ExtResource("3_ksngi")
 icon = ExtResource("29_p23p7")
 name = "TheRandomDog"
-role = "Game Programmer"
+role = "Programmer"
 label_settings = SubResource("LabelSettings_ncy1i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsh7l"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.643137, 0.403922, 0.752941, 1)
+shadow_color = Color(0.356863, 0.188235, 0.435294, 0.686275)
+
+[sub_resource type="Resource" id="Resource_ohq2p"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("29_id6o1")
+name = "squiddy"
+role = "Programmer"
+label_settings = SubResource("LabelSettings_bsh7l")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_2m611"]
 script = ExtResource("3_ksngi")
@@ -242,6 +258,20 @@ name = "Buck"
 role = "Programmer, Composer & Sound Designer"
 label_settings = SubResource("LabelSettings_34e88")
 
+[sub_resource type="LabelSettings" id="LabelSettings_id6o1"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0, 0.501961, 0.501961, 1)
+shadow_color = Color(0, 0.184314, 0.184314, 0.419608)
+
+[sub_resource type="Resource" id="Resource_edme2"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("28_5eg4f")
+name = "callmeDJ"
+role = "Composer"
+label_settings = SubResource("LabelSettings_id6o1")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
 [sub_resource type="LabelSettings" id="LabelSettings_dxg0f"]
 font = ExtResource("3_8rgp0")
 font_size = 24
@@ -254,7 +284,7 @@ shadow_color = Color(0.064, 0.1368, 0.4, 0.584314)
 script = ExtResource("3_ksngi")
 icon = ExtResource("11_bjiit")
 name = "Jake Henderson"
-role = "Writer & Designer"
+role = "Writer & Game Designer"
 label_settings = SubResource("LabelSettings_dxg0f")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lp0s0"]
@@ -284,7 +314,7 @@ shadow_color = Color(0.0861411, 0.321197, 0.101117, 0.58)
 script = ExtResource("3_ksngi")
 icon = ExtResource("18_jfa0w")
 name = "StuckTheDuck"
-role = "Writer"
+role = "Writer, Game Designer & Polisher"
 label_settings = SubResource("LabelSettings_01t16")
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
@@ -340,6 +370,21 @@ name = "John Boyo"
 role = "Quality Assurance"
 label_settings = SubResource("LabelSettings_rdjg7")
 
+[sub_resource type="LabelSettings" id="LabelSettings_bxmax"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.255, 0.412, 0.886, 1)
+outline_color = Color(1.50409e-07, 0, 0.157023, 1)
+shadow_size = 4
+shadow_color = Color(0.064, 0.137, 0.4, 0.58)
+
+[sub_resource type="Resource" id="Resource_m42v0"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("14_ronfa")
+name = "Greetings"
+role = "Consultant"
+label_settings = SubResource("LabelSettings_bxmax")
+
 [sub_resource type="Resource" id="Resource_c5kur"]
 script = ExtResource("3_ksngi")
 icon = ExtResource("19_12m3w")
@@ -350,12 +395,6 @@ role = "Cog Rigs"
 script = ExtResource("3_ksngi")
 icon = ExtResource("17_i8d8j")
 name = "Goatcanon"
-role = ""
-
-[sub_resource type="Resource" id="Resource_m42v0"]
-script = ExtResource("3_ksngi")
-icon = ExtResource("14_ronfa")
-name = "Greetings"
 role = ""
 
 [sub_resource type="Resource" id="Resource_bsh7l"]
@@ -414,8 +453,8 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_c5kur")])
-special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_m42v0"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur")])
+special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
 
