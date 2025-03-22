@@ -97,6 +97,9 @@ func get_head() -> Node3D:
 			mat.albedo_color = head_color
 			head_mesh.set_surface_override_material(i,mat)
 	
+	if head_shader:
+		head_shader.apply_shader(head_mesh)
+	
 	return head_mod
 
 func combine_attributes(second_dna: CogDNA) -> void:

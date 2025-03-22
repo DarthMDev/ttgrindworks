@@ -143,9 +143,6 @@ bones/57/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
 bones/58/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
 bones/59/rotation = Quaternion(0.00074354, 0.707106, -0.00074354, 0.707106)
 
-[node name="LightBone" parent="GoonBoss/goon/Skeleton3D" index="42"]
-transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 0.812955, 0.0139425)
-
 [node name="goon_light" parent="GoonBoss/goon/Skeleton3D/LightBone" index="0"]
 transform = Transform3D(27.81, 0, 0, 0, 19.935, 0, 0, 0, 5.98, 0, -24.79, 7.235)
 visible = false

@@ -187,8 +187,6 @@ func pack_model(file_path : String) -> PackedScene:
 
 func on_player_died() -> void:
 	get_tree().paused = true
-	# Have save file deleted
-	SaveFileService.on_game_over()
 
 	lose_menu = LOSE_MENU.load().instantiate()
 	add_child(lose_menu)

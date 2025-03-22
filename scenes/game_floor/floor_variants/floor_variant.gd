@@ -61,15 +61,18 @@ const LEVEL_RANGES: Dictionary = {
 
 @export var floor_icon: Texture2D
 
+## Saved for game loading
+@export var anomalies: Array[Script] = []
+@export var reward: Item
+@export var level_range := Vector2i(1,12)
+@export var room_count := 13
+@export var discard_item: Item
+
 
 ## Local vars not saved to
-var anomaly_count := 0
-var level_range := Vector2i(1,12)
-var reward: Item
-var discard_item: Item
-var room_count := 13
-var anomalies: Array[Script] = []
 var has_power_out := false
+var anomaly_count := 0
+
 
 func _notification(what: int):
 	if what == NOTIFICATION_PREDELETE:
