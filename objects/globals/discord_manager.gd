@@ -1,6 +1,6 @@
 extends Node
 
-
+var isLaffObscured = false
 const AVAILABLE_IMAGE_KEYS = ['ttgrindworks', 'tt-grindworks-small', 'character_flippy', 'character_clara', 'character_wheezer', 'character_bessie', 'character_moe', 'character_random_toon', 'da_office', 'The_Mint', 'CGC', 'factory', 'unknown']
 func _ready():
     if SaveFileService.settings_file.get("discord_rpc") == false:
@@ -15,11 +15,23 @@ func update_presence():
         return
     var floor_text = "Floor %d" % [Util.floor_number]
     DiscordRPC.details = ("Infiltrating the Facilities" + " - " + floor_text)
+    if Util.floor_manager.anomalies:
+        for anomaly in Util.floor_manager.anomalies:
+            if anomaly.get_mod_name() == "Out of Touch":
+                isLaffObscured = true
+                break
+    var parts = PackedStringArray([])
+    if isLaffObscured:
+         parts = PackedStringArray([
+            "? / ? Laff",
+            "%d Jellybeans" % Util.player.stats.money
+        ])
+    else:
+         parts = PackedStringArray([
+            "%d / %d Laff" % [Util.player.stats.hp, Util.player.stats.max_hp],
+            "%d Jellybeans" % Util.player.stats.money
+        ])
     
-    var parts = PackedStringArray([
-        "%d / %d Laff" % [Util.player.stats.hp, Util.player.stats.max_hp],
-        "%d Jellybeans" % Util.player.stats.money
-    ])
     parts = ' - '.join(parts)
     DiscordRPC.state = parts
     
