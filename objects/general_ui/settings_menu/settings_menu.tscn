@@ -580,7 +580,7 @@ press_db_offset = 0.0
 text = "Off"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" index="0"]
-text = "On"
+text = "Off"
 label_settings = SubResource("LabelSettings_xxrhd")
 
 [node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
