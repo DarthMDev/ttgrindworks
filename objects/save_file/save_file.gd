@@ -9,6 +9,7 @@ class_name SaveFile
 @export var items_in_play: Array[Item] = []
 @export var player_dna: ToonDNA
 @export var game_time := 0.0
+@export var floor_choice : FloorVariant = null
 
 func save_to(file_name: String):
 	ResourceSaver.save(self, SaveFileService.SAVE_FILE_PATH + file_name)

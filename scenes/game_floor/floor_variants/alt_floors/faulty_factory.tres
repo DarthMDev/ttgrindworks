@@ -21,3 +21,6 @@ floor_name = "The Faulty Factory"
 modifiers = Array[Script]([ExtResource("2_61pcp"), ExtResource("2_1ft4g")])
 end_rooms = Array[ExtResource("1_6lg5s")]([SubResource("Resource_nkyqb")])
 floor_icon = ExtResource("2_djfgp")
+anomalies = Array[Script]([])
+level_range = Vector2i(1, 12)
+room_count = 13
