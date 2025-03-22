@@ -17,8 +17,8 @@
 *.dmg
 
 *.zip
-<<<<<<< HEAD
 
 # Mods
 /mods-unpacked
 /mods
+/mods-disabled
