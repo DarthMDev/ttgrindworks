@@ -54,7 +54,7 @@ const DEBUG_COLLISION_PRINT := false
 @onready var item_node := $Items
 @onready var boost_queue: BoostQueue = %BoostTextQueue
 @onready var game_timer: Control = $GameTimer
-var game_timer_tick := true
+var game_timer_tick := false
 
 ## Misc.
 var run_speed := 8.0
@@ -334,7 +334,8 @@ func lose():
 	if state == PlayerState.SAD:
 		# Thog don't care if we're already in the sad state
 		return
-
+	
+	SaveFileService.on_game_over()
 	state = PlayerState.SAD
 	Util.stuck_lock = false
 	set_animation('lose')

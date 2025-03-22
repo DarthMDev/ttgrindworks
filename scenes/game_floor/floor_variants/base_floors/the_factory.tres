@@ -16,3 +16,6 @@ modifiers = Array[Script]([ExtResource("3_pwr50")])
 end_rooms = Array[ExtResource("2_yv3k5")]([])
 alt_floor = ExtResource("1_i5xdj")
 floor_icon = ExtResource("2_34xr8")
+anomalies = Array[Script]([])
+level_range = Vector2i(1, 12)
+room_count = 13

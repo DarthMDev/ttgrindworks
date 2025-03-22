@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_c3vcg")
 damage_redirected = 0.15
-levels_gained = 3
+maxhp_boost = 1.5
 quality = 0
 rounds = -1
 icon = ExtResource("1_mxxn1")

@@ -136,14 +136,6 @@ func set_dna(cog_dna: CogDNA, full_reset := true) -> void:
 	attacks = get_attacks()
 	construct_cog()
 	set_up_stats()
-	
-func set_new_level(new_level: int):
-	level = new_level
-	var health_percentage: float = stats.hp / stats.max_hp
-	
-	set_up_stats()
-	
-	stats.hp = round(stats.max_hp * health_percentage)
 
 func roll_for_attributes() -> void:
 	# Skelecog perchance?
@@ -259,6 +251,7 @@ func construct_cog():
 	
 	# Some Cog shaders want to change aspects of a Cog's DNA before building
 	if dna.head_shader:
+		dna.head_shader = dna.head_shader.duplicate()
 		dna.head_shader.tweak_cog(self)
 	
 	if fusion:
@@ -468,7 +461,7 @@ func lose():
 	var gear_part: GPUParticles3D = load("res://objects/battle/effects/cog_gears/cog_gears.tscn").instantiate()
 	lose_mod.add_child(gear_part)
 	gear_part.global_position = department_emblem.global_position
-	if RandomService.randi_channel('true_random') % 10000 == 0:
+	if RandomService.randi_channel('true_random') % 5000 == 0:
 		gear_part.amount = 6000
 		Globals.s_cog_volcano.emit()
 	
