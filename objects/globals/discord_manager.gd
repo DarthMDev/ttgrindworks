@@ -11,6 +11,7 @@ func _ready():
         print("Discord RPC extension not loaded")
 
 func update_presence():
+    isLaffObscured = false
     if SaveFileService.settings_file.get("discord_rpc") == false:
         return
     var floor_text = "Floor %d" % [Util.floor_number]
