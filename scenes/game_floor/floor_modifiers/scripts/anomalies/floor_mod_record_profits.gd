@@ -12,6 +12,8 @@ func on_battle_start(battle : BattleManager) -> void:
 
 func battle_participant_dying(participant : Node3D) -> void:
 	if participant is Cog and Util.get_player():
+		if participant.virtual_cog:
+			return
 		Util.get_player().stats.add_money(RandomService.randi_channel('true_random') % REWARD_AMOUNT)
 		AudioManager.play_sound(EARN_SFX)
 

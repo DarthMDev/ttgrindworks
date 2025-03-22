@@ -27,7 +27,9 @@ Enjoy!
 - Bludoo
   - Programmer & Game Designer
 - TheRandomDog
-  - Game Programmer
+  - Programmer
+- squiddy
+  - Programmer
 - Kel'Block
   - 3D Artist, Animator & Texture Artist
 - Elisei
@@ -48,12 +50,14 @@ Enjoy!
   - Composer
 - Buck
   - Programmer, Composer & Sound Designer
+- callmeDJ
+  - Composer
 - Jake Henderson
-  - Writer & Designer
+  - Writer & Game Designer
 - LadyMisticus
   - Writer & Character Designer
 - StuckTheDuck
-  - Writer
+  - Writer, Game Designer & Polisher
 - Niko Frost
   - Quality Assurance
 - Raine
@@ -62,11 +66,12 @@ Enjoy!
   - Quality Assurance
 - John Boyo
   - Quality Assurance
+- Greetings
+  - Consultant
 - Toontown: Event Horizon
   - Cog Rigs
 ### Special Thanks
 - Goatcanon
-- Greetings
 - Just a BLU Toon
 - Niji
 - Princess Sandy

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://cudwcuvcc3ya6"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_drjxw"]
+
+[resource]
+script = ExtResource("1_drjxw")
+release_version = "v1.0.5"
+notes = "[TITLE]Bosses
+One of Union Buster's moves now gives a Max HP bonus to avoid calculation bugs that would occur with levels
+[TITLE]Tweaks
+The Sellbot Factory has been given new battle music
+The game timer will now start when you load into the Ground Floor
+Your save file will now remember which floor you chose
+Save files are instantly deleted when the player goes sad, no longer waiting for the animation to finish
+Increased minimum player speed value to 0.7
+Renamed Samba Hat to Fruit Hat
+Added a Save & Quit button to the Elevator Scene
+Made a rare achievement twice as common
+[TITLE]Bugfixes
+Fixed Rainbow Capitalist's head color not being reflected in the battle GUI
+Fixed the scaling of the Bean Counter/Downsizer head
+Virtual Cogs no longer count towards Record Profits
+Virtual Cogs in the Security Goon Boss Fight now count towards ToonTasks"
