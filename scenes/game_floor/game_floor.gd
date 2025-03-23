@@ -299,6 +299,11 @@ func player_out_of_bounds(player : Player) -> void:
 	player.global_position = entrance_node.global_position
 	player.fall_in(true)
 
+func add_anomaly(anomaly: FloorModifier) -> void:
+	anomalies.append(anomaly)
+	$AnomalyTracker.anomalies = anomalies
+	$AnomalyTracker.show()
+	$AnomalyTracker.play()
 
 #region GAME TRACKING
 ## Game Signals
