@@ -1,4 +1,4 @@
-[gd_resource type="CCEffectEntries" load_steps=67 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=78 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
@@ -38,8 +38,15 @@
 [ext_resource type="Script" uid="uid://1q6anuhy7ty1" path="res://effects/CCRandomConsumable.gd" id="36_bdoa8"]
 [ext_resource type="Texture2D" uid="uid://cgfb42t3nnpsa" path="res://objects/items/custom/gag_voucher/ticket.png" id="37_knm4r"]
 [ext_resource type="Script" uid="uid://c4hqlw2elj1r" path="res://effects/CCRandomVoucher.gd" id="38_mqnts"]
-[ext_resource type="Script" path="res://effects/CCRemoveConsumables.gd" id="39_5w3h2"]
+[ext_resource type="Script" uid="uid://e14awydwss0t" path="res://effects/CCRemoveConsumables.gd" id="39_5w3h2"]
 [ext_resource type="Texture2D" uid="uid://d287ggcuhiolk" path="res://ui_assets/battle/gags/inventory_feather.png" id="40_bdoa8"]
+[ext_resource type="Texture2D" uid="uid://cabh8sh536557" path="res://ui_assets/battle/statuses/evasiveness.png" id="41_e1vbt"]
+[ext_resource type="Script" uid="uid://rjt305edgsa3" path="res://effects/CCBuff.gd" id="42_33adf"]
+[ext_resource type="Texture2D" uid="uid://ca70trnfykg5p" path="res://ui_assets/battle/statuses/defense.png" id="43_7e3c1"]
+[ext_resource type="Script" path="res://effects/CCNerf.gd" id="44_hmce4"]
+[ext_resource type="Texture2D" uid="uid://ce0sy8ma2flt1" path="res://objects/items/custom/track_film/filmstrip.png" id="45_7g8m6"]
+[ext_resource type="Script" path="res://effects/CCAddGagLevel.gd" id="46_whdte"]
+[ext_resource type="Script" path="res://effects/CCRemoveGagLevel.gd" id="47_33adf"]
 
 [sub_resource type="CCEffect" id="CCEffect_8o45s"]
 morality = 2
@@ -126,8 +133,8 @@ morality = 2
 icon = ExtResource("17_rmwwo")
 id = &"DOTEffect"
 display_name = "Apply A DOT Effect"
-description = "Applies a damage over time effect (only while in battle) that lasts for 3 rounds"
-price = 250
+description = "Applies a damage over time effect (only while in battle) that lasts for 1 round"
+price = 125
 script = ExtResource("18_s6q5v")
 metadata/_custom_type_script = "uid://d0xbae3xmcbn8"
 
@@ -267,6 +274,7 @@ metadata/_custom_type_script = "uid://c4hqlw2elj1r"
 [sub_resource type="CCEffect" id="CCEffect_33adf"]
 morality = 2
 icon = ExtResource("37_knm4r")
+icon_color = Color(1, 0, 0, 1)
 id = &"RemoveVouchers"
 display_name = "Remove All Vouchers"
 description = "Removes all gag vouchers from the player's toon"
@@ -282,5 +290,43 @@ description = "Removes all battle consumables (besides pink slips)"
 price = 1000
 script = ExtResource("39_5w3h2")
 
+[sub_resource type="CCEffect" id="CCEffect_2a6ev"]
+morality = 1
+icon = ExtResource("41_e1vbt")
+id = &"Buff"
+display_name = "Add a buff"
+description = "Adds 1 round of a  random stat buff.  Only in battles"
+price = 100
+script = ExtResource("42_33adf")
+metadata/_custom_type_script = "uid://rjt305edgsa3"
+
+[sub_resource type="CCEffect" id="CCEffect_u7id6"]
+morality = 2
+icon = ExtResource("43_7e3c1")
+icon_color = Color(1, 0, 0, 1)
+id = &"Nerf"
+display_name = "Add a nerf"
+description = "Adds a random stat nerf only in battles. Last for 1 round"
+price = 125
+script = ExtResource("44_hmce4")
+
+[sub_resource type="CCEffect" id="CCEffect_vkqpa"]
+morality = 1
+icon = ExtResource("45_7g8m6")
+id = &"AddGagLevel"
+display_name = "Add a gag level"
+description = "Adds a random gag level to the player's toon"
+price = 225
+script = ExtResource("46_whdte")
+
+[sub_resource type="CCEffect" id="CCEffect_hmce4"]
+morality = 2
+icon = ExtResource("45_7g8m6")
+icon_color = Color(1, 0, 0, 1)
+display_name = "RemoveGagLevel"
+description = "Removes a random gag level from the player's toon"
+price = 250
+script = ExtResource("47_33adf")
+
 [resource]
-effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3"), SubResource("CCEffect_d8nx5"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_33adf"), SubResource("CCEffect_7e3c1")]
+effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3"), SubResource("CCEffect_d8nx5"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_33adf"), SubResource("CCEffect_7e3c1"), SubResource("CCEffect_2a6ev"), SubResource("CCEffect_u7id6"), SubResource("CCEffect_vkqpa"), SubResource("CCEffect_hmce4")]

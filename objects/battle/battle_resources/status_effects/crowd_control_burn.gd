@@ -12,7 +12,7 @@ var applied := false
 var dot_visual_status: StatusEffect
 
 # same as fire sale but no cog involved, just the player, 
-# also as defined in the scene, 3 rounds of damage
+# also as defined in the scene, 1 round of damage
 func apply() -> void:
 	player = Util.get_player()
 	damage = roundi(float(-Util.get_hazard_damage()) * 0.8)
@@ -64,7 +64,7 @@ func application_movie() -> void:
 	dot_visual_status = VISUAL_DOT.duplicate()
 	dot_visual_status.description = "%d damage per round" % damage
 	dot_visual_status.target = player
-	dot_visual_status.rounds = 3
+	dot_visual_status.rounds = 1
 	manager.add_status_effect(dot_visual_status)
 
 	await movie.finished
