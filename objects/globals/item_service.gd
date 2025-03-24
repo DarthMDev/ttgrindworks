@@ -103,6 +103,12 @@ func get_random_accessory() -> ItemAccessory:
 
 func get_random_jellybean() -> Item:
 	return get_random_item(BEAN_POOL, true)
+
+func get_random_voucher() -> Item:
+	return load("res://objects/items/resources/passive/gag_voucher_small.tres")
+
+func get_random_consumable() -> Item:
+	return get_random_item(load("res://objects/items/pools/consumables.tres"), true)
 	
 func seen_item(item: Item):
 	if not item in seen_items:

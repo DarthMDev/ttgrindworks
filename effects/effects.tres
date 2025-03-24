@@ -1,4 +1,4 @@
-[gd_resource type="CCEffectEntries" load_steps=57 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=67 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
@@ -33,7 +33,13 @@
 [ext_resource type="Texture2D" uid="uid://bdu2rdg517iyi" path="res://objects/items/custom/treasure/ice_cream.png" id="31_83it1"]
 [ext_resource type="Script" uid="uid://dyiiui7t3xf4" path="res://effects/CCTreasure.gd" id="32_uywln"]
 [ext_resource type="Script" uid="uid://cnoi3wh7yn7ep" path="res://effects/CCInstaSadness.gd" id="33_d5qei"]
-[ext_resource type="Script" path="res://effects/CCRemoveRandomAccessory.gd" id="34_d8nx5"]
+[ext_resource type="Script" uid="uid://cwrpi24fcxweq" path="res://effects/CCRemoveRandomAccessory.gd" id="34_d8nx5"]
+[ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="35_hhna7"]
+[ext_resource type="Script" uid="uid://1q6anuhy7ty1" path="res://effects/CCRandomConsumable.gd" id="36_bdoa8"]
+[ext_resource type="Texture2D" uid="uid://cgfb42t3nnpsa" path="res://objects/items/custom/gag_voucher/ticket.png" id="37_knm4r"]
+[ext_resource type="Script" uid="uid://c4hqlw2elj1r" path="res://effects/CCRandomVoucher.gd" id="38_mqnts"]
+[ext_resource type="Script" path="res://effects/CCRemoveConsumables.gd" id="39_5w3h2"]
+[ext_resource type="Texture2D" uid="uid://d287ggcuhiolk" path="res://ui_assets/battle/gags/inventory_feather.png" id="40_bdoa8"]
 
 [sub_resource type="CCEffect" id="CCEffect_8o45s"]
 morality = 2
@@ -238,5 +244,43 @@ description = "Removes an accessory at random from the player's toon."
 price = 250
 script = ExtResource("34_d8nx5")
 
+[sub_resource type="CCEffect" id="CCEffect_3bhnd"]
+morality = 1
+icon = ExtResource("35_hhna7")
+id = &"RandomConsumable"
+display_name = "Give Consumable"
+description = "Gives a random toonup consumable item."
+price = 150
+script = ExtResource("36_bdoa8")
+metadata/_custom_type_script = "uid://1q6anuhy7ty1"
+
+[sub_resource type="CCEffect" id="CCEffect_e1vbt"]
+morality = 1
+icon = ExtResource("37_knm4r")
+id = &"RandomVoucher"
+display_name = "Give a Voucher"
+description = "Gives a random gag voucher"
+price = 150
+script = ExtResource("38_mqnts")
+metadata/_custom_type_script = "uid://c4hqlw2elj1r"
+
+[sub_resource type="CCEffect" id="CCEffect_33adf"]
+morality = 2
+icon = ExtResource("37_knm4r")
+id = &"RemoveVouchers"
+display_name = "Remove All Vouchers"
+description = "Removes all gag vouchers from the player's toon"
+price = 700
+script = ExtResource("39_5w3h2")
+
+[sub_resource type="CCEffect" id="CCEffect_7e3c1"]
+morality = 2
+icon = ExtResource("40_bdoa8")
+id = &"RemoveConsumables"
+display_name = "Remove All Consumables"
+description = "Removes all battle consumables (besides pink slips)"
+price = 1000
+script = ExtResource("39_5w3h2")
+
 [resource]
-effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3"), SubResource("CCEffect_d8nx5"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r")]
+effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_765t3"), SubResource("CCEffect_d8nx5"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_33adf"), SubResource("CCEffect_7e3c1")]
