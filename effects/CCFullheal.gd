@@ -7,8 +7,6 @@ var player = Util.get_player()
 # Fully heals the player
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     player.stats.hp = player.stats.max_hp
     return SUCCESS
 

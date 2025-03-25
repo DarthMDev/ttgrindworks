@@ -6,8 +6,6 @@ var player = Util.get_player()
 
 # Removes a random amount of jellybeans from the player (1-20)
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     var jellybeans = player.stats.money
     randomize()
     var amount = randi_range(1, 20)

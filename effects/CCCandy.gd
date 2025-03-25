@@ -7,8 +7,6 @@ var player = Util.get_player()
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	candy = ItemService.get_random_candy()
-	if player == null:
-		return FAILURE
 	candy.apply_item(player)
 	return SUCCESS
 

@@ -6,8 +6,6 @@ var accessory: ItemAccessory
 # Gives the toon a random accessory
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	if player == null:
-		return FAILURE
 	accessory = ItemService.get_random_accessory()
 	accessory.apply_item(player)        
 		

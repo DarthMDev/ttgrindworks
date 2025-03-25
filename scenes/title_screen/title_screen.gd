@@ -32,12 +32,14 @@ enum MenuState {
 @onready var new_game_menu: Control = %NewGameMenu
 @onready var new_game_button: GeneralButton = %NewGameButton
 @onready var continue_button: GeneralButton = %ContinueButton
+@onready var cc_button: GeneralButton = %CrowdControlButton
 @onready var settings_button: GeneralButton = %SettingsButton
 @onready var quit_button: GeneralButton = %QuitButton
 @onready var toon_summary: Control = %ToonSummary
 @onready var click_label := %ClickLabel
 @onready var middle_buttons: VBoxContainer = %MiddleButtons
-
+@export var AuthPopup: Popup
+@export var LoginPanel: PanelContainer
 var selected_toon: Toon
 var selected_character: PlayerCharacter
 var random_toon_name := ""
@@ -51,6 +53,11 @@ var has_existing_run: bool:
 
 var is_loading := true
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		SaveFileService._save_progress()
+		if CrowdControl.is_connected_to_crowd_control():
+			CrowdControl.close()
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -86,6 +93,8 @@ func _ready() -> void:
 	quit_button.pressed.connect(
 		func():
 			SaveFileService._save_progress()
+			if CrowdControl.is_connected_to_crowd_control():
+				CrowdControl.close()
 			get_tree().quit()
 	)
 	
@@ -110,7 +119,14 @@ func _ready() -> void:
 	AudioManager.set_default_music(load("res://audio/music/main_theme.ogg"))
 	
 	Globals.s_title_screen_entered.emit(self)
-
+	# get the original size of the cc button and set the width to x2
+	cc_button.set_size(Vector2(cc_button.size.x * 5, cc_button.size.y))
+	CrowdControl.disconnected.connect(_on_CrowdControl_disconnected)
+	CrowdControl.logged_out.connect(_on_CrowdControl_logged_out)
+	CrowdControl.logged_in.connect(_on_CrowdControl_logged_in)
+	if CrowdControl.is_connected_to_crowd_control():
+		cc_button.text = "CC Off"
+		
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:
 		spring_arm.rotation_degrees.y += CAMERA_SPEED * delta
@@ -316,3 +332,32 @@ func back_out_logo() -> void:
 			$GUI/Logo.show()
 			state = MenuState.ROTATING
 	)
+
+ 
+func _on_CrowdControl_disconnected() -> void:
+	cc_button.text = "CC Off"
+	cc_button.disabled = false
+	
+func _on_CrowdControl_logged_out() -> void:
+	AuthPopup.popup_centered()
+	LoginPanel.initial_focus.grab_focus()
+
+
+func _on_CrowdControl_logged_in() -> void:
+	AuthPopup.hide()
+	cc_button.text = "CC On"
+	
+func _on_crowd_control_button_pressed() -> void:
+	if CrowdControl.is_connected_to_crowd_control():
+		CrowdControl.close()
+		cc_button.text = "CC Off"
+	else:
+		CrowdControl.connect_to_crowd_control()
+		get_tree().auto_accept_quit = false
+		cc_button.disabled = true
+
+
+
+func _on_popup_popup_hide() -> void:
+	cc_button.disabled = false
+	cc_button.grab_focus()

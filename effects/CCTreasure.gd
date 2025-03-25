@@ -7,8 +7,6 @@ var player = Util.get_player()
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	treasure = ItemService.get_random_roll_fail_item()
-	if player == null:
-		return FAILURE
 	treasure.apply_item(player)
 	return SUCCESS
 

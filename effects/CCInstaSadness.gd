@@ -3,8 +3,6 @@ class_name CCInstaSadness
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
     var player = Util.get_player()
-    if player == null:
-        return FAILURE
     player.stats.hp = 0
     return SUCCESS
 

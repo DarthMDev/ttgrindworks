@@ -7,8 +7,6 @@ var player = Util.get_player()
 # Removes all vouchers from the player
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     var items: Array[Item] = player.stats.items
     # Iterate through items to find vouchers
     # then remove the item and its effects

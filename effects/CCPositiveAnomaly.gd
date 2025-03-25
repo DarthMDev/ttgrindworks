@@ -14,8 +14,6 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# if we dont already have it 
 	# make a new list out of the ones we dont have
 	var anomalies = new_anomalies()
-	if anomalies.size() == 0:
-		return FAILURE
 	var anomaly = anomalies[randi() % anomalies.size()]
 	Util.floor_manager.add_anomaly(anomaly)
 	return SUCCESS

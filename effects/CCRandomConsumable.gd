@@ -7,8 +7,6 @@ var player = Util.get_player()
 # Gives the toon a random consumable besides pink slips
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     var consumable = ItemService.get_random_consumable()
     consumable.apply_item(player)        
     

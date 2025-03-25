@@ -4,8 +4,6 @@ class_name CCFire
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	if player == null:
-		return FAILURE
 	player.stats.pink_slips += 1
 		
 	return SUCCESS

@@ -7,8 +7,6 @@ var player = Util.get_player()
 # Removes a random accessory from the player
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     var items: Array[Item] = player.stats.items
     # Iterate through items to find accessories
     # then remove the item and its effects
@@ -16,8 +14,6 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
     for item in items:
         if item.slot in [Item.ItemSlot.HAT, Item.ItemSlot.GLASSES, Item.ItemSlot.BACKPACK]:
             accessories.append(item)
-    if accessories.size() == 0:
-        return FAILURE
     var accessory = accessories[randi() % accessories.size()]
     accessory.remove_item(player)
     return SUCCESS

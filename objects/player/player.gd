@@ -5,7 +5,7 @@ const PAUSE_MENU := 'res://objects/pause_menu/pause_menu.tscn'
 const DEATH_THRESHOLD := -20.0
 const COYOTE_TIME := 0.07
 const IFRAME_TIME := 3.0
-
+const TEST_EFFECTS := 'res://objects/player/ui/test_effects.tscn'
 ## Object states
 enum PlayerState {
 	WALK,
@@ -257,7 +257,9 @@ func _physics_process_walk(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().get_root().add_child(load(PAUSE_MENU).instantiate())
-	
+	# if we press the c key, we will spawn a test effects menu
+	if Input.is_action_just_pressed("test_effects"):
+		get_tree().get_root().add_child(load(TEST_EFFECTS).instantiate())
 	if Input.is_action_just_pressed('toggle_freecam') and SaveFileService.settings_file.dev_tools:
 		var cam := PlayerFreeCam.new(self)
 		cam.fov = camera.fov

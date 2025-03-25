@@ -16,11 +16,12 @@ func update_presence():
 		return
 	var floor_text = "Floor %d" % [Util.floor_number]
 	DiscordRPC.details = ("Infiltrating the Facilities" + " - " + floor_text)
-	if Util.floor_manager.anomalies:
-		for anomaly in Util.floor_manager.anomalies:
-			if anomaly.get_mod_name() == "Out of Touch":
-				isLaffObscured = true
-				break
+	if Util.floor_manager != null:
+		if Util.floor_manager.anomalies:
+			for anomaly in Util.floor_manager.anomalies:
+				if anomaly.get_mod_name() == "Out of Touch":
+					isLaffObscured = true
+					break
 	var parts = PackedStringArray([])
 	if isLaffObscured:
 		parts = PackedStringArray([

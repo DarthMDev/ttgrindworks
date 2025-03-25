@@ -17,17 +17,19 @@ const BoostNums := {
 # only while the player is in battle
 # similar to book keeper
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
+    var target = player
+    var new_debuff := STAT_BOOST.duplicate()
+    new_debuff.target = target
+    new_debuff.rounds = 1
+    new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
+    new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
+    new_debuff.boost = BoostNums[new_debuff.stat]
+    BattleService.ongoing_battle.add_status_effect(new_debuff)
+    return SUCCESS
+    
+func _can_run() -> bool:
+    if player != null and player.stats.hp > 0:
+        return true
     if BattleService.ongoing_battle != null:
-        var target = player
-        var new_debuff := STAT_BOOST.duplicate()
-        new_debuff.target = target
-        new_debuff.rounds = 1
-        new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
-        new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
-        new_debuff.boost = BoostNums[new_debuff.stat]
-        BattleService.ongoing_battle.add_status_effect(new_debuff)
-        return SUCCESS
-        
-    return FAILURE
+        return true
+    return false

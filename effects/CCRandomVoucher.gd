@@ -7,8 +7,6 @@ var player = Util.get_player()
 
 # Gives the toon a random voucher
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
     voucher = ItemService.get_random_voucher()
     voucher.apply_item(player)        
         

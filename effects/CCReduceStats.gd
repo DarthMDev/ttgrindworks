@@ -5,9 +5,6 @@ class_name CCReduceStats
 var player = Util.get_player()
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-	
-	if player == null:
-		return FAILURE
 	randomize()
 	# chose a random stat to take away 10%
 	var list_of_stats = ["damage", "defense", "evasiveness", "speed"]

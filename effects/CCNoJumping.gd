@@ -2,25 +2,30 @@ extends CCEffectTimed
 
 class_name CCNoJumping
 
-var player = Util.get_player()
-
 # Prevents the player from jumping
 
-func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    if player == null:
-        return FAILURE
+func _start(_instance: CCEffectInstanceTimed) -> EffectResult:
+    var player = Util.get_player()
     player.jump_enabled = false
-    return SUCCESS
+    return RUNNING
 
+func _should_be_running() -> bool:
+    var player = Util.get_player()
+    if (player != null and player.stats.hp > 0):
+        return true
+    if not Util.get_tree().paused:
+        return true
+    return false
 
-func _can_run() -> bool:
-    return (player != null and player.stats.hp > 0)
-
-func _cleanup() -> void:
+func _stop(_instance: CCEffectInstanceTimed, _force := false) -> bool:
+    var player = Util.get_player()
     player.jump_enabled = true
+    return true
 
 func _resume() -> void:
+    var player = Util.get_player()
     player.jump_enabled = false
 
 func _pause() -> void:
+    var player = Util.get_player()
     player.jump_enabled = true

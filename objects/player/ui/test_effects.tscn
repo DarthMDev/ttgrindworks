@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ha5302ao86ou"]
+
+[ext_resource type="Script" uid="uid://c5t4vml3a5vp8" path="res://objects/player/ui/test_effects.gd" id="1_sb055"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_207ts"]
+[ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="3_tqken"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="4_3vg1i"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="5_7xrpi"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="6_vc8qy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8s8b"]
+shader = ExtResource("3_tqken")
+shader_parameter/Shift_Hue = 0.585
+shader_parameter/alpha = 1.0
+
+[node name="TestEffects" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb055")
+
+[node name="Resume" parent="." instance=ExtResource("2_207ts")]
+material = SubResource("ShaderMaterial_k8s8b")
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+offset_left = -8.0
+offset_top = 557.0
+offset_right = 222.0
+offset_bottom = 671.0
+texture_normal = ExtResource("4_3vg1i")
+texture_pressed = ExtResource("5_7xrpi")
+texture_hover = ExtResource("6_vc8qy")
+texture_disabled = ExtResource("5_7xrpi")
+text = "Resume"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="BoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+vertical = true
+
+[node name="GeneralButton" parent="ScrollContainer/Buttons" instance=ExtResource("2_207ts")]
+layout_mode = 2
+
+[connection signal="pressed" from="Resume" to="." method="resume"]

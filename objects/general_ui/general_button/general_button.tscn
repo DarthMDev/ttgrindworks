@@ -22,8 +22,6 @@ stretch_mode = 0
 script = ExtResource("1_tk66j")
 press_sfx = ExtResource("4_68apb")
 hover_sfx = ExtResource("5_mi2i0")
-hover_db_offset = null
-press_db_offset = null
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
