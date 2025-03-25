@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemPool" load_steps=10 format=3 uid="uid://lkrwvyaqs433"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_6oxwf"]
+[ext_resource type="Resource" uid="uid://cp2b6gwnfjlib" path="res://objects/items/resources/passive/toonups/bamboo_cane.tres" id="2_fl18t"]
+[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="2_surde"]
+[ext_resource type="Resource" uid="uid://c5cavaivrrvb" path="res://objects/items/resources/passive/toonups/feather.tres" id="3_vkafv"]
+[ext_resource type="Resource" uid="uid://dua74bqlj5ep1" path="res://objects/items/resources/passive/toonups/megaphone.tres" id="4_k5yxn"]
+[ext_resource type="Resource" uid="uid://ne6tolrsnqmn" path="res://objects/items/resources/passive/toonups/high_dive.tres" id="5_5qje2"]
+[ext_resource type="Resource" uid="uid://bvukmcjmx00ho" path="res://objects/items/resources/passive/toonups/lipstick.tres" id="6_aqkh8"]
+[ext_resource type="Resource" uid="uid://cect5lwmu08mv" path="res://objects/items/resources/passive/toonups/juggling.tres" id="7_i8l6e"]
+[ext_resource type="Resource" uid="uid://bmfbgvlyor8tw" path="res://objects/items/resources/passive/toonups/pixie.tres" id="8_e881y"]
+
+[resource]
+script = ExtResource("2_surde")
+items = Array[ExtResource("1_6oxwf")]([ExtResource("2_fl18t"), ExtResource("3_vkafv"), ExtResource("4_k5yxn"), ExtResource("5_5qje2"), ExtResource("6_aqkh8"), ExtResource("7_i8l6e"), ExtResource("8_e881y")])
+metadata/_custom_type_script = "uid://wiibpvvki8vs"

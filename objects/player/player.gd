@@ -5,7 +5,7 @@ const PAUSE_MENU := 'res://objects/pause_menu/pause_menu.tscn'
 const DEATH_THRESHOLD := -20.0
 const COYOTE_TIME := 0.07
 const IFRAME_TIME := 3.0
-
+const TEST_EFFECTS := 'res://objects/player/ui/test_effects.tscn'
 ## Object states
 enum PlayerState {
 	WALK,
@@ -60,6 +60,7 @@ var game_timer_tick := false
 var run_speed := 8.0
 var speed = 0.0
 var jump_velocity := 7.0
+var jump_enabled := true
 var sprint: bool
 var gravity := 16.0
 var last_floor_time: float = 0.0
@@ -162,7 +163,7 @@ func _physics_process_walk(delta: float) -> void:
 	if _floored or (curr_time - last_floor_time) < COYOTE_TIME:
 		if _floored:
 			last_floor_time = curr_time
-		if Input.is_action_just_pressed('jump'):
+		if Input.is_action_just_pressed('jump') and jump_enabled:
 			velocity.y = jump_velocity
 			s_jumped.emit()
 			if moving: 
@@ -221,7 +222,7 @@ func _physics_process_walk(delta: float) -> void:
 		
 		moving = (direction or input_turn)
 		
-		if is_on_floor() and not Input.is_action_just_pressed("jump"):
+		if is_on_floor() and not (Input.is_action_just_pressed("jump") and jump_enabled):
 			if input_dir == 1 and sprint:
 				set_animation('run')
 			elif input_turn or input_dir:
@@ -256,7 +257,9 @@ func _physics_process_walk(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().get_root().add_child(load(PAUSE_MENU).instantiate())
-	
+	# if we press the c key, we will spawn a test effects menu
+	if Input.is_action_just_pressed("test_effects"):
+		get_tree().get_root().add_child(load(TEST_EFFECTS).instantiate())
 	if Input.is_action_just_pressed('toggle_freecam') and SaveFileService.settings_file.dev_tools:
 		var cam := PlayerFreeCam.new(self)
 		cam.fov = camera.fov
@@ -267,7 +270,7 @@ func _physics_process_walk(delta: float) -> void:
 
 func assess_anim() -> void:
 	var anim := base_anim
-	if is_on_floor() and not Input.is_action_just_pressed('jump'):
+	if is_on_floor() and not (Input.is_action_just_pressed('jump') and jump_enabled):
 		if moving:
 			if sprint:
 				anim = 'run'

@@ -460,8 +460,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Resume"
 
 [node name="Settings" parent="BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
@@ -472,8 +470,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Settings"
 
 [node name="Quit" parent="BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
@@ -483,8 +479,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Quit"
 
 [node name="VersionLabel" type="Label" parent="BackdropHolder/Backdrop"]

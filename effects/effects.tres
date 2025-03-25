@@ -1,0 +1,348 @@
+[gd_resource type="CCEffectEntries" load_steps=84 format=3 uid="uid://drr8yoxg48kw8"]
+
+[ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
+[ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
+[ext_resource type="Script" uid="uid://b54k754wrsmtq" path="res://effects/CCDamage.gd" id="3_f8hh1"]
+[ext_resource type="Script" uid="uid://6dpsk6kilthf" path="res://effects/CCOneHp.gd" id="4_6jwl3"]
+[ext_resource type="Texture2D" uid="uid://cnnvt1t70mcub" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky.glb-pix-1.png" id="5_c4fse"]
+[ext_resource type="Script" uid="uid://t3aeaknl7gcd" path="res://effects/CCAccessory.gd" id="6_sqy00"]
+[ext_resource type="Texture2D" uid="uid://q77u3hacppqv" path="res://ui_assets/achievements/icon_achievement_sad5.png" id="6_u7id6"]
+[ext_resource type="Texture2D" uid="uid://dqa3cnlaoackx" path="res://ui_assets/achievements/icon_achievement_sad10.png" id="7_sqy00"]
+[ext_resource type="Script" uid="uid://c7eonuwonua73" path="res://effects/CCReduceMaxLaff.gd" id="8_rvgu7"]
+[ext_resource type="Texture2D" uid="uid://dexb4j8qjxcfn" path="res://models/props/treasure_chest/treasure_chest-d399a15272bb3709c253ceb8e58370d8_treasure_lock.png" id="9_46vmo"]
+[ext_resource type="Script" uid="uid://b4iye32wuor2b" path="res://effects/CCTreasureChest.gd" id="10_1fwbl"]
+[ext_resource type="Texture2D" uid="uid://crhfvqyw7kbdg" path="res://ui_assets/misc/arrow_red.png" id="10_vkqpa"]
+[ext_resource type="Script" uid="uid://5my32jh2m2gx" path="res://effects/CCReduceStats.gd" id="11_oxd6h"]
+[ext_resource type="Texture2D" uid="uid://bfr0abg8111kf" path="res://ui_assets/player_ui/pause/RecordProfits.png" id="12_r58ri"]
+[ext_resource type="Script" uid="uid://cdhqeg5bavxi3" path="res://effects/CCJellybean.gd" id="13_7f2sj"]
+[ext_resource type="Script" uid="uid://ckph56ffdh4u6" path="res://effects/CCGravity.gd" id="14_r58ri"]
+[ext_resource type="Texture2D" uid="uid://duj24dq1hgj8u" path="res://ui_assets/battle/target_select/PckMn_Arrow_Up.png" id="14_s52en"]
+[ext_resource type="Script" uid="uid://bcxenxobkxcy1" path="res://effects/CCNoAccessories.gd" id="16_sf0ka"]
+[ext_resource type="Texture2D" uid="uid://cy5g6qdrrhvmm" path="res://models/props/treasure_chest/treasure_chest-d399a15272bb3709c253ceb8e58370d8_treasure_beans.png" id="19_10vbh"]
+[ext_resource type="Script" uid="uid://uk76biyejc1o" path="res://effects/CCTakeJellybeans.gd" id="20_tqgp3"]
+[ext_resource type="Script" uid="uid://ch6elyw7b57u5" path="res://effects/CCLaffBoost.gd" id="21_hps62"]
+[ext_resource type="Texture2D" uid="uid://cto8jw1fuwx" path="res://objects/items/custom/treasure/zzz.png" id="22_nnjwj"]
+[ext_resource type="Script" uid="uid://cs1h625r02vet" path="res://effects/CCFullheal.gd" id="23_e1ma0"]
+[ext_resource type="Texture2D" uid="uid://cmaiqamk4cdyh" path="res://ui_assets/player_ui/pause/Volatile_Market.png" id="24_dv4dc"]
+[ext_resource type="Script" uid="uid://712ogxtnl3bq" path="res://effects/CCNoJumping.gd" id="25_d5qei"]
+[ext_resource type="Texture2D" uid="uid://0vjqjtxk5jji" path="res://ui_assets/player_ui/pause/organic_gags.png" id="25_dv4dc"]
+[ext_resource type="Texture2D" uid="uid://b3vogay1ltdx4" path="res://ui_assets/player_ui/pause/Reorganization.png" id="27_d5qei"]
+[ext_resource type="Script" uid="uid://ufgx7v02cnrh" path="res://effects/CCNeutralAnomaly.gd" id="28_d8nx5"]
+[ext_resource type="Texture2D" uid="uid://dl3t6rvxk7eqr" path="res://ui_assets/player_ui/pause/Out_of_Touch.png" id="29_picxm"]
+[ext_resource type="Script" uid="uid://e321dobufrgi" path="res://effects/CCNegativeAnomaly.gd" id="30_ay7vo"]
+[ext_resource type="Texture2D" uid="uid://bdu2rdg517iyi" path="res://objects/items/custom/treasure/ice_cream.png" id="31_83it1"]
+[ext_resource type="Script" uid="uid://dyiiui7t3xf4" path="res://effects/CCTreasure.gd" id="32_uywln"]
+[ext_resource type="Texture2D" uid="uid://dmsldybc8mib3" path="res://ui_assets/achievements/icon_achievement_sad_1.png" id="33_7e3c1"]
+[ext_resource type="Script" uid="uid://cnoi3wh7yn7ep" path="res://effects/CCInstaSadness.gd" id="33_d5qei"]
+[ext_resource type="Script" uid="uid://cwrpi24fcxweq" path="res://effects/CCRemoveRandomAccessory.gd" id="34_d8nx5"]
+[ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="35_hhna7"]
+[ext_resource type="Script" uid="uid://1q6anuhy7ty1" path="res://effects/CCRandomConsumable.gd" id="36_bdoa8"]
+[ext_resource type="Texture2D" uid="uid://cgfb42t3nnpsa" path="res://objects/items/custom/gag_voucher/ticket.png" id="37_knm4r"]
+[ext_resource type="Script" uid="uid://c4hqlw2elj1r" path="res://effects/CCRandomVoucher.gd" id="38_mqnts"]
+[ext_resource type="Script" uid="uid://e14awydwss0t" path="res://effects/CCRemoveConsumables.gd" id="39_5w3h2"]
+[ext_resource type="Texture2D" uid="uid://d287ggcuhiolk" path="res://ui_assets/battle/gags/inventory_feather.png" id="40_bdoa8"]
+[ext_resource type="Texture2D" uid="uid://cabh8sh536557" path="res://ui_assets/battle/statuses/evasiveness.png" id="41_e1vbt"]
+[ext_resource type="Script" uid="uid://rjt305edgsa3" path="res://effects/CCBuff.gd" id="42_33adf"]
+[ext_resource type="Texture2D" uid="uid://ca70trnfykg5p" path="res://ui_assets/battle/statuses/defense.png" id="43_7e3c1"]
+[ext_resource type="Script" uid="uid://4h8sfulw25i1" path="res://effects/CCNerf.gd" id="44_hmce4"]
+[ext_resource type="Texture2D" uid="uid://ce0sy8ma2flt1" path="res://objects/items/custom/track_film/filmstrip.png" id="45_7g8m6"]
+[ext_resource type="Script" uid="uid://b6jbi7exd3jk0" path="res://effects/CCAddGagLevel.gd" id="46_whdte"]
+[ext_resource type="Script" uid="uid://dygm478rvsnvp" path="res://effects/CCRemoveGagLevel.gd" id="47_33adf"]
+[ext_resource type="Texture2D" uid="uid://e77o5qo51gdh" path="res://models/props/cog_props/pink_slip/pink_slip_pink_slip.png" id="51_2a6ev"]
+[ext_resource type="Texture2D" uid="uid://bc2hubfcvheoa" path="res://objects/items/custom/treasure/popsicle.png" id="52_hkn5u"]
+[ext_resource type="Script" uid="uid://cohkkgqqrak0i" path="res://effects/CCFire.gd" id="52_u7id6"]
+[ext_resource type="Script" uid="uid://dbfq53qehus2l" path="res://effects/CCCandy.gd" id="53_gbqu5"]
+[ext_resource type="Script" uid="uid://u7yuu18up4l1" path="res://effects/CCRemoveAllVouchers.gd" id="55_s52en"]
+
+[sub_resource type="CCEffect" id="CCEffect_8o45s"]
+morality = 2
+id = &"DamagePlayer"
+display_name = "Damage Player"
+description = "Damages a player by a range of 1-25"
+script = ExtResource("3_f8hh1")
+
+[sub_resource type="CCEffect" id="CCEffect_rvgu7"]
+morality = 2
+icon = ExtResource("7_sqy00")
+id = &"OneHp"
+display_name = "Reduce HP To 1"
+description = "Reduces the player's toon to 1 laff point"
+price = 1500
+script = ExtResource("4_6jwl3")
+metadata/_custom_type_script = "uid://6dpsk6kilthf"
+
+[sub_resource type="CCEffect" id="CCEffect_46vmo"]
+icon = ExtResource("5_c4fse")
+id = &"GiveAccessory"
+display_name = "Give Accessory"
+description = "Gives a random accessory to the player's toon. Can be a duplicate. Can be a bad item or a good item."
+price = 225
+script = ExtResource("6_sqy00")
+metadata/_custom_type_script = "uid://t3aeaknl7gcd"
+
+[sub_resource type="CCEffect" id="CCEffect_1fwbl"]
+morality = 2
+icon = ExtResource("6_u7id6")
+id = &"MaxHP"
+display_name = "Reduce Max Health "
+description = "Reduce's a toon's max laff by a random amount between 1 and 6"
+price = 200
+script = ExtResource("8_rvgu7")
+metadata/_custom_type_script = "uid://c7eonuwonua73"
+
+[sub_resource type="CCEffect" id="CCEffect_aw1uv"]
+morality = 1
+icon = ExtResource("9_46vmo")
+id = &"TreasureChest"
+display_name = "Spawn Treasure Chest"
+description = "Spawns a treasure chest in front of the player's toon"
+price = 300
+script = ExtResource("10_1fwbl")
+metadata/_custom_type_script = "uid://b4iye32wuor2b"
+
+[sub_resource type="CCEffect" id="CCEffect_d036k"]
+morality = 2
+icon = ExtResource("10_vkqpa")
+id = &"ReduceStat"
+display_name = "Reduce A Stat"
+description = "Reduces a random stat of the player's toon by 10%."
+price = 175
+script = ExtResource("11_oxd6h")
+metadata/_custom_type_script = "uid://5my32jh2m2gx"
+
+[sub_resource type="CCEffect" id="CCEffect_sf0ka"]
+morality = 1
+icon = ExtResource("12_r58ri")
+id = &"Jellybean"
+display_name = "Give Jellybeans"
+description = "Gives a random amounts of beans between 3-20"
+price = 110
+script = ExtResource("13_7f2sj")
+
+[sub_resource type="CCEffectTimed" id="CCEffectTimed_7f2sj"]
+duration = 15.0
+icon = ExtResource("14_s52en")
+id = &"LowGravity"
+display_name = "Low Gravity"
+description = "Gives the player's toon a low gravity effect for 15 seconds"
+price = 100
+script = ExtResource("14_r58ri")
+
+[sub_resource type="CCEffect" id="CCEffect_picxm"]
+morality = 2
+icon = ExtResource("19_10vbh")
+icon_color = Color(1, 0, 0, 1)
+id = &"TakeJellybeans"
+display_name = "Take Jellybeans"
+description = "Take a random amount of jellybeans between 1 and 20"
+price = 125
+script = ExtResource("20_tqgp3")
+metadata/_custom_type_script = "uid://uk76biyejc1o"
+
+[sub_resource type="CCEffect" id="CCEffect_ay7vo"]
+morality = 1
+icon = ExtResource("1_i3r68")
+id = &"LaffBoost"
+display_name = "Give a laff boost"
+description = "Increases the player's toon's max health (laff) by 1-6"
+price = 100
+script = ExtResource("21_hps62")
+metadata/_custom_type_script = "uid://ch6elyw7b57u5"
+
+[sub_resource type="CCEffect" id="CCEffect_83it1"]
+morality = 1
+icon = ExtResource("22_nnjwj")
+id = &"FullHeal"
+display_name = "Full Heal"
+description = "Fully heals the player's toon to max health."
+price = 500
+script = ExtResource("23_e1ma0")
+
+[sub_resource type="CCEffectTimed" id="CCEffectTimed_uywln"]
+duration = 15.0
+morality = 2
+icon = ExtResource("24_dv4dc")
+id = &"NoJumping"
+display_name = "Disable Jumping"
+description = "Disables jumping for 15 seconds."
+price = 500
+script = ExtResource("25_d5qei")
+
+[sub_resource type="CCEffect" id="CCEffect_hhna7"]
+morality = 1
+icon = ExtResource("25_dv4dc")
+id = &"PositiveAnomaly"
+display_name = "Spawn Positive Anomaly"
+description = "Spawns a random positive anomaly. It will only choose from the list of ones we don't already have."
+price = 150
+script = ExtResource("2_f8hh1")
+metadata/_custom_type_script = "uid://kqhd3f31c57h"
+
+[sub_resource type="CCEffect" id="CCEffect_bdoa8"]
+icon = ExtResource("27_d5qei")
+id = &"NeutralAnomaly"
+display_name = "Spawn Neutral Anomaly"
+description = "Spawns a random neutral anomaly. It will only choose from the list of ones we don't already have."
+price = 175
+script = ExtResource("28_d8nx5")
+metadata/_custom_type_script = "uid://ufgx7v02cnrh"
+
+[sub_resource type="CCEffect" id="CCEffect_knm4r"]
+morality = 2
+icon = ExtResource("29_picxm")
+id = &"NegativeAnomaly"
+display_name = "Spawn Negative Anomaly"
+description = "Spawns a random negative anomaly. It will only choose from the list of ones we don't already have."
+price = 250
+script = ExtResource("30_ay7vo")
+metadata/_custom_type_script = "uid://e321dobufrgi"
+
+[sub_resource type="CCEffect" id="CCEffect_mqnts"]
+morality = 1
+icon = ExtResource("31_83it1")
+id = &"Treasure"
+display_name = "Give Treasure"
+description = "Heal the player with a random treasure item from the pool"
+price = 150
+script = ExtResource("32_uywln")
+metadata/_custom_type_script = "uid://dyiiui7t3xf4"
+
+[sub_resource type="CCEffect" id="CCEffect_5w3h2"]
+morality = 2
+id = &"ReduceMaxLaff"
+display_name = "Reduce Max Laff"
+description = "Reduces max laff by 1-6"
+price = 200
+script = ExtResource("8_rvgu7")
+metadata/_custom_type_script = "uid://c7eonuwonua73"
+
+[sub_resource type="CCEffect" id="CCEffect_uywln"]
+morality = 2
+icon = ExtResource("33_7e3c1")
+id = &"InstaSadness"
+display_name = "Instant Sadness"
+description = "Drops laff to 0 instantly killing the player's toon"
+price = 5000
+script = ExtResource("33_d5qei")
+metadata/_custom_type_script = "uid://cnoi3wh7yn7ep"
+
+[sub_resource type="CCEffect" id="CCEffect_d5qei"]
+morality = 2
+id = &"NoAccessories"
+display_name = "Take Away All Accessories"
+description = "Takes away the player's toon accessories."
+price = 1250
+script = ExtResource("16_sf0ka")
+metadata/_custom_type_script = "uid://bcxenxobkxcy1"
+
+[sub_resource type="CCEffect" id="CCEffect_edb0r"]
+morality = 2
+id = &"RemoveRandomAccessory"
+display_name = "Remove An Accessory"
+description = "Removes an accessory at random from the player's toon."
+price = 250
+script = ExtResource("34_d8nx5")
+
+[sub_resource type="CCEffect" id="CCEffect_3bhnd"]
+morality = 1
+icon = ExtResource("35_hhna7")
+id = &"RandomConsumable"
+display_name = "Give Consumable"
+description = "Gives a random toonup consumable item."
+price = 150
+script = ExtResource("36_bdoa8")
+metadata/_custom_type_script = "uid://1q6anuhy7ty1"
+
+[sub_resource type="CCEffect" id="CCEffect_e1vbt"]
+morality = 1
+icon = ExtResource("37_knm4r")
+id = &"RandomVoucher"
+display_name = "Give a Voucher"
+description = "Gives a random gag voucher"
+price = 150
+script = ExtResource("38_mqnts")
+metadata/_custom_type_script = "uid://c4hqlw2elj1r"
+
+[sub_resource type="CCEffect" id="CCEffect_2a6ev"]
+morality = 1
+icon = ExtResource("41_e1vbt")
+id = &"Buff"
+display_name = "Add a buff"
+description = "Adds 1 round of a  random stat buff.  Only in battles"
+price = 100
+script = ExtResource("42_33adf")
+metadata/_custom_type_script = "uid://rjt305edgsa3"
+
+[sub_resource type="CCEffect" id="CCEffect_u7id6"]
+morality = 2
+icon = ExtResource("43_7e3c1")
+icon_color = Color(1, 0, 0, 1)
+id = &"Nerf"
+display_name = "Add a nerf"
+description = "Adds a random stat nerf only in battles. Last for 1 round"
+price = 125
+script = ExtResource("44_hmce4")
+
+[sub_resource type="CCEffect" id="CCEffect_vkqpa"]
+morality = 1
+icon = ExtResource("45_7g8m6")
+icon_color = Color(0, 1, 0, 1)
+id = &"AddGagLevel"
+display_name = "Add a gag level"
+description = "Adds a random gag level to the player's toon"
+price = 225
+script = ExtResource("46_whdte")
+
+[sub_resource type="CCEffect" id="CCEffect_hmce4"]
+morality = 2
+icon = ExtResource("45_7g8m6")
+icon_color = Color(1, 0, 0, 1)
+id = &"RemoveGagLevel"
+display_name = "Remove Gag Level"
+description = "Removes a random gag level from the player's toon"
+price = 250
+script = ExtResource("47_33adf")
+
+[sub_resource type="CCEffect" id="CCEffect_fw6q6"]
+icon = ExtResource("52_hkn5u")
+id = &"Candy"
+display_name = "Give Candy"
+description = "Give a random candy item that will boost a random stat"
+price = 150
+script = ExtResource("53_gbqu5")
+metadata/_custom_type_script = "uid://dbfq53qehus2l"
+
+[sub_resource type="CCEffect" id="CCEffect_s52en"]
+morality = 1
+icon = ExtResource("51_2a6ev")
+id = &"PinkSlip"
+display_name = "Give One Fire"
+description = "Gives one fireto  the player's toon (also known as a pink slip)"
+price = 200
+script = ExtResource("52_u7id6")
+metadata/_custom_type_script = "uid://cohkkgqqrak0i"
+
+[sub_resource type="CCEffect" id="CCEffect_hkn5u"]
+morality = 2
+icon = ExtResource("40_bdoa8")
+icon_color = Color(1, 0, 0, 1)
+id = &"RemoveAllConsumables"
+display_name = "Remove All  Consumables"
+description = "Removes all battle consumables (besides vouchers and fires)"
+price = 1000
+script = ExtResource("39_5w3h2")
+metadata/_custom_type_script = "uid://e14awydwss0t"
+
+[sub_resource type="CCEffect" id="CCEffect_gbqu5"]
+morality = 2
+icon = ExtResource("37_knm4r")
+icon_color = Color(1, 0, 0, 1)
+id = &"RemoveAllVouchers"
+display_name = "Remove All Vouchers"
+description = "Removes all vouchers from the player's toon"
+price = 700
+script = ExtResource("55_s52en")
+metadata/_custom_type_script = "uid://u7yuu18up4l1"
+
+[resource]
+effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_2a6ev"), SubResource("CCEffect_u7id6"), SubResource("CCEffect_vkqpa"), SubResource("CCEffect_hmce4"), SubResource("CCEffect_fw6q6"), SubResource("CCEffect_s52en"), SubResource("CCEffect_hkn5u"), SubResource("CCEffect_gbqu5")]

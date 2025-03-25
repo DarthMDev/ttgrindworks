@@ -299,6 +299,14 @@ func player_out_of_bounds(player : Player) -> void:
 	player.global_position = entrance_node.global_position
 	player.fall_in(true)
 
+func add_anomaly(anomaly: Script) -> void:
+	var new_mod := Node.new()
+	new_mod.set_script(anomaly)
+	if new_mod is FloorModifier:
+		$Modifiers.add_child(new_mod)
+		new_mod.initialize(self)
+		new_mod.set_name(new_mod.get_mod_name())
+		anomalies.append(new_mod)
 
 #region GAME TRACKING
 ## Game Signals

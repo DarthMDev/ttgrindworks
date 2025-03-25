@@ -20,6 +20,7 @@ const ANOMALY_ICON := preload("res://objects/player/ui/anomaly_icon.tscn")
 func _ready() -> void:
 	hide()
 	get_tree().paused = true
+	CrowdControl.set_paused(true)
 	get_player_info()
 	
 	if is_instance_valid(Util.floor_manager):
@@ -86,6 +87,7 @@ func get_player_info() -> void:
 
 func resume() -> void:
 	get_tree().paused = false
+	CrowdControl.set_paused(false)
 	queue_free()
 
 func quit() -> void:
