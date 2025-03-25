@@ -15,9 +15,6 @@ var next_floors: Array[FloorVariant] = []
 
 
 func _ready():
-	if Util.floor_number == 5:
-		$ElevatorUI.arrow_left.hide()
-		$ElevatorUI.arrow_right.hide()
 	
 	# Get the player in here or so help me
 	player = Util.get_player()
@@ -74,9 +71,9 @@ func start_game_floor(floor_var : FloorVariant) -> void:
 
 ## Selects 3 random floors to give to the player
 func get_next_floors() -> void:
-	if Util.floor_number == 5:
+	# Ouroboros
+	if Util.floor_number >= 5 && Util.floor_number % 5 == 0:
 		final_boss_time_baby()
-		return
 	var floor_variants := DirAccess.get_files_at(FLOOR_VARIANT_PATH)
 	var taken_items: Array[String] = []
 	for i in 3:
@@ -97,11 +94,10 @@ func get_next_floors() -> void:
 	$ElevatorUI.set_floor_index(0)
 
 func final_boss_time_baby() -> void:
+	# Ouroboros
 	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
 	final_floor.level_range = Vector2i(8, 12)
-	next_floors = [final_floor]
-	$ElevatorUI.floors = next_floors
-	$ElevatorUI.set_floor_index(0)
+	next_floors.append(final_floor)
 
 func _exit_tree() -> void:
 	if Util.get_player():
