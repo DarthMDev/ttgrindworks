@@ -6,7 +6,6 @@ const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
 ]
-var player = Util.get_player()
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	randomize()
@@ -27,6 +26,7 @@ func new_anomalies() -> Array[String]:
 	return anomalies
 
 func _can_run() -> bool:
+	var player = Util.get_player()
 	if player != null and player.stats.hp > 0:
 		return true
 	if new_anomalies().size() > 0:

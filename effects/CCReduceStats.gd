@@ -2,9 +2,8 @@ extends CCEffect
 
 class_name CCReduceStats
 
-var player = Util.get_player()
-
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
+	var player = Util.get_player()
 	randomize()
 	# chose a random stat to take away 10%
 	var list_of_stats = ["damage", "defense", "evasiveness", "speed"]
@@ -13,4 +12,5 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return SUCCESS
 
 func _can_run() -> bool:
+	var player = Util.get_player()
 	return (player != null and player.stats.hp > 0)

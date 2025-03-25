@@ -2,11 +2,10 @@ extends CCEffect
 
 class_name CCRemoveAllVouchers
 
-var player = Util.get_player()
-
 # Removes all vouchers from the player
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
+    var player = Util.get_player()
     var items: Array[Item] = player.stats.items
     # Iterate through items to find vouchers
     # then remove the item and its effects
@@ -16,6 +15,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
     return SUCCESS
 
 func _can_run() -> bool:
+    var player = Util.get_player()
     if (player != null and player.stats.hp > 0):
         return true
     if player.stats.items.find(func(item): return item.item_name == "Gag Voucher") != null:

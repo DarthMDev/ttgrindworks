@@ -1,8 +1,6 @@
 extends CCEffect
 
 class_name CCNerf
-
-var player = Util.get_player()
 # taken from financial report
 const STAT_BOOST := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 
@@ -17,9 +15,9 @@ const BoostNums := {
 # only while the player is in battle
 # similar to book keeper
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
-    var target = player
+    var player = Util.get_player()
     var new_debuff := STAT_BOOST.duplicate()
-    new_debuff.target = target
+    new_debuff.target = player
     new_debuff.rounds = 1
     new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
     new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
@@ -28,6 +26,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
     return SUCCESS
     
 func _can_run() -> bool:
+    var player = Util.get_player()
     if player != null and player.stats.hp > 0:
         return true
     if BattleService.ongoing_battle != null:

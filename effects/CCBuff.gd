@@ -2,12 +2,12 @@ extends CCEffect
 
 class_name CCBuff
 
-var player = Util.get_player()
 # applies a buff to the player
 # only while the player is in battle
 # same as high dive but a random buff instead of all
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
+	var player = Util.get_player()
 	var toonup = ToonUp.new()
 	var effects = toonup.get_ladder_effects()
 	var effect = effects[randi() % effects.size()]
@@ -18,6 +18,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return SUCCESS
 
 func _can_run() -> bool:
+	var player = Util.get_player()
 	if player != null and player.stats.hp > 0:
 		return true
 	if BattleService.ongoing_battle != null:

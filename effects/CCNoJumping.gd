@@ -13,7 +13,7 @@ func _should_be_running() -> bool:
     var player = Util.get_player()
     if (player != null and player.stats.hp > 0):
         return true
-    if not Util.get_tree().paused:
+    if not CrowdControl.is_paused():
         return true
     return false
 
