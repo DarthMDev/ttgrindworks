@@ -43,7 +43,7 @@ CrowdControlManager="*res://objects/globals/crowd_control_manager.gd"
 
 [crowd_control]
 
-common/game_id="Toontown- The Grindworks"
+common/game_id="ToontownTheGrindworks"
 common/game_name="Toontown- The Grindworks"
 common/effects="res://effects/effects.tres"
 
