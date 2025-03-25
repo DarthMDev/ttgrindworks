@@ -399,10 +399,10 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 ignore_texture_size = false
-text = "CC Off"
+text = "Connect CC"
 
 [node name="Label" parent="GUI/NewGameMenu/MiddleButtons/CrowdControlButton" index="0"]
-text = "CC Off"
+text = "Connect CC"
 label_settings = SubResource("LabelSettings_5vlir")
 
 [node name="ToonSummary" type="Control" parent="GUI"]
