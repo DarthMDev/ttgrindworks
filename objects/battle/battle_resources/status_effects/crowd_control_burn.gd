@@ -64,7 +64,7 @@ func application_movie() -> void:
 	dot_visual_status = VISUAL_DOT.duplicate()
 	dot_visual_status.description = "%d damage per round" % damage
 	dot_visual_status.target = player
-	dot_visual_status.rounds = 1
+	dot_visual_status.rounds = 2
 	manager.add_status_effect(dot_visual_status)
 
 	await movie.finished

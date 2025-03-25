@@ -110,6 +110,9 @@ func get_random_voucher() -> Item:
 func get_random_consumable() -> Item:
 	return get_random_item(load("res://objects/items/pools/consumables.tres"), true)
 
+func get_random_candy() -> Item:
+	return get_random_item(load("res://objects/items/pools/candies.tres"), true)
+	
 func get_track_frame() -> Item:
 	return load("res://objects/items/resources/passive/track_frame.tres")
 	

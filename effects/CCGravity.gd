@@ -2,7 +2,7 @@ extends CCEffectTimed
 
 class_name CCGravity
 
-const GRAVITY_MULTIPLIER := 0.75
+const GRAVITY_MULTIPLIER := 0.1
 
 # low gravity for 15 seconds
 

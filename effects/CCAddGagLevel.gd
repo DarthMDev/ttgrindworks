@@ -8,7 +8,10 @@ class_name CCAddGagLevel
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# reward a track frame
 	var player = Util.get_player()
-	ItemService.get_track_frame().apply_item(player)
+	var track_frame = ItemService.get_track_frame()
+	track_frame.apply_item(player)
+	track_frame.play_collection_sound()
+	
 	return SUCCESS
 
 func check_if_all_gags_maxxed() -> bool:

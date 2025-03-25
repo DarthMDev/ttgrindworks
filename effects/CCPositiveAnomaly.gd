@@ -13,17 +13,20 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# if we dont already have it 
 	# make a new list out of the ones we dont have
 	var anomalies = new_anomalies()
-	var anomaly = anomalies[randi() % anomalies.size()]
-	Util.floor_manager.add_anomaly(anomaly)
-	return SUCCESS
+	if anomalies.size() > 0:
+		var new_mod: String = RandomService.array_pick_random('floor_mods', anomalies)
+		var loaded_mod: Script = Util.universal_load(new_mod)
+		Util.floor_manager.add_anomaly(loaded_mod)
+		return SUCCESS
+	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomalies = ANOMALIES_POSITIVE
+	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
 	if Util.floor_manager.anomalies:
 		for anomaly in Util.floor_manager.anomalies:
-			if anomalies.has(anomaly):
-				anomalies.erase(anomaly)
-	return anomalies
+			if anomaly_files_pos.has(anomaly):
+				anomaly_files_pos.erase(anomaly)
+	return anomaly_files_pos
 
 func _can_run() -> bool:
 	var player = Util.get_player()

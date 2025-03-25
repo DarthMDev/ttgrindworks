@@ -53,13 +53,15 @@ func _ready() -> void:
 	node_viewer.remove_child(toon)
 	await get_tree().process_frame
 	node_viewer.node = toon
+	CrowdControl.set_paused(true)
 
 func play_again() -> void:
 	s_choice_made.emit(MenuChoice.PLAY_AGAIN)
-
+		
 func exit() -> void:
 	s_choice_made.emit(MenuChoice.BACK_TO_MENU)
 
 func _exit_tree() -> void:
 	get_tree().paused = false
+	CrowdControl.set_paused(false)
 	AudioManager.reset_music_pitch()

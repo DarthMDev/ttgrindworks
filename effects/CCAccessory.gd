@@ -8,7 +8,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	accessory = ItemService.get_random_accessory()
 	accessory.apply_item(player)        
-		
+	accessory.play_collection_sound()
 	return SUCCESS
 
 func _can_run() -> bool:

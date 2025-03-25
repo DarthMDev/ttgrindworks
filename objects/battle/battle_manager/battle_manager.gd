@@ -699,7 +699,10 @@ func set_camera_angle(transform : Transform3D):
 func _process(_delta):
 	if Input.is_action_just_pressed('ui_copy'):
 		DisplayServer.clipboard_set(str(battle_node.battle_cam.transform))
-
+	if Input.is_action_just_pressed("test_effects"):
+		var test_effects = load("res://objects/player/ui/test_effects.tscn").instantiate()
+		get_tree().get_root().add_child(test_effects)
+		
 ## Determines whether a character is accounted for in the battle manager
 func character_in_battle(who: Node3D) -> bool:
 	if who is Cog:

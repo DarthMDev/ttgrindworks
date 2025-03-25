@@ -49,3 +49,13 @@ func apply_item(player: Player) -> void:
 	mod.scale = placement.scale
 	if mod.has_method('setup'):
 		mod.setup(self)
+
+func remove_item(player: Player) -> void:
+	super(player)
+	
+	if not player.is_node_ready():
+		await player.ready
+	
+	var bone := ItemAccessory.get_bone(self,player)
+	for accessory in bone.get_children():
+		accessory.queue_free()
