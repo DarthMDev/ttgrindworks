@@ -261,6 +261,8 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	SceneLoader.add_persistent_node(player)
 	DiscordManager.update_presence()
 	SaveFileService.progress_file.new_games += 1
+	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
+		CrowdControl.start_session()
 	CrowdControlManager.make_all_effects_sellable()
 	if falling_scene:
 		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn")
@@ -338,7 +340,6 @@ func back_out_logo() -> void:
  
 func _on_CrowdControl_disconnected() -> void:
 	cc_button.text = "Connect CC"
-	cc_button.disabled = false
 	
 func _on_CrowdControl_logged_out() -> void:
 	AuthPopup.popup_centered()
@@ -355,11 +356,8 @@ func _on_crowd_control_button_pressed() -> void:
 		cc_button.text = "Connect to CC"
 	else:
 		CrowdControl.connect_to_crowd_control()
-		CrowdControl.start_session()
 		get_tree().auto_accept_quit = false
-		cc_button.disabled = true
 
 
 func _on_popup_popup_hide() -> void:
-	cc_button.disabled = false
 	cc_button.grab_focus()
