@@ -22,6 +22,8 @@ func _on_CrowdControl_disconnected():
 
 func _process(_delta: float) -> void:
 	# if we are not in a battle we should disable all effects related to battle (CCNerf and CCBuff , and in the future CCDOTEffect)
+	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
+		CrowdControl.start_session()
 	if not BattleService.ongoing_battle:
 		if CrowdControl.is_connected_to_crowd_control():
 			for effect in EFFECTS.effects:
