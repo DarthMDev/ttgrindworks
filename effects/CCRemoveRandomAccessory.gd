@@ -20,6 +20,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func _can_run() -> bool:
+	return false # temporarily disabled till we have a proper way to remove accessories
 	var player = Util.get_player()
 	if (player != null and player.stats.hp > 0):
 		return true

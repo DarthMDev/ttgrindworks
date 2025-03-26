@@ -217,6 +217,7 @@ script = ExtResource("33_d5qei")
 metadata/_custom_type_script = "uid://cnoi3wh7yn7ep"
 
 [sub_resource type="CCEffect" id="CCEffect_d5qei"]
+visible = false
 morality = 2
 id = &"NoAccessories"
 display_name = "Take Away All Accessories"
@@ -226,6 +227,7 @@ script = ExtResource("16_sf0ka")
 metadata/_custom_type_script = "uid://bcxenxobkxcy1"
 
 [sub_resource type="CCEffect" id="CCEffect_edb0r"]
+visible = false
 morality = 2
 id = &"RemoveRandomAccessory"
 display_name = "Remove An Accessory"
