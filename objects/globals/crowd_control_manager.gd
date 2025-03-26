@@ -14,6 +14,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		SaveFileService._save_progress()
 		if CrowdControl.is_connected_to_crowd_control():
+			CrowdControl.stop_session()
 			CrowdControl.disconnected.connect(_on_CrowdControl_disconnected)
 			CrowdControl.close()
 

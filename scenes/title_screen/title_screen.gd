@@ -57,6 +57,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		SaveFileService._save_progress()
 		if CrowdControl.is_connected_to_crowd_control():
+			CrowdControl.stop_session()
 			CrowdControl.close()
 
 func _ready() -> void:
@@ -94,6 +95,7 @@ func _ready() -> void:
 		func():
 			SaveFileService._save_progress()
 			if CrowdControl.is_connected_to_crowd_control():
+				CrowdControl.stop_session()
 				CrowdControl.close()
 			get_tree().quit()
 	)
@@ -296,6 +298,7 @@ func load_game() -> void:
 	ItemService.apply_inventory()
 	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
 		CrowdControl.start_session()
+		CrowdControlManager.make_all_effects_sellable()
 	SceneLoader.load_into_scene("res://scenes/elevator_scene/elevator_scene.tscn")
 
 func set_selected_toon(character: PlayerCharacter) -> void:
@@ -354,6 +357,7 @@ func _on_CrowdControl_logged_in() -> void:
 	
 func _on_crowd_control_button_pressed() -> void:
 	if CrowdControl.is_connected_to_crowd_control():
+		CrowdControl.stop_session()
 		CrowdControl.close()
 		cc_button.text = "Connect to CC"
 	else:

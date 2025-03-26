@@ -98,7 +98,7 @@ func quit() -> void:
 			SceneLoader.clear_persistent_nodes()
 			SceneLoader.load_into_scene("res://scenes/title_screen/title_screen.tscn")
 			resume()
-			CrowdControl.close()
+			CrowdControl.stop_session()
 	)
 	quit_panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	tree_exited.connect(quit_panel.queue_free)
