@@ -7,7 +7,10 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	if player != null:
 		var percentage = rand_range(1, 20) / 100
-		player.stats.hp -= player.stats.hp * percentage
+		if player.stats.hp * percentage < 1:
+			player.stats.hp -= 1
+		else:
+			player.stats.hp -= player.stats.hp * percentage
 	return SUCCESS
 
 func _can_run() -> bool:
