@@ -294,6 +294,8 @@ func load_game() -> void:
 	SceneLoader.add_persistent_node(player)
 	player.game_timer.time = SaveFileService.run_file.game_time
 	ItemService.apply_inventory()
+	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
+		CrowdControl.start_session()
 	SceneLoader.load_into_scene("res://scenes/elevator_scene/elevator_scene.tscn")
 
 func set_selected_toon(character: PlayerCharacter) -> void:
