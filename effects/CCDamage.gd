@@ -11,6 +11,8 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 			player.stats.hp -= 1
 		else:
 			player.stats.hp -= player.stats.max_hp * percentage
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.check_pulses([player])
 	return SUCCESS
 
 func _can_run() -> bool:
