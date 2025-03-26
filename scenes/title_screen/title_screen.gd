@@ -355,6 +355,7 @@ func _on_crowd_control_button_pressed() -> void:
 		cc_button.text = "Connect to CC"
 	else:
 		CrowdControl.connect_to_crowd_control()
+		CrowdControl.start_session()
 		get_tree().auto_accept_quit = false
 		cc_button.disabled = true
 
