@@ -7,8 +7,19 @@ const ANOMALIES = {
 	"positive": 3
 }
 func _ready():
-	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
-		CrowdControl.start_session()
+	if SaveFileService.settings_file.get("crowd_control_startup") == true:
+		CrowdControl.connect_to_crowd_control()
+		if SaveFileService.settings_file.get("crowd_control_platform") < 3:
+			CrowdControl.login(SaveFileService.settings_file.get("crowd_control_platform"))
+		else:
+			var CrowdControlLoginScene = load("res://objects/ui/crowd_control/CrowdControlLogin.tscn")
+			var popup = Popup.new()
+			add_child(popup) 
+			var CrowdControlLogin = CrowdControlLoginScene.instantiate()
+			CrowdControlLogin.hide()
+			popup.hide()
+			popup.add_child(CrowdControlLogin) 
+			popup.popup_centered()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -17,6 +28,8 @@ func _notification(what: int) -> void:
 			CrowdControl.stop_session()
 			CrowdControl.disconnected.connect(_on_CrowdControl_disconnected)
 			CrowdControl.close()
+		else:
+			get_tree().quit()
 
 func _on_CrowdControl_disconnected():
 	get_tree().quit()
@@ -34,7 +47,6 @@ func _process(_delta: float) -> void:
 			for effect in EFFECTS.effects:
 				if effect is CCNerf or effect is CCBuff:
 					effect.sellable = true
-# TODO disable certain anomaly effects if we all of them 
 
 
 func make_all_effects_sellable():

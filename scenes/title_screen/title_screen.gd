@@ -57,7 +57,6 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		SaveFileService._save_progress()
 		if CrowdControl.is_connected_to_crowd_control():
-			CrowdControl.stop_session()
 			CrowdControl.close()
 
 func _ready() -> void:
@@ -94,8 +93,7 @@ func _ready() -> void:
 	quit_button.pressed.connect(
 		func():
 			SaveFileService._save_progress()
-			if CrowdControl.is_connected_to_crowd_control():
-				CrowdControl.stop_session()
+			if CrowdControl.is_connected_to_crowd_control() or CrowdControl.is_session_active():
 				CrowdControl.close()
 			get_tree().quit()
 	)
@@ -345,6 +343,7 @@ func back_out_logo() -> void:
  
 func _on_CrowdControl_disconnected() -> void:
 	cc_button.text = "Connect CC"
+	cc_button.disabled = false
 	
 func _on_CrowdControl_logged_out() -> void:
 	AuthPopup.popup_centered()
@@ -353,17 +352,18 @@ func _on_CrowdControl_logged_out() -> void:
 
 func _on_CrowdControl_logged_in() -> void:
 	AuthPopup.hide()
-	cc_button.text = "Disconnect CC"
+	cc_button.text = "CC Connected"
+	cc_button.hide() # TODO fix allowing reconnection upon disconnecting
 	
 func _on_crowd_control_button_pressed() -> void:
 	if CrowdControl.is_connected_to_crowd_control():
-		CrowdControl.stop_session()
+		cc_button.text = "Disconnecting..."
 		CrowdControl.close()
-		cc_button.text = "Connect to CC"
+		cc_button.text = "Connect CC"
 	else:
+		cc_button.text = "Connecting..."
 		CrowdControl.connect_to_crowd_control()
-		get_tree().auto_accept_quit = false
-
-
+		cc_button.disabled = true
+	
 func _on_popup_popup_hide() -> void:
 	cc_button.grab_focus()
