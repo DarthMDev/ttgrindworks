@@ -195,3 +195,12 @@ func fire_hovered() -> void:
 func open_items() -> void:
 	%ItemPanel.show()
 	main_container.hide()
+
+func refresh_battle_ui() -> void:
+	# reload the battle UI
+	if get_parent() != null:
+		for track in gag_tracks.get_children():
+			track.refresh()
+		status_container.refresh()
+		refresh_turns()
+		%ItemPanel.refresh()

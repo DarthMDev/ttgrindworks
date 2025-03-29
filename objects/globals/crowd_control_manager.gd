@@ -10,6 +10,7 @@ func _ready():
 	if SaveFileService.settings_file.get("crowd_control_startup") == true:
 		CrowdControl.connect_to_crowd_control()
 		if SaveFileService.settings_file.get("crowd_control_platform") < 3:
+			print("Attempting to login...")
 			CrowdControl.login(SaveFileService.settings_file.get("crowd_control_platform"))
 		else:
 			var CrowdControlLoginScene = load("res://objects/ui/crowd_control/CrowdControlLogin.tscn")

@@ -13,6 +13,12 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 		if (item.shop_category_title == "Consumable" and
 			item.item_name != "Pink Slip"):
 			item.remove_item(player)
+			items.erase(item)
+	# set all toonups to 0
+	for i in range(0, player.stats.toonups.size()):
+		player.stats.toonups[i] = 0
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
 	return SUCCESS
 
 func _can_run() -> bool:

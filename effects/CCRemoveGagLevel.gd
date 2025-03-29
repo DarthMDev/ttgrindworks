@@ -13,6 +13,8 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 		gag_tracks_unlocked[track_name] -= 1
 	else:
 		return FAILURE
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
 	return SUCCESS
 
 func check_if_all_gags_minned() -> bool:

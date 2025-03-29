@@ -745,3 +745,12 @@ func create_v2_cog(cog: Cog) -> Cog:
 	add_cog(new_cog)
 	Task.delay(6.0).connect(new_cog.show)
 	return new_cog
+
+func update_battle_stats() -> void:
+	# Update the battle stats for the player
+	# This is used for the battle UI to show the correct stats
+	# when the player stats are updated before a battle action
+	battle_stats[Util.get_player()] = Util.get_player().stats
+	battle_stats[player].multipliers = player.stats.multipliers
+	# lets refresh the ui and show the new stats
+	battle_ui.refresh_battle_ui()
