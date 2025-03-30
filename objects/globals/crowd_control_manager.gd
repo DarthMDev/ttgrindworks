@@ -6,21 +6,6 @@ const ANOMALIES = {
 	"negative": 2,
 	"positive": 3
 }
-func _ready():
-	if SaveFileService.settings_file.get("crowd_control_startup") == true:
-		CrowdControl.connect_to_crowd_control()
-		if SaveFileService.settings_file.get("crowd_control_platform") < 3:
-			print("Attempting to login...")
-			CrowdControl.login(SaveFileService.settings_file.get("crowd_control_platform"))
-		else:
-			var CrowdControlLoginScene = load("res://objects/ui/crowd_control/CrowdControlLogin.tscn")
-			var popup = Popup.new()
-			add_child(popup) 
-			var CrowdControlLogin = CrowdControlLoginScene.instantiate()
-			CrowdControlLogin.hide()
-			popup.hide()
-			popup.add_child(CrowdControlLogin) 
-			popup.popup_centered()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

@@ -186,10 +186,6 @@ func toggle_custom_cogs() -> void:
 func toggle_crowd_control() -> void:
 	toggle_setting('crowd_control_startup')
 	crowd_control_button.text = get_toggle_text(get_setting('crowd_control_startup'))
-	if get_setting('crowd_control_startup'):
-		if get_setting('crowd_control_platform') < 3:
-			CrowdControl.connect_to_crowd_control()
-			CrowdControl.login(get_setting('crowd_control_platform'))
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:
