@@ -1,5 +1,6 @@
 extends Node
 
+
 var ongoing_battle : BattleManager
 var battle_node : BattleNode:
 	set(x):
@@ -26,6 +27,12 @@ signal s_action_started(action: BattleAction)
 signal s_action_finished(action: BattleAction)
 
 func battle_started(manager : BattleManager):
+	var EFFECTS = load("res://effects/effects.tres")
+
+	if CrowdControl.is_connected_to_crowd_control():
+		for effect in EFFECTS.effects:
+			if effect is CCNerf or effect is CCBuff:
+				effect.sellable = true
 	ongoing_battle = manager
 	ongoing_battle.s_battle_ending.connect(func(): s_battle_ending.emit())
 	ongoing_battle.s_battle_ended.connect(battle_ended)
@@ -50,6 +57,12 @@ func battle_participant_died(participant : Node3D) -> void:
 			s_boss_died.emit(participant)
 
 func battle_ended():
+	var EFFECTS = load("res://effects/effects.tres")
+
+	if CrowdControl.is_connected_to_crowd_control():
+		for effect in EFFECTS.effects:
+			if effect is CCNerf or effect is CCBuff:
+				effect.sellable = false
 	ongoing_battle = null
 	battle_node = null
 	s_battle_ended.emit()
