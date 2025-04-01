@@ -9,6 +9,10 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var consumable = ItemService.get_random_consumable()
 	consumable.apply_item(player)        
 	consumable.play_collection_sound()
+	# update the battle stats too if we are in a battle
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
+		
 	return SUCCESS
 
 func _can_run() -> bool:

@@ -28,8 +28,8 @@ func new_anomalies() -> Array[String]:
 	var anomalies = ANOMALIES_NEGATIVE.duplicate()
 	if Util.floor_manager.anomalies:
 		for anomaly in Util.floor_manager.anomalies:
-			if anomalies.has(anomaly):
-				anomalies.erase(anomaly)
+			if anomaly.get_mod_name() == "Out of Touch":
+				anomalies.erase("res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_out_of_touch.gd")
 	return anomalies
 
 func _can_run() -> bool:

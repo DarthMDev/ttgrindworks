@@ -50,7 +50,18 @@ func emit_gag(gag: ToonAttack, price: int):
 func refresh():
 	if not track:
 		return
-	
+	# check if the gag track is unlocked again
+	unlocked = Util.get_player().stats.gags_unlocked[track.track_name]
+	if unlocked <= 0:
+		grey_out()
+		return
+	else:
+		track_label.set_text(track.track_name.to_upper())
+		self_modulate = track.track_color
+		# show the buttons and point label
+		point_label.show()
+		for button in gag_buttons:
+			button.show()
 	# Allow scripts to alter the gag track by signaling out
 	# Duplicate the base track so that the effects are not permanent
 	gags = track.gags.duplicate()

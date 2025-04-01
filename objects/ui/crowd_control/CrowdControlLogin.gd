@@ -6,6 +6,7 @@ extends PanelContainer
 
 func _on_twitch_pressed() -> void:
 	CrowdControl.login(CrowdControl.TWITCH)
+	
 
 
 func _on_youtube_pressed() -> void:

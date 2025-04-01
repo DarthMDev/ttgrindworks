@@ -1,4 +1,4 @@
-[gd_resource type="CCEffectEntries" load_steps=84 format=3 uid="uid://drr8yoxg48kw8"]
+[gd_resource type="CCEffectEntries" load_steps=82 format=3 uid="uid://drr8yoxg48kw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4pi05ynnunye" path="res://ui_assets/player_ui/pause/laff_it_up.png" id="1_i3r68"]
 [ext_resource type="Script" uid="uid://kqhd3f31c57h" path="res://effects/CCPositiveAnomaly.gd" id="2_f8hh1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://6dpsk6kilthf" path="res://effects/CCOneHp.gd" id="4_6jwl3"]
 [ext_resource type="Texture2D" uid="uid://cnnvt1t70mcub" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky.glb-pix-1.png" id="5_c4fse"]
 [ext_resource type="Script" uid="uid://t3aeaknl7gcd" path="res://effects/CCAccessory.gd" id="6_sqy00"]
-[ext_resource type="Texture2D" uid="uid://q77u3hacppqv" path="res://ui_assets/achievements/icon_achievement_sad5.png" id="6_u7id6"]
 [ext_resource type="Texture2D" uid="uid://dqa3cnlaoackx" path="res://ui_assets/achievements/icon_achievement_sad10.png" id="7_sqy00"]
 [ext_resource type="Script" uid="uid://c7eonuwonua73" path="res://effects/CCReduceMaxLaff.gd" id="8_rvgu7"]
 [ext_resource type="Texture2D" uid="uid://dexb4j8qjxcfn" path="res://models/props/treasure_chest/treasure_chest-d399a15272bb3709c253ceb8e58370d8_treasure_lock.png" id="9_46vmo"]
@@ -58,7 +57,8 @@
 morality = 2
 id = &"DamagePlayer"
 display_name = "Damage Player"
-description = "Damages a player by a range of 1-25"
+description = "Damages a player by a percentage of 1-20%"
+price = 100
 script = ExtResource("3_f8hh1")
 
 [sub_resource type="CCEffect" id="CCEffect_rvgu7"]
@@ -79,16 +79,6 @@ description = "Gives a random accessory to the player's toon. Can be a duplicate
 price = 225
 script = ExtResource("6_sqy00")
 metadata/_custom_type_script = "uid://t3aeaknl7gcd"
-
-[sub_resource type="CCEffect" id="CCEffect_1fwbl"]
-morality = 2
-icon = ExtResource("6_u7id6")
-id = &"MaxHP"
-display_name = "Reduce Max Health "
-description = "Reduce's a toon's max laff by a random amount between 1 and 6"
-price = 200
-script = ExtResource("8_rvgu7")
-metadata/_custom_type_script = "uid://c7eonuwonua73"
 
 [sub_resource type="CCEffect" id="CCEffect_aw1uv"]
 morality = 1
@@ -173,7 +163,7 @@ morality = 1
 icon = ExtResource("25_dv4dc")
 id = &"PositiveAnomaly"
 display_name = "Spawn Positive Anomaly"
-description = "Spawns a random positive anomaly. It will only choose from the list of ones we don't already have."
+description = "Spawns a random positive anomaly. "
 price = 150
 script = ExtResource("2_f8hh1")
 metadata/_custom_type_script = "uid://kqhd3f31c57h"
@@ -182,7 +172,7 @@ metadata/_custom_type_script = "uid://kqhd3f31c57h"
 icon = ExtResource("27_d5qei")
 id = &"NeutralAnomaly"
 display_name = "Spawn Neutral Anomaly"
-description = "Spawns a random neutral anomaly. It will only choose from the list of ones we don't already have."
+description = "Spawns a random neutral anomaly. "
 price = 175
 script = ExtResource("28_d8nx5")
 metadata/_custom_type_script = "uid://ufgx7v02cnrh"
@@ -192,7 +182,7 @@ morality = 2
 icon = ExtResource("29_picxm")
 id = &"NegativeAnomaly"
 display_name = "Spawn Negative Anomaly"
-description = "Spawns a random negative anomaly. It will only choose from the list of ones we don't already have."
+description = "Spawns a random negative anomaly. "
 price = 250
 script = ExtResource("30_ay7vo")
 metadata/_custom_type_script = "uid://e321dobufrgi"
@@ -227,6 +217,7 @@ script = ExtResource("33_d5qei")
 metadata/_custom_type_script = "uid://cnoi3wh7yn7ep"
 
 [sub_resource type="CCEffect" id="CCEffect_d5qei"]
+visible = false
 morality = 2
 id = &"NoAccessories"
 display_name = "Take Away All Accessories"
@@ -236,6 +227,7 @@ script = ExtResource("16_sf0ka")
 metadata/_custom_type_script = "uid://bcxenxobkxcy1"
 
 [sub_resource type="CCEffect" id="CCEffect_edb0r"]
+visible = false
 morality = 2
 id = &"RemoveRandomAccessory"
 display_name = "Remove An Accessory"
@@ -247,8 +239,8 @@ script = ExtResource("34_d8nx5")
 morality = 1
 icon = ExtResource("35_hhna7")
 id = &"RandomConsumable"
-display_name = "Give Consumable"
-description = "Gives a random toonup consumable item."
+display_name = "Give Toon-Up item"
+description = "Gives a random Toon-Up  item."
 price = 150
 script = ExtResource("36_bdoa8")
 metadata/_custom_type_script = "uid://1q6anuhy7ty1"
@@ -327,8 +319,8 @@ morality = 2
 icon = ExtResource("40_bdoa8")
 icon_color = Color(1, 0, 0, 1)
 id = &"RemoveAllConsumables"
-display_name = "Remove All  Consumables"
-description = "Removes all battle consumables (besides vouchers and fires)"
+display_name = "Remove All  Toon-Up items"
+description = "Removes all Toon-Up items."
 price = 1000
 script = ExtResource("39_5w3h2")
 metadata/_custom_type_script = "uid://e14awydwss0t"
@@ -345,4 +337,4 @@ script = ExtResource("55_s52en")
 metadata/_custom_type_script = "uid://u7yuu18up4l1"
 
 [resource]
-effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_1fwbl"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_2a6ev"), SubResource("CCEffect_u7id6"), SubResource("CCEffect_vkqpa"), SubResource("CCEffect_hmce4"), SubResource("CCEffect_fw6q6"), SubResource("CCEffect_s52en"), SubResource("CCEffect_hkn5u"), SubResource("CCEffect_gbqu5")]
+effects = [SubResource("CCEffect_8o45s"), SubResource("CCEffect_rvgu7"), SubResource("CCEffect_46vmo"), SubResource("CCEffect_aw1uv"), SubResource("CCEffect_d036k"), SubResource("CCEffect_sf0ka"), SubResource("CCEffectTimed_7f2sj"), SubResource("CCEffect_picxm"), SubResource("CCEffect_ay7vo"), SubResource("CCEffect_83it1"), SubResource("CCEffectTimed_uywln"), SubResource("CCEffect_hhna7"), SubResource("CCEffect_bdoa8"), SubResource("CCEffect_knm4r"), SubResource("CCEffect_mqnts"), SubResource("CCEffect_5w3h2"), SubResource("CCEffect_uywln"), SubResource("CCEffect_d5qei"), SubResource("CCEffect_edb0r"), SubResource("CCEffect_3bhnd"), SubResource("CCEffect_e1vbt"), SubResource("CCEffect_2a6ev"), SubResource("CCEffect_u7id6"), SubResource("CCEffect_vkqpa"), SubResource("CCEffect_hmce4"), SubResource("CCEffect_fw6q6"), SubResource("CCEffect_s52en"), SubResource("CCEffect_hkn5u"), SubResource("CCEffect_gbqu5")]

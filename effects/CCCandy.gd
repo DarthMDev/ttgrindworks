@@ -9,6 +9,8 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	candy = ItemService.get_random_candy()
 	candy.apply_item(player)
 	candy.play_collection_sound()
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
 	return SUCCESS
 
 func _can_run() -> bool:

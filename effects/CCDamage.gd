@@ -1,12 +1,18 @@
 extends CCEffect
 
 class_name CCDamage
-# take 1 - 25 damage
+# take 1 - 20% damage
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	randomize()
 	var player = Util.get_player()
 	if player != null:
-		player.stats.hp -= randi() % 25 + 1
+		var percentage = randf_range(1, 20) / 100
+		if player.stats.max_hp * percentage < 1:
+			player.stats.hp -= 1
+		else:
+			player.stats.hp -= player.stats.max_hp * percentage
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.check_pulses([player])
 	return SUCCESS
 
 func _can_run() -> bool:

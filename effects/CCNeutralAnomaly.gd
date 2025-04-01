@@ -27,10 +27,6 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 
 func new_anomalies() -> Array[String]:
 	var anomalies = ANOMALIES_NEUTRAL.duplicate()
-	if Util.floor_manager.anomalies:
-		for anomaly in Util.floor_manager.anomalies:
-			if anomalies.has(anomaly):
-				anomalies.erase(anomaly)
 	return anomalies
 
 func _can_run() -> bool:

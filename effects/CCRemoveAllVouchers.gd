@@ -12,6 +12,11 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	for item in items:
 		if item.item_name == "Gag Voucher":
 			item.remove_item(player)
+	# empty out all gag_vouchers in stats.
+	for gag in player.stats.gag_vouchers:
+		player.stats.gag_vouchers[gag] = 0
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
 	return SUCCESS
 
 func _can_run() -> bool:

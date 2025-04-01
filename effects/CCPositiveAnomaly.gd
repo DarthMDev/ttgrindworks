@@ -22,10 +22,6 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 
 func new_anomalies() -> Array[String]:
 	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
-	if Util.floor_manager.anomalies:
-		for anomaly in Util.floor_manager.anomalies:
-			if anomaly_files_pos.has(anomaly):
-				anomaly_files_pos.erase(anomaly)
 	return anomaly_files_pos
 
 func _can_run() -> bool:

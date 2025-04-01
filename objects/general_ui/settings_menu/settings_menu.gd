@@ -119,6 +119,8 @@ func toggle_ambient_sfx() -> void:
 @onready var discord_rpc_element: HBoxContainer = %DiscordRPC
 @onready var discord_rpc_button: GeneralButton = %DiscordRPCButton
 @onready var custom_cogs_button : GeneralButton = %CustomCogsButton
+@onready var crowd_control_element : HBoxContainer = %CrowdControl
+@onready var crowd_control_button : GeneralButton = %CrowdControlButton
 
 func _sync_gameplay_settings() -> void:
 	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
@@ -134,7 +136,8 @@ func _sync_gameplay_settings() -> void:
 	if not SaveFileService.progress_file.characters_unlocked > 1:
 		intro_skip_element.queue_free()
 	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
-
+	crowd_control_button.text = get_toggle_text(get_setting('crowd_control_startup'))
+	
 func change_speed() -> void:
 	var curr_idx: int = get_setting('battle_speed_idx')
 	curr_idx += 1
@@ -175,10 +178,15 @@ func toggle_discord_rpc() -> void:
 		DiscordManager.menu()
 	else:
 		DiscordManager.stop()
+
 func toggle_custom_cogs() -> void:
 	toggle_setting('use_custom_cogs')
 	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	Globals.import_custom_cogs()
+
+func toggle_crowd_control() -> void:
+	toggle_setting('crowd_control_startup')
+	crowd_control_button.text = get_toggle_text(get_setting('crowd_control_startup'))
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:

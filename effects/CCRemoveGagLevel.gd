@@ -9,10 +9,12 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var loadout : GagLoadout = player.stats.character.gag_loadout
 	var gag_tracks_unlocked = player.stats.gags_unlocked
 	var track_name = loadout.loadout[randi() % loadout.loadout.size()].track_name
-	if gag_tracks_unlocked.has(track_name):
+	if gag_tracks_unlocked[track_name] >= 1:
 		gag_tracks_unlocked[track_name] -= 1
 	else:
 		return FAILURE
+	if BattleService.ongoing_battle:
+		BattleService.ongoing_battle.update_battle_stats()
 	return SUCCESS
 
 func check_if_all_gags_minned() -> bool:

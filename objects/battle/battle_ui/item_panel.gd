@@ -159,3 +159,7 @@ func get_track(track_name: String) -> Track:
 func _exit() -> void:
 	hide()
 	get_parent().main_container.show()
+
+func refresh() -> void:
+	_refresh_vouchers()
+	_refresh_toonup()

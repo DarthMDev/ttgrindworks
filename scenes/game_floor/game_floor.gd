@@ -168,13 +168,21 @@ func add_random_room():
 	elif index < room_count - 1:
 		if index % 2 == 0:
 			# Roll a random room type based on the remaining rooms
-			var room_roll := RandomService.randi_channel('remaining_rooms') % (rooms_remaining[0] + rooms_remaining[1])
-			if room_roll < rooms_remaining[0]:
-				new_room = roll_for_room(floor_rooms.battle_rooms, 'battle_rooms')
-				rooms_remaining[0] -= 1
+			if rooms_remaining[0] + rooms_remaining[1] <= 0:
+				# we probably got more rooms during an existing floor, so just add a random room
+				# choose between battle and obstacle rooms
+				if randf_range(1, 2) == 1:
+					new_room = roll_for_room(floor_rooms.battle_rooms, 'battle_rooms')
+				else:
+					new_room = roll_for_room(floor_rooms.obstacle_rooms, 'obstacle_rooms')
 			else:
-				new_room = roll_for_room(floor_rooms.obstacle_rooms, 'obstacle_rooms')
-				rooms_remaining[1] -= 1
+				var room_roll := RandomService.randi_channel('remaining_rooms') % (rooms_remaining[0] + rooms_remaining[1])
+				if room_roll < rooms_remaining[0]:
+					new_room = roll_for_room(floor_rooms.battle_rooms, 'battle_rooms')
+					rooms_remaining[0] -= 1
+				else:
+					new_room = roll_for_room(floor_rooms.obstacle_rooms, 'obstacle_rooms')
+					rooms_remaining[1] -= 1
 		else:
 			new_room = get_random_connector_room()
 	else:
