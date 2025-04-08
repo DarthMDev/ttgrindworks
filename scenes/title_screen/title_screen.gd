@@ -127,7 +127,6 @@ func _ready() -> void:
 	CrowdControl.logged_in.connect(_on_CrowdControl_logged_in)
 	if CrowdControl.is_connected_to_crowd_control():
 		cc_button.text = "Disconnect CC"
-		CrowdControlManager.make_all_effects_unsellable()
 		
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:
@@ -264,7 +263,6 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	SaveFileService.progress_file.new_games += 1
 	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
 		CrowdControl.start_session()
-	CrowdControlManager.make_all_effects_sellable()
 	if falling_scene:
 		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn")
 	else:
@@ -297,7 +295,6 @@ func load_game() -> void:
 	ItemService.apply_inventory()
 	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
 		CrowdControl.start_session()
-		CrowdControlManager.make_all_effects_sellable()
 	SceneLoader.load_into_scene("res://scenes/elevator_scene/elevator_scene.tscn")
 
 func set_selected_toon(character: PlayerCharacter) -> void:
