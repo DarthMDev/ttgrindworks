@@ -191,6 +191,9 @@ func add_random_room():
 			append_room(pre_final_room)
 			append_room(get_random_connector_room())
 		new_room = roll_for_room(floor_rooms.final_rooms, 'boss_rooms')
+	if new_room == null:
+		# No more rooms left to add
+		return
 	append_room(new_room)
 
 func append_room(room: PackedScene):
@@ -258,10 +261,15 @@ func roll_for_room(rooms: Array[FacilityRoom], _seed_channel := 'true_random') -
 	var weights : Array[float] = []
 	for room in rooms:
 		weights.append(room.rarity_weight)
-	
+	if weights.size() == 0:
+		# no rooms left to choose from
+		return null
 	var room_idx := rng.rand_weighted(weights)
 	if previous_rooms.size() >= ROOM_REPEAT_DETECTION_SIZE:
 		previous_rooms.pop_front()
+	if room_idx == -1:
+		# invalid room, so just return a random one
+		room_idx = RandomService.randi_channel(_seed_channel) % rooms.size()
 	previous_rooms.append(rooms[room_idx])
 	return rooms[room_idx].room
 

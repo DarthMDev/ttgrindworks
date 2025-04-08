@@ -7,6 +7,7 @@ var voucher: Item
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	voucher = ItemService.get_random_voucher()
+	voucher = voucher.duplicate()
 	voucher.apply_item(player)        
 	voucher.play_collection_sound()
 	if BattleService.ongoing_battle:
