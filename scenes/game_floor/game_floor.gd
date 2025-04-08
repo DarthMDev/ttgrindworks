@@ -32,6 +32,7 @@ class StoredRoom:
 
 # Signals
 signal s_floor_ended
+signal s_marathon_triggered()
 
 # Misc.
 @onready var environment: WorldEnvironment = $WorldEnvironment
@@ -50,7 +51,24 @@ func _ready() -> void:
 	generate_floor()
 	if SaveFileService.run_file:
 		SaveFileService.run_file.floor_choice = null
+	s_marathon_triggered.connect(add_extra_rooms)
 
+func add_extra_rooms() -> void:
+    # Recalculate the available rooms, ensuring the count is still valid
+    if room_count % 2 == 0:
+        room_count += 1
+
+    var total_rooms = int((room_count - 2) / 2)
+    var total_battles := int(total_rooms * battle_ratio)
+    rooms_remaining = [total_battles, total_rooms - total_battles]
+
+    # Check if we need to generate more rooms immediately
+    var t := room_index
+    while t < room_index + render_rooms / 2 and t < room_count - 1:
+        if room_order.size() - 1 <= t:
+            add_random_room()
+        t += 1
+		
 func generate_floor() -> void:
 	if not floor_variant:
 		push_error("Failed to generate floor: No floor variant specified.")
