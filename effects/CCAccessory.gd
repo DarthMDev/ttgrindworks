@@ -7,6 +7,10 @@ var accessory: ItemAccessory
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	accessory = ItemService.get_random_accessory()
+	if accessory.evergreen:
+		accessory = accessory.duplicate()
+	else:
+		ItemService.seen_item(accessory)
 	accessory.apply_item(player)        
 	accessory.play_collection_sound()
 	return SUCCESS

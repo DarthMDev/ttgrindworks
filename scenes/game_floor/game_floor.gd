@@ -32,6 +32,7 @@ class StoredRoom:
 
 # Signals
 signal s_floor_ended
+signal s_marathon_triggered()
 
 # Misc.
 @onready var environment: WorldEnvironment = $WorldEnvironment
@@ -50,7 +51,24 @@ func _ready() -> void:
 	generate_floor()
 	if SaveFileService.run_file:
 		SaveFileService.run_file.floor_choice = null
+	s_marathon_triggered.connect(add_extra_rooms)
 
+func add_extra_rooms() -> void:
+	# Recalculate the available rooms, ensuring the count is still valid
+	if room_count % 2 == 0:
+		room_count += 1
+
+	var total_rooms = int((room_count - 2) / 2)
+	var total_battles := int(total_rooms * battle_ratio)
+	rooms_remaining = [total_battles, total_rooms - total_battles]
+
+	# Check if we need to generate more rooms immediately
+	var t := room_index
+	while t < room_index + render_rooms / 2 and t < room_count - 1:
+		if room_order.size() - 1 <= t:
+			add_random_room()
+		t += 1
+		
 func generate_floor() -> void:
 	if not floor_variant:
 		push_error("Failed to generate floor: No floor variant specified.")
@@ -191,6 +209,9 @@ func add_random_room():
 			append_room(pre_final_room)
 			append_room(get_random_connector_room())
 		new_room = roll_for_room(floor_rooms.final_rooms, 'boss_rooms')
+	if new_room == null:
+		# No more rooms left to add
+		return
 	append_room(new_room)
 
 func append_room(room: PackedScene):
@@ -258,10 +279,15 @@ func roll_for_room(rooms: Array[FacilityRoom], _seed_channel := 'true_random') -
 	var weights : Array[float] = []
 	for room in rooms:
 		weights.append(room.rarity_weight)
-	
+	if weights.size() == 0:
+		# no rooms left to choose from
+		return null
 	var room_idx := rng.rand_weighted(weights)
 	if previous_rooms.size() >= ROOM_REPEAT_DETECTION_SIZE:
 		previous_rooms.pop_front()
+	if room_idx == -1:
+		# invalid room, so just return a random one
+		room_idx = RandomService.randi_channel(_seed_channel) % rooms.size()
 	previous_rooms.append(rooms[room_idx])
 	return rooms[room_idx].room
 
