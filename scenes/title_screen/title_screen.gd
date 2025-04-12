@@ -119,14 +119,15 @@ func _ready() -> void:
 	AudioManager.set_default_music(load("res://audio/music/main_theme.ogg"))
 	
 	Globals.s_title_screen_entered.emit(self)
-	if SaveFileService.settings_file.get("crowd_control_startup") == true:
-		CrowdControl.connect_to_crowd_control()
 	CrowdControl.connected.connect(_on_crowd_control_button_pressed)
 	CrowdControl.disconnected.connect(_on_CrowdControl_disconnected)
 	CrowdControl.logged_out.connect(_on_CrowdControl_logged_out)
 	CrowdControl.logged_in.connect(_on_CrowdControl_logged_in)
+	if SaveFileService.settings_file.get("crowd_control_startup") == true:
+		CrowdControl.connect_to_crowd_control()
 	if CrowdControl.is_connected_to_crowd_control():
 		cc_button.text = "Disconnect CC"
+		cc_button.hide()
 		
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:
