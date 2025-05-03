@@ -4,7 +4,9 @@ extends FloorModifier
 func modify_floor() -> void:
 	if Util.get_player():
 		Util.get_player().laff_meter.obscured = true
-		game_floor.s_floor_ended.connect(func(): Util.get_player().laff_meter.obscured = false)
+
+func clean_up() -> void:
+	Util.get_player().laff_meter.obscured = false
 
 func get_mod_quality() -> ModType:
 	return ModType.NEGATIVE

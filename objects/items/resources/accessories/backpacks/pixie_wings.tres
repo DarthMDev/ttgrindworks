@@ -30,12 +30,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("6_qcybi")
 accessory_placements = Array[ExtResource("1_h8b75")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+item_tags = null
 qualitoon = 1
 rarity = 4
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.11
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.4
 item_name = "Pixie Wings"

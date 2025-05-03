@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=8 format=3 uid="uid://c6oqw7m6eh4yy"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=9 format=3 uid="uid://c6oqw7m6eh4yy"]
 
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_grtey"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_j1jpo"]
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_t03ah"]
 [ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="2_w38qq"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="4_al6k5"]
+[ext_resource type="Resource" uid="uid://jubssojcpwa0" path="res://objects/items/resources/passive/mystery_setup.tres" id="6_qib3c"]
 
 [sub_resource type="Resource" id="Resource_q3qk8"]
 script = ExtResource("1_j1jpo")
@@ -33,11 +34,15 @@ leg_color = Color(1, 1, 1, 1)
 script = ExtResource("1_grtey")
 character_name = "RandomToon"
 character_summary = "- Stats are randomized
-- Starts with 2 random items
+- Starts with a random Accessory
+- Starts with a random Pocket Prank
 - Starts with 2 random tracks"
 dna = SubResource("Resource_gqohd")
 gag_loadout = ExtResource("2_w38qq")
 starting_laff = 30
-starting_items = Array[ExtResource("4_al6k5")]([])
+starting_items = Array[ExtResource("4_al6k5")]([ExtResource("6_qib3c")])
 base_stats = SubResource("Resource_q3qk8")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({})
 random_character_stored_name = ""
+achievement_index = 17

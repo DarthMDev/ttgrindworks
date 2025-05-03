@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6e4ttu42nhai"
+path="res://.godot/imported/encntr_hos_segment_03a_Pitched Percussion_144bpm.ogg-8b10141a1f22e3b6de12db758ec50376.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/encntr_hos/segment_03a/encntr_hos_segment_03a_Pitched Percussion_144bpm.ogg"
+dest_files=["res://.godot/imported/encntr_hos_segment_03a_Pitched Percussion_144bpm.ogg-8b10141a1f22e3b6de12db758ec50376.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -30,12 +30,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("2_8o5tv")
 accessory_placements = Array[ExtResource("1_uh3i7")]([SubResource("Resource_6vjhu"), SubResource("Resource_4scxt"), SubResource("Resource_pj1q4")])
+item_tags = 1
 qualitoon = 3
-rarity = 0
+rarity = 2
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Medium Pouch"

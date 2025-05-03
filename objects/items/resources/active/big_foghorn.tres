@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://bjtq481jok2t4"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_2tdn3"]
+[ext_resource type="Texture2D" uid="uid://fd3appdve2xm" path="res://ui_assets/player_ui/pocket_prank_icons/big foghorn.png" id="1_iuutl"]
+[ext_resource type="Script" uid="uid://dr80w1y7ni47f" path="res://objects/items/custom/big_foghorn/item_script_big_foghorn.gd" id="1_r04mx"]
+[ext_resource type="AudioStream" uid="uid://hgwtecn17iui" path="res://audio/sfx/battle/gags/sound/SZ_DD_foghorn.ogg" id="2_rr6d1"]
+[ext_resource type="PackedScene" uid="uid://8c0ry7pwl3uy" path="res://models/props/gags/foghorn/foghorn_item.tscn" id="3_iuutl"]
+
+[resource]
+script = ExtResource("1_2tdn3")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 12
+current_charge = 12
+item_tags = null
+qualitoon = 4
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.15
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "BIG Foghorn"
+item_description = "Blow them all away!"
+big_description = "Defeats all of the Cogs in the room (doesn't affect Boss Fights)"
+model = ExtResource("3_iuutl")
+pickup_sfx = ExtResource("2_rr6d1")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("1_r04mx")
+remember_item = true
+icon = ExtResource("1_iuutl")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

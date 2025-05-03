@@ -1,7 +1,7 @@
 extends FreeCamTool
 class_name PlayerFreeCam
 
-var LABEL := LazyLoader.defer("res://objects/interactables/lawbot_puzzles/puzzle_label.tscn")
+var LABEL := preload("res://objects/interactables/lawbot_puzzles/puzzle_label.tscn")
 
 var player : Player
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 	super()
 	if player:
 		player.state = Player.PlayerState.STOPPED
-	var label = LABEL.load().instantiate()
+	var label = LABEL.instantiate()
 	add_child(label)
 	label.set_text("Press F6 to disable freecam.")
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c66x2l5k572kt"]
+[gd_scene load_steps=10 format=3 uid="uid://c66x2l5k572kt"]
 
 [ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_a56l5"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_syy1l"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_tqc10"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="5_k5f0t"]
 [ext_resource type="PackedScene" uid="uid://dnip6uj60poax" path="res://objects/props/mint/pipes/pipes_c.tscn" id="6_18dc4"]
 [ext_resource type="PackedScene" uid="uid://cpui5l4pi63l0" path="res://objects/props/factory/small_gear.tscn" id="7_wylfk"]
 [ext_resource type="PackedScene" uid="uid://csdrrw6xiokuy" path="res://objects/props/mint/pipes/kit/pipe_shadow.tscn" id="8_v6soa"]
@@ -17,10 +16,11 @@ size = Vector3(3.14087, 10.2312, 1.42299)
 
 [node name="factory_paint_l_room" instance=ExtResource("1_a56l5")]
 
-[node name="BattleNodeDynamic" parent="." index="22" instance=ExtResource("2_syy1l")]
+[node name="BattleNodeDynamic" parent="." index="22" node_paths=PackedStringArray("cogs") instance=ExtResource("2_syy1l")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.48339, 10.1381, 1.68705)
 cog_range = Vector2i(3, 4)
 cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99912, 5.80231, -1.56131)
@@ -28,7 +28,6 @@ shape = SubResource("BoxShape3D_tmlt0")
 
 [node name="treasure_chest" parent="." index="23" instance=ExtResource("4_tqc10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9354, 10.141, -23.5776)
-item_pool = ExtResource("5_k5f0t")
 
 [node name="Props" type="Node3D" parent="." index="25"]
 

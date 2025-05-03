@@ -60,7 +60,6 @@ var alpha: float:
 func _ready() -> void:
 	prepare_music()
 	
-	
 	# Await battle start
 	await battle.s_battle_initialized
 	var manager : BattleManager = await BattleService.s_battle_started
@@ -73,6 +72,8 @@ func _ready() -> void:
 	var end_movie := SlenderBossEnd.new()
 	end_movie.slendercog_directory = self
 	manager.battle_win_movie = end_movie
+	
+	Globals.s_slendercog_boss_initialized.emit(self)
 
 func get_camera_angle(angle : String) -> Transform3D:
 	var node := camera_angles.find_child(angle)
@@ -195,6 +196,8 @@ department = 0
 suit = 2
 cog_name = "???"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("9_370r7")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -223,6 +226,8 @@ department = 0
 suit = 0
 cog_name = "???"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("13_v2pu4")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -361,11 +366,13 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 stream = ExtResource("17_xvbh6")
 volume_db = -80.0
 autoplay = true
+bus = &"SFX"
 
 [node name="Medium" type="AudioStreamPlayer" parent="BossFight/StaticSFX" index="1"]
 stream = ExtResource("18_kw3o7")
 volume_db = -80.0
 autoplay = true
+bus = &"SFX"
 
 [node name="DynamicMusic" type="Node" parent="BossFight" index="5"]
 unique_name_in_owner = true

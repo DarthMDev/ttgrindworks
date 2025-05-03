@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf48srbmn1uti"]
+[gd_scene load_steps=37 format=3 uid="uid://bf48srbmn1uti"]
 
 [ext_resource type="Texture2D" uid="uid://dtb1wxg7cs2sj" path="res://models/cogs/misc/explosion/gear.png" id="1_sngxv"]
+[ext_resource type="Texture2D" uid="uid://p2rex785q4qy" path="res://models/props/gags/geyser-revamp/geyser_5.png" id="2_16rmw"]
+[ext_resource type="Texture2D" uid="uid://ddwfanf0g86ea" path="res://objects/battle/effects/poison/bubble.png" id="4_m5gqj"]
+[ext_resource type="Texture2D" uid="uid://qomg7tentclo" path="res://objects/misc/Triangle.png" id="5_7v3cw"]
 
 [sub_resource type="Curve" id="Curve_dn7np"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -48,7 +51,248 @@ albedo_texture = ExtResource("1_sngxv")
 material = SubResource("StandardMaterial3D_tq6gc")
 size = Vector2(0.5, 0.5)
 
-[node name="PoisonCog" type="GPUParticles3D"]
+[sub_resource type="Curve" id="Curve_7v3cw"]
+_data = [Vector2(0.646825, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.23177, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m5gqj"]
+curve = SubResource("Curve_7v3cw")
+
+[sub_resource type="Curve" id="Curve_d7l4d"]
+_data = [Vector2(0, 0), 0.0, 3.22941, 0, 0, Vector2(0.714286, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m425x"]
+curve = SubResource("Curve_d7l4d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v0jj0"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 0.3
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.38
+scale_max = 0.88
+scale_curve = SubResource("CurveTexture_m425x")
+color = Color(0.756863, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_m5gqj")
+hue_variation_min = -0.07
+hue_variation_max = 0.21
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5l1i"]
+transparency = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_16rmw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ae7gq"]
+material = SubResource("StandardMaterial3D_r5l1i")
+
+[sub_resource type="Curve" id="Curve_y1ep0"]
+_data = [Vector2(0, 0), 0.0, 1.90588, 0, 0, Vector2(1, 1), 0.264706, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m5l3w"]
+curve = SubResource("Curve_y1ep0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8cv6"]
+lifetime_randomness = 0.56
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.15
+scale_max = 0.49
+scale_curve = SubResource("CurveTexture_m5l3w")
+color = Color(1, 1, 0, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.08
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf7hm"]
+render_priority = 1
+transparency = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.508811, 1, 0.49628, 1)
+albedo_texture = ExtResource("4_m5gqj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_oiko2"]
+material = SubResource("StandardMaterial3D_mf7hm")
+
+[sub_resource type="Curve" id="Curve_m5gqj"]
+_data = [Vector2(0.305556, 0.237718), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.6084, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_m425x"]
+_data = [Vector2(0, 0), 0.0, 1.96875, 0, 1, Vector2(0.507937, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.03226, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_v0jj0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_r5l1i"]
+curve_x = SubResource("Curve_m5gqj")
+curve_y = SubResource("Curve_m425x")
+curve_z = SubResource("Curve_v0jj0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ae7gq"]
+particle_flag_align_y = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 3.75
+initial_velocity_max = 3.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveXYZTexture_r5l1i")
+hue_variation_min = -0.14
+hue_variation_max = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1ep0"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.284824, 0.797179, 0.287737, 1)
+albedo_texture = ExtResource("5_7v3cw")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_m5l3w"]
+material = SubResource("StandardMaterial3D_y1ep0")
+
+[sub_resource type="Curve" id="Curve_16rmw"]
+_data = [Vector2(0, 0), 0.0, 1.27829, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7v3cw"]
+curve = SubResource("Curve_16rmw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5gqj"]
+lifetime_randomness = 0.56
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.08
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_7v3cw")
+color = Color(1, 1, 0, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.08
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 3
+
+[sub_resource type="Animation" id="Animation_7v3cw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puddle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_16rmw"]
+resource_name = "on_apply"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puddle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7v3cw"]
+_data = {
+&"RESET": SubResource("Animation_7v3cw"),
+&"on_apply": SubResource("Animation_16rmw")
+}
+
+[node name="PoisonCog" type="Node3D"]
+
+[node name="PoisonCog" type="GPUParticles3D" parent="."]
+visible = false
 visibility_aabb = AABB(-14.1044, -5.17883, -14.0049, 28.2087, 10.3577, 28.0097)
 process_material = SubResource("ParticleProcessMaterial_kwuo5")
 draw_pass_1 = SubResource("QuadMesh_15bkk")
+
+[node name="Puddle" type="GPUParticles3D" parent="."]
+transform = Transform3D(2.17163, 0, 0, 0, 2.17163, 0, 0, 0, 2.17163, 0, 0, 0)
+amount = 12
+lifetime = 2.86
+process_material = SubResource("ParticleProcessMaterial_v0jj0")
+draw_pass_1 = SubResource("PlaneMesh_ae7gq")
+
+[node name="FloorBubbles" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.873815, 0, 0, 0, 0.873815, 0, 0, 0, 0.873815, 0, 0.158412, 0)
+amount = 15
+sub_emitter = NodePath("PopFloor")
+lifetime = 1.23
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_y8cv6")
+draw_pass_1 = SubResource("QuadMesh_oiko2")
+
+[node name="PopFloor" type="GPUParticles3D" parent="FloorBubbles"]
+transform = Transform3D(0.372787, 0, 0, 0, -1.6295e-08, -0.372787, 0, 0.372787, -1.6295e-08, 0, 0.0211055, -0.00168374)
+amount = 12
+lifetime = 0.26
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ae7gq")
+draw_pass_1 = SubResource("QuadMesh_m5l3w")
+
+[node name="FloatingBubbles" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.873815, 0, 0, 0, 0.873815, 0, 0, 0, 0.873815, 0, 0, 0)
+amount = 2
+sub_emitter = NodePath("PopFloating")
+lifetime = 1.23
+process_material = SubResource("ParticleProcessMaterial_m5gqj")
+draw_pass_1 = SubResource("QuadMesh_oiko2")
+
+[node name="PopFloating" type="GPUParticles3D" parent="FloatingBubbles"]
+transform = Transform3D(0.270221, 0, 0, 0, -1.18117e-08, -0.270221, 0, 0.270221, -1.18117e-08, 0, 0.0211055, -0.00168374)
+amount = 7
+lifetime = 0.26
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ae7gq")
+draw_pass_1 = SubResource("QuadMesh_m5l3w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7v3cw")
+}
+autoplay = "on_apply"

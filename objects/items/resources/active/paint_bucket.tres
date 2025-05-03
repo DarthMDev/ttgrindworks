@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://wfdgusu3acxl"]
+
+[ext_resource type="Texture2D" uid="uid://d3g5bahu8kvdx" path="res://ui_assets/player_ui/pocket_prank_icons/paintbucket.png" id="1_bsi75"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_g4k2h"]
+[ext_resource type="Script" uid="uid://drr42eawmlqps" path="res://objects/items/custom/paint_bucket/item_paint_bucket.gd" id="2_twnyg"]
+[ext_resource type="PackedScene" uid="uid://cxsmv15f1kmgs" path="res://models/props/facility_objects/factory/paint_bucket/rainbow_bucket.tscn" id="3_bsi75"]
+[ext_resource type="AudioStream" uid="uid://bo55gnnobpcnj" path="res://audio/sfx/battle/cogs/attacks/special/CHQ_FACT_paint_splash.ogg" id="4_bsi75"]
+
+[resource]
+script = ExtResource("1_g4k2h")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 4
+current_charge = 4
+item_tags = null
+qualitoon = 4
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.5
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Paint Bucket"
+item_description = "Repaint your destiny!"
+big_description = "Reroll an item from the nearest chest"
+model = ExtResource("3_bsi75")
+pickup_sfx = ExtResource("4_bsi75")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_twnyg")
+remember_item = true
+icon = ExtResource("1_bsi75")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

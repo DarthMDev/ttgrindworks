@@ -14,6 +14,7 @@ font_size = 36
 [node name="GeneralButton" type="TextureButton"]
 offset_right = 246.0
 offset_bottom = 96.0
+focus_mode = 0
 texture_normal = ExtResource("1_l2ae8")
 texture_pressed = ExtResource("2_v6ual")
 texture_disabled = ExtResource("2_v6ual")
@@ -22,8 +23,6 @@ stretch_mode = 0
 script = ExtResource("1_tk66j")
 press_sfx = ExtResource("4_68apb")
 hover_sfx = ExtResource("5_mi2i0")
-hover_db_offset = null
-press_db_offset = null
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

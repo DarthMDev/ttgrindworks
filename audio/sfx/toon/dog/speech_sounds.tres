@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://qtfvgtwuwktg"]
+
+[ext_resource type="AudioStream" uid="uid://dfe1ryctwg3eu" path="res://audio/sfx/toon/dog/AV_dog_exclaim.ogg" id="1_trwyk"]
+[ext_resource type="Script" uid="uid://cjyrcemaxrvse" path="res://audio/sfx/toon/toon_speech_sounds.gd" id="1_u8l66"]
+[ext_resource type="AudioStream" uid="uid://bsbjq0mns14fd" path="res://audio/sfx/toon/dog/AV_dog_howl.ogg" id="2_3lk7l"]
+[ext_resource type="AudioStream" uid="uid://d36hl48nmwr28" path="res://audio/sfx/toon/dog/AV_dog_long.ogg" id="3_dmjcl"]
+[ext_resource type="AudioStream" uid="uid://bc0cu1nvwi80j" path="res://audio/sfx/toon/dog/AV_dog_med.ogg" id="4_1c5rk"]
+[ext_resource type="AudioStream" uid="uid://bgdodido7ujni" path="res://audio/sfx/toon/dog/AV_dog_question.ogg" id="5_pj78l"]
+[ext_resource type="AudioStream" uid="uid://cvo37tld7on12" path="res://audio/sfx/toon/dog/AV_dog_short.ogg" id="7_kdvll"]
+
+[resource]
+script = ExtResource("1_u8l66")
+exclaim = ExtResource("1_trwyk")
+howl = ExtResource("2_3lk7l")
+long = ExtResource("3_dmjcl")
+med = ExtResource("4_1c5rk")
+question = ExtResource("5_pj78l")
+short = ExtResource("7_kdvll")
+metadata/_custom_type_script = "uid://cjyrcemaxrvse"

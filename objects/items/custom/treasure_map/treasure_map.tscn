@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://iooedglblfmw"]
+
+[ext_resource type="PackedScene" uid="uid://d5evl8gp74kq" path="res://models/props/toon_props/treasure_map/trimap.fbx" id="1_l1q5e"]
+
+[node name="trimap" instance=ExtResource("1_l1q5e")]
+
+[node name="Map" parent="." index="0"]
+transform = Transform3D(-4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0, 100, 0, 0, 0)

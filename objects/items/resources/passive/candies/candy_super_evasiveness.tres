@@ -7,11 +7,12 @@
 [resource]
 script = ExtResource("2_6sofy")
 qualitoon = 3
-rarity = 0
+rarity = 3
 evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.11
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Super Nimbly Num"

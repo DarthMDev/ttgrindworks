@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="StatusEffectDiminishingReturns" load_steps=3 format=3 uid="uid://c5nmbko0sekoe"]
+
+[ext_resource type="Texture2D" uid="uid://dn7q51prj7qyu" path="res://ui_assets/battle/statuses/diminishing_returns.png" id="1_iqut7"]
+[ext_resource type="Script" uid="uid://60nmr4qkqnov" path="res://objects/battle/battle_resources/status_effects/status_effect_diminishing_returns.gd" id="2_iqut7"]
+
+[resource]
+script = ExtResource("2_iqut7")
+bean_count = 1
+diminish_factor = 0.8
+quality = 2
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_iqut7")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Embezzled"
+id = 37
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

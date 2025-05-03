@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=16 format=3 uid="uid://cbumr2pvgy1io"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=17 format=3 uid="uid://cbumr2pvgy1io"]
 
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_4idkh"]
 [ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="1_ivgnp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cdawen500xuqx" path="res://models/toon/textures/clothes/shirts/desat_sleeve_4.png" id="4_ikk8d"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="9_t8yrd"]
 [ext_resource type="Resource" uid="uid://cyiwxplege133" path="res://objects/items/resources/passive/emergency_unite.tres" id="10_81tpj"]
+[ext_resource type="Resource" uid="uid://ci7shc77lxvwr" path="res://objects/items/resources/passive/flippy_setup.tres" id="12_e8jb6"]
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("1_vg416")
@@ -60,6 +61,11 @@ character_summary = "- Can revive once before going sad
 dna = SubResource("Resource_ax4gq")
 gag_loadout = ExtResource("2_pvta8")
 starting_laff = 30
-starting_items = Array[ExtResource("9_t8yrd")]([ExtResource("10_81tpj")])
+starting_items = Array[ExtResource("9_t8yrd")]([ExtResource("10_81tpj"), ExtResource("12_e8jb6")])
 base_stats = SubResource("Resource_jj61k")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({
+26: "Starts with Paint Bucket"
+})
 random_character_stored_name = ""
+achievement_index = 0

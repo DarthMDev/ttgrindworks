@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmmejrar177u6"]
+
+[ext_resource type="Texture2D" uid="uid://b2111o0dlwcvh" path="res://objects/misc/CircleHollow.png" id="1_18xtp"]
+
+[sub_resource type="Curve" id="Curve_2yeve"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.238095, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvlvh"]
+curve = SubResource("Curve_2yeve")
+
+[sub_resource type="Curve" id="Curve_hr1c2"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6ot8m"]
+curve = SubResource("Curve_hr1c2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbs6n"]
+particle_flag_align_y = true
+gravity = Vector3(0, 0, 0)
+scale_min = 24.0
+scale_max = 24.0
+scale_curve = SubResource("CurveTexture_6ot8m")
+alpha_curve = SubResource("CurveTexture_gvlvh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osf2s"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_18xtp")
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t0vsb"]
+material = SubResource("StandardMaterial3D_osf2s")
+
+[node name="Flat" type="GPUParticles3D"]
+amount = 3
+lifetime = 2.85
+process_material = SubResource("ParticleProcessMaterial_mbs6n")
+draw_pass_1 = SubResource("PlaneMesh_t0vsb")

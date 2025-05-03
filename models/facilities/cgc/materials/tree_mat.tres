@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b45hb25eo5q6v"]
 
-[ext_resource type="Texture2D" uid="uid://bbsa2cbkvax14" path="res://models/facilities/cgc/textures/CogHedgeFar2.png" id="1_tuk76"]
+[ext_resource type="Texture2D" uid="uid://dn3ce1gbwb6ie" path="res://models/facilities/cgc/textures/CogHedgeFar2.png" id="1_tuk76"]
 
 [resource]
 resource_name = "fartrees_lambert156"

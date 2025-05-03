@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="4_r1te2"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="5_i2c8c"]
 [ext_resource type="AudioStream" uid="uid://c4w0go8bufcoh" path="res://audio/sfx/objects/stomper/CHQ_FACT_stomper_large.ogg" id="5_yj4eq"]
-[ext_resource type="PackedScene" uid="uid://cov8sw7eluipo" path="res://objects/obstacles/stomper/stomper.tscn" id="7_rv7pp"]
+[ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="7_rv7pp"]
 [ext_resource type="PackedScene" uid="uid://cymudv3pxuhlj" path="res://models/props/facility_objects/da_office/stomper/law_stomper.fbx" id="8_xg4s3"]
 [ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="10_77gj2"]
 [ext_resource type="Script" uid="uid://ck228sq4cr5yc" path="res://objects/obstacles/room_timer.gd" id="12_7rcdk"]
@@ -22,13 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://dn6p7pcjhawfb" path="res://objects/props/office/chair.tscn" id="18_q4opw"]
 [ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="20_nq70y"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fvvy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bh7n6"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("4_4b5mt")
 roughness = 0.552786
 uv1_scale = Vector3(1, 9, 1)
-uv1_offset = Vector3(0, 0.777778, 0)
+uv1_offset = Vector3(0, 1.04849, 0)
 grow_amount = 16.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_221y2"]
@@ -43,14 +43,14 @@ radius = 2.875
 
 [sub_resource type="Curve3D" id="Curve3D_h3vfp"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_0tmjp"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75429, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66932, 2.99828, -0.439946)
 constant_linear_velocity = Vector3(0, 0, -5)
 size = Vector3(1, 1, 9)
-platform_mat = SubResource("StandardMaterial3D_1fvvy")
+platform_mat = SubResource("StandardMaterial3D_bh7n6")
 speed = -5.0
 
 [node name="Stomper" parent="Game/GameObstacles/ConveyerObstacle" index="1" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("7_rv7pp")]
@@ -211,7 +211,7 @@ shape = SubResource("CylinderShape3D_rdlfw")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.071, 0.01, 10.816)
 
 [node name="CogButton" parent="Game/GameObstacles/ConveyerObstacle/cardboard_box" index="1" node_paths=PackedStringArray("connected_objects") instance=ExtResource("5_i2c8c")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.00555944, 1.6746, -0.00365019)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00555944, 1.6746, -0.00365019)
 connected_objects = [NodePath("../../../../CogDoor")]
 
 [node name="PlatformObstacle" type="Node3D" parent="Game/GameObstacles" index="1"]
@@ -221,13 +221,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.297, 1.99806, -10.4668)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.3975, -1.99351, 22.2523)
 
 [node name="CogButton" parent="Game/GameObstacles/PlatformObstacle/cardboard_box" index="1" node_paths=PackedStringArray("connected_objects") instance=ExtResource("5_i2c8c")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.00555944, 1.6746, -0.00365019)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00555944, 1.6746, -0.00365019)
 connected_objects = [NodePath("../../../../CogDoor")]
 
 [node name="Platform1" type="Node3D" parent="Game/GameObstacles/PlatformObstacle" index="1"]
 
 [node name="ElevatingPlatform" parent="Game/GameObstacles/PlatformObstacle/Platform1" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_r1te2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18099, 0)
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="Game/GameObstacles/PlatformObstacle/Platform1/ElevatingPlatform" index="2"]
@@ -237,7 +236,7 @@ curve = SubResource("Curve3D_h3vfp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [node name="ElevatingPlatform2" parent="Game/GameObstacles/PlatformObstacle/Platform2" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_r1te2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819014, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="Game/GameObstacles/PlatformObstacle/Platform2/ElevatingPlatform2" index="2"]
@@ -247,7 +246,6 @@ curve = SubResource("Curve3D_0tmjp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="ElevatingPlatform3" parent="Game/GameObstacles/PlatformObstacle/Platform3" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_r1te2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18099, 0)
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="Game/GameObstacles/PlatformObstacle/Platform3/ElevatingPlatform3" index="2"]
@@ -257,7 +255,7 @@ curve = SubResource("Curve3D_h3vfp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="ElevatingPlatform4" parent="Game/GameObstacles/PlatformObstacle/Platform4" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_r1te2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819014, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="Game/GameObstacles/PlatformObstacle/Platform4/ElevatingPlatform4" index="2"]
@@ -267,7 +265,6 @@ curve = SubResource("Curve3D_0tmjp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
 [node name="ElevatingPlatform5" parent="Game/GameObstacles/PlatformObstacle/Platform5" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_r1te2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18099, 0)
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="Game/GameObstacles/PlatformObstacle/Platform5/ElevatingPlatform5" index="2"]

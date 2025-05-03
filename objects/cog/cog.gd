@@ -68,6 +68,7 @@ var head_node: Node3D
 var lured := false
 var stunned := false
 var trap: GagTrap
+var losing := false
 
 # Child references
 @onready var sfx := $CogDial
@@ -162,11 +163,14 @@ func roll_for_level() -> void:
 
 func roll_for_dna() -> void:
 	if use_mod_cogs_pool:
-		pool = Globals.MOD_COG_POOL.load()
+		pool = Globals.MOD_COG_POOL
 	# Try to get the cog pool from the floor manager
 	elif use_floor_pool:
 		if is_instance_valid(Util.floor_manager) and Util.floor_manager.cog_pool:
-			pool = Util.floor_manager.cog_pool
+			if RandomService.randi_channel('cog_pool_chance') % 4 == 0:
+				pool = Util.floor_manager.cog_pool
+			else:
+				pool = Globals.GRUNT_COG_POOL
 	
 	# Make it more likely for quest related Cogs to appear
 	if (not dna) and RandomService.randi_channel('true_random') % 100 < QUEST_HELP_CHANCE and is_instance_valid(Util.get_player()):
@@ -260,13 +264,10 @@ func construct_cog():
 		while not second_dna or second_dna.cog_name == dna.cog_name:
 			second_dna = pool.cogs[RandomService.randi_channel('cog_dna') % pool.cogs.size()].duplicate()
 		dna.combine_attributes(second_dna)
-		dna.cog_name = dna.combine_names(dna.cog_name,second_dna.cog_name)
+		dna.cog_name = dna.combine_names(second_dna)
 	
 	# First, get the body
-	var cogsuit: String = CogDNA.SuitType.keys()[dna.suit].to_lower()
-	if skelecog:
-		cogsuit += "_skelecog"
-	body = Globals.suits.load()[cogsuit].instantiate()
+	body = Globals.fetch_suit(dna.suit, skelecog).instantiate()
 	match dna.suit:
 		CogDNA.SuitType.SUIT_A:
 			body.scale /= 6.06
@@ -300,10 +301,7 @@ func construct_cog():
 	s_dna_set.emit()
 
 func animation_end(_anim):
-	if lured:
-		set_animation('lured')
-	else:
-		set_animation('neutral')
+	set_animation('neutral')
 
 func battle_start():
 	department_emblem.hide()
@@ -340,6 +338,9 @@ func update_health_light():
 		light_tween.tween_interval(0.1)
 
 func set_animation(anim: String):
+	if lured and anim == 'neutral':
+		set_animation('lured')
+		return
 	if animator.has_animation(anim):
 		skeleton.reset_bone_poses()
 		animator.play(anim)
@@ -427,6 +428,10 @@ func lose():
 	# Get the lose model
 	# (Should refactor this later because I hate looking at it)
 	# ^ This never happened lol
+	if losing:
+		return
+	losing = true
+	
 	var lose_mod: Node3D
 	if not skelecog:
 		match dna.suit:
@@ -580,6 +585,19 @@ func fly_out(y_to := 20.0) -> void:
 		fly_tween.kill()
 		propeller.queue_free()
 	)
+
+func explode() -> void:
+	body.hide()
+	AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))
+	var explosion : AnimatedSprite3D = load('res://models/cogs/misc/explosion/cog_explosion.tscn').instantiate()
+	explosion.billboard = BaseMaterial3D.BillboardMode.BILLBOARD_FIXED_Y
+	add_child(explosion)
+	explosion.global_position = department_emblem.global_position
+	explosion.scale = Vector3(15, 15, 15)
+	explosion.play('explode')
+	await Util.barrier(explosion.animation_finished, 0.5)
+	explosion.hide()
+	queue_free()
 
 ## Global functions
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:

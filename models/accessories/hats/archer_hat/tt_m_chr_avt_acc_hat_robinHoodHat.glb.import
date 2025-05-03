@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "default.242": {
 "use_external/enabled": true,
-"use_external/path": "res://models/accessories/hats/archer_hat/default.242.tres"
+"use_external/path": "uid://b8kuklrm1ce6u"
 }
 }
 }

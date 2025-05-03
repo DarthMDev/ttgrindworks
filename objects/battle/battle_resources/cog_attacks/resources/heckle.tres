@@ -9,6 +9,7 @@ stat = "defense"
 boost = 0.8
 quality = 1
 rounds = -1
+rounds_offset = 0
 icon_color = Color(1, 1, 1, 1)
 icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)

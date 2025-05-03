@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qk4f4h40o5u1"]
+
+[ext_resource type="Script" uid="uid://81v5sdu0ir1n" path="res://objects/battle/battle_resources/cog_attacks/guilt_trip.gd" id="1_q0jxy"]
+
+[resource]
+script = ExtResource("1_q0jxy")
+accuracy = 75
+damage = 5
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["I'll lay a real guilt trip on you!", "Feeling guilty?", "It's all your fault!", "I always blame everything on you.", "Wallow in your own guilt!", "I'm never speaking to you again!", "You had better say you're sorry.", "I wouldn't forgive you in a million years!", "Are you ready for your trip?", "Call me when you get back from your trip.", "When do you get back from your trip?"])
+target_type = 0
+action_name = "Guilt Trip"
+one_time_use = false
+metadata/_custom_type_script = "uid://bb27him60xtnk"

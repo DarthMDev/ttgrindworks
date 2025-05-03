@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://cnp4seh8ghqv"]
+
+[ext_resource type="Script" uid="uid://cjyrcemaxrvse" path="res://audio/sfx/toon/toon_speech_sounds.gd" id="1_n5n70"]
+[ext_resource type="AudioStream" uid="uid://538fgbmhabvb" path="res://audio/sfx/toon/mouse/AV_mouse_exclaim.ogg" id="1_qnuos"]
+[ext_resource type="AudioStream" uid="uid://vw6igfopv80a" path="res://audio/sfx/toon/mouse/AV_mouse_howl.ogg" id="2_2j21b"]
+[ext_resource type="AudioStream" uid="uid://or42fhwi1wn4" path="res://audio/sfx/toon/mouse/AV_mouse_long.ogg" id="3_1bwo5"]
+[ext_resource type="AudioStream" uid="uid://ex3yya8grd41" path="res://audio/sfx/toon/mouse/AV_mouse_med.ogg" id="4_dn8k2"]
+[ext_resource type="AudioStream" uid="uid://66fxhoqpf3jh" path="res://audio/sfx/toon/mouse/AV_mouse_question.ogg" id="5_0mm3r"]
+[ext_resource type="AudioStream" uid="uid://o1waeu1mmadl" path="res://audio/sfx/toon/mouse/AV_mouse_short.ogg" id="7_q6auc"]
+
+[resource]
+script = ExtResource("1_n5n70")
+exclaim = ExtResource("1_qnuos")
+howl = ExtResource("2_2j21b")
+long = ExtResource("3_1bwo5")
+med = ExtResource("4_dn8k2")
+question = ExtResource("5_0mm3r")
+short = ExtResource("7_q6auc")
+metadata/_custom_type_script = "uid://cjyrcemaxrvse"

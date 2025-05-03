@@ -17,6 +17,7 @@ var gag_track: String
 func setup(item: Item):
 	resource = item
 	
+	
 	if not resource.arbitrary_data.has('gag_track'):
 		# Find the gag tracks that the player has access to
 		var tracks := []
@@ -34,6 +35,7 @@ func setup(item: Item):
 			gag_track = tracks[RandomService.randi_channel('gag_vouchers') % tracks.size()]
 		resource.arbitrary_data['gag_track'] = gag_track
 		resource.item_description = "+%d %s points!" %[VALUE, gag_track]
+		resource.big_description = resource.item_description
 	else:
 		gag_track = resource.arbitrary_data['gag_track']
 	

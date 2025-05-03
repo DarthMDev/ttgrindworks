@@ -29,3 +29,9 @@ func play() -> Tween:
 	]).as_tween(battle_node)
 
 	return movie
+
+func _skip() -> void:
+	if movie and movie.is_running():
+		movie.custom_step(1000000.0)
+		movie.finished.emit()
+		movie.kill()

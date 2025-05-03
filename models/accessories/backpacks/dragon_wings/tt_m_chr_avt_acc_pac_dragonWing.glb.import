@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "default.290": {
 "use_external/enabled": true,
-"use_external/path": "res://models/accessories/backpacks/dragon_wings/default.290.tres"
+"use_external/path": "uid://bhwy6kf0os8w3"
 }
 }
 }

@@ -281,12 +281,14 @@ scale = Vector3(0.25, 0.25, 0.48)
 [resource]
 script = ExtResource("3_kr7ei")
 accessory_placements = Array[ExtResource("1_5ds8c")]([SubResource("Resource_kaugx"), SubResource("Resource_vmwby"), SubResource("Resource_cieib"), SubResource("Resource_i1gk2"), SubResource("Resource_a4xaj"), SubResource("Resource_b2usb"), SubResource("Resource_7pqfy"), SubResource("Resource_2n0ny"), SubResource("Resource_8ctuf"), SubResource("Resource_yuq37"), SubResource("Resource_eq0gv"), SubResource("Resource_4tfvn"), SubResource("Resource_m2jn4"), SubResource("Resource_pow21"), SubResource("Resource_2hjum"), SubResource("Resource_reevy"), SubResource("Resource_u7qom"), SubResource("Resource_h8vmm"), SubResource("Resource_hc00e"), SubResource("Resource_e5wtu"), SubResource("Resource_ljem4"), SubResource("Resource_0fctt"), SubResource("Resource_nd61y"), SubResource("Resource_fd844"), SubResource("Resource_oe3bk"), SubResource("Resource_ovr3q"), SubResource("Resource_hqpci"), SubResource("Resource_ajol1"), SubResource("Resource_76fv6"), SubResource("Resource_0mejl"), SubResource("Resource_yvv27"), SubResource("Resource_mx7ql"), SubResource("Resource_qpwj0"), SubResource("Resource_dllae")])
+item_tags = null
 qualitoon = 2
 rarity = 0
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.1
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Mask"

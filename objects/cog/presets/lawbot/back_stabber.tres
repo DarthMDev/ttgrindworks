@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=7 format=3 uid="uid://sfiho4ougsnc"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://sfiho4ougsnc"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_ch00s"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_d4qsf"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_psk51"]
 [ext_resource type="PackedScene" uid="uid://b3ckmevkvxrq6" path="res://models/cogs/heads/backstabber.glb" id="3_fxaxj"]
+[ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="3_kg3rv"]
 [ext_resource type="Texture2D" uid="uid://b8s23xt7vfrj" path="res://models/cogs/heads/backstabber_tt_t_ene_hed_backStabber.png" id="4_ww4r0"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_4bu30"]
 
@@ -22,7 +23,7 @@ hand_color = Color(0.580392, 0.494118, 0.839216, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 13.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_ch00s")]([ExtResource("2_psk51")])
+attacks = Array[ExtResource("1_ch00s")]([ExtResource("2_psk51"), ExtResource("3_kg3rv")])
 level_low = 5
 level_high = 12
 status_effects = Array[ExtResource("5_4bu30")]([])

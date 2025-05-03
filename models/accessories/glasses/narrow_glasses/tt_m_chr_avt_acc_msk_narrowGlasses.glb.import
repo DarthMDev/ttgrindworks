@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "default.274": {
 "use_external/enabled": true,
-"use_external/path": "res://models/accessories/glasses/narrow_glasses/default.274.tres"
+"use_external/path": "uid://hkb80f0uqfq4"
 }
 }
 }

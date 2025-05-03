@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://baaxso4jhvinp"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://baaxso4jhvinp"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_wldvj"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_4xva2"]
 [ext_resource type="Resource" uid="uid://bpupdhbap1rq" path="res://objects/battle/battle_resources/cog_attacks/resources/freeze_assets.tres" id="3_6y5px"]
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_ik0y4"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="4_vgddi"]
 [ext_resource type="PackedScene" uid="uid://btxp8ptniqnjl" path="res://models/cogs/heads/penny_pincher.glb" id="5_stvpg"]
 [ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_txnvn"]
 [ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_icx7r"]
@@ -30,7 +31,7 @@ hand_color = Color(0.670588, 0.564706, 0.301961, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 13.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_wldvj")]([ExtResource("2_4xva2"), ExtResource("3_6y5px")])
+attacks = Array[ExtResource("1_wldvj")]([ExtResource("2_4xva2"), ExtResource("3_6y5px"), ExtResource("4_vgddi")])
 level_low = 2
 level_high = 20
 status_effects = Array[ExtResource("7_4r1ps")]([ExtResource("8_sv30d")])

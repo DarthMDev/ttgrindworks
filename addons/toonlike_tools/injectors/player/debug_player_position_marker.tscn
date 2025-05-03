@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1g5f6yxujvef"]
+
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="1_a6u6v"]
+[ext_resource type="Texture2D" uid="uid://c32p17beqlr8k" path="res://addons/toonlike_tools/injectors/player/CharacterBody3D.svg" id="1_ya8li"]
+
+[node name="DebugPlayerPositionMarker" type="Marker3D"]
+script = ExtResource("1_a6u6v")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.416558, 0)
+billboard = 1
+texture = ExtResource("1_ya8li")

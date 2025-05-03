@@ -2,7 +2,7 @@ extends Resource
 class_name BattleStartMovie
 
 # Not preloaded bc it shouldn't be needed
-const FALLBACK_MUSIC := "res://audio/music/encntr_suit_winning_indoor.ogg"
+const FALLBACK_MUSIC := "res://audio/music/encntr_general_bg.ogg"
 
 @export var skippable := false
 @export var override_music : AudioStream

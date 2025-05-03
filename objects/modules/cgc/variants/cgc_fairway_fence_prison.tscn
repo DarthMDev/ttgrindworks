@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="2_l74a7"]
 [ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="3_hpj2r"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_bi30y"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="5_r8c1f"]
 [ext_resource type="PackedScene" uid="uid://hjl7feh88kw3" path="res://objects/props/cgc/pillar.tscn" id="6_odne8"]
 [ext_resource type="PackedScene" uid="uid://pn7r3ut085aw" path="res://objects/props/cgc/hedge_pillar.tscn" id="7_08ovp"]
 [ext_resource type="PackedScene" uid="uid://bqvkntyk0ljsq" path="res://objects/goon/goon.tscn" id="7_b0iw2"]
@@ -27,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="26_tglo8"]
 [ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="27_h5ipe"]
 [ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="28_4vrvi"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="28_xwwx3"]
 [ext_resource type="PackedScene" uid="uid://bgx7270etnyok" path="res://models/cogs/heads/flunky.glb" id="29_tnhe2"]
 [ext_resource type="Texture2D" uid="uid://c2pvani3yo7i" path="res://models/cogs/heads/flunky_tt_t_ene_hed_flunky.png" id="30_5uri6"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="30_xwwx3"]
@@ -407,11 +407,13 @@ grid_size = Vector2i(21, 4)
 hole_separation = 1.75
 
 [node name="treasure_chest" parent="." index="30" instance=ExtResource("4_bi30y")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50663, 0, 20.8723)
-item_pool = ExtResource("5_r8c1f")
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50236, 0, 20.8723)
+override_replacement_rolls = true
+item_pool = ExtResource("28_xwwx3")
 
 [node name="treasure_chest2" parent="." index="31" instance=ExtResource("4_bi30y")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50663, 0, 17.1779)
+item_pool = ExtResource("28_xwwx3")
 
 [node name="GoonNode" type="Node3D" parent="." index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3509, 0, 3.50444)
@@ -452,10 +454,11 @@ speed = 2.5
 [node name="Path3D" type="Path3D" parent="GoonNode3" index="1"]
 curve = SubResource("Curve3D_qiapn")
 
-[node name="BattleNodeDynamic" parent="." index="35" instance=ExtResource("30_xwwx3")]
+[node name="BattleNodeDynamic" parent="." index="35" node_paths=PackedStringArray("cogs") instance=ExtResource("30_xwwx3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5698, 0, -14.3526)
 cog_range = Vector2i(2, 3)
 cog_dist = 1.59
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102386, 8.48587, -2.41779)
@@ -465,7 +468,7 @@ shape = SubResource("BoxShape3D_fosvk")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 31.0083, 0.0882928, -0.367912)
 
 [node name="CogButton" parent="." index="37" node_paths=PackedStringArray("connected_objects") instance=ExtResource("12_xl7al")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -29.5075, 0, -14.4288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5075, 0, -14.4288)
 connected_objects = [NodePath("../CogDoor")]
 
 [node name="SecretMoleStomp" type="Area3D" parent="." index="38" node_paths=PackedStringArray("force_launch_node", "launch_cam")]

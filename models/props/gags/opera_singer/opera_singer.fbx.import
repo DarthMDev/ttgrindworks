@@ -34,37 +34,37 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"DogSmallSurpriseSHD": {
+"ears": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/DogSmallSurpriseSHD.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/ears.tres"
 },
-"earsSHD": {
+"eyesNeutral": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/earsSHD.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/eyesNeutral.tres"
 },
-"eyesNeutralSHD": {
+"opera_hair": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/eyesNeutralSHD.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/opera_hair.tres"
 },
-"head": {
+"opera_hat1": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/head.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/opera_hat1.tres"
 },
-"lambert10": {
+"opera_head": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/lambert10.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/opera_head.tres"
 },
-"lambert14": {
+"opera_muzzle": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/lambert14.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/opera_muzzle.tres"
 },
-"noseSHD": {
+"opera_nose": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/noseSHD.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/opera_nose.tres"
 },
-"pupilsSHD": {
+"pupils": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/pupilsSHD.tres"
+"use_external/path": "res://models/props/gags/opera_singer/textures/pupils.tres"
 }
 }
 }

@@ -1,3 +1,4 @@
+@tool
 extends MeshInstance3D
 class_name PanelBeam
 
@@ -9,6 +10,7 @@ var connected_panel : PuzzlePanel
 func connect_panel(panel : PuzzlePanel) -> void:
 	connected_panel = panel
 	panel.s_shape_changed.connect(generate_mesh)
+	panel.s_color_changed.connect(update_color)
 
 ## Get the current shape of the panel
 func get_panel_shape() -> GeneratedMesh:
@@ -43,10 +45,18 @@ func generate_mesh(_panel,_shape) -> void:
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = get_panel_color()
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	if get_panel_color() == Color.WHITE:
-		mat.albedo_color.a = 0.002
-	else:
-		mat.albedo_color.a = 0.01
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	if not mesh.get_surface_count() == 0:
 		mesh.surface_set_material(0,mat)
+		update_color(get_panel_color())
+
+func update_color(new_color : Color) -> void:
+	if mesh and mesh.get_surface_count() > 0 and mesh.surface_get_material(0):
+		mesh.surface_get_material(0).albedo_color = new_color
+		if new_color == Color.WHITE:
+			update_alpha(0.002)
+		else:
+			update_alpha(new_color.a / 200.0)
+
+func update_alpha(alpha : float) -> void:
+	mesh.surface_get_material(0).albedo_color.a = alpha

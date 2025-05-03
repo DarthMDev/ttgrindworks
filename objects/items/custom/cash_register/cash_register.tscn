@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buad8c4pjl2a2"]
+
+[ext_resource type="PackedScene" uid="uid://wvtuk43fbdi8" path="res://models/props/facility_objects/cash_register/cash_register.fbx" id="1_dm44a"]
+
+[node name="cash_register" instance=ExtResource("1_dm44a")]
+
+[node name="ShadowsAll" parent="Register" index="3"]
+visible = false

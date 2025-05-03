@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://3ylkd1s4kncx"]
+
+[ext_resource type="Texture2D" uid="uid://32cwmb236pju" path="res://ui_assets/battle/queued_gags/gag_panel.png" id="1_y0eee"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_s6w1k"]
+[ext_resource type="Texture2D" uid="uid://bl4jam52awobx" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonUp.png" id="3_kkrbn"]
+[ext_resource type="Texture2D" uid="uid://cijunm56f5hq2" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonDown.png" id="4_l5xvc"]
+[ext_resource type="Texture2D" uid="uid://ctnar4np8tsb3" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonRollover.png" id="5_sxu28"]
+
+[node name="SelectedGag" type="TextureRect"]
+texture = ExtResource("1_y0eee")
+
+[node name="GagIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="GeneralButton" parent="." instance=ExtResource("2_s6w1k")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_kkrbn")
+texture_pressed = ExtResource("4_l5xvc")
+texture_hover = ExtResource("5_sxu28")
+hover_db_offset = 6.0
+press_db_offset = 0.0

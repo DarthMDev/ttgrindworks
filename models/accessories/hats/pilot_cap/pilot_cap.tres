@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bcg6ht8f10sie"]
+
+[ext_resource type="Texture2D" uid="uid://dk7t5oq6nby11" path="res://models/accessories/hats/pilot_cap/tt_m_chr_avt_acc_hat_pilotsCap_tt_t_chr_avt_acc_hat_pilotsCap.png" id="1_8i2q1"]
+
+[resource]
+resource_name = "default.234"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_8i2q1")

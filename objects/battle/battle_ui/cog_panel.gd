@@ -1,5 +1,7 @@
 extends Control
 
+const BASE_MASK_SIZE := 184.0
+
 # Child references
 @onready var light := %HealthLight
 @onready var glow := %HealthGlow
@@ -7,9 +9,12 @@ extends Control
 @onready var level_label := %Level
 @onready var hp_label := %CogHP
 @onready var status_container := %StatusEffects
+@onready var effect_panel := %EffectPanel
+
+@onready var effect_mask := %StatusEffectMask
 
 var current_cog: Cog
-
+var expand_tween : Tween
 var status_effects: Array[StatusEffect] = []
 
 func set_cog(cog: Cog):
@@ -45,9 +50,40 @@ func sync_colors(light_color: Color, glow_color: Color, cog: Cog):
 	glow.self_modulate = glow_color
 
 func populate_status_effects(target : Cog) -> void:
+	for icon in status_container.get_children():
+		icon.queue_free()
 	for effect in BattleService.ongoing_battle.get_statuses_for_target(target):
 		if not effect.visible:
 			continue
 		var new_icon: StatusEffectIcon = StatusEffectIcon.create()
 		new_icon.effect = effect
 		status_container.add_child(new_icon)
+	await get_tree().process_frame
+	effect_mask.size.y = get_retract_size()
+	effect_panel.modulate.a = 0.0
+
+func statuses_hovered() -> void:
+	if status_effects.size() >= 9:
+		expand()
+
+func statuses_unhovered() -> void:
+	retract()
+
+func expand() -> void:
+	if expand_tween and expand_tween.is_running():
+		expand_tween.kill()
+	
+	expand_tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	expand_tween.tween_property(effect_mask, 'size:y', status_container.size.y, 0.15)
+	expand_tween.parallel().tween_property(effect_panel, 'modulate:a', 1.0, 0.15)
+
+func retract() -> void:
+	if expand_tween and expand_tween.is_running():
+		expand_tween.kill()
+	
+	expand_tween = create_tween().set_trans(Tween.TRANS_QUAD)
+	expand_tween.tween_property(effect_mask, 'size:y', get_retract_size(), 0.15)
+	expand_tween.parallel().tween_property(effect_panel, 'modulate:a', 0.0, 0.15)
+
+func get_retract_size() -> float:
+	return minf(status_container.size.y, BASE_MASK_SIZE)

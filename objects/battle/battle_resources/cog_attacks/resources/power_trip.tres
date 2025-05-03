@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://wwf1notai2f8"]
+
+[ext_resource type="Script" uid="uid://cio7o71baw3q" path="res://objects/battle/battle_resources/cog_attacks/power_trip.gd" id="1_ygmuq"]
+
+[resource]
+script = ExtResource("1_ygmuq")
+accuracy = 75
+damage = 6
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["Pack your bags, we're taking a little trip.", "Did you have a nice trip?", "Nice trip, I guess I'll see you next fall.", "How was your trip?", "Sorry to trip you up there!", "You look a little tripped up.", "Now you see who's in power!", "I am much more powerful than you.", "Who's got the power now?", "You can't fight the power.", "Power corrupts, especially in my hands!"])
+target_type = 0
+action_name = "Power Trip"
+one_time_use = false
+metadata/_custom_type_script = "uid://bb27him60xtnk"

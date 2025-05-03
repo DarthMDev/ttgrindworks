@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxnilb2hma8ql"]
+
+[ext_resource type="Texture2D" uid="uid://bdif2o6x8d61b" path="res://models/props/gags/opera_singer/textures/opera_hat1.png" id="1_lmgya"]
+
+[resource]
+resource_name = "opera_hat1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_lmgya")
+emission_enabled = true

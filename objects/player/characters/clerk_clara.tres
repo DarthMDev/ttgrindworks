@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=14 format=3 uid="uid://bg54dry7nlvjo"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=15 format=3 uid="uid://bg54dry7nlvjo"]
 
 [ext_resource type="Resource" uid="uid://44ekli202h8p" path="res://objects/toon/clothing/skirts/snowman_skirt.tres" id="1_4fnso"]
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_5uglb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://l5nmqw1hw5ti" path="res://models/toon/textures/clothes/shirts/desat_shirt_2_2.png" id="4_ms26j"]
 [ext_resource type="Texture2D" uid="uid://dp1mwoshkp6pb" path="res://models/toon/textures/clothes/shirts/desat_sleeve_2_1.png" id="5_1d2ea"]
 [ext_resource type="Resource" uid="uid://bno5mdegu8mb0" path="res://objects/items/resources/passive/clara_trap_boost.tres" id="10_a7nwg"]
+[ext_resource type="Resource" uid="uid://qhrcvp4qwyx2" path="res://objects/items/resources/passive/clara_setup.tres" id="11_40xv7"]
 
 [sub_resource type="Resource" id="Resource_338vd"]
 script = ExtResource("1_i8qkq")
@@ -54,6 +55,9 @@ character_summary = "- Starts with 2 turns
 dna = SubResource("Resource_mosn6")
 gag_loadout = ExtResource("2_42kpy")
 starting_laff = 30
-starting_items = Array[ExtResource("4_ci6u3")]([ExtResource("10_a7nwg")])
+starting_items = Array[ExtResource("4_ci6u3")]([ExtResource("10_a7nwg"), ExtResource("11_40xv7")])
 base_stats = SubResource("Resource_338vd")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({})
 random_character_stored_name = ""
+achievement_index = 14

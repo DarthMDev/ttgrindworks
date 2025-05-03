@@ -37,6 +37,7 @@ evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.075
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.25
 item_name = "Jamboree Pack"

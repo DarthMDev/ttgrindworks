@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://4msaan0a5lf3"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://4msaan0a5lf3"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_ug48j"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_4wb33"]
 [ext_resource type="Resource" uid="uid://erbbarg5bxm8" path="res://objects/battle/battle_resources/cog_attacks/resources/rolodex.tres" id="2_lyhp2"]
 [ext_resource type="Resource" uid="uid://sey860nn14jg" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket.tres" id="3_txlct"]
+[ext_resource type="Resource" uid="uid://bruosr4c0bash" path="res://objects/battle/battle_resources/cog_attacks/resources/clip_on_tie.tres" id="4_lbn53"]
 [ext_resource type="PackedScene" uid="uid://cwg7ajjhom2dw" path="res://models/cogs/heads/telemarketer.glb" id="4_od1jx"]
 [ext_resource type="Texture2D" uid="uid://84o5rdlggi71" path="res://models/cogs/heads/telemarketer_telemarketer.png" id="5_rj073"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="6_81lf4"]
@@ -14,6 +15,8 @@ department = 0
 suit = 1
 cog_name = "Telemarketer"
 name_plural = ""
+name_prefix = "Tele"
+name_suffix = "marketer"
 head = ExtResource("4_od1jx")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -23,7 +26,7 @@ hand_color = Color(0.952941, 0.85098, 0.803922, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_ug48j")]([ExtResource("2_lyhp2"), ExtResource("3_txlct")])
+attacks = Array[ExtResource("1_ug48j")]([ExtResource("2_lyhp2"), ExtResource("3_txlct"), ExtResource("4_lbn53")])
 level_low = 2
 level_high = 9
 status_effects = Array[ExtResource("6_81lf4")]([])

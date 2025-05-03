@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyega0gjbhn5v"]
+
+[ext_resource type="Texture2D" uid="uid://bekpajvkah03b" path="res://models/accessories/hats/tiara/tt_m_chr_avt_acc_hat_tiara_tt_t_chr_avt_acc_hat_tiara.png" id="1_f3a5r"]
+
+[resource]
+resource_name = "default.251"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_f3a5r")

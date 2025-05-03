@@ -7,7 +7,7 @@ const BOOST_PHRASES: Array[String] = [
 	"Finally, my bonus has arrived.",
 	"No pain no gain it seems.",
 ]
-const STAT_BOOST := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres')
+const STAT_BOOST := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_workers_comp.tres')
 const SFX_WHISTLE := preload("res://audio/sfx/battle/gags/sound/AA_sound_whistle.ogg")
 
 
@@ -44,13 +44,9 @@ func action() -> void:
 	
 	await movie.finished
 
-const AFFECTED_STATS := ['damage', 'defense']
 const BOOST_AMOUNT := 1.25
 func create_status_effects(target: Cog) -> void:
-	for stat in AFFECTED_STATS:
-		var stat_boost := STAT_BOOST.duplicate()
-		stat_boost.stat = stat
-		stat_boost.boost = BOOST_AMOUNT
-		stat_boost.target = target
-		stat_boost.rounds = 0
-		manager.add_status_effect(stat_boost)
+	var stat_boost := STAT_BOOST.duplicate()
+	stat_boost.boost = BOOST_AMOUNT
+	stat_boost.target = target
+	manager.add_status_effect(stat_boost)

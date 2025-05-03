@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://5y8g0xyxpr00"]
+[gd_scene load_steps=29 format=3 uid="uid://5y8g0xyxpr00"]
 
 [ext_resource type="PackedScene" uid="uid://dmnep8phelnvy" path="res://models/misc_zones/field_office/penthouse/penthouse.fbx" id="1_vkvjg"]
 [ext_resource type="Texture2D" uid="uid://cjcugdtkiwqwy" path="res://models/misc_zones/field_office/penthouse/penthouse_23.png" id="2_8ud3v"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bkthwpyj2bvjr" path="res://audio/music/encntr_penultimate/encntr_penultimate_interactive.tres" id="13_utcau"]
 [ext_resource type="Resource" uid="uid://c5dbwjk742di6" path="res://objects/cog/presets/bossbot/flunky.tres" id="15_25tuy"]
 [ext_resource type="Script" uid="uid://bexhvgaggjj0i" path="res://objects/battle/battle_resources/misc_movies/final_boss/final_boss_intro.gd" id="15_qmw7d"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="17_0g48c"]
 [ext_resource type="PackedScene" uid="uid://rd3cif0wap2n" path="res://models/misc_zones/field_office/ImportantPortrait.fbx" id="17_sk75u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lrhb"]
@@ -361,8 +362,8 @@ libraries = {
 }
 autoplay = "default"
 
-[node name="Player" parent="." index="11" instance_placeholder="res://objects/player/player.tscn"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.5208, 0, -9.73577)
+[node name="DebugPlayerPositionMarker" parent="." index="11" instance=ExtResource("17_0g48c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136871, 0, 9.4144)
 
 [node name="ImportantPortrait" parent="." index="12" instance=ExtResource("17_sk75u")]
 script = SubResource("GDScript_i03po")

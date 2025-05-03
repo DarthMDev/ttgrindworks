@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://du3dmf0v54os0"]
+
+[ext_resource type="ArrayMesh" uid="uid://vitjqpd0aamm" path="res://models/props/cog_props/coin/cb_coin.tres" id="1_gl8m0"]
+[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="2_c73or"]
+
+[sub_resource type="Curve" id="Curve_jmx41"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_50kpq"]
+curve = SubResource("Curve_jmx41")
+
+[sub_resource type="Curve" id="Curve_mhib3"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wg4dw"]
+curve = SubResource("Curve_mhib3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_22wod"]
+lifetime_randomness = 0.7
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+angle_min = -199.0
+angle_max = 210.7
+angle_curve = SubResource("CurveTexture_50kpq")
+direction = Vector3(0, 1, 0)
+spread = 22.021
+initial_velocity_min = 5.53
+initial_velocity_max = 5.53
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_wg4dw")
+color = Color(0.907155, 1, 0.908777, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37658, 0)
+amount = 10
+lifetime = 1.53
+explosiveness = 1.0
+randomness = 0.48
+process_material = SubResource("ParticleProcessMaterial_22wod")
+draw_pass_1 = ExtResource("1_gl8m0")
+
+[node name="Cog" parent="." instance=ExtResource("2_c73or")]

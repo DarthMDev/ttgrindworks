@@ -68,7 +68,7 @@ func action() -> void:
 	await manager.sleep(2.0)
 	
 	# Player reaction
-	set_camera_angle(camera_angles.SIDE_LEFT)
+	set_camera_angle('SIDE_LEFT')
 	if answer == true_answer:
 		player.toon.set_emotion(Toon.Emotion.LAUGH)
 		player.set_animation('happy')

@@ -1,0 +1,313 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://7ff2uldhfu4b"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_2ce8m"]
+[ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_7jryu"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_j1t0x"]
+[ext_resource type="Texture2D" uid="uid://d24cfnu6u4sqw" path="res://models/accessories/hats/sombrero/tt_m_chr_avt_acc_hat_sombreroHat.glb-pix-1.png" id="3_mt6mw"]
+[ext_resource type="PackedScene" uid="uid://buvi6thqc7odi" path="res://models/accessories/hats/sombrero/tt_m_chr_avt_acc_hat_sombreroHat.glb" id="3_rte55"]
+
+[sub_resource type="Resource" id="Resource_ha20r"]
+script = ExtResource("2_7jryu")
+species = 2
+head_index = 0
+position = Vector3(-0.01, -0.52, 0.01)
+rotation = Vector3(-20.39, -57.66, 29)
+scale = Vector3(0.38, 0.38, 0.38)
+
+[sub_resource type="Resource" id="Resource_sic67"]
+script = ExtResource("2_7jryu")
+species = 2
+head_index = 1
+position = Vector3(-0.01, -0.45, 0.01)
+rotation = Vector3(-20.39, -57.66, 29)
+scale = Vector3(0.38, 0.38, 0.38)
+
+[sub_resource type="Resource" id="Resource_y8b6u"]
+script = ExtResource("2_7jryu")
+species = 2
+head_index = 2
+position = Vector3(-0.01, -0.52, 0.01)
+rotation = Vector3(-20.39, -57.66, 29)
+scale = Vector3(0.38, 0.38, 0.38)
+
+[sub_resource type="Resource" id="Resource_akm0w"]
+script = ExtResource("2_7jryu")
+species = 2
+head_index = 3
+position = Vector3(-0.01, -0.5, 0.07)
+rotation = Vector3(-20.39, -57.66, 29)
+scale = Vector3(0.38, 0.38, 0.38)
+
+[sub_resource type="Resource" id="Resource_1oxbp"]
+script = ExtResource("2_7jryu")
+species = 0
+head_index = 3
+position = Vector3(0, -0.63, -0.17)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_jkv5u"]
+script = ExtResource("2_7jryu")
+species = 0
+head_index = 2
+position = Vector3(0, -0.63, -0.17)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_4t44a"]
+script = ExtResource("2_7jryu")
+species = 0
+head_index = 1
+position = Vector3(0, -0.43, -0.28)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_0snq8"]
+script = ExtResource("2_7jryu")
+species = 0
+head_index = 0
+position = Vector3(0, -0.43, -0.28)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_gdx36"]
+script = ExtResource("2_7jryu")
+species = 1
+head_index = 3
+position = Vector3(0.01, -0.57, -0.05)
+rotation = Vector3(-18.52, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_ydtmm"]
+script = ExtResource("2_7jryu")
+species = 1
+head_index = 2
+position = Vector3(0.01, -0.57, -0.05)
+rotation = Vector3(-18.52, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_xg0u3"]
+script = ExtResource("2_7jryu")
+species = 1
+head_index = 1
+position = Vector3(0.01, -0.49, -0.05)
+rotation = Vector3(-18.52, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_6ih24"]
+script = ExtResource("2_7jryu")
+species = 1
+head_index = 0
+position = Vector3(0.01, -0.49, -0.05)
+rotation = Vector3(-18.52, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_tlmyw"]
+script = ExtResource("2_7jryu")
+species = 3
+head_index = 0
+position = Vector3(0, -0.39, -0.17)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.52, 0.51, 0.51)
+
+[sub_resource type="Resource" id="Resource_kvbky"]
+script = ExtResource("2_7jryu")
+species = 3
+head_index = 1
+position = Vector3(0, -0.35, -0.17)
+rotation = Vector3(-0.82, -91.2, 14.96)
+scale = Vector3(0.52, 0.51, 0.51)
+
+[sub_resource type="Resource" id="Resource_qoo4k"]
+script = ExtResource("2_7jryu")
+species = 5
+head_index = 0
+position = Vector3(0, -0.25, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_sma1l"]
+script = ExtResource("2_7jryu")
+species = 4
+head_index = 0
+position = Vector3(0.01, -0.69, -0.2)
+rotation = Vector3(-45, 0, 0)
+scale = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="Resource" id="Resource_eihia"]
+script = ExtResource("2_7jryu")
+species = 3
+head_index = 2
+position = Vector3(0, -0.35, -0.17)
+rotation = Vector3(-0.82, -91.2, 14.96)
+scale = Vector3(0.52, 0.51, 0.51)
+
+[sub_resource type="Resource" id="Resource_5ss6p"]
+script = ExtResource("2_7jryu")
+species = 3
+head_index = 3
+position = Vector3(0, -0.33, -0.17)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.56, 0.56, 0.56)
+
+[sub_resource type="Resource" id="Resource_s2ssm"]
+script = ExtResource("2_7jryu")
+species = 4
+head_index = 1
+position = Vector3(0.01, -0.65, -0.2)
+rotation = Vector3(-45, 0, 0)
+scale = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="Resource" id="Resource_hflui"]
+script = ExtResource("2_7jryu")
+species = 4
+head_index = 2
+position = Vector3(0.01, -0.69, -0.2)
+rotation = Vector3(-45, 0, 0)
+scale = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="Resource" id="Resource_taqhb"]
+script = ExtResource("2_7jryu")
+species = 4
+head_index = 3
+position = Vector3(0.01, -0.65, -0.2)
+rotation = Vector3(-45, 0, 0)
+scale = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="Resource" id="Resource_fpx6k"]
+script = ExtResource("2_7jryu")
+species = 5
+head_index = 3
+position = Vector3(0, 0.05, -0.35)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_rlrdp"]
+script = ExtResource("2_7jryu")
+species = 5
+head_index = 2
+position = Vector3(0, -0.25, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_7p5sj"]
+script = ExtResource("2_7jryu")
+species = 5
+head_index = 1
+position = Vector3(0, 0.05, -0.35)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_qa1i7"]
+script = ExtResource("2_7jryu")
+species = 6
+head_index = 0
+position = Vector3(0, -0.58, 0.03)
+rotation = Vector3(-1.75, -85.61, 33.65)
+scale = Vector3(0.56, 0.56, 0.56)
+
+[sub_resource type="Resource" id="Resource_4iwcm"]
+script = ExtResource("2_7jryu")
+species = 6
+head_index = 1
+position = Vector3(0, -0.39, -0.05)
+rotation = Vector3(-0.82, -91.2, 24.34)
+scale = Vector3(0.62, 0.62, 0.62)
+
+[sub_resource type="Resource" id="Resource_luo35"]
+script = ExtResource("2_7jryu")
+species = 7
+head_index = 0
+position = Vector3(0, -0.46, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_bth8t"]
+script = ExtResource("2_7jryu")
+species = 7
+head_index = 1
+position = Vector3(0, -0.46, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_08my1"]
+script = ExtResource("2_7jryu")
+species = 7
+head_index = 2
+position = Vector3(0, -0.46, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_2arqe"]
+script = ExtResource("2_7jryu")
+species = 7
+head_index = 3
+position = Vector3(0, -0.46, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_xut04"]
+script = ExtResource("2_7jryu")
+species = 8
+head_index = 3
+position = Vector3(0, -0.68, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_i02sp"]
+script = ExtResource("2_7jryu")
+species = 8
+head_index = 2
+position = Vector3(0, -0.68, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_hs7mc"]
+script = ExtResource("2_7jryu")
+species = 8
+head_index = 1
+position = Vector3(0, -0.68, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_ieafq"]
+script = ExtResource("2_7jryu")
+species = 8
+head_index = 0
+position = Vector3(0, -0.68, 0)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("2_j1t0x")
+accessory_placements = Array[ExtResource("1_2ce8m")]([SubResource("Resource_ha20r"), SubResource("Resource_sic67"), SubResource("Resource_y8b6u"), SubResource("Resource_akm0w"), SubResource("Resource_1oxbp"), SubResource("Resource_jkv5u"), SubResource("Resource_4t44a"), SubResource("Resource_0snq8"), SubResource("Resource_gdx36"), SubResource("Resource_ydtmm"), SubResource("Resource_xg0u3"), SubResource("Resource_6ih24"), SubResource("Resource_tlmyw"), SubResource("Resource_kvbky"), SubResource("Resource_qoo4k"), SubResource("Resource_sma1l"), SubResource("Resource_eihia"), SubResource("Resource_5ss6p"), SubResource("Resource_s2ssm"), SubResource("Resource_hflui"), SubResource("Resource_taqhb"), SubResource("Resource_fpx6k"), SubResource("Resource_rlrdp"), SubResource("Resource_7p5sj"), SubResource("Resource_qa1i7"), SubResource("Resource_4iwcm"), SubResource("Resource_luo35"), SubResource("Resource_bth8t"), SubResource("Resource_08my1"), SubResource("Resource_2arqe"), SubResource("Resource_xut04"), SubResource("Resource_i02sp"), SubResource("Resource_hs7mc"), SubResource("Resource_ieafq")])
+item_tags = null
+qualitoon = 2
+rarity = 0
+evergreen = false
+realtime = false
+slot = 1
+world_scale = 0.1
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Sombrero"
+item_description = "Play it loud!"
+big_description = "- 15% Sound damage
+- Sound does full damage to adjacent Cogs, half to targeted Cog"
+model = ExtResource("3_rte55")
+stats_add = {}
+stats_multiply = {
+"gag_boost:Sound": 0.85
+}
+player_values = {
+"inverted_sound_damage": true
+}
+arbitrary_data = {}
+remember_item = true
+icon = ExtResource("3_mt6mw")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://dvu24b3o8i3sj"

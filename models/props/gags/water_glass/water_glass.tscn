@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=4 uid="uid://ceudxbvwxgjsw"]
 
-[ext_resource type="Texture2D" uid="uid://danw7ehasx8hx" path="res://models/props/gags/water_glass/water_glass-4862cf16c9f4b491f8e299eb2ccd6878_water_cooler_water_top.png" id="1_sad8t"]
+[ext_resource type="Texture2D" uid="uid://cogx1p46x0v8n" path="res://models/props/gags/water_glass/textures/water_cooler_water_top.png" id="1_sad8t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcq13"]
 resource_name = "lambert2"
 transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 metallic = 0.2
 roughness = 0.8
@@ -65,6 +66,7 @@ blend_shape_mode = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdj50"]
 resource_name = "toon_props_cvs_PICTURES_water_cooler_water_top_picShader"
 vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 albedo_texture = ExtResource("1_sad8t")
 metallic = 0.2
@@ -163,6 +165,7 @@ bones/2/rotation = Quaternion(1.71195e-08, -3.92103e-07, 0.999048, -0.0436193)
 bones/2/scale = Vector3(1, 1, 1)
 
 [node name="TheOutsideGlass" type="MeshInstance3D" parent="RootNode/glass/Skeleton3D"]
+sorting_offset = 1.0
 mesh = SubResource("ArrayMesh_8gmjr")
 skin = SubResource("Skin_gmsbn")
 

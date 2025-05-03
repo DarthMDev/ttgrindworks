@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://cei7xyvnjhk0j"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://crvenqtyote8y"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_vu8bc"]
 [ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_3q7we"]
@@ -74,33 +74,33 @@ scale = Vector3(0.44, 0.44, 0.44)
 script = ExtResource("2_3q7we")
 species = 1
 head_index = 0
-position = Vector3(0.01, -0.23, -0.05)
-rotation = Vector3(-12.41, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.46, -0.04)
+rotation = Vector3(-7.35, 0, 0)
+scale = Vector3(0.46, 0.46, 0.46)
 
 [sub_resource type="Resource" id="Resource_h2rto"]
 script = ExtResource("2_3q7we")
 species = 1
 head_index = 1
-position = Vector3(0.01, -0.23, -0.05)
-rotation = Vector3(-12.41, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.46, -0.04)
+rotation = Vector3(-7.35, 0, 0)
+scale = Vector3(0.46, 0.46, 0.46)
 
 [sub_resource type="Resource" id="Resource_pr783"]
 script = ExtResource("2_3q7we")
 species = 1
 head_index = 2
-position = Vector3(0.01, -0.57, -0.05)
-rotation = Vector3(-12.41, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-7.35, 0, 0)
+scale = Vector3(0.41, 0.41, 0.41)
 
 [sub_resource type="Resource" id="Resource_xklpw"]
 script = ExtResource("2_3q7we")
 species = 1
 head_index = 3
-position = Vector3(0.01, -0.57, -0.05)
-rotation = Vector3(-12.41, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-7.35, 0, 0)
+scale = Vector3(0.41, 0.41, 0.41)
 
 [sub_resource type="Resource" id="Resource_kkw07"]
 script = ExtResource("2_3q7we")
@@ -281,17 +281,19 @@ scale = Vector3(0.47, 0.47, 0.47)
 [resource]
 script = ExtResource("2_sjr0y")
 accessory_placements = Array[ExtResource("1_vu8bc")]([SubResource("Resource_gkc4w"), SubResource("Resource_vnvew"), SubResource("Resource_yuhym"), SubResource("Resource_2atv0"), SubResource("Resource_0nnaq"), SubResource("Resource_8lg4c"), SubResource("Resource_qep5b"), SubResource("Resource_gk67f"), SubResource("Resource_fcut0"), SubResource("Resource_h2rto"), SubResource("Resource_pr783"), SubResource("Resource_xklpw"), SubResource("Resource_kkw07"), SubResource("Resource_dbbti"), SubResource("Resource_881ts"), SubResource("Resource_necie"), SubResource("Resource_oro1h"), SubResource("Resource_p7exs"), SubResource("Resource_skmrc"), SubResource("Resource_1saws"), SubResource("Resource_35sm1"), SubResource("Resource_nfrh8"), SubResource("Resource_yw25q"), SubResource("Resource_kyhc1"), SubResource("Resource_oyyej"), SubResource("Resource_bfe8c"), SubResource("Resource_6n2fv"), SubResource("Resource_h5aky"), SubResource("Resource_u77of"), SubResource("Resource_daf5a"), SubResource("Resource_n0kr3"), SubResource("Resource_554mk"), SubResource("Resource_ndsda"), SubResource("Resource_6df7u")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Party Hat"
 item_description = "All stats up!"
-big_description = "+ 2% Damage
+big_description = "+ 3% Damage
 + 5% Defense
 + 5% Evasiveness
 + 5% Luck
@@ -299,7 +301,7 @@ big_description = "+ 2% Damage
 + 3 Max Laff"
 model = ExtResource("2_bfyou")
 stats_add = {
-"damage": 0.02,
+"damage": 0.03,
 "defense": 0.05,
 "evasiveness": 0.05,
 "hp": 3,

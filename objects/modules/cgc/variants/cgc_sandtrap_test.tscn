@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://c17fk0qk0s1l0"]
+
+[ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_onuwv"]
+[ext_resource type="PackedScene" uid="uid://bi13q17f7cx0v" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_trap_with_moles.tscn" id="3_shvxt"]
+[ext_resource type="Shader" uid="uid://3bv5mj5bjsjm" path="res://objects/obstacles/sandtrap/sandtrap.tres" id="3_yv334"]
+[ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="4_vcjiy"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="5_yv334"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_md4hg"]
+frequency = 0.0205
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n5d0c"]
+noise = SubResource("FastNoiseLite_md4hg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shvxt"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_yv334")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+shader_parameter/uv_scale = Vector2(13.5136, 15.7422)
+shader_parameter/ImageTexture = ExtResource("4_vcjiy")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_n5d0c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yv334"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_shvxt")
+size = Vector2(32.365, 37.12)
+
+[node name="mole_room" instance=ExtResource("1_onuwv")]
+
+[node name="DebugPlayerPositionMarker" parent="." index="17" instance=ExtResource("5_yv334")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75033, 0, 0)
+
+[node name="SandTrap" parent="." index="18" instance=ExtResource("3_shvxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.771, -0.05, -0.729818)
+mesh = SubResource("PlaneMesh_yv334")
+size = Vector2(32.365, 37.12)

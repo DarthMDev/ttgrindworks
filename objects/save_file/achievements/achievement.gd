@@ -19,4 +19,9 @@ func unlock() -> void:
 		Globals.s_achievement_unlocked.emit()
 
 func get_completed() -> bool:
-	return SaveFileService.progress_file.achievements_earned[achievement_index]
+	# When new achievements are added in later versions,
+	# We need to check if this achievement is in the dict yet
+	if SaveFileService.progress_file.achievements_earned.has(achievement_index):
+		return SaveFileService.progress_file.achievements_earned[achievement_index]
+	else:
+		return false

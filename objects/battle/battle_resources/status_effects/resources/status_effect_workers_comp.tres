@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0iwjtp23fp0f"]
+
+[ext_resource type="Texture2D" uid="uid://cysapqyycwptl" path="res://ui_assets/battle/statuses/workers_comp.png" id="1_c8gsi"]
+[ext_resource type="Script" uid="uid://cni51fbo1x14f" path="res://objects/battle/battle_resources/status_effects/status_effect_workers_comp.gd" id="2_c8gsi"]
+
+[resource]
+script = ExtResource("2_c8gsi")
+stat = "defense"
+boost = 1.25
+quality = 0
+rounds = 1
+icon = ExtResource("1_c8gsi")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Worker's Comp"
+id = 36

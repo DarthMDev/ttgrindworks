@@ -4,7 +4,7 @@ class_name SettingsFile
 
 ## VIDEO SETTINGS
 const FPSOptions = [60, 90, 120, 144, 165, 240, 360, 0]
-const SpeedOptions = [1.0, 1.25, 1.5, 1.75, 8.0]
+var SpeedOptions = [1.0, 1.25, 1.5, 1.75, 2.0, 8.0]
 
 @export var fullscreen := false
 @export var fps_idx := 0:
@@ -41,18 +41,20 @@ const SpeedOptions = [1.0, 1.25, 1.5, 1.75, 8.0]
 @export var discord_rpc := false
 @export var dev_tools := false
 @export var use_custom_cogs := true
+@export var button_prompts := true
 
 ## CONTROLS
 # To preserve the ordering of controls, we must have two dictionaries
 # And the array for the order to display controls in
-const REMAPPABLE_CONTROLS := [
+var REMAPPABLE_CONTROLS := [
 	"move_forward",
 	"move_back",
 	"move_left",
 	"move_right",
 	"jump",
 	"sprint",
-	"pause"
+	"pause",
+	"use_pocket_prank"
 ]
 @export var saved_controls := {}
 var controls := {}
@@ -90,6 +92,7 @@ func sync_settings() -> void:
 			else:
 				controls[action] = InputMap.action_get_events(action)[0]
 				saved_controls[action] = controls[action]
+	SaveFileService.s_settings_changed.emit()
 
 func get_bus_index(bus: String) -> int:
 	for i in AudioServer.bus_count:

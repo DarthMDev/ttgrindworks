@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cif1hoh8t0451" path="res://models/facilities/office/office_entrance.fbx" id="1_qteyi"]
 [ext_resource type="Texture2D" uid="uid://ct2kvcbwqwt8j" path="res://models/facilities/office/textures/LB_Marble3.png" id="2_hbhah"]
-[ext_resource type="Texture2D" uid="uid://dx8ylc1ot856v" path="res://models/facilities/office/textures/LB_SquareShadow.png" id="3_oha6l"]
+[ext_resource type="Texture2D" uid="uid://y11470o50laf" path="res://models/facilities/office/textures/LB_SquareShadow.png" id="3_oha6l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndc0b"]
 resource_name = "lambert4"

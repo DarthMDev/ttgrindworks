@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://bumoivo6g8ril"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_r27ex"]
+[ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_um4aw"]
+[ext_resource type="Resource" uid="uid://cfwymrymjx7s5" path="res://objects/battle/battle_resources/cog_attacks/resources/write_off.tres" id="3_c8gse"]
+[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_ww21b"]
+[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_1bkat"]
+[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_7k3io"]
+[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="7_ort6m"]
+[ext_resource type="PackedScene" uid="uid://cp0eu48o5hfej" path="res://models/cogs/heads/pencilpusher.glb" id="7_ww21b"]
+[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="8_0mvgw"]
+[ext_resource type="Texture2D" uid="uid://ugpw0dj6eseg" path="res://models/cogs/heads/ghost_writer.png" id="8_ww21b"]
+[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="11_ifgbs"]
+
+[resource]
+script = ExtResource("7_ort6m")
+department = 3
+suit = 1
+custom_blazer_tex = ExtResource("5_1bkat")
+custom_arm_tex = ExtResource("4_ww21b")
+custom_leg_tex = ExtResource("6_7k3io")
+cog_name = "Ghost Writer"
+name_plural = ""
+name_prefix = "Ghost"
+name_suffix = "Writer"
+head = ExtResource("7_ww21b")
+head_scale = Vector3(1, 1, 1)
+head_pos = Vector3(0, 0, 0)
+scale = 4.0
+head_textures = Array[Texture2D]([ExtResource("8_ww21b")])
+hand_color = Color(0.509804, 0.796078, 0.741176, 1)
+head_color = Color(1, 1, 1, 1)
+custom_nametag_height = 11.0
+custom_nametag_suffix = ""
+attacks = Array[ExtResource("1_r27ex")]([ExtResource("2_um4aw"), ExtResource("3_c8gse")])
+level_low = 2
+level_high = 20
+status_effects = Array[ExtResource("8_0mvgw")]([ExtResource("11_ifgbs")])
+is_mod_cog = true
+is_admin = false
+health_mod = 1.0
+battle_phrases = Array[String](["My time in the shadows is over.", "I'm the one who pulls the strings.", "Prepare for a ghastly defeat.", "The specter of defeat looms over you.", "I'll be sure to write you an epitaph.", "You'll find I have a lot of spirit.", "You're in grave trouble."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

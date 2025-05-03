@@ -176,7 +176,7 @@ shape = SubResource("BoxShape3D_h82s3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
-"": SubResource("AnimationLibrary_cfpym")
+&"": SubResource("AnimationLibrary_cfpym")
 }
 
 [connection signal="body_entered" from="PlayerDetction" to="." method="body_entered"]

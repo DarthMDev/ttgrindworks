@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b35wcbrb3kc82"]
+[gd_scene load_steps=14 format=3 uid="uid://b35wcbrb3kc82"]
 
 [ext_resource type="Script" uid="uid://cygqh2ohiurcv" path="res://objects/obstacles/golf_door/golf_door.gd" id="1_2qrjy"]
 [ext_resource type="PackedScene" uid="uid://d0yk8glamf62r" path="res://objects/obstacles/rolling_golf_ball/rolling_golf_ball.tscn" id="2_6swar"]
 [ext_resource type="PackedScene" uid="uid://bqs0dbkws1wm" path="res://objects/props/cgc/golf_couse_door.tscn" id="3_k7vpm"]
-[ext_resource type="Texture2D" uid="uid://dbpos4t8tc4i0" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="4_wifi8"]
+[ext_resource type="Texture2D" uid="uid://cjd18xmoljlbm" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="4_wifi8"]
 [ext_resource type="AudioStream" uid="uid://jjsktc4h7hs" path="res://audio/sfx/objects/golf/Golf_Hit_Ball.ogg" id="5_iooff"]
+[ext_resource type="PackedScene" uid="uid://suibio7o1avg" path="res://objects/misc/drop_shadow/drop_shadow.tscn" id="6_3oiqf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fhnc"]
 albedo_color = Color(0, 0, 0, 1)
@@ -49,10 +50,13 @@ path = NodePath("Path3D")
 speed = 0.8
 
 [node name="RollingGolfBall" parent="." instance=ExtResource("2_6swar")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -0.495631, 2.49615, 11.9684)
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 2.496, 11.968)
+
+[node name="DropShadow" parent="RollingGolfBall" instance=ExtResource("6_3oiqf")]
+transform = Transform3D(0.0666667, 0, 0, 0, 0.0666667, 0, 0, 0, 0.0666667, 0, -0.0751025, 0)
 
 [node name="GolfCouseDoor" parent="." instance=ExtResource("3_k7vpm")]
-transform = Transform3D(-6.38186e-08, 0, 1.46, 0, 1.46, 0, -1.46, 0, -6.38186e-08, -0.333, 1.414, -19.754)
+transform = Transform3D(-6.38186e-08, 0, 1.46, 0, 1.46, 0, -1.46, 0, -6.38186e-08, -0.423, 1.414, -19.754)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GolfCouseDoor"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4243, 1.0073, -0.148187)
@@ -69,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1188, 2.96333, -3.21257)
 shape = SubResource("BoxShape3D_wchbv")
 
 [node name="GolfCouseDoor2" parent="." instance=ExtResource("3_k7vpm")]
-transform = Transform3D(1.74103e-08, 0, -1.46, 0, 1.46, 0, 1.46, 0, 1.74103e-08, -0.968453, 1.414, 17.155)
+transform = Transform3D(1.74103e-08, 0, -1.46, 0, 1.46, 0, 1.46, 0, 1.74103e-08, -0.423, 1.414, 17.155)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GolfCouseDoor2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4243, 1.0073, -0.148187)
@@ -86,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1188, 2.96333, -3.21257)
 shape = SubResource("BoxShape3D_wchbv")
 
 [node name="Path" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.38186e-08, 0, 1.46, 0, 1.46, 0, -1.46, 0, -6.38186e-08, -0.6323, 0.0787259, -1.14836)
+transform = Transform3D(-6.38186e-08, 0, 1.46, 0, 1.46, 0, -1.46, 0, -6.38186e-08, -0.423, 0.0787259, -1.14836)
 mesh = SubResource("BoxMesh_mhc0a")
 skeleton = NodePath("../GolfCouseDoor")
 

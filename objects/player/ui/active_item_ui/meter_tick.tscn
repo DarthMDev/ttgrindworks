@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://g27bai2ju2h5"]
+
+[ext_resource type="Texture2D" uid="uid://dw2k0dmnhs45j" path="res://ui_assets/player_ui/active_item_ui/ActiveMeter_Tick.png" id="1_lhixy"]
+
+[node name="MeterTick" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TickDistance" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -406.25
+offset_right = 20.0
+offset_bottom = -366.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tick" type="TextureRect" parent="TickDistance"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -89.0
+offset_right = 20.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 57)
+texture = ExtResource("1_lhixy")
+expand_mode = 1

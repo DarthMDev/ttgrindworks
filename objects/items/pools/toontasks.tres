@@ -6,15 +6,15 @@
 [ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="4_5m0og"]
 [ext_resource type="Resource" uid="uid://b77qp325baypa" path="res://objects/items/resources/passive/pink_slip.tres" id="7_cs7sn"]
 [ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="7_dju7n"]
-[ext_resource type="Resource" uid="uid://bbt6o1b1xao18" path="res://objects/items/resources/passive/starfish_treasure.tres" id="8_4a87j"]
 [ext_resource type="Resource" uid="uid://bd5d562nvcvr2" path="res://objects/items/resources/passive/light_blue_jellybean.tres" id="8_iadk3"]
 [ext_resource type="Resource" uid="uid://davv55htjxxtw" path="res://objects/items/resources/passive/yellow_jellybean.tres" id="9_01fia"]
 [ext_resource type="Resource" uid="uid://danb3hsfnfror" path="res://objects/items/resources/passive/candies/candy_damage.tres" id="10_exgii"]
 [ext_resource type="Resource" uid="uid://cckkv76gxoem3" path="res://objects/items/resources/passive/candies/candy_defense.tres" id="11_cse62"]
 [ext_resource type="Resource" uid="uid://y5nhq5oudm83" path="res://objects/items/resources/passive/candies/candy_evasiveness.tres" id="12_bj61c"]
 [ext_resource type="Resource" uid="uid://rytsv7bygrwl" path="res://objects/items/resources/passive/candies/candy_luck.tres" id="13_31fts"]
+[ext_resource type="Resource" uid="uid://d0n6coya2868f" path="res://objects/items/resources/passive/flower_treasure.tres" id="13_hlkw0"]
 [ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="14_b0d2e"]
 
 [resource]
 script = ExtResource("7_dju7n")
-items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_4a87j"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e")])
+items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0")])

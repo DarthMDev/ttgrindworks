@@ -7,16 +7,18 @@
 
 [resource]
 script = ExtResource("3_0fblb")
-qualitoon = 3
+item_tags = null
+qualitoon = 2
 rarity = 0
 evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.5
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Sleepy Treasure"
-item_description = "You feel fully refreshed!"
+item_description = "Like a good night's rest."
 big_description = "Heals %d percent of your max laff!"
 model = ExtResource("2_s2tpi")
 pickup_sfx = ExtResource("3_835fy")
@@ -24,7 +26,7 @@ stats_add = {}
 stats_multiply = {}
 player_values = {}
 arbitrary_data = {
-"heal_perc": 100,
+"heal_perc": 60,
 "texture": ExtResource("1_qehgf")
 }
 remember_item = false

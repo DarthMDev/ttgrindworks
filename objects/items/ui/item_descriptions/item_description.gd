@@ -18,7 +18,7 @@ var description: String:
 	get:
 		return $UI/Description.text
 
-var item: Item
+var item: WorldItem
 var reacting := false
 var reactions_enabled: bool:
 	get:
@@ -27,22 +27,29 @@ var reactions_enabled: bool:
 func _ready():
 	$UI.hide()
 
-func set_item(new_item: Item) -> void:
+func set_item(new_item: WorldItem) -> void:
+	
+	# Hide old description
+	if is_instance_valid(item):
+		item.description_bubble.force_hide = true
+	
 	# Ensure item is valid
 	item = new_item
-	$UI.visible = item != null
+	var res : Item
+	if is_instance_valid(item):
+		res = item.item
+	
 	if not item:
 		reacting = false
 		Util.get_player().toon.set_emotion(Toon.Emotion.NEUTRAL)
 		return
 	
-	item_name = item.item_name
-	set_stars(int(item.qualitoon) + 1)
-	description = item.big_description
+	if Util.get_player().see_descriptions:
+		item.description_bubble.force_hide = false
 	
 	if reactions_enabled:
 		reacting = true
-		do_reaction(int(item.qualitoon))
+		do_reaction(int(res.qualitoon))
 	else:
 		if reacting:
 			Util.get_player().toon.set_emotion(Toon.Emotion.NEUTRAL)
@@ -57,16 +64,17 @@ func set_stars(stars: int):
 
 func _process(_delta):
 	var closest_dist := -1.0
-	var closest_item : Item
+	var closest_item : WorldItem
 	for itm in ItemService.items_in_proximity:
 		if not is_instance_valid(itm):
 			ItemService.item_left_proximity(itm)
 			continue
 		var dist = abs(itm.global_position.distance_to(Util.get_player().global_position))
 		if dist < closest_dist or closest_dist < 0.0:
-			closest_item = itm.item
+			closest_item = itm
 			closest_dist  = dist
-	if closest_item != item:
+	
+	if not closest_item == item or (not item and reacting):
 		set_item(closest_item)
 
 func do_reaction(qualitoon: int):

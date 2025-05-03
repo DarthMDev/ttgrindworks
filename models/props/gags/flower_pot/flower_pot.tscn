@@ -440,5 +440,5 @@ skin = SubResource("Skin_wvgjs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j11uv")
+&"": SubResource("AnimationLibrary_j11uv")
 }

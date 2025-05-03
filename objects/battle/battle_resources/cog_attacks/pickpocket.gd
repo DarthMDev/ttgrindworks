@@ -1,7 +1,11 @@
 extends CogAttack
 class_name PickPocket
 
+const JELLYBEAN := preload('res://objects/items/custom/jellybean/blue_jellybean.tscn')
+const BEAN_STAT := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_diminishing_returns.tres")
+
 @export var do_money_steal := false
+
 
 func action():
 	# Setup
@@ -9,10 +13,24 @@ func action():
 	var target : Player = targets[0]
 	user.face_position(target.global_position)
 	var dollar : Node3D
+	
+	# Roll for money steal
+	if do_money_steal:
+		do_money_steal = (RandomService.randi_channel('true_random') % 1 == 0 and target.stats.money > 0)
+	
+	
 	if hit:
-		dollar = load("res://models/props/gags/fishing_rod/dollar_bill.tscn").instantiate()
-		user.body.right_hand_bone.add_child(dollar)
-		dollar.rotation_degrees.x += 180
+		if not do_money_steal:
+			dollar = load("res://models/props/gags/fishing_rod/dollar_bill.glb").instantiate()
+			user.body.right_hand_bone.add_child(dollar)
+			dollar.rotation_degrees.x += 180
+		else:
+			dollar = JELLYBEAN.instantiate()
+			user.body.right_hand_bone.add_child(dollar)
+			dollar.set_color(RandomService.array_pick_random('true_random', dollar.colors.values()))
+			dollar.rotation_degrees = Vector3(-30.7, 118.0, 92.3)
+			dollar.position = Vector3(-0.292, 0.297, -0.522)
+			
 	AudioManager.play_sound(load('res://audio/sfx/battle/cogs/attacks/SA_pick_pocket.ogg'))
 	user.set_animation('pickpocket')
 	manager.s_focus_char.emit(user)
@@ -35,6 +53,8 @@ func action():
 			money_stolen = steal_money(target, damage)
 		if money_stolen == 0:
 			manager.affect_target(target, damage)
+		else:
+			apply_bean_stat(money_stolen)
 	else:
 		manager.battle_text(target,"MISSED")
 	
@@ -56,4 +76,9 @@ func steal_money(who : Player, quantity : int) -> int:
 		manager.battle_text(who, "-%d Jellybeans!" % total_stolen, BattleText.colors.orange[0], BattleText.colors.orange[1])
 		DiscordManager.update_presence()
 	return total_stolen
-	
+
+func apply_bean_stat(count : int) -> void:
+	var effect := BEAN_STAT.duplicate()
+	effect.bean_count = count
+	effect.target = user
+	manager.add_status_effect(effect)

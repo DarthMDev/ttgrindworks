@@ -32,12 +32,16 @@ static func get_bone(item: ItemAccessory, player: Player) -> BoneAttachment3D:
 	return null
 
 
-func apply_item(player: Player) -> void:
+func apply_item(player: Player, apply_visuals := true, _object : Node3D = null) -> void:
 	super(player)
 	
 	if not player.is_node_ready():
 		await player.ready
 	
+	if apply_visuals:
+		place_accessory(player)
+
+func place_accessory(player : Player) -> void:
 	var mod := model.instantiate()
 	var bone := ItemAccessory.get_bone(self,player)
 	for accessory in bone.get_children():
@@ -49,3 +53,8 @@ func apply_item(player: Player) -> void:
 	mod.scale = placement.scale
 	if mod.has_method('setup'):
 		mod.setup(self)
+
+## Needs to update Player look when discarded
+func remove_item(player : Player) -> void:
+	super(player)
+	player.update_accessories()

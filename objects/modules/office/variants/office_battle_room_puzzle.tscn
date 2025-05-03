@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c7g34v8mxjqyt"]
+[gd_scene load_steps=40 format=4 uid="uid://c7g34v8mxjqyt"]
 
 [ext_resource type="PackedScene" uid="uid://bwm67lsp8m00r" path="res://objects/modules/office/base_rooms/office_battle_room.tscn" id="1_4tbuy"]
 [ext_resource type="Texture2D" uid="uid://dmelmjyqb5mqh" path="res://models/facilities/office/textures/LB_Carpet.png" id="2_8d1sk"]
@@ -6,11 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_w5skt"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_reb7u"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_akydy"]
-[ext_resource type="Texture2D" uid="uid://dqmp1vpb7ao0u" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="4_q8acj"]
-[ext_resource type="Texture2D" uid="uid://u0k5kfqlf8sc" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="5_pl5va"]
+[ext_resource type="Texture2D" uid="uid://bdq0remkc4roq" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="4_q8acj"]
+[ext_resource type="Texture2D" uid="uid://co4lyd6o35sxd" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="5_pl5va"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="8_vdka4"]
 [ext_resource type="Script" uid="uid://jcqkmum0itxp" path="res://objects/battle/battle_resources/misc_movies/battle_entrances/virtual_cog_intro.gd" id="9_40llp"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="9_x7sbj"]
 [ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="10_hx145"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="11_gfv62"]
 [ext_resource type="PackedScene" uid="uid://dn6p7pcjhawfb" path="res://objects/props/office/chair.tscn" id="12_q0bri"]
@@ -209,7 +208,6 @@ shape = SubResource("BoxShape3D_s1xex")
 
 [node name="treasure_chest" parent="." index="8" instance=ExtResource("4_akydy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.8503, 0.00698655, 3.09425)
-item_pool = ExtResource("9_x7sbj")
 
 [node name="treasure_chest2" parent="." index="9" instance=ExtResource("4_akydy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.8946, 0.00506655, -1.9936)
@@ -218,7 +216,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.894
 transform = Transform3D(1.89965, 0, -0.0364751, 0, 1.9, 0, 0.0364751, 0, 1.89965, -8.12934, 0.030275, 6.6015)
 
 [node name="CogButton" parent="Puzzle" index="0" node_paths=PackedStringArray("connected_objects") instance=ExtResource("8_vdka4")]
-transform = Transform3D(0.8, 5.58794e-09, 6.66134e-16, 0, -3.49691e-08, -0.8, -5.58794e-09, 0.8, -3.49691e-08, 2.993, -0.0149274, 6.762)
+transform = Transform3D(0.8, 0, 5.58794e-09, 0, 0.8, 0, -5.58794e-09, 0, 0.8, 2.993, -0.0149274, 6.762)
 connected_objects = [NodePath("../../CogDoor")]
 
 [node name="BattleNode" parent="Puzzle" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_w5skt")]

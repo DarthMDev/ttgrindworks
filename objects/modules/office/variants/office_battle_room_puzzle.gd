@@ -8,7 +8,7 @@ func _ready() -> void:
 		puzzle.grid_height = 6
 		puzzle.grid_width = 6
 		if puzzle is PuzzleSkullFinder:
-			puzzle.bombs = 5
+			puzzle.bomb_count = 5
 		node.add_child(puzzle)
 		node.get_node('CogButton').connect_to(puzzle)
 		puzzle.lose_battle = node.get_node('BattleNode')

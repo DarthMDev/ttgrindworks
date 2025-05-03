@@ -62,6 +62,7 @@ func start_floor(floor_var: FloorVariant):
 
 func start_game_floor(floor_var : FloorVariant) -> void:
 	player.scale = Vector3(1, 1, 1)
+	player.game_timer_tick = true
 	if floor_var.override_scene:
 		SceneLoader.change_scene_to_packed(floor_var.override_scene)
 	else:

@@ -75,7 +75,7 @@ func activate():
 	var target = targets[0]
 	target.get_node('Body').position = Vector3(0, 0, 2)
 	
-	set_camera_angle(camera_angles['SIDE_RIGHT'])
+	set_camera_angle('SIDE_RIGHT')
 	
 	# Unique sink/fall
 	match trap_type:

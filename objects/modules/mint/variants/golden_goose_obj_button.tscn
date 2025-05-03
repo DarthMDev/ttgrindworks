@@ -32,6 +32,6 @@ shape = SubResource("BoxShape3D_t6ffk")
 
 [node name="Button" parent="." instance=ExtResource("2_di4w3")]
 unique_name_in_owner = true
-transform = Transform3D(1.4, 0, 0, 0, -6.11959e-08, -1.4, 0, 1.4, -6.11959e-08, 0, 0, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 
 [connection signal="body_entered" from="PressArea" to="." method="press_area_body_entered"]

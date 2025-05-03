@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=9 format=3 uid="uid://bk0jiiuypfye1"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=19 format=3 uid="uid://bk0jiiuypfye1"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_ftruq"]
 [ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="2_actsy"]
@@ -8,8 +8,18 @@
 [ext_resource type="Resource" uid="uid://c8yh80vqngv1b" path="res://objects/items/resources/passive/music_treasure.tres" id="5_n4a6u"]
 [ext_resource type="Resource" uid="uid://ck66os8hfom1c" path="res://objects/items/resources/passive/snowflake_treasure.tres" id="6_lqx3p"]
 [ext_resource type="Resource" uid="uid://duygfpffob40k" path="res://objects/items/resources/passive/zzz_treasure.tres" id="7_2wqhk"]
+[ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="8_r528v"]
+[ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="9_bdw2e"]
+[ext_resource type="Resource" uid="uid://23im0r4wxo0l" path="res://objects/items/resources/passive/quest_reroll.tres" id="10_booam"]
+[ext_resource type="Resource" uid="uid://c5cavaivrrvb" path="res://objects/items/resources/passive/toonups/feather.tres" id="11_14aqa"]
+[ext_resource type="Resource" uid="uid://dua74bqlj5ep1" path="res://objects/items/resources/passive/toonups/megaphone.tres" id="12_h0q6v"]
+[ext_resource type="Resource" uid="uid://bvukmcjmx00ho" path="res://objects/items/resources/passive/toonups/lipstick.tres" id="13_3kxqr"]
+[ext_resource type="Resource" uid="uid://cp2b6gwnfjlib" path="res://objects/items/resources/passive/toonups/bamboo_cane.tres" id="14_uueyv"]
+[ext_resource type="Resource" uid="uid://bmfbgvlyor8tw" path="res://objects/items/resources/passive/toonups/pixie.tres" id="15_qdksw"]
+[ext_resource type="Resource" uid="uid://cect5lwmu08mv" path="res://objects/items/resources/passive/toonups/juggling.tres" id="16_u46sa"]
+[ext_resource type="Resource" uid="uid://ne6tolrsnqmn" path="res://objects/items/resources/passive/toonups/high_dive.tres" id="17_goci1"]
 
 [resource]
 script = ExtResource("2_actsy")
-items = Array[ExtResource("1_ftruq")]([ExtResource("2_psoa7"), ExtResource("3_wpnjd"), ExtResource("4_h1xoi"), ExtResource("5_n4a6u"), ExtResource("6_lqx3p"), ExtResource("7_2wqhk")])
+items = Array[ExtResource("1_ftruq")]([ExtResource("2_psoa7"), ExtResource("3_wpnjd"), ExtResource("4_h1xoi"), ExtResource("5_n4a6u"), ExtResource("6_lqx3p"), ExtResource("7_2wqhk"), ExtResource("8_r528v"), ExtResource("9_bdw2e"), ExtResource("10_booam"), ExtResource("11_14aqa"), ExtResource("12_h0q6v"), ExtResource("13_3kxqr"), ExtResource("14_uueyv"), ExtResource("15_qdksw"), ExtResource("16_u46sa"), ExtResource("17_goci1")])
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

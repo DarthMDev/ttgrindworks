@@ -2,13 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://niab722dho20"
+uid="uid://ctbybonc8ru64"
 path="res://.godot/imported/tt_m_chr_avt_acc_hat_chefsHat_tt_t_chr_avt_acc_hat_chefsHat.png-a8df1a0e150d63e3af91274ec94b88ed.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "8b45c50df3ff5cd9ca06c3764d11edc5"
 }
 
 [deps]
@@ -19,7 +16,7 @@ dest_files=["res://.godot/imported/tt_m_chr_avt_acc_hat_chefsHat_tt_t_chr_avt_ac
 [params]
 
 compress/mode=3
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

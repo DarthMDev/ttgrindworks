@@ -12,6 +12,8 @@ class_name PlayerStats
 		if money < 0:
 			money = 0
 		s_money_changed.emit(x)
+		if money > 100:
+			Globals.s_hundred_jellybeans.emit()
 signal s_money_changed(value: int)
 signal s_gained_money
 
@@ -20,12 +22,14 @@ signal s_gained_money
 ## Gag Dicts
 @export var gags_unlocked: Dictionary[String, int] = {}
 @export var gag_balance: Dictionary[String, int] = {}
+var debug_gag_points := false
 @export var gag_effectiveness: Dictionary[String, float] = {}
 @export var gag_regeneration: Dictionary[String, int] = {}
 @export var gag_vouchers: Dictionary[String, int] = {}
 @export var gag_battle_start_point_boost: Dictionary[String, int] = {}
 @export var global_battle_start_point_boost := 0
 @export var toonups: Dictionary[int, int] = {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 0}
+@export var treasures: Dictionary[int, int] = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
 @export var gag_cap := 10
 @export var gag_discount := -1
@@ -60,6 +64,8 @@ signal s_gained_money
 signal s_extra_lives_changed(value: int)
 signal s_luck_changed(new_luck: float)
 
+@export var toonup_boost := 0.0
+
 @export var sellbot_boost := 1.0
 @export var cashbot_boost := 1.0
 @export var lawbot_boost := 1.0
@@ -69,6 +75,19 @@ signal s_luck_changed(new_luck: float)
 
 # How low do cogs HP need to be to die?
 @export var cog_hp_death_threshold := 0.0
+
+## Currently held active item
+@export var current_active_item : ItemActive:
+	set(x):
+		current_active_item = x
+		s_active_item_changed.emit(x)
+signal s_active_item_changed(new_item : ItemActive)
+
+@export var battle_timers : Array[int] = []
+
+## For pause screen display
+var prev_stats : Dictionary[String, float] = {}
+
 
 ## Sets the player's base gag loadout
 func set_loadout(loadout: GagLoadout) -> void:
@@ -109,6 +128,12 @@ func first_time_setup() -> void:
 
 func initialize() -> void:
 	hp_changed.connect(attempt_revive)
+	start_stat_monitors()
+
+func start_stat_monitors() -> void:
+	var stat_monitors := ['damage', 'defense', 'evasiveness', 'speed', 'luck']
+	for stat in stat_monitors:
+		prev_stats[stat] = get_stat(stat)
 
 func max_out() -> void:
 	if character:
@@ -140,7 +165,10 @@ func on_battle_started(_battle: BattleManager) -> void:
 			restock(track, value)
 
 func restock(track: String, add: int) -> void:
-	gag_balance[track] = min(gag_cap, gag_balance[track] + add)
+	if debug_gag_points:
+		gag_balance[track] = gag_cap
+	else:
+		gag_balance[track] = min(gag_cap, gag_balance[track] + add)
 
 func attempt_revive(_hp: int) -> void:
 	if _hp > 0 or extra_lives <= 0:
@@ -162,8 +190,18 @@ func add_money(amount: int) -> void:
 	SaveFileService.progress_file.jellybeans_collected += amount
 	DiscordManager.update_presence()
 
+func charge_active_item(amount := 1) -> void:
+	if current_active_item:
+		current_active_item.current_charge += amount
+
 func has_item(item_name : String) -> bool:
 	for item in items:
 		if item.item_name == item_name:
 			return true
 	return false
+
+func get_battle_time() -> int:
+	if battle_timers.is_empty():
+		return -1
+	else:
+		return battle_timers.min()

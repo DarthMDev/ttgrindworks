@@ -11,6 +11,7 @@ const MOD_EFFECTS : Array[StatusEffect] = [
 	preload("res://objects/battle/battle_resources/status_effects/resources/mod_cog_embezzler.tres"),
 	preload("res://objects/battle/battle_resources/status_effects/resources/mod_cog_tax_collector.tres"),
 	preload("res://objects/battle/battle_resources/status_effects/resources/mod_cog_fire_sale.tres"),
+	preload("res://objects/battle/battle_resources/status_effects/resources/mod_cog_agile.tres"),
 ]
 
 func apply() -> void:

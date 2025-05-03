@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=4 uid="uid://bgqnfooh0ticb"]
+
+[ext_resource type="Script" uid="uid://dh2t45816c7vi" path="res://objects/battle/effects/sparkle_effect.gd" id="1_58ji7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kljc1"]
+emission_shape_offset = Vector3(0, 0, 0.5)
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbiw6"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_leujy"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA"),
+"format": 34359738393,
+"material": SubResource("StandardMaterial3D_fbiw6"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC/")
+}]
+
+[node name="SparkleEffect" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 0.950353, -0.311174, 0, 0.311174, 0.950353, 0, 0, 0)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_kljc1")
+draw_pass_1 = SubResource("ArrayMesh_leujy")
+script = ExtResource("1_58ji7")
+center_color = Color(1, 0, 0, 0.9)
+edge_color = Color(0.8, 0.8, 0.8, 0.4)
+metadata/_custom_type_script = "uid://dh2t45816c7vi"

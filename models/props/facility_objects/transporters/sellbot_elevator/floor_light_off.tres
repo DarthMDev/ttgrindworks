@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhuwe783253y3"]
 
-[ext_resource type="Texture2D" uid="uid://na8sdyk83hb5" path="res://models/props/facility_objects/transporters/sellbot_elevator/elevator_new_8.png" id="1_7pyff"]
+[ext_resource type="Texture2D" uid="uid://ck41b3bcppwiy" path="res://models/props/facility_objects/transporters/sellbot_elevator/elevator_new_8.png" id="1_7pyff"]
 
 [resource]
 resource_name = "Shader2"

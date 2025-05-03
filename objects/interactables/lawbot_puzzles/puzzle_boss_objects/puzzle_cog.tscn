@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://clfe2fxuys8h6"]
+
+[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="1_h86cl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h86cl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h86cl"]
+radius = 0.328558
+height = 2.37301
+
+[node name="Cog" instance=ExtResource("1_h86cl")]
+collision_layer = 8
+skelecog = true
+virtual_cog = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442119, 0)
+shape = SubResource("BoxShape3D_h86cl")
+
+[node name="PlayerDetection" type="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.602147, 0)
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.362675, 0)
+shape = SubResource("CapsuleShape3D_h86cl")

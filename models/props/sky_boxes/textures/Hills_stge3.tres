@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://de6atqa00iup4"]
+
+[ext_resource type="Texture2D" uid="uid://tb1o803diw48" path="res://models/props/sky_boxes/textures/Hills_stge3.png" id="1_pujsk"]
+
+[resource]
+resource_name = "Hills_stge3"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
+albedo_texture = ExtResource("1_pujsk")
+emission_enabled = true

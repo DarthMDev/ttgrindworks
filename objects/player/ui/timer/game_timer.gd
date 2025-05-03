@@ -8,6 +8,8 @@ var time := 0.0
 func _ready() -> void:
 	if SaveFileService.settings_file.show_timer:
 		show()
+	else:
+		hide()
 
 func _process(delta: float) -> void:
 	if not Util.get_player().game_timer_tick:

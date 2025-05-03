@@ -1,4 +1,5 @@
 extends Node3D
+class_name ToonShop
 
 const SHOP_SALE_MULT := 0.5
 
@@ -98,7 +99,16 @@ func get_price(world_item: WorldItem) -> int:
 	if RandomService.randf_channel('shop_item_random') < Util.get_player().stats.get_stat('luck') * 0.2:
 		price_with_discount *= SHOP_SALE_MULT
 		discounted_items[world_items.find(world_item)] = true
+	price_with_discount *= get_inflation_rate()
 	return maxi(0, roundi(price_with_discount))
+
+func get_inflation_rate() -> float:
+	if not is_instance_valid(Util.floor_manager):
+		return 1.0
+	var game_floor : GameFloor = Util.floor_manager
+	if game_floor.floor_tags.has('shop_inflation'):
+		return game_floor.floor_tags['shop_inflation']
+	return 1.0
 
 func move_selection(dir: int) -> void:
 	item_index += dir
@@ -116,12 +126,22 @@ func get_item(index: int) -> Item:
 
 func purchase() -> void:
 	Util.get_player().stats.money -= stored_prices[item_index]
-	world_items[item_index].body_entered(Util.get_player())
 	world_items[item_index].monitorable = false
+	if Util.get_player().stats.current_active_item and world_items[item_index].item is ItemActive:
+		yeah_ill_hold_that_for_you()
 	ui.set_item(null, -1)
+	world_items[item_index].body_entered(Util.get_player())
 	if toon and toon_speaks:
 		toon.speak("It's all yours. Enjoy!")
 	DiscordManager.update_presence()
+
+## Yeah they'll hold it for you
+func yeah_ill_hold_that_for_you() -> void:
+	var current_index := item_index
+	await Task.delay(5.0)
+	world_items[current_index].monitorable = true
+	stored_prices[current_index] = 0
+
 
 func exit() -> void:
 	ui.hide()

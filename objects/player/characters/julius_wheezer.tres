@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=16 format=3 uid="uid://tyb5e6c0ye3g"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://tyb5e6c0ye3g"]
 
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_54mk4"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_78iuq"]
@@ -11,14 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://dp1mwoshkp6pb" path="res://models/toon/textures/clothes/shirts/desat_sleeve_2_1.png" id="6_gac4x"]
 [ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="7_o5usb"]
 [ext_resource type="Resource" uid="uid://bevjc7i6h0087" path="res://objects/items/resources/passive/wheezer_crit.tres" id="11_t28kn"]
+[ext_resource type="Resource" uid="uid://c34e3q63emrvt" path="res://objects/items/resources/passive/wheezer_setup.tres" id="12_g4fr4"]
+[ext_resource type="Resource" uid="uid://bpctsghink3ao" path="res://objects/items/resources/active/gumball_machine.tres" id="13_7golm"]
 
 [sub_resource type="Resource" id="Resource_7c7yh"]
 script = ExtResource("1_78iuq")
-damage = 0.75
-defense = 0.9
-evasiveness = 1.2
+damage = 0.8
+defense = 0.85
+evasiveness = 0.95
 accuracy = 1.0
-speed = 1.05
+speed = 1.1
 max_turns = 3
 max_hp = 25
 hp = 25
@@ -54,14 +56,17 @@ bottoms = SubResource("Resource_d7b1v")
 [resource]
 script = ExtResource("1_iej7q")
 character_name = "Julius Wheezer"
-character_summary = "- 25% less damage, 25% more luck
-- Crits are twice as effective
+character_summary = "- Low stats, powerful crits
 - Green tracks always crit
 - Red tracks never crit
-- Starts with all tracks"
+- Starts with all tracks
+- Starts with Gumball Machine"
 dna = SubResource("Resource_3onu7")
 gag_loadout = ExtResource("7_o5usb")
 starting_laff = 30
-starting_items = Array[ExtResource("3_rh3j8")]([ExtResource("11_t28kn")])
+starting_items = Array[ExtResource("3_rh3j8")]([ExtResource("11_t28kn"), ExtResource("12_g4fr4"), ExtResource("13_7golm")])
 base_stats = SubResource("Resource_7c7yh")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({})
 random_character_stored_name = ""
+achievement_index = 13

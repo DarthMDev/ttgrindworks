@@ -22,6 +22,7 @@ var tween: Tween:
 		tween = x
 
 func setup(new_resource: Item) -> void:
+	
 	resource = new_resource
 	resource.item_name = "Gag Point Boost"
 
