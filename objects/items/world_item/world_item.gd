@@ -48,7 +48,6 @@ func spawn_item() -> void:
 	add_child(model)
 	
 	# Check if the item is evergreen
-	if not item.evergreen and Util.floor_number < Globals.FLOOR_LOOP_START:
 	if not item.evergreen and not item is ItemActive and Util.floor_number < Globals.FLOOR_LOOP_START:
 		ItemService.seen_item(item)
 	elif item is ItemActive:
