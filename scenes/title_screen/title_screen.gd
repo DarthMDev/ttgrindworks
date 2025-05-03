@@ -123,8 +123,6 @@ func _ready() -> void:
 	CrowdControl.disconnected.connect(_on_CrowdControl_disconnected)
 	CrowdControl.logged_out.connect(_on_CrowdControl_logged_out)
 	CrowdControl.logged_in.connect(_on_CrowdControl_logged_in)
-	if SaveFileService.settings_file.get("crowd_control_startup") == true:
-		CrowdControl.connect_to_crowd_control()
 	if CrowdControl.is_connected_to_crowd_control():
 		cc_button.text = "Disconnect CC"
 		cc_button.hide()

@@ -135,7 +135,6 @@ func _sync_gameplay_settings() -> void:
 	if not SaveFileService.progress_file.characters_unlocked > 1:
 		intro_skip_element.queue_free()
 	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
-	crowd_control_button.text = get_toggle_text(get_setting('crowd_control_startup'))
 	
 func change_speed() -> void:
 	var curr_idx: int = get_setting('battle_speed_idx')
@@ -183,9 +182,6 @@ func toggle_custom_cogs() -> void:
 	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	Globals.import_custom_cogs()
 
-func toggle_crowd_control() -> void:
-	toggle_setting('crowd_control_startup')
-	crowd_control_button.text = get_toggle_text(get_setting('crowd_control_startup'))
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:

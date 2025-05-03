@@ -553,32 +553,6 @@ text = "Off"
 text = "Off"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="CrowdControl" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="11"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CrowdControl" index="0"]
-layout_mode = 2
-text = "Crowd Control on Startup"
-label_settings = SubResource("LabelSettings_n41hl")
-
-[node name="CrowdControlButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CrowdControl" index="1" instance=ExtResource("4_aygce")]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_xvvqb")
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-texture_normal = ExtResource("5_p4xtr")
-texture_pressed = ExtResource("6_bs0ac")
-texture_hover = ExtResource("7_nxqst")
-texture_disabled = ExtResource("6_bs0ac")
-text = "Off"
-
-[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CrowdControl/CrowdControlButton" index="0"]
-text = "Off"
-label_settings = SubResource("LabelSettings_xxrhd")
-
 [node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -658,7 +632,6 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton" to="." method="toggle_intro_skip"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton" to="." method="toggle_custom_cogs"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" to="." method="toggle_discord_rpc"]
-[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CrowdControl/CrowdControlButton" to="." method="toggle_crowd_control"]
 [connection signal="pressed" from="Panel/SaveButton" to="." method="close" binds= [true]]
 
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen/FullscreenButton"]
@@ -674,6 +647,5 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton"]
-[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CrowdControl/CrowdControlButton"]
 [editable path="Panel/SaveButton"]
 [editable path="ControlTemplate/GeneralButton"]
