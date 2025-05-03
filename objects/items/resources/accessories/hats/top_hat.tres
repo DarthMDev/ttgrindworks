@@ -281,16 +281,18 @@ scale = Vector3(0.35, 0.35, 0.35)
 [resource]
 script = ExtResource("2_c40ur")
 accessory_placements = Array[ExtResource("1_4y3r7")]([SubResource("Resource_plb3s"), SubResource("Resource_y8oh5"), SubResource("Resource_r3g12"), SubResource("Resource_bsbvp"), SubResource("Resource_dnq76"), SubResource("Resource_ppclr"), SubResource("Resource_1coce"), SubResource("Resource_3x0e5"), SubResource("Resource_lwjrc"), SubResource("Resource_w5bd5"), SubResource("Resource_jhvce"), SubResource("Resource_646ls"), SubResource("Resource_cjex4"), SubResource("Resource_ixv3v"), SubResource("Resource_76gyg"), SubResource("Resource_v3m7m"), SubResource("Resource_7heed"), SubResource("Resource_5n68s"), SubResource("Resource_ltl5c"), SubResource("Resource_v02wm"), SubResource("Resource_xufxh"), SubResource("Resource_7htd2"), SubResource("Resource_tgn8s"), SubResource("Resource_b7wl0"), SubResource("Resource_xs31q"), SubResource("Resource_70dgj"), SubResource("Resource_p7jvu"), SubResource("Resource_lqlrd"), SubResource("Resource_3iw7o"), SubResource("Resource_f00nb"), SubResource("Resource_jptqm"), SubResource("Resource_wb3to"), SubResource("Resource_u56kk"), SubResource("Resource_1u3s5")])
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Top Hat"
-item_description = "Style has its price"
+item_description = "Style has its price."
 big_description = "+ 10 Max Laff
 - 10% Evasiveness"
 model = ExtResource("2_w4pdb")

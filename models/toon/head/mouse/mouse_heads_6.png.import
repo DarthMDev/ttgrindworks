@@ -2,25 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7bisesx8gqq"
-path.bptc="res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.bptc.ctex"
-path.astc="res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.astc.ctex"
+uid="uid://cm1v885x1iq6d"
+path="res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "79bee36afeeaa2891656c33aa843e1ce"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/toon/head/mouse/mouse_heads_6.png"
-dest_files=["res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.bptc.ctex", "res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.astc.ctex"]
+dest_files=["res://.godot/imported/mouse_heads_6.png-5c86cae07bafcf20bffb69ef581447a7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

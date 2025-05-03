@@ -19,4 +19,4 @@ speed = 0.5
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.712, -0.195522, -2.727)
 
 [node name="treasure_chest" parent="." index="18" instance=ExtResource("3_wd526")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0574844, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.037, -0.665)

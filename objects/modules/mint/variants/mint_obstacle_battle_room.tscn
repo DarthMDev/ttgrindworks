@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="9_65n3s"]
 [ext_resource type="PackedScene" uid="uid://y6ineseqnb3c" path="res://objects/props/mint/boiler_a1.tscn" id="9_x3bat"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="10_cxmc4"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="10_r41io"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="13_cxmc4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2np5k"]
 size = Vector3(11.2776, 13.04, 6.44293)
@@ -255,10 +255,10 @@ transform = Transform3D(1.09555, 0, 0.601886, 0, 1.25, 0, -0.601886, 0, 1.09555,
 [node name="boiler_a2" parent="Props" index="17" instance=ExtResource("9_x3bat")]
 transform = Transform3D(1.01667, 0, 0.55855, 0, 1.16, 0, -0.55855, 0, 1.01667, -12.002, 3.03438, -20.7607)
 
-[node name="BattleNodeDynamic" parent="." index="11" instance=ExtResource("10_cxmc4")]
+[node name="BattleNodeDynamic" parent="." index="11" node_paths=PackedStringArray("cogs") instance=ExtResource("10_cxmc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1054, 0, 1.09072)
 cog_range = Vector2i(2, 3)
-cog_dist = 0.0
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160522, 6.01999, 0.0511169)
@@ -267,8 +267,7 @@ shape = SubResource("BoxShape3D_2np5k")
 [node name="BattleNodeDynamic2" parent="." index="12" node_paths=PackedStringArray("cogs") instance=ExtResource("10_cxmc4")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.0157, 0, 1.09072)
 cog_range = Vector2i(2, 3)
-cog_dist = 0.0
-cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5"), NodePath("Cogs/Cog6")]
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic2" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160522, 6.01999, 0.0511169)
@@ -282,11 +281,12 @@ shape = SubResource("BoxShape3D_c22ls")
 
 [node name="treasure_chest" parent="." index="14" instance=ExtResource("9_65n3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0453, 0, -8.32064)
-item_pool = ExtResource("10_r41io")
 
 [node name="treasure_chest2" parent="." index="15" instance=ExtResource("9_65n3s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6.97663, 0, 12.0641)
-item_pool = ExtResource("10_r41io")
+
+[node name="DebugPlayerPositionMarker" parent="." index="16" instance=ExtResource("13_cxmc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7857, 0.664321, 0)
 
 [editable path="Props/Crates/mint_crate17"]
 [editable path="Props/Crates/mint_crate21"]

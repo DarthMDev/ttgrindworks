@@ -281,12 +281,14 @@ scale = Vector3(0.3, 0.3, 0.3)
 [resource]
 script = ExtResource("2_15vla")
 accessory_placements = Array[ExtResource("1_0wxwn")]([SubResource("Resource_4ml6q"), SubResource("Resource_7r7yj"), SubResource("Resource_vspd7"), SubResource("Resource_nks8f"), SubResource("Resource_ybgfv"), SubResource("Resource_ucmiw"), SubResource("Resource_xwh58"), SubResource("Resource_rp77h"), SubResource("Resource_uhtop"), SubResource("Resource_7vbcc"), SubResource("Resource_xfgaf"), SubResource("Resource_ekbee"), SubResource("Resource_wsay6"), SubResource("Resource_bfcv6"), SubResource("Resource_osclr"), SubResource("Resource_ax7p8"), SubResource("Resource_61pxk"), SubResource("Resource_l8j4h"), SubResource("Resource_nlvjk"), SubResource("Resource_piegu"), SubResource("Resource_b7kbm"), SubResource("Resource_4t8cg"), SubResource("Resource_intej"), SubResource("Resource_vpy10"), SubResource("Resource_ytk73"), SubResource("Resource_cxenc"), SubResource("Resource_mwnl1"), SubResource("Resource_0p8ok"), SubResource("Resource_ggp7j"), SubResource("Resource_1anw2"), SubResource("Resource_oj373"), SubResource("Resource_pond2"), SubResource("Resource_slfen"), SubResource("Resource_p7hav")])
+item_tags = null
 qualitoon = 0
 rarity = 0
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.15
 item_name = "Cateye Glasses"

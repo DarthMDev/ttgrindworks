@@ -6,6 +6,7 @@ extends Control
 @onready var banner := $Banner
 @onready var label_name := $Banner/Name
 @onready var label_description := $Banner/Description
+@onready var node_viewer := %NodeViewer
 
 var model: Node3D
 
@@ -19,9 +20,9 @@ func _ready():
 	
 	if item.model:
 		model = item.model.instantiate()
-		%NodeViewer.camera_position_offset = item.ui_cam_offset
-		%NodeViewer.node = model
-		%NodeViewer.want_spin_tween = item.want_ui_spin
+		node_viewer.camera_position_offset = item.ui_cam_offset
+		node_viewer.node = model
+		node_viewer.want_spin_tween = item.want_ui_spin
 	await Task.delay(4.0)
 	
 	var leave_tween = create_tween()

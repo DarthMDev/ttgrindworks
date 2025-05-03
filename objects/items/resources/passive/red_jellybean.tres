@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_q0axm")
 qualitoon = 1
-rarity = 0
+rarity = 1
 evergreen = true
 realtime = false
 slot = 0

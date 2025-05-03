@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ct3mb1axahmev"]
+
+[ext_resource type="Texture2D" uid="uid://yila5o55cqe0" path="res://models/props/gags/ladder/textures/ladder.png" id="1_ej8sj"]
+
+[resource]
+resource_name = "ladder"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_ej8sj")
+emission_enabled = true

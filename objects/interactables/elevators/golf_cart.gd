@@ -7,6 +7,7 @@ extends Elevator
 
 
 func player_entered(player: Player) -> void:
+	player.game_timer_tick = false
 	s_elevator_entered.emit()
 	
 	# Stop the player

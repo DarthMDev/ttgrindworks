@@ -12,11 +12,13 @@ evergreen = true
 realtime = false
 slot = 0
 world_scale = 1.0
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Bamboo Cane"
 item_description = "Evasiveness Boost"
-big_description = ""
+big_description = "Lasts 3 rounds
++ 20% Evasiveness"
 model = ExtResource("1_atcwe")
 pickup_sfx = ExtResource("2_h5ma3")
 stats_add = {}

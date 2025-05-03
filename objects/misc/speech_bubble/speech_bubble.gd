@@ -10,6 +10,8 @@ class_name SpeechBubble
 		if not label: return ''
 		return label.text
 
+@export var auto_expire := true
+
 # Child references
 @onready var label: RichTextLabel = $Text
 @onready var bubble := $Bubble
@@ -67,7 +69,8 @@ func set_font(font: Font):
 	set_text(text)
 
 func done(): 
-	queue_free()
+	if auto_expire:
+		queue_free()
 
 func _update():
 	if Engine.is_editor_hint():

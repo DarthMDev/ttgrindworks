@@ -1,0 +1,1865 @@
+[gd_scene load_steps=19 format=3 uid="uid://x4q856o51k2w"]
+
+[ext_resource type="PackedScene" uid="uid://dmapsp85ra1fb" path="res://objects/modules/factory/base_rooms/factory_lobby.tscn" id="1_go5f7"]
+[ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="2_v0fnm"]
+[ext_resource type="Texture2D" uid="uid://dpsidiie17khh" path="res://models/facilities/factory/FINALFACTORY_0.png" id="3_3mg1n"]
+[ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="3_b4k0u"]
+[ext_resource type="PackedScene" uid="uid://bwjq4qg65u7dg" path="res://models/props/facility_objects/factory/stomper_panel/stomper_panel.fbx" id="4_kt4gb"]
+[ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="4_rbefv"]
+[ext_resource type="Texture2D" uid="uid://durhnsdrsmjge" path="res://models/props/facility_objects/factory/stomper_panel/FINALFACTORY_2.png" id="5_bj28g"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="19_rf1od"]
+[ext_resource type="PackedScene" uid="uid://bftnews8dsdpb" path="res://objects/props/office/paper_twist_stacks.tscn" id="20_01ct7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mg1n"]
+resource_name = "BoilerRoomT_CementFloorx4"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9, 0.9, 0.9, 0.8)
+albedo_texture = ExtResource("2_v0fnm")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eeryo"]
+resource_name = "BoilerRoomT_WallMetalPlateSHD_WallMetalPlateV2SHD"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.7, 0.7, 0.7, 0.8)
+albedo_texture = ExtResource("3_3mg1n")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa0ad"]
+resource_name = "FINALFACTORY_2"
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("5_bj28g")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pruhj"]
+data = PackedVector3Array(9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 0.0191, 9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 9.2792, 6.2624, -6.2624, 11.8353, -6.2624, -6.2624, 11.8353, -6.2624, 6.2624, 11.8353, -6.2624, 6.2624, 11.8353, 6.2624, 6.2624, 11.8353, 6.2624, -6.2624, 11.8353, -7.4652, -7.4652, 10.3864, -9.2647, -9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -7.4652, 7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -9.2647, -9.2647, 9.2792, -7.4652, -7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 9.2792, 7.4652, -7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 7.4652, -7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 7.4652, 7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -6.2624, -6.2624, 11.8353, -7.4652, -7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -6.2624, 6.2624, 11.8353, -6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 7.4652, -7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 6.2624, 6.2624, 11.8353, 7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 6.2624, -6.2624, 11.8353, -6.2624, 6.2624, 11.8353, -7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 6.2624, 6.2624, 11.8353, -6.2624, 6.2624, 11.8353, 9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 0.0191, 9.2647, -9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, -9.2647, 0.0191, 9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 0.0191, -9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 9.2792, -9.2647, -9.2647, 9.2792)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4g85s"]
+height = 6.37183
+radius = 1.28955
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt4gb"]
+size = Vector3(0.572377, 0.0248394, 0.573288)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eeryo"]
+size = Vector3(1.13621, 0.0248394, 1.13801)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mg1n"]
+size = Vector3(1.70249, 0.0248394, 1.69979)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0fnm"]
+size = Vector3(2.1441, 2.26929, 0.654816)
+
+[node name="FactoryLobby" instance=ExtResource("1_go5f7")]
+
+[node name="GeometryTransformHelper477" parent="Model/ZONE04/lobby/room5/geometry_lobby/floor3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3mg1n")
+
+[node name="GeometryTransformHelper479" parent="Model/ZONE04/lobby/room5/geometry_lobby/walls" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eeryo")
+surface_material_override/1 = SubResource("StandardMaterial3D_eeryo")
+surface_material_override/2 = SubResource("StandardMaterial3D_eeryo")
+
+[node name="TopGrate" parent="Model/ZONE04/lobby/props2/MetalTrimGrate" index="9"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 120.053, 85.4423, 150.37)
+visible = false
+
+[node name="DeskAll" parent="Model/ZONE04/lobby/props2" index="2"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/DeskAll/DeskCollision1/GeometryTransformHelper492/StaticBody3D" index="0"]
+disabled = true
+
+[node name="Cables" parent="Model/ZONE04/lobby/props2" index="3"]
+visible = false
+
+[node name="PostsAll" parent="Model/ZONE04/lobby/props2" index="4"]
+visible = false
+
+[node name="POST1" parent="Model/ZONE04/lobby/props2/PostsAll" index="1"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST1/Post111/Post1Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST2" parent="Model/ZONE04/lobby/props2/PostsAll" index="2"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST2/Post29/Post2Collision3/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST3" parent="Model/ZONE04/lobby/props2/PostsAll" index="3"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST3/Post36/Post3Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST4" parent="Model/ZONE04/lobby/props2/PostsAll" index="4"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST4/Post45/Post4Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST5" parent="Model/ZONE04/lobby/props2/PostsAll" index="5"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST5/Post54/Post5Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST6" parent="Model/ZONE04/lobby/props2/PostsAll" index="6"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST6/Post64/Post6Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST8" parent="Model/ZONE04/lobby/props2/PostsAll" index="7"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST8/Post84/Post8Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="POST7" parent="Model/ZONE04/lobby/props2/PostsAll" index="8"]
+visible = false
+
+[node name="Post73" parent="Model/ZONE04/lobby/props2/PostsAll/POST7" index="1"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/POST7/Post73/Post7Collision/StaticBody3D" index="0"]
+disabled = true
+
+[node name="Post46" parent="Model/ZONE04/lobby/props2/PostsAll/Partition1" index="2"]
+visible = false
+
+[node name="Post37" parent="Model/ZONE04/lobby/props2/PostsAll/Partition1" index="3"]
+visible = false
+
+[node name="Partition2" parent="Model/ZONE04/lobby/props2/PostsAll" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -674.642, 3.64911, -37.4873)
+
+[node name="Post47" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2" index="2"]
+visible = false
+
+[node name="Post38" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2" index="3"]
+visible = false
+
+[node name="Post310" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2/Post38" index="1"]
+visible = false
+
+[node name="GradPost32" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2/Post38" index="2"]
+visible = false
+
+[node name="SquareShadow4" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2" index="4"]
+visible = false
+
+[node name="GradPost4" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2" index="5"]
+visible = false
+
+[node name="Post9" parent="Model/ZONE04/lobby/props2/PostsAll" index="11"]
+visible = false
+
+[node name="Post10" parent="Model/ZONE04/lobby/props2/PostsAll" index="12"]
+visible = false
+
+[node name="Post11" parent="Model/ZONE04/lobby/props2/PostsAll" index="13"]
+visible = false
+
+[node name="Post122" parent="Model/ZONE04/lobby/props2/PostsAll" index="14"]
+visible = false
+
+[node name="Post132" parent="Model/ZONE04/lobby/props2/PostsAll" index="15"]
+visible = false
+
+[node name="Post14" parent="Model/ZONE04/lobby/props2/PostsAll" index="16"]
+visible = false
+
+[node name="Post15" parent="Model/ZONE04/lobby/props2/PostsAll" index="17"]
+visible = false
+
+[node name="Post16" parent="Model/ZONE04/lobby/props2/PostsAll" index="18"]
+visible = false
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition1Collision/GeometryTransformHelper517/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2Collision/GeometryTransformHelper518/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2Collision1/GeometryTransformHelper519/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2Collision3/GeometryTransformHelper520/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2Collision4/GeometryTransformHelper521/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Model/ZONE04/lobby/props2/PostsAll/Partition2Collision5/GeometryTransformHelper522/StaticBody3D" index="0"]
+disabled = true
+
+[node name="FanBlade1" parent="factory_lobby" index="1"]
+transform = Transform3D(-19.0601, 1.62768, -7.3852e-07, 1.62768, 19.0601, 7.3852e-07, 1.80858e-06, 1.52399e-06, -8.44768, 24.7621, 2.51024, -60.6563)
+
+[node name="FanBlade2" parent="factory_lobby" index="2"]
+transform = Transform3D(6.33566, 18.0498, -7.3852e-07, 18.0498, -6.33566, 7.38519e-07, 1.02408e-06, -2.13184e-06, -8.44768, 28.4435, 2.51024, -60.6563)
+
+[node name="BlackCeiling" parent="." index="6"]
+transform = Transform3D(1.2, 0, 0, 0, -5.24537e-08, -1.2, 0, 1.2, -5.24537e-08, 6.92766, 14.5126, -39.3033)
+
+[node name="Safe_Zone" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58265, 0, -21.1893)
+
+[node name="stomper_panel" parent="Safe_Zone" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone2" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67829, 0, -30.3542)
+
+[node name="stomper_panel" parent="Safe_Zone2" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone2/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone3" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8698, 0.00653648, -34.9911)
+
+[node name="stomper_panel" parent="Safe_Zone3" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone3/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone4" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6653, 0, -44.1399)
+
+[node name="stomper_panel" parent="Safe_Zone4" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone4/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone5" type="Node3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7199, 0, -34.9566)
+
+[node name="stomper_panel" parent="Safe_Zone5" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone5/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone7" type="Node3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9237, 0, -39.5472)
+
+[node name="stomper_panel" parent="Safe_Zone7" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone7/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone8" type="Node3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.11, 0, -48.7338)
+
+[node name="stomper_panel" parent="Safe_Zone8" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone8/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone9" type="Node3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55967, 0, -57.9309)
+
+[node name="stomper_panel" parent="Safe_Zone9" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone9/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="Safe_Zone10" type="Node3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67962, 0, -53.4021)
+
+[node name="stomper_panel" parent="Safe_Zone10" index="0" instance=ExtResource("4_kt4gb")]
+
+[node name="stomper_panel" parent="Safe_Zone10/stomper_panel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa0ad")
+
+[node name="treasure_chest" parent="." index="16" instance=ExtResource("19_rf1od")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.6002, 0, -39.11)
+
+[node name="Stompers" type="Node3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9758, 0, -37.1461)
+
+[node name="LongerStomper10" parent="Stompers" index="0" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 10.8211, 0.150178, 7.24986)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper10" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper10/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper10/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper10/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper10/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper10/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper10/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper10/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper10/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper10/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper10/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper10/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper10/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper11" parent="Stompers" index="1" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 10.7823, 0.150178, 2.64536)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper11" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper11/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper11/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper11/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper11/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper11/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper11/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper11/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper11/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper11/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper11/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper11/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper12" parent="Stompers" index="2" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 15.4018, 0.150178, 2.64536)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper12" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper12/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper12/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper12/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper12/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper12/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper12/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper12/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper12/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper12/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper12/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper12/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper12/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper34" parent="Stompers" index="3" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 15.4018, 0.150178, -6.55134)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper34" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper34/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper34/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper34/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper34/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper34/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper34/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper34/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper34/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper34/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper34/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper34/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper34/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper20" parent="Stompers" index="4" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -12.2371, 0.150178, 11.8668)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper20" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper20/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper20/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper20/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper20/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper20/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper20/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper20/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper20/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper20/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper20/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper20/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper20/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper18" parent="Stompers" index="5" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -7.64913, 0.150178, 16.502)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper18" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper18/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper18/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper18/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper18/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper18/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper18/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper18/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper18/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper18/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper18/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper18/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper18/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper21" parent="Stompers" index="6" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -16.8574, 0.150178, 7.24386)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper21" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper21/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper21/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper21/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper21/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper21/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper21/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper21/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper21/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper21/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper21/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper21/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper21/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="2x2 Stomper1" parent="Stompers" index="7" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -5.33991, 0.150178, -13.4655)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/2x2 Stomper1" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/2x2 Stomper1/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/2x2 Stomper1/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1.89, 0, 0, 0, 1.9, 1.42484e-14, 0, -2.84967e-14, 0.95, -0.0792427, -0.0375671, 3.859)
+
+[node name="shaft" parent="Stompers/2x2 Stomper1/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/2x2 Stomper1/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/2x2 Stomper1/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/2x2 Stomper1/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper1/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper1/stomper/HeadCollision" index="0"]
+transform = Transform3D(1.945, 0, 0, 0, 1.935, 3.65318e-15, 0, -7.0689e-15, 1, 0, -0.320175, -1.39698e-08)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper1/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper1/stomper/ShaftCollision" index="0"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/2x2 Stomper1/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper1/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245702, -0.00119627, 0.00802422)
+shape = SubResource("BoxShape3D_eeryo")
+
+[node name="2x2 Stomper2" parent="Stompers" index="8" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -5.33991, 0.150178, 9.55266)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/2x2 Stomper2" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/2x2 Stomper2/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/2x2 Stomper2/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1.89, 0, 0, 0, 1.9, 1.42484e-14, 0, -2.84967e-14, 0.95, -0.0792427, -0.0375671, 3.859)
+
+[node name="shaft" parent="Stompers/2x2 Stomper2/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/2x2 Stomper2/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/2x2 Stomper2/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/2x2 Stomper2/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper2/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper2/stomper/HeadCollision" index="0"]
+transform = Transform3D(1.945, 0, 0, 0, 1.935, 3.65318e-15, 0, -7.0689e-15, 1, 0, -0.320175, -1.39698e-08)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper2/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper2/stomper/ShaftCollision" index="0"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/2x2 Stomper2/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper2/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245702, -0.00119627, 0.00802422)
+shape = SubResource("BoxShape3D_eeryo")
+
+[node name="2x2 Stomper3" parent="Stompers" index="9" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 3.8912, 0.150178, 9.56736)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/2x2 Stomper3" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/2x2 Stomper3/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/2x2 Stomper3/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1.89, 0, 0, 0, 1.9, 1.42484e-14, 0, -2.84967e-14, 0.95, -0.0792427, -0.0375671, 3.859)
+
+[node name="shaft" parent="Stompers/2x2 Stomper3/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/2x2 Stomper3/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/2x2 Stomper3/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/2x2 Stomper3/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper3/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper3/stomper/HeadCollision" index="0"]
+transform = Transform3D(1.945, 0, 0, 0, 1.935, 3.65318e-15, 0, -7.0689e-15, 1, 0, -0.320175, -1.39698e-08)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper3/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper3/stomper/ShaftCollision" index="0"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/2x2 Stomper3/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper3/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245702, -0.00119627, 0.00802422)
+shape = SubResource("BoxShape3D_eeryo")
+
+[node name="2x2 Stomper4" parent="Stompers" index="10" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -14.5483, 0.150178, 0.298962)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/2x2 Stomper4" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/2x2 Stomper4/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/2x2 Stomper4/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1.89, 0, 0, 0, 1.9, 1.42484e-14, 0, -2.84967e-14, 0.95, -0.0792427, -0.0375671, 3.859)
+
+[node name="shaft" parent="Stompers/2x2 Stomper4/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/2x2 Stomper4/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/2x2 Stomper4/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/2x2 Stomper4/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper4/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper4/stomper/HeadCollision" index="0"]
+transform = Transform3D(1.945, 0, 0, 0, 1.935, 3.65318e-15, 0, -7.0689e-15, 1, 0, -0.320175, -1.39698e-08)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper4/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper4/stomper/ShaftCollision" index="0"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/2x2 Stomper4/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper4/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245702, -0.00119627, 0.00802422)
+shape = SubResource("BoxShape3D_eeryo")
+
+[node name="2x2 Stomper5" parent="Stompers" index="11" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 8.4889, 0.150178, -4.30854)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/2x2 Stomper5" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/2x2 Stomper5/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/2x2 Stomper5/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1.89, 0, 0, 0, 1.9, 1.42484e-14, 0, -2.84967e-14, 0.95, -0.0792427, -0.0375671, 3.859)
+
+[node name="shaft" parent="Stompers/2x2 Stomper5/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.61121e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/2x2 Stomper5/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/2x2 Stomper5/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/2x2 Stomper5/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper5/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper5/stomper/HeadCollision" index="0"]
+transform = Transform3D(1.945, 0, 0, 0, 1.935, 3.65318e-15, 0, -7.0689e-15, 1, 0, -0.320175, -1.39698e-08)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/2x2 Stomper5/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper5/stomper/ShaftCollision" index="0"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/2x2 Stomper5/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/2x2 Stomper5/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245702, -0.00119627, 0.00802422)
+shape = SubResource("BoxShape3D_eeryo")
+
+[node name="LongerStomper42" parent="Stompers" index="12" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -12.2375, 0.150178, -11.1454)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper42" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper42/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper42/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper42/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper42/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper42/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper42/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper42/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper42/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper42/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper42/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper42/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper45" parent="Stompers" index="13" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -7.63347, 0.150178, -20.3651)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper45" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper45/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper45/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper45/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper45/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper45/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper45/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper45/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper45/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper45/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper45/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper45/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper45/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper46" parent="Stompers" index="14" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.5847, 0.150178, -20.3651)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper46" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper46/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper46/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper46/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper46/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper46/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper46/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper46/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper46/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper46/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper46/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper46/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper46/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper47" parent="Stompers" index="15" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.5847, 0.150178, -15.7062)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper47" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper47/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper47/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper47/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper47/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper47/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper47/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper47/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper47/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper47/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper47/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper47/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper47/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper48" parent="Stompers" index="16" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6.1884, 0.150178, -15.7062)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper48" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper48/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper48/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper48/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper48/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper48/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper48/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper48/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper48/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper48/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper48/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper48/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper48/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper49" parent="Stompers" index="17" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6.1884, 0.150178, -11.0866)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper49" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper49/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper49/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper49/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper49/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper49/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper49/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper49/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper49/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper49/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper49/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper49/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper50" parent="Stompers" index="18" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 10.7733, 0.150178, -11.0866)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper50" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper50/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper50/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper50/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper50/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper50/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper50/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper50/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper50/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper50/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper50/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper50/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper50/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="3x3 Stomper" parent="Stompers" index="19" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.02358, 0.150178, -1.94534)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/3x3 Stomper" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/3x3 Stomper/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/3x3 Stomper/stomper/square__stomper/head" index="1"]
+transform = Transform3D(2.84, 0, 0, 0, 2.83, 7.10543e-15, 0, -2.11667e-14, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/3x3 Stomper/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/3x3 Stomper/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/3x3 Stomper/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/3x3 Stomper/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/3x3 Stomper/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/3x3 Stomper/stomper/HeadCollision" index="0"]
+transform = Transform3D(2.905, 0, 0, 0, 2.905, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/3x3 Stomper/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/3x3 Stomper/stomper/ShaftCollision" index="0"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/3x3 Stomper/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/3x3 Stomper/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00458562, -0.00119627, -0.000678539)
+shape = SubResource("BoxShape3D_3mg1n")
+
+[node name="LongerStomper24" parent="Stompers" index="20" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -16.8574, 0.150178, -6.54304)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper24" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper24/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper24/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper24/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper24/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper24/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper24/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper24/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper24/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper24/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper24/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper24/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper26" parent="Stompers" index="21" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -21.4747, 0.150178, -6.54304)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper26" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper26/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper26/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper26/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper26/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper26/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper26/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper26/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper26/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper26/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper26/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper26/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper26/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper27" parent="Stompers" index="22" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -21.4747, 0.150178, -1.92864)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper27" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper27/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper27/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper27/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper27/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper27/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper27/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper27/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper27/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper27/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper27/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper27/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper25" parent="Stompers" index="23" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -16.8574, 0.150178, -11.1642)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper25" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper25/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper25/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper25/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper25/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper25/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper25/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper25/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper25/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper25/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper25/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper25/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper25/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="LongerStomper4" parent="Stompers" index="24" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("3_b4k0u")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.5712, 0.150178, 16.5323)
+model = NodePath("stomper")
+collisions = [NodePath("stomper/HeadCollision/CollisionShape3D"), NodePath("stomper/ShaftCollision/CollisionShape3D")]
+player_detection = NodePath("stomper/PlayerDetection")
+raise_position = 0.5
+raise_time = 2.0
+raise_time_offset = 1.5
+sfx_volume = -10.0
+
+[node name="stomper" parent="Stompers/LongerStomper4" index="0" instance=ExtResource("4_rbefv")]
+
+[node name="square__stomper" parent="Stompers/LongerStomper4/stomper" index="0"]
+transform = Transform3D(0.0328084, 0, 0, 0, -1.4341e-09, 0.0328084, 0, -0.0328084, -1.4341e-09, 0, 0, 0)
+
+[node name="head2" parent="Stompers/LongerStomper4/stomper/square__stomper/head" index="1"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 7.10543e-15, 0, -7.10543e-15, 0.95, -0.0792427, 0, 3.859)
+
+[node name="shaft" parent="Stompers/LongerStomper4/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 4.6112e-14, 0, -5.86015e-15, 6.295, 0, 0, 4.00602)
+
+[node name="shaft2" parent="Stompers/LongerStomper4/stomper/square__stomper/head/shaft" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, -1.35358e-16, 0.0566168)
+
+[node name="shaft_collisions" parent="Stompers/LongerStomper4/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Stompers/LongerStomper4/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Stompers/LongerStomper4/stomper" index="1"]
+transform = Transform3D(0.032, 0, 0, 0, -1.39876e-09, 0.032, 0, -0.032, -1.39876e-09, 0, -0.0190396, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper4/stomper/HeadCollision" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pruhj")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Stompers/LongerStomper4/stomper" index="2"]
+transform = Transform3D(0.12, 0, 0, 0, 0.163, 0, 0, 0, 0.12, 0, 0.499137, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper4/stomper/ShaftCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722046, 0)
+shape = SubResource("CylinderShape3D_4g85s")
+
+[node name="PlayerDetection" type="Area3D" parent="Stompers/LongerStomper4/stomper" index="3"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stompers/LongerStomper4/stomper/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00359714, -0.00119627, -0.000240088)
+shape = SubResource("BoxShape3D_kt4gb")
+
+[node name="Props" type="Node3D" parent="." index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9758, 0, -37.1461)
+
+[node name="Paper Corner Group" type="Node3D" parent="Props" index="0"]
+transform = Transform3D(-0.00989277, 0, -2.13998, 0, 2.14, 0, 2.13998, 0, -0.00989277, -19.7828, 0.005, 5.68336)
+
+[node name="Paper Corner4" type="Node3D" parent="Props/Paper Corner Group" index="0"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 4.22924, 0, -4.2943)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group/Paper Corner4" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group/Paper Corner4" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner5" type="Node3D" parent="Props/Paper Corner Group" index="1"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 2.12314, 0, -2.12535)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group/Paper Corner5" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group/Paper Corner5" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner6" type="Node3D" parent="Props/Paper Corner Group" index="2"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 0, 0, 0)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group/Paper Corner6" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group/Paper Corner6" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner Group2" type="Node3D" parent="Props" index="1"]
+transform = Transform3D(-2.13998, 0, 0.00989286, 0, 2.14, 0, -0.00989286, 0, -2.13998, -10.6203, 0.005, -18.6684)
+
+[node name="Paper Corner4" type="Node3D" parent="Props/Paper Corner Group2" index="0"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 4.22924, 0, -4.2943)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group2/Paper Corner4" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group2/Paper Corner4" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner5" type="Node3D" parent="Props/Paper Corner Group2" index="1"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 2.12314, 0, -2.12535)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group2/Paper Corner5" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group2/Paper Corner5" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner6" type="Node3D" parent="Props/Paper Corner Group2" index="2"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 0, 0, 0)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group2/Paper Corner6" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group2/Paper Corner6" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner Group3" type="Node3D" parent="Props" index="2"]
+transform = Transform3D(0.00989295, 0, 2.13998, 0, 2.14, 0, -2.13998, 0, 0.00989295, 13.7156, 0.005, -9.50124)
+
+[node name="Paper Corner4" type="Node3D" parent="Props/Paper Corner Group3" index="0"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 4.22924, 0, -4.2943)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group3/Paper Corner4" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group3/Paper Corner4" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner5" type="Node3D" parent="Props/Paper Corner Group3" index="1"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 2.12314, 0, -2.12535)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group3/Paper Corner5" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group3/Paper Corner5" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner6" type="Node3D" parent="Props/Paper Corner Group3" index="2"]
+transform = Transform3D(1, 0, -4.65661e-10, 0, 1, 0, 4.65661e-10, 0, 1, 0, 0, 0)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner Group3/Paper Corner6" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner Group3/Paper Corner6" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner" type="Node3D" parent="Props" index="3"]
+transform = Transform3D(2.13998, 0, -0.00989267, 0, 2.14, 0, 0.00989267, 0, 2.13998, 4.4904, 0.005, 14.8992)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner2" type="Node3D" parent="Props" index="4"]
+transform = Transform3D(2.13998, 0, -0.00989267, 0, 2.14, 0, 0.00989267, 0, 2.13998, 9.0469, 0.005, 10.2888)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner2" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner2/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner2/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner2" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner2/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner2/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner2/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="Paper Corner3" type="Node3D" parent="Props" index="5"]
+transform = Transform3D(2.13998, 0, -0.00989267, 0, 2.14, 0, 0.00989267, 0, 2.13998, 13.6883, 0.005, 5.65456)
+
+[node name="paper_twist_stacks" parent="Props/Paper Corner3" index="0" instance=ExtResource("20_01ct7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner3/paper_twist_stacks" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner3/paper_twist_stacks/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.780383, 0.634637, -0.00892925)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[node name="paper_twist_stacks2" parent="Props/Paper Corner3" index="1" instance=ExtResource("20_01ct7")]
+transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0.00263023, 0, 0.568988)
+
+[node name="paper_stack_3" parent="Props/Paper Corner3/paper_twist_stacks2" index="2"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Props/Paper Corner3/paper_twist_stacks2" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Paper Corner3/paper_twist_stacks2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.999975, 0, 2.98023e-08, 0, 1, 0.531404, 0.634637, -0.0624094)
+shape = SubResource("BoxShape3D_v0fnm")
+
+[editable path="factory_lobby"]
+[editable path="Safe_Zone/stomper_panel"]
+[editable path="Safe_Zone2/stomper_panel"]
+[editable path="Safe_Zone3/stomper_panel"]
+[editable path="Safe_Zone4/stomper_panel"]
+[editable path="Safe_Zone5/stomper_panel"]
+[editable path="Safe_Zone7/stomper_panel"]
+[editable path="Safe_Zone8/stomper_panel"]
+[editable path="Safe_Zone9/stomper_panel"]
+[editable path="Safe_Zone10/stomper_panel"]
+[editable path="Stompers/LongerStomper10/stomper"]
+[editable path="Stompers/LongerStomper11/stomper"]
+[editable path="Stompers/LongerStomper12/stomper"]
+[editable path="Stompers/LongerStomper34/stomper"]
+[editable path="Stompers/LongerStomper20/stomper"]
+[editable path="Stompers/LongerStomper18/stomper"]
+[editable path="Stompers/LongerStomper21/stomper"]
+[editable path="Stompers/2x2 Stomper1/stomper"]
+[editable path="Stompers/2x2 Stomper2/stomper"]
+[editable path="Stompers/2x2 Stomper3/stomper"]
+[editable path="Stompers/2x2 Stomper4/stomper"]
+[editable path="Stompers/2x2 Stomper5/stomper"]
+[editable path="Stompers/LongerStomper42/stomper"]
+[editable path="Stompers/LongerStomper45/stomper"]
+[editable path="Stompers/LongerStomper46/stomper"]
+[editable path="Stompers/LongerStomper47/stomper"]
+[editable path="Stompers/LongerStomper48/stomper"]
+[editable path="Stompers/LongerStomper49/stomper"]
+[editable path="Stompers/LongerStomper50/stomper"]
+[editable path="Stompers/3x3 Stomper/stomper"]
+[editable path="Stompers/LongerStomper24/stomper"]
+[editable path="Stompers/LongerStomper26/stomper"]
+[editable path="Stompers/LongerStomper27/stomper"]
+[editable path="Stompers/LongerStomper25/stomper"]
+[editable path="Stompers/LongerStomper4/stomper"]
+[editable path="Props/Paper Corner Group/Paper Corner4/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group/Paper Corner5/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group/Paper Corner6/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group2/Paper Corner4/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group2/Paper Corner5/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group2/Paper Corner6/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group3/Paper Corner4/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group3/Paper Corner5/paper_twist_stacks2"]
+[editable path="Props/Paper Corner Group3/Paper Corner6/paper_twist_stacks2"]
+[editable path="Props/Paper Corner/paper_twist_stacks2"]
+[editable path="Props/Paper Corner2/paper_twist_stacks2"]
+[editable path="Props/Paper Corner3/paper_twist_stacks2"]

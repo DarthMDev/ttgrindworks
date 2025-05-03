@@ -1,16 +1,15 @@
-[gd_scene load_steps=40 format=3 uid="uid://p377w16ialr0"]
+[gd_scene load_steps=39 format=3 uid="uid://p377w16ialr0"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_odi4v"]
 [ext_resource type="Texture2D" uid="uid://20v2ot480e" path="res://models/facilities/office/textures/CFOCeiling2.png" id="2_crcuk"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_qgg6c"]
 [ext_resource type="Texture2D" uid="uid://c2orm44yrj4uj" path="res://models/facilities/office/textures/LB_tanSurface.png" id="3_rfufk"]
-[ext_resource type="Texture2D" uid="uid://jmddjyrgeyra" path="res://models/facilities/office/textures/CementFloor7.png" id="4_d7f3c"]
+[ext_resource type="Texture2D" uid="uid://bk07kcoeavpj8" path="res://models/facilities/office/textures/CementFloor7.png" id="4_d7f3c"]
 [ext_resource type="PackedScene" uid="uid://bx0hib3faipy4" path="res://objects/obstacles/gavel/gavel_obstacle.tscn" id="4_ppolh"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="5_o7t8j"]
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="6_i70vi"]
 [ext_resource type="PackedScene" uid="uid://dm86vgodo58fx" path="res://objects/props/office/potted_plant.tscn" id="7_g4nyf"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="9_4nc8e"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="10_lvrqv"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="11_ki2s4"]
 [ext_resource type="PackedScene" uid="uid://b4h3df6nrryna" path="res://objects/props/office/filing_cabinet.tscn" id="12_mrg3c"]
 [ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="13_1vh2f"]
@@ -294,7 +293,6 @@ transform = Transform3D(-1.52478, 0, 0.468037, 0, 1.595, 0, -0.468037, 0, -1.524
 
 [node name="treasure_chest" parent="." index="11" instance=ExtResource("9_4nc8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5377, 0, -12.7821)
-item_pool = ExtResource("10_lvrqv")
 
 [node name="treasure_chest2" parent="." index="12" instance=ExtResource("9_4nc8e")]
 transform = Transform3D(0.0289858, 0, -0.99958, 0, 1, 0, 0.99958, 0, 0.0289858, 11.1133, 3.16946, -15.3565)
@@ -333,12 +331,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0634823, 4.76072, 0.002076
 shape = SubResource("BoxShape3D_pue6f")
 
 [node name="CogButton" parent="." index="17" instance=ExtResource("18_588v7")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 17.9516, 0, 7.87616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9516, 0, 7.87616)
 
-[node name="BattleNodeDynamic" parent="." index="18" instance=ExtResource("22_wqps8")]
+[node name="BattleNodeDynamic" parent="." index="18" node_paths=PackedStringArray("cogs") instance=ExtResource("22_wqps8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.70603, 0, 5.31852)
 cog_range = Vector2i(2, 3)
 cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589693, 4.95163, 0.651089)

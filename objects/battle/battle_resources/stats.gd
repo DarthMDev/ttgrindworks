@@ -28,8 +28,16 @@ class_name BattleStats
 			print('accuracy set to ' + str(x))
 		s_accuracy_changed.emit(x)
 
-const MIN_SPEED := 0.7
-const MAX_SPEED := 2.0
+## STAT CLAMPS
+var STAT_CLAMPS: Dictionary[String, Vector2] = {
+	'speed' : Vector2(0.7, 2.0),
+	'damage' : Vector2(0.1, UNCAPPED_STAT_VAL),
+	'defense' : Vector2(0.1, UNCAPPED_STAT_VAL),
+	'evasiveness' : Vector2(0.1, UNCAPPED_STAT_VAL),
+	'luck' : Vector2(0.1, UNCAPPED_STAT_VAL),
+}
+const UNCAPPED_STAT_VAL := -999.0
+
 @export var speed := 1.0:
 	set(x):
 		speed = x
@@ -46,10 +54,13 @@ const MAX_SPEED := 2.0
 		max_hp_changed.emit(x)
 @export var hp := 25:
 	set(x):
-		hp = clamp(x, 0, max_hp)
+		if debug_invulnerable:
+			hp = max_hp
+		else:
+			hp = clamp(x, 0, max_hp)
 		hp_changed.emit(hp)
 @export var turns := 1
-
+var debug_invulnerable := false
 
 var multipliers: Array[StatMultiplier] = []
 
@@ -92,8 +103,17 @@ func get_stat(stat: String) -> float:
 
 ## Can be added to over time if stats need to be hard capped
 func clamp_stat(stat : String, amount : float) -> float:
-	match stat:
-		'speed':
-			return clampf(amount, MIN_SPEED, MAX_SPEED)
-		_:
-			return amount
+	if stat in STAT_CLAMPS.keys():
+		var stat_min := STAT_CLAMPS[stat].x
+		var stat_max := STAT_CLAMPS[stat].y
+		if is_equal_approx(stat_min, UNCAPPED_STAT_VAL):
+			return minf(amount, stat_max)
+		elif is_equal_approx(stat_max, UNCAPPED_STAT_VAL):
+			return maxf(amount, stat_min)
+		return clamp(amount, stat_min, stat_max)
+	return amount
+
+func get_stat_as_percent(stat : String) -> int:
+	var stat_as_float := get_stat(stat)
+	var stat_as_int : int = roundi(stat_as_float * 100.0)
+	return stat_as_int

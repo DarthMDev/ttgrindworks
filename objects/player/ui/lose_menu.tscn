@@ -184,8 +184,6 @@ texture_normal = ExtResource("7_n78l6")
 texture_pressed = ExtResource("8_h5jcy")
 texture_hover = ExtResource("9_b6wx8")
 texture_disabled = ExtResource("8_h5jcy")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Try Again"
 
 [node name="Quit" parent="Root/Buttons" instance=ExtResource("5_r1k5q")]
@@ -195,8 +193,6 @@ texture_normal = ExtResource("7_n78l6")
 texture_pressed = ExtResource("8_h5jcy")
 texture_hover = ExtResource("9_b6wx8")
 texture_disabled = ExtResource("8_h5jcy")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Back to Menu"
 
 [connection signal="pressed" from="Root/Buttons/TryAgain" to="." method="play_again"]

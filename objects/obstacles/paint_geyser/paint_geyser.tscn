@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs2vabkh6angs"]
+
+[ext_resource type="PackedScene" uid="uid://binf3nrnks5dv" path="res://objects/obstacles/paint_geyser/Paint_Geyser.fbx" id="1_svf4k"]
+[ext_resource type="Shader" uid="uid://dw8xtbkqgxrtl" path="res://objects/obstacles/paint_geyser/Paint_Geyser.tres" id="2_ddnqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv2bq"]
+render_priority = 0
+shader = ExtResource("2_ddnqy")
+
+[node name="Paint_Geyser" instance=ExtResource("1_svf4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0582163, 0)
+
+[node name="geyserRise" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hv2bq")
+
+[node name="ground" parent="." index="1"]
+visible = false

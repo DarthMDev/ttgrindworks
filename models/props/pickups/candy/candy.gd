@@ -15,6 +15,10 @@ func setup(resource: Item):
 		candy_type = CandyType.SUPER_LUCK if 'super' in item.arbitrary_data else CandyType.LUCK
 	elif 'speed' in item.stats_add:
 		candy_type = CandyType.SPEED
+	elif 'active_charge' in item.stats_add:
+		candy_type = CandyType.BATTERY
+		if not is_battery_valid():
+			item.reroll()
 
 func modify(ui: Node3D) -> void:
 	ui.candy_type = candy_type
@@ -26,6 +30,7 @@ func modify(ui: Node3D) -> void:
 enum CandyType {
 	DAMAGE, DEFENSE, EVASIVENESS, LUCK, SPEED,
 	SUPER_DAMAGE, SUPER_DEFENSE, SUPER_EVASIVENESS, SUPER_LUCK,
+	BATTERY
 }
 
 const SuperTypes = [
@@ -43,6 +48,7 @@ const CandyColors: Dictionary = {
 	CandyType.LUCK: Color(0, 0.798, 0.384),
 	CandyType.SUPER_LUCK: Color(0, 0.748, 0.85),
 	CandyType.SPEED: Color(1, 0.304, 0.313),
+	CandyType.BATTERY: Color(0.212, 0.212, 0.252),
 }
 
 const ParticleColors: Dictionary = {
@@ -62,6 +68,7 @@ const CandyMaterials: Dictionary = {
 	CandyType.SUPER_DEFENSE: preload("res://models/props/pickups/candy/candy_overlay_bubbles.tres"),
 	CandyType.SUPER_EVASIVENESS: preload("res://models/props/pickups/candy/candy_overlay_target.tres"),
 	CandyType.SUPER_LUCK: preload("res://models/props/pickups/candy/candy_overlay_stars.tres"),
+	CandyType.BATTERY: preload("res://models/props/pickups/candy/candy_overlay_lightning.tres")
 }
 
 @export var candy_type := CandyType.DAMAGE:
@@ -86,5 +93,19 @@ func _update_candy_visual() -> void:
 	else:
 		particles.emitting = false
 		particles.hide()
+
+#endregion
+
+#region Misc. Logic
+
+## Check for battery validity
+## Battery is valid if player has an active item with a charge count greater than 0
+func is_battery_valid() -> bool:
+	var player := Util.get_player()
+	if not is_instance_valid(player):
+		return true
+	
+	return player.stats.current_active_item and not player.stats.current_active_item.charge_count == 0
+
 
 #endregion

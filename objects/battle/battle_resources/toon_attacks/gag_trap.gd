@@ -34,4 +34,4 @@ func apply_extra_knockback(cog: Cog) -> void:
 		return
 
 	var boost_percent: float = Util.get_player().stats.trap_knockback_percent
-	manager.do_standalone_knockback_damage(cog, roundi(activating_lure.get_lure_effect().knockback_effect * boost_percent))
+	manager.do_standalone_knockback_damage(cog, roundi(activating_lure.get_lure_effect().get_true_knockback() * boost_percent))

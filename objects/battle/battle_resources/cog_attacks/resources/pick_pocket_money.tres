@@ -11,5 +11,5 @@ ignore_stats = false
 summary = ""
 attack_lines = Array[String](["Let me check your valuables.", "Hey, what's that over there?", "Like taking candy from a baby.", "What a steal.", "I'll hold this for you.", "Watch my hands at all times.", "The hand is quicker than the eye.", "There's nothing up my sleeve.", "The management is not responsible for lost items.", "Finder's keepers.", "You'll never see it coming.", "One for me, none for you.", "Don't mind if I do.", "You won't be needing this..."])
 target_type = 0
-action_name = "Pick Pocket"
+action_name = "Embezzle"
 one_time_use = false

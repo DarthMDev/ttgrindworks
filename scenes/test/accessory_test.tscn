@@ -1,0 +1,385 @@
+[gd_scene load_steps=94 format=3 uid="uid://m3a6f3fr7hxl"]
+
+[ext_resource type="PackedScene" uid="uid://dl42o87fbyffw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb" id="1_t3x62"]
+[ext_resource type="PackedScene" uid="uid://b0ax1vrm0l4q3" path="res://models/accessories/backpacks/angel_wings/angel_wings.tscn" id="2_w3e4r"]
+[ext_resource type="PackedScene" uid="uid://ddauh2tpm4q3t" path="res://models/accessories/backpacks/bat_wings/tt_m_chr_avt_acc_pac_batWings.glb" id="3_otex8"]
+[ext_resource type="PackedScene" uid="uid://dn2h7vcu3ysw5" path="res://models/accessories/backpacks/bee_wings/bee_wings.tscn" id="4_1vabf"]
+[ext_resource type="PackedScene" uid="uid://bnqj6gspshyto" path="res://models/accessories/backpacks/bird_wings/tt_m_chr_avt_acc_pac_birdWings.glb" id="5_1o70s"]
+[ext_resource type="PackedScene" uid="uid://fijwyiv0x7q4" path="res://models/accessories/backpacks/butterfly_wings/butterfly_wings.tscn" id="6_6nsps"]
+[ext_resource type="PackedScene" uid="uid://dn0fit2eej2mm" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky.glb" id="7_qlsij"]
+[ext_resource type="PackedScene" uid="uid://bg6ocqx3y4pgs" path="res://models/accessories/backpacks/dinosaur_tail/tt_m_chr_avt_acc_pac_dinosaurTail.glb" id="8_sbc1p"]
+[ext_resource type="PackedScene" uid="uid://d28bn1p716yti" path="res://models/accessories/backpacks/dragonfly_wings/tt_m_chr_avt_acc_pac_dragonFlyWings.glb" id="9_7f27k"]
+[ext_resource type="PackedScene" uid="uid://bc23uw6xdu3b0" path="res://models/accessories/backpacks/dragon_wings/tt_m_chr_avt_acc_pac_dragonWing.glb" id="10_q6ikv"]
+[ext_resource type="PackedScene" uid="uid://6jkyqth37wnj" path="res://models/accessories/backpacks/gag_pack/gag_pack.glb" id="11_dsklx"]
+[ext_resource type="PackedScene" uid="uid://c4kf2mtj3ve8e" path="res://models/accessories/backpacks/jamboree_pack/tt_m_chr_avt_acc_pac_band.glb" id="12_riajm"]
+[ext_resource type="PackedScene" uid="uid://3c5ode2sdd5u" path="res://models/accessories/backpacks/jetpack/tt_m_chr_avt_acc_pac_jetPack.glb" id="13_utlda"]
+[ext_resource type="PackedScene" uid="uid://devfa8s6hrb8m" path="res://models/accessories/backpacks/pixie_wings/pixie_wings.tscn" id="14_txwjp"]
+[ext_resource type="PackedScene" uid="uid://ciewifd8684q" path="res://models/accessories/backpacks/scuba_tank/tt_m_chr_avt_acc_pac_scubaTank.glb" id="15_1njfr"]
+[ext_resource type="PackedScene" uid="uid://bw6o4v00od7c5" path="res://models/accessories/backpacks/shark_fin/tt_m_chr_avt_acc_pac_sharkFin.glb" id="16_wxki1"]
+[ext_resource type="PackedScene" uid="uid://dkcpbjgbltmwx" path="res://models/accessories/backpacks/spider_legs/tt_m_chr_avt_acc_pac_spiderLegs.glb" id="17_44iv7"]
+[ext_resource type="PackedScene" uid="uid://dyt2v1jbi5msv" path="res://models/accessories/backpacks/standard_backpack/small_pouch.tscn" id="18_kl1cq"]
+[ext_resource type="PackedScene" uid="uid://hnhrjvdeeqqi" path="res://models/accessories/backpacks/stuffed_bear_backpack/tt_m_chr_avt_acc_pac_stuffedAnimalBackpackA.glb" id="19_10pxy"]
+[ext_resource type="PackedScene" uid="uid://bs7q74d8bm4fu" path="res://models/accessories/backpacks/stuffed_cat_backpack/tt_m_chr_avt_acc_pac_stuffedAnimalBackpackCat.glb" id="20_kb2ae"]
+[ext_resource type="PackedScene" uid="uid://bki5j5846864h" path="res://models/accessories/backpacks/stuffed_dog_backpack/tt_m_chr_avt_acc_pac_stuffedAnimalBackpackDog.glb" id="21_ds0la"]
+[ext_resource type="PackedScene" uid="uid://ulji1om2heto" path="res://models/accessories/backpacks/supertoon_cape/cape_centered.tscn" id="22_16oco"]
+[ext_resource type="PackedScene" uid="uid://crfbgrthiyby7" path="res://models/accessories/backpacks/toys_backpack/tt_m_chr_avt_acc_pac_backpackWithToys.glb" id="23_7yqys"]
+[ext_resource type="PackedScene" uid="uid://ci7p6ysh4adlf" path="res://models/accessories/backpacks/vampire_cape/tt_m_chr_avt_acc_pac_vampireCape.glb" id="24_20kbk"]
+[ext_resource type="PackedScene" uid="uid://cv2ggfkfd3fpd" path="res://models/accessories/backpacks/wood_sword/sword.glb" id="25_q24wy"]
+[ext_resource type="PackedScene" uid="uid://sn4qw5iksjmy" path="res://models/accessories/glasses/3d_glasses/3d_glasses.tscn" id="26_wp7ia"]
+[ext_resource type="PackedScene" uid="uid://cj1r8j44xbq5i" path="res://models/accessories/glasses/alien_glasses/tt_m_chr_avt_acc_msk_alienGlasses.glb" id="27_v53kn"]
+[ext_resource type="PackedScene" uid="uid://dj7s81liuuqp1" path="res://models/accessories/glasses/aviator_glasses/aviators.tscn" id="28_5flwa"]
+[ext_resource type="PackedScene" uid="uid://b55cw0nw2svqj" path="res://models/accessories/glasses/cat_eye_glasses/tt_m_chr_avt_acc_msk_catEyeGlasses.glb" id="29_gvd4l"]
+[ext_resource type="PackedScene" uid="uid://yk413pyb86cd" path="res://models/accessories/glasses/celebrity_shades/celebrity_shades.tscn" id="30_ruvok"]
+[ext_resource type="PackedScene" uid="uid://b53p74ixvf8rh" path="res://models/accessories/glasses/dorky/dork_glasses.glb" id="31_4q31e"]
+[ext_resource type="PackedScene" uid="uid://bu2pxahlevsrn" path="res://models/accessories/glasses/eye_patch/tt_m_chr_avt_acc_msk_eyepatch.glb" id="32_tyvbo"]
+[ext_resource type="PackedScene" uid="uid://cc17pd0bq54xw" path="res://models/accessories/glasses/goggles/goggles.tscn" id="33_fysy1"]
+[ext_resource type="PackedScene" uid="uid://ne88fy6cubpk" path="res://models/accessories/glasses/groucho_marx_shades/groucho_glasses.tscn" id="34_stjwa"]
+[ext_resource type="PackedScene" uid="uid://cieocqdcjp4aj" path="res://models/accessories/glasses/heart_glasses/tt_m_chr_avt_acc_msk_heartGlasses.glb" id="35_80c67"]
+[ext_resource type="PackedScene" uid="uid://bhy08206uyu8y" path="res://models/accessories/glasses/insect_eye_glasses/tt_m_chr_avt_acc_msk_insectEyeGlasses.glb" id="36_318w2"]
+[ext_resource type="PackedScene" uid="uid://brqcobi5kuxdx" path="res://models/accessories/glasses/masquerade/tt_m_chr_avt_acc_msk_masqueradeTypeMask.glb" id="37_14fs3"]
+[ext_resource type="PackedScene" uid="uid://dklt4l4v6vfnu" path="res://models/accessories/glasses/mini_blinds/tt_m_chr_avt_acc_msk_miniblinds.glb" id="38_6vomr"]
+[ext_resource type="PackedScene" uid="uid://bed5dy4dsnu33" path="res://models/accessories/glasses/monocle/monocole.glb" id="39_x4v6d"]
+[ext_resource type="PackedScene" uid="uid://c8jp5thvvf6wd" path="res://models/accessories/glasses/narrow_glasses/tt_m_chr_avt_acc_msk_narrowGlasses.glb" id="40_573qj"]
+[ext_resource type="PackedScene" uid="uid://ufe6x3v185xo" path="res://models/accessories/glasses/round_glasses/tt_m_chr_avt_acc_msk_roundGlasses.glb" id="41_mglen"]
+[ext_resource type="PackedScene" uid="uid://c4drfu7jmqif7" path="res://models/accessories/glasses/scuba_mask/tt_m_chr_avt_acc_msk_scubaMask.glb" id="42_mpghb"]
+[ext_resource type="PackedScene" uid="uid://dwfg8fsmfh61o" path="res://models/accessories/glasses/smooch_glasses/tt_m_chr_avt_acc_msk_mouthGlasses.glb" id="43_vdgh6"]
+[ext_resource type="PackedScene" uid="uid://bv5gpcr4y01bf" path="res://models/accessories/glasses/square_rims/square_frames.tscn" id="44_d2v2u"]
+[ext_resource type="PackedScene" uid="uid://cuomm0ifx302o" path="res://models/accessories/glasses/star_glasses/star_glasses.tscn" id="45_i3h6d"]
+[ext_resource type="PackedScene" uid="uid://ccajxj3nn4oss" path="res://models/accessories/hats/antenna_thingy/tt_m_chr_avt_acc_hat_spiderAntennaThingy.glb" id="46_j5u3s"]
+[ext_resource type="PackedScene" uid="uid://b2l3nia1ysmyb" path="res://models/accessories/hats/anvil_hat/tt_m_chr_avt_acc_hat_anvil.glb" id="47_pommq"]
+[ext_resource type="PackedScene" uid="uid://dpypc4xh1nsqs" path="res://models/accessories/hats/archer_hat/tt_m_chr_avt_acc_hat_robinHoodHat.glb" id="48_qckpl"]
+[ext_resource type="PackedScene" uid="uid://ct3x7bo50q5h1" path="res://models/accessories/hats/bandana/tt_m_chr_avt_acc_hat_bandana.glb" id="49_bwsgw"]
+[ext_resource type="PackedScene" uid="uid://d2h6oi6ry3wov" path="res://models/accessories/hats/band_hat/tt_m_chr_avt_acc_hat_band.glb" id="50_ombro"]
+[ext_resource type="PackedScene" uid="uid://bk666b030qvok" path="res://models/accessories/hats/baseball_cap/tt_m_chr_avt_acc_hat_baseball.glb" id="51_2iipd"]
+[ext_resource type="PackedScene" uid="uid://crmy1cc4qn461" path="res://models/accessories/hats/beehive_hairdo/tt_m_chr_avt_acc_hat_beeHiveHairdo.glb" id="52_amxau"]
+[ext_resource type="PackedScene" uid="uid://bpfdrgvphitv4" path="res://models/accessories/hats/bird_nest_hat/bird_nest_hat.tscn" id="53_fuhi1"]
+[ext_resource type="PackedScene" uid="uid://cjlbtxj20nrea" path="res://models/accessories/hats/bowler_cap/tt_m_chr_avt_acc_hat_bowler.glb" id="54_c375n"]
+[ext_resource type="PackedScene" uid="uid://1ehbnsxxt4ee" path="res://models/accessories/hats/chef_hat/tt_m_chr_avt_acc_hat_chefsHat.glb" id="55_re6vt"]
+[ext_resource type="PackedScene" uid="uid://ckykpfuwpugog" path="res://models/accessories/hats/conductor_hat/tt_m_chr_avt_acc_hat_mickeysBandConductorHat.glb" id="56_11goh"]
+[ext_resource type="PackedScene" uid="uid://4cb16nmx68kh" path="res://models/accessories/hats/conquistador_helmet/tt_m_chr_avt_acc_hat_conquistadorHelmet.glb" id="57_g6o1a"]
+[ext_resource type="PackedScene" uid="uid://dmqteutwt8akw" path="res://models/accessories/hats/cowboy_hat/tt_m_chr_avt_acc_hat_cowboyHat.glb" id="58_a0hnq"]
+[ext_resource type="PackedScene" uid="uid://cmcrvrgkphr7k" path="res://models/accessories/hats/crown/tt_m_chr_avt_acc_hat_crown.glb" id="59_hajmd"]
+[ext_resource type="PackedScene" uid="uid://c1wsad172s54o" path="res://models/accessories/hats/detective_hat/tt_m_chr_avt_acc_hat_detective.glb" id="60_nfpo6"]
+[ext_resource type="PackedScene" uid="uid://bj8vmiqxyf1ft" path="res://models/accessories/hats/fedora/fedora.glb" id="61_fvtp0"]
+[ext_resource type="PackedScene" uid="uid://keyc3wuow2q" path="res://models/accessories/hats/fez/tt_m_chr_avt_acc_hat_fez.glb" id="62_rbowi"]
+[ext_resource type="PackedScene" uid="uid://d3gh8ljh3g6d7" path="res://models/accessories/hats/firefighter_helmet/tt_m_chr_avt_acc_hat_firefighterHelmet.glb" id="63_fqrqp"]
+[ext_resource type="PackedScene" uid="uid://c61y6coulrdl7" path="res://models/accessories/hats/fishing_helmet/tt_m_chr_avt_acc_hat_fishingHat.glb" id="64_8wejc"]
+[ext_resource type="PackedScene" uid="uid://beae6gw3f8vgw" path="res://models/accessories/hats/flowerpot_hat/tt_m_chr_avt_acc_hat_flower_pot.tscn" id="65_vq7bf"]
+[ext_resource type="PackedScene" uid="uid://cancthn8h8vtn" path="res://models/accessories/hats/foil_hat/tt_m_chr_avt_acc_hat_foilPyramid.glb" id="66_rih0n"]
+[ext_resource type="PackedScene" uid="uid://coqanngovjx3q" path="res://models/accessories/hats/fruit_hat/tt_m_chr_avt_acc_hat_carmenMirandaFruitHat.glb" id="67_sah6x"]
+[ext_resource type="PackedScene" uid="uid://f4b5lh36xvft" path="res://models/accessories/hats/golf_hat/tt_m_chr_avt_acc_hat_golfHat.glb" id="68_dvulx"]
+[ext_resource type="PackedScene" uid="uid://dujrvsejf5da1" path="res://models/accessories/hats/hard_hat/tt_m_chr_avt_acc_hat_minersHardhatWithLight.glb" id="69_gmyco"]
+[ext_resource type="PackedScene" uid="uid://byl3r4wrysbai" path="res://models/accessories/hats/heart_headband/tt_m_chr_avt_acc_hat_heart.glb" id="70_77ak1"]
+[ext_resource type="PackedScene" uid="uid://bbokxwl67ep8m" path="res://models/accessories/hats/jester_hat/tt_m_chr_avt_acc_hat_jugheadHat.glb" id="71_q3uvb"]
+[ext_resource type="PackedScene" uid="uid://bqk7p83gowone" path="res://models/accessories/hats/napoleon_hat/tt_m_chr_avt_acc_hat_napoleonHat.glb" id="72_5f0g6"]
+[ext_resource type="PackedScene" uid="uid://cifjbdfi3cdcj" path="res://models/accessories/hats/party_hat/tt_m_chr_avt_acc_hat_partyHat.glb" id="73_s5gb7"]
+[ext_resource type="PackedScene" uid="uid://dao26qx873hqv" path="res://models/accessories/hats/pilot_cap/tt_m_chr_avt_acc_hat_pilotsCap.glb" id="74_g3bhj"]
+[ext_resource type="PackedScene" uid="uid://ceqbq6j6pungv" path="res://models/accessories/hats/pink_bow/tt_m_chr_avt_acc_hat_ribbon.glb" id="75_25r8o"]
+[ext_resource type="PackedScene" uid="uid://fojg0o0rvj5g" path="res://models/accessories/hats/pirate_hat/tt_m_chr_avt_acc_hat_pirateHat.glb" id="76_7dadf"]
+[ext_resource type="PackedScene" uid="uid://7wwhj8jj3ume" path="res://models/accessories/hats/police_hat/tt_m_chr_avt_acc_hat_policeHat.glb" id="77_d1ga0"]
+[ext_resource type="PackedScene" uid="uid://gg0ypao1c7nv" path="res://models/accessories/hats/pompadour_hat/tt_m_chr_avt_acc_hat_pompadorHairdo.glb" id="78_us4w0"]
+[ext_resource type="PackedScene" uid="uid://bcqbvvtyoqxfn" path="res://models/accessories/hats/princess_hat/princess_hat.tscn" id="79_i7u03"]
+[ext_resource type="PackedScene" uid="uid://b61sdpjlxhti6" path="res://models/accessories/hats/propeller_hat/propeller_hat.tscn" id="80_b4pco"]
+[ext_resource type="PackedScene" uid="uid://7874ngvtc33c" path="res://models/accessories/hats/rainbow_wig/tt_m_chr_avt_acc_hat_rainbowAfroWig.glb" id="81_pvbu7"]
+[ext_resource type="PackedScene" uid="uid://dj20ibx427eum" path="res://models/accessories/hats/roman_helmet/roman_helmet.tscn" id="82_ao34d"]
+[ext_resource type="PackedScene" uid="uid://bscgyrvvb0sx4" path="res://models/accessories/hats/safari_hat/tt_m_chr_avt_acc_hat_safari.glb" id="83_wulvn"]
+[ext_resource type="PackedScene" uid="uid://bo0t5idgr5yr1" path="res://models/accessories/hats/sailor_hat/tt_m_chr_avt_acc_hat_sailorHat.glb" id="84_u8s1a"]
+[ext_resource type="PackedScene" uid="uid://8gle5kpkeog8" path="res://models/accessories/hats/sandbag_hat/tt_m_chr_avt_acc_hat_sandbag.glb" id="85_vu1ce"]
+[ext_resource type="PackedScene" uid="uid://30peqspfbwh5" path="res://models/accessories/hats/tiara/tt_m_chr_avt_acc_hat_tiara.glb" id="86_e2f4o"]
+[ext_resource type="PackedScene" uid="uid://coyfr1rv1j81" path="res://models/accessories/hats/toonosaur_hat/tt_m_chr_avt_acc_hat_dinosaur.glb" id="87_j8o0d"]
+[ext_resource type="PackedScene" uid="uid://ci2y24lnpva2m" path="res://models/accessories/hats/top_hat/tt_m_chr_avt_acc_hat_topHat.glb" id="88_fxuyj"]
+[ext_resource type="PackedScene" uid="uid://lair2cpjxy5h" path="res://models/accessories/hats/viking_helmet/tt_m_chr_avt_acc_hat_vikingHelmet.glb" id="89_nrw58"]
+[ext_resource type="PackedScene" uid="uid://g018o6o2prfi" path="res://models/accessories/hats/weight_hat/tt_m_chr_avt_acc_hat_weight.glb" id="90_0f7cg"]
+[ext_resource type="PackedScene" uid="uid://c1yt63yo4ijon" path="res://models/accessories/hats/winter_hat/tt_m_chr_avt_acc_hat_winter.glb" id="91_lrihl"]
+[ext_resource type="PackedScene" uid="uid://i3nhmwxwps3u" path="res://models/accessories/hats/witch_hat/tt_m_chr_avt_acc_hat_witch.glb" id="92_nln1o"]
+[ext_resource type="PackedScene" uid="uid://cptq800nj8gtv" path="res://models/accessories/hats/wizard_hat/tt_m_chr_avt_acc_hat_wizard.glb" id="93_jkn4m"]
+
+[node name="AccessoryTest" type="Node3D"]
+
+[node name="Hats" type="Node3D" parent="."]
+
+[node name="tt_m_chr_avt_acc_hat_spiderAntennaThingy" parent="Hats" instance=ExtResource("46_j5u3s")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_anvil" parent="Hats" instance=ExtResource("47_pommq")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_robinHoodHat" parent="Hats" instance=ExtResource("48_qckpl")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_bandana" parent="Hats" instance=ExtResource("49_bwsgw")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_band" parent="Hats" instance=ExtResource("50_ombro")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_baseball" parent="Hats" instance=ExtResource("51_2iipd")]
+
+[node name="tt_m_chr_avt_acc_hat_beeHiveHairdo" parent="Hats" instance=ExtResource("52_amxau")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_birdNest" parent="Hats" instance=ExtResource("53_fuhi1")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_bowler" parent="Hats" instance=ExtResource("54_c375n")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_chefsHat" parent="Hats" instance=ExtResource("55_re6vt")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_mickeysBandConductorHat" parent="Hats" instance=ExtResource("56_11goh")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_conquistadorHelmet" parent="Hats" instance=ExtResource("57_g6o1a")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_cowboyHat" parent="Hats" instance=ExtResource("58_a0hnq")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_crown" parent="Hats" instance=ExtResource("59_hajmd")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_detective" parent="Hats" instance=ExtResource("60_nfpo6")]
+visible = false
+
+[node name="fedora" parent="Hats" instance=ExtResource("61_fvtp0")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_fez" parent="Hats" instance=ExtResource("62_rbowi")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_firefighterHelmet" parent="Hats" instance=ExtResource("63_fqrqp")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_fishingHat" parent="Hats" instance=ExtResource("64_8wejc")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_flowerPot" parent="Hats" instance=ExtResource("65_vq7bf")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_foilPyramid2" parent="Hats" instance=ExtResource("66_rih0n")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_carmenMirandaFruitHat" parent="Hats" instance=ExtResource("67_sah6x")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_golfHat" parent="Hats" instance=ExtResource("68_dvulx")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_minersHardhatWithLight2" parent="Hats" instance=ExtResource("69_gmyco")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_heart" parent="Hats" instance=ExtResource("70_77ak1")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_jugheadHat" parent="Hats" instance=ExtResource("71_q3uvb")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_napoleonHat2" parent="Hats" instance=ExtResource("72_5f0g6")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_partyHat" parent="Hats" instance=ExtResource("73_s5gb7")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_pilotsCap" parent="Hats" instance=ExtResource("74_g3bhj")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_ribbon" parent="Hats" instance=ExtResource("75_25r8o")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_pirateHat" parent="Hats" instance=ExtResource("76_7dadf")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_policeHat" parent="Hats" instance=ExtResource("77_d1ga0")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_pompadorHairdo" parent="Hats" instance=ExtResource("78_us4w0")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_princess" parent="Hats" instance=ExtResource("79_i7u03")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_propellerHat" parent="Hats" instance=ExtResource("80_b4pco")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_rainbowAfroWig2" parent="Hats" instance=ExtResource("81_pvbu7")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_romanHelmet" parent="Hats" instance=ExtResource("82_ao34d")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_safari" parent="Hats" instance=ExtResource("83_wulvn")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_sailorHat2" parent="Hats" instance=ExtResource("84_u8s1a")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_sandbag" parent="Hats" instance=ExtResource("85_vu1ce")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_tiara" parent="Hats" instance=ExtResource("86_e2f4o")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_dinosaur" parent="Hats" instance=ExtResource("87_j8o0d")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_topHat" parent="Hats" instance=ExtResource("88_fxuyj")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_vikingHelmet" parent="Hats" instance=ExtResource("89_nrw58")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_weight" parent="Hats" instance=ExtResource("90_0f7cg")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_winter" parent="Hats" instance=ExtResource("91_lrihl")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_witch" parent="Hats" instance=ExtResource("92_nln1o")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_hat_wizard" parent="Hats" instance=ExtResource("93_jkn4m")]
+visible = false
+
+[node name="Glasses" type="Node3D" parent="."]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_3dGlasses" parent="Glasses" instance=ExtResource("26_wp7ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000139236, -0.0132494, -0.000120163)
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_alienGlasses" parent="Glasses" instance=ExtResource("27_v53kn")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_aviator" parent="Glasses" instance=ExtResource("28_5flwa")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_catEyeGlasses" parent="Glasses" instance=ExtResource("29_gvd4l")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_jackieOShades" parent="Glasses" instance=ExtResource("30_ruvok")]
+visible = false
+
+[node name="dork_glasses" parent="Glasses" instance=ExtResource("31_4q31e")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_eyepatch" parent="Glasses" instance=ExtResource("32_tyvbo")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_goggles2" parent="Glasses" instance=ExtResource("33_fysy1")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_grouchoMarxEyebrow" parent="Glasses" instance=ExtResource("34_stjwa")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_heartGlasses" parent="Glasses" instance=ExtResource("35_80c67")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_insectEyeGlasses2" parent="Glasses" instance=ExtResource("36_318w2")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_masqueradeTypeMask" parent="Glasses" instance=ExtResource("37_14fs3")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_miniblinds" parent="Glasses" instance=ExtResource("38_6vomr")]
+visible = false
+
+[node name="monocole" parent="Glasses" instance=ExtResource("39_x4v6d")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_narrowGlasses" parent="Glasses" instance=ExtResource("40_573qj")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_roundGlasses" parent="Glasses" instance=ExtResource("41_mglen")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_scubaMask" parent="Glasses" instance=ExtResource("42_mpghb")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_mouthGlasses" parent="Glasses" instance=ExtResource("43_vdgh6")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_squareRims" parent="Glasses" instance=ExtResource("44_d2v2u")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_msk_starGlasses" parent="Glasses" instance=ExtResource("45_i3h6d")]
+visible = false
+
+[node name="Backpacks" type="Node3D" parent="."]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_airplane" parent="Backpacks" instance=ExtResource("1_t3x62")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_angelWings" parent="Backpacks" instance=ExtResource("2_w3e4r")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_batWings" parent="Backpacks" instance=ExtResource("3_otex8")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_beeWings" parent="Backpacks" instance=ExtResource("4_1vabf")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_birdWings2" parent="Backpacks" instance=ExtResource("5_1o70s")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_butterflyWings" parent="Backpacks" instance=ExtResource("6_6nsps")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_flunky" parent="Backpacks" instance=ExtResource("7_qlsij")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_dinosaurTail" parent="Backpacks" instance=ExtResource("8_sbc1p")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_dragonFlyWings" parent="Backpacks" instance=ExtResource("9_7f27k")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_dragonWing2" parent="Backpacks" instance=ExtResource("10_q6ikv")]
+visible = false
+
+[node name="gag_pack" parent="Backpacks" instance=ExtResource("11_dsklx")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_band" parent="Backpacks" instance=ExtResource("12_riajm")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_jetPack" parent="Backpacks" instance=ExtResource("13_utlda")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_butterflyWings2" parent="Backpacks" instance=ExtResource("14_txwjp")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_scubaTank" parent="Backpacks" instance=ExtResource("15_1njfr")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_sharkFin" parent="Backpacks" instance=ExtResource("16_wxki1")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_spiderLegs" parent="Backpacks" instance=ExtResource("17_44iv7")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_backpack" parent="Backpacks" instance=ExtResource("18_kl1cq")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_stuffedAnimalBackpackA" parent="Backpacks" instance=ExtResource("19_10pxy")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_stuffedAnimalBackpackCat" parent="Backpacks" instance=ExtResource("20_kb2ae")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_stuffedAnimalBackpackDog" parent="Backpacks" instance=ExtResource("21_ds0la")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_supertoonCape" parent="Backpacks" instance=ExtResource("22_16oco")]
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_backpackWithToys" parent="Backpacks" instance=ExtResource("23_7yqys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00155449, -0.0196342, -0.021215)
+visible = false
+
+[node name="tt_m_chr_avt_acc_pac_vampireCape" parent="Backpacks" instance=ExtResource("24_20kbk")]
+visible = false
+
+[node name="sword" parent="Backpacks" instance=ExtResource("25_q24wy")]
+visible = false

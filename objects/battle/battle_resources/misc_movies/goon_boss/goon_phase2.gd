@@ -12,11 +12,18 @@ func action() -> void:
 	var audio_player := AudioManager.play_snippet(goon.SFX_ALERT, 0.0, 2.2)
 	audio_player.pitch_scale = 0.85
 	
-	for i in 4:
+	var cog_count := 4
+	if Util.on_easy_floor():
+		cog_count -= 1
+	
+	for i in cog_count:
 		var cog := COG.instantiate()
 		cog.virtual_cog = true
 		cog.skelecog = true
 		cog.hide()
+		# Proxies :)
+		if RandomService.randf_channel('goon_boss_proxies') < battle_node.get_mod_cog_chance() / 2.0 and not Util.on_easy_floor():
+			cog.use_mod_cogs_pool = true
 		battle_node.add_child(cog)
 		cog.battle_start()
 		cogs.append(cog)

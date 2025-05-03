@@ -36,6 +36,7 @@ func action() -> void:
 	
 	# Play animation (twice)
 	for i in 2:
+		Util.shake_camera(battle_node.battle_cam, 1.0, 0.2)
 		target.set_animation(anim)
 		await manager.barrier(target.animator.animation_finished, 5.0)
 

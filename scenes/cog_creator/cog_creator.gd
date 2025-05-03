@@ -76,7 +76,13 @@ func attach_delete_buttons() -> void:
 		child.add_child(new_button)
 		new_button.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT,Control.PRESET_MODE_KEEP_SIZE)
 		new_button.show()
-		new_button.pressed.connect(delete_file.bind(child.file.file_path))
+		new_button.pressed.connect(delete_pressed.bind(child.file.file_path))
+
+func delete_pressed(file_path : String) -> void:
+	Util.confirm(
+		"Delete Cog",
+		"Are you sure you want to delete this Cog?"
+	).s_confirmed.connect(delete_file.bind(file_path))
 
 func delete_file(file_path : String) -> void:
 	DirAccess.remove_absolute(file_path)
@@ -330,9 +336,16 @@ func refresh_head_scale_label() -> void:
 
 func suit_changed(index : int) -> void:
 	var suit := suits[index]
-	cog.dna.custom_arm_tex = suit['custom_arm_tex']
-	cog.dna.custom_blazer_tex = suit['custom_blazer_tex']
-	cog.dna.custom_leg_tex = suit['custom_leg_tex']
+	if suit['custom_arm_tex'] == null:
+		var values_to_clear := ['custom_arm_tex', 'custom_blazer_tex', 'custom_leg_tex']
+		for value in values_to_clear:
+			if cog.dna.external_assets.has(value):
+				cog.dna.external_assets.erase(value)
+			cog.dna.set(value, null)
+	else:
+		cog.dna.custom_arm_tex = suit['custom_arm_tex']
+		cog.dna.custom_blazer_tex = suit['custom_blazer_tex']
+		cog.dna.custom_leg_tex = suit['custom_leg_tex']
 	_refresh_cog()
 
 #endregion
@@ -358,6 +371,8 @@ func set_hand_color(color : Color) -> void:
 #region ATTRIBUTE SELECTION
 @onready var name_editor : LineEdit = $Menus/AtrributeSelectors/VBoxContainer/NameSelector/LineEdit
 @onready var name_plural_editor : LineEdit = $Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural/LineEdit
+@onready var name_prefix_editor : LineEdit = $Menus/AtrributeSelectors/VBoxContainer/NamePrefix/LineEdit
+@onready var name_suffix_editor : LineEdit = $Menus/AtrributeSelectors/VBoxContainer/NameSuffix/LineEdit
 @onready var level_min_slider : HSlider = $Menus/AtrributeSelectors/VBoxContainer/LevelMinimum/HSlider
 @onready var level_min_label : Label = $Menus/AtrributeSelectors/VBoxContainer/LevelMinimum/Label
 @onready var level_max_slider : HSlider = $Menus/AtrributeSelectors/VBoxContainer/LevelMaximum/HSlider
@@ -371,6 +386,8 @@ func _ready_attribute() -> void:
 	name_editor.set_text(cog.dna.cog_name)
 	level_max_slider.set_value(cog.dna.level_high)
 	level_min_slider.set_value(cog.dna.level_low)
+	name_prefix_editor.set_text(cog.dna.name_prefix)
+	name_suffix_editor.set_text(cog.dna.name_suffix)
 	refresh_plural_name()
 	proxy_button.set_pressed(cog.dna.is_mod_cog)
 	if cog.dna.is_mod_cog:
@@ -390,6 +407,12 @@ func refresh_plural_name() -> void:
 
 func set_plural_name(new_name : String) -> void:
 	cog.dna.name_plural = new_name
+
+func set_name_prefix(new_prefix : String) -> void:
+	cog.dna.name_prefix = new_prefix
+
+func set_name_suffix(new_suffix : String) -> void:
+	cog.dna.name_suffix = new_suffix
 
 func set_minimum_level(value : float) -> void:
 	level_min_label.set_text("Minimum Level: %d" % value)

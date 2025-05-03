@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://djdspcssaqo6b"]
+[gd_scene load_steps=33 format=4 uid="uid://djdspcssaqo6b"]
 
 [ext_resource type="PackedScene" uid="uid://ckmb6yt5n6p60" path="res://models/misc_zones/field_office/barrel_room/barrel_room.fbx" id="1_5rygu"]
 [ext_resource type="Texture2D" uid="uid://oln3ougwc0hm" path="res://models/misc_zones/field_office/barrel_room/barrel_room_13.png" id="2_cvh23"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_kub1n"]
 [ext_resource type="PackedScene" uid="uid://b8mtvfipu1qsg" path="res://objects/interactables/elevators/cogdo_elevator.tscn" id="5_bolby"]
 [ext_resource type="Resource" uid="uid://3ujyepgnvej5" path="res://objects/items/resources/passive/track_frame.tres" id="8_vhj4i"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="9_5gb2m"]
 [ext_resource type="Resource" uid="uid://duygfpffob40k" path="res://objects/items/resources/passive/zzz_treasure.tres" id="10_7rkn0"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="10_e42x2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vh1m"]
 resource_name = "lambert10"
@@ -324,3 +326,7 @@ skeleton = NodePath("")
 [node name="pCube35" type="MeshInstance3D" parent="Navigation" index="2"]
 mesh = SubResource("ArrayMesh_2mflf")
 skeleton = NodePath("")
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="61" instance=ExtResource("9_5gb2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3824, 2.34052, 32.3538)
+script = ExtResource("10_e42x2")

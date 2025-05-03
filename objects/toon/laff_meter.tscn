@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cumojo4vtowmv"]
+[gd_scene load_steps=24 format=3 uid="uid://cumojo4vtowmv"]
 
 [ext_resource type="Script" uid="uid://plr0fl4706tw" path="res://objects/toon/laff_meter.gd" id="1_k1sjt"]
 [ext_resource type="Texture2D" uid="uid://dy5ow0hhwlmlw" path="res://ui_assets/player_ui/laff_meter/dog.png" id="2_0oixq"]
@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dhudp4eaby8v3" path="res://ui_assets/player_ui/laff_meter/laff_tooth_2.png" id="11_i0d0j"]
 [ext_resource type="Texture2D" uid="uid://bmuiytdt7a3fu" path="res://ui_assets/player_ui/laff_meter/laff_tooth_1.png" id="12_egrgc"]
 [ext_resource type="Texture2D" uid="uid://b6q5aajwc2o6m" path="res://ui_assets/player_ui/laff_meter/LM_grin.png" id="13_e7lcx"]
+[ext_resource type="Texture2D" uid="uid://b6jt8xwoicm2b" path="res://ui_assets/player_ui/laff_meter/obscured/face_2.png" id="14_e23xb"]
 [ext_resource type="Texture2D" uid="uid://gysbtuh143kb" path="res://ui_assets/misc/unlock.png" id="14_l2l4e"]
+[ext_resource type="Texture2D" uid="uid://bibve4dxhqadh" path="res://ui_assets/player_ui/laff_meter/obscured/face_3.png" id="15_evyjk"]
+[ext_resource type="Texture2D" uid="uid://b63ykndjoccai" path="res://ui_assets/player_ui/laff_meter/obscured/face_1.png" id="16_du207"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1b8o8"]
 font = ExtResource("5_eeki7")
@@ -77,10 +80,38 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8)
 }
 
+[sub_resource type="Animation" id="Animation_bp4uv"]
+resource_name = "bounce_down"
+length = 0.8
+step = 0.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ij2f"]
 _data = {
 &"RESET": SubResource("Animation_xd5is"),
-&"bounce": SubResource("Animation_ai162")
+&"bounce": SubResource("Animation_ai162"),
+&"bounce_down": SubResource("Animation_bp4uv")
 }
 
 [node name="LaffMeter" type="Control"]
@@ -112,7 +143,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Meter" type="TextureRect" parent="Anchor"]
-self_modulate = Color(0.345098, 0.819608, 0.952941, 1)
+self_modulate = Color(0.345, 0.82, 0.953, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -255,6 +286,7 @@ offset_bottom = 70.0
 texture = ExtResource("9_0k7ii")
 
 [node name="Tooth4" type="TextureRect" parent="Anchor/Meter/Healthy/Mouth"]
+visible = false
 layout_mode = 0
 offset_left = 38.0
 offset_top = 47.0
@@ -263,6 +295,7 @@ offset_bottom = 68.0
 texture = ExtResource("10_h3dym")
 
 [node name="Tooth5" type="TextureRect" parent="Anchor/Meter/Healthy/Mouth"]
+visible = false
 layout_mode = 0
 offset_left = 47.0
 offset_top = 45.0
@@ -272,6 +305,7 @@ texture = ExtResource("11_i0d0j")
 expand_mode = 1
 
 [node name="Tooth6" type="TextureRect" parent="Anchor/Meter/Healthy/Mouth"]
+visible = false
 layout_mode = 0
 offset_left = 54.0
 offset_top = 39.3333
@@ -288,8 +322,72 @@ offset_right = 58.0
 offset_bottom = 53.0
 texture = ExtResource("13_e7lcx")
 
+[node name="ObscuredFaces" type="Control" parent="Anchor/Meter"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.33333
+offset_top = 2.83333
+offset_right = 2.33334
+offset_bottom = 2.83334
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FaceLow" type="TextureRect" parent="Anchor/Meter/ObscuredFaces"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -22.5
+offset_right = 24.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_du207")
+
+[node name="FaceMed" type="TextureRect" parent="Anchor/Meter/ObscuredFaces"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.8333
+offset_right = 25.0
+offset_bottom = 14.1667
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_evyjk")
+stretch_mode = 2
+
+[node name="FaceHigh" type="TextureRect" parent="Anchor/Meter/ObscuredFaces"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -20.0
+offset_right = 25.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_e23xb")
+
 [node name="Lock" type="TextureRect" parent="Anchor/Meter"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -314,7 +412,7 @@ label_settings = SubResource("LabelSettings_h38gy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5ij2f")
+&"": SubResource("AnimationLibrary_5ij2f")
 }
 
 [connection signal="mouse_entered" from="." to="." method="hover"]

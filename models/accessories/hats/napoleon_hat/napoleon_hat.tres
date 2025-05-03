@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cyc4uplo0eajq"]
+
+[ext_resource type="Texture2D" uid="uid://bk1bm0yw88llx" path="res://models/accessories/hats/napoleon_hat/tt_m_chr_avt_acc_hat_napoleonHat_tt_t_chr_avt_acc_hat_napoleonHat.png" id="1_a36ej"]
+
+[resource]
+resource_name = "default.230"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_a36ej")

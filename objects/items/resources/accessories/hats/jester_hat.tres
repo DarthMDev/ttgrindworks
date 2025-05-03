@@ -1,0 +1,310 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://dpbjr75nuswfn"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_2uef3"]
+[ext_resource type="PackedScene" uid="uid://bbokxwl67ep8m" path="res://models/accessories/hats/jester_hat/tt_m_chr_avt_acc_hat_jugheadHat.glb" id="2_5q7km"]
+[ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_8tdna"]
+[ext_resource type="Texture2D" uid="uid://dsqewngfos1l3" path="res://models/accessories/hats/jester_hat/jester-pix-1.png" id="2_73af7"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_gdjr1"]
+
+[sub_resource type="Resource" id="Resource_usck2"]
+script = ExtResource("2_8tdna")
+species = 0
+head_index = 0
+position = Vector3(0, 0.03, -0.53)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_eem3g"]
+script = ExtResource("2_8tdna")
+species = 0
+head_index = 1
+position = Vector3(0, 0.03, -0.53)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_73af7"]
+script = ExtResource("2_8tdna")
+species = 0
+head_index = 2
+position = Vector3(0, -0.35, -0.24)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_8tdna"]
+script = ExtResource("2_8tdna")
+species = 0
+head_index = 3
+position = Vector3(0, -0.35, -0.24)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_v2g6l"]
+script = ExtResource("2_8tdna")
+species = 2
+head_index = 0
+position = Vector3(0, -0.35, 0.05)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_3shlo"]
+script = ExtResource("2_8tdna")
+species = 1
+head_index = 0
+position = Vector3(0, -0.26, -0.08)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.24, 0.24, 0.24)
+
+[sub_resource type="Resource" id="Resource_8k7ro"]
+script = ExtResource("2_8tdna")
+species = 1
+head_index = 1
+position = Vector3(0, -0.26, -0.08)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.24, 0.24, 0.24)
+
+[sub_resource type="Resource" id="Resource_m5wwe"]
+script = ExtResource("2_8tdna")
+species = 1
+head_index = 2
+position = Vector3(0, -0.54, -0.08)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.24, 0.24, 0.24)
+
+[sub_resource type="Resource" id="Resource_8n7c6"]
+script = ExtResource("2_8tdna")
+species = 1
+head_index = 3
+position = Vector3(0, -0.54, -0.08)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.24, 0.24, 0.24)
+
+[sub_resource type="Resource" id="Resource_5n1mj"]
+script = ExtResource("2_8tdna")
+species = 2
+head_index = 3
+position = Vector3(0, -0.22, -0.08)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_og0nf"]
+script = ExtResource("2_8tdna")
+species = 2
+head_index = 2
+position = Vector3(0, -0.37, -0.05)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_5bj8o"]
+script = ExtResource("2_8tdna")
+species = 2
+head_index = 1
+position = Vector3(0, -0.22, -0.08)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_8mkk6"]
+script = ExtResource("2_8tdna")
+species = 3
+head_index = 3
+position = Vector3(0, 0.11, -0.23)
+rotation = Vector3(10, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_lm6u3"]
+script = ExtResource("2_8tdna")
+species = 3
+head_index = 2
+position = Vector3(0, -0.1, -0.06)
+rotation = Vector3(10, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_w5lpq"]
+script = ExtResource("2_8tdna")
+species = 3
+head_index = 1
+position = Vector3(0, 0.1, -0.16)
+rotation = Vector3(10, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_pdu0j"]
+script = ExtResource("2_8tdna")
+species = 3
+head_index = 0
+position = Vector3(0, -0.07, -0.02)
+rotation = Vector3(10, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_ht5c7"]
+script = ExtResource("2_8tdna")
+species = 4
+head_index = 3
+position = Vector3(0, -0.52, -0.32)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_hkcm0"]
+script = ExtResource("2_8tdna")
+species = 4
+head_index = 2
+position = Vector3(0, -0.61, -0.2)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_vkq6h"]
+script = ExtResource("2_8tdna")
+species = 4
+head_index = 1
+position = Vector3(0, -0.52, -0.32)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_bg5bx"]
+script = ExtResource("2_8tdna")
+species = 4
+head_index = 0
+position = Vector3(0, -0.61, -0.2)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_at5vd"]
+script = ExtResource("2_8tdna")
+species = 5
+head_index = 3
+position = Vector3(0, 0.07, -0.43)
+rotation = Vector3(-41.38, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_o6le5"]
+script = ExtResource("2_8tdna")
+species = 5
+head_index = 2
+position = Vector3(0, -0.26, -0.18)
+rotation = Vector3(-41.38, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_3asmn"]
+script = ExtResource("2_8tdna")
+species = 5
+head_index = 1
+position = Vector3(0, 0.07, -0.43)
+rotation = Vector3(-41.38, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_aeqch"]
+script = ExtResource("2_8tdna")
+species = 5
+head_index = 0
+position = Vector3(0, -0.26, -0.18)
+rotation = Vector3(-41.38, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_kbnp6"]
+script = ExtResource("2_8tdna")
+species = 6
+head_index = 0
+position = Vector3(0, -0.14, -0.17)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_xibpy"]
+script = ExtResource("2_8tdna")
+species = 6
+head_index = 1
+position = Vector3(0, 0.25, -0.17)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_v671v"]
+script = ExtResource("2_8tdna")
+species = 7
+head_index = 1
+position = Vector3(0, -0.54, -0.22)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_6hga2"]
+script = ExtResource("2_8tdna")
+species = 7
+head_index = 0
+position = Vector3(0, -0.48, -0.25)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_cbr8u"]
+script = ExtResource("2_8tdna")
+species = 7
+head_index = 2
+position = Vector3(0, -0.45, -0.26)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_lpl5x"]
+script = ExtResource("2_8tdna")
+species = 7
+head_index = 3
+position = Vector3(0, -0.52, -0.26)
+rotation = Vector3(-24, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_83cy1"]
+script = ExtResource("2_8tdna")
+species = 8
+head_index = 3
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-19, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_nquwu"]
+script = ExtResource("2_8tdna")
+species = 8
+head_index = 2
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-19, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_0t2hv"]
+script = ExtResource("2_8tdna")
+species = 8
+head_index = 1
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-19, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Resource" id="Resource_hk4lt"]
+script = ExtResource("2_8tdna")
+species = 8
+head_index = 0
+position = Vector3(0, -0.58, -0.08)
+rotation = Vector3(-19, 0, 0)
+scale = Vector3(0.2, 0.2, 0.2)
+
+[resource]
+script = ExtResource("2_gdjr1")
+accessory_placements = Array[ExtResource("1_2uef3")]([SubResource("Resource_usck2"), SubResource("Resource_eem3g"), SubResource("Resource_73af7"), SubResource("Resource_8tdna"), SubResource("Resource_v2g6l"), SubResource("Resource_3shlo"), SubResource("Resource_8k7ro"), SubResource("Resource_m5wwe"), SubResource("Resource_8n7c6"), SubResource("Resource_5n1mj"), SubResource("Resource_og0nf"), SubResource("Resource_5bj8o"), SubResource("Resource_8mkk6"), SubResource("Resource_lm6u3"), SubResource("Resource_w5lpq"), SubResource("Resource_pdu0j"), SubResource("Resource_ht5c7"), SubResource("Resource_hkcm0"), SubResource("Resource_vkq6h"), SubResource("Resource_bg5bx"), SubResource("Resource_at5vd"), SubResource("Resource_o6le5"), SubResource("Resource_3asmn"), SubResource("Resource_aeqch"), SubResource("Resource_kbnp6"), SubResource("Resource_xibpy"), SubResource("Resource_v671v"), SubResource("Resource_6hga2"), SubResource("Resource_cbr8u"), SubResource("Resource_lpl5x"), SubResource("Resource_83cy1"), SubResource("Resource_nquwu"), SubResource("Resource_0t2hv"), SubResource("Resource_hk4lt")])
+item_tags = null
+qualitoon = 2
+rarity = 0
+evergreen = false
+realtime = false
+slot = 1
+world_scale = 0.1
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Jester Hat"
+item_description = "Jingle Jangle!"
+big_description = "+ 20% to Toon-Up effect boosts"
+model = ExtResource("2_5q7km")
+stats_add = {
+"toonup_boost": 0.2
+}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+remember_item = true
+icon = ExtResource("2_73af7")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://dvu24b3o8i3sj"

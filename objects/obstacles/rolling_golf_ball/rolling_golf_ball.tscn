@@ -10,8 +10,6 @@ data = PackedVector3Array(1.1613, -1.6423, -1.1613, 0, -1.6423, -1.6423, 0, -2.1
 [node name="RollingGolfBall" type="Area3D"]
 collision_mask = 2
 
-[node name="golf_ball" parent="." instance=ExtResource("1_cc0jn")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_6uwd4")
@@ -28,7 +26,11 @@ attenuation_filter_db = -36.0
 doppler_tracking = 2
 parameters/looping = true
 
-[node name="EvilBall" parent="." instance=ExtResource("3_2dsdb")]
+[node name="Model" type="Node3D" parent="."]
+
+[node name="golf_ball" parent="Model" instance=ExtResource("1_cc0jn")]
+
+[node name="EvilBall" parent="Model" instance=ExtResource("3_2dsdb")]
 unique_name_in_owner = true
 transform = Transform3D(-7.6, 0, -6.64413e-07, 0, 7.6, 0, 6.64413e-07, 0, -7.6, 0, 0, 0)
 visible = false

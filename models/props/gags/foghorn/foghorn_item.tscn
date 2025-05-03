@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://8c0ry7pwl3uy"]
+
+[ext_resource type="PackedScene" uid="uid://idagtqd5cor5" path="res://models/props/gags/foghorn/foghorn.tscn" id="1_w8f15"]
+[ext_resource type="Texture2D" uid="uid://tp30drjm5tpt" path="res://objects/items/custom/big_foghorn/foghorn_foghorn_out_silver.png" id="2_qftd3"]
+[ext_resource type="Texture2D" uid="uid://cvqcedhkia577" path="res://objects/items/custom/big_foghorn/foghorn_foghorn_mouth_silver.png" id="3_mlu74"]
+[ext_resource type="Texture2D" uid="uid://dwclqytibu0f2" path="res://objects/items/custom/big_foghorn/foghorn_foghorn_in_silver.png" id="4_mwbvu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqri5"]
+resource_name = "toon_props_cvs_PICTURES_foghorn_out_picShader"
+cull_mode = 2
+albedo_texture = ExtResource("2_qftd3")
+roughness = 0.552786
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bis6x"]
+resource_name = "toon_props_cvs_PICTURES_foghorn_mouth_picShader"
+cull_mode = 2
+albedo_texture = ExtResource("3_mlu74")
+roughness = 0.552786
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etgad"]
+resource_name = "toon_props_cvs_PICTURES_foghorn_in_picShader"
+cull_mode = 2
+albedo_texture = ExtResource("4_mwbvu")
+roughness = 0.552786
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6058o"]
+resource_name = "toon_props_cvs_PICTURES_foghorn_out_picShader"
+cull_mode = 2
+albedo_texture = ExtResource("2_qftd3")
+roughness = 0.552786
+
+[sub_resource type="BoxMesh" id="BoxMesh_w8f15"]
+size = Vector3(4.7, 3.075, 3.865)
+
+[node name="foghorn2" instance=ExtResource("1_w8f15")]
+
+[node name="foghorn" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+
+[node name="TheBase" parent="foghorn/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dqri5")
+surface_material_override/1 = SubResource("StandardMaterial3D_bis6x")
+
+[node name="TheInsideHorn" parent="foghorn/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_etgad")
+
+[node name="TheOutsideHorn" parent="foghorn/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6058o")
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15048)
+visible = false
+mesh = SubResource("BoxMesh_w8f15")

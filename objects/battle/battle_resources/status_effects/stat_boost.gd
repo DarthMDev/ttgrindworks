@@ -40,7 +40,7 @@ func combine(effect: StatusEffect) -> bool:
 	if effect is StatBoost:
 		if effect.stat == stat and effect.rounds == rounds and get_quality() == effect.get_quality():
 			expire()
-			boost *= effect.boost
+			boost = get_combined_boost(boost, effect.boost)
 			apply()
 			print("new amount : %f" % boost)
 			return true
@@ -51,3 +51,15 @@ func get_quality() -> EffectQuality:
 	if boost >= 1.0:
 		return EffectQuality.POSITIVE
 	return EffectQuality.NEGATIVE
+
+func randomize_effect() -> void:
+	stat = RandomService.array_pick_random('true_random', ICONS.keys())
+	rounds = RandomService.randi_range_channel('true_random', 1, 3)
+	boost = RandomService.randf_range_channel('true_random', 0.75, 1.25)
+	if boost > 1.0:
+		quality = StatusEffect.EffectQuality.POSITIVE
+	else:
+		quality = StatusEffect.EffectQuality.NEGATIVE
+
+func get_combined_boost(boost1: float, boost2: float) -> float:
+	return boost1 + (boost2 - 1.0)

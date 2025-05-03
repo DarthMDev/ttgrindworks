@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SignalAchievement" load_steps=3 format=3 uid="uid://bsujh2q7oo3kn"]
+
+[ext_resource type="Script" uid="uid://bu0ypaddtve76" path="res://objects/save_file/achievements/signal_achievement.gd" id="1_exmdd"]
+[ext_resource type="Texture2D" uid="uid://pnlm5nq7l2ej" path="res://ui_assets/achievements/icon_achievement_timer.png" id="1_id2ki"]
+
+[resource]
+script = ExtResource("1_exmdd")
+signal_source = 1
+signal_name = "s_one_hour_win"
+achievement_name = "Expedited Expert"
+achievement_summary = "Defeat The Directors in
+under 60 minutes."
+achievement_index = 25
+achievement_icon = ExtResource("1_id2ki")
+metadata/_custom_type_script = "uid://bu0ypaddtve76"

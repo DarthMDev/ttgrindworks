@@ -61,17 +61,41 @@ var speak_short: AudioStream:
 var question: AudioStream:
 	get: return Globals.get_species_sfx(Globals.ToonDial.QUESTION, toon_dna)
 
-var EYE_TEXTURES := LazyLoader.defer_dict({
-	NEUTRAL_OPEN = "res://models/toon/textures/eyes/neutral.png",
-	NEUTRAL_CLOSED = "res://models/toon/textures/eyes/neutral_closed.png",
-	ANGRY_OPEN = "res://models/toon/textures/eyes/angry.png",
-	ANGRY_CLOSED = "res://models/toon/textures/eyes/angry_closed.png",
-	CURIOUS_OPEN = "res://models/toon/textures/eyes/curious.png",
-	CURIOUS_CLOSED = "res://models/toon/textures/eyes/curious_closed.png",
-	SAD_OPEN = "res://models/toon/textures/eyes/sad.png",
-	SAD_CLOSED = "res://models/toon/textures/eyes/sad_closed.png",
-	SURPRISE_OPEN = "res://models/toon/textures/eyes/surprise.png",
-})
+var eyes_neutral_open: Texture2D
+var eyes_neutral_closed: Texture2D
+var eyes_angry_open: Texture2D
+var eyes_angry_closed: Texture2D
+var eyes_curious_open: Texture2D
+var eyes_curious_closed: Texture2D
+var eyes_sad_open: Texture2D
+var eyes_sad_closed: Texture2D
+var eyes_surprise_open: Texture2D
+var EYE_TEXTURES: Dictionary[String, Texture2D]:
+	get:
+		return {
+			NEUTRAL_OPEN = eyes_neutral_open,
+			NEUTRAL_CLOSED = eyes_neutral_closed,
+			ANGRY_OPEN = eyes_angry_open,
+			ANGRY_CLOSED = eyes_angry_closed,
+			CURIOUS_OPEN = eyes_curious_open,
+			CURIOUS_CLOSED = eyes_curious_closed,
+			SAD_OPEN = eyes_sad_open,
+			SAD_CLOSED = eyes_sad_closed,
+			SURPRISE_OPEN = eyes_surprise_open,
+		}
+
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.AVATARS, self, {
+		'eyes_neutral_open': 'res://models/toon/textures/eyes/neutral.png',
+		'eyes_neutral_closed': 'res://models/toon/textures/eyes/neutral_closed.png',
+		'eyes_angry_open': 'res://models/toon/textures/eyes/angry.png',
+		'eyes_angry_closed': 'res://models/toon/textures/eyes/angry_closed.png',
+		'eyes_curious_open': 'res://models/toon/textures/eyes/curious.png',
+		'eyes_curious_closed': 'res://models/toon/textures/eyes/curious_closed.png',
+		'eyes_sad_open': 'res://models/toon/textures/eyes/sad.png',
+		'eyes_sad_closed': 'res://models/toon/textures/eyes/sad_closed.png',
+		'eyes_surprise_open': 'res://models/toon/textures/eyes/surprise.png',
+	})
 
 func _ready() -> void:
 	if randomize_dna:
@@ -86,9 +110,7 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	if body:
 		body.queue_free()
 	
-	var body_type: String = dna.BodyType.keys()[dna.body_type].to_lower()
-	if dna.skirt: body_type += '_skirt'
-	body = Globals.ToonBodies.load()[body_type].instantiate()
+	body = Globals.fetch_toon_body(dna.body_type, dna.skirt).instantiate()
 	body_node.add_child(body)
 	
 	# Grab a reference to the body's animator
@@ -142,8 +164,7 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	body.foot_right.set_surface_override_material(0, foot_mat)
 	
 	# Create head
-	var species: String = dna.ToonSpecies.keys()[dna.species].to_lower()
-	var toonhead = Globals.ToonHeads.load()[species].instantiate()
+	var toonhead = Globals.fetch_toon_head(dna.species).instantiate()
 	head_bone.add_child(toonhead)
 	dna.head_index = clamp(dna.head_index, 0, toonhead.get_child_count() - 1)
 	for i in toonhead.get_child_count():
@@ -275,14 +296,14 @@ func set_eyes(expression: Emotion) -> void:
 		return
 	eyes_emotion = expression
 	var face : String = Emotion.keys()[expression].to_upper() + "_OPEN"
-	var eye_textures: Dictionary = EYE_TEXTURES.load()
+	var eye_textures: Dictionary = EYE_TEXTURES
 	if eye_textures.keys().has(face):
 		eye_mat.albedo_texture = eye_textures[face]
 
 func close_eyes() -> void:
 	eyes_open = false
 	var face : String = Emotion.keys()[eyes_emotion as int].to_upper() + "_CLOSED"
-	var eye_textures: Dictionary = EYE_TEXTURES.load()
+	var eye_textures: Dictionary = EYE_TEXTURES
 	if eye_textures.keys().has(face):
 		eye_mat.albedo_texture = eye_textures[face]
 	
@@ -298,7 +319,7 @@ func close_eyes() -> void:
 func open_eyes() -> void:
 	eyes_open = true
 	var face : String = Emotion.keys()[eyes_emotion as int].to_upper() + "_OPEN"
-	var eye_textures: Dictionary = EYE_TEXTURES.load()
+	var eye_textures: Dictionary = EYE_TEXTURES
 	if eye_textures.keys().has(face):
 		eye_mat.albedo_texture = eye_textures[face]
 	

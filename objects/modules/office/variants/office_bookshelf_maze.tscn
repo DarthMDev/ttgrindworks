@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnuqkx4m7bxhq"]
+[gd_scene load_steps=18 format=3 uid="uid://cnuqkx4m7bxhq"]
 
 [ext_resource type="PackedScene" uid="uid://cyai35bfek33x" path="res://objects/modules/office/base_rooms/office_puzzle_room1.tscn" id="1_v38px"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_8sntx"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="3_bmpgj"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_kelww"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="5_4xehl"]
 [ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="5_ve7e1"]
 [ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="6_rotyv"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="8_cw3kl"]
@@ -132,11 +131,11 @@ transform = Transform3D(-0.683274, 0, -0.730162, 0, 1, 0, 0.730162, 0, -0.683274
 transform = Transform3D(-0.683274, 0, -0.730162, 0, 1, 0, 0.730162, 0, -0.683274, 6.02219, -3.57628e-07, 6.67618)
 
 [node name="CogButton" parent="." index="7" node_paths=PackedStringArray("connected_objects") instance=ExtResource("3_bmpgj")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.03708, -9.53674e-07, -11.889)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03708, -9.53674e-07, -11.889)
 connected_objects = [NodePath("../CogDoor")]
 
 [node name="CogButton2" parent="." index="8" node_paths=PackedStringArray("connected_objects") instance=ExtResource("3_bmpgj")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -12.3743, -9.53674e-07, -1.72049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3743, -9.53674e-07, -1.72049)
 connected_objects = [NodePath("../CogDoor")]
 
 [node name="treasure_chest" parent="." index="9" instance=ExtResource("4_kelww")]
@@ -144,7 +143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45063, 0, 9.6383)
 
 [node name="treasure_chest2" parent="." index="10" instance=ExtResource("4_kelww")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6946, -0.0418701, 9.61931)
-item_pool = ExtResource("5_4xehl")
 
 [node name="CogDoor" parent="." index="11" instance=ExtResource("5_ve7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.594)

@@ -31,12 +31,14 @@ scale = Vector3(1, 1, 1)
 [resource]
 script = ExtResource("1_m45yl")
 accessory_placements = Array[ExtResource("1_3oga0")]([SubResource("Resource_dtwuu"), SubResource("Resource_kkr2k"), SubResource("Resource_btln7")])
+item_tags = null
 qualitoon = 4
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.4
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Wooden Sword"

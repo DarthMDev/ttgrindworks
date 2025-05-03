@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s4ya4ge25pbp"]
+[gd_scene load_steps=29 format=3 uid="uid://s4ya4ge25pbp"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_jb6nm"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_rf3ng"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0mb68t7unr8" path="res://objects/battle/effects/cog_gears/cog_gears.tscn" id="6_1ofur"]
 [ext_resource type="Script" uid="uid://sxmvpbn607hv" path="res://objects/battle/battle_resources/misc_movies/goon_boss/goon_boss_intro.gd" id="7_i8rni"]
 [ext_resource type="Texture2D" uid="uid://dtb1wxg7cs2sj" path="res://models/cogs/misc/explosion/gear.png" id="7_ole4f"]
-[ext_resource type="AudioStream" uid="uid://02mc3k3k1brp" path="res://audio/music/ground_floor_investor.ogg" id="7_qjwkd"]
+[ext_resource type="AudioStream" uid="uid://dldt3lfnuqw63" path="res://audio/music/action_law.ogg" id="9_tlr3e"]
 [ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="10_fqr7e"]
 [ext_resource type="PackedScene" uid="uid://bftnews8dsdpb" path="res://objects/props/office/paper_twist_stacks.tscn" id="11_gco7t"]
 [ext_resource type="PackedScene" uid="uid://b1cl5gdttc2ps" path="res://objects/props/office/lamp_small.tscn" id="12_kr7vh"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="16_cdkbc"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="17_l0gsf"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="18_ih6f6"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="19_tspsn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyu0u"]
 resource_name = "eyeball"
@@ -51,7 +50,7 @@ size = Vector2(0.25, 0.25)
 [sub_resource type="Resource" id="Resource_6ogf3"]
 script = ExtResource("7_i8rni")
 skippable = true
-override_music = ExtResource("7_qjwkd")
+override_music = ExtResource("9_tlr3e")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yfooj"]
 size = Vector3(15.1724, 4.72812, 12.9602)
@@ -81,7 +80,7 @@ eye_color = Color(1, 1, 1, 1)
 state = 3
 
 [node name="rrt_footCNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="0"]
-transform = Transform3D(-2.8213e-07, 2.44102e-10, -1, 0.0021031, 0.999997, -3.49246e-10, 0.999997, -0.0021031, -2.8213e-07, -0.132046, 2.34705e-05, -0.34509)
+transform = Transform3D(-2.82129e-07, 7.09762e-10, -1, 0.0021031, 0.999997, 1.16415e-10, 0.999997, -0.0021031, -2.8213e-07, -0.132046, 2.34705e-05, -0.34509)
 
 [node name="lft_footCNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="1"]
 transform = Transform3D(-2.82129e-07, 7.09762e-10, -1, 0.0021031, 0.999997, 1.16415e-10, 0.999997, -0.0021031, -2.8213e-07, 0.131497, 0.000109829, 0.117243)
@@ -142,6 +141,9 @@ bones/56/rotation = Quaternion(0, 0, 0.956787, 0.29079)
 bones/57/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
 bones/58/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
 bones/59/rotation = Quaternion(0.00074354, 0.707106, -0.00074354, 0.707106)
+
+[node name="LightBone" parent="GoonBoss/goon/Skeleton3D" index="42"]
+transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 0.812955, 0.0139425)
 
 [node name="goon_light" parent="GoonBoss/goon/Skeleton3D/LightBone" index="0"]
 transform = Transform3D(27.81, 0, 0, 0, 19.935, 0, 0, 0, 5.98, 0, -24.79, 7.235)
@@ -459,7 +461,6 @@ transform = Transform3D(2.2, 0, 0, 0, 1.73, 0, 0, 0, 1.92, -6.5791, 0, 1.06631)
 
 [node name="treasure_chest" parent="." index="13" instance=ExtResource("18_ih6f6")]
 transform = Transform3D(-0.0758489, 0, 0.997119, 0, 1, 0, -0.997119, 0, -0.0758489, 9.59404, 0, 2.63521)
-item_pool = ExtResource("19_tspsn")
 
 [connection signal="s_battle_ending" from="GoonBoss/BattleNode" to="elevator_law" method="open"]
 

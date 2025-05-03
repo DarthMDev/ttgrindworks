@@ -10,9 +10,13 @@ var model: Node3D
 var rotation_tween: Tween
 var bob_tween: Tween
 
+# Child References
+@onready var description_bubble : SpeechBubble = %ItemDescription
+
 # Signals
 signal s_collected
 signal s_item_assigned
+signal s_destroyed
 
 
 func _ready() -> void:
@@ -36,7 +40,6 @@ func roll_for_item() -> void:
 		printerr("Item pool returned null. Freeing world item instance.")
 		queue_free()
 		return
-
 	s_item_assigned.emit()
 
 func spawn_item() -> void:
@@ -45,8 +48,11 @@ func spawn_item() -> void:
 	add_child(model)
 	
 	# Check if the item is evergreen
-	if not item.evergreen:
+	if not item.evergreen and not item is ItemActive:
 		ItemService.seen_item(item)
+	elif item is ItemActive:
+		ItemService.seen_item(item)
+		item = item.duplicate()
 	else:
 		item = item.duplicate()
 	
@@ -55,6 +61,9 @@ func spawn_item() -> void:
 	
 	# Scale the item as it's specified
 	model.scale *= item.world_scale
+	
+	# Offset the model position on the y-axis
+	model.position.y = item.world_y_offset
 	
 	# Mark the item as in play
 	ItemService.item_created(item)
@@ -65,6 +74,35 @@ func spawn_item() -> void:
 	# Allow items with custom setups to run those
 	if model.has_method('setup'):
 		model.setup(item)
+	
+	# Set up the description bubble
+	description_bubble.set_text(get_item_description(item))
+
+
+const QUALITY_STAR := "res://ui_assets/misc/quality_star.png"
+const QUALITY_STAR_UNFILLED := "res://ui_assets/misc/quality_star_unfilled.png"
+static func get_item_description(_item : Item) -> String:
+	var string := ""
+	
+	# Start with the item name
+	# Color it to the item's shop color
+	# Make it 1.2x the font size
+	string += "[color=%s]%s\n[/color]" % [_item.shop_category_color.to_html(), _item.item_name]
+	
+	# Now: Append the star rating
+	var qualitoon_as_int : int = (_item.qualitoon as int) + 1
+	for i in 5:
+		if qualitoon_as_int > i:
+			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star.png[/img]"
+		else:
+			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star_unfilled.png[/img]"
+	
+	# Now simply append the description
+	string += "\n%s" % _item.big_description
+	
+	
+	
+	return string
 
 func reroll() -> void:
 	if model:
@@ -85,8 +123,8 @@ func _tween_model() -> void:
 	
 	bob_tween = create_tween()
 	bob_tween.set_trans(Tween.TRANS_SINE)
-	bob_tween.tween_property(model, 'position:y', 0.1, 1.5)
-	bob_tween.tween_property(model, 'position:y', -0.1, 1.5)
+	bob_tween.tween_property(model, 'position:y', item.world_y_offset + 0.1, 1.5)
+	bob_tween.tween_property(model, 'position:y', item.world_y_offset - 0.1, 1.5)
 	bob_tween.set_loops()
 
 func body_entered(body) -> void:
@@ -120,11 +158,8 @@ func body_entered(body) -> void:
 		## Default collection animations
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_QUAD)
-		# Passive Collection
-		if not item is ItemAccessory:
-			tween.tween_property(model, 'scale', Vector3(0, 0, 0), 1.0)
 		# Accessory collection
-		else:
+		if item is ItemAccessory:
 			var accessory_placement: AccessoryPlacement = ItemAccessory.get_placement(item, Util.get_player().character.dna)
 			## Failsafe for if no item placement 
 			if not accessory_placement:
@@ -133,7 +168,6 @@ func body_entered(body) -> void:
 				model.queue_free()
 				queue_free()
 				return
-			
 			bob_tween.kill()
 			rotation_tween.kill()
 			tween.set_parallel(true)
@@ -144,60 +178,72 @@ func body_entered(body) -> void:
 				model.position = accessory_placement.position
 				model.scale = accessory_placement.scale
 				model.rotation_degrees = accessory_placement.rotation)
+		elif item is ItemActive:
+			var player := Util.get_player()
+			if player.stats.current_active_item:
+				var replacement_item := player.stats.current_active_item
+				item.apply_item(player, true, model)
+				rotation_tween.kill()
+				bob_tween.kill()
+				swap_item(replacement_item)
+				tween.kill()
+				return
+			else:
+				tween.tween_property(model, 'scale', Vector3.ZERO, 1.0)
+				item.apply_item(player, true, model)
+		# Passive Collection
+		else:
+			tween.tween_property(model, 'scale', Vector3.ZERO, 1.0)
 		await tween.finished
 		tween.kill()
 	queue_free()
+
+func swap_item(swapped_item : Item) -> void:
+	var player := Util.get_player()
+	var swap_model : Node3D = swapped_item.model.instantiate()
+	var tween_time := 1.0
+	add_child(swap_model)
+	swap_model.scale *= 0.01
+	swap_model.global_position = player.toon.backpack_bone.global_position
+	model.reparent(player)
+	var model_endpt := player.to_local(player.toon.backpack_bone.global_position)
+	
+	var swap_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_parallel()
+	swap_tween.tween_property(swap_model, 'scale', Vector3.ONE * swapped_item.world_scale, tween_time)
+	swap_tween.tween_property(swap_model, 'position', Vector3.ZERO, tween_time)
+	swap_tween.tween_property(model, 'scale', Vector3.ZERO, tween_time)
+	swap_tween.tween_property(model, 'position', model_endpt, tween_time)
+	await swap_tween.finished
+	swap_tween.kill()
+	
+	model.queue_free()
+	model = swap_model
+	item = swapped_item
+	_tween_model()
+	Task.delay(2.0).connect(
+		func():
+			set_monitoring.call_deferred(true)
+			$ReactionArea.set_monitoring.call_deferred(true)
+			description_bubble.set_text(get_item_description(item))
+	)
 
 func apply_item() -> void:
 	if not Util.get_player():
 		return
 	
-	var stats = Util.get_player().stats
-	
-	for stat in item.stats_add:
-		if str(stat) in stats:
-			if stat == 'money':
-				print("Calling special money func")
-				stats.add_money(item.stats_add[stat])
-			elif stat == 'max_hp' or stat == 'hp':
-				stats[stat] += item.stats_add[stat] + stats.laff_boost_boost
-			else:
-				stats[stat] += item.stats_add[stat]
-	
-	for stat in item.stats_multiply:
-		if str(stat) in stats:
-			stats[stat] *= item.stats_multiply[stat]
-		elif stat.begins_with("gag_boost:"):
-			var track: String = stat.get_slice(":", 1)
-			if track in stats.gag_effectiveness:
-				stats.gag_effectiveness[track] *= item.stats_multiply[stat]
-	
-	
-	# Set player values
-	for value in item.player_values:
-		Util.get_player().set(value, item.player_values[value])
-	
-	# Run the item script if there is one
-	if item.item_script:
-		var item_node := ItemScript.add_item_script(Util.get_player(),item.item_script)
-		if item_node is ItemScript:
-			item_node.on_collect(item,model)
+	var player := Util.get_player()
 	
 	# Reparent accessories to the player
 	# They will get tweened into position after this
 	if item is ItemAccessory:
-		var bone := ItemAccessory.get_bone(item,Util.get_player())
+		item.apply_item(player, false, model)
+		var bone := ItemAccessory.get_bone(item, player)
 		remove_current_item(bone)
 		model.reparent(bone)
-	
-	if model.has_method('collect'):
-		model.collect()
-	
-	# Add the item to the player's item array
-	if item.remember_item:
-		Util.get_player().stats.items.append(item)
-		print('added %s to item list (world item)' % item.item_name)
-		ItemService.s_item_applied.emit(item)
+	elif item is ItemActive:
+		pass
+	else:
+		item.apply_item(Util.get_player(), true, model)
 
 func remove_current_item(bone : BoneAttachment3D):
 	# If no accessory is there already, 
@@ -217,4 +263,24 @@ func body_not_reacting(body):
 
 func _remove_item() -> void:
 	ItemService.item_removed(item)
-	Util.s_floor_ended.disconnect(_remove_item)
+	if Util.s_floor_ended.is_connected(_remove_item):
+		Util.s_floor_ended.disconnect(_remove_item)
+
+func set_description_visible(show_description : bool) -> void:
+	description_bubble.force_hide = not show_description
+
+func reroll_visual() -> void:
+	poof()
+	reroll()
+
+func poof() -> void:
+	var dust_cloud = Globals.DUST_CLOUD.instantiate()
+	get_tree().get_root().add_child(dust_cloud)
+	dust_cloud.global_position = global_position
+
+func destroy_item() -> void:
+	poof()
+	if item:
+		ItemService.item_removed(item)
+	s_destroyed.emit()
+	queue_free()

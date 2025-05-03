@@ -65,6 +65,7 @@ func start_floor(floor_var: FloorVariant):
 
 func start_game_floor(floor_var : FloorVariant) -> void:
 	player.scale = Vector3(1, 1, 1)
+	player.game_timer_tick = true
 	if floor_var.override_scene:
 		SceneLoader.change_scene_to_packed(floor_var.override_scene)
 	else:
@@ -102,7 +103,3 @@ func final_boss_time_baby() -> void:
 	next_floors = [final_floor]
 	$ElevatorUI.floors = next_floors
 	$ElevatorUI.set_floor_index(0)
-
-func _exit_tree() -> void:
-	if Util.get_player():
-		Util.get_player().game_timer_tick = true

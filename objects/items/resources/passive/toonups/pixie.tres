@@ -12,11 +12,13 @@ evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.75
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Pixie Dust"
 item_description = "20% laff regeneration"
-big_description = ""
+big_description = "Lasts 3 rounds
++ 20% Laff Regeneration"
 model = ExtResource("1_tiwq4")
 pickup_sfx = ExtResource("2_08lmc")
 stats_add = {}

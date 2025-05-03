@@ -5,12 +5,14 @@
 
 [resource]
 script = ExtResource("2_mxr2c")
+item_tags = 1
 qualitoon = 4
 rarity = 0
 evergreen = true
 realtime = false
 slot = 0
 world_scale = 1.85
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Gag Point Boost"

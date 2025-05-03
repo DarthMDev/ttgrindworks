@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://wwodw8my2ktu"]
 
-[ext_resource type="Texture2D" uid="uid://c8byep3rc6sp4" path="res://models/cogs/suitb/suitb_s_leg.png" id="1_y8ama"]
+[ext_resource type="Texture2D" uid="uid://biq0o7uvpbeo3" path="res://models/cogs/suitb/suitb_s_leg.png" id="1_y8ama"]
 
 [resource]
 resource_name = "suitB_cvs_PICTURES_s_leg_picShader"

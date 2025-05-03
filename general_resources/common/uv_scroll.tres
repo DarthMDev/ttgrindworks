@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bobov0bwqpp1d"]
+
+[ext_resource type="Shader" uid="uid://bavtx1x5xshbm" path="res://general_resources/common/uv_scroll.gdshader" id="1_cdla4"]
+[ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="2_fv661"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fv661"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gx6nc"]
+noise = SubResource("FastNoiseLite_fv661")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cdla4")
+shader_parameter/albedo = Color(0.89059, 0.89059, 0.89059, 1)
+shader_parameter/texture_albedo = ExtResource("2_fv661")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.5
+shader_parameter/displacement = SubResource("NoiseTexture2D_gx6nc")

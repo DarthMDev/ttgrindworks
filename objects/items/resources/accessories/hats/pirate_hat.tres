@@ -288,6 +288,7 @@ evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.14
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.1
 item_name = "Pirate Hat"

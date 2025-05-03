@@ -281,12 +281,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("2_32jd1")
 accessory_placements = Array[ExtResource("1_rtx8a")]([SubResource("Resource_6dx77"), SubResource("Resource_d5s6c"), SubResource("Resource_g8kot"), SubResource("Resource_p4km4"), SubResource("Resource_2aoat"), SubResource("Resource_lefav"), SubResource("Resource_lf3il"), SubResource("Resource_mht4r"), SubResource("Resource_cwjnk"), SubResource("Resource_0x7b6"), SubResource("Resource_wvxun"), SubResource("Resource_j1dqx"), SubResource("Resource_aojc2"), SubResource("Resource_aboa5"), SubResource("Resource_4wope"), SubResource("Resource_c1kt4"), SubResource("Resource_vxfx4"), SubResource("Resource_3aimq"), SubResource("Resource_38br2"), SubResource("Resource_e3ed1"), SubResource("Resource_ah0ex"), SubResource("Resource_tgs5o"), SubResource("Resource_1fwh0"), SubResource("Resource_gkgct"), SubResource("Resource_iv4g5"), SubResource("Resource_8livv"), SubResource("Resource_623os"), SubResource("Resource_hsf4r"), SubResource("Resource_gumcs"), SubResource("Resource_8boqk"), SubResource("Resource_8qija"), SubResource("Resource_31mvl"), SubResource("Resource_34v0p"), SubResource("Resource_rbbrq")])
+item_tags = null
 qualitoon = 0
 rarity = 0
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.4
 item_name = "Eye Patch"

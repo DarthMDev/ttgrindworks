@@ -26,6 +26,8 @@ enum SuitType {
 
 @export var cog_name: String = "Cog"
 @export var name_plural: String = ""
+@export var name_prefix := ""
+@export var name_suffix := ""
 @export var head: PackedScene
 @export var head_scale: Vector3 = Vector3.ONE
 @export var head_pos: Vector3 = Vector3.ZERO
@@ -112,59 +114,53 @@ func combine_attributes(second_dna: CogDNA) -> void:
 		head_color = second_dna.head_color
 
 ## Create epic fusion name
-func combine_names(name1: String, name2: String) -> String:
-	var prefix := ""
-	var suffix := ""
+func combine_names(second_dna: CogDNA) -> String:
+	# Get our prefix and suffix
+	var prefix := get_name_prefix()
+	var suffix := second_dna.get_name_suffix()
 	
-	# Contains the suffixes of every single-word Cog name.
-	var extra_suffixes: Array[String] = [
-		"wad", "-Face", "sucker", "marketer", "man",
-		"cog", "hander", "sizer", "manager", "-Talker",
-		
-	]
-	
-	# Get prefix from the first name
-	match name1:
-		"The Big Cheese":
-			prefix = "The Big"
-		_:
-			prefix = name1.split(" ")[0]
-	
-	# Get suffix from second name
-	if name2.split(" ").size() == 3:
-		suffix = name2.split(" ")[2]
-	elif name2.split(" ").size() == 1:
-		suffix = name2
+	# Test for hyphenated names
+	if prefix.ends_with("-"):
+		if suffix.begins_with("-") or suffix.begins_with(" "):
+			suffix.erase(0)
+		# Capitalize suffix in hyphenated names
+		if suffix[0] == suffix[0].to_lower():
+			suffix[0] = suffix[0].to_upper()
+	elif suffix.begins_with("-"):
+		if prefix.ends_with(" "):
+			prefix.erase(prefix.length() - 1)
+	# Add a space to awkward names
+	# Only if name not hyphenated
 	else:
-		suffix = " " +name2.split(" ")[1]
+		# Allow for no spaces if the suffix starts with a lowercase letter
+		if not prefix.ends_with(" ") and not suffix.begins_with(" "):
+			if suffix[0] == suffix[0].to_upper():
+				prefix += " "
 	
-	# Parse single-word names for prefixes
-	for extra_suffix in extra_suffixes:
-		if prefix.ends_with(extra_suffix):
-			prefix = prefix.rstrip(extra_suffix)
+	# Combine our names
+	var new_name := prefix + suffix
 	
-	# Parse single-word names for suffixes
-	for extra_suffix in extra_suffixes:
-		if suffix.ends_with(extra_suffix):
-			# Add a space after Mr.
-			if prefix == "Mr.":
-				suffix = " "
-				# Mr. Face
-				if extra_suffix == "-Face":
-					suffix += 'Face'
-				else:
-					suffix += extra_suffix
-					suffix[0] = suffix[0].to_upper()
-			else:
-				suffix = extra_suffix
-			break
-	
-	if prefix == "Mr.":
-		suffix[0] = suffix[0].to_upper()
-		suffix = suffix.insert(0," ")
+	# Remove any double spaces
+	new_name = new_name.replace("  ", " ")
 	
 	# Return combined name
-	return prefix + suffix
+	return new_name
+
+func get_name_prefix(force_default := false) -> String:
+	if not name_prefix == "" and not force_default: return name_prefix
+	
+	if cog_name.split(" ").size() > 1:
+		return cog_name.split(" ")[0]
+	
+	return cog_name
+
+func get_name_suffix(force_default := false) -> String:
+	if not name_suffix == "" and not force_default: return name_suffix
+	
+	if not cog_name.split(" ").size() == 1:
+		return cog_name.split(" ")[cog_name.split(" ").size() - 1]
+	
+	return cog_name
 
 func get_plural_name() -> String:
 	if not name_plural == "": return name_plural
@@ -176,6 +172,8 @@ const ATTRIBUTE_LIST : Array[String] = [
 	"suit",
 	"cog_name",
 	"name_plural",
+	"name_prefix",
+	"name_suffix",
 	"head_scale",
 	"head_pos",
 	"scale",
@@ -236,6 +234,8 @@ static func from_json(string : String) -> CogDNA:
 	var dict = JSON.parse_string(string)
 	var dna := CogDNA.new()
 	for attribute in ATTRIBUTE_LIST:
+		if not attribute in dict:
+			continue
 		if dna.get(attribute) is Vector3:
 			dna.set(attribute, string_to_vector3(dict[attribute]))
 		if dict[attribute] is Array:

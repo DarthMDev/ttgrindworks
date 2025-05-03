@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://dsgjdbl5ivwss"]
+[gd_scene load_steps=38 format=4 uid="uid://dsgjdbl5ivwss"]
 
 [ext_resource type="Texture2D" uid="uid://dydkfakxydji4" path="res://models/props/gags/tnt/tnt_reelstring.png" id="1_sk3q4"]
 [ext_resource type="Texture2D" uid="uid://dtkpoyixdbiil" path="res://models/props/gags/tnt/tnt_tnt_top.png" id="2_evswv"]
 [ext_resource type="Texture2D" uid="uid://dbqce2mxw6no8" path="res://models/props/gags/tnt/tnt_tnt_side.png" id="3_k5dxr"]
 [ext_resource type="Texture2D" uid="uid://u37je0xb1jc1" path="res://models/props/gags/tnt/spark.png" id="4_26xcy"]
+[ext_resource type="Texture2D" uid="uid://ckswqume7c7jr" path="res://models/cogs/misc/explosion/expl001.png" id="5_3c7hk"]
 [ext_resource type="Texture2D" uid="uid://c6hfl6jsxjeyw" path="res://models/props/gags/tnt/kaboom.png" id="5_b6dlt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rubp5"]
@@ -46,6 +47,100 @@ bind/2/pose = Transform3D(-41.9042, 90.0399, 11.6986, -1.90994e-05, -12.8844, 99
 bind/3/name = &"joint_attachEmitter"
 bind/3/bone = -1
 bind/3/pose = Transform3D(-41.9042, 90.0399, 11.6986, -1.81899e-05, -12.8844, 99.1665, 90.7967, 41.5549, 5.39912, -75.7847, -108.974, -17.7817)
+
+[sub_resource type="Gradient" id="Gradient_3c7hk"]
+offsets = PackedFloat32Array(0.475, 0.675, 0.883333)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.86891, 0.304811, 1, 0.541176, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v7x3i"]
+gradient = SubResource("Gradient_3c7hk")
+
+[sub_resource type="Curve" id="Curve_8q2iu"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.71428, 1.4, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bmgte"]
+curve = SubResource("Curve_8q2iu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmonu"]
+lifetime_randomness = 0.19
+angle_min = -92.3
+angle_max = 53.1
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_bmgte")
+color_ramp = SubResource("GradientTexture1D_v7x3i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2hws"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_26xcy")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xk35j"]
+material = SubResource("StandardMaterial3D_t2hws")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_3e06e"]
+offsets = PackedFloat32Array(0, 0.216667, 0.416667, 0.65)
+colors = PackedColorArray(1, 1, 1, 1, 0.891219, 0.849119, 0.312764, 1, 0.645612, 0.134522, 9.62615e-08, 1, 0.357121, 0, 0.0385553, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8q2iu"]
+gradient = SubResource("Gradient_3e06e")
+
+[sub_resource type="Curve" id="Curve_xsj52"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xbwj5"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0.25, 4.98346), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_58ea8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_pwlk2"]
+curve_x = SubResource("Curve_xsj52")
+curve_y = SubResource("Curve_xbwj5")
+curve_z = SubResource("Curve_58ea8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3c7hk"]
+particle_flag_align_y = true
+angle_min = -360.0
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 125.39
+initial_velocity_max = 137.77
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.31
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.25
+scale_curve = SubResource("CurveXYZTexture_pwlk2")
+color_ramp = SubResource("GradientTexture1D_8q2iu")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypi73"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_3c7hk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v8v6j"]
+material = SubResource("StandardMaterial3D_ypi73")
+size = Vector2(0.1, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ojji"]
 resource_name = "toon_props_cvs_PICTURES_tnt_top_picShader"
@@ -92,28 +187,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_35n53"]
-emission_shape = 1
-emission_sphere_radius = 0.5
-inherit_velocity_ratio = 1.155
-direction = Vector3(-1, 0, 0)
-initial_velocity_max = 2.0
-linear_accel_min = -1.95
-linear_accel_max = 4.55
-radial_accel_min = -1.25
-radial_accel_max = 1.55
-scale_min = 0.35
-scale_max = 0.35
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2hws"]
-transparency = 1
-albedo_texture = ExtResource("4_26xcy")
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_xk35j"]
-material = SubResource("StandardMaterial3D_t2hws")
-size = Vector2(0.5, 0.5)
-
 [sub_resource type="Animation" id="Animation_4ko6t"]
 length = 0.001
 tracks/0/type = "value"
@@ -143,7 +216,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("tnt/GPUParticles3D:rotation")
+tracks/2/path = NodePath("tnt/Skeleton3D/TheFuse/SPARK VFX/BigFuse:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -202,7 +275,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("tnt/GPUParticles3D:rotation")
+tracks/2/path = NodePath("tnt/Skeleton3D/TheFuse/SPARK VFX/BigFuse:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -218,6 +291,32 @@ _data = {
 &"fuse": SubResource("Animation_occ7o"),
 &"toss": SubResource("Animation_cppbr")
 }
+
+[sub_resource type="Curve" id="Curve_3c7hk"]
+_data = [Vector2(0, 0), 0.0, 9.13324, 0, 0, Vector2(0.0533708, 1), 0.0, 0.0, 0, 0, Vector2(0.730337, 0.835171), -0.805663, -0.805663, 0, 0, Vector2(1, 0), -6.38472, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_v7x3i"]
+curve = SubResource("Curve_3c7hk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e06e"]
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_v7x3i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8q2iu"]
+transparency = 1
+albedo_texture = ExtResource("5_b6dlt")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 0.165
+
+[sub_resource type="QuadMesh" id="QuadMesh_bmgte"]
+material = SubResource("StandardMaterial3D_8q2iu")
 
 [node name="tnt2" type="Node3D"]
 
@@ -258,22 +357,38 @@ bones/3/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_ay0d1")
 skin = SubResource("Skin_jpsat")
 
+[node name="SPARK VFX" type="Node3D" parent="tnt/Skeleton3D/TheFuse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9015, 229.559, -88.4405)
+
+[node name="BigFuse" type="GPUParticles3D" parent="tnt/Skeleton3D/TheFuse/SPARK VFX"]
+transform = Transform3D(-0.00169746, 468.912, 0.00169746, 0, -0.00169746, 468.912, 468.912, 0.00169746, 6.14478e-09, 3.54778, -6.22244, 3.41549)
+amount = 1
+lifetime = 0.15
+randomness = 0.67
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_rmonu")
+draw_pass_1 = SubResource("QuadMesh_xk35j")
+
+[node name="Sparks" type="GPUParticles3D" parent="tnt/Skeleton3D/TheFuse/SPARK VFX"]
+transform = Transform3D(3.56613e-05, -0.0453181, -9.80585, 1.64518e-07, 9.80585, -0.0453181, 9.80596, 2.8507e-10, 3.56616e-05, 3.47328, -6.79399, 3.40843)
+lifetime = 0.19
+randomness = 0.65
+process_material = SubResource("ParticleProcessMaterial_3c7hk")
+draw_pass_1 = SubResource("QuadMesh_v8v6j")
+
 [node name="TheSticks" type="MeshInstance3D" parent="tnt/Skeleton3D"]
 mesh = SubResource("ArrayMesh_e6opl")
 skin = SubResource("Skin_jpsat")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="tnt"]
-transform = Transform3D(-0.000361999, 100, 0.000361999, 0, -0.000361999, 100, 100, 0.000361999, 1.31043e-09, 0, 157.741, -73.1246)
-process_material = SubResource("ParticleProcessMaterial_35n53")
-draw_pass_1 = SubResource("QuadMesh_xk35j")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_c0pae")
+&"": SubResource("AnimationLibrary_c0pae")
 }
 
-[node name="Kaboom" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.896752, 0)
-visible = false
-billboard = 1
-texture = ExtResource("5_b6dlt")
+[node name="Kaboom" type="GPUParticles3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.45731, 2.94817)
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_3e06e")
+draw_pass_1 = SubResource("QuadMesh_bmgte")

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://cujwm36qft7u2"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://cujwm36qft7u2"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_atffr"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_u2ujs"]
 [ext_resource type="Resource" uid="uid://bhl72hd7pn8s2" path="res://objects/battle/battle_resources/cog_attacks/resources/workout.tres" id="3_7djn3"]
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_4mwjw"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="4_8uqcg"]
 [ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_ummnj"]
 [ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_v3q7d"]
 [ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="7_0olyk"]
@@ -21,6 +22,8 @@ custom_arm_tex = ExtResource("4_4mwjw")
 custom_leg_tex = ExtResource("6_v3q7d")
 cog_name = "The Big Shot"
 name_plural = ""
+name_prefix = "The Big"
+name_suffix = "Shot"
 head = ExtResource("7_0olyk")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -30,7 +33,7 @@ hand_color = Color(0.821789, 0.821789, 0.821789, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 9.6
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_atffr")]([ExtResource("2_u2ujs"), ExtResource("3_7djn3")])
+attacks = Array[ExtResource("1_atffr")]([ExtResource("2_u2ujs"), ExtResource("3_7djn3"), ExtResource("4_8uqcg")])
 level_low = 8
 level_high = 20
 status_effects = Array[ExtResource("10_4me7h")]([ExtResource("11_7i0ub")])

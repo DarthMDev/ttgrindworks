@@ -1,0 +1,219 @@
+[gd_scene load_steps=13 format=3 uid="uid://cguhsh73e8vok"]
+
+[ext_resource type="Script" uid="uid://cxowdgmf72ub7" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/sand_mole.gd" id="1_ai42s"]
+[ext_resource type="PackedScene" uid="uid://c83iwrx6mdta7" path="res://models/cogs/heads/mole_cog.tscn" id="1_dpcda"]
+[ext_resource type="PackedScene" uid="uid://li3ppvgc88i2" path="res://objects/obstacles/sandtrap/sandtrap_dust.tscn" id="3_8y8qu"]
+[ext_resource type="Material" uid="uid://bobov0bwqpp1d" path="res://general_resources/common/uv_scroll.tres" id="4_wsfig"]
+[ext_resource type="Texture2D" uid="uid://yntqax0s856g" path="res://ui_assets/misc/PetEmoteConfused2.png" id="5_oqfta"]
+[ext_resource type="PackedScene" uid="uid://5g2d6vyx2dxl" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/mole_movement.tscn" id="6_ruvg6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai42s"]
+size = Vector3(1, 2.36926, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ai42s"]
+radius = 4.97707
+
+[sub_resource type="SphereMesh" id="SphereMesh_oqfta"]
+material = ExtResource("4_wsfig")
+radial_segments = 12
+rings = 12
+
+[sub_resource type="Animation" id="Animation_ruvg6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mole_cog:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mole_cog:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mole_cog:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mole_cog:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mole_cog:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("mole_cog:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_oqfta"]
+resource_name = "dive"
+length = 1.5
+step = 0.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mole_cog:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.47, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mole_cog:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-1.25, -0.25, 0, 0.25, 0, 1.58973, -0.25, 0, 0.25, 0, 1.58973, -0.25, 0, 0.25, 0, -0.84, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.47, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mole_cog:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.47, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mole_cog:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.51, 0.94, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mole_cog:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.51, 0.94, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("mole_cog:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.51, 0.94, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnkip"]
+_data = {
+&"RESET": SubResource("Animation_ruvg6"),
+&"dive": SubResource("Animation_oqfta")
+}
+
+[node name="SandMole" type="Node3D"]
+script = ExtResource("1_ai42s")
+
+[node name="mole_cog" parent="." instance=ExtResource("1_dpcda")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.25, 0)
+
+[node name="PlayerHitDetection" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerHitDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684631, 0)
+shape = SubResource("BoxShape3D_ai42s")
+
+[node name="PlayerChaseDetection" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerChaseDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684631, 0)
+shape = SubResource("SphereShape3D_ai42s")
+
+[node name="GroundParticles" parent="." instance=ExtResource("6_ruvg6")]
+
+[node name="Particles" parent="." instance=ExtResource("3_8y8qu")]
+transform = Transform3D(1, 0, 0, 0, 0.841775, -0.539829, 0, 0.539829, 0.841775, 0, 0, 0)
+
+[node name="DirtHill" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1.08, 0, -0.235, 0)
+visible = false
+mesh = SubResource("SphereMesh_oqfta")
+
+[node name="ChaseCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="StateDisplay" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.777977, 0)
+visible = false
+billboard = 2
+render_priority = 2
+texture = ExtResource("5_oqfta")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_rnkip")
+}
+
+[connection signal="body_entered" from="PlayerHitDetection" to="." method="body_entered_hit"]
+[connection signal="body_entered" from="PlayerChaseDetection" to="." method="body_entered_chase"]
+[connection signal="body_exited" from="PlayerChaseDetection" to="." method="body_exited_chase"]

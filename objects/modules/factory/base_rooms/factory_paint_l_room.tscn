@@ -1,8 +1,7 @@
-[gd_scene load_steps=44 format=4 uid="uid://bs24a1pbm1pba"]
+[gd_scene load_steps=43 format=4 uid="uid://bs24a1pbm1pba"]
 
 [ext_resource type="PackedScene" uid="uid://cqahudkf6anvg" path="res://models/facilities/factory/factory_paint_l_room.fbx" id="1_jv2l6"]
-[ext_resource type="Script" uid="uid://qonvoc3f5vsl" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.gd" id="2_6tj2p"]
-[ext_resource type="Texture2D" uid="uid://do8mo6ao1sm0e" path="res://models/facilities/factory/FINALFACTORY_66.png" id="2_qrvgo"]
+[ext_resource type="Texture2D" uid="uid://bg28yomkn1lgx" path="res://models/facilities/factory/FINALFACTORY_66.png" id="2_qrvgo"]
 [ext_resource type="Texture2D" uid="uid://d35gru1sglser" path="res://models/facilities/factory/FINALFACTORY_24.png" id="3_ucoje"]
 [ext_resource type="Texture2D" uid="uid://ckjvdqmnty5ng" path="res://models/facilities/factory/FINALFACTORY_65.png" id="4_7iwnu"]
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="5_7gqh6"]
@@ -405,7 +404,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j7e17")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yfo43"]
-size = Vector3(26.4236, 0.419852, 28.4525)
+size = Vector3(26.4236, 1.65966, 28.4525)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mqphr"]
 noise_type = 3
@@ -442,7 +441,6 @@ subdivide_depth = 16
 size = Vector3(38.246, 1, 34.3608)
 
 [node name="factory_paint_l_room" instance=ExtResource("1_jv2l6")]
-script = ExtResource("2_6tj2p")
 
 [node name="Bridge" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_jlo5v")
@@ -498,14 +496,15 @@ visible = false
 mesh = SubResource("ArrayMesh_mrtb5")
 skeleton = NodePath("")
 
-[node name="LavaFloor" parent="." index="17" instance=ExtResource("12_s3kry")]
+[node name="LavaFloor" parent="." index="17" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("12_s3kry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03127, -5.00822)
 tick_delay = 3.0
 base_damage = -4
 damage_name = "Goopy Paint"
+default_spawn_point = NodePath("../PlayerSpawn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2066, -0.25, 2.17413)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2066, -0.869906, 2.17413)
 shape = SubResource("BoxShape3D_yfo43")
 
 [node name="LavaPlane" type="MeshInstance3D" parent="." index="18"]
@@ -527,5 +526,3 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.8683
 
 [node name="SmokeParticles2" parent="." index="22" instance=ExtResource("16_1jb32")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.37539, 54.7115, 18.376)
-
-[connection signal="s_lava_hit" from="LavaFloor" to="." method="reset"]

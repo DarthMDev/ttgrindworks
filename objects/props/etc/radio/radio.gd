@@ -6,7 +6,7 @@ const MAX_DIST := 20.0
 
 func _ready() -> void:
 	music_player.finished.connect(func(): music_player.play())
-	
+	Globals.s_radio_spawned.emit(self)
 
 func _process(_delta : float) -> void:
 	var player_dist := get_player_distance()

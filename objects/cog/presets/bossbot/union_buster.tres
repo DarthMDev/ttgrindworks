@@ -17,6 +17,8 @@ department = 3
 suit = 1
 cog_name = "Union Buster"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("5_ipvxg")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -32,7 +34,7 @@ level_high = 20
 status_effects = Array[ExtResource("8_mvwwv")]([ExtResource("8_t203t"), ExtResource("9_fy7td"), ExtResource("10_0qqr8")])
 is_mod_cog = false
 is_admin = false
-health_mod = 4.87
+health_mod = 5.952
 battle_phrases = Array[String](["I am going to bust some unions."])
 external_assets = {
 &"head_model": "",

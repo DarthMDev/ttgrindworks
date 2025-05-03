@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://it2qq8y17ofu"]
 
 [ext_resource type="Texture2D" uid="uid://b2jvjm0w36ykn" path="res://models/props/gags/whistle/whistle_whistle_side.png" id="1_kg7tu"]
-[ext_resource type="Texture2D" uid="uid://cl6wqyv3m4nln" path="res://models/props/gags/whistle/whistle_whistle_mouth.png" id="2_fii0l"]
+[ext_resource type="Texture2D" uid="uid://dq8uevhp8wylc" path="res://models/props/gags/whistle/whistle_whistle_mouth.png" id="2_fii0l"]
 [ext_resource type="Texture2D" uid="uid://maerg5txvjga" path="res://models/props/gags/whistle/whistle_whistle_top.png" id="3_qkibo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6175j"]

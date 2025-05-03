@@ -34,37 +34,29 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"SeemFix_BossbotMaze_A_landscape_lambert11": {
+"CogHedgeFar2": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
+"use_external/path": "uid://c3vi6h4mq71ow"
 },
-"branches_lambert169": {
+"CogHedgeMaze2": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
+"use_external/path": "uid://bv4ojtkb3obxf"
 },
-"fartrees_lambert156": {
+"CogHedgeMaze3": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/tree_mat.tres"
+"use_external/path": "uid://c3vi6h4mq71ow"
 },
-"hedgeFix_fartrees_lambert156": {
+"CogHedgeVine": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/tree_mat.tres"
+"use_external/path": "uid://do7bpsdy2nk"
 },
-"lambert164": {
+"CogThinTree": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_full.tres"
+"use_external/path": "uid://do7bpsdy2nk"
 },
-"lambert173": {
+"mazedirt_golf": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres"
-},
-"lambert174": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
-},
-"treefix_landscape_lambert2": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
+"use_external/path": "uid://dlodnyf0k6y17"
 }
 }
 }

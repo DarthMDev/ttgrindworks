@@ -2,26 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq4ofp034xs5u"
-path.s3tc="res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.s3tc.ctex"
-path.etc2="res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.etc2.ctex"
+uid="uid://bmrck0rm7ftau"
+path="res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "3cd3744e7cb31f13b6722ab1bb854935"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/props/cog_props/rolodex/rolodex_roll_o_dex_pages.png"
-dest_files=["res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.s3tc.ctex", "res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.etc2.ctex"]
+dest_files=["res://.godot/imported/rolodex_roll_o_dex_pages.png-a41fe74e3ba37f788b11f7267828679a.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=3
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

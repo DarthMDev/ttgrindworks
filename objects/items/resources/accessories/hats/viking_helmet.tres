@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://g37ycfsrbpep"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://byx36i8mmo2hq"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_n4gr2"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_1u72o"]
@@ -43,33 +43,33 @@ scale = Vector3(0.46, 0.46, 0.46)
 script = ExtResource("2_70505")
 species = 1
 head_index = 3
-position = Vector3(0, -0.57, -0.06)
-rotation = Vector3(-24.54, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.63, -0.05)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_h5u4a"]
 script = ExtResource("2_70505")
 species = 1
 head_index = 2
-position = Vector3(0, -0.57, -0.06)
-rotation = Vector3(-24.54, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.63, -0.05)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_l31d8"]
 script = ExtResource("2_70505")
 species = 1
 head_index = 1
-position = Vector3(0, -0.35, 0)
-rotation = Vector3(-13.91, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.5, -0.03)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_pwl53"]
 script = ExtResource("2_70505")
 species = 1
 head_index = 0
-position = Vector3(0, -0.35, 0)
-rotation = Vector3(-13.91, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+position = Vector3(0, -0.5, -0.03)
+rotation = Vector3(-11.07, 0, 0)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_eorbi"]
 script = ExtResource("2_70505")
@@ -282,12 +282,14 @@ scale = Vector3(0.49, 0.51, 0.45)
 [resource]
 script = ExtResource("2_1u72o")
 accessory_placements = Array[ExtResource("1_n4gr2")]([SubResource("Resource_rrsgp"), SubResource("Resource_w0f48"), SubResource("Resource_p720v"), SubResource("Resource_pw4fq"), SubResource("Resource_3nlad"), SubResource("Resource_h5u4a"), SubResource("Resource_l31d8"), SubResource("Resource_pwl53"), SubResource("Resource_eorbi"), SubResource("Resource_wkgtu"), SubResource("Resource_d1ccx"), SubResource("Resource_l37ko"), SubResource("Resource_il614"), SubResource("Resource_uef6j"), SubResource("Resource_w8ij8"), SubResource("Resource_e1rp7"), SubResource("Resource_fpuih"), SubResource("Resource_ot2k5"), SubResource("Resource_kqhf5"), SubResource("Resource_urneo"), SubResource("Resource_0ogul"), SubResource("Resource_6523v"), SubResource("Resource_3cv3v"), SubResource("Resource_aw33a"), SubResource("Resource_2q8l1"), SubResource("Resource_wf5ot"), SubResource("Resource_678as"), SubResource("Resource_o8ldj"), SubResource("Resource_l61h5"), SubResource("Resource_ueuib"), SubResource("Resource_7p38h"), SubResource("Resource_ygob6"), SubResource("Resource_7r3te"), SubResource("Resource_notpw")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Viking Helmet"

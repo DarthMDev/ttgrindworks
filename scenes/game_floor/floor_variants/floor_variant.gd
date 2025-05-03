@@ -2,9 +2,9 @@ extends Resource
 class_name FloorVariant
 
 ## Default Item Pool
-var FALLBACK_REWARD_POOL := LazyLoader.defer("res://objects/items/pools/floor_clears.tres")
+var FALLBACK_REWARD_POOL: ItemPool
 ## Default Cog Pool
-var FALLBACK_COG_POOL := LazyLoader.defer("res://objects/cog/presets/pools/grunt_cogs.tres")
+var FALLBACK_COG_POOL: CogPool
 ## Amount of rooms to add per difficulty (includes connectors)
 const DIFFICULTY_ROOM_ADDITION := 2
 
@@ -12,24 +12,31 @@ const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overheal.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
 ]
 const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_reorganization.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
 ]
 const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_out_of_touch.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_safety_violations.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_time_crunch.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
 ]
 
-const LEVEL_RANGES: Dictionary = {
+const LEVEL_RANGES: Dictionary[int, Array] = {
 	0: [1, 3],
 	1: [2, 5],
 	2: [3, 7],
-	3: [5, 9],
-	4: [7, 12],
-	5: [8, 14],
+	3: [6, 10],
+	4: [8, 13],
+	5: [9, 15],
 }
 
 ## Floor difficulty from 0-5
@@ -65,7 +72,7 @@ const LEVEL_RANGES: Dictionary = {
 @export var anomalies: Array[Script] = []
 @export var reward: Item
 @export var level_range := Vector2i(1,12)
-@export var room_count := 13
+@export var room_count := 11
 @export var discard_item: Item
 
 
@@ -73,13 +80,11 @@ const LEVEL_RANGES: Dictionary = {
 var has_power_out := false
 var anomaly_count := 0
 
-
-func _notification(what: int):
-	if what == NOTIFICATION_PREDELETE:
-		# These fallbacks may never be realized, so we need to ensure
-		# their LazyLoader threads are cleaned up.
-		FALLBACK_REWARD_POOL.ensure_realized()
-		FALLBACK_COG_POOL.ensure_realized()
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'FALLBACK_REWARD_POOL': 'res://objects/items/pools/floor_clears.tres',
+		'FALLBACK_COG_POOL': 'res://objects/cog/presets/pools/grunt_cogs.tres',
+	})
 
 func get_anomalies() -> Array[Script]:
 	var mods: Array[Script] = []
@@ -139,22 +144,35 @@ func randomize_details() -> void:
 		modifiers.append(anomaly)
 	
 	floor_difficulty = Util.floor_number + 1
-	level_range.x = LEVEL_RANGES[floor_difficulty][0]
-	level_range.y = LEVEL_RANGES[floor_difficulty][1]
+	if not floor_difficulty in LEVEL_RANGES.keys():
+		level_range = get_calculated_level_range(floor_difficulty)
+	else:
+		level_range.x = LEVEL_RANGES[floor_difficulty][0]
+		level_range.y = LEVEL_RANGES[floor_difficulty][1]
 	
 	# Add onto the room count for the difficulty
 	room_count += DIFFICULTY_ROOM_ADDITION * floor_difficulty
 	
 	# Get the default Cog Pool if none specified
 	if not cog_pool:
-		cog_pool = FALLBACK_COG_POOL.load()
+		cog_pool = FALLBACK_COG_POOL
+
+## Simple failsafe backend for mods or if we're ever testing on floors > 5
+## I will not be testing how well balanced this is
+## You modders can do that one yourselves I believe in you
+func get_calculated_level_range(difficulty: int) -> Vector2i:
+	var base_range := Vector2i(LEVEL_RANGES[5][0], LEVEL_RANGES[5][1])
+	base_range *= (Util.floor_number ** Globals.floor_difficulty_increase)
+	return base_range
 
 func randomize_item() -> void:
 	if not reward_pool:
-		reward_pool = FALLBACK_REWARD_POOL.load()
+		reward_pool = FALLBACK_REWARD_POOL
 	reward = ItemService.get_random_item(reward_pool,true)
 	if not reward.evergreen:
 		discard_item = reward
+	else:
+		reward = reward.duplicate()
 	
 	# Handle rerolls
 	if not reward.s_reroll.is_connected(reward_rerolled):
@@ -175,3 +193,30 @@ func clear() -> void:
 		if modifiers.size() > i:
 			modifiers.remove_at(i)
 	anomalies.clear()
+
+
+const NEW_ANOMALY_BLOCKLIST := [
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
+]
+## Returns a new, compatible anomaly during a game floor
+func get_new_anomaly() -> Script:
+	var new_anomaly : Script
+	var no_negative : bool = Util.get_player().no_negative_anomalies
+	var possible_anomalies : Array[String] = []
+	possible_anomalies.append_array(ANOMALIES_POSITIVE)
+	possible_anomalies.append_array(ANOMALIES_NEUTRAL)
+	if not no_negative:
+		possible_anomalies.append_array(ANOMALIES_NEGATIVE)
+	
+	while not new_anomaly and not possible_anomalies.is_empty():
+		RandomService.array_shuffle_channel('true_random', possible_anomalies)
+		new_anomaly = load(possible_anomalies.pop_back())
+		if new_anomaly.resource_path in NEW_ANOMALY_BLOCKLIST:
+			new_anomaly = null
+			continue
+		for mod in modifiers:
+			if mod.resource_path == new_anomaly.resource_path:
+				new_anomaly = null
+				break
+	return new_anomaly

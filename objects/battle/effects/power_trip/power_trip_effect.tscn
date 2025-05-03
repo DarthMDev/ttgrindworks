@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=4 uid="uid://dkyrkrfkg5esa"]
+
+[ext_resource type="Script" uid="uid://dh2t45816c7vi" path="res://objects/battle/effects/sparkle_effect.gd" id="1_0ejg4"]
+
+[sub_resource type="Curve" id="Curve_4rs3h"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5v1v3"]
+curve = SubResource("Curve_4rs3h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gx2gh"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(2, 0, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 13.065)
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 0.3
+initial_velocity_max = 7.6
+gravity = Vector3(0, 0, 0)
+damping_curve = SubResource("CurveTexture_5v1v3")
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rs3h"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6naio"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAARZgAAAAAAAAAAIAJT5QAAAAAAAIA/AAARZgAAgD8AAIA/IAJT5QAAgD8AAAAAAAARZgAAAAAAAAAAIAJT5QAAAAAAAIA/AAARZgAAgD8AAIA/IAJT5QAAgD8AAAAAAAARZgAAAAAAAAAAIAJT5QAAAAAAAIA/AAARZgAAgD8AAIA/IAJT5QAAgD8AAAAA"),
+"format": 34359738393,
+"material": SubResource("StandardMaterial3D_4rs3h"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC/")
+}]
+
+[node name="PowerTripEffect" type="GPUParticles3D"]
+amount = 60
+lifetime = 0.75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_gx2gh")
+draw_pass_1 = SubResource("ArrayMesh_6naio")
+script = ExtResource("1_0ejg4")
+center_color = Color(0, 0, 0.067, 0.4)
+edge_color = Color(0.126, 0.01, 0.328, 0.9)
+metadata/_custom_type_script = "uid://dh2t45816c7vi"

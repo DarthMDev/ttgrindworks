@@ -1,0 +1,338 @@
+[gd_scene load_steps=23 format=3 uid="uid://dm5ow2iwvvc18"]
+
+[ext_resource type="Script" uid="uid://cucn50tn6lh8g" path="res://objects/interactables/lawbot_puzzles/puzzle_boss_objects/matching_boss_ui.gd" id="1_6exft"]
+[ext_resource type="Texture2D" uid="uid://5cgeqcjs5tit" path="res://ui_assets/misc/prog_bar_test.png" id="1_qk2l3"]
+[ext_resource type="Texture2D" uid="uid://b11vxj2htaejy" path="res://ui_assets/misc/prog_bar_test_border.png" id="2_qu0bo"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_6exft"]
+[ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="4_g2fdv"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="5_qu0bo"]
+[ext_resource type="Texture2D" uid="uid://dx0gic683m38x" path="res://ui_assets/battle/head_of_security/tv frame.png" id="7_7wnsh"]
+[ext_resource type="Texture2D" uid="uid://c15fvubkgdr6r" path="res://ui_assets/battle/head_of_security/screen.png" id="8_gi5ch"]
+[ext_resource type="Shader" uid="uid://uqhqqeoicmlj" path="res://general_resources/shaders/uv_rotater.gdshader" id="9_ho4kr"]
+[ext_resource type="Texture2D" uid="uid://c5jrblneuwmgr" path="res://ui_assets/battle/head_of_security/static and noise.png" id="9_qf5vo"]
+[ext_resource type="Texture2D" uid="uid://c6qb2t7smf335" path="res://ui_assets/battle/head_of_security/dial.png" id="10_ho4kr"]
+[ext_resource type="Texture2D" uid="uid://b4k2hghn4utdu" path="res://ui_assets/battle/head_of_security/red bulb unlit.png" id="11_dqepr"]
+[ext_resource type="Shader" uid="uid://b0lr4bpu6qqfa" path="res://general_resources/shaders/circle_mask.gdshader" id="12_gi5ch"]
+[ext_resource type="Texture2D" uid="uid://dqxw6j665hk00" path="res://ui_assets/battle/head_of_security/red bulb lit.png" id="12_ubwts"]
+[ext_resource type="Texture2D" uid="uid://cpsajf71hhwj8" path="res://ui_assets/battle/head_of_security/green bulb unlit.png" id="13_4vfde"]
+[ext_resource type="Texture2D" uid="uid://c2cwcop3gkmht" path="res://ui_assets/battle/head_of_security/green bulb lit.png" id="14_54l54"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg2f1"]
+font = ExtResource("3_6exft")
+font_size = 36
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsgd8"]
+font = ExtResource("4_g2fdv")
+font_size = 36
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6exft"]
+font = ExtResource("5_qu0bo")
+font_size = 24
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqepr"]
+shader = ExtResource("9_ho4kr")
+shader_parameter/speed = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf5vo"]
+shader = ExtResource("12_gi5ch")
+shader_parameter/tex = ExtResource("12_ubwts")
+shader_parameter/radius = 0.0
+shader_parameter/feather = 0.4
+shader_parameter/origin = Vector2(0.595, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ho4kr"]
+shader = ExtResource("12_gi5ch")
+shader_parameter/tex = ExtResource("14_54l54")
+shader_parameter/radius = 0.0
+shader_parameter/feather = 0.4
+shader_parameter/origin = Vector2(0.5, 0.5)
+
+[node name="MatchingBossUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6exft")
+
+[node name="ProgBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -92.0
+offset_right = 210.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 0.01
+value = 50.01
+texture_under = ExtResource("1_qk2l3")
+texture_over = ExtResource("2_qu0bo")
+texture_progress = ExtResource("1_qk2l3")
+tint_under = Color(1, 0, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="TriangleLabel" type="Label" parent="ProgBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = -23.0
+offset_right = 74.0
+offset_bottom = 23.0
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_eg2f1")
+
+[node name="SquareLabel" type="Label" parent="ProgBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -23.0
+offset_right = -12.0
+offset_bottom = 23.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_tsgd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -121.0
+offset_right = 157.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Matching!"
+label_settings = SubResource("LabelSettings_6exft")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TVFrame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -159.0
+offset_right = 121.026
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_7wnsh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Screen" type="TextureRect" parent="TVFrame"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5128
+offset_top = -65.0
+offset_right = 99.7501
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_gi5ch")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Static" type="TextureRect" parent="TVFrame/Screen"]
+material = SubResource("ShaderMaterial_dqepr")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.6315
+offset_top = -39.5
+offset_right = 100.631
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_qf5vo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Dial" type="TextureRect" parent="TVFrame/Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.63148
+offset_top = -25.5
+offset_right = 7.42116
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ho4kr")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CogMarker" type="ColorRect" parent="TVFrame/Screen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.6315
+offset_top = -38.5
+offset_right = -89.6315
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToonMarker" type="ColorRect" parent="TVFrame/Screen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 89.3685
+offset_top = -38.5
+offset_right = 93.3685
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RedBulb" type="Control" parent="TVFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.513
+offset_top = -53.0
+offset_right = -104.513
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Unlit" type="TextureRect" parent="TVFrame/RedBulb"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.462
+offset_top = -44.5
+offset_bottom = 44.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("11_dqepr")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Lit" type="TextureRect" parent="TVFrame/RedBulb"]
+z_index = -1
+material = SubResource("ShaderMaterial_qf5vo")
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.462
+offset_top = -44.5
+offset_bottom = 44.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("12_ubwts")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="GreenBulb" type="Control" parent="TVFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 105.487
+offset_top = -51.0
+offset_right = 145.487
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Unlit" type="TextureRect" parent="TVFrame/GreenBulb"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -44.5
+offset_right = 114.462
+offset_bottom = 44.5
+grow_vertical = 2
+texture = ExtResource("13_4vfde")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Lit" type="TextureRect" parent="TVFrame/GreenBulb"]
+z_index = -1
+material = SubResource("ShaderMaterial_ho4kr")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -44.5
+offset_right = 114.462
+offset_bottom = 44.5
+grow_vertical = 2
+texture = ExtResource("14_54l54")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="value_changed" from="ProgBar" to="." method="update_labels"]

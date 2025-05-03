@@ -32,6 +32,13 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"tt_t_chr_avt_acc_msk_dorkGlassesShader": {
+"use_external/enabled": true,
+"use_external/path": "uid://c2wgr575w7lv4"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

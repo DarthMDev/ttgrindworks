@@ -1,46 +1,48 @@
-[gd_scene load_steps=99 format=3 uid="uid://cha3dccp1m281"]
+[gd_scene load_steps=104 format=3 uid="uid://cha3dccp1m281"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_py1ix"]
 [ext_resource type="Script" uid="uid://b2tqjgqv6xn1p" path="res://scenes/title_screen/credits/credits_panel.gd" id="2_3oeyj"]
 [ext_resource type="Texture2D" uid="uid://c1u45a4o8oyty" path="res://icon.svg" id="2_s4vxw"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_8rgp0"]
 [ext_resource type="Script" uid="uid://cjlnrijv3rd4r" path="res://scenes/title_screen/credits/game_credit.gd" id="3_ksngi"]
-[ext_resource type="Texture2D" uid="uid://c66ylu6x3jihn" path="res://scenes/title_screen/credits/icons/icon_evan.jpg" id="4_h6qo8"]
+[ext_resource type="Texture2D" uid="uid://c3hrw7tgrcqf3" path="res://scenes/title_screen/credits/icons/icon_evan.png" id="4_bsh7l"]
 [ext_resource type="Texture2D" uid="uid://cvyhl11ep7ahe" path="res://scenes/title_screen/credits/icons/icon_buck.png" id="4_hafue"]
-[ext_resource type="Texture2D" uid="uid://ctkpc50wxpiya" path="res://scenes/title_screen/credits/icons/icon_loonatic.jpg" id="5_n30h7"]
-[ext_resource type="Texture2D" uid="uid://bc4r4ehhtk5q5" path="res://scenes/title_screen/credits/icons/icon_lav.jpg" id="6_sndmm"]
-[ext_resource type="Texture2D" uid="uid://deseqjtcy8y0c" path="res://scenes/title_screen/credits/icons/icon_kel.jpg" id="7_18ybd"]
-[ext_resource type="Texture2D" uid="uid://ncxhietbcbe0" path="res://scenes/title_screen/credits/icons/icon_eli.jpg" id="8_igbbe"]
-[ext_resource type="Texture2D" uid="uid://cd4y1a6cujeqn" path="res://scenes/title_screen/credits/icons/icon_unfinished.jpg" id="9_efc6d"]
-[ext_resource type="Texture2D" uid="uid://cvgtofwbt0km0" path="res://scenes/title_screen/credits/icons/icon_elisei.jpg" id="10_ulfld"]
-[ext_resource type="Texture2D" uid="uid://vks8vogr7xe7" path="res://scenes/title_screen/credits/icons/icon_jake.jpg" id="11_bjiit"]
-[ext_resource type="Texture2D" uid="uid://cjsm27bt12pp3" path="res://scenes/title_screen/credits/icons/icon_supergoose.jpg" id="12_ed774"]
+[ext_resource type="Texture2D" uid="uid://cts7wacmb7mlp" path="res://scenes/title_screen/credits/icons/icon_kel.png" id="10_edme2"]
+[ext_resource type="Texture2D" uid="uid://b3knce3d3qmqx" path="res://scenes/title_screen/credits/icons/icon_elisei.png" id="11_ohq2p"]
 [ext_resource type="Texture2D" uid="uid://4akr1gdn66rb" path="res://scenes/title_screen/credits/icons/icon_neo.png" id="12_fxlu6"]
-[ext_resource type="Texture2D" uid="uid://c578yaohk6yds" path="res://scenes/title_screen/credits/icons/icon_niko.jpg" id="13_jkk5t"]
+[ext_resource type="Texture2D" uid="uid://cb5uc4127b72a" path="res://scenes/title_screen/credits/icons/icon_boots.png" id="14_ec610"]
 [ext_resource type="Texture2D" uid="uid://dp635llkm2o8" path="res://scenes/title_screen/credits/icons/icon_raine.png" id="14_n64th"]
-[ext_resource type="Texture2D" uid="uid://bkmrf3ukawv1q" path="res://scenes/title_screen/credits/icons/icon_greetings.jpg" id="14_ronfa"]
-[ext_resource type="Texture2D" uid="uid://dm27n5rcm3txl" path="res://scenes/title_screen/credits/icons/icon_misty.jpg" id="15_bvjdg"]
-[ext_resource type="Texture2D" uid="uid://cntsw6dq7qa1m" path="res://scenes/title_screen/credits/icons/icon_sketched.jpg" id="16_byarp"]
+[ext_resource type="Texture2D" uid="uid://cfg26424rhcc6" path="res://scenes/title_screen/credits/icons/icon_peppersnoop.png" id="15_e66o5"]
+[ext_resource type="Texture2D" uid="uid://cmedoadynqgww" path="res://scenes/title_screen/credits/icons/icon_sketched.png" id="16_byarp"]
+[ext_resource type="Texture2D" uid="uid://cvrjrpfjlstgx" path="res://scenes/title_screen/credits/icons/icon_loonatic.png" id="16_wxm28"]
+[ext_resource type="Texture2D" uid="uid://btn4vae50fxj7" path="res://scenes/title_screen/credits/icons/icon_lav.png" id="17_ent56"]
 [ext_resource type="Texture2D" uid="uid://uxtakxpjqdwr" path="res://scenes/title_screen/credits/icons/icon_goat.png" id="17_i8d8j"]
 [ext_resource type="Texture2D" uid="uid://bjga653jb1eoe" path="res://scenes/title_screen/credits/icons/icon_blu.png" id="17_k5w5c"]
 [ext_resource type="Texture2D" uid="uid://bj1y1uiss30dg" path="res://scenes/title_screen/credits/icons/icon_john.png" id="18_b78ew"]
-[ext_resource type="Texture2D" uid="uid://ds2d6m1x2dare" path="res://scenes/title_screen/credits/icons/icon_stuck.jpg" id="18_jfa0w"]
-[ext_resource type="Texture2D" uid="uid://8xbitr75p1tp" path="res://scenes/title_screen/credits/icons/icon_evh.jpg" id="19_12m3w"]
+[ext_resource type="Texture2D" uid="uid://cj454u3a2jn07" path="res://scenes/title_screen/credits/icons/icon_eli.png" id="18_yf430"]
+[ext_resource type="Texture2D" uid="uid://bleneovuehtr8" path="res://scenes/title_screen/credits/icons/icon_unfinished.png" id="19_5t5bw"]
+[ext_resource type="Texture2D" uid="uid://c5qsdunp78trl" path="res://scenes/title_screen/credits/icons/icon_jake.png" id="22_3wdtd"]
 [ext_resource type="Texture2D" uid="uid://2irere7p5yay" path="res://scenes/title_screen/credits/icons/icon_you.png" id="22_x0h0m"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="23_dkcqs"]
-[ext_resource type="Texture2D" uid="uid://cfrtoxhs6fotd" path="res://scenes/title_screen/credits/icons/icon_boots.jpg" id="23_m1mdq"]
+[ext_resource type="Texture2D" uid="uid://b6lbbeltodhlp" path="res://scenes/title_screen/credits/icons/icon_misty.png" id="23_tgaj4"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="23_ts00s"]
 [ext_resource type="Theme" uid="uid://dhqxwi6busihb" path="res://objects/general_ui/settings_menu/slider_theme.tres" id="24_gujno"]
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="24_kw4b7"]
 [ext_resource type="Texture2D" uid="uid://decaeba2ox0yf" path="res://scenes/title_screen/credits/icons/icon_moth.png" id="24_q8jnd"]
+[ext_resource type="Texture2D" uid="uid://llasq7idkgee" path="res://scenes/title_screen/credits/icons/icon_stuck.png" id="24_xdhb6"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="25_o5hyb"]
+[ext_resource type="Texture2D" uid="uid://bmu7my3q74rj1" path="res://scenes/title_screen/credits/icons/icon_niko.png" id="25_ru8qe"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="26_vw3sy"]
 [ext_resource type="Texture2D" uid="uid://bkcjr8w1brcn1" path="res://scenes/title_screen/credits/icons/icon_demetri.png" id="27_bxmax"]
+[ext_resource type="Texture2D" uid="uid://dmwk3sj172e1t" path="res://scenes/title_screen/credits/icons/icon_supergoose.png" id="27_ced4h"]
 [ext_resource type="Texture2D" uid="uid://ngsvdsnhp76n" path="res://scenes/title_screen/credits/icons/icon_sandy.png" id="27_xwo8y"]
 [ext_resource type="Texture2D" uid="uid://b58id8ex3i11a" path="res://scenes/title_screen/credits/icons/icon_dj.png" id="28_5eg4f"]
 [ext_resource type="Texture2D" uid="uid://c663pknfxf1mk" path="res://scenes/title_screen/credits/icons/icon_squiddy.png" id="29_id6o1"]
 [ext_resource type="Texture2D" uid="uid://cyuwqr76tu2ae" path="res://scenes/title_screen/credits/icons/icon_trd.png" id="29_p23p7"]
-[ext_resource type="Texture2D" uid="uid://c37iueu6orhrx" path="res://scenes/title_screen/credits/icons/icon_blu_toon.jpg" id="30_5eg4f"]
+[ext_resource type="Texture2D" uid="uid://b375rhlwbechh" path="res://scenes/title_screen/credits/icons/icon_greetings.png" id="29_qn4cl"]
+[ext_resource type="Texture2D" uid="uid://bk67why3saua1" path="res://scenes/title_screen/credits/icons/icon_evh.png" id="30_k0n1y"]
+[ext_resource type="Texture2D" uid="uid://cxgdaa2ob5wme" path="res://scenes/title_screen/credits/icons/icon_blu_toon.png" id="32_yfxw4"]
+[ext_resource type="Texture2D" uid="uid://ctm0g411jlmlq" path="res://scenes/title_screen/credits/icons/icon_erin.png" id="35_edme2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yadbj"]
 font = ExtResource("3_8rgp0")
@@ -52,7 +54,7 @@ shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 
 [sub_resource type="Resource" id="Resource_ttvt2"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("4_h6qo8")
+icon = ExtResource("4_bsh7l")
 name = "Evan"
 role = "Project Lead, Programmer & Game Designer"
 label_settings = SubResource("LabelSettings_yadbj")
@@ -112,13 +114,13 @@ shadow_color = Color(0.356863, 0.188235, 0.435294, 0.686275)
 script = ExtResource("3_ksngi")
 icon = ExtResource("29_id6o1")
 name = "squiddy"
-role = "Programmer"
+role = "Programmer, 3D & Texture Artist"
 label_settings = SubResource("LabelSettings_bsh7l")
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_2m611"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("7_18ybd")
+icon = ExtResource("10_edme2")
 name = "Kel'Block"
 role = "3D Artist, Animator & Texture Artist"
 label_settings = SubResource("LabelSettings_yadbj")
@@ -133,7 +135,7 @@ shadow_color = Color(0.10713, 0.285534, 0.308891, 0.713726)
 
 [sub_resource type="Resource" id="Resource_1oxjh"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("10_ulfld")
+icon = ExtResource("11_ohq2p")
 name = "Elisei"
 role = "3D Artist & Texture Artist"
 label_settings = SubResource("LabelSettings_2akq4")
@@ -150,7 +152,7 @@ shadow_color = Color(0.0368, 0.23, 0.1817, 0.501961)
 script = ExtResource("3_ksngi")
 icon = ExtResource("12_fxlu6")
 name = "neoNote"
-role = "3D Artist, Texture Artist & Sound Designer"
+role = "3D Artist, Texture Artist, Sound & Game Designer"
 label_settings = SubResource("LabelSettings_q52wn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_sejxq"]
@@ -178,10 +180,26 @@ shadow_color = Color(0.455467, 0.224786, 0.0267251, 0.345)
 
 [sub_resource type="Resource" id="Resource_7gmnw"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("23_m1mdq")
+icon = ExtResource("14_ec610")
 name = "Boots"
 role = "3D Artist & Animator"
 label_settings = SubResource("LabelSettings_fh015")
+
+[sub_resource type="LabelSettings" id="LabelSettings_edme2"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.909804, 0.34902, 0.176471, 1)
+outline_color = Color(1.50409e-07, 0, 0.157023, 1)
+shadow_size = 4
+shadow_color = Color(0.30054, 0.0826133, 0.0169427, 0.443137)
+
+[sub_resource type="Resource" id="Resource_ec610"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("15_e66o5")
+name = "Peppersnoop"
+role = "3D Animator"
+label_settings = SubResource("LabelSettings_edme2")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="LabelSettings" id="LabelSettings_f4uvq"]
 font = ExtResource("3_8rgp0")
@@ -193,7 +211,7 @@ shadow_color = Color(0.241208, 0.0153124, 0.118658, 0.501961)
 
 [sub_resource type="Resource" id="Resource_7hcke"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("5_n30h7")
+icon = ExtResource("16_wxm28")
 name = "Loonatic"
 role = "Technical Artist & Texture Artist"
 label_settings = SubResource("LabelSettings_f4uvq")
@@ -208,7 +226,7 @@ shadow_color = Color(0.15, 0.02, 0, 0.529412)
 
 [sub_resource type="Resource" id="Resource_5m0kl"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("6_sndmm")
+icon = ExtResource("17_ent56")
 name = "Lavender"
 role = "Logo, Texture & UI Artist"
 label_settings = SubResource("LabelSettings_o3tdj")
@@ -223,7 +241,7 @@ shadow_color = Color(0.10713, 0.285534, 0.308891, 0.713726)
 
 [sub_resource type="Resource" id="Resource_5lw2h"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("8_igbbe")
+icon = ExtResource("18_yf430")
 name = "SleepyEli"
 role = "Achievement Icons"
 label_settings = SubResource("LabelSettings_5bhjy")
@@ -238,7 +256,7 @@ shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 
 [sub_resource type="Resource" id="Resource_qhht1"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("9_efc6d")
+icon = ExtResource("19_5t5bw")
 name = "Unfinished"
 role = "Composer"
 label_settings = SubResource("LabelSettings_hh8xr")
@@ -282,7 +300,7 @@ shadow_color = Color(0.064, 0.1368, 0.4, 0.584314)
 
 [sub_resource type="Resource" id="Resource_4b13b"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("11_bjiit")
+icon = ExtResource("22_3wdtd")
 name = "Jake Henderson"
 role = "Writer & Game Designer"
 label_settings = SubResource("LabelSettings_dxg0f")
@@ -297,7 +315,7 @@ shadow_color = Color(0.370647, 0.0954, 0.53, 0.572549)
 
 [sub_resource type="Resource" id="Resource_2bp18"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("15_bvjdg")
+icon = ExtResource("23_tgaj4")
 name = "LadyMisticus"
 role = "Writer & Character Designer"
 label_settings = SubResource("LabelSettings_lp0s0")
@@ -312,7 +330,7 @@ shadow_color = Color(0.0861411, 0.321197, 0.101117, 0.58)
 
 [sub_resource type="Resource" id="Resource_dgyyg"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("18_jfa0w")
+icon = ExtResource("24_xdhb6")
 name = "StuckTheDuck"
 role = "Writer, Game Designer & Polisher"
 label_settings = SubResource("LabelSettings_01t16")
@@ -328,9 +346,9 @@ shadow_color = Color(0.256003, 0.000672724, 0.430362, 0.411)
 
 [sub_resource type="Resource" id="Resource_coqfa"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("13_jkk5t")
+icon = ExtResource("25_ru8qe")
 name = "Niko Frost"
-role = "Quality Assurance"
+role = "Game Designer"
 label_settings = SubResource("LabelSettings_rf1qn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lu6ox"]
@@ -350,7 +368,7 @@ label_settings = SubResource("LabelSettings_lu6ox")
 
 [sub_resource type="Resource" id="Resource_ol1pa"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("12_ed774")
+icon = ExtResource("27_ced4h")
 name = "Supergoose"
 role = "Quality Assurance"
 label_settings = SubResource("LabelSettings_5bhjy")
@@ -380,16 +398,23 @@ shadow_color = Color(0.064, 0.137, 0.4, 0.58)
 
 [sub_resource type="Resource" id="Resource_m42v0"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("14_ronfa")
+icon = ExtResource("29_qn4cl")
 name = "Greetings"
 role = "Consultant"
 label_settings = SubResource("LabelSettings_bxmax")
 
 [sub_resource type="Resource" id="Resource_c5kur"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("19_12m3w")
+icon = ExtResource("30_k0n1y")
 name = "Toontown: Event Horizon"
 role = "Cog Rigs"
+
+[sub_resource type="Resource" id="Resource_e66o5"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("35_edme2")
+name = "Erin (Cosmic)"
+role = ""
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_daahu"]
 script = ExtResource("3_ksngi")
@@ -399,7 +424,7 @@ role = ""
 
 [sub_resource type="Resource" id="Resource_bsh7l"]
 script = ExtResource("3_ksngi")
-icon = ExtResource("30_5eg4f")
+icon = ExtResource("32_yfxw4")
 name = "Just a BLU Toon"
 role = ""
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
@@ -453,8 +478,8 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur")])
-special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur")])
+special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_e66o5"), SubResource("Resource_daahu"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
 

@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cov8sw7eluipo"]
+[gd_scene load_steps=7 format=3 uid="uid://mmocb33ecqd6"]
 
-[ext_resource type="Script" uid="uid://dgm8xffhe5pw4" path="res://objects/obstacles/stomper/stomper.gd" id="1_5ymn8"]
+[ext_resource type="Script" uid="uid://ccu8cjbascy0n" path="res://objects/obstacles/stomper/stomper.gd" id="1_5ymn8"]
+[ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="2_ofv0e"]
+[ext_resource type="PackedScene" uid="uid://cymudv3pxuhlj" path="res://models/props/facility_objects/da_office/stomper/law_stomper.fbx" id="3_jv448"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2nj4q"]
+points = PackedVector3Array(-6.30843, -6.30843, 11.7799, 9.02536, 9.02536, 9.42646, 9.18218, 9.18218, 0.0191, 9.18218, -9.18218, 0.0191, -9.18218, 9.18218, 0.0191, -9.18218, -9.18218, 0.0191, 9.02649, -9.02649, 9.42577, -9.02649, 9.02649, 9.42577, 6.30843, 6.30843, 11.7799, -9.02649, -9.02649, 9.42577, -6.30843, 6.30843, 11.7799, 6.30843, -6.30843, 11.7799)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ofv0e"]
+height = 8.42603
+radius = 1.28955
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jv448"]
+size = Vector3(0.609924, 0.0248394, 0.610602)
 
 [node name="Stomper" type="Node3D"]
 script = ExtResource("1_5ymn8")
@@ -14,3 +26,58 @@ bus = &"Ambient"
 [node name="DelayTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Model" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="stomper" parent="Model" instance=ExtResource("2_ofv0e")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="head2" parent="Model/stomper/square__stomper/head" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.649)
+
+[node name="GeometryTransformHelper2" parent="Model/stomper/square__stomper/head/head2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.649)
+
+[node name="shaft" parent="Model/stomper/square__stomper/head" index="2"]
+transform = Transform3D(0.995748, 0, 0, 0, 0.995748, 1.07036e-14, 0, -1.06581e-14, 1, 0, 5.68434e-14, 9.234)
+
+[node name="shaft_collisions" parent="Model/stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Model/stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="law_stomper" parent="Model" instance=ExtResource("3_jv448")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="shaft_collisions" parent="Model/law_stomper/square__stomper/head/shaft" index="2"]
+visible = false
+
+[node name="head_collisions" parent="Model/law_stomper/square__stomper/head" index="3"]
+visible = false
+
+[node name="HeadCollision" type="StaticBody3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/HeadCollision"]
+transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 4.49727e-16, -4.24683e-06)
+shape = SubResource("ConvexPolygonShape3D_2nj4q")
+
+[node name="ShaftCollision" type="StaticBody3D" parent="Model"]
+transform = Transform3D(0.137931, 0, 0, 0, 0.137931, 0, 0, 0, 0.137931, 0, 0.462, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ShaftCollision"]
+shape = SubResource("CylinderShape3D_ofv0e")
+
+[node name="PlayerDetection" type="Area3D" parent="Model"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/PlayerDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00112915, -0.00119627, 0.000608981)
+shape = SubResource("BoxShape3D_jv448")
+
+[editable path="Model/stomper"]
+[editable path="Model/law_stomper"]

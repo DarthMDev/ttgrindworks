@@ -1,0 +1,108 @@
+[gd_scene load_steps=20 format=3 uid="uid://56384y1xd5uq"]
+
+[ext_resource type="PackedScene" uid="uid://wlm1xmexjdrc" path="res://models/props/gags/geyser-revamp/Geyser.fbx" id="1_nlsrc"]
+[ext_resource type="Script" uid="uid://wihfblnkhqky" path="res://models/props/gags/geyser-revamp/geyser.gd" id="2_j8oiw"]
+[ext_resource type="Shader" uid="uid://cuw0j7rwy4nur" path="res://models/props/gags/geyser-revamp/Geyser.tres" id="2_jlmc6"]
+[ext_resource type="Texture2D" uid="uid://bycxx8tvxn2xm" path="res://models/props/gags/geyser-revamp/geyser_2.png" id="3_163o6"]
+[ext_resource type="Texture2D" uid="uid://bvbykhryh368u" path="res://models/props/gags/firehose/hydrant_drop-shadow.png" id="4_f3l8q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_163o6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_jlmc6")
+shader_parameter/color_parameter = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_f3l8q"]
+_data = [Vector2(0, 0), 0.0, 5.3995, 0, 0, Vector2(0.765472, 0.00789475), -0.13465, -0.13465, 0, 0, Vector2(1, 0), -0.186411, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8oiw"]
+curve = SubResource("Curve_f3l8q")
+
+[sub_resource type="Gradient" id="Gradient_f3l8q"]
+offsets = PackedFloat32Array(0.261062, 1)
+colors = PackedColorArray(0.509791, 0.966552, 0.999999, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j8oiw"]
+gradient = SubResource("Gradient_f3l8q")
+
+[sub_resource type="Curve" id="Curve_163o6"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 61.5132, 0, 1, Vector2(1, 61.5132), 61.5132, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f3l8q"]
+curve = SubResource("Curve_163o6")
+
+[sub_resource type="Curve" id="Curve_cvbvy"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2nnuy"]
+curve = SubResource("Curve_cvbvy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vtmhi"]
+angle_min = -360.0
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 2.25
+initial_velocity_max = 2.25
+gravity = Vector3(0, -4, 0)
+damping_max = 0.702
+damping_curve = SubResource("CurveTexture_f3l8q")
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_2nnuy")
+color_ramp = SubResource("GradientTexture1D_j8oiw")
+alpha_curve = SubResource("CurveTexture_j8oiw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdlog"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_163o6")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_dp2wo"]
+material = SubResource("StandardMaterial3D_wdlog")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8oiw"]
+resource_name = "toon_props_cvs_PICTURES_drop_shadow_picShader"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("4_f3l8q")
+roughness = 0.552786
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ld8p5"]
+material = SubResource("StandardMaterial3D_j8oiw")
+
+[node name="Geyser" instance=ExtResource("1_nlsrc")]
+script = ExtResource("2_j8oiw")
+
+[node name="geyserRise" parent="." index="0"]
+unique_name_in_owner = true
+surface_material_override/0 = SubResource("ShaderMaterial_163o6")
+
+[node name="Particles" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78411, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Particles" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(0.902158, 0, 0, 0, -0.582039, 7.88691e-08, 0, -5.08835e-08, -0.902158, 9.6146e-05, -0.0158461, -0.00913596)
+amount = 20
+lifetime = 0.53
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vtmhi")
+draw_pass_1 = SubResource("QuadMesh_dp2wo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.610545, 0, 0, 0, 0.610545, 0, 0, 0, 0.610545, 0, 0, 0)
+transparency = 0.38
+mesh = SubResource("PlaneMesh_ld8p5")

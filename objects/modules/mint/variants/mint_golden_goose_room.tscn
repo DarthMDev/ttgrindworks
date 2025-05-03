@@ -1,8 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://bxnc8400cjdt1"]
+[gd_scene load_steps=31 format=3 uid="uid://bxnc8400cjdt1"]
 
 [ext_resource type="PackedScene" uid="uid://dxa3077q0m2lo" path="res://objects/modules/mint/base_rooms/mint_shelf_room.tscn" id="1_hnu3i"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="2_soc5q"]
-[ext_resource type="Script" uid="uid://c87hmkm1433w" path="res://objects/modules/mint/variants/mint_golden_goose_room.gd" id="2_sveym"]
 [ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="3_0e6qa"]
 [ext_resource type="PackedScene" uid="uid://3opgp6apv4g0" path="res://objects/interactables/elevators/mint_elevator.tscn" id="3_ty680"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="4_dm27t"]
@@ -10,16 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://brupbko3w3tbq" path="res://objects/props/mint/gold_stack.tscn" id="7_pv58p"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="9_7uhhq"]
 [ext_resource type="Resource" uid="uid://c4f4cuaxtbd46" path="res://objects/cog/presets/cashbot/golden_goose.tres" id="10_obb3n"]
-[ext_resource type="PackedScene" uid="uid://cov8sw7eluipo" path="res://objects/obstacles/stomper/stomper.tscn" id="11_ai0uy"]
+[ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="11_ai0uy"]
 [ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="12_6hi6f"]
 [ext_resource type="PackedScene" uid="uid://ca5iu2h5u2ltv" path="res://objects/props/mint/mint_safe.tscn" id="13_qq4kb"]
-[ext_resource type="Texture2D" uid="uid://dcasoiu0axwxw" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="14_058ps"]
+[ext_resource type="Texture2D" uid="uid://ofuuiundcoub" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="14_058ps"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="15_kdm8w"]
 [ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="16_sfeen"]
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="18_qqvjc"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="18_wcv2t"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnire"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -27,7 +26,7 @@ roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
 uv1_offset = Vector3(0, -0.894446, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pshe4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -59,6 +58,7 @@ const SFX_HIT = preload(\"res://audio/sfx/misc/CHQ_SOS_cage_land.ogg\")
 
 const REGULAR_OBJS: Array[PackedScene] = [
 	preload(\"res://objects/modules/mint/variants/golden_goose_obj_safe.tscn\"),
+	preload(\"res://objects/modules/mint/variants/golden_goose_obj_double_safe.tscn\")
 ]
 
 const BUTTON_OBJ: PackedScene = preload(\"res://objects/modules/mint/variants/golden_goose_obj_button.tscn\")
@@ -72,7 +72,7 @@ const HIT_DIALOGUE := [
 	\"HOOOOOOONK!!!!!!\",
 ]
 
-var BOSS_MUSIC := LazyLoader.defer(\"res://audio/music/ground_floor_investor.ogg\")
+var BOSS_MUSIC = GameLoader.load(\"res://audio/music/action_cash.ogg\")
 const EXPLOSION := preload(\"res://models/cogs/misc/explosion/cog_explosion.tscn\")
 
 @onready var drop_shadow_template: Node3D = %DropShadowTemplate
@@ -125,6 +125,14 @@ var goose_tween: Tween:
 			goose_tween.kill()
 		goose_tween = x
 var stomper_tweens: Dictionary = {}
+var base_speed : float:
+	get:
+		if Util.on_easy_floor(): return 7.25
+		return 10.0
+var speed_mult : float:
+	get:
+		if Util.on_easy_floor(): return 2.5
+		return 3.0
 
 var button_quota := 0
 
@@ -150,6 +158,7 @@ func body_entered(body: Node3D) -> void:
 
 func run_intro() -> void:
 	Util.get_player().state = Player.PlayerState.STOPPED
+	Util.get_player().game_timer_tick = false
 	Util.get_player().set_animation(\"neutral\")
 	Util.get_player().apply_floor_snap()
 	Util.stuck_lock = true
@@ -178,6 +187,7 @@ func run_intro() -> void:
 	%Goose.animator.seek(3.25)
 	%Goose.speak(\"YOU'LL NEVER TAKE MY NEST EGG!!!!\")
 	await Task.delay(3.0)
+	Util.get_player().game_timer_tick = true
 	begin_game()
 
 func get_random_object_time() -> float:
@@ -190,7 +200,7 @@ func begin_game() -> void:
 	set_conveyor_coll_enabled.call_deferred(true)
 	Util.get_player().camera.make_current()
 	Util.get_player().state = Player.PlayerState.WALK
-	AudioManager.set_music(BOSS_MUSIC.load())
+	AudioManager.set_music(BOSS_MUSIC)
 	button_quota = get_button_quota()
 	randomize_conveyor_speed()
 	stomper_task = Task.delayed_call(self, get_random_stomp_time(), random_stomp)
@@ -230,11 +240,8 @@ func get_missing_health() -> int:
 	return 3 - health
 
 func randomize_conveyor_speed() -> void:
-	if is_equal_approx(conveyor_mult, 1.0):
-		conveyor_mult = -1.0
-	else:
-		conveyor_mult = 1.0
-	conveyor_speed = (7.25 + (get_missing_health() * 2.5)) * conveyor_mult
+	conveyor_mult = -conveyor_mult
+	conveyor_speed = (base_speed + (get_missing_health() * speed_mult)) * conveyor_mult
 
 func deal_damage() -> void:
 	health -= 1
@@ -266,6 +273,7 @@ func win_game() -> void:
 		stomper_task = stomper_task.cancel()
 	if obj_task:
 		obj_task = obj_task.cancel()
+	Util.get_player().stats.charge_active_item(2)
 
 	make_explosion(%Goose.global_position)
 	%Goose.hide()
@@ -275,7 +283,6 @@ func win_game() -> void:
 	AudioManager.stop_music()
 	await get_tree().process_frame
 	%WallReset.monitoring = false
-	%WallReset2.monitoring = false
 	set_conveyor_coll_enabled.call_deferred(false)
 	%BossChestGroup.make_chests()
 	BattleService.s_boss_died.emit(%Goose)
@@ -315,7 +322,7 @@ func spawn_random_obj() -> void:
 		new_obj = BUTTON_OBJ.instantiate()
 		new_obj.get_node(\"Button\").s_pressed.connect(deal_damage.unbind(1))
 	else:
-		new_obj = RandomService.array_pick_random('golden_goose', REGULAR_OBJS).instantiate()
+		new_obj = get_random_object().instantiate()
 	holder_node.add_child(new_obj)
 	new_obj.global_position = spawn_point.global_position
 	obj_arr.append(new_obj)
@@ -344,6 +351,11 @@ func make_explosion(pos: Vector3) -> void:
 	new_explosion.play('explode')
 	await new_explosion.animation_finished
 	new_explosion.queue_free()
+
+func get_random_object() -> PackedScene:
+	if Util.on_easy_floor() or RandomService.randi_channel('true_random') % 3 > 0:
+		return REGULAR_OBJS[0]
+	return RandomService.array_pick_random('golden_goose', REGULAR_OBJS)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrvc2"]
@@ -371,7 +383,6 @@ size = Vector2(4.24, 4.045)
 size = Vector3(1.84433, 6.72142, 13.0637)
 
 [node name="GoldenGooseRoom" instance=ExtResource("1_hnu3i")]
-script = ExtResource("2_sveym")
 
 [node name="ceiling" parent="Z04a_ALL/Z04/lobby/room/geometry_lobby" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.032, 272.48, -1045.16)
@@ -548,7 +559,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -3.57613)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_huelx")
+platform_mat = SubResource("StandardMaterial3D_mnire")
 speed = 0.0
 
 [node name="CB2" parent="." index="9" instance=ExtResource("4_dm27t")]
@@ -556,7 +567,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1.65557)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_pshe4")
+platform_mat = SubResource("StandardMaterial3D_huelx")
 speed = 0.0
 
 [node name="BeginColl" type="Area3D" parent="." index="10"]
@@ -1303,34 +1314,28 @@ unique_name_in_owner = true
 [node name="ObjsB" type="Node3D" parent="." index="31"]
 unique_name_in_owner = true
 
-[node name="WallReset" parent="." index="32" instance=ExtResource("18_wcv2t")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2357, 0.384232, -1.02397)
-tick_delay = 3.0
-base_damage = -4
-damage_name = "Manufacturing Error"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0723, 2.90119, 0.0990415)
-shape = SubResource("BoxShape3D_52o88")
-
-[node name="WallReset2" parent="." index="33" instance=ExtResource("18_wcv2t")]
+[node name="WallReset" parent="." index="32" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("18_wcv2t")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0363, 0.384232, -1.02397)
 tick_delay = 3.0
 base_damage = -4
 damage_name = "Manufacturing Error"
+default_spawn_point = NodePath("../PlayerStartPos")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset2" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0723, 2.90119, 0.0990415)
 shape = SubResource("BoxShape3D_52o88")
 
-[node name="BossChestGroup" parent="." index="34" instance=ExtResource("18_qqvjc")]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallReset" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.3443, 2.90119, 0.0990415)
+shape = SubResource("BoxShape3D_52o88")
+
+[node name="BossChestGroup" parent="." index="33" instance=ExtResource("18_qqvjc")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.60062, -5.69168e-07, -16.673)
 automatic = false
 
-[node name="DeadGoose" parent="." index="35" instance=ExtResource("9_7uhhq")]
+[node name="DeadGoose" parent="." index="34" instance=ExtResource("9_7uhhq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.015, 0, 0, 0, 1, 0, 0.001, -10.916)
 visible = false
@@ -1338,8 +1343,6 @@ dna = ExtResource("10_obb3n")
 skelecog_chance = 0
 
 [connection signal="body_entered" from="BeginColl" to="GooseManager" method="body_entered"]
-[connection signal="s_lava_hit" from="WallReset" to="." method="reset"]
-[connection signal="s_lava_hit" from="WallReset2" to="." method="reset"]
 
 [editable path="GooseStomper/stomper"]
 [editable path="EntranceStomper/stomper"]

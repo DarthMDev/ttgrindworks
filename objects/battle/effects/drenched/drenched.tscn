@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcqyi408k6q77"]
+
+[ext_resource type="Texture2D" uid="uid://dagt56e2uov87" path="res://models/props/gags/storm_cloud/raindrop.png" id="2_d7iyu"]
+
+[sub_resource type="Curve" id="Curve_36o8v"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0.281746, 100), 0.0, 0.0, 0, 0, Vector2(0.535714, 100), 0.0, -614.118, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_18w1h"]
+curve = SubResource("Curve_36o8v")
+
+[sub_resource type="Curve" id="Curve_hjsum"]
+_data = [Vector2(0, 0.268067), 0.0, 6.68571, 0, 0, Vector2(0.297619, 1), 0.0, 0.0, 0, 0, Vector2(0.611111, 0.737815), -1.73333, -1.73333, 0, 0, Vector2(0.99999, 0), -1.80013, -1.80013, 0, 0, Vector2(1, 0), -4.39819, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_0204b"]
+_data = [Vector2(0, 0), 0.0, 1.37893, 0, 0, Vector2(0.234127, 1), -0.941795, -0.941795, 0, 0, Vector2(0.738095, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_y7j0l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_bjgei"]
+curve_x = SubResource("Curve_hjsum")
+curve_y = SubResource("Curve_0204b")
+curve_z = SubResource("Curve_y7j0l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mahtc"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -15, 0)
+damping_min = 0.14
+damping_max = 0.18
+damping_curve = SubResource("CurveTexture_18w1h")
+scale_min = 0.14
+scale_max = 0.14
+scale_curve = SubResource("CurveXYZTexture_bjgei")
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aceq4"]
+transparency = 1
+albedo_texture = ExtResource("2_d7iyu")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_7i6w2"]
+material = SubResource("StandardMaterial3D_aceq4")
+center_offset = Vector3(0, -0.67, 0)
+
+[node name="DrenchedEffect" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00620985, -0.0309948)
+amount = 4
+lifetime = 2.02
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mahtc")
+draw_pass_1 = SubResource("QuadMesh_7i6w2")

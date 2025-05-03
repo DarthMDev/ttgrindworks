@@ -75,7 +75,7 @@ func renew() -> void:
 
 	apply_buff(union_buster, boost_amount)
 	# Cog dies, uh oh!
-	movie.tween_callback(manager.show_action_name.bind('Time/`s up!', "You are busted!"))
+	movie.tween_callback(manager.show_action_name.bind("Time's up!", "You are busted!"))
 	movie.tween_callback(target.set_animation.bind("soak"))
 	movie.tween_interval(1.6)
 	movie.tween_callback(target.animator.pause)

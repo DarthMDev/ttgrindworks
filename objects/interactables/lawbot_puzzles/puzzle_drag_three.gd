@@ -1,3 +1,4 @@
+@tool
 extends LawbotPuzzleGrid
 class_name PuzzleDragThree
 
@@ -8,6 +9,7 @@ var remaining_shapes : Array[PuzzlePanel.PanelShape] = [
 	PuzzlePanel.PanelShape.TRIANGLE
 ]
 var player_panel : PuzzlePanel
+var timer : Timer
 
 func initialize_game() -> void:
 	# Randomize Initial Shape Placements
@@ -31,13 +33,18 @@ func initialize_game() -> void:
 			# All top panels are skulls
 			if j == grid[i].size()-1:
 				panel.panel_shape = PuzzlePanel.PanelShape.SKULL
+	timer = Timer.new()
+	timer.wait_time = 0.1
+	timer.one_shot = true
+	timer.timeout.connect(on_timer_timeout)
+	add_child(timer)
 
 func panel_shape_changed(panel : PuzzlePanel,shape : PuzzlePanel.PanelShape) -> void:
 	match shape:
 		PuzzlePanel.PanelShape.TRIANGLE:
 			panel.set_color(Color.GREEN)
 		PuzzlePanel.PanelShape.DIAMOND:
-			panel.set_color(Color("4d4dff"))
+			panel.set_color(BLUE)
 		_:
 			panel.set_color(Color.RED)
 
@@ -92,9 +99,19 @@ func remove_shape(shape : PuzzlePanel.PanelShape) -> void:
 	if remaining_shapes.is_empty():
 		win_game()
 
-func _process(_delta) -> void:
+func on_timer_timeout() -> void:
 	if player_cells.is_empty():
 		player_panel = null
+
+func _process(_delta) -> void:
+	if not timer:
+		return
+	
+	if not timer.is_stopped() and not player_cells.is_empty():
+		timer.stop()
+	
+	if player_cells.is_empty() and timer.is_stopped():
+		timer.start()
 
 func get_game_text() -> String:
 	return "Drag three of a color in a row"

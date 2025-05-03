@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://cjf1w66jnvpys"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cjf1w66jnvpys"]
 
 [ext_resource type="Texture2D" uid="uid://clftb8mkqcqyg" path="res://ui_assets/achievements/icon_achievement_one_hundo.png" id="1_0qqjx"]
-[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="1_1oilw"]
+[ext_resource type="Script" uid="uid://c43k40t08sm7b" path="res://objects/save_file/achievements/achievement100p.gd" id="2_yjkfb"]
 
 [resource]
-script = ExtResource("1_1oilw")
+script = ExtResource("2_yjkfb")
 progress_value = "achievement_count"
-quota = 24
+quota = 25
 signal_source = 1
 signal_name = "s_achievement_unlocked"
 achievement_name = "You ARE Toon Enough!"

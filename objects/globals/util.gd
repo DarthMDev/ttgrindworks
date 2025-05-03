@@ -1,8 +1,7 @@
 extends Node
 
-## Circle transition
-var CIRCLE_TRANSITION := LazyLoader.defer('res://objects/general_ui/circle_transition/circle_transition.tscn')
-var LOSE_MENU := LazyLoader.defer("res://objects/player/ui/lose_menu.tscn")
+var CIRCLE_TRANSITION: PackedScene
+var LOSE_MENU: PackedScene
 
 # Global Refs
 var player : Player:
@@ -32,13 +31,14 @@ var random_stats : PlayerStats
 signal s_process_frame
 signal s_player_assigned(player: Player)
 signal s_floor_started(game_floor: GameFloor)
-signal s_floor_ended(game_floor: GameFloor)
+signal s_floor_ended
 signal s_player_died
 signal s_fullscreen_toggled(fullscreen: bool)
 signal s_floor_number_changed
 
 var floor_type : DepartmentFloor
 var window_focused := true
+var stop_camera_shake := false
 
 var floor_number := -1:
 	set(x):
@@ -71,27 +71,52 @@ func _process(_delta):
 	s_fullscreen_toggled.emit(fullscreen)
 	
 
-func do_3d_text(node: Node3D, text: String, text_color: Color = Color('ff0000'), outline_color: Color = Color('7a0000')) -> void:
+func do_3d_text(node: Node3D, text: String, text_color: Color = Color('ff0000'), outline_color: Color = Color('7a0000')) -> BattleText:
 	var obj: BattleText = load('res://objects/battle/3d_text/3d_text.tscn').instantiate()
 	obj.text = text
 	obj.modulate = text_color
 	obj.outline_modulate = outline_color
 	node.add_child(obj)
+	return obj
+
+func _init():
+	GameLoader.queue_into(
+		GameLoader.Phase.GAME_START, self, {
+			'CIRCLE_TRANSITION': 'res://objects/general_ui/circle_transition/circle_transition.tscn',
+			'CONFIRM_PANEL': 'res://objects/general_ui/ui_panel/confirm_panel.tscn',
+		}
+	)
+	GameLoader.queue_into(
+		GameLoader.Phase.GAMEPLAY, self, {
+			'LOSE_MENU': 'res://objects/player/ui/lose_menu.tscn',
+		}
+	)
 
 func _ready():
 	get_tree().process_frame.connect(func(): s_process_frame.emit())
 
 ## Show an acknowledge panel to the player
-func acknowledge(text: String, button_text := "Okay") -> UIPanel:
-	var panel: Control = load('res://objects/general_ui/ui_panel/acknowledge_panel.tscn').instantiate()
+func acknowledge(text: String, button_text := "Okay", title_text := "") -> UIPanel:
+	var panel: UIPanel = load('res://objects/general_ui/ui_panel/acknowledge_panel.tscn').instantiate()
 	
 	panel.ready.connect(func(): 
 		panel.body = text
-		panel.get_node('Panel/GeneralButton').text = button_text
+		panel.title = title_text
+		panel.get_node('Panel/ConfirmButton').text = button_text
 	)
 	
 	get_tree().get_root().add_child(panel)
 	
+	return panel
+
+var CONFIRM_PANEL: PackedScene
+func confirm(title : String, body := "", confirm_text := "Confirm", cancel_text := "Cancel") -> UIPanel:
+	var panel := CONFIRM_PANEL.instantiate()
+	get_tree().get_root().add_child(panel)
+	panel.title = title
+	panel.body = body
+	panel.confirm_button.text = confirm_text
+	panel.canceled_button.text = cancel_text
 	return panel
 
 func get_cog_head_icon(dna : CogDNA) -> Texture2D:
@@ -131,6 +156,9 @@ func get_ortho_model_tex(model : Variant) -> Texture2D:
 	viewer.queue_free()
 	return tex
 
+func on_easy_floor() -> bool:
+	return floor_number < 3
+
 ## Creates a timer
 func run_timer(time := 5.0, anchor := Control.PRESET_BOTTOM_RIGHT) -> GameTimer:
 	var timer: GameTimer = load('res://objects/battle/misc_battle_objects/timer/battle_timer.tscn').instantiate()
@@ -145,10 +173,14 @@ func run_timer(time := 5.0, anchor := Control.PRESET_BOTTOM_RIGHT) -> GameTimer:
 	return timer
 
 func get_hazard_damage(damage := 0) -> int:
-	return damage + max(Globals.MAX_HAZARD_DAMAGE,-(floor_number + 1) * 2)
+	var true_damage := damage + (-(floor_number + 1) * 2)
+	if is_instance_valid(floor_manager):
+		if floor_manager.floor_tags.has('extra_hazard_damage') and floor_manager.floor_tags['extra_hazard_damage'] == true:
+			true_damage = floori(1.25 * true_damage)
+	return true_damage
 
 func circle_in(time : float) -> void:
-	var circle: CircleTransition = CIRCLE_TRANSITION.load().instantiate()
+	var circle: CircleTransition = CIRCLE_TRANSITION.instantiate()
 	get_tree().get_root().add_child(circle)
 	circle.open(time)
 
@@ -188,7 +220,7 @@ func pack_model(file_path : String) -> PackedScene:
 func on_player_died() -> void:
 	get_tree().paused = true
 
-	lose_menu = LOSE_MENU.load().instantiate()
+	lose_menu = LOSE_MENU.instantiate()
 	add_child(lose_menu)
 
 	var menu_choice: LoseMenu.MenuChoice = await lose_menu.s_choice_made
@@ -226,6 +258,27 @@ func do_item_hover(item: Item) -> void:
 	var desc: String = item.big_description if Util.get_player().see_descriptions else item.item_description
 	HoverManager.hover(desc, 18, 0.025, item.item_name, item.shop_category_color.darkened(0.3))
 
+#region Camera Functions
+func shake_camera(cam : Camera3D, time : float, offset : float, taper := true, x := true, y := true, z := true) -> void:
+	var base_pos := cam.global_position
+	stop_camera_shake = false
+	
+	var timer := cam.get_tree().create_timer(time)
+	while timer.time_left > 0 and not stop_camera_shake:
+		await s_process_frame
+		var new_offset : float
+		if taper:
+			new_offset = offset * timer.time_left/time
+		else:
+			new_offset = offset
+		if x:
+			cam.global_position.x = base_pos.x + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+		if y:
+			cam.global_position.y = base_pos.y + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+		if z:
+			cam.global_position.z = base_pos.z + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+#endregion
+
 #region Mod Cogs
 
 func get_mod_cog_health_mod() -> float:
@@ -245,17 +298,18 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 		await s_player_assigned
 	var x_points: Array = [-3.75, -1.25, 1.25, 3.75]
 	var chest_scene: PackedScene = load('res://objects/interactables/treasure_chest/treasure_chest.tscn')
+	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
 	for i in range(4):
-		var chest = chest_scene.instantiate()
+		var chest: TreasureChest = chest_scene.instantiate()
+		chest.item_pool = Globals.PROGRESSIVE_ITEM_POOL
 		holder_node.add_child(chest)
 		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
 		chest.global_rotation = pos_node.global_rotation
 		chest.override_replacement_rolls = true
-		chest.item_pool = load("res://objects/items/pools/progressives.tres")
 		match i:
 			0:
 				# Give a random super candy
-				chest.override_item = RandomService.array_pick_random('boss_drops', load("res://objects/items/pools/super_candies.tres").items)
+				chest.item_pool = load("res://objects/items/pools/super_candies.tres")
 			1:
 				# Give a random track frame
 				chest.override_item = load("res://objects/items/resources/passive/track_frame.tres")
@@ -275,8 +329,10 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				elif player.stats.toonups[ToonUp.MovieType.MEGAPHONE] == 0:
 					chest.override_item = load("res://objects/items/resources/passive/toonups/megaphone.tres")
 			3:
-				# Give the player some money if they have less than 10. If they have more, it gives a progressive.
-				if player.stats.money < 10:
-					chest.override_item = RandomService.array_pick_random('boss_drops', load("res://objects/items/pools/jellybeans.tres").items)
+				# Chance to give Player some money, guaranteed if they're < 20
+				if player.stats.money < 20 or RandomService.randi_channel('true_random') % 2 == 0:
+					chest.item_pool = load("res://objects/items/pools/jellybeans.tres")
+		chest.update_texture(chest.BOSS_TEXTURE)
+		chest.set_ray_gradient(light_beam)
 
 #endregion

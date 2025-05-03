@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "default.275": {
 "use_external/enabled": true,
-"use_external/path": "res://models/accessories/glasses/round_glasses/default.275.tres"
+"use_external/path": "uid://dabhdk351n477"
 }
 }
 }

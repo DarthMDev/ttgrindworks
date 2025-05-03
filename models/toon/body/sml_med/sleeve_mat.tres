@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dy6no6le7xji5"]
 
-[ext_resource type="Texture2D" uid="uid://c18vyb2csvm4i" path="res://models/toon/textures/clothes/shirts/sml_med-e9e789064dd98e55b19a9395bd53fe3f_desat_sleeve_1.png" id="1_ngbwv"]
+[ext_resource type="Texture2D" uid="uid://c18vyb2csvm4i" path="res://models/toon/body/sml_med/sml_med-e9e789064dd98e55b19a9395bd53fe3f_desat_sleeve_1.png" id="1_ngbwv"]
 
 [resource]
 albedo_texture = ExtResource("1_ngbwv")

@@ -13,7 +13,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q8ve"]
 font = ExtResource("6_cc51c")
-font_size = 32
+font_size = 24
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.776471)
 
@@ -28,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_40t5q")
 
 [node name="FloorChooser" type="Control" parent="."]
@@ -90,10 +91,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -410.0
-offset_top = -101.0
-offset_right = 410.0
-offset_bottom = -16.0
+offset_left = -405.0
+offset_top = -91.0
+offset_right = 404.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "TOON TIP:

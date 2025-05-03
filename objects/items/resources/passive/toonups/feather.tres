@@ -12,11 +12,13 @@ evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.28
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Feather"
 item_description = "Defense Boost"
-big_description = ""
+big_description = "Lasts 3 rounds
++ 20% Defense"
 model = ExtResource("2_32jj2")
 pickup_sfx = ExtResource("2_p5fcy")
 stats_add = {}

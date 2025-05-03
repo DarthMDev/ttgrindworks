@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://crfps8y3g8jav"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=14 format=3 uid="uid://crfps8y3g8jav"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_3xc46"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_i2f1o"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="4_5hb1l"]
 [ext_resource type="Resource" uid="uid://doowiij7lpxy1" path="res://objects/battle/battle_resources/cog_attacks/resources/rubber_stamp.tres" id="4_rn8tn"]
+[ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="5_cpgkb"]
 [ext_resource type="PackedScene" uid="uid://irtn2e1gj41k" path="res://models/cogs/heads/mingler.glb" id="5_ilthg"]
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="5_kga1q"]
 [ext_resource type="Texture2D" uid="uid://m6esimykv0kv" path="res://models/cogs/heads/kissup_tex.png" id="6_f6ooy"]
@@ -22,6 +23,8 @@ custom_arm_tex = ExtResource("5_kga1q")
 custom_leg_tex = ExtResource("7_ciwiw")
 cog_name = "Kiss Up"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("5_ilthg")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -31,7 +34,7 @@ hand_color = Color(0.69473, 0.393625, 0.410963, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 10.95
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_3xc46")]([ExtResource("3_i2f1o"), ExtResource("4_rn8tn"), ExtResource("4_5hb1l")])
+attacks = Array[ExtResource("1_3xc46")]([ExtResource("3_i2f1o"), ExtResource("4_rn8tn"), ExtResource("4_5hb1l"), ExtResource("5_cpgkb")])
 level_low = 4
 level_high = 12
 status_effects = Array[ExtResource("8_orhpk")]([ExtResource("9_rpq43")])

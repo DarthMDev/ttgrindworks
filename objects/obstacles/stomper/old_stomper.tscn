@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://kw24drhs7u34"]
+
+[ext_resource type="Script" uid="uid://dgm8xffhe5pw4" path="res://objects/obstacles/stomper/old_stomper.gd" id="1_5ymn8"]
+
+[node name="Stomper" type="Node3D"]
+script = ExtResource("1_5ymn8")
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+volume_db = -4.0
+max_db = 0.0
+bus = &"Ambient"
+
+[node name="DelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://deum0qw8ucod3"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://deum0qw8ucod3"]
 
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="1_58f6b"]
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tocbq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c27ek2anjbx88" path="res://objects/battle/battle_resources/cog_attacks/resources/pound_key.tres" id="3_7mr75"]
 [ext_resource type="PackedScene" uid="uid://2ewnjjvwgpwy" path="res://models/cogs/heads/coldcaller.glb" id="3_di81e"]
 [ext_resource type="Texture2D" uid="uid://cbv3oai8awwag" path="res://models/cogs/heads/coldcaller_tt_t_ene_hed_coldCaller.png" id="4_16agk"]
+[ext_resource type="Resource" uid="uid://bruosr4c0bash" path="res://objects/battle/battle_resources/cog_attacks/resources/clip_on_tie.tres" id="4_b8fmn"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_03tow"]
 
 [resource]
@@ -23,7 +24,7 @@ hand_color = Color(0.333333, 0.623529, 0.85098, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_tocbq")]([ExtResource("2_bmqa1"), ExtResource("3_7mr75")])
+attacks = Array[ExtResource("1_tocbq")]([ExtResource("2_bmqa1"), ExtResource("3_7mr75"), ExtResource("4_b8fmn")])
 level_low = 1
 level_high = 8
 status_effects = Array[ExtResource("5_03tow")]([])

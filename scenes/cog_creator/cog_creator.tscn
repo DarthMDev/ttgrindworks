@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=3 uid="uid://b3wmyoqcbv6wd"]
+[gd_scene load_steps=231 format=3 uid="uid://b3wmyoqcbv6wd"]
 
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="1_uqjo6"]
 [ext_resource type="Script" uid="uid://pe4vewmekb22" path="res://scenes/cog_creator/cog_creator.gd" id="1_xx4e4"]
@@ -81,12 +81,14 @@
 [ext_resource type="PackedScene" uid="uid://bgx7270etnyok" path="res://models/cogs/heads/flunky.glb" id="35_5f7lc"]
 [ext_resource type="PackedScene" uid="uid://bptrv8nm0esos" path="res://models/cogs/heads/gladhander.glb" id="36_b7tri"]
 [ext_resource type="Texture2D" uid="uid://bl4jam52awobx" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonUp.png" id="36_dblmy"]
+[ext_resource type="Resource" uid="uid://bruosr4c0bash" path="res://objects/battle/battle_resources/cog_attacks/resources/clip_on_tie.tres" id="36_v3pkj"]
 [ext_resource type="Texture2D" uid="uid://cijunm56f5hq2" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonDown.png" id="37_4cvrd"]
 [ext_resource type="PackedScene" uid="uid://cgixf426hp8dn" path="res://models/cogs/heads/headhunter.glb" id="37_cqllc"]
 [ext_resource type="PackedScene" uid="uid://vla7d6xj4cn7" path="res://models/cogs/heads/legaleagle.glb" id="38_581re"]
 [ext_resource type="Texture2D" uid="uid://ctnar4np8tsb3" path="res://ui_assets/battle/queued_gags/PartyPlanner_CancelButtonRollover.png" id="38_wbtw7"]
 [ext_resource type="PackedScene" uid="uid://bloh0rlqcq81j" path="res://models/cogs/heads/loanshark.glb" id="39_ne4ff"]
 [ext_resource type="PackedScene" uid="uid://cknjjx1p36adh" path="res://models/cogs/heads/madhander.glb" id="40_cifb8"]
+[ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="41_fan3q"]
 [ext_resource type="PackedScene" uid="uid://qwlosgm5bb8q" path="res://models/cogs/heads/micromanager.glb" id="41_i2fyg"]
 [ext_resource type="Texture2D" uid="uid://bf47xjfxdkxds" path="res://ui_assets/misc/mod_example.png" id="42_3jmfr"]
 [ext_resource type="PackedScene" uid="uid://irtn2e1gj41k" path="res://models/cogs/heads/mingler.glb" id="42_mfnxn"]
@@ -97,7 +99,9 @@
 [ext_resource type="PackedScene" uid="uid://bos8lmr7wb5dr" path="res://models/cogs/heads/numbercruncher.glb" id="45_ewar8"]
 [ext_resource type="PackedScene" uid="uid://cp0eu48o5hfej" path="res://models/cogs/heads/pencilpusher.glb" id="46_c378u"]
 [ext_resource type="PackedScene" uid="uid://btxp8ptniqnjl" path="res://models/cogs/heads/penny_pincher.glb" id="47_ii8hj"]
+[ext_resource type="Resource" uid="uid://305avsq3iu30" path="res://objects/battle/battle_resources/cog_attacks/resources/power_tie.tres" id="48_fan3q"]
 [ext_resource type="PackedScene" uid="uid://dekjiyikbfa4f" path="res://models/cogs/heads/pushedpencil.glb" id="48_wg4gk"]
+[ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="49_ft5qo"]
 [ext_resource type="PackedScene" uid="uid://cwg7ajjhom2dw" path="res://models/cogs/heads/telemarketer.glb" id="50_osnmm"]
 [ext_resource type="PackedScene" uid="uid://cia8tr5rx1b5x" path="res://models/cogs/heads/tightwad.glb" id="51_cbyii"]
 [ext_resource type="PackedScene" uid="uid://i37l7x6g6luj" path="res://models/cogs/heads/twoface.glb" id="52_5kwmk"]
@@ -105,7 +109,7 @@
 [ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="53_u7456"]
 [ext_resource type="Texture2D" uid="uid://c054agx0tyrdv" path="res://models/cogs/heads/ambulancechaser_tt_t_ene_hed_ambulanceChaser_new.png" id="54_5jknc"]
 [ext_resource type="PackedScene" uid="uid://bvvma15ymq0yp" path="res://models/cogs/heads/statueman.tscn" id="54_j1bmg"]
-[ext_resource type="Texture2D" uid="uid://b8s23xt7vfrj" path="res://models/cogs/heads/backstabber_tt_t_ene_hed_backStabber.png" id="55_6fope"]
+[ext_resource type="Texture2D" uid="uid://d4jk7bkmn8kk2" path="res://models/cogs/heads/backstabber_tt_t_ene_hed_backStabber.png" id="55_6fope"]
 [ext_resource type="Texture2D" uid="uid://db3dhlenfdjba" path="res://models/cogs/heads/beancounter_bean_counter.png" id="56_jj50y"]
 [ext_resource type="Texture2D" uid="uid://cxm7mr0o2vr3p" path="res://models/cogs/heads/bigcheese_big_cheese_new_1.png" id="57_ab4gj"]
 [ext_resource type="Texture2D" uid="uid://ga845l5kh235" path="res://models/cogs/heads/bigwig_tt_t_ene_hed_bigWig.png" id="58_klt22"]
@@ -115,7 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://bo5ojd8rwaa68" path="res://models/cogs/heads/clown1_faceClown.png" id="62_deqng"]
 [ext_resource type="Texture2D" uid="uid://u5kphma0y0af" path="res://models/cogs/heads/clown1_hatClown.png" id="63_iuj0i"]
 [ext_resource type="Texture2D" uid="uid://dis22fn42wyq4" path="res://models/cogs/heads/clown2_faceClown.png" id="64_ottww"]
-[ext_resource type="Texture2D" uid="uid://doywpucmykow3" path="res://models/cogs/heads/clown2_hatClown.png" id="65_qlmt5"]
+[ext_resource type="Texture2D" uid="uid://8hh2lopjm4l8" path="res://models/cogs/heads/clown2_hatClown.png" id="65_qlmt5"]
 [ext_resource type="Texture2D" uid="uid://nkkehd2wkbso" path="res://models/cogs/heads/clownsizer_hatClown.png" id="66_v88ni"]
 [ext_resource type="Texture2D" uid="uid://bq8afiw8fq5r4" path="res://models/cogs/heads/coldcaller_desat.png" id="67_72yvm"]
 [ext_resource type="Texture2D" uid="uid://cbv3oai8awwag" path="res://models/cogs/heads/coldcaller_tt_t_ene_hed_coldCaller.png" id="68_3b6bm"]
@@ -208,6 +212,14 @@
 [ext_resource type="Texture2D" uid="uid://crmdxpsen5to" path="res://models/cogs/heads/whistleblower_WhistleblowerFinal.png" id="155_lc32i"]
 [ext_resource type="Texture2D" uid="uid://gck1qqhfvd8h" path="res://models/cogs/heads/traffic_manager_TrafficManagerFinal.png" id="156_n27as"]
 [ext_resource type="Texture2D" uid="uid://85hrkw5gu46w" path="res://models/cogs/heads/blowhard_blowhard_tex.png" id="158_gm4s2"]
+[ext_resource type="Texture2D" uid="uid://ugpw0dj6eseg" path="res://models/cogs/heads/ghost_writer.png" id="168_11wks"]
+[ext_resource type="Texture2D" uid="uid://c35pec1db1nw8" path="res://models/cogs/heads/funpolice.png" id="169_jxiyr"]
+[ext_resource type="Texture2D" uid="uid://difoophbb2lyu" path="res://models/cogs/textures/sell_03/sleeve.png" id="188_4xt7j"]
+[ext_resource type="Texture2D" uid="uid://cy50icqjskoxu" path="res://models/cogs/textures/sell_03/blazer.png" id="189_h3kcq"]
+[ext_resource type="Texture2D" uid="uid://c8dfdcayk4y05" path="res://models/cogs/textures/sell_03/leg.png" id="190_rlmrj"]
+[ext_resource type="Texture2D" uid="uid://bnhiun8ybi5iw" path="res://models/cogs/textures/waiter/waiter_m_sleeve.png" id="191_qr7mi"]
+[ext_resource type="Texture2D" uid="uid://cig3t65qcrbub" path="res://models/cogs/textures/waiter/waiter_m_blazer.png" id="192_mt7e8"]
+[ext_resource type="Texture2D" uid="uid://bqekcqvih7aud" path="res://models/cogs/textures/waiter/waiter_m_leg.png" id="193_11wks"]
 
 [sub_resource type="Resource" id="Resource_ookrr"]
 script = ExtResource("34_d7aur")
@@ -288,11 +300,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xx4e4")
 safe_cogs = SubResource("Resource_ookrr")
-suit_a_attacks = Array[ExtResource("2_7snwl")]([ExtResource("3_7mf4x"), ExtResource("4_mo0ki"), ExtResource("5_ilbr4"), ExtResource("52_gm4s2"), ExtResource("7_cqov3"), ExtResource("8_g6yi0"), ExtResource("9_vqpv7"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("14_gjbj0"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("17_1g3fl"), ExtResource("18_c0cie"), ExtResource("19_8qu84"), ExtResource("20_24o5i"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
-suit_b_attacks = Array[ExtResource("2_7snwl")]([ExtResource("4_mo0ki"), ExtResource("52_gm4s2"), ExtResource("8_g6yi0"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("14_gjbj0"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("21_rrcpx"), ExtResource("18_c0cie"), ExtResource("22_6onif"), ExtResource("23_sum7q"), ExtResource("24_nkk6o"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
-suit_c_attacks = Array[ExtResource("2_7snwl")]([ExtResource("4_mo0ki"), ExtResource("7_cqov3"), ExtResource("8_g6yi0"), ExtResource("9_vqpv7"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("25_vjhwn"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
+suit_a_attacks = Array[ExtResource("2_7snwl")]([ExtResource("3_7mf4x"), ExtResource("4_mo0ki"), ExtResource("5_ilbr4"), ExtResource("36_v3pkj"), ExtResource("52_gm4s2"), ExtResource("7_cqov3"), ExtResource("8_g6yi0"), ExtResource("9_vqpv7"), ExtResource("41_fan3q"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("14_gjbj0"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("48_fan3q"), ExtResource("49_ft5qo"), ExtResource("17_1g3fl"), ExtResource("18_c0cie"), ExtResource("19_8qu84"), ExtResource("20_24o5i"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
+suit_b_attacks = Array[ExtResource("2_7snwl")]([ExtResource("4_mo0ki"), ExtResource("52_gm4s2"), ExtResource("36_v3pkj"), ExtResource("8_g6yi0"), ExtResource("41_fan3q"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("14_gjbj0"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("48_fan3q"), ExtResource("49_ft5qo"), ExtResource("21_rrcpx"), ExtResource("18_c0cie"), ExtResource("22_6onif"), ExtResource("23_sum7q"), ExtResource("24_nkk6o"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
+suit_c_attacks = Array[ExtResource("2_7snwl")]([ExtResource("4_mo0ki"), ExtResource("36_v3pkj"), ExtResource("7_cqov3"), ExtResource("8_g6yi0"), ExtResource("9_vqpv7"), ExtResource("41_fan3q"), ExtResource("10_jqtea"), ExtResource("11_gumtp"), ExtResource("12_l0hiu"), ExtResource("13_ve7ja"), ExtResource("15_fepq6"), ExtResource("16_6vi4n"), ExtResource("48_fan3q"), ExtResource("49_ft5qo"), ExtResource("25_vjhwn"), ExtResource("20_ax72v"), ExtResource("21_dqjqy")])
 head_model_files = Array[PackedScene]([ExtResource("26_1idp3"), ExtResource("27_jtab4"), ExtResource("28_xy0hj"), ExtResource("29_4nblf"), ExtResource("30_0r2c0"), ExtResource("31_ewahd"), ExtResource("32_hc727"), ExtResource("33_86iti"), ExtResource("34_kl2gn"), ExtResource("35_5f7lc"), ExtResource("36_b7tri"), ExtResource("37_cqllc"), ExtResource("38_581re"), ExtResource("39_ne4ff"), ExtResource("40_cifb8"), ExtResource("41_i2fyg"), ExtResource("42_mfnxn"), ExtResource("43_52xx6"), ExtResource("44_ns551"), ExtResource("45_ewar8"), ExtResource("46_c378u"), ExtResource("47_ii8hj"), ExtResource("48_wg4gk"), ExtResource("50_osnmm"), ExtResource("51_cbyii"), ExtResource("52_5kwmk"), ExtResource("53_u7456"), ExtResource("54_j1bmg"), ExtResource("87_ixtf3"), ExtResource("88_ms8ih"), ExtResource("89_tu2we"), ExtResource("90_4utcy"), ExtResource("91_hhsae"), ExtResource("92_jeae5"), ExtResource("93_gbgc5"), ExtResource("92_fhgvf"), ExtResource("93_4jwa1")])
-head_texture_files = Array[Texture2D]([ExtResource("54_5jknc"), ExtResource("55_6fope"), ExtResource("97_3uyxy"), ExtResource("98_3abxu"), ExtResource("56_jj50y"), ExtResource("57_ab4gj"), ExtResource("58_klt22"), ExtResource("59_2a6un"), ExtResource("60_vdtor"), ExtResource("61_717gm"), ExtResource("62_deqng"), ExtResource("63_iuj0i"), ExtResource("64_ottww"), ExtResource("65_qlmt5"), ExtResource("66_v88ni"), ExtResource("67_72yvm"), ExtResource("68_3b6bm"), ExtResource("69_jc5g3"), ExtResource("70_hbxl5"), ExtResource("71_dfklg"), ExtResource("115_m2v4r"), ExtResource("72_eph4v"), ExtResource("73_q65bc"), ExtResource("74_v8bl5"), ExtResource("75_a36lf"), ExtResource("76_1152r"), ExtResource("77_7tvju"), ExtResource("78_7h5xt"), ExtResource("79_66dpc"), ExtResource("80_m3d0u"), ExtResource("81_x6lbw"), ExtResource("82_eky0p"), ExtResource("83_v5f6h"), ExtResource("128_2gr2j"), ExtResource("129_ypunr"), ExtResource("130_8juvi"), ExtResource("131_4xt7j"), ExtResource("84_8wcri"), ExtResource("85_yyfnp"), ExtResource("86_u705b"), ExtResource("87_wiix7"), ExtResource("88_a02uu"), ExtResource("89_uij5l"), ExtResource("90_66tk2"), ExtResource("91_doy7v"), ExtResource("93_3483s"), ExtResource("94_vj3ok"), ExtResource("95_y8ar1"), ExtResource("96_oi8s5"), ExtResource("144_h3kcq"), ExtResource("97_4w68l"), ExtResource("98_ak3ji"), ExtResource("99_ydsna"), ExtResource("100_1k5yg"), ExtResource("101_mgpfd"), ExtResource("102_ga6ho"), ExtResource("103_m24m6"), ExtResource("104_4h6np"), ExtResource("105_3k3kn"), ExtResource("144_88j4t"), ExtResource("145_bn3ui"), ExtResource("146_y1u1o"), ExtResource("147_4sbrr"), ExtResource("148_74607"), ExtResource("149_httwg"), ExtResource("150_xiai8"), ExtResource("85_yyfnp"), ExtResource("151_4ilq8"), ExtResource("152_8v6oh"), ExtResource("153_4240y"), ExtResource("154_0632o"), ExtResource("155_lc32i"), ExtResource("156_n27as"), ExtResource("158_gm4s2")])
+head_texture_files = Array[Texture2D]([ExtResource("54_5jknc"), ExtResource("55_6fope"), ExtResource("97_3uyxy"), ExtResource("98_3abxu"), ExtResource("56_jj50y"), ExtResource("57_ab4gj"), ExtResource("58_klt22"), ExtResource("59_2a6un"), ExtResource("60_vdtor"), ExtResource("61_717gm"), ExtResource("62_deqng"), ExtResource("63_iuj0i"), ExtResource("64_ottww"), ExtResource("65_qlmt5"), ExtResource("66_v88ni"), ExtResource("67_72yvm"), ExtResource("68_3b6bm"), ExtResource("69_jc5g3"), ExtResource("70_hbxl5"), ExtResource("71_dfklg"), ExtResource("115_m2v4r"), ExtResource("72_eph4v"), ExtResource("73_q65bc"), ExtResource("74_v8bl5"), ExtResource("75_a36lf"), ExtResource("76_1152r"), ExtResource("77_7tvju"), ExtResource("78_7h5xt"), ExtResource("79_66dpc"), ExtResource("80_m3d0u"), ExtResource("81_x6lbw"), ExtResource("82_eky0p"), ExtResource("83_v5f6h"), ExtResource("128_2gr2j"), ExtResource("129_ypunr"), ExtResource("130_8juvi"), ExtResource("131_4xt7j"), ExtResource("84_8wcri"), ExtResource("85_yyfnp"), ExtResource("86_u705b"), ExtResource("87_wiix7"), ExtResource("88_a02uu"), ExtResource("89_uij5l"), ExtResource("90_66tk2"), ExtResource("91_doy7v"), ExtResource("93_3483s"), ExtResource("94_vj3ok"), ExtResource("95_y8ar1"), ExtResource("96_oi8s5"), ExtResource("144_h3kcq"), ExtResource("97_4w68l"), ExtResource("98_ak3ji"), ExtResource("99_ydsna"), ExtResource("100_1k5yg"), ExtResource("101_mgpfd"), ExtResource("102_ga6ho"), ExtResource("103_m24m6"), ExtResource("104_4h6np"), ExtResource("105_3k3kn"), ExtResource("144_88j4t"), ExtResource("145_bn3ui"), ExtResource("146_y1u1o"), ExtResource("147_4sbrr"), ExtResource("148_74607"), ExtResource("149_httwg"), ExtResource("150_xiai8"), ExtResource("85_yyfnp"), ExtResource("151_4ilq8"), ExtResource("152_8v6oh"), ExtResource("153_4240y"), ExtResource("154_0632o"), ExtResource("155_lc32i"), ExtResource("156_n27as"), ExtResource("158_gm4s2"), ExtResource("168_11wks"), ExtResource("169_jxiyr")])
 suits = Array[Dictionary]([{
 "custom_arm_tex": null,
 "custom_blazer_tex": null,
@@ -325,6 +337,14 @@ suits = Array[Dictionary]([{
 "custom_arm_tex": ExtResource("124_0igwy"),
 "custom_blazer_tex": ExtResource("123_mbq05"),
 "custom_leg_tex": ExtResource("125_dapyj")
+}, {
+"custom_arm_tex": ExtResource("188_4xt7j"),
+"custom_blazer_tex": ExtResource("189_h3kcq"),
+"custom_leg_tex": ExtResource("190_rlmrj")
+}, {
+"custom_arm_tex": ExtResource("191_qr7mi"),
+"custom_blazer_tex": ExtResource("192_mt7e8"),
+"custom_leg_tex": ExtResource("193_11wks")
 }])
 
 [node name="World3D" type="Node3D" parent="."]
@@ -549,7 +569,7 @@ horizontal_alignment = 1
 
 [node name="SuitScroller" parent="Menus/SuitSelector/OptionContainer" instance=ExtResource("7_kyrf2")]
 layout_mode = 2
-options = Array[String](["Default", "Sellbot", "Cashbot", "Lawbot", "Bossbot", "Clown", "Slender", "Proxy"])
+options = Array[String](["Default", "Sellbot", "Cashbot", "Lawbot", "Bossbot", "Clown", "Slender", "Proxy", "Sales", "Waiter"])
 wrap_around = false
 default_center_text = "Suit"
 
@@ -647,12 +667,40 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural"]
 layout_mode = 2
-text = "Name (Plural):"
+text = "Name Plural:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
 [node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
+
+[node name="NamePrefix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix"]
+layout_mode = 2
+text = "Name Prefix:"
+label_settings = SubResource("LabelSettings_w0kd7")
+
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_i3p7p")
+
+[node name="NameSuffix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix"]
+layout_mode = 2
+text = "Name Suffix:"
+label_settings = SubResource("LabelSettings_w0kd7")
+
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_i3p7p")
+
+[node name="Spacer" type="Control" parent="Menus/AtrributeSelectors/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
 
 [node name="LevelMinimum" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
 layout_mode = 2
@@ -1630,6 +1678,8 @@ press_db_offset = 0.0
 [connection signal="color_changed" from="Menus/BodyColors/OptionContainer/HandColor/ColorPickerButton" to="." method="set_hand_color"]
 [connection signal="text_changed" from="Menus/AtrributeSelectors/VBoxContainer/NameSelector/LineEdit" to="." method="set_cog_name"]
 [connection signal="text_changed" from="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural/LineEdit" to="." method="set_plural_name"]
+[connection signal="text_changed" from="Menus/AtrributeSelectors/VBoxContainer/NamePrefix/LineEdit" to="." method="set_name_prefix"]
+[connection signal="text_changed" from="Menus/AtrributeSelectors/VBoxContainer/NameSuffix/LineEdit" to="." method="set_name_suffix"]
 [connection signal="value_changed" from="Menus/AtrributeSelectors/VBoxContainer/LevelMinimum/HSlider" to="." method="set_minimum_level"]
 [connection signal="value_changed" from="Menus/AtrributeSelectors/VBoxContainer/LevelMaximum/HSlider" to="." method="set_maximum_level"]
 [connection signal="toggled" from="Menus/AtrributeSelectors/VBoxContainer/ProxyToggle/CheckBox" to="." method="proxy_toggled"]

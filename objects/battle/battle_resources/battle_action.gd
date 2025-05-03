@@ -49,11 +49,16 @@ func actor_is_animating(actor: Node3D) -> bool:
 	return not actor.animator.current_animation == 'neutral'
 
 # Sets the camera angle in battle
-func set_camera_angle(transform: Transform3D) -> void:
+func set_camera_angle(angle: String) -> void:
 	## Reparent if necessary to
 	if manager.battle_node.battle_cam.get_parent() != manager.battle_node:
 		manager.battle_node.battle_cam.reparent(manager.battle_node)
-	manager.battle_node.battle_cam.transform = transform
+	var new_angle: Transform3D
+	if battle_node.override_camera_angles.keys().has(angle):
+		new_angle = battle_node.override_camera_angles[angle]
+	else:
+		new_angle = camera_angles[angle]
+	manager.battle_node.battle_cam.transform = new_angle
 
 func reassess_splash_targets(selection: int, _manager: BattleManager) -> void:
 	if target_type != ActionTarget.ENEMY_SPLASH:

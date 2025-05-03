@@ -105,7 +105,7 @@ func play() -> Tween:
 	
 	# View the platform as it sinks
 	movie.tween_callback(set_camera_angle.bind(manager.sink_pos))
-	movie.tween_callback(manager.sink_platform.bind(1.0))
+	movie.tween_callback(manager.sink_platform.bind(battle_node.cogs.size()))
 	movie.tween_interval(4.0)
 	
 	# Cog Dialogue finisher

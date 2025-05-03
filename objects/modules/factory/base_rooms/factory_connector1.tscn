@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="1_2kaus"]
 [ext_resource type="Texture2D" uid="uid://d2x2eeywn613c" path="res://models/facilities/factory/FINALFACTORY_67.png" id="2_6bp3v"]
 [ext_resource type="Texture2D" uid="uid://ckjvdqmnty5ng" path="res://models/facilities/factory/FINALFACTORY_65.png" id="3_uu64b"]
-[ext_resource type="Texture2D" uid="uid://do8mo6ao1sm0e" path="res://models/facilities/factory/FINALFACTORY_66.png" id="4_30q2a"]
+[ext_resource type="Texture2D" uid="uid://bg28yomkn1lgx" path="res://models/facilities/factory/FINALFACTORY_66.png" id="4_30q2a"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="5_yc5km"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmdgi"]

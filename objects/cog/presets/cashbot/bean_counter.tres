@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=10 format=3 uid="uid://c5hx67omlpw2u"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=11 format=3 uid="uid://c5hx67omlpw2u"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tf2qs"]
 [ext_resource type="Resource" uid="uid://bik8l6ycrnufq" path="res://objects/battle/battle_resources/cog_attacks/resources/calculate.tres" id="2_0t4gw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bxeasogxfcdk2" path="res://objects/battle/battle_resources/cog_attacks/resources/tabulate.tres" id="4_38s3m"]
 [ext_resource type="PackedScene" uid="uid://ctp4dbflsbvp6" path="res://models/cogs/heads/beancounter.glb" id="4_g25dk"]
 [ext_resource type="Resource" uid="uid://cfwymrymjx7s5" path="res://objects/battle/battle_resources/cog_attacks/resources/write_off.tres" id="5_t1k57"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="6_4sxkx"]
 [ext_resource type="Texture2D" uid="uid://mlf0fm5xd0x7" path="res://models/cogs/heads/beancounter.png" id="7_qvg68"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="8_g5eq7"]
 
@@ -16,6 +17,8 @@ department = 1
 suit = 1
 cog_name = "Bean Counter"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("4_g25dk")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -25,7 +28,7 @@ hand_color = Color(0.662745, 0.756863, 0.733333, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_tf2qs")]([ExtResource("2_0t4gw"), ExtResource("3_av0r6"), ExtResource("4_38s3m"), ExtResource("5_t1k57")])
+attacks = Array[ExtResource("1_tf2qs")]([ExtResource("2_0t4gw"), ExtResource("3_av0r6"), ExtResource("4_38s3m"), ExtResource("5_t1k57"), ExtResource("6_4sxkx")])
 level_low = 4
 level_high = 11
 status_effects = Array[ExtResource("8_g5eq7")]([])

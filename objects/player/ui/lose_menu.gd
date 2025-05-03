@@ -14,7 +14,8 @@ var toon: Toon
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	%DefeatedBy.text = "Defeated by %s" % Util.get_player().last_damage_source
+	if is_instance_valid(Util.get_player()):
+		%DefeatedBy.text = "Defeated by %s" % Util.get_player().last_damage_source
 	Engine.time_scale = 1.0
 	get_tree().paused = true
 	root.modulate.a = 0.0
@@ -36,6 +37,7 @@ func _ready() -> void:
 	toon.rotation_degrees.y = 210.0
 	toon.body.animator.seek(3.73, true)
 	toon.body.animator.pause()
+	toon.reset_physics_interpolation()
 	toon.set_eyes(Toon.Emotion.SAD)
 
 	Sequence.new([

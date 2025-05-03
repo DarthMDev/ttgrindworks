@@ -34,57 +34,57 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"blinn2": {
+"GoldChain": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/blinn2.tres"
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/GoldChain.tres"
+},
+"GoldChain2": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/GoldChain2.tres"
+},
+"LB_Scale_CJ_Icon": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/LB_Scale_CJ_Icon.tres"
+},
+"LB_Scale_Flpy_Icon": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/LB_Scale_Flpy_Icon.tres"
+},
+"gold1": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/gold1.tres"
+},
+"gold2": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/gold2.tres"
+},
+"gold2b": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/gold2b.tres"
+},
+"gold4": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/gold4.tres"
 },
 "lambert1": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert1.tres"
-},
-"lambert10": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert10.tres"
-},
-"lambert11": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert11.tres"
-},
-"lambert13": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert13.tres"
-},
-"lambert15": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert15.tres"
-},
-"lambert17": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert17.tres"
-},
-"lambert3": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert3.tres"
+"use_external/path": "uid://bvfufocril8ds"
 },
 "lambert4": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert4.tres"
+"use_external/path": "uid://cmm5smeguixf3"
 },
-"lambert5": {
+"roundShadow": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert5.tres"
+"use_external/path": "uid://dtfv6w7rxa7hp"
 },
-"lambert6": {
+"scaleneedle": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert6.tres"
+"use_external/path": "res://models/props/facility_objects/da_office/scale/textures/scaleneedle.tres"
 },
-"lambert7": {
+"squareshadow": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert7.tres"
-},
-"lambert9": {
-"use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/da_office/scale/lambert9.tres"
+"use_external/path": "uid://c0oqskakk1fq3"
 }
 }
 }

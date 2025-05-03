@@ -46,7 +46,7 @@ func action():
 	if toss_sfx:
 		AudioManager.play_sound(toss_sfx)
 	
-	set_camera_angle(camera_angles.SIDE_RIGHT)
+	set_camera_angle('SIDE_RIGHT')
 	
 	if action_name == "Marbles":
 		prop.reparent(target)
@@ -125,7 +125,7 @@ func activate():
 	var target = targets[0]
 	target.get_node('Body').position = Vector3(0,0,Globals.SUIT_LURE_DISTANCE)
 	
-	set_camera_angle(camera_angles['SIDE_RIGHT'])
+	set_camera_angle('SIDE_RIGHT')
 	
 	match animation:
 		ActiveMovie.BANANA:
@@ -230,10 +230,10 @@ func look_down(target: Cog):
 	target.animator.pause()
 
 func do_kaboom():
-	var kaboom: Sprite3D = prop.get_node('Kaboom')
-	kaboom.visible = true
+	var kaboom: GPUParticles3D = prop.get_node('Kaboom')
+	kaboom.emitting = true
 	var kaboom_tween: Tween = prop.create_tween()
 	kaboom_tween.tween_property(kaboom, 'pixel_size', .05, 0.25)
-	await kaboom_tween.finished
+	await kaboom.finished
 	kaboom_tween.kill()
 	kaboom.hide()

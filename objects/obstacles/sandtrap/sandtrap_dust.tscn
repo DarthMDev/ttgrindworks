@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://li3ppvgc88i2"]
+
+[ext_resource type="Texture2D" uid="uid://ijpjjbljcrmy" path="res://objects/obstacles/sandtrap/sandtrap_particles.png" id="1_co1py"]
+[ext_resource type="Texture2D" uid="uid://lpqo478g33r8" path="res://objects/props/factory/tt_t_efx_ext_smoke.png" id="2_f1aop"]
+
+[sub_resource type="Curve" id="Curve_y2jfu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.867704, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.55882, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mkje8"]
+curve = SubResource("Curve_y2jfu")
+
+[sub_resource type="Curve" id="Curve_co1py"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f1aop"]
+curve = SubResource("Curve_co1py")
+
+[sub_resource type="Gradient" id="Gradient_0whg1"]
+colors = PackedColorArray(0.556863, 0.32549, 0.160784, 1, 0.323795, 0.155394, 0.0851968, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0gyx4"]
+gradient = SubResource("Gradient_0whg1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l72rn"]
+angle_min = 1.07288e-05
+angle_max = 0.500011
+angle_curve = SubResource("CurveTexture_f1aop")
+direction = Vector3(0, 2.93, 0)
+spread = 10.0
+initial_velocity_min = 9.6
+initial_velocity_max = 9.6
+gravity = Vector3(0, -16.76, 0)
+scale_min = 2.35
+scale_max = 2.35
+color_ramp = SubResource("GradientTexture1D_0gyx4")
+alpha_curve = SubResource("CurveTexture_mkje8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di1f8"]
+render_priority = 1
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_co1py")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jex0w"]
+material = SubResource("StandardMaterial3D_di1f8")
+
+[sub_resource type="Curve" id="Curve_lsvov"]
+_data = [Vector2(0, 0.637705), 0.0, -0.637705, 0, 1, Vector2(1, 0), -0.637705, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jhjbe"]
+curve = SubResource("Curve_lsvov")
+
+[sub_resource type="Curve" id="Curve_s5jl5"]
+_limits = [0.0, 2.5, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 2.77584, 0, 0, Vector2(1, 2.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qjjrv"]
+curve = SubResource("Curve_s5jl5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5al3"]
+direction = Vector3(0, 2.93, 0)
+spread = 25.0
+initial_velocity_min = 5.95
+initial_velocity_max = 5.95
+scale_min = 0.55
+scale_max = 0.63
+scale_curve = SubResource("CurveTexture_qjjrv")
+color_ramp = SubResource("GradientTexture1D_0gyx4")
+alpha_curve = SubResource("CurveTexture_jhjbe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_346ky"]
+render_priority = 1
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_f1aop")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_q1iy8"]
+material = SubResource("StandardMaterial3D_346ky")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sand" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.701473, 0)
+amount = 7
+lifetime = 0.88
+process_material = SubResource("ParticleProcessMaterial_l72rn")
+draw_pass_1 = SubResource("QuadMesh_jex0w")
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.701473, 0)
+amount = 13
+lifetime = 0.62
+process_material = SubResource("ParticleProcessMaterial_y5al3")
+draw_pass_1 = SubResource("QuadMesh_q1iy8")

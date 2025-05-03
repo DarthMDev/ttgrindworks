@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://direah3lbjuu5"]
+[gd_scene load_steps=8 format=3 uid="uid://direah3lbjuu5"]
 
 [ext_resource type="Script" uid="uid://b0it87ebfs4qt" path="res://objects/battle/battle_node/battle_node.gd" id="1_8sgxc"]
 [ext_resource type="Resource" uid="uid://v7w5xrdb3eh4" path="res://objects/items/pools/battle_clears.tres" id="2_5be2w"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="3_ck76g"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="4_2sbpv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hs6yv"]
+radius = 2.5
 
 [sub_resource type="TextMesh" id="TextMesh_6r1av"]
 text = "--->"
@@ -25,6 +28,11 @@ transform = Transform3D(1, 0, 0, 0, 0.48481, 0.87462, 0, -0.87462, 0.48481, 0, 6
 [node name="BattleCamera" type="Camera3D" parent="BirdsEye"]
 physics_interpolation_mode = 2
 fov = 48.8
+
+[node name="Area3D" type="Area3D" parent="BirdsEye/BattleCamera"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BirdsEye/BattleCamera/Area3D"]
+shape = SubResource("SphereShape3D_hs6yv")
 
 [node name="ArrowReference" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.565281, 0)
@@ -54,5 +62,7 @@ label_settings = SubResource("LabelSettings_g2407")
 
 [connection signal="body_entered" from="." to="." method="body_entered"]
 [connection signal="s_player_entered" from="." to="." method="player_entered"]
+[connection signal="body_entered" from="BirdsEye/BattleCamera/Area3D" to="." method="_on_camera_area_body_entered"]
+[connection signal="body_exited" from="BirdsEye/BattleCamera/Area3D" to="." method="_on_camera_area_body_exited"]
 
 [editable path="SkipButton"]

@@ -1,7 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://daoi7msa5fcio"]
-
-[resource]
-resource_name = "lambert4"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.906332, 0, 0.906332, 1)
-emission_enabled = true

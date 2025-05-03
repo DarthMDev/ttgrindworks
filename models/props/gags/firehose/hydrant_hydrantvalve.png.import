@@ -2,26 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxyuh001lj1qn"
-path.s3tc="res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.s3tc.ctex"
-path.etc2="res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.etc2.ctex"
+uid="uid://m5es6it546t1"
+path="res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "00710ac73e930f0a40d46c5f088c4f61"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/props/gags/firehose/hydrant_hydrantvalve.png"
-dest_files=["res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.s3tc.ctex", "res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.etc2.ctex"]
+dest_files=["res://.godot/imported/hydrant_hydrantvalve.png-cffe88d31a944095bf7550eb4976a1d1.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=3
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

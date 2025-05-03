@@ -14,6 +14,7 @@ enum EffectQuality {
 # Effect Specific
 @export var quality := EffectQuality.NEUTRAL
 @export var rounds := 1
+@export var rounds_offset := 0
 @export var icon: Texture2D = null
 @export var icon_color := Color.WHITE
 @export var icon_scale := 1.0
@@ -67,14 +68,19 @@ func get_status_name() -> String:
 	return status_name
 
 func get_title_color() -> Color:
-	if quality == EffectQuality.POSITIVE:
-		return Color(0.83, 0.38, 0.058)
-	else:
-		return Color(0.145, 0.274, 0.85)
+	match quality:
+		EffectQuality.POSITIVE: return Color(0.0, 0.602, 0.186)
+		EffectQuality.NEGATIVE: return Color(0.937, 0.278, 0.278)
+		_: return Color(0.353, 0.443, 0.898)
 
 ## Override this to use custom combine logic for status effects
 func combine(_effect: StatusEffect) -> bool:
 	return false
+
+## Override this to change how an effect randomizes itself
+func randomize_effect() -> void:
+	rounds = randi_range(1, 3)
+
 
 static var registry: DynamicRegistry = null
 

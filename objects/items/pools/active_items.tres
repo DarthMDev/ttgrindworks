@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemPool" load_steps=15 format=3 uid="uid://n10qdgwgfm3j"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_8ecmc"]
+[ext_resource type="Resource" uid="uid://c8wjy8fdkxarx" path="res://objects/items/resources/active/gag_button.tres" id="2_rmt0d"]
+[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="2_xkinw"]
+[ext_resource type="Resource" uid="uid://08861uv78r5r" path="res://objects/items/resources/active/goon_foot.tres" id="3_4t5qj"]
+[ext_resource type="Resource" uid="uid://csrgfcqxhl18x" path="res://objects/items/resources/active/golden_jellybean.tres" id="4_giqwn"]
+[ext_resource type="Resource" uid="uid://bjtq481jok2t4" path="res://objects/items/resources/active/big_foghorn.tres" id="5_o4chs"]
+[ext_resource type="Resource" uid="uid://w47mu07t0gki" path="res://objects/items/resources/active/treasure_map.tres" id="6_o4chs"]
+[ext_resource type="Resource" uid="uid://wfdgusu3acxl" path="res://objects/items/resources/active/paint_bucket.tres" id="7_4ovt0"]
+[ext_resource type="Resource" uid="uid://cyq101ymuq6la" path="res://objects/items/resources/active/cash_register.tres" id="8_egflh"]
+[ext_resource type="Resource" uid="uid://b6h44ufinocuu" path="res://objects/items/resources/active/jellybean_jar.tres" id="9_4ovt0"]
+[ext_resource type="Resource" uid="uid://d4nsekncalswu" path="res://objects/items/resources/active/sandwich.tres" id="10_egflh"]
+[ext_resource type="Resource" uid="uid://dyt4cqi2xkctw" path="res://objects/items/resources/active/bounce_check.tres" id="11_fsci2"]
+[ext_resource type="Resource" uid="uid://wu70ua24wujr" path="res://objects/items/resources/active/unstoppable_gobstopper.tres" id="12_masq4"]
+[ext_resource type="Resource" uid="uid://bpctsghink3ao" path="res://objects/items/resources/active/gumball_machine.tres" id="13_s4224"]
+
+[resource]
+script = ExtResource("2_xkinw")
+items = Array[ExtResource("1_8ecmc")]([ExtResource("2_rmt0d"), ExtResource("3_4t5qj"), ExtResource("4_giqwn"), ExtResource("5_o4chs"), ExtResource("6_o4chs"), ExtResource("7_4ovt0"), ExtResource("8_egflh"), ExtResource("9_4ovt0"), ExtResource("10_egflh"), ExtResource("11_fsci2"), ExtResource("12_masq4"), ExtResource("13_s4224")])
+metadata/_custom_type_script = "uid://wiibpvvki8vs"

@@ -14,6 +14,8 @@ class_name BattleUI
 
 @onready var status_container: HBoxContainer = %StatusContainer
 
+@onready var manager: BattleManager = get_parent()
+
 # Signals
 signal s_gag_pressed(gag: BattleAction)
 signal s_gag_selected(gag: BattleAction)
@@ -29,9 +31,14 @@ var turn := 0:
 		refresh_turns()
 var remaining_turns: int:
 	get:
-		return Util.get_player().stats.turns - turn
+		if manager is BattleManager:
+			return manager.battle_stats[Util.get_player()].turns - turn
+		else:
+			return Util.get_player().stats.turns - turn
+
 var selected_gags: Array[ToonAttack] = []
 var fire_action: ToonAttackFire
+var timer : GameTimer
 
 func _ready():
 	refresh_turns()
@@ -100,7 +107,8 @@ func gag_selected(gag: BattleAction) -> void:
 	turn += 1
 
 func refresh_turns():
-	attack_label.set_text("Turns Remaining: " + str(Util.get_player().stats.turns - turn))
+	attack_label.set_text("Turns Remaining: " + str(manager.battle_stats[Util.get_player()].turns - turn))
+	gag_order_menu.update_panels()
 	
 	if remaining_turns == 0:
 		for track in gag_tracks.get_children():
@@ -116,6 +124,9 @@ func check_fires() -> bool:
 
 func gag_hovered(gag: BattleAction):
 	right_panel.preview_gag(gag)
+
+func gag_unhovered() -> void:
+	right_panel.clear_display()
 
 func complete_turn():
 	# Reset turns
@@ -158,6 +169,25 @@ func reset():
 		# can force the battle UI to be over early
 		%TargetSelect.s_arrow_pressed.emit(-1)
 		%TargetSelect.reset_buttons()
+	
+	try_start_timer()
+
+func try_start_timer() -> void:
+	var player := Util.get_player()
+	if player.stats.get_battle_time() > 0:
+		timer = Util.run_timer(player.stats.get_battle_time(), Control.PRESET_TOP_RIGHT)
+		
+		timer.timer.timeout.connect(on_timer_timeout)
+		AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
+		s_turn_complete.connect(
+			func(_actions):
+				if is_instance_valid(timer):
+					timer.queue_free()
+		)
+
+func on_timer_timeout() -> void:
+	if visible:
+		complete_turn()
 
 func cancel_gag(index: int):
 	var gag: BattleAction = selected_gags[index]
@@ -195,3 +225,7 @@ func fire_hovered() -> void:
 func open_items() -> void:
 	%ItemPanel.show()
 	main_container.hide()
+
+func refresh_tracks() -> void:
+	for track: TrackElement in gag_tracks.get_children():
+		track.refresh()
