@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bvfufocril8ds"]
+
+[resource]
+resource_name = "default.014"
+emission_enabled = true
+metadata/info = "used for default shader/material (lambert1)"

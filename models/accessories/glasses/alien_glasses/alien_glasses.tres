@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dni8smynlqa8s"]
+
+[ext_resource type="Texture2D" uid="uid://cwvdl4oqx5588" path="res://models/accessories/glasses/alien_glasses/tt_m_chr_avt_acc_msk_alienGlasses_tt_t_chr_avt_acc_msk_alienGlasses.png" id="1_u0esl"]
+
+[resource]
+resource_name = "default.259"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_u0esl")

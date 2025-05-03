@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=7 format=3 uid="uid://sha4cya1jit5"]
+[gd_resource type="Resource" script_class="FloorVariant" load_steps=8 format=3 uid="uid://sha4cya1jit5"]
 
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_d8s5l"]
 [ext_resource type="Resource" uid="uid://dk64pnype64ch" path="res://scenes/game_floor/floor_variants/alt_floors/faulty_factory.tres" id="1_i5xdj"]
 [ext_resource type="Resource" uid="uid://c1kumm74qwmtf" path="res://scenes/game_floor/department_floors/rooms_sell.tres" id="1_vuut2"]
 [ext_resource type="Texture2D" uid="uid://bnvln6hkbsr3d" path="res://models/cogs/misc/hp_light/sell.png" id="2_34xr8"]
+[ext_resource type="Resource" uid="uid://dd5vhnprun5mw" path="res://objects/cog/presets/pools/sellbot.tres" id="2_pq8a5"]
 [ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="2_yv3k5"]
 [ext_resource type="Script" uid="uid://bto4vf3x4gmme" path="res://scenes/game_floor/floor_modifiers/scripts/misc/floor_mod_sbhq_sky.gd" id="3_pwr50"]
 
@@ -12,6 +13,7 @@ script = ExtResource("1_d8s5l")
 floor_difficulty = 0
 floor_type = ExtResource("1_vuut2")
 floor_name = "The Factory"
+cog_pool = ExtResource("2_pq8a5")
 modifiers = Array[Script]([ExtResource("3_pwr50")])
 end_rooms = Array[ExtResource("2_yv3k5")]([])
 alt_floor = ExtResource("1_i5xdj")

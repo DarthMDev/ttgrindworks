@@ -32,3 +32,9 @@ Sound hits 3 Cogs, with the pink arrows indicating which take splash damage.
 Throw's self heal is the best way to maintain your laff!
 Drop's aftershock is affected by crits.
 Hitting a Cog with multiple drop gags can stack aftershock!
+Falling behind? Chests may provide more progression-based items to help catch you up!
+Chest types indicate the type of items they spawn.
+Rare rooms contain special chests!
+Pocket Pranks can be recharged by defeating battles.
+Group Lures decrease the damage of their main target more harshly.
+Treasures you pick up will become consumables in battle.

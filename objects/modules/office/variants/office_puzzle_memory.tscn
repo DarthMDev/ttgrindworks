@@ -1,0 +1,309 @@
+[gd_scene load_steps=24 format=3 uid="uid://of48gta2fyxa"]
+
+[ext_resource type="PackedScene" uid="uid://bmwjewy35l45" path="res://objects/modules/office/base_rooms/office_finale_room.tscn" id="1_4ko6v"]
+[ext_resource type="PackedScene" uid="uid://wpoc3xs1yy0" path="res://objects/player/player.tscn" id="2_f2vng"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="4_wd1s8"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="5_i0bka"]
+[ext_resource type="Texture2D" uid="uid://v0n7tknvy2jk" path="res://models/toon/textures/clothes/shorts/desat_shorts_10_2.png" id="6_qy6qx"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="7_yv3me"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="8_gal62"]
+[ext_resource type="Texture2D" uid="uid://c4qvk4ssy1c0n" path="res://models/toon/textures/clothes/shirts/desat_shirt_4.png" id="9_1gdcg"]
+[ext_resource type="Texture2D" uid="uid://cdawen500xuqx" path="res://models/toon/textures/clothes/shirts/desat_sleeve_4.png" id="10_oqhfj"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="11_w431e"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="12_ttdrw"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="13_0pah8"]
+[ext_resource type="Resource" uid="uid://cyiwxplege133" path="res://objects/items/resources/passive/emergency_unite.tres" id="14_bwwao"]
+[ext_resource type="Script" uid="uid://dfa2ic7ngy7sg" path="res://objects/quests/quest.gd" id="15_48ulk"]
+[ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="16_805f2"]
+[ext_resource type="PackedScene" uid="uid://sd8lfcjqv38j" path="res://objects/interactables/pressure_button/pressure_button.tscn" id="16_f2vng"]
+[ext_resource type="Script" uid="uid://bbdjshdi7ojl" path="res://objects/interactables/lawbot_puzzles/puzzle_memory.gd" id="18_wd1s8"]
+
+[sub_resource type="Resource" id="Resource_jj61k"]
+script = ExtResource("4_wd1s8")
+damage = 1.0
+defense = 1.0
+evasiveness = 1.0
+accuracy = 1.0
+speed = 1.0
+max_turns = 3
+max_hp = 25
+hp = 25
+turns = 1
+
+[sub_resource type="Resource" id="Resource_00fk0"]
+script = ExtResource("5_i0bka")
+texture = ExtResource("6_qy6qx")
+base_color = Color(0.71, 0.231, 0.435, 1)
+color_type = 0
+
+[sub_resource type="Resource" id="Resource_wd1s8"]
+script = ExtResource("8_gal62")
+shirt_texture = ExtResource("9_1gdcg")
+sleeve_texture = ExtResource("10_oqhfj")
+base_color = Color(0.992157, 0.478431, 0.168627, 1)
+sleeve_color = Color(0.992157, 0.478431, 0.168627, 1)
+color_type = 0
+
+[sub_resource type="Resource" id="Resource_e5n6o"]
+script = ExtResource("7_yv3me")
+body_type = 1
+species = 2
+head_index = 2
+eyelashes = false
+skirt = false
+head_color = Color(0.345098, 0.819608, 0.952941, 1)
+torso_color = Color(0.345098, 0.819608, 0.952941, 1)
+leg_color = Color(0.345098, 0.819608, 0.952941, 1)
+shirt = SubResource("Resource_wd1s8")
+bottoms = SubResource("Resource_00fk0")
+
+[sub_resource type="Resource" id="Resource_i0bka"]
+script = ExtResource("12_ttdrw")
+character_name = "Flippy"
+character_summary = "- Can revive once before going sad
+- 5% base Throw boost
+- Starts with Toon-Up and Throw"
+dna = SubResource("Resource_e5n6o")
+gag_loadout = ExtResource("11_w431e")
+starting_laff = 25
+starting_items = Array[ExtResource("13_0pah8")]([ExtResource("14_bwwao")])
+base_stats = SubResource("Resource_jj61k")
+random_character_stored_name = ""
+
+[sub_resource type="Resource" id="Resource_wdmji"]
+script = ExtResource("16_805f2")
+money = 55
+items = Array[ExtResource("13_0pah8")]([])
+gags_unlocked = Dictionary[String, int]({
+"Drop": 7,
+"Lure": 7,
+"Sound": 7,
+"Squirt": 7,
+"Throw": 7,
+"Trap": 7
+})
+gag_balance = Dictionary[String, int]({
+"Drop": 10,
+"Lure": 10,
+"Sound": 10,
+"Squirt": 10,
+"Throw": 10,
+"Trap": 10
+})
+gag_effectiveness = Dictionary[String, float]({
+"Drop": 1.0,
+"Lure": 1.0,
+"Sound": 1.0,
+"Squirt": 1.0,
+"Throw": 1.05,
+"Trap": 1.0
+})
+gag_regeneration = Dictionary[String, int]({
+"Drop": 5,
+"Lure": 5,
+"Sound": 5,
+"Squirt": 5,
+"Throw": 5,
+"Trap": 5
+})
+gag_vouchers = Dictionary[String, int]({
+"Drop": 1,
+"Lure": 1,
+"Sound": 1,
+"Squirt": 1,
+"Throw": 1,
+"Trap": 1
+})
+gag_battle_start_point_boost = Dictionary[String, int]({})
+global_battle_start_point_boost = 0
+toonups = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1,
+3: 1,
+4: 1,
+5: 1,
+6: 0
+})
+gag_cap = 100
+gag_discount = -1
+character = SubResource("Resource_i0bka")
+quests = Array[ExtResource("15_48ulk")]([])
+quest_rerolls = 3
+pink_slips = 10
+luck = 1.0
+crit_mult = 1.25
+mod_cog_dmg_mult = 1.0
+shop_discount = 0
+healing_effectiveness = 1.0
+throw_heal_boost = 0.15
+squirt_defense_boost = 0.8
+drop_aftershock_round_boost = 0
+trap_knockback_percent = 0.0
+anomaly_boost = 0
+laff_boost_boost = 0
+extra_lives = 0
+toonup_boost = 0.0
+sellbot_boost = 1.0
+cashbot_boost = 1.0
+lawbot_boost = 1.0
+bossbot_boost = 1.0
+proxy_chance_boost = 0.0
+cog_hp_death_threshold = 0.0
+battle_timers = Array[int]([])
+damage = 2.0
+defense = 1.2
+evasiveness = 1.1
+accuracy = 1.5
+speed = 1.1
+max_turns = 3
+max_hp = 100
+hp = 70
+turns = 3
+
+[node name="OfficeFinaleRoom" instance=ExtResource("1_4ko6v")]
+
+[node name="GeometryTransformHelper20" parent="Z22a/room/geometry/wall" index="0"]
+transform = Transform3D(1, 2.93874e-39, 2.64698e-23, 7.34684e-40, 1, 0, -2.64698e-23, 0, 1, 3671.59, -464.632, 4822.73)
+
+[node name="CollisionShape3D" parent="Z22a/room/collsion/wall2/GeometryTransformHelper21/StaticBody3D" index="0"]
+disabled = true
+
+[node name="shadows" parent="Z22a" index="2"]
+visible = false
+
+[node name="LB_chairA4" parent="Z22a/furniture" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_chairA4/GeometryTransformHelper13/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_chairA" parent="Z22a/furniture" index="1"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_chairA/GeometryTransformHelper14/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_chairA3" parent="Z22a/furniture" index="2"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_chairA3/GeometryTransformHelper15/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_chairA2" parent="Z22a/furniture" index="3"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_chairA2/GeometryTransformHelper16/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_couchA7" parent="Z22a/furniture" index="6"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_couchA7/LB_couchA6/GeometryTransformHelper23/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_couchA" parent="Z22a/furniture" index="7"]
+visible = false
+
+[node name="LB_couchA62" parent="Z22a/furniture/LB_couchA" index="1"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_couchA/LB_couchA62/GeometryTransformHelper24/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_couchA/collision1/Bookcase_Collision1/GeometryTransformHelper34/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_couchA/collision1/Bookcase_Collision2/GeometryTransformHelper35/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_endtableA" parent="Z22a/furniture" index="8"]
+visible = false
+
+[node name="LB_endtableA2" parent="Z22a/furniture/LB_endtableA" index="0"]
+visible = false
+
+[node name="pCube12" parent="Z22a/furniture/LB_endtableA/LB_endtableA2" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_endtableA/LB_endtableA2/pCube14/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_endtableA/LB_endtableA2/pCube13/GeometryTransformHelper36/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="Z22a/furniture/LB_frameA/StaticBody3D" index="0"]
+disabled = true
+
+[node name="LB_torch_lampC_v1s1_torch_lampA" parent="Z22a/furniture/lamps/torch_lampC/torch_lampC2" index="0"]
+visible = false
+
+[node name="LB_torch_lampC_v1s1_shadow" parent="Z22a/furniture/lamps/torch_lampC/torch_lampC2" index="1"]
+visible = false
+
+[node name="LB_torch_lampC_v1s1_torch_lampC" parent="Z22a/furniture/lamps/torch_lampC/torch_lampC2" index="4"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/lamps/torch_lampC/torch_lampC2/LB_torch_lampC_v1s1_torch_lampC/GeometryTransformHelper47/StaticBody3D" index="0"]
+disabled = true
+
+[node name="torch_lampB5" parent="Z22a/furniture/lamps/torch_lampB" index="0"]
+visible = false
+
+[node name="torch_lampB1" parent="Z22a/furniture/lamps" index="2"]
+visible = false
+
+[node name="torch_lampB4" parent="Z22a/furniture/lamps" index="3"]
+visible = false
+
+[node name="torch_lampB2" parent="Z22a/furniture/lamps" index="4"]
+visible = false
+
+[node name="GeometryTransformHelper50" parent="Z22a/furniture/lamps/torch_lampB2/torch_lampB6/torch_lampA" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/furniture/lamps/torch_lampB2/torch_lampB6/torch_lampA/GeometryTransformHelper50/StaticBody3D" index="0"]
+disabled = true
+
+[node name="torch_lampB7" parent="Z22a/furniture/lamps/torch_lampB3" index="1"]
+visible = false
+
+[node name="torch_lampA1" parent="Z22a" index="4"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/torch_lampA1/GeometryTransformHelper2/StaticBody3D" index="0"]
+disabled = true
+
+[node name="torch_lampA2" parent="Z22a" index="5"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/torch_lampA2/GeometryTransformHelper3/StaticBody3D" index="0"]
+disabled = true
+
+[node name="torch_lampA3" parent="Z22a" index="6"]
+visible = false
+
+[node name="CollisionShape3D" parent="Z22a/torch_lampA3/GeometryTransformHelper4/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="RoomArea" index="0"]
+disabled = true
+
+[node name="Player" parent="." index="21" instance=ExtResource("2_f2vng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21925, 0, -8.10607)
+state = 0
+stats = SubResource("Resource_wdmji")
+
+[node name="PressureButton" parent="." index="22" instance=ExtResource("16_f2vng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9231, -0.122255, -8.59045)
+
+[node name="PuzzleMemory" type="Node3D" parent="." index="23"]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -8.67083, 0, -8.8173)
+script = ExtResource("18_wd1s8")
+grid_width = 15
+grid_height = 15
+lose_type = 2
+metadata/_custom_type_script = "uid://bbdjshdi7ojl"
+
+[connection signal="s_pressed" from="PressureButton" to="PuzzleMemory" method="show_correct_path"]
+[connection signal="s_retracted" from="PressureButton" to="PuzzleMemory" method="hide_correct_path"]

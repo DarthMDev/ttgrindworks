@@ -30,12 +30,14 @@ scale = Vector3(0.3, 0.3, 0.4)
 [resource]
 script = ExtResource("2_m3eda")
 accessory_placements = Array[ExtResource("1_fylvi")]([SubResource("Resource_ryjws"), SubResource("Resource_2cphq"), SubResource("Resource_mw3is")])
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.1
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Super Toon Cape"

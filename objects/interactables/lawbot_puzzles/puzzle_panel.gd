@@ -1,3 +1,4 @@
+@tool
 extends MeshInstance3D
 class_name PuzzlePanel
 
@@ -14,12 +15,16 @@ enum PanelShape {
 	THREE,
 	FOUR,
 	FIVE,
-	SIX
+	SIX,
+	QUESTIONMARK,
+	BIGSQUARE,
 }
 @export var panel_shape := PanelShape.NOTHING:
 	set(x):
 		panel_shape = x
 		mesh = panel_shapes[panel_shape].to_mesh()
+		if not x == PanelShape.NOTHING:
+			mesh.surface_get_material(0).transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		s_shape_changed.emit(self, x)
 
 ## Locals
@@ -36,7 +41,9 @@ var panel_shapes := {
 	PanelShape.THREE : preload("res://general_resources/generated_meshes/puzzle_three.tres"),
 	PanelShape.FOUR : preload("res://general_resources/generated_meshes/puzzle_four.tres"),
 	PanelShape.FIVE : preload("res://general_resources/generated_meshes/puzzle_five.tres"),
-	PanelShape.SIX : preload("res://general_resources/generated_meshes/puzzle_six.tres")
+	PanelShape.SIX : preload("res://general_resources/generated_meshes/puzzle_six.tres"),
+	PanelShape.QUESTIONMARK : preload("res://general_resources/generated_meshes/puzzle_question_mark.tres"),
+	PanelShape.BIGSQUARE : preload("res://general_resources/generated_meshes/puzzle_big_square.tres")
 }
 var area : Area3D
 var pos : Vector2i
@@ -59,7 +66,7 @@ func _ready() -> void:
 	area.position = Vector3(.5,0,.5)
 	collision_shape.set_shape(BoxShape3D.new())
 	collision_box = collision_shape.shape
-	collision_box.size*=.7
+	collision_box.size*=.72
 	collision_box.size.y=100.0
 	area.body_entered.connect(body_entered)
 	area.body_exited.connect(body_exited)
@@ -67,11 +74,19 @@ func _ready() -> void:
 	# Prepare selection mesh
 	select_mesh = MeshInstance3D.new()
 	add_child(select_mesh)
-	select_mesh.mesh = panel_shapes[PanelShape.SQUARE].to_mesh()
+	select_mesh.mesh = panel_shapes[PanelShape.BIGSQUARE].to_mesh()
 	select_mesh.mesh.surface_get_material(0).albedo_color = Color.RED
 	select_mesh.hide()
-	
-		
+
+func set_alpha(alpha : float) -> void:
+	if panel_shape != PanelShape.NOTHING:
+		mesh.surface_get_material(0).albedo_color.a = alpha
+		s_color_changed.emit(mesh.surface_get_material(0).albedo_color)
+
+func get_alpha() -> float:
+	if panel_shape == PanelShape.NOTHING:
+		return 0.0
+	return mesh.surface_get_material(0).albedo_color.a
 
 func body_entered(body) -> void:
 	if body is Player:
@@ -87,3 +102,24 @@ func set_color(color : Color) -> void:
 	if panel_shape != PanelShape.NOTHING:
 		mesh.surface_get_material(0).albedo_color = color
 		s_color_changed.emit(color)
+
+var fade_tween : Tween
+func fade(strength : float, time : float) -> Tween:
+	if fade_tween and fade_tween.is_running():
+		fade_tween.kill()
+	
+	fade_tween = create_tween()
+	fade_tween.tween_method(set_alpha, get_alpha(), strength, 0.0)
+	fade_tween.tween_method(set_alpha, strength, 0.0, time)
+	fade_tween.finished.connect(fade_tween.kill)
+	return fade_tween
+
+
+func custom_fade(strength : float, time : float) -> Tween:
+	if fade_tween and fade_tween.is_running():
+		fade_tween.kill()
+	
+	fade_tween = create_tween()
+	fade_tween.tween_method(set_alpha, get_alpha(), strength, time)
+	fade_tween.finished.connect(fade_tween.kill)
+	return fade_tween

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://wt32frxolvqs"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://wt32frxolvqs"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_bjrff"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_1y4y0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qqdyuilfkd7y" path="res://models/cogs/heads/corporate_raider.glb" id="3_g2j3y"]
 [ext_resource type="Resource" uid="uid://bhl72hd7pn8s2" path="res://objects/battle/battle_resources/cog_attacks/resources/workout.tres" id="3_kqbbr"]
 [ext_resource type="Texture2D" uid="uid://cngso70oyfm86" path="res://models/cogs/heads/corporate_raider_tt_t_ene_hed_corporateRaider.png" id="4_51tnt"]
+[ext_resource type="Resource" uid="uid://305avsq3iu30" path="res://objects/battle/battle_resources/cog_attacks/resources/power_tie.tres" id="4_onids"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_n5a4u"]
 
 [resource]
@@ -14,6 +15,8 @@ department = 3
 suit = 2
 cog_name = "Corporate Raider"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("3_g2j3y")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -23,7 +26,7 @@ hand_color = Color(0.929412, 0.772549, 0.752941, 1)
 head_color = null
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_bjrff")]([ExtResource("2_he3j6"), ExtResource("3_kqbbr")])
+attacks = Array[ExtResource("1_bjrff")]([ExtResource("2_he3j6"), ExtResource("3_kqbbr"), ExtResource("4_onids")])
 level_low = 7
 level_high = 14
 status_effects = Array[ExtResource("5_n5a4u")]([])

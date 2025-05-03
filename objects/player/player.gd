@@ -1,7 +1,7 @@
 extends Actor
 class_name Player
 
-const PAUSE_MENU := 'res://objects/pause_menu/pause_menu.tscn'
+var PAUSE_MENU : PackedScene
 const DEATH_THRESHOLD := -20.0
 const COYOTE_TIME := 0.07
 const IFRAME_TIME := 3.0
@@ -41,8 +41,8 @@ const DEBUG_COLLISION_PRINT := false
 	get:
 		return camera.spring_length
 @onready var move_sfx := $MoveSFX
-@onready var laff_meter := $LaffMeter
-@onready var bean_jar := $BeanJar
+@onready var laff_meter := %LaffMeter
+@onready var bean_jar := %BeanJar
 @onready var toon: Toon = $Toon
 @onready var character: PlayerCharacter:
 	get:
@@ -53,12 +53,22 @@ const DEBUG_COLLISION_PRINT := false
 		return stats.character
 @onready var item_node := $Items
 @onready var boost_queue: BoostQueue = %BoostTextQueue
-@onready var game_timer: Control = $GameTimer
-var game_timer_tick := false
+
+@onready var game_timer: Control = %GameTimer
+var game_timer_tick := false:
+	set(x):
+		if not lock_game_timer:
+			game_timer_tick = x
+var lock_game_timer := false
+@onready var active_item_ui : Control = %ActiveItemUI
+
+
 
 ## Misc.
 var run_speed := 8.0
 var speed = 0.0
+var can_sprint := true
+var can_jump := true
 var jump_velocity := 7.0
 var sprint: bool
 var gravity := 16.0
@@ -79,7 +89,7 @@ var animator: AnimationPlayer
 var see_descriptions: bool = false:
 	set(x):
 		see_descriptions = x
-		$ItemDescriptions.visible = x
+		%ItemDescriptions.visible = x
 var random_cog_heals := false
 var custom_gag_order := false
 var less_shop_items := false
@@ -87,10 +97,15 @@ var better_battle_rewards := false
 var no_negative_anomalies := false
 var throw_heals := true
 var trap_needs_lure := true
+var inverted_sound_damage := false
+var obscured_anomalies := false
 ## Damage immunity from light-based obstacles, such as spotlights and goon beams.
 var immune_to_light_damage := false
 ## Damage immunity from stompers and other crush-based obstacles
 var immune_to_crush_damage := false
+## Used in battle to override Gag prices
+var free_gags : Array[ToonAttack] = []
+
 var laff_lock_enabled := false:
 	set(x):
 		laff_lock_enabled = x
@@ -103,11 +118,16 @@ var laff_lock := false:
 		if is_instance_valid(laff_meter):
 			laff_meter.locked = x
 
+
 signal s_fell_out_of_world(player: Player)
 signal s_died
 signal s_jumped
 signal s_stats_connected(stats: PlayerStats)
 
+func _init() -> void:
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'PAUSE_MENU': "res://objects/pause_menu/pause_menu.tscn",
+	})
 
 func _ready() -> void:
 	# Make player globally accessible
@@ -162,8 +182,8 @@ func _physics_process_walk(delta: float) -> void:
 	if _floored or (curr_time - last_floor_time) < COYOTE_TIME:
 		if _floored:
 			last_floor_time = curr_time
-		if Input.is_action_just_pressed('jump'):
-			velocity.y = jump_velocity
+		if Input.is_action_just_pressed('jump') and can_jump:
+			velocity.y = get_platform_velocity().y + jump_velocity
 			s_jumped.emit()
 			if moving: 
 				set_animation('leap')
@@ -174,9 +194,7 @@ func _physics_process_walk(delta: float) -> void:
 	
 	# Get current movement speed
 	var target_speed = run_speed
-	sprint = Input.is_action_pressed('sprint')
-	if SaveFileService.settings_file.auto_sprint:
-		sprint = not sprint
+	sprint = should_sprint()
 	if not sprint: target_speed /= 2.0
 	target_speed *= stats.get_stat('speed')
 	
@@ -221,7 +239,7 @@ func _physics_process_walk(delta: float) -> void:
 		
 		moving = (direction or input_turn)
 		
-		if is_on_floor() and not Input.is_action_just_pressed("jump"):
+		if is_on_floor() and not Input.is_action_just_pressed("jump") and can_jump:
 			if input_dir == 1 and sprint:
 				set_animation('run')
 			elif input_turn or input_dir:
@@ -255,7 +273,7 @@ func _physics_process_walk(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().get_root().add_child(load(PAUSE_MENU).instantiate())
+		get_tree().get_root().add_child(PAUSE_MENU.instantiate())
 	
 	if Input.is_action_just_pressed('toggle_freecam') and SaveFileService.settings_file.dev_tools:
 		var cam := PlayerFreeCam.new(self)
@@ -264,6 +282,14 @@ func _physics_process_walk(delta: float) -> void:
 		cam.global_transform = camera.camera.global_transform
 		set_animation('neutral')
 
+func should_sprint() -> bool:
+	if not can_sprint:
+		return false
+	
+	if SaveFileService.settings_file.auto_sprint:
+		return not Input.is_action_pressed('sprint')
+	else:
+		return Input.is_action_pressed('sprint')
 
 func assess_anim() -> void:
 	var anim := base_anim
@@ -346,6 +372,7 @@ func lose():
 	shrink_tween.tween_property(toon, 'scale', Vector3(.01, .01, .01), 2.0)
 	await shrink_tween.finished
 	shrink_tween.kill()
+	SaveFileService.progress_file.deaths += 1
 	s_died.emit()
 
 func speak(phrase: String) -> void:
@@ -396,6 +423,7 @@ func reset_stats() -> void:
 		newstats.character.character_setup(self)
 	if laff_meter:
 		connect_stats()
+	
 
 func connect_stats() -> void:
 	# Update laff meter on hp/max hp update
@@ -415,6 +443,10 @@ func connect_stats() -> void:
 		BattleService.s_round_ended.connect(stats.on_round_end)
 	if not BattleService.s_battle_started.is_connected(stats.on_battle_started):
 		BattleService.s_battle_started.connect(stats.on_battle_started)
+	stats.s_active_item_changed.connect(func(newitem): active_item_ui.item = newitem)
+	stats.current_active_item = stats.current_active_item
+	if stats.current_active_item and not stats.current_active_item.node:
+		stats.current_active_item.apply_item(self)
 	s_stats_connected.emit(stats)
 
 var prev_hp := -1
@@ -448,10 +480,10 @@ func recenter_camera(instant := true) -> void:
 		camera.rotation = Vector3.ZERO
 		camera.rotation_degrees.y = toon.rotation_degrees.y + 180.0
 
-func do_invincibility_frames() -> void:
+func do_invincibility_frames(time := IFRAME_TIME) -> void:
 	set_collision_mask_value(Globals.HAZARD_COLLISION_LAYER, false)
 	set_collision_layer_value(Globals.HAZARD_COLLISION_LAYER, false)
-	await do_iframe_tween().finished
+	await do_iframe_tween(time).finished
 	set_collision_layer_value(Globals.HAZARD_COLLISION_LAYER, true)
 	set_collision_mask_value(Globals.HAZARD_COLLISION_LAYER, true)
 
@@ -479,3 +511,17 @@ func do_iframe_tween(time := IFRAME_TIME) -> Tween:
 
 func swap_toon_visibility() -> void:
 	toon.body.visible = not toon.body.visible
+
+func update_accessories() -> void:
+	var hat : ItemAccessory
+	var glasses : ItemAccessory
+	var backpack : ItemAccessory
+	for item : Item in stats.items:
+		if item is ItemAccessory:
+			match item.slot:
+				Item.ItemSlot.HAT: hat = item
+				Item.ItemSlot.GLASSES: glasses = item
+				Item.ItemSlot.BACKPACK: backpack = item
+	if hat: hat.place_accessory(self)
+	if glasses: glasses.place_accessory(self)
+	if backpack: backpack.place_accessory(self)

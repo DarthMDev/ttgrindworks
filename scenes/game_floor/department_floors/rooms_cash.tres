@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=40 format=3 uid="uid://cljdlcw5dbu7a"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=42 format=3 uid="uid://cljdlcw5dbu7a"]
 
 [ext_resource type="AudioStream" uid="uid://ta7s86ku5kvp" path="res://audio/music/installer.ogg" id="1_wellv"]
 [ext_resource type="AudioStream" uid="uid://dqgiuok6f03if" path="res://audio/music/encntr_suit_winning.ogg" id="2_lxatr"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bweee2f872ar" path="res://objects/modules/mint/variants/mint_shop.tscn" id="15_pqypv"]
 [ext_resource type="PackedScene" uid="uid://c8h76u7dspxxc" path="res://objects/modules/mint/variants/mint_obstacle_lava_mixer.tscn" id="18_xntky"]
 [ext_resource type="PackedScene" uid="uid://cmwth04hxrxf4" path="res://objects/modules/mint/base_rooms/mint_conveyor_room.tscn" id="19_ocw5o"]
+[ext_resource type="PackedScene" uid="uid://bgmijmxyy2ydt" path="res://objects/modules/mint/base_rooms/mint_conveyer_lava_jump.tscn" id="20_vma8a"]
 [ext_resource type="PackedScene" uid="uid://b8xrlx4lbhy1q" path="res://objects/modules/mint/variants/mint_special_pipe_room.tscn" id="20_w6bvv"]
 
 [sub_resource type="Resource" id="Resource_6f1he"]
@@ -89,6 +90,12 @@ script = ExtResource("3_puix8")
 room = ExtResource("19_ocw5o")
 rarity_weight = 1.0
 
+[sub_resource type="Resource" id="Resource_46m2m"]
+script = ExtResource("3_puix8")
+room = ExtResource("20_vma8a")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+
 [sub_resource type="Resource" id="Resource_bdt7p"]
 script = ExtResource("3_puix8")
 room = ExtResource("15_pqypv")
@@ -108,7 +115,7 @@ rarity_weight = 1.0
 script = ExtResource("4_p20cp")
 entrances = Array[PackedScene]([ExtResource("10_g7ese")])
 battle_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_6f1he"), SubResource("Resource_m2s7n"), SubResource("Resource_5leen"), SubResource("Resource_thipa"), SubResource("Resource_ivu7f")])
-obstacle_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_bs3kq"), SubResource("Resource_s8bwj"), SubResource("Resource_sxmou"), SubResource("Resource_dbq1y"), SubResource("Resource_bpdqh"), SubResource("Resource_qrqdp")])
+obstacle_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_bs3kq"), SubResource("Resource_s8bwj"), SubResource("Resource_sxmou"), SubResource("Resource_dbq1y"), SubResource("Resource_bpdqh"), SubResource("Resource_qrqdp"), SubResource("Resource_46m2m")])
 connectors = Array[PackedScene]([ExtResource("8_gkehy"), ExtResource("9_8ktwm")])
 pre_final_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_bdt7p")])
 final_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_kcq8j"), SubResource("Resource_ehsvc")])

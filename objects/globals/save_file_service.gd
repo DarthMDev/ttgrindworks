@@ -10,8 +10,8 @@ const SAVE_FILE_PATH := 'user://save/'
 const RUN_FILE_NAME := 'current_save.tres'
 const GLOBALSAVE_FILE_NAME := 'progress.tres'
 const SETTINGS_FILE_NAME := 'settings.tres'
-const ACHIEVEMENT_UI := preload("res://objects/general_ui/achievement_notification/achievement_ui.tscn")
-const SAVE_GAME_TEXT := preload("res://objects/save_file/save_game_text.tscn")
+var ACHIEVEMENT_UI: PackedScene
+var SAVE_GAME_TEXT: PackedScene
 
 var run_file: SaveFile
 var progress_file: ProgressFile
@@ -21,7 +21,14 @@ var achievement_ui: Control
 
 signal s_game_loaded
 signal s_reset
+signal s_settings_changed
 
+
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.GAME_START, self, {
+		'ACHIEVEMENT_UI': 'res://objects/general_ui/achievement_notification/achievement_ui.tscn',
+		'SAVE_GAME_TEXT': 'res://objects/save_file/save_game_text.tscn',
+	})
 
 func save():
 	_save_run()
@@ -43,6 +50,7 @@ func _save_progress() -> void:
 func save_settings() -> void:
 	settings_file.save_to(SETTINGS_FILE_NAME)
 	print("Settings file saved")
+	SaveFileService.s_settings_changed.emit()
 
 func get_player_state() -> PlayerStats:
 	if Util.get_player() and is_instance_valid(Util.get_player()):
@@ -61,14 +69,8 @@ func _ready():
 	if not DirAccess.dir_exists_absolute(SAVE_FILE_PATH):
 		DirAccess.make_dir_absolute(SAVE_FILE_PATH)
 	
-	# Look for the global progress file
-	if FileAccess.file_exists(SAVE_FILE_PATH + GLOBALSAVE_FILE_NAME):
-		var file = load(SAVE_FILE_PATH + GLOBALSAVE_FILE_NAME)
-		if file is ProgressFile:
-			progress_file = file
-	# Should create the file
-	if not progress_file:
-		progress_file = ProgressFile.new()
+	# Load our progress
+	var progress_result := load_progress()
 	
 	# Set up our achievement listener
 	achievement_ui = ACHIEVEMENT_UI.instantiate()
@@ -77,37 +79,67 @@ func _ready():
 	# Let progress file start listening
 	progress_file.start_listening()
 	
-	# Get the user settings
-	if FileAccess.file_exists(SAVE_FILE_PATH + SETTINGS_FILE_NAME):
-		var file = load(SAVE_FILE_PATH + SETTINGS_FILE_NAME)
-		if file is SettingsFile:
-			settings_file = file
-		else:
-			printerr("Invalid settings file found. Deleting.")
-			DirAccess.remove_absolute(SAVE_FILE_PATH+SETTINGS_FILE_NAME)
+	# Load our settings
+	var settings_result := load_settings()
+	settings_file.sync_settings()
+	
+	# Load the player's current save file
+	var run_result := load_run()
+	
+	var invalid_files : Array[String] = [progress_result, settings_result, run_result]
+	for entry in invalid_files.duplicate():
+		if entry == "" : invalid_files.erase("")
+	
+	if not invalid_files.is_empty():
+		show_save_errors(invalid_files)
+
+func load_settings() -> String:
+	var file_path := SAVE_FILE_PATH + SETTINGS_FILE_NAME
+	if FileAccess.file_exists(file_path):
+		var file = ResourceLoader.load(file_path)
+		if not file:
+			save_file_error(file_path)
+			return file_path
+		settings_file = file
 	if not settings_file:
 		settings_file = SettingsFile.new()
-	
-	settings_file.sync_settings()
-	load_run()
+	return ""
 
-func load_run() -> void:
+func load_progress() -> String:
+	var file_path := SAVE_FILE_PATH + GLOBALSAVE_FILE_NAME
+	# Look for the global progress file
+	if FileAccess.file_exists(file_path):
+		var file = ResourceLoader.load(file_path)
+		if not file:
+			save_file_error(file_path)
+			return file_path
+		progress_file = file
+	# Should create the file
+	if not progress_file:
+		progress_file = ProgressFile.new()
+	return ""
+
+func load_run() -> String:
+	var file_path := SAVE_FILE_PATH + RUN_FILE_NAME
 	# Try to get the current run
-	if FileAccess.file_exists(SAVE_FILE_PATH+RUN_FILE_NAME):
-		var file = ResourceLoader.load(SAVE_FILE_PATH+RUN_FILE_NAME, "", ResourceLoader.CacheMode.CACHE_MODE_IGNORE).duplicate()
+	if FileAccess.file_exists(file_path):
+		var test_file = ResourceLoader.load(file_path)
+		if not test_file:
+			save_file_error(file_path)
+			return file_path
+		var file = ResourceLoader.load(file_path, "", ResourceLoader.CacheMode.CACHE_MODE_IGNORE).duplicate()
 		if file is SaveFile:
 			run_file = file
 			s_game_loaded.emit()
-		else:
-			printerr('Attempted to load invalid save file. Deleting.')
-			DirAccess.remove_absolute(SAVE_FILE_PATH+RUN_FILE_NAME)
 	if not run_file:
-		return
+		return ""
 	RandomService.base_seed = (run_file.current_seed)
 	RandomService.channels = run_file.seed_channels
 	Util.floor_number = run_file.floor_number
 	ItemService.seen_items = run_file.seen_items
 	ItemService.items_in_play = run_file.items_in_play
+	return ""
+
 
 func on_game_over() -> void:
 	delete_run_file()
@@ -141,3 +173,14 @@ func _show_save_text() -> void:
 
 func _on_tween_all_completed(save_text_instance):
 	save_text_instance.queue_free()
+
+func save_file_error(file_path : String) -> void:
+	DirAccess.copy_absolute(file_path, file_path.trim_suffix(".tres") + "_BROKEN.tres")
+	DirAccess.remove_absolute(file_path)
+
+const SAVE_ERROR_PANEL := "res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.tscn"
+func show_save_errors(invalid_paths : Array[String]) -> void:
+	await get_tree().process_frame
+	var error_panel : UIPanel = GameLoader.load(SAVE_ERROR_PANEL).instantiate()
+	get_tree().get_root().add_child(error_panel)
+	error_panel.sync_faulty_files(invalid_paths)

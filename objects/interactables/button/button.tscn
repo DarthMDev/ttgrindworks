@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dbrst2twjd0pu"]
+[gd_scene load_steps=23 format=4 uid="uid://dbrst2twjd0pu"]
 
 [ext_resource type="Script" uid="uid://be46mgxc70khx" path="res://objects/interactables/button/cog_button.gd" id="1_21ejp"]
 [ext_resource type="Texture2D" uid="uid://d046bnroqh3a8" path="res://models/props/facility_objects/button/button_button3.png" id="1_74im7"]
@@ -46,6 +46,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wtjba")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d81rk"]
+resource_name = "button1"
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("1_74im7")
+roughness = 0.552786
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p735q"]
 data = PackedVector3Array(-76.2001, 76.2, -76.0979, 57.8962, 57.8962, -91.0962, 76.2001, 76.2, -76.0979, -76.2001, 76.2, -76.0979, -57.8985, 57.8962, -91.0962, 57.8962, 57.8962, -91.0962, -57.8985, 57.8962, -91.0962, 57.8962, -57.8985, -91.0962, 57.8962, 57.8962, -91.0962, -57.8985, 57.8962, -91.0962, -57.8985, -57.8985, -91.0962, 57.8962, -57.8985, -91.0962, -57.8985, -57.8985, -91.0962, 76.2001, -76.2, -76.0979, 57.8962, -57.8985, -91.0962, -57.8985, -57.8985, -91.0962, -76.2001, -76.2, -76.0979, 76.2001, -76.2, -76.0979, 76.2001, 76.2, -76.0979, 57.8962, -57.8985, -91.0962, 76.2001, -76.2, -76.0979, 76.2001, 76.2, -76.0979, 57.8962, 57.8962, -91.0962, 57.8962, -57.8985, -91.0962, -76.2001, -76.2, -76.0979, -57.8985, 57.8962, -91.0962, -76.2001, 76.2, -76.0979, -76.2001, -76.2, -76.0979, -57.8985, -57.8985, -91.0962, -57.8985, 57.8962, -91.0962, -76.2001, -76.2, -76.0979, 76.2001, -76.2, -7.6641, 76.2001, -76.2, -76.0979, -76.2001, -76.2, -76.0979, -76.2001, -76.2, -7.6641, 76.2001, -76.2, -7.6641, 76.2001, -76.2, -76.0979, 76.2001, 76.2, -7.6641, 76.2001, 76.2, -76.0979, 76.2001, -76.2, -76.0979, 76.2001, -76.2, -7.6641, 76.2001, 76.2, -7.6641, 76.2001, 76.2, -76.0979, -76.2001, 76.2, -7.6641, -76.2001, 76.2, -76.0979, 76.2001, 76.2, -76.0979, 76.2001, 76.2, -7.6641, -76.2001, 76.2, -7.6641, -76.2001, 76.2, -76.0979, -76.2001, -76.2, -7.6641, -76.2001, -76.2, -76.0979, -76.2001, 76.2, -76.0979, -76.2001, 76.2, -7.6641, -76.2001, -76.2, -7.6641)
@@ -174,15 +181,15 @@ shadow_mesh = SubResource("ArrayMesh_kkl30")
 size = Vector3(0.973235, 0.982044, 0.529648)
 
 [node name="CogButton" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_21ejp")
 
 [node name="Model" type="Node3D" parent="."]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+transform = Transform3D(0.005, 0, 0, 0, -2.18557e-10, -0.005, 0, 0.005, -2.18557e-10, 0, 0, 0)
 
 [node name="button" type="MeshInstance3D" parent="Model"]
 mesh = SubResource("ArrayMesh_gsk8d")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_d81rk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Model/button"]
 
@@ -217,6 +224,7 @@ stream = ExtResource("6_faa3l")
 bus = &"SFX"
 
 [node name="PlayerCheck" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCheck"]
@@ -224,6 +232,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00193483, -0.00300854, -0.
 shape = SubResource("BoxShape3D_bat1u")
 
 [node name="RetractTimer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
 [connection signal="body_entered" from="PlayerCheck" to="." method="body_entered"]

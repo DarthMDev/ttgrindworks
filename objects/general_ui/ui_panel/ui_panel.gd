@@ -26,10 +26,10 @@ class_name UIPanel
 @export var pop := true
 
 @onready var panel := $Panel
-@onready var title_label := $Panel/Title
-@onready var body_label := $Panel/Body
-@onready var cancel_button := $Panel/CancelButton
-@onready var animator := $AnimationPlayer
+@onready var title_label : Label = $Panel/Title
+@onready var body_label : Label = $Panel/Body
+@onready var cancel_button : GeneralButton = $Panel/CancelButton
+@onready var animator : AnimationPlayer = $AnimationPlayer
 
 var active := false
 var click_buffer : Control

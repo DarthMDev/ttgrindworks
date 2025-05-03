@@ -1,11 +1,11 @@
-[gd_scene load_steps=88 format=4 uid="uid://cmwth04hxrxf4"]
+[gd_scene load_steps=90 format=4 uid="uid://cmwth04hxrxf4"]
 
 [ext_resource type="PackedScene" uid="uid://bbpa14c3mhbii" path="res://models/facilities/mint/mint_conveyor_room.fbx" id="1_3hn8j"]
-[ext_resource type="Texture2D" uid="uid://2yv2gsrwpljc" path="res://models/facilities/mint/textures/CementFloorx4.png" id="2_cncj2"]
+[ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="2_cncj2"]
 [ext_resource type="Script" uid="uid://bxhii68t1wesv" path="res://objects/modules/mint/base_rooms/mint_conveyor_room.gd" id="2_m2mgh"]
-[ext_resource type="Texture2D" uid="uid://do8mo6ao1sm0e" path="res://models/facilities/factory/FINALFACTORY_66.png" id="3_1kqjs"]
-[ext_resource type="Texture2D" uid="uid://dlb57gt3f7n2q" path="res://models/facilities/mint/textures/CB_Glass.png" id="3_c4x01"]
-[ext_resource type="Texture2D" uid="uid://dcasoiu0axwxw" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="4_jkybm"]
+[ext_resource type="Texture2D" uid="uid://bg28yomkn1lgx" path="res://models/facilities/factory/FINALFACTORY_66.png" id="3_1kqjs"]
+[ext_resource type="Texture2D" uid="uid://7l45tp60jot0" path="res://models/facilities/mint/textures/CB_Glass.png" id="3_c4x01"]
+[ext_resource type="Texture2D" uid="uid://ofuuiundcoub" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="4_jkybm"]
 [ext_resource type="Texture2D" uid="uid://cl67spfbv4ht1" path="res://models/facilities/mint/textures/MagnetControl.png" id="5_d7l0k"]
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="5_fqqp6"]
 [ext_resource type="Texture2D" uid="uid://b2bemkg545ldp" path="res://models/facilities/mint/textures/FINALFACTORY_66.png" id="5_xrlv2"]
@@ -234,21 +234,21 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evk4j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlxus"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -2.86111, 0)
+uv1_offset = Vector3(0, -0.447385, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvivg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6muf"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -2.33333, 0)
+uv1_offset = Vector3(0, -3.40392, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2y4s"]
 size = Vector3(1.53235, 12.2654, 16.5046)
@@ -502,6 +502,12 @@ backface_collision = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_ln2nq"]
 size = Vector3(0.944897, 4.82018, 5.48726)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlxus"]
+size = Vector3(4.76855, 3.15479, 43.4521)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h6muf"]
+size = Vector3(4.76855, 3.15479, 36.4082)
+
 [node name="mint_conveyor_room" instance=ExtResource("1_3hn8j")]
 script = ExtResource("2_m2mgh")
 
@@ -696,7 +702,7 @@ unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.191, 0, -2.625)
 constant_linear_velocity = Vector3(-7.54979e-07, 0, -5)
 size = Vector3(1.49, 1, 15)
-platform_mat = SubResource("StandardMaterial3D_evk4j")
+platform_mat = SubResource("StandardMaterial3D_nlxus")
 speed = 5.0
 
 [node name="CBUpper" parent="Conveyors" index="1" instance=ExtResource("7_vvvsa")]
@@ -704,7 +710,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 3.95, 3.5)
 constant_linear_velocity = Vector3(7, 0, -3.0598e-07)
 size = Vector3(1.5, 1, 15)
-platform_mat = SubResource("StandardMaterial3D_gvivg")
+platform_mat = SubResource("StandardMaterial3D_h6muf")
 speed = 7.0
 
 [node name="Crates" type="Node3D" parent="." index="22"]
@@ -1061,7 +1067,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConcavePolygonShape3D_r72at")
 
 [node name="CogButton" parent="." index="33" instance=ExtResource("17_1op3x")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -12.0864, 3.95231, 8.97856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0864, 3.95231, 8.97856)
 
 [node name="RoomArea" type="Area3D" parent="." index="34"]
 
@@ -1128,32 +1134,45 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ci31o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="roof/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_45dic")
 
-[node name="WallReset" parent="." index="38" instance=ExtResource("25_bub7a")]
+[node name="WallReset" parent="." index="38" node_paths=PackedStringArray("checkpoints", "default_spawn_point") instance=ExtResource("25_bub7a")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9574, 4.306, 3.58282)
 tick_delay = 3.0
 base_damage = -4
 damage_name = "Manufacturing Error"
+checkpoints = {
+NodePath("Checkpoint1"): NodePath("../PlayerStartPos"),
+NodePath("Checkpoint2"): NodePath("Checkpoint2/RespawnPoint")
+}
+default_spawn_point = NodePath("../PlayerStartPos")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509737, 1.95057, -0.173931)
 shape = SubResource("BoxShape3D_ln2nq")
 
-[node name="WallReset2" parent="." index="39" instance=ExtResource("25_bub7a")]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.0822, 0.124862, -24.3239)
-tick_delay = 3.0
-base_damage = -4
-damage_name = "Manufacturing Error"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509737, 1.95057, -0.173931)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallReset" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.2135, -2.23057, -28.4165)
 shape = SubResource("BoxShape3D_ln2nq")
 
-[node name="PlayerStartPos" type="Node3D" parent="." index="40"]
+[node name="Checkpoint1" type="Area3D" parent="WallReset" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9959, -4.15503, -5.20566)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset/Checkpoint1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12218, 1.5971, -1.01329)
+shape = SubResource("BoxShape3D_nlxus")
+
+[node name="Checkpoint2" type="Area3D" parent="WallReset" index="3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.9959, -0.216946, -0.095983)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallReset/Checkpoint2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122178, 1.5971, 3.79993)
+shape = SubResource("BoxShape3D_h6muf")
+
+[node name="RespawnPoint" type="Node3D" parent="WallReset/Checkpoint2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5078, -2.28727, 12.9155)
+
+[node name="PlayerStartPos" type="Node3D" parent="." index="39"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4274, 0, -11.8237)
 
 [connection signal="s_pressed" from="CogButton" to="." method="lower_ramp"]
-[connection signal="s_lava_hit" from="WallReset" to="." method="reset"]
-[connection signal="s_lava_hit" from="WallReset2" to="." method="reset"]

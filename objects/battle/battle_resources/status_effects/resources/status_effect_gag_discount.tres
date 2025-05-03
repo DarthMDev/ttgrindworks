@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dfwmvniypu4pg"]
+
+[ext_resource type="Script" uid="uid://c10ggs0cd38tc" path="res://objects/battle/battle_resources/status_effects/status_effect_gag_discount.gd" id="1_0i7ym"]
+[ext_resource type="Texture2D" uid="uid://bq6xiaeefmxbo" path="res://ui_assets/battle/statuses/gag_discount.png" id="1_diuq5"]
+
+[resource]
+script = ExtResource("1_0i7ym")
+discount = 1
+quality = 0
+rounds = 2
+rounds_offset = 0
+icon = ExtResource("1_diuq5")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Gag Discount"
+id = 41
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

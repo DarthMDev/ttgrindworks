@@ -2,14 +2,14 @@ extends Control
 
 const CAMERA_SPEED := 10.0
 const TOON_SEPARATION := 1.0
-const TOON := preload("res://objects/toon/toon.tscn")
-const PLAYER := preload("res://objects/player/player.tscn")
-var SETTINGS_MENU := LazyLoader.defer("res://objects/general_ui/settings_menu/settings_menu.tscn")
-const EXTRAS_MENU := preload("res://scenes/title_screen/extras_menu.tscn")
-const ELEVATOR_SCENE := "res://scenes/elevator_scene/elevator_scene.tscn"
+var TOON: PackedScene
+var PLAYER: PackedScene
+var SETTINGS_MENU: PackedScene
+var EXTRAS_MENU: PackedScene
+var ELEVATOR_SCENE: PackedScene
 
-var SFX_SELECT := LazyLoader.defer("res://audio/sfx/ui/Click.ogg")
-const RELEASES_MENU := preload("res://scenes/title_screen/release_notes/release_notes_panel.tscn")
+var SFX_SELECT: AudioStreamOggVorbis
+var RELEASES_MENU: PackedScene
 
 
 enum MenuState {
@@ -51,6 +51,22 @@ var has_existing_run: bool:
 
 var is_loading := true
 
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.GAME_START, self, {
+		'SETTINGS_MENU': 'res://objects/general_ui/settings_menu/settings_menu.tscn',
+		'EXTRAS_MENU': 'res://scenes/title_screen/extras_menu.tscn',
+		'SFX_SELECT': 'res://audio/sfx/ui/Click.ogg',
+		'RELEASES_MENU': 'res://scenes/title_screen/release_notes/release_notes_panel.tscn',
+	})
+	GameLoader.queue_into(GameLoader.Phase.AVATARS, self, {
+		'TOON': 'res://objects/toon/toon.tscn',
+	})
+	GameLoader.queue_into(GameLoader.Phase.PLAYER, self, {
+		'PLAYER': 'res://objects/player/player.tscn',
+		'ELEVATOR_SCENE': 'res://scenes/elevator_scene/elevator_scene.tscn',
+	})
+	
+	GameLoader.load_all()
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -60,7 +76,7 @@ func _ready() -> void:
 	# If we have a stored character from a "try again" lose prompt,
 	# throw it in here so that they will be in the cog building
 	if Util.stored_try_again_char_name:
-		for character: PlayerCharacter in Globals.TOON_UNLOCK_ORDER:
+		for character: PlayerCharacter in Globals.fetch_toon_unlock_order():
 			if character.character_name == Util.stored_try_again_char_name:
 				character = character.duplicate()
 				if character.character_name == "RandomToon":
@@ -104,12 +120,11 @@ func _ready() -> void:
 
 	%VersionLabel.set_text(Globals.VERSION_NUMBER)
 	
-	SaveFileService.load_run()
-	
 	AudioManager.stop_music(true)
 	AudioManager.set_default_music(load("res://audio/music/main_theme.ogg"))
 	
 	Globals.s_title_screen_entered.emit(self)
+	check_for_new_version()
 
 func _process(delta: float) -> void:
 	if state == MenuState.ROTATING:
@@ -117,31 +132,22 @@ func _process(delta: float) -> void:
 		if spring_arm.rotation_degrees.y - 360.0 > 0:
 			spring_arm.rotation_degrees.y -= 360.0
 		
-		for loader_ref in LazyLoader.lazy_loaders:
-			var lazy_loader: LazyLoader = loader_ref.get_ref()
-			if lazy_loader and not lazy_loader.is_loaded():
-				return
-
 		if is_loading:
 			is_loading = false
 			%ClickLabel.label_settings.font_color = Color.WHITE
 			%ClickLabel.text = click_label_text
 
-func _input(event) -> void:
-	match state:
-		MenuState.ROTATING:
-			_input_rotating(event)
-
 func _input_rotating(event) -> void:
-	if releases_menu or %ReleaseNotesButton.get_global_rect().has_point(get_global_mouse_position()):
-		return
-	
 	if is_loading:
 		return
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			play_pressed()
+
+func gui_input(event: InputEvent) -> void:
+	if state == MenuState.ROTATING:
+		_input_rotating(event)
 
 func play_pressed() -> void:
 	$GUI/Logo.hide()
@@ -157,11 +163,9 @@ func play_pressed() -> void:
 	new_game_menu.show()
 
 func create_toons() -> void:
-	var toons := Globals.TOON_UNLOCK_ORDER.duplicate()
-	for i in range(toons.size() -1, -1, -1):
-		if i >= SaveFileService.progress_file.characters_unlocked:
-			toons.remove_at(i)
-
+	await GameLoader.wait_for_phase(GameLoader.Phase.AVATARS)
+	var toons := get_character_list()
+	
 	var starting_point := (-floorf(toons.size() / 2)) * TOON_SEPARATION
 	if toons.size() % 2 == 0: starting_point += (TOON_SEPARATION / 2.0)
 	
@@ -174,6 +178,9 @@ func create_toons() -> void:
 		starting_point += TOON_SEPARATION
 		toon.teleport_in()
 		toon.animator.animation_finished.connect(toon.animator.play.bind('neutral').unbind(1))
+
+func get_character_list() -> Array[PlayerCharacter]:
+	return Globals.get_unlocked_toons()
 
 func spawn_toon(character : PlayerCharacter) -> Toon:
 	var toon := TOON.instantiate()
@@ -200,7 +207,7 @@ func toon_clicked(toon: Toon, character: PlayerCharacter) -> void:
 	selected_character = character
 	selected_toon = toon
 	toon.set_animation('happy')
-	AudioManager.play_sound(SFX_SELECT.load())
+	AudioManager.play_sound(SFX_SELECT)
 	set_selected_toon(character)
 
 func toon_canceled() -> void:
@@ -215,10 +222,13 @@ func new_game() -> void:
 	toon_tween.tween_property(selected_toon, 'global_position', elevator.player_pos.global_position, 1.0)
 	toon_tween.tween_callback(selected_toon.set_rotation.bind(Vector3.ZERO))
 	toon_tween.tween_callback(selected_toon.set_animation.bind('neutral'))
-	toon_tween.tween_callback(elevator.close)
+	if SaveFileService.settings_file.skip_intro:
+		alt_opening(toon_tween)
+	else:
+		toon_tween.tween_callback(elevator.close)
+		toon_tween.tween_interval(3.0)
 	await toon_tween.finished
 	toon_tween.kill()
-	await Task.delay(3.0)
 	if SaveFileService.settings_file.skip_intro:
 		begin_game(selected_character, true)
 	else:
@@ -235,26 +245,27 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	SaveFileService.delete_run_file()
 	RandomService.generate_seed()
 	Util.floor_number = -1
+	await GameLoader.wait_for_phase(GameLoader.Phase.PLAYER)
 	# Create the player object
 	var player: Player = PLAYER.instantiate()
 	player.stats = PlayerStats.new()
 	player.stats.character = character.duplicate(true)
 	player.reset_stats()
-	player.stats.max_out()
 	SceneLoader.add_persistent_node(player)
 	DiscordManager.update_presence()
+	player.stats.max_out()
 	SaveFileService.progress_file.new_games += 1
 	if falling_scene:
-		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn")
+		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn", GameLoader.Phase.FALLING_SEQ)
 	else:
-		SceneLoader.load_into_scene("res://scenes/cog_building/cog_building_floor.tscn")
+		SceneLoader.load_into_scene("res://scenes/cog_building/cog_building_floor.tscn", GameLoader.Phase.COG_BLDG_FLOOR)
 
 func update_state() -> void:
 	new_game_menu.visible = (state == MenuState.TOON_SELECT or state == MenuState.NEW_GAME)
 	toon_summary.hide()
 
 func open_settings() -> void:
-	get_tree().get_root().add_child(SETTINGS_MENU.load().instantiate())
+	get_tree().get_root().add_child(SETTINGS_MENU.instantiate())
 
 func open_extras() -> void:
 	get_tree().get_root().add_child(EXTRAS_MENU.instantiate())
@@ -267,6 +278,9 @@ func open_releases() -> void:
 
 func load_game() -> void:
 	SaveFileService.load_run()
+	%NewGameButton.disabled = true
+	%ContinueButton.disabled = true
+	await GameLoader.wait_for_phase(GameLoader.Phase.PLAYER)
 	var player: Player = PLAYER.instantiate()
 	player.stats = SaveFileService.run_file.player_stats
 	player.stats.character.dna = SaveFileService.run_file.player_dna
@@ -274,7 +288,10 @@ func load_game() -> void:
 	SceneLoader.add_persistent_node(player)
 	player.game_timer.time = SaveFileService.run_file.game_time
 	ItemService.apply_inventory()
-	SceneLoader.load_into_scene("res://scenes/elevator_scene/elevator_scene.tscn")
+	SceneLoader.load_into_scene(
+		"res://scenes/elevator_scene/elevator_scene.tscn",
+		GameLoader.Phase.GAMEPLAY
+	)
 
 func set_selected_toon(character: PlayerCharacter) -> void:
 	%ToonName.label_settings.font_color = character.dna.head_color
@@ -285,6 +302,9 @@ func set_selected_toon(character: PlayerCharacter) -> void:
 	else:
 		%ToonName.set_text(character.character_name)
 	%SummaryDesc.set_text(character.character_summary)
+	for achievement in character.achievement_qualities.keys():
+		if SaveFileService.progress_file.achievements_earned[achievement]:
+			%SummaryDesc.text += "\n- %s" % character.achievement_qualities[achievement]
 	%PickAToonLabel.hide()
 
 var toons_created := false
@@ -316,3 +336,44 @@ func back_out_logo() -> void:
 			$GUI/Logo.show()
 			state = MenuState.ROTATING
 	)
+
+@onready var elevator_floor := $World3D/CogBuilding/suit_landmark_new_corp/locators/suit_landmark_new_corp_door_origin/GeometryTransformHelper11/sellbot_elevator/suit_elevator_1/ground
+func alt_opening(tween : Tween) -> void:
+	tween.set_trans(Tween.TRANS_QUART)
+	tween.tween_property(elevator_floor, 'rotation_degrees:x', -90.0, 0.25)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_open.ogg")))
+	tween.tween_callback(AudioManager.tween_music_pitch)
+	tween.tween_interval(0.2)
+	tween.tween_callback(AudioManager.stop_music.bind(true))
+	tween.tween_callback(AudioManager.reset_music_pitch)
+	tween.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_riser.ogg")))
+	tween.tween_callback(selected_toon.set_animation.bind('melt_nosink'))
+	tween.tween_interval(1.0)
+	tween.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_react.ogg")))
+	tween.tween_callback(selected_toon.set_emotion.bind(Toon.Emotion.SAD))
+	tween.tween_callback(selected_toon.animator.set_speed_scale.bind(-1.0))
+	tween.tween_interval(1.0)
+	tween.tween_callback(selected_toon.animator.set_speed_scale.bind(1.0))
+	tween.tween_interval(1.0)
+	tween.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_fall.ogg")))
+	tween.tween_callback(selected_toon.set_animation.bind('melt_nosink'))
+	tween.tween_callback(selected_toon.animator.seek.bind(2.0))
+	tween.tween_property(selected_toon, 'position:y', -10.0, 0.6)
+
+
+func check_for_new_version() -> void:
+	$HTTPRequest.request_completed.connect(_on_request_completed)
+	$HTTPRequest.request("https://api.github.com/repos/ToontownGrindworks/grindworks/releases/latest")
+
+func _on_request_completed(result, response_code, headers, body) -> void:
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	if not json:
+		print("Failed to check latest game version.")
+		return
+	var version = json["tag_name"]
+	if version == Globals.VERSION_NUMBER:
+		print("you are on the newest version. hooray!!!")
+	else:
+		print("new version is available. what is wrong with you??")
+		%NewVersionLabel.show()

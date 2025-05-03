@@ -16,6 +16,13 @@ var linked_items: Array = [
 	]
 ]
 
+func _init():
+	GameLoader.queue_into(
+		GameLoader.Phase.GAMEPLAY, self, {
+			'BEAN_POOL': 'res://objects/items/pools/jellybeans.tres',
+		}
+	)
+
 func _ready() -> void:
 	# Clear out temp seen items upon every floor start
 	Util.s_floor_ended.connect(on_floor_end)
@@ -33,22 +40,37 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 		print('Gag rate is ' + str(get_gag_rate()) + ' Gag roll is ' + str(gag_roll))
 		if gag_roll < get_gag_rate():
 			print('Forcing gag spawn')
-			return load('res://objects/items/resources/passive/track_frame.tres')
+			return load('res://objects/items/resources/passive/track_frame.tres').duplicate()
 		# Laff roll
 		var laff_roll := RandomService.randf_channel("laff_rolls")
 		print('Laff rate is %f, and Laff roll is %f' % [get_laff_rate(), laff_roll])
 		if laff_roll < get_laff_rate():
 			print('Forcing laff spawn')
-			return load('res://objects/items/resources/passive/laff_boost.tres')
-		var bean_roll := RandomService.randf_channel("bean_rolls")
-		print('Bean rate is %f and bean roll is %f' % [get_bean_rate(), bean_roll])
-		if bean_roll < get_bean_rate():
-			print('Forcing bean spawn')
-			return get_random_item(BEAN_POOL, true)
+			return load('res://objects/items/resources/passive/laff_boost.tres').duplicate()
+		#var bean_roll := RandomService.randf_channel("bean_rolls")
+		#print('Bean rate is %f and bean roll is %f' % [get_bean_rate(), bean_roll])
+		#if bean_roll < get_bean_rate():
+			#print('Forcing bean spawn')
+			#return get_random_item(BEAN_POOL, true)
+	
+	
+	
+	# 50% chance to remove all active items from the pool
+	var exclude_actives := not override_rolls and RandomService.randi_channel('active_item_discard') % 2 == 0
+	
+	# Our base rarity goal for this roll
+	var rarity_goal: int = 0
+	var lowest_rarity := pool.get_lowest_rarity()
+	if rarity_goal < lowest_rarity:
+		rarity_goal = lowest_rarity
 	
 	# Trim out all seen items from pool
 	var trimmed_pool: Array[Item] = []
 	for item in pool.items:
+		if item is ItemActive and exclude_actives:
+			continue
+		if not flag_check(item):
+			continue
 		if not item in seen_items:
 			trimmed_pool.append(item)
 	
@@ -56,21 +78,20 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	if trimmed_pool.size() == 0:
 		return get_random_roll_fail_item()
 
-	# Quality-scaled rarities
+	# Quality-scaled rarity
 	var quality_trimmed_pool: Array[Item] = []
-	var rarity_goal: int = 0
 	# Rarity goal determines what item rarities we want to allow into the pool.
 	# Once the rarity goal is determined, any item up to and including that rarity can be drawn.
 	# Include Q1: 100%
-	# Include Q2: 80%
-	# Include Q3: 64%
-	# Include Q4: 51.2%
-	# Include Q5: 41%
-	# Include Q6: 32.8%
-	# Include Q7: 26.2%
+	# Include Q2: 85%
+	# Include Q3: 72.3%
+	# Include Q4: 61.4%
+	# Include Q5: 52.2%
+	# Include Q6: 44.3%
+	# Include Q7: 37.7%
 	# If a low rarity is drawn that has no items available, there is a continuous 50% chance to upgrade to the next rarity.
 	# If this fails, a random treasure will be given to the player instead.
-	while RandomService.randi_channel('item_quality_roll') % 100 < 80 and rarity_goal < Item.Rarity.values().max():
+	while RandomService.randi_channel('item_quality_roll') % 100 < 85 and rarity_goal < Item.Rarity.values().max():
 		rarity_goal += 1
 
 	var is_first_roll := true
@@ -91,13 +112,18 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	if quality_trimmed_pool.is_empty():
 		print("Empty quality-trimmed pool. Spawning fallback.")
 		return get_random_roll_fail_item()
-
-	return RandomService.array_pick_random('item_rolls', quality_trimmed_pool)
+	
+	var file_name := pool.resource_path.get_file()
+	var res_name := file_name.trim_suffix(".%s" % file_name.get_extension())
+	return RandomService.array_pick_random(res_name, quality_trimmed_pool)
 
 func get_random_roll_fail_item() -> Item:
 	return get_random_item(load("res://objects/items/pools/item_roll_fails.tres"), true)
 
-func seen_item(item: Item):
+func seen_item(item: Item, allow_duplicate := false):
+	if not allow_duplicate and item.resource_path == "":
+		return
+	
 	if not item in seen_items:
 		seen_items.append(item)
 		var _linked_items: Array[Item] = get_linked_items(item)
@@ -172,6 +198,7 @@ func apply_inventory() -> void:
 		model.rotation_degrees = accessory_placement.rotation
 		model.scale = accessory_placement.scale
 
+
 const GagGoals: Dictionary = {
 	1: 0.2,
 	2: 0.35,
@@ -185,7 +212,7 @@ func get_gag_rate() -> float:
 	if not Util.get_player():
 		return 0
 	
-	var floor_num := Util.floor_number + 1
+	var floor_num := maxi(Util.floor_number + 1, 1)
 	
 	var stats := Util.get_player().stats
 	var total_gags := 0
@@ -246,7 +273,7 @@ func get_laff_rate() -> float:
 
 const BEAN_GOAL := 30
 const LIKELIHOOD_PER_BEAN := 0.05
-const BEAN_POOL := preload('res://objects/items/pools/jellybeans.tres')
+var BEAN_POOL: ItemPool
 func get_bean_rate() -> float:
 	if not is_instance_valid(Util.get_player()):
 		return 0.0
@@ -254,7 +281,7 @@ func get_bean_rate() -> float:
 	var bean_total := Util.get_player().stats.money
 	
 	for item: Item in items_in_play:
-		if item.item_name.to_lower().contains('jellybean'):
+		if item.stats_add.has('money'):
 			bean_total += item.stats_add['money']
 	
 	var goal_diff := BEAN_GOAL - bean_total
@@ -272,6 +299,16 @@ func item_created(item: Item) -> void:
 func item_removed(item: Item) -> void:
 	items_in_play.erase(item)
 
+func get_closest_item() -> WorldItem:
+	var dist := -1.0
+	var item : WorldItem
+	for itm in items_in_proximity:
+		var dist2 := absf(itm.global_position.distance_to(Util.get_player().global_position))
+		if dist2 < dist or dist < 0.0:
+			dist = dist2
+			item = itm
+	return item
+
 func get_items_in_play(item_name: String) -> Array[Item]:
 	var return_array: Array[Item] = []
 	for item: Item in items_in_play:
@@ -287,3 +324,14 @@ func get_linked_items(item: Item) -> Array[Item]:
 			return final_linked_items
 
 	return final_linked_items
+
+func flag_check(item : Item) -> bool:
+	
+	return true
+
+const ITEM_GET_UI := "res://objects/items/ui/item_get_ui/item_get_ui.tscn"
+func display_item(item : Item) -> Control:
+	var ui : Control = load(ITEM_GET_UI).instantiate()
+	ui.item = item
+	get_tree().get_root().add_child(ui)
+	return ui

@@ -2,13 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2cb1kqdq0bo5"
+uid="uid://dti5pwbj2aok4"
 path="res://.godot/imported/tt_m_chr_avt_acc_hat_foilPyramid_tt_t_chr_avt_acc_hat_foilPyramid.png-941017f8c142f641df82adb9040bf306.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "62114467a7d4f2f66a6e945f490c0b8c"
 }
 
 [deps]
@@ -19,7 +16,7 @@ dest_files=["res://.godot/imported/tt_m_chr_avt_acc_hat_foilPyramid_tt_t_chr_avt
 [params]
 
 compress/mode=3
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

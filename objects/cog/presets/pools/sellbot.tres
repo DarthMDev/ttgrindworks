@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogPool" load_steps=10 format=3 uid="uid://dd5vhnprun5mw"]
+[gd_resource type="Resource" script_class="CogPool" load_steps=11 format=3 uid="uid://dd5vhnprun5mw"]
 
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="1_2xuu4"]
 [ext_resource type="Resource" uid="uid://b4jf6084dolhy" path="res://objects/cog/presets/sellbot/cold_caller.tres" id="1_5a4tn"]
@@ -6,10 +6,11 @@
 [ext_resource type="Resource" uid="uid://d32ij14c50gys" path="res://objects/cog/presets/sellbot/name_dropper.tres" id="4_3ma1c"]
 [ext_resource type="Resource" uid="uid://canccpjghjae7" path="res://objects/cog/presets/sellbot/glad_hander.tres" id="5_jckl1"]
 [ext_resource type="Resource" uid="uid://c2sbco2b7ddrt" path="res://objects/cog/presets/sellbot/two_face.tres" id="6_bbega"]
+[ext_resource type="Resource" uid="uid://b0iiauyxvm2su" path="res://objects/cog/presets/sellbot/mover_shaker.tres" id="6_x6qde"]
 [ext_resource type="Resource" uid="uid://d3j6v3o7y5d0w" path="res://objects/cog/presets/sellbot/the_mingler.tres" id="7_80rnq"]
 [ext_resource type="Resource" uid="uid://q8ev1hag3yvy" path="res://objects/cog/presets/sellbot/mr_hollywood.tres" id="8_ca0xc"]
 [ext_resource type="Script" uid="uid://ocitcstc3bru" path="res://objects/cog/cog_pool.gd" id="9_sn2h0"]
 
 [resource]
 script = ExtResource("9_sn2h0")
-cogs = Array[ExtResource("1_2xuu4")]([ExtResource("1_5a4tn"), ExtResource("2_rm17w"), ExtResource("4_3ma1c"), ExtResource("4_3ma1c"), ExtResource("5_jckl1"), ExtResource("6_bbega"), ExtResource("7_80rnq"), ExtResource("8_ca0xc")])
+cogs = Array[ExtResource("1_2xuu4")]([ExtResource("1_5a4tn"), ExtResource("2_rm17w"), ExtResource("4_3ma1c"), ExtResource("5_jckl1"), ExtResource("6_x6qde"), ExtResource("6_bbega"), ExtResource("7_80rnq"), ExtResource("8_ca0xc")])

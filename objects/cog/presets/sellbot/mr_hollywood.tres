@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://q8ev1hag3yvy"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://q8ev1hag3yvy"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_bjqwm"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_7j2kf"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="2_rb7ba"]
 [ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="3_1bxg5"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="3_hl7ne"]
+[ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="4_slcu7"]
 [ext_resource type="Texture2D" uid="uid://8pq3hd4c6g11" path="res://models/cogs/heads/yesman_tt_t_ene_hed_yesMan.png" id="4_xq4qp"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_45evg"]
 
@@ -14,6 +15,8 @@ department = 0
 suit = 0
 cog_name = "Mr. Hollywood"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("3_1bxg5")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -23,7 +26,7 @@ hand_color = Color(0.960784, 0.960784, 0.960784, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_bjqwm")]([ExtResource("2_rb7ba"), ExtResource("3_hl7ne")])
+attacks = Array[ExtResource("1_bjqwm")]([ExtResource("3_hl7ne"), ExtResource("2_rb7ba"), ExtResource("4_slcu7")])
 level_low = 8
 level_high = 20
 status_effects = Array[ExtResource("5_45evg")]([])

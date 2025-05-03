@@ -31,18 +31,20 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("6_n260u")
 accessory_placements = Array[ExtResource("1_to132")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+item_tags = null
 qualitoon = 4
 rarity = 7
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.4
 item_name = "Angel Wings"
 item_description = "Your power soars"
 big_description = "+ 7% Damage
-- 7% Defense
++ 7% Defense
 + 7% Evasiveness
 + 7% Luck
 + 7% Speed
@@ -51,7 +53,7 @@ model = ExtResource("4_to132")
 pickup_sfx = ExtResource("5_to132")
 stats_add = {
 "damage": 0.07,
-"defense": -0.07,
+"defense": 0.07,
 "evasiveness": 0.07,
 "hp": 7,
 "luck": 0.07,

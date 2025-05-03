@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gpi3rtcvtk4r"]
+[gd_scene load_steps=41 format=3 uid="uid://gpi3rtcvtk4r"]
 
 [ext_resource type="Script" uid="uid://b2dsu58yfd5a7" path="res://objects/pause_menu/pause_menu.gd" id="1_0r2dl"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="1_nhuu3"]
@@ -10,29 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="6_2ls0o"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="7_pio3r"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="8_l83vw"]
+[ext_resource type="Texture2D" uid="uid://dpt21awypabxf" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowUp.png" id="9_bs06e"]
+[ext_resource type="Texture2D" uid="uid://bkbmvj823roof" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDown.png" id="10_jrqgq"]
 [ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="10_lmpwx"]
+[ext_resource type="Texture2D" uid="uid://xhprgs7k8i2r" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDisabled.png" id="11_1s8xm"]
 [ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="13_6fvpv"]
 [ext_resource type="Texture2D" uid="uid://dp60mor8isqvc" path="res://ui_assets/battle/gags/tt_t_gui_bat_pass.png" id="13_vloq5"]
 [ext_resource type="PackedScene" uid="uid://3wpuwo50gkt" path="res://objects/player/ui/item_display.tscn" id="14_0372c"]
+[ext_resource type="PackedScene" uid="uid://h4r7aiy77ko3" path="res://objects/pause_menu/other_elements/gag_panel.tscn" id="18_jrqgq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lvkcj"]
 shader = ExtResource("2_jjheh")
 shader_parameter/strength = 10.0
 shader_parameter/sample_power = 3
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_10epn"]
-shader = ExtResource("4_sgslx")
-shader_parameter/Shift_Hue = 0.585
-shader_parameter/alpha = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ry7vf"]
-shader = ExtResource("4_sgslx")
-shader_parameter/Shift_Hue = 0.585
-shader_parameter/alpha = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_khjnh"]
-font = ExtResource("3_ij621")
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sohev"]
 font = ExtResource("1_nhuu3")
@@ -57,10 +47,22 @@ font_size = 20
 font_color = Color(0.992165, 0.682616, 0.465558, 1)
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5koig"]
+font = ExtResource("1_nhuu3")
+font_size = 20
+font_color = Color(0.3, 0.9, 0.3, 1)
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_oacmx"]
 font = ExtResource("1_nhuu3")
 font_size = 20
 font_color = Color(0.687588, 0.74357, 0.925783, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohjf4"]
+font = ExtResource("1_nhuu3")
+font_size = 20
+font_color = Color(0.9, 0.3, 0.3, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ftg7t"]
@@ -69,16 +71,34 @@ font_size = 20
 font_color = Color(0.894916, 0.660997, 0.86582, 1)
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5nijd"]
+font = ExtResource("1_nhuu3")
+font_size = 20
+font_color = Color(0.3, 0.9, 0.3, 1)
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_j0dlo"]
 font = ExtResource("1_nhuu3")
 font_size = 20
 font_color = Color(0.568627, 0.862745, 0.623529, 1)
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bs06e"]
+font = ExtResource("1_nhuu3")
+font_size = 20
+font_color = Color(0.9, 0.3, 0.3, 1)
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_7el0f"]
 font = ExtResource("1_nhuu3")
 font_size = 20
 font_color = Color(0.984314, 0.65098, 0.592157, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jrqgq"]
+font = ExtResource("1_nhuu3")
+font_size = 20
+font_color = Color(0.3, 0.9, 0.3, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qf26x"]
@@ -90,12 +110,26 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_nqfjm"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10epn"]
+shader = ExtResource("4_sgslx")
+shader_parameter/Shift_Hue = 0.585
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ry7vf"]
+shader = ExtResource("4_sgslx")
+shader_parameter/Shift_Hue = 0.585
+shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_khjnh"]
+font = ExtResource("3_ij621")
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_klw45"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ItemHolder:position")
+tracks/0/path = NodePath("TopLevelElements/ItemHolder:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -107,7 +141,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackdropHolder:position")
+tracks/1/path = NodePath("TopLevelElements/BackdropHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,7 +153,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FloorMainHolder:position")
+tracks/2/path = NodePath("Pages/MainPage/FloorMainHolder:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -131,7 +165,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BackdropHolder/Backdrop/Buttons:position")
+tracks/3/path = NodePath("TopLevelElements/BackdropHolder/Backdrop/Buttons:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -143,7 +177,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsHolder:position")
+tracks/4/path = NodePath("Pages/MainPage/StatsHolder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -155,7 +189,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RewardHolder:position")
+tracks/5/path = NodePath("Pages/MainPage/RewardHolder:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -167,7 +201,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Quests/QuestTitle:position")
+tracks/6/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -179,7 +213,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Quests/Quest1:scale")
+tracks/7/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -200,13 +234,57 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TopLevelElements/ButtonLeft:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TopLevelElements/ButtonLeft:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TopLevelElements/ButtonRight:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TopLevelElements/ButtonRight:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_yqy0f"]
 resource_name = "pause_on"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ItemHolder:position")
+tracks/0/path = NodePath("TopLevelElements/ItemHolder:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -218,7 +296,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackdropHolder:position")
+tracks/1/path = NodePath("TopLevelElements/BackdropHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -230,7 +308,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FloorMainHolder:position")
+tracks/2/path = NodePath("Pages/MainPage/FloorMainHolder:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -242,7 +320,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BackdropHolder/Backdrop/Buttons:position")
+tracks/3/path = NodePath("TopLevelElements/BackdropHolder/Backdrop/Buttons:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -254,7 +332,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsHolder:position")
+tracks/4/path = NodePath("Pages/MainPage/StatsHolder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -266,7 +344,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RewardHolder:position")
+tracks/5/path = NodePath("Pages/MainPage/RewardHolder:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -278,7 +356,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Quests/QuestTitle:position")
+tracks/6/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -290,7 +368,7 @@ tracks/6/keys = {
 tracks/7/type = "animation"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Quests/Quest1/AnimationPlayer")
+tracks/7/path = NodePath("Pages/MainPage/Quests/Quest1/AnimationPlayer")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -300,7 +378,7 @@ tracks/7/keys = {
 tracks/8/type = "animation"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Quests/Quest2/AnimationPlayer")
+tracks/8/path = NodePath("Pages/MainPage/Quests/Quest2/AnimationPlayer")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -310,7 +388,7 @@ tracks/8/keys = {
 tracks/9/type = "animation"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Quests/Quest3/AnimationPlayer")
+tracks/9/path = NodePath("Pages/MainPage/Quests/Quest3/AnimationPlayer")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -320,7 +398,7 @@ tracks/9/keys = {
 tracks/10/type = "animation"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Quests/Quest4/AnimationPlayer")
+tracks/10/path = NodePath("Pages/MainPage/Quests/Quest4/AnimationPlayer")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -330,7 +408,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Quests/Quest1:scale")
+tracks/11/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -342,7 +420,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Quests/Quest2:scale")
+tracks/12/path = NodePath("Pages/MainPage/Quests/Quest2:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -354,7 +432,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Quests/Quest3:scale")
+tracks/13/path = NodePath("Pages/MainPage/Quests/Quest3:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -366,7 +444,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Quests/Quest4:scale")
+tracks/14/path = NodePath("Pages/MainPage/Quests/Quest4:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -387,6 +465,50 @@ tracks/15/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TopLevelElements/ButtonLeft:position:x")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-74, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.43)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TopLevelElements/ButtonLeft:position:y")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.43)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TopLevelElements/ButtonRight:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(71, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.47)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TopLevelElements/ButtonRight:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.47)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gpmgs"]
 _data = {
@@ -403,7 +525,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0r2dl")
-quest_scrolls = [NodePath("Quests/Quest1"), NodePath("Quests/Quest2"), NodePath("Quests/Quest3"), NodePath("Quests/Quest4")]
+quest_scrolls = [NodePath("Pages/MainPage/Quests/Quest1"), NodePath("Pages/MainPage/Quests/Quest2"), NodePath("Pages/MainPage/Quests/Quest3"), NodePath("Pages/MainPage/Quests/Quest4")]
 
 [node name="Blur" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -416,93 +538,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.856067, 0.856067, 0.856067, 1)
 
-[node name="BackdropHolder" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Backdrop" type="ColorRect" parent="BackdropHolder"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 0.34902)
-
-[node name="Buttons" type="HBoxContainer" parent="BackdropHolder/Backdrop"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -10.0
-offset_right = -1.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(152, 126)
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="Resume" parent="BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
-material = SubResource("ShaderMaterial_10epn")
-custom_minimum_size = Vector2(230, 100)
-layout_mode = 2
-texture_normal = ExtResource("6_2ls0o")
-texture_pressed = ExtResource("7_pio3r")
-texture_hover = ExtResource("8_l83vw")
-texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
-text = "Resume"
-
-[node name="Settings" parent="BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
-material = SubResource("ShaderMaterial_ry7vf")
-custom_minimum_size = Vector2(230, 100)
-layout_mode = 2
-texture_normal = ExtResource("6_2ls0o")
-texture_pressed = ExtResource("7_pio3r")
-texture_hover = ExtResource("8_l83vw")
-texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
-text = "Settings"
-
-[node name="Quit" parent="BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
-custom_minimum_size = Vector2(230, 100)
-layout_mode = 2
-texture_normal = ExtResource("6_2ls0o")
-texture_pressed = ExtResource("7_pio3r")
-texture_hover = ExtResource("8_l83vw")
-texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
-text = "Quit"
-
-[node name="VersionLabel" type="Label" parent="BackdropHolder/Backdrop"]
+[node name="Pages" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -23.0
-offset_right = 7.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "v1.0"
-label_settings = SubResource("LabelSettings_khjnh")
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="FloorMainHolder" type="Control" parent="."]
+[node name="MainPage" type="Control" parent="Pages"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,7 +557,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="FloorMainContainer" type="VBoxContainer" parent="FloorMainHolder"]
+[node name="FloorMainHolder" type="Control" parent="Pages/MainPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FloorMainContainer" type="VBoxContainer" parent="Pages/MainPage/FloorMainHolder"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 1
@@ -526,12 +581,12 @@ grow_horizontal = 0
 scale = Vector2(1, 0.995118)
 theme_override_constants/separation = -8
 
-[node name="FloorContainer" type="HBoxContainer" parent="FloorMainHolder/FloorMainContainer"]
+[node name="FloorContainer" type="HBoxContainer" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer"]
 custom_minimum_size = Vector2(550, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="FacilityIcon" type="TextureRect" parent="FloorMainHolder/FloorMainContainer/FloorContainer"]
+[node name="FacilityIcon" type="TextureRect" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer/FloorContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -539,7 +594,7 @@ texture = ExtResource("10_lmpwx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="FloorLabel" type="Label" parent="FloorMainHolder/FloorMainContainer/FloorContainer"]
+[node name="FloorLabel" type="Label" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer/FloorContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/shadow_offset_x = 1
@@ -549,7 +604,7 @@ label_settings = SubResource("LabelSettings_sohev")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FacilityIcon2" type="TextureRect" parent="FloorMainHolder/FloorMainContainer/FloorContainer"]
+[node name="FacilityIcon2" type="TextureRect" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer/FloorContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -557,23 +612,23 @@ texture = ExtResource("10_lmpwx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AnomaliesContainer" type="HBoxContainer" parent="FloorMainHolder/FloorMainContainer"]
+[node name="AnomaliesContainer" type="HBoxContainer" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="Quests" type="Control" parent="."]
+[node name="Quests" type="Control" parent="Pages/MainPage"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 22.0
+offset_left = 38.0
 offset_top = 88.0
-offset_right = 672.0
+offset_right = 688.0
 offset_bottom = 588.0
 scale = Vector2(0.995009, 1.0024)
 mouse_filter = 2
 
-[node name="QuestTitle" type="Label" parent="Quests"]
+[node name="QuestTitle" type="Label" parent="Pages/MainPage/Quests"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -586,7 +641,7 @@ grow_horizontal = 2
 text = "ToonTasks"
 label_settings = SubResource("LabelSettings_0wxjl")
 
-[node name="Quest1" parent="Quests" instance=ExtResource("4_wy1sv")]
+[node name="Quest1" parent="Pages/MainPage/Quests" instance=ExtResource("4_wy1sv")]
 layout_mode = 1
 offset_left = -57.0
 offset_top = -54.9761
@@ -594,7 +649,7 @@ offset_right = 323.0
 offset_bottom = 245.024
 scale = Vector2(0.7, 0.7)
 
-[node name="Quest2" parent="Quests" instance=ExtResource("4_wy1sv")]
+[node name="Quest2" parent="Pages/MainPage/Quests" instance=ExtResource("4_wy1sv")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -604,9 +659,9 @@ offset_top = -54.9761
 offset_right = -57.0
 offset_bottom = 245.024
 grow_horizontal = 0
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(0.7, 0.7)
 
-[node name="Quest3" parent="Quests" instance=ExtResource("4_wy1sv")]
+[node name="Quest3" parent="Pages/MainPage/Quests" instance=ExtResource("4_wy1sv")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -616,9 +671,9 @@ offset_top = -354.976
 offset_right = 323.0
 offset_bottom = -54.9761
 grow_vertical = 0
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(0.7, 0.7)
 
-[node name="Quest4" parent="Quests" instance=ExtResource("4_wy1sv")]
+[node name="Quest4" parent="Pages/MainPage/Quests" instance=ExtResource("4_wy1sv")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -631,9 +686,9 @@ offset_right = -57.0
 offset_bottom = -54.9761
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(0.7, 0.7)
 
-[node name="StatsHolder" type="Control" parent="."]
+[node name="StatsHolder" type="Control" parent="Pages/MainPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -642,7 +697,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Stats" type="PanelContainer" parent="StatsHolder"]
+[node name="Stats" type="PanelContainer" parent="Pages/MainPage/StatsHolder"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(230, 200)
@@ -652,70 +707,125 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -521.0
+offset_left = -499.0
 offset_top = -85.0
-offset_right = -291.0
+offset_right = -269.0
 offset_bottom = 125.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(115, 105)
 
-[node name="MarginContainer" type="MarginContainer" parent="StatsHolder/Stats"]
+[node name="MarginContainer" type="MarginContainer" parent="Pages/MainPage/StatsHolder/Stats"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StatsHolder/Stats/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Stats" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="Stats" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "STATS"
 label_settings = SubResource("LabelSettings_w52ml")
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Damage" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="Damage" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Damage: 1.0"
 label_settings = SubResource("LabelSettings_m8075")
 vertical_alignment = 1
 
-[node name="Defense" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="DamageChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Damage"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -94.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "+2.00"
+label_settings = SubResource("LabelSettings_5koig")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Defense" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Defense: 1.0"
 label_settings = SubResource("LabelSettings_oacmx")
 vertical_alignment = 1
 
-[node name="Evasiveness" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="DefenseChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Defense"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -94.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "-2.00"
+label_settings = SubResource("LabelSettings_ohjf4")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Evasiveness" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Evasiveness: 1.0"
 label_settings = SubResource("LabelSettings_ftg7t")
 vertical_alignment = 1
 
-[node name="Luck" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="EvasivenessChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Evasiveness"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -94.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "+2.00"
+label_settings = SubResource("LabelSettings_5nijd")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Luck" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Luck: 1.0"
 label_settings = SubResource("LabelSettings_j0dlo")
 vertical_alignment = 1
 
-[node name="Speed" type="Label" parent="StatsHolder/Stats/MarginContainer/VBoxContainer"]
+[node name="LuckChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Luck"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -94.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "-2.00"
+label_settings = SubResource("LabelSettings_bs06e")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Speed: 1.0"
 label_settings = SubResource("LabelSettings_7el0f")
 vertical_alignment = 1
 
-[node name="RewardHolder" type="Control" parent="."]
+[node name="SpeedChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Speed"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -94.0
+offset_right = -4.0
+offset_bottom = 21.0
+text = "+2.00"
+label_settings = SubResource("LabelSettings_jrqgq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RewardHolder" type="Control" parent="Pages/MainPage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -724,7 +834,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ItemReward" type="Control" parent="RewardHolder"]
+[node name="ItemReward" type="Control" parent="Pages/MainPage/RewardHolder"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -738,7 +848,7 @@ offset_bottom = 63.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="FloorRewardLabel" type="Label" parent="RewardHolder/ItemReward"]
+[node name="FloorRewardLabel" type="Label" parent="Pages/MainPage/RewardHolder/ItemReward"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
@@ -750,7 +860,7 @@ label_settings = SubResource("LabelSettings_qf26x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RewardView" parent="RewardHolder/ItemReward" instance=ExtResource("13_6fvpv")]
+[node name="RewardView" parent="Pages/MainPage/RewardHolder/ItemReward" instance=ExtResource("13_6fvpv")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(105, 107)
 layout_mode = 1
@@ -768,7 +878,7 @@ grow_vertical = 0
 texture = SubResource("ViewportTexture_nqfjm")
 expand_mode = 1
 
-[node name="NoReward" type="TextureRect" parent="RewardHolder/ItemReward"]
+[node name="NoReward" type="TextureRect" parent="Pages/MainPage/RewardHolder/ItemReward"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(105, 107)
 layout_mode = 0
@@ -780,7 +890,8 @@ pivot_offset = Vector2(52.5, 53.5)
 texture = ExtResource("13_vloq5")
 expand_mode = 1
 
-[node name="ItemHolder" type="Control" parent="."]
+[node name="GagPage" type="Control" parent="Pages"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -789,7 +900,186 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ItemDisplay" parent="ItemHolder" instance=ExtResource("14_0372c")]
+[node name="GagPanel" parent="Pages/GagPage" instance=ExtResource("18_jrqgq")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GagTitle" type="Label" parent="Pages/GagPage"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -184.0
+offset_right = 96.5
+offset_bottom = -150.999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gags"
+label_settings = SubResource("LabelSettings_0wxjl")
+horizontal_alignment = 1
+
+[node name="TopLevelElements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackdropHolder" type="Control" parent="TopLevelElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Backdrop" type="ColorRect" parent="TopLevelElements/BackdropHolder"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.34902)
+
+[node name="Buttons" type="HBoxContainer" parent="TopLevelElements/BackdropHolder/Backdrop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -10.0
+offset_right = -1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(152, 126)
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Resume" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
+material = SubResource("ShaderMaterial_10epn")
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_2ls0o")
+texture_pressed = ExtResource("7_pio3r")
+texture_hover = ExtResource("8_l83vw")
+texture_disabled = ExtResource("7_pio3r")
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Resume"
+
+[node name="Settings" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
+material = SubResource("ShaderMaterial_ry7vf")
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_2ls0o")
+texture_pressed = ExtResource("7_pio3r")
+texture_hover = ExtResource("8_l83vw")
+texture_disabled = ExtResource("7_pio3r")
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Settings"
+
+[node name="Quit" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_2ls0o")
+texture_pressed = ExtResource("7_pio3r")
+texture_hover = ExtResource("8_l83vw")
+texture_disabled = ExtResource("7_pio3r")
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Quit"
+
+[node name="VersionLabel" type="Label" parent="TopLevelElements/BackdropHolder/Backdrop"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -23.0
+offset_right = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "v1.0"
+label_settings = SubResource("LabelSettings_khjnh")
+
+[node name="ButtonLeft" type="Control" parent="TopLevelElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GeneralButton" parent="TopLevelElements/ButtonLeft" instance=ExtResource("2_fdjxk")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -29.0
+offset_right = 37.0
+offset_bottom = 29.0
+grow_vertical = 2
+texture_normal = ExtResource("9_bs06e")
+texture_pressed = ExtResource("10_jrqgq")
+texture_disabled = ExtResource("11_1s8xm")
+hover_db_offset = 6.0
+press_db_offset = 0.0
+
+[node name="ButtonRight" type="Control" parent="TopLevelElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GeneralButton" parent="TopLevelElements/ButtonRight" instance=ExtResource("2_fdjxk")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -29.0
+offset_right = -7.0
+offset_bottom = 29.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("9_bs06e")
+texture_pressed = ExtResource("10_jrqgq")
+texture_disabled = ExtResource("11_1s8xm")
+flip_h = true
+hover_db_offset = 6.0
+press_db_offset = 0.0
+
+[node name="ItemHolder" type="Control" parent="TopLevelElements"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ItemDisplay" parent="TopLevelElements/ItemHolder" instance=ExtResource("14_0372c")]
 custom_minimum_size = Vector2(128, 68)
 layout_mode = 1
 offset_top = -148.0
@@ -800,6 +1090,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_gpmgs")
 }
 
-[connection signal="pressed" from="BackdropHolder/Backdrop/Buttons/Resume" to="." method="resume"]
-[connection signal="pressed" from="BackdropHolder/Backdrop/Buttons/Settings" to="." method="open_settings"]
-[connection signal="pressed" from="BackdropHolder/Backdrop/Buttons/Quit" to="." method="quit"]
+[connection signal="pressed" from="TopLevelElements/BackdropHolder/Backdrop/Buttons/Resume" to="." method="resume"]
+[connection signal="pressed" from="TopLevelElements/BackdropHolder/Backdrop/Buttons/Settings" to="." method="open_settings"]
+[connection signal="pressed" from="TopLevelElements/BackdropHolder/Backdrop/Buttons/Quit" to="." method="quit"]
+[connection signal="pressed" from="TopLevelElements/ButtonLeft/GeneralButton" to="." method="view_prev_page"]
+[connection signal="pressed" from="TopLevelElements/ButtonRight/GeneralButton" to="." method="view_next_page"]

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://cyq101ymuq6la"]
+
+[ext_resource type="Texture2D" uid="uid://dsdu43yo8t8r" path="res://ui_assets/player_ui/pocket_prank_icons/cash register.png" id="1_6vhg4"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_hhhbl"]
+[ext_resource type="Script" uid="uid://c0i3wwbqq2gdj" path="res://objects/items/custom/cash_register/item_cash_register.gd" id="2_6vhg4"]
+[ext_resource type="PackedScene" uid="uid://buad8c4pjl2a2" path="res://objects/items/custom/cash_register/cash_register.tscn" id="3_6vhg4"]
+[ext_resource type="AudioStream" uid="uid://puyhd7ibodqf" path="res://audio/sfx/items/cash_register.ogg" id="4_6vhg4"]
+
+[resource]
+script = ExtResource("1_hhhbl")
+sfx = Array[AudioStream]([])
+active_type = 1
+charge_count = 0
+current_charge = 0
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.2
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Cash Register"
+item_description = "Ka-ching!"
+big_description = "Spend 5 beans for a 2 round 15% damage boost"
+model = ExtResource("3_6vhg4")
+pickup_sfx = ExtResource("4_6vhg4")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_6vhg4")
+remember_item = true
+icon = ExtResource("1_6vhg4")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

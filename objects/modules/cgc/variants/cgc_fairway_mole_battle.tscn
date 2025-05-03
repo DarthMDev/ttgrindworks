@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rpp7hq7jajiy"]
+[gd_scene load_steps=14 format=3 uid="uid://rpp7hq7jajiy"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_wgrec"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="2_a6ih3"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="9_1ainf"]
 [ext_resource type="PackedScene" uid="uid://dcovg7c53hvck" path="res://objects/props/cgc/cgc_flat_branch.tscn" id="10_nb760"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="12_w5tms"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="13_1ygb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1wtw3"]
 size = Vector3(8.71588, 9.69043, 3.41797)
@@ -144,6 +143,7 @@ script = ExtResource("6_hp252")
 difficulty = 1.4
 grid_size = Vector2i(10, 5)
 game_time = 50.0
+quota = 8
 launch_cam = NodePath("../LaunchCam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MoleStompGame" index="0"]
@@ -213,6 +213,5 @@ transform = Transform3D(-1.965, 0, 2.43035e-07, 0, 3.045, 0, -1.71786e-07, 0, -2
 
 [node name="treasure_chest" parent="." index="35" instance=ExtResource("12_w5tms")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.7097, 0, 0)
-item_pool = ExtResource("13_1ygb8")
 
 [connection signal="s_normal_finished" from="MoleStompGame" to="Props/FenceGate" method="open"]

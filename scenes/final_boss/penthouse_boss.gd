@@ -8,7 +8,7 @@ const COG_SCENE := preload("res://objects/cog/cog.tscn")
 const SFX_CAGE_LOWER := preload("res://audio/sfx/misc/CHQ_SOS_cage_lower.ogg")
 const SFX_CAGE_LAND := preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
 
-var WANT_DEBUG_BOSSES := false
+var WANT_DEBUG_BOSSES := true
 var DEBUG_FORCE_BOSS_ONE: CogDNA = load("res://objects/cog/presets/lawbot/whistleblower.tres")
 var DEBUG_FORCE_BOSS_TWO: CogDNA = load("res://objects/cog/presets/bossbot/union_buster.tres")
 
@@ -31,7 +31,7 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 var unlock_toon := false
 
 ## For battle tracking
-const COG_LEVEL_RANGE := Vector2i(8, 12)
+const COG_LEVEL_RANGE := Vector2i(9, 14)
 var boss_one_choice: CogDNA
 var boss_two_choice: CogDNA
 
@@ -41,6 +41,8 @@ var boss_two_alive := true
 var darkened_sky := false
 
 func _ready() -> void:
+	Globals.s_entered_barrel_room.emit()
+	
 	set_caged_toon_dna(get_caged_toon_dna())
 	AudioManager.set_music(MUSIC_TRACK)
 	# Pick the first boss
@@ -60,8 +62,8 @@ func _ready() -> void:
 	boss_cog_2.set_dna(boss_two_choice)
 
 	# Nerf their damage got damn!!!
-	boss_cog.stats.damage = 1.2
-	boss_cog_2.stats.damage = 1.2
+	boss_cog.stats.damage = 1.6
+	boss_cog_2.stats.damage = 1.6
 
 	# Start the battle
 	Util.get_player().state = Player.PlayerState.WALK
@@ -74,6 +76,10 @@ func _ready() -> void:
 	BattleService.ongoing_battle.s_round_started.connect(try_add_cogs)
 	BattleService.ongoing_battle.s_participant_died.connect(participant_died)
 	BattleService.ongoing_battle.s_battle_ending.connect(battle_ending)
+
+	boss_cog.stats.hp_changed.connect(on_boss_hp_changed)
+	boss_cog_2.stats.hp_changed.connect(on_boss_hp_changed)
+
 
 func try_add_cogs(_actions: Array[BattleAction]) -> void:
 	var cooldown := 2
@@ -98,8 +104,11 @@ func participant_died(who: Node3D) -> void:
 
 func battle_ending() -> void:
 	Util.get_player().game_timer_tick = false
+	Util.get_player().lock_game_timer = true
 	Util.get_player().game_timer.become_full_visible()
 	var win_time : float = Util.get_player().game_timer.time
+	if win_time < 3600.0:
+		Globals.s_one_hour_win.emit()
 	if win_time < SaveFileService.progress_file.best_time or is_equal_approx(0.0, SaveFileService.progress_file.best_time):
 		SaveFileService.progress_file.best_time = Util.get_player().game_timer.time
 
@@ -119,29 +128,41 @@ func a_boss_died() -> void:
 		# to unlock-loop
 		AudioManager.set_clip(2)
 
+func on_boss_hp_changed(_hp) -> void:
+	if not both_bosses_alive() or darkened_sky: return
+	
+	var maximum_hp := boss_cog.stats.max_hp + boss_cog_2.stats.max_hp
+	var current_hp := boss_cog.stats.hp + boss_cog_2.stats.hp
+	if float(current_hp) / float(maximum_hp) < 0.5:
+		a_boss_died()
+
 func set_caged_toon_dna(dna: ToonDNA) -> void:
 	caged_toon.construct_toon(dna)
 	caged_toon.set_animation('neutral')
 
 func get_caged_toon_dna() -> ToonDNA:
 	var unlock_index: int = SaveFileService.progress_file.characters_unlocked
-	var can_unlock: bool = Util.get_player().stats.character.character_name == Globals.TOON_UNLOCK_ORDER[unlock_index - 1].character_name
-	if Util.get_player().stats.character.character_name == Globals.TOON_UNLOCK_ORDER[5].character_name:
+	var can_unlock: bool = Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[unlock_index - 1].character_name
+	if Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[5].character_name:
 		can_unlock = false
 	if not can_unlock:
 		var dna := ToonDNA.new()
 		dna.randomize_dna()
 		return dna
 	unlock_toon = true
-	return Globals.TOON_UNLOCK_ORDER[unlock_index].dna
+	return Globals.fetch_toon_unlock_order()[unlock_index].dna
 
 func on_battle_finished() -> void:
 	if unlock_toon:
-		Globals.s_character_unlocked.emit(Globals.TOON_UNLOCK_ORDER[SaveFileService.progress_file.characters_unlocked])
+		Globals.s_character_unlocked.emit(Globals.fetch_toon_unlock_order()[SaveFileService.progress_file.characters_unlocked])
 		SaveFileService.progress_file.characters_unlocked += 1
 	win_game()
 
 func end_game() -> void:
+	if not Util.get_player().stats.character.random_character_stored_name == "":
+		if not SaveFileService.progress_file.mystery_toon_win:
+			Globals.s_mystery_win.emit()
+			SaveFileService.make_progress('mystert_toon_win', true)
 	SaveFileService.progress_file.win_streak += 1
 	for partner in Util.get_player().partners:
 		partner.queue_free()
@@ -151,7 +172,7 @@ func end_game() -> void:
 	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
 
 func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
-	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and not both_bosses_alive()
+	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and not darkened_sky
 	var new_cogs: Array[Cog]
 	for i in cog_count:
 		var cog := COG_SCENE.instantiate()

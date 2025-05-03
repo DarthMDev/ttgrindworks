@@ -36,6 +36,7 @@ evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.45
 item_name = "Bat Wings"

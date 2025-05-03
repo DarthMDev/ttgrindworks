@@ -5,13 +5,13 @@ const COLOR_ALERT := Color("ff00001a")
 const COLOR_STANDARD := Color("ffffff0d")
 const SFX_TRIPPED := preload("res://audio/sfx/objects/spotlight/LB_laser_beam_on_2.ogg")
 const SFX_RESET := preload("res://audio/sfx/objects/spotlight/LB_laser_beam_off_2.ogg")
-const WAIT_LIMIT := 5.0
 
 @export var light_path: Path3D
 @export var origin_path: Path3D
 @export var light_radius := 2.5
 @export var base_damage := -1
 @export var light_spd := 0.25
+@export var wait_range := Vector2(0.0 , 5.0)
 
 @onready var light: MeshInstance3D = $Spotlight
 @onready var light_follower: PathFollow3D = $Spotlight/PathFollow3D
@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 func light_pause() -> void:
 	light_moving = false
 	sfx_move.stop()
-	pause_timer.start(RandomService.randf_channel('true_random') * WAIT_LIMIT)
+	pause_timer.start(RandomService.randf_range_channel("true_random", wait_range.x, wait_range.y))
 	await pause_timer.timeout
 	light_moving = true
 	sfx_move.play()

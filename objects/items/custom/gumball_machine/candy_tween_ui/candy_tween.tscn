@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutn60sqbusqn"]
+
+[ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_akxob"]
+[ext_resource type="Script" uid="uid://bg1c8wfhp8pha" path="res://objects/items/custom/gumball_machine/candy_tween_ui/candy_tween.gd" id="1_yvsna"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_akxob"]
+viewport_path = NodePath("World3D/SubViewport")
+
+[node name="CandyTween" type="CanvasLayer"]
+physics_interpolation_mode = 2
+script = ExtResource("1_yvsna")
+
+[node name="WorldUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="WorldUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_akxob")
+expand_mode = 5
+
+[node name="World3D" type="Node3D" parent="."]
+physics_interpolation_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="World3D"]
+transparent_bg = true
+size = Vector2i(1000, 512)
+
+[node name="Candy" parent="World3D/SubViewport" instance=ExtResource("1_akxob")]
+unique_name_in_owner = true
+physics_interpolation_mode = 2
+transform = Transform3D(-0.499924, 0, -0.00872623, 0, 0.5, 0, 0.00872623, 0, -0.499924, 5, 5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="World3D/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.86875)
+fov = 52.0

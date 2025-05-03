@@ -54,6 +54,11 @@ shape = SubResource("BoxShape3D_ghnh7")
 transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_ubwwa")
 
+[node name="ElevatorTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="body_entered" from="Area3D" to="." method="body_entered"]
+[connection signal="timeout" from="ElevatorTimer" to="." method="timer_timeout"]
 
 [editable path="factory_elevator"]

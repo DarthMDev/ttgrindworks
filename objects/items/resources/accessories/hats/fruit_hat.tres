@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://cj82r15jal3pe"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://cwxiev4r8wnvk"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_pabj5"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_0b2me"]
@@ -50,33 +50,33 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_h4wpy")
 species = 1
 head_index = 1
-position = Vector3(0.01, -0.18, -0.03)
+position = Vector3(0.01, -0.42, 0)
 rotation = Vector3(-8.59, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_6horp"]
 script = ExtResource("2_h4wpy")
 species = 1
 head_index = 0
-position = Vector3(0.01, -0.18, -0.03)
+position = Vector3(0.01, -0.42, 0)
 rotation = Vector3(-8.59, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_ddr78"]
 script = ExtResource("2_h4wpy")
 species = 1
 head_index = 2
-position = Vector3(0.01, -0.48, -0.03)
+position = Vector3(0.01, -0.55, 0)
 rotation = Vector3(-8.59, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_i7mk6"]
 script = ExtResource("2_h4wpy")
 species = 1
 head_index = 3
-position = Vector3(0.01, -0.48, -0.03)
+position = Vector3(0.01, -0.55, 0)
 rotation = Vector3(-8.59, 0, 0)
-scale = Vector3(0.4, 0.4, 0.4)
+scale = Vector3(0.44, 0.44, 0.44)
 
 [sub_resource type="Resource" id="Resource_n657u"]
 script = ExtResource("2_h4wpy")
@@ -281,12 +281,14 @@ scale = Vector3(0.37, 0.39, 0.39)
 [resource]
 script = ExtResource("2_0b2me")
 accessory_placements = Array[ExtResource("1_pabj5")]([SubResource("Resource_bdihr"), SubResource("Resource_hupei"), SubResource("Resource_kot81"), SubResource("Resource_nsoca"), SubResource("Resource_hyml3"), SubResource("Resource_b4put"), SubResource("Resource_6horp"), SubResource("Resource_ddr78"), SubResource("Resource_i7mk6"), SubResource("Resource_n657u"), SubResource("Resource_2frpf"), SubResource("Resource_xw84j"), SubResource("Resource_ijaop"), SubResource("Resource_nw1x5"), SubResource("Resource_bynku"), SubResource("Resource_w7yaf"), SubResource("Resource_xa0fs"), SubResource("Resource_llvar"), SubResource("Resource_jon1m"), SubResource("Resource_0lodu"), SubResource("Resource_831hs"), SubResource("Resource_77u8k"), SubResource("Resource_75h87"), SubResource("Resource_400u5"), SubResource("Resource_5w6tq"), SubResource("Resource_n44aw"), SubResource("Resource_xy227"), SubResource("Resource_r84go"), SubResource("Resource_m0ac8"), SubResource("Resource_c002d"), SubResource("Resource_300v2"), SubResource("Resource_7ihay"), SubResource("Resource_x7qnl"), SubResource("Resource_68uhs")])
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Fruit Hat"

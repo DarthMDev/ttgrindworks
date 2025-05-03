@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckhnse61p76s"]
+
+[ext_resource type="Script" uid="uid://ci7o26hxxn3jj" path="res://objects/interactables/signal_chests/signal_chests.gd" id="1_4yy6i"]
+
+[node name="SignalChests" type="Node3D"]
+script = ExtResource("1_4yy6i")

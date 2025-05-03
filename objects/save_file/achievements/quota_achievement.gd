@@ -12,7 +12,6 @@ func _setup() -> void:
 	
 	if progress_value in SaveFileService.progress_file:
 		if SaveFileService.progress_file.get(progress_value) >= quota:
-			pass
 			unlock()
 			return
 	else:

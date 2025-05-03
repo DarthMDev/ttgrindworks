@@ -17,6 +17,8 @@ department = 2
 suit = 0
 cog_name = "Whistleblower"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("4_m7cdr")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0.015, -0.07, 0.05)
@@ -32,7 +34,7 @@ level_high = 20
 status_effects = Array[ExtResource("7_jouat")]([ExtResource("7_mtd56"), ExtResource("8_djofu"), ExtResource("8_q51ym")])
 is_mod_cog = false
 is_admin = false
-health_mod = 4.87
+health_mod = 5.952
 battle_phrases = Array[String](["I am the whistle blower"])
 external_assets = {
 &"head_model": "",

@@ -32,7 +32,6 @@ override_replacement_rolls = true
 [node name="Item3" parent="Items" index="2" instance=ExtResource("4_g4xfv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93, 1.206, 0)
 pool = ExtResource("5_lqr8r")
-override_replacement_rolls = true
 
 [node name="Item4" parent="Items" index="3" instance=ExtResource("4_g4xfv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1.206, 0)

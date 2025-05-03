@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://dqqrepbjt3wje"]
+[gd_scene load_steps=106 format=4 uid="uid://dqqrepbjt3wje"]
 
 [ext_resource type="Script" uid="uid://lrvtj7qrqxhd" path="res://objects/toon/toon_body.gd" id="1_1rs5a"]
 [ext_resource type="Texture2D" uid="uid://cv4hcoub8jcml" path="res://models/toon/body/sml_med/sml_med-e9e789064dd98e55b19a9395bd53fe3f_neckGeneric.png" id="2_w41a6"]
@@ -152,7 +152,7 @@ bind/4/name = &"dogLLskirt_def_head"
 bind/4/bone = -1
 bind/4/pose = Transform3D(1, 0, 0, 0, 0.999403, 0.03455, 0, -0.03455, 0.999403, 2.87616e-17, -6.33571, 0.304105)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o84w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssqym"]
 resource_name = "lambert1"
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -169,7 +169,7 @@ _surfaces = [{
 "index_count": 123,
 "index_data": PackedByteArray("AAABAAIAAwABAAQAAQADAAUABgAHAAgABAAJAAMAAgAKAAsAAgABAAoADAANAAoADAAKAAUAAQAFAAoAAAAOAAQADwAQABEADwARAAsAAgASAAAAAAAEAAEABAAOABMABAATABQAEwAVABYAEwAWABQAEQAXABIAFAAWABgAFAAYAAkAFQAZAAgAFQAIAAcADgAAABIAGgAbAAsAGgALAAoAEgALABEABgAcAB0AGAAWAB0AGAAdABwAEgACAAsAFgAVAAcAFgAHAB0ABAAUAAkAHgATAA4AHgAZABUAHgAVABMABgAdAAcAFwAeAA4AFwAOABIA"),
 "lods": [0.104458, PackedByteArray("LAAmACkALQAhACcADAAnACEADAANACcADwAQABEADwARACoAMAAqABEALgAfACIAHwA0ACUANAAxACUAIAAvADQANAAyADEAMQAyACQAMQAkADMAIwAzACQAGgAbACsAGgArACgA")],
-"material": SubResource("StandardMaterial3D_8o84w"),
+"material": SubResource("StandardMaterial3D_ssqym"),
 "name": "lambert1",
 "primitive": 3,
 "skin_data": PackedByteArray("AQACAAAAAADY1iYpAAAAAAAAAQAAAAAA/3//fwAAAAAAAAEAAAAAAP9//38AAAAAAQACAAAAAADjzBszAAAAAAEAAgAAAAAAEtDsLwAAAAAAAAEAAAAAAP+//z8AAAAAAgADAAEAAAB0aHRoFi8AAAIAAwABAAAAcGlwaR4tAAACAAMAAQAAAAVpBWnzLQAAAgABAAMAAADJbshubSIAAAAAAQAAAAAA/7//PwAAAAAAAAEAAAAAAP+//z8AAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAACzI0jcAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAEAAAAAAP+//z8AAAAAAAABAAAAAAD/f/9/AAAAAAIAAQADAAAAVHandQIUAAACAAEAAwAAAPV1VXW0FAAAAgADAAEAAAAtdi12oxMAAAIAAwABAAAAKXMpc6sZAAABAAIAAAAAAE/GrzkAAAAAAgADAAEAAAAwbDBsnicAAAIAAwABAAAAuG64bo0iAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAIAAwABAAAArWitaKMuAAACAAMAAQAAAEFpQWl8LQAAAgABAAMAAABVb+VuxCEAAAEAAgAAAAAA48wbMwAAAAABAAIAAAAAAOPMGzMAAAAAAAABAAAAAAD/v/8/AAAAAAAAAQAAAAAA/7//PwAAAAACAAMAAQAAAHRodGgWLwAAAgADAAEAAAAFaQVp8y0AAAIAAQADAAAAyW7Ibm0iAAAAAAEAAAAAAP+//z8AAAAAAAABAAAAAAD/v/8/AAAAAAAAAQAAAAAA/7//PwAAAAAAAAEAAAAAAP+//z8AAAAAAAABAAAAAAD/v/8/AAAAAAAAAQAAAAAA/7//PwAAAAABAAIAAAAAAE/GrzkAAAAAAQACAAAAAABPxq85AAAAAAEAAgAAAAAAT8avOQAAAAABAAIAAAAAAE/GrzkAAAAAAQACAAAAAABPxq85AAAAAAIAAwABAAAAMGwwbJ4nAAACAAMAAQAAALhuuG6NIgAAAgADAAEAAACtaK1ooy4AAAIAAQADAAAAVW/lbsQhAAA="),
@@ -205,7 +205,7 @@ _surfaces = [{
 "index_count": 123,
 "index_data": PackedByteArray("AAABAAIAAwABAAQABQAEAAEABgAHAAgABAAJAAMACgALAAAACwABAAAACwAMAA0ABQALAA0ACwAFAAEAAwAOAAIADwAQABEACgAPABEAAgASAAAAAQADAAIAEwAOAAMAFAATAAMAFQAWABMAFAAVABMAEgAXAA8AGAAVABQACQAYABQABgAZABYABwAGABYAEgACAA4ACgAaABsACwAKABsADwAKABIAHAAdAAgAHAAVABgAHQAcABgACgAAABIABwAWABUAHAAHABUACQAUAAMADgATAB4AFgAZAB4AEwAWAB4ABwAcAAgADgAeABcAEgAOABcA"),
 "lods": [0.100409, PackedByteArray("JQAnACoAJwAlABsAJQAaABsAKAAhACsAIQAfACsAIQAoAA0AKAAMAA0AJAAyAB8AJAAuADEAMQAsACAALgAvADEAIgAvAC4AMAAiAC4AIgAwACMADwAQACkAJgAPACkADwAmAC0A")],
-"material": SubResource("StandardMaterial3D_8o84w"),
+"material": SubResource("StandardMaterial3D_ssqym"),
 "name": "lambert1",
 "primitive": 3,
 "skin_data": PackedByteArray("AAABAAAAAAD/f/9/AAAAAAAAAQAAAAAA/3//fwAAAAAAAAEAAAAAAP9//38AAAAAAQACAAAAAAAS0OwvAAAAAAEAAgAAAAAA48wbMwAAAAAAAAEAAAAAAP+//z8AAAAAAgADAAEAAAAFaQVp8y0AAAIAAwABAAAAcGlwaR4tAAACAAMAAQAAAHRodGgWLwAAAgABAAMAAADJbshubSIAAAAAAQAAAAAA/7//PwAAAAAAAAEAAAAAAP+//z8AAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAABAAIAAAAAACzI0jcAAAAAAAABAAAAAAD/v/8/AAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD/f/9/AAAAAAIAAQADAAAAVHandQIUAAACAAEAAwAAAPV1VXW0FAAAAgADAAEAAAAqcypzqhkAAAIAAwABAAAALXYtdqMTAAAAAAEAAAAAAP9//38AAAAAAgADAAEAAAAwbDBsnicAAAIAAwABAAAAuW65bowiAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAIAAwABAAAAQWlBaXwtAAACAAMAAQAAAK1orWijLgAAAgABAAMAAABVb+VuxCEAAAEAAgAAAAAA48wbMwAAAAABAAIAAAAAAOPMGzMAAAAAAAABAAAAAAD/v/8/AAAAAAIAAwABAAAABWkFafMtAAACAAMAAQAAAHRodGgWLwAAAgABAAMAAADJbshubSIAAAAAAQAAAAAA/7//PwAAAAAAAAEAAAAAAP+//z8AAAAAAAABAAAAAAD/v/8/AAAAAAAAAQAAAAAA/7//PwAAAAAAAAAAAAAAAP//AAAAAAAAAAABAAAAAAD/f/9/AAAAAAAAAQAAAAAA/3//fwAAAAAAAAEAAAAAAP9//38AAAAAAAABAAAAAAD/f/9/AAAAAAIAAwABAAAAMGwwbJ4nAAACAAMAAQAAALluuW6MIgAAAgADAAEAAACtaK1ooy4AAAIAAQADAAAAVW/lbsQhAAACAAEAAwAAAFVv5W7EIQAA"),
@@ -881,6 +881,13 @@ bind/2/pose = Transform3D(1, 0, 0, 0, 0.971709, -0.23618, 0, 0.23618, 0.971709, 
 bind/3/name = &"dogLLskirt_def_cageB"
 bind/3/bone = -1
 bind/3/pose = Transform3D(1, 0, 0, 0, 0.997982, -0.0635016, 0, 0.0635016, 0.997982, 1.24354e-17, -5.43556, -0.196691)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o84w"]
+resource_name = "lambert1"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
+emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rqcbg"]
 resource_name = "dogLLskirt_lf_skirt_cap_zero"
@@ -4254,7 +4261,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.770186, -0.637811, -0.00313542, 0.637811, 0.770192, -0.0011185, 0.00312827, -0.00113835, 0.999994, 1.58855, -2.84217e-16, 3.19744e-16)
 bones/1/enabled = true
 bones/1/position = Vector3(1.58855, -2.84217e-16, 3.19744e-16)
-bones/1/rotation = Quaternion(-5.27387e-06, -0.00166447, 0.338975, 0.940794)
+bones/1/rotation = Quaternion(-5.27393e-06, -0.00166447, 0.338975, 0.940794)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "dogLLskirt_fk_left_ankle"
 bones/2/parent = 1
@@ -4485,7 +4492,7 @@ bones/34/parent = 33
 bones/34/rest = Transform3D(0.9855, 0.169172, -0.0130388, -0.16918, 0.985585, 0.000512257, 0.0129375, 0.00170108, 0.999915, -0.136112, -1.13687e-15, 3.86529e-07)
 bones/34/enabled = true
 bones/34/position = Vector3(-0.136112, -1.13687e-15, 3.86529e-07)
-bones/34/rotation = Quaternion(0.000298292, -0.00651775, -0.0848964, 0.996368)
+bones/34/rotation = Quaternion(0.000298292, -0.00651775, -0.0848964, 0.996369)
 bones/34/scale = Vector3(1, 1, 1)
 bones/35/name = "dogLLskirt_ik_right_shoulder"
 bones/35/parent = -1
@@ -4576,7 +4583,7 @@ bones/47/parent = 46
 bones/47/rest = Transform3D(0.998991, -0.0448835, -0.0018193, 0.0446191, 0.986793, 0.155719, -0.00519393, -0.155643, 0.9878, -0.0374415, 0.684954, 0.0132427)
 bones/47/enabled = true
 bones/47/position = Vector3(-0.0374415, 0.684954, 0.0132427)
-bones/47/rotation = Quaternion(-0.0780988, 0.000846453, 0.0224499, 0.996692)
+bones/47/rotation = Quaternion(-0.0780988, 0.000846453, 0.0224499, 0.996693)
 bones/47/scale = Vector3(1, 1, 1)
 bones/48/name = "dogLLskirt_ik_spineA"
 bones/48/parent = -1
@@ -4698,14 +4705,14 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0.903267, -0.429074, -0.00210659, 0.429074, 0.903269, -0.000474912, 0.00210659, -0.000474912, 0.999998, 1.58855, 1.33227e-15, -4.38538e-15)
 bones/4/enabled = true
 bones/4/position = Vector3(1.58855, 1.33227e-15, -4.38538e-15)
-bones/4/rotation = Quaternion(-2.83425e-10, -0.00107973, 0.219921, 0.975517)
+bones/4/rotation = Quaternion(-3.08017e-10, -0.00107973, 0.219921, 0.975517)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "dogLLskirt_def_left_ankle"
 bones/5/parent = 4
 bones/5/rest = Transform3D(-0.203674, 0.979038, 0.00111119, -0.979039, -0.203674, -1.48366e-06, 0.000224868, -0.0010882, 0.999999, 1.57574, 1.19349e-15, 8.88178e-16)
 bones/5/enabled = true
 bones/5/position = Vector3(1.57574, 1.19349e-15, 8.88178e-16)
-bones/5/rotation = Quaternion(-0.000430552, 0.000351157, -0.775781, 0.631001)
+bones/5/rotation = Quaternion(-0.000430552, 0.000351157, -0.775782, 0.631001)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "dogLLskirt_def_left_ball"
 bones/6/parent = 5
@@ -4761,7 +4768,7 @@ bones/13/parent = 12
 bones/13/rest = Transform3D(0.903267, -0.429079, 1.81304e-06, 0.429079, 0.903267, 4.08738e-07, -1.81304e-06, 4.08738e-07, 1, 1.58855, 9.99201e-16, -4.55191e-15)
 bones/13/enabled = true
 bones/13/position = Vector3(1.58855, 9.99201e-16, -4.55191e-15)
-bones/13/rotation = Quaternion(6.55538e-14, 9.29271e-07, 0.219924, 0.975517)
+bones/13/rotation = Quaternion(7.38128e-14, 9.29271e-07, 0.219924, 0.975517)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/name = "dogLLskirt_def_right_ankle"
 bones/14/parent = 13
@@ -4845,7 +4852,7 @@ bones/25/parent = 24
 bones/25/rest = Transform3D(1, 0, 0, 0, 0.983946, -0.178466, 0, 0.178466, 0.983946, -8.62551e-18, 0.2312, 4.996e-16)
 bones/25/enabled = true
 bones/25/position = Vector3(-8.62551e-18, 0.2312, 4.996e-16)
-bones/25/rotation = Quaternion(0.0895933, 0, 0, 0.995978)
+bones/25/rotation = Quaternion(0.0895933, 0, 0, 0.995979)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "dogLLskirt_def_toHead"
 bones/26/parent = 25
@@ -4929,14 +4936,14 @@ bones/37/parent = 27
 bones/37/rest = Transform3D(1, 0, 0, 0, 0.999402, 0.0345854, 0, -0.0345854, 0.999402, 0.261626, 0.383755, 0.43314)
 bones/37/enabled = true
 bones/37/position = Vector3(0.261626, 0.383755, 0.43314)
-bones/37/rotation = Quaternion(-0.0172953, 0, 0, 0.99985)
+bones/37/rotation = Quaternion(-0.0172953, 0, 0, 0.999851)
 bones/37/scale = Vector3(1, 1, 1)
 bones/38/name = "dogLLskirt_def_right_pupil"
 bones/38/parent = 27
 bones/38/rest = Transform3D(1, 0, 0, 0, -0.999402, -0.0345854, 0, 0.0345854, -0.999402, -0.261626, 0.383756, 0.43314)
 bones/38/enabled = true
 bones/38/position = Vector3(-0.261626, 0.383756, 0.43314)
-bones/38/rotation = Quaternion(0.99985, 0, 0, 0.0172953)
+bones/38/rotation = Quaternion(0.999851, 0, 0, 0.0172953)
 bones/38/scale = Vector3(1, 1, 1)
 bones/39/name = "dogLLskirt_def_joint_attachFlower"
 bones/39/parent = 24
@@ -4957,7 +4964,7 @@ bones/41/parent = 40
 bones/41/rest = Transform3D(0.997852, -1.05491e-17, -0.0655119, 1.05483e-17, 1, -3.59303e-19, 0.0655119, -3.32506e-19, 0.997852, 1.14274, -5.32907e-15, 2.26461e-11)
 bones/41/enabled = true
 bones/41/position = Vector3(1.14274, -5.32907e-15, 2.26461e-11)
-bones/41/rotation = Quaternion(6.70077e-21, -0.0327735, 5.2772e-18, 0.999463)
+bones/41/rotation = Quaternion(6.70076e-21, -0.0327735, 5.2772e-18, 0.999463)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/name = "dogLLskirt_def_left_forearm"
 bones/42/parent = 41
@@ -4978,7 +4985,7 @@ bones/44/parent = 43
 bones/44/rest = Transform3D(0.997674, -0.0681712, 3.53036e-06, 0.0681712, 0.997674, 1.20475e-07, -3.53036e-06, 1.20475e-07, 1, 0.137273, 2.66454e-15, 1.11022e-16)
 bones/44/enabled = true
 bones/44/position = Vector3(0.137273, 2.66454e-15, 1.11022e-16)
-bones/44/rotation = Quaternion(2.3817e-13, 1.76621e-06, 0.0341054, 0.999418)
+bones/44/rotation = Quaternion(2.42347e-13, 1.76621e-06, 0.0341054, 0.999418)
 bones/44/scale = Vector3(1, 1, 1)
 bones/45/name = "dogLLskirt_def_left_midA"
 bones/45/parent = 44
@@ -5090,7 +5097,7 @@ bones/60/parent = 59
 bones/60/rest = Transform3D(0.997674, -0.0681712, 3.53036e-06, 0.0681712, 0.997674, 1.20475e-07, -3.53036e-06, 1.20475e-07, 1, -0.13727, 1.77636e-15, 1.11022e-16)
 bones/60/enabled = true
 bones/60/position = Vector3(-0.13727, 1.77636e-15, 1.11022e-16)
-bones/60/rotation = Quaternion(2.3817e-13, 1.76621e-06, 0.0341054, 0.999418)
+bones/60/rotation = Quaternion(2.42347e-13, 1.76621e-06, 0.0341054, 0.999418)
 bones/60/scale = Vector3(1, 1, 1)
 bones/61/name = "dogLLskirt_def_right_midA"
 bones/61/parent = 60
@@ -5287,48 +5294,48 @@ mesh = SubResource("ArrayMesh_rqcbg")
 skin = SubResource("Skin_sesre")
 
 [node name="HeadBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(0.998752, -0.0499051, 0.00172526, 0.0499349, 0.998156, -0.0345071, -2.60833e-19, 0.0345502, 0.999403, -0.165077, 6.18814, -0.0850446)
+transform = Transform3D(0.998752, -0.0499052, 0.00172531, 0.049935, 0.998156, -0.034508, -2.60831e-19, 0.0345511, 0.999403, -0.165078, 6.18814, -0.0850432)
 bone_name = "dogLLskirt_def_head"
 bone_idx = 27
 
 [node name="HatBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(0.998752, -0.0499051, 0.00172526, 0.0499349, 0.998156, -0.0345071, -2.60833e-19, 0.0345502, 0.999403, -0.215906, 7.20477, -0.0498549)
+transform = Transform3D(0.998752, -0.0499052, 0.00172531, 0.049935, 0.998156, -0.034508, -2.60831e-19, 0.0345511, 0.999403, -0.215907, 7.20477, -0.0498526)
 bone_name = "dogLLskirt_def_headtip"
 bone_idx = 28
 
 [node name="GlassesBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(0.998752, -0.0499051, 0.00172526, 0.0499349, 0.998156, -0.0345071, -2.60833e-19, 0.0345502, 0.999403, -0.165077, 6.18814, -0.0850446)
+transform = Transform3D(0.998752, -0.0499052, 0.00172531, 0.049935, 0.998156, -0.034508, -2.60831e-19, 0.0345511, 0.999403, -0.165078, 6.18814, -0.0850432)
 bone_name = "dogLLskirt_def_head"
 bone_idx = 27
 
 [node name="BackpackBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(0.998752, -0.0499282, 0.000816002, 0.0499349, 0.998618, -0.0163209, -2.60833e-19, 0.0163413, 0.999866, -0.0503138, 3.89275, 0.010712)
+transform = Transform3D(0.998752, -0.0499283, 0.000816005, 0.049935, 0.998619, -0.016321, -2.60831e-19, 0.0163413, 0.999866, -0.0503139, 3.89275, 0.0107119)
 bone_name = "dogLLskirt_def_spineB"
 bone_idx = 22
 
 [node name="LeftHandBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(-0.993025, 0.117905, 3.52553e-06, -0.117905, -0.993025, 1.48299e-07, 3.56303e-06, -2.5713e-07, 1, 3.04071, 5.42707, -0.149026)
+transform = Transform3D(-0.993025, 0.117905, 3.6792e-06, -0.117905, -0.993025, -8.60672e-07, 3.54971e-06, -1.27186e-06, 1, 3.04071, 5.42707, -0.149026)
 bone_name = "dogLLskirt_grp_joint_left_hold"
 bone_idx = 50
 
 [node name="RightHandBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(-0.999834, -0.0182674, -3.52266e-06, 0.0182674, -0.999833, -2.13242e-07, -3.56767e-06, -2.57448e-07, 0.999999, -3.27896, 5.1111, -0.149026)
+transform = Transform3D(-0.999833, -0.0182673, -3.57947e-06, 0.0182672, -0.999833, -1.23193e-06, -3.55528e-06, -1.27224e-06, 1, -3.27896, 5.11111, -0.149025)
 bone_name = "dogLLskirt_grp_joint_right_hold"
 bone_idx = 66
 
 [node name="FlowerBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(-0.0498341, -0.00317094, 0.998752, 0.996736, 0.0634222, 0.0499349, -0.0635014, 0.997982, -2.60833e-19, 0.173149, 4.59466, 0.764412)
+transform = Transform3D(-0.0498342, -0.0031709, 0.998752, 0.996737, 0.0634212, 0.049935, -0.0635005, 0.997982, -2.60831e-19, 0.173149, 4.59466, 0.764412)
 bone_name = "dogLLskirt_def_joint_attachFlower"
 bone_idx = 39
 
 [node name="HipBone" type="BoneAttachment3D" parent="dogLLskirt_LLDog_skirt/dogLLskirt_Controllers/dogLLskirt_Main_controller/dogLLskirt_Skeleton/Skeleton3D"]
-transform = Transform3D(0.998752, -0.0499349, 2.34044e-18, 0.0499349, 0.998752, -4.15879e-17, -2.60833e-19, 4.16529e-17, 1, -0.00993163, 3.08506, -0.0439802)
+transform = Transform3D(0.998752, -0.049935, 2.34044e-18, 0.049935, 0.998752, -4.15879e-17, -2.60831e-19, 4.16529e-17, 1, -0.00993163, 3.08506, -0.0439802)
 bone_name = "dogLLskirt_joint_hips"
 bone_idx = 74
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a2ll7")
+&"": SubResource("AnimationLibrary_a2ll7")
 }
 
 [node name="SpeechBubbleNode" type="Node3D" parent="."]

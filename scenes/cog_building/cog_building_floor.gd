@@ -6,9 +6,9 @@ extends Node3D
 @onready var battle := $BattleNode
 
 func _ready() -> void:
-	
 	AudioManager.set_music(load('res://audio/music/tt_elevator.ogg'))
 	elevator_cam.current = true
+	Util.get_player().lock_game_timer = true
 	Util.get_player().global_position = elevator_in.player_pos.global_position
 	Util.get_player().face_position(battle.global_position)
 	await Task.delay(5.0)

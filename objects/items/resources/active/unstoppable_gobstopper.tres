@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://wu70ua24wujr"]
+
+[ext_resource type="Texture2D" uid="uid://cug3ukcenp3xt" path="res://ui_assets/player_ui/pocket_prank_icons/unstoppable gobstopper.png" id="1_5562o"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_axjl6"]
+[ext_resource type="Script" uid="uid://t4m1hgeseuje" path="res://objects/items/custom/unstoppable_gobstopper/item_unstoppable_gobstopper.gd" id="2_kr4v4"]
+[ext_resource type="PackedScene" uid="uid://deej7mg0ny1wu" path="res://objects/items/custom/unstoppable_gobstopper/unstoppable_gobstopper.tscn" id="3_5562o"]
+
+[resource]
+script = ExtResource("1_axjl6")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 3
+current_charge = 3
+qualitoon = 1
+rarity = 3
+evergreen = false
+realtime = true
+slot = 0
+world_scale = 0.3
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Unstoppable Gobstopper"
+item_description = "Sugar Rush!"
+big_description = "Grants immunity to obstacle damage for 10 seconds"
+model = ExtResource("3_5562o")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_kr4v4")
+remember_item = true
+icon = ExtResource("1_5562o")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

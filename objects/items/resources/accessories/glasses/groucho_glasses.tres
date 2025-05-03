@@ -281,12 +281,14 @@ scale = Vector3(0.32, 0.32, 0.32)
 [resource]
 script = ExtResource("2_qp7l4")
 accessory_placements = Array[ExtResource("1_xvlis")]([SubResource("Resource_176f6"), SubResource("Resource_x68bj"), SubResource("Resource_tywsh"), SubResource("Resource_kws3j"), SubResource("Resource_yieus"), SubResource("Resource_wkvcu"), SubResource("Resource_uxo7k"), SubResource("Resource_4ifvd"), SubResource("Resource_8s6ta"), SubResource("Resource_coyai"), SubResource("Resource_s50hw"), SubResource("Resource_31e43"), SubResource("Resource_bhju1"), SubResource("Resource_4jt0v"), SubResource("Resource_bgiib"), SubResource("Resource_4kkyn"), SubResource("Resource_3y6g0"), SubResource("Resource_uhlwv"), SubResource("Resource_gsh2b"), SubResource("Resource_ft5iv"), SubResource("Resource_i8v0m"), SubResource("Resource_odgx8"), SubResource("Resource_pbhoq"), SubResource("Resource_pc5lg"), SubResource("Resource_svsej"), SubResource("Resource_7wim7"), SubResource("Resource_ft67b"), SubResource("Resource_ttujy"), SubResource("Resource_stcre"), SubResource("Resource_f8ofp"), SubResource("Resource_plibo"), SubResource("Resource_usrxq"), SubResource("Resource_qmjbw"), SubResource("Resource_f1fm0")])
+item_tags = null
 qualitoon = 1
 rarity = 3
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.15
 item_name = "Groucho Glasses"

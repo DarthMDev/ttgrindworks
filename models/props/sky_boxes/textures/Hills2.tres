@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bgpnnb24hul2y"]
+
+[ext_resource type="Texture2D" uid="uid://cwiyg21ak41hb" path="res://models/props/sky_boxes/textures/Hills2.png" id="1_qoono"]
+
+[resource]
+resource_name = "Hills2"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
+albedo_texture = ExtResource("1_qoono")
+emission_enabled = true

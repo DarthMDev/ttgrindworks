@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://vndcua2dbph2" path="res://objects/props/cgc/cgc_flag_red.tscn" id="10_nhaet"]
 [ext_resource type="Texture2D" uid="uid://csmkpukc6maca" path="res://models/facilities/cgc/textures/StoneWall1e.png" id="15_by0wf"]
 [ext_resource type="PackedScene" uid="uid://c6bqbu1bxlh3l" path="res://objects/props/cgc/resizeable_wall_plane.tscn" id="16_jtg4c"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="17_crsqn"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="17_uns6d"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="18_htmrf"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="19_wisen"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="20_tesy6"]
 
@@ -1179,7 +1179,8 @@ shape = SubResource("BoxShape3D_tbxq7")
 
 [node name="treasure_chest" parent="." index="55" instance=ExtResource("17_uns6d")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.76052, 0, 20.7403)
-item_pool = ExtResource("18_htmrf")
+override_replacement_rolls = true
+item_pool = ExtResource("17_crsqn")
 
 [node name="BattleNode" parent="." index="56" node_paths=PackedStringArray("cogs") instance=ExtResource("19_wisen")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.3475, 11.4644, -0.342571)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://cm3hftorjt14b"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://bl1a53rme7agx"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_mti3g"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_shqui"]
@@ -42,32 +42,32 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_hx5je")
 species = 1
 head_index = 0
-position = Vector3(0.01, -0.34, 0)
-rotation = Vector3(-15, 0, 0)
+position = Vector3(0, -0.41, -0.04)
+rotation = Vector3(-4.55, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_xhvs2"]
 script = ExtResource("2_hx5je")
 species = 1
 head_index = 1
-position = Vector3(0.01, -0.34, 0)
-rotation = Vector3(-15, 0, 0)
+position = Vector3(0, -0.41, -0.04)
+rotation = Vector3(-4.55, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_e8xvh"]
 script = ExtResource("2_hx5je")
 species = 1
 head_index = 2
-position = Vector3(0.01, -0.6, 0)
-rotation = Vector3(-15, 0, 0)
+position = Vector3(0, -0.59, -0.04)
+rotation = Vector3(-4.55, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_p8oe1"]
 script = ExtResource("2_hx5je")
 species = 1
 head_index = 3
-position = Vector3(0.01, -0.6, 0)
-rotation = Vector3(-15, 0, 0)
+position = Vector3(0, -0.59, -0.04)
+rotation = Vector3(-4.55, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_idynr"]
@@ -281,12 +281,14 @@ scale = Vector3(0.38, 0.38, 0.38)
 [resource]
 script = ExtResource("1_shqui")
 accessory_placements = Array[ExtResource("1_mti3g")]([SubResource("Resource_w3ueq"), SubResource("Resource_fusmc"), SubResource("Resource_gus8n"), SubResource("Resource_dsjnm"), SubResource("Resource_tnadx"), SubResource("Resource_xhvs2"), SubResource("Resource_e8xvh"), SubResource("Resource_p8oe1"), SubResource("Resource_idynr"), SubResource("Resource_qamoa"), SubResource("Resource_rigim"), SubResource("Resource_0aln7"), SubResource("Resource_6e33h"), SubResource("Resource_fdslw"), SubResource("Resource_dh8wp"), SubResource("Resource_ayvsk"), SubResource("Resource_d0x6x"), SubResource("Resource_wrnj1"), SubResource("Resource_3n37q"), SubResource("Resource_tn50y"), SubResource("Resource_bhgx8"), SubResource("Resource_just6"), SubResource("Resource_st8pg"), SubResource("Resource_lgxyw"), SubResource("Resource_8216j"), SubResource("Resource_f24s2"), SubResource("Resource_co44s"), SubResource("Resource_meptk"), SubResource("Resource_7gyk3"), SubResource("Resource_uno1x"), SubResource("Resource_5oc5v"), SubResource("Resource_ixp2c"), SubResource("Resource_4x5fy"), SubResource("Resource_hcxb4")])
+item_tags = null
 qualitoon = 2
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.1
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Chef Hat"

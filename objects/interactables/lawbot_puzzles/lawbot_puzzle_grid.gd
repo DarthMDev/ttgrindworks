@@ -1,3 +1,4 @@
+@tool  # <-- To show your puzzle in the editor, make your script a @tool script!
 extends Node3D
 class_name LawbotPuzzleGrid
 
@@ -10,22 +11,51 @@ enum LoseType {
 	EXPLODE,
 	CUSTOM
 }
+
+@export_tool_button('Re-generate Puzzle (for custom properties changed)', 'EditorPlugin') var do_setup = func():
+	if is_node_ready():
+		_setup()
+
+@export_group('Visuals')
+## Grid Size
+@export_range(1, 20, 1, "or_less", "or_greater") var grid_width := 7:
+	set(new):
+		grid_width = new
+		if is_node_ready():
+			_setup()
+@export_range(1, 20, 1, "or_less", "or_greater") var grid_height := 7:
+	set(new):
+		grid_height = new
+		if is_node_ready():
+			_setup()
+# DONT USE: Old property "beam height", use beam origin instead
+@export_storage var beam_height := 2.5:
+	set(new):
+		beam_height = new
+		if use_beam_height:
+			use_beam_height = false
+			beam_origin = Vector3(0, beam_height, 0)
+@export_storage var use_beam_height := true
+@export var beam_origin := Vector3(0, 2.5, 0):
+	set(new):
+		beam_origin = new
+		if is_node_ready():
+			_setup()
+			
+@export_group('Player Interaction')
 @export var lose_type := LoseType.BATTLE
 @export var lose_battle : BattleNode
 @export var explosion_damage := -5
-
-## Grid Size
-@export var grid_width := 7
-@export var grid_height := 7
-@export var beam_height := 2.5
+@export var should_heal_player := true
 
 ## Locals
 var grid := []
 var player_cells : Array[PuzzlePanel] = []
-var grid_center : Vector3
 var panel_node : Node3D
 var beam_node : Node3D
-var LABEL := LazyLoader.defer("res://objects/interactables/lawbot_puzzles/puzzle_label.tscn")
+var LABEL: PackedScene
+
+const BLUE := Color("4d4dff")
 
 ## Signals
 signal s_win
@@ -38,10 +68,19 @@ var began_interaction := false:
 		if began_interaction:
 			s_began_interaction.emit()
 
+func _init():
+	if Engine.is_editor_hint(): return
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'LABEL': 'res://objects/interactables/lawbot_puzzles/puzzle_label.tscn',
+	})
+
 func _ready() -> void:
-	# Get the puzzle center position
-	# This position is used to create beams down to each panel
-	grid_center = Vector3(float(grid_width)/2.0,beam_height,float(grid_height)/2.0)
+	_setup()
+
+func _setup() -> void:
+	for child in get_children():
+		child.free()
+	grid.clear()
 	
 	# Create nodes for storing the beams and panels
 	panel_node = Node3D.new()
@@ -75,7 +114,11 @@ func fill_grid() -> void:
 			var beam := PanelBeam.new()
 			beam_node.add_child(beam)
 			beam.connect_panel(panel)
-			beam.position = grid_center
+			beam.position = Vector3(
+				beam_origin.x + (float(grid_width) / 2.0),
+				beam_origin.y,
+				beam_origin.z + (float(grid_height) / 2.0),
+			)
 
 ## Overwrite this function to initialize your game
 func initialize_game() -> void:
@@ -87,10 +130,13 @@ func initialize_game() -> void:
 func _pre_player_stepped_on(_panel: PuzzlePanel) -> void:
 	if not began_interaction:
 		began_interaction = true
-		var label : Control = LABEL.load().instantiate()
-		add_child(label)
-		label.set_text(get_game_text())
+		show_game_title()
 	player_stepped_on(_panel)
+
+func show_game_title() -> void:
+	var label : Control = LABEL.instantiate()
+	add_child(label)
+	label.set_text(get_game_text())
 
 ## Overwrite these functions to react to player movement
 func player_stepped_on(_panel : PuzzlePanel) -> void:
@@ -111,6 +157,9 @@ func _remove_player(panel : PuzzlePanel) -> void:
 		player_cells.erase(panel)
 
 func lose_game() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	s_lose.emit()
 	if lose_type == LoseType.BATTLE:
 		if not lose_battle:
@@ -123,7 +172,7 @@ func lose_game() -> void:
 		# Make Player slip backwards
 		var player := Util.get_player()
 		AudioManager.play_sound(player.toon.yelp)
-		player.last_damage_source = "the Skull Master"
+		player.last_damage_source = "the Head of Security"
 		player.quick_heal(Util.get_hazard_damage() + explosion_damage)
 		# Only do the animation if the player is alive
 		if player.stats.hp > 0:
@@ -150,13 +199,63 @@ func lose_game() -> void:
 			await player.animator.animation_finished
 			player.state = Player.PlayerState.WALK
 
+func get_all_panels() -> Array[PuzzlePanel]:
+	var all_panels : Array[PuzzlePanel] = []
+	for i in grid.size():
+		for j in grid[i].size():
+			all_panels.append(grid[i][j])
+	return all_panels
+
+func get_panel(x : int, y: int) -> PuzzlePanel:
+	return grid[x][y]
+
+func get_adjacent_panels(x: int,y: int) -> Array[PuzzlePanel]:
+	var positions : Array[Vector2i] = [
+		Vector2i(x-1,y-1),
+		Vector2i(x,y-1),
+		Vector2i(x+1,y-1),
+		Vector2i(x-1,y),
+		Vector2i(x+1,y),
+		Vector2i(x-1,y+1),
+		Vector2i(x,y+1),
+		Vector2i(x+1,y+1)
+	]
+	
+	var panels : Array[PuzzlePanel] = []
+	for pos in positions:
+		if grid.size() > pos.x:
+			if grid[pos.x].size() > pos.y:
+				panels.append(grid[pos.x][pos.y])
+	return panels
+
+func get_panel_coords(panel : PuzzlePanel) -> Vector2i:
+	for i in grid.size():
+		for j in grid[i].size():
+			if grid[i][j] == panel:
+				return Vector2(i, j)
+	return Vector2.ZERO
+
+func get_panels_in_row(row_num : int) -> Array[PuzzlePanel]:
+	var panels : Array[PuzzlePanel] = []
+	for i in grid_width:
+		panels.append(grid[i][row_num])
+	return panels
+
+func get_panels_in_column(column_num : int) -> Array[PuzzlePanel]:
+	var panels : Array[PuzzlePanel] = []
+	for i in grid_width:
+		panels.append(grid[column_num][i])
+	return panels
 
 func win_game() -> void:
+	if Engine.is_editor_hint():
+		return
+		
 	s_win.emit()
 	if lose_battle:
 		lose_battle.queue_free()
 	queue_free()
-	if Util.get_player():
+	if Util.get_player() and should_heal_player:
 		Util.get_player().quick_heal(-explosion_damage)
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/toonup/sparkly.ogg"))
 

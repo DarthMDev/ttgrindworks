@@ -281,12 +281,14 @@ scale = Vector3(1.2, 1.2, 1.2)
 [resource]
 script = ExtResource("1_wh3jq")
 accessory_placements = Array[ExtResource("1_wllcp")]([SubResource("Resource_2syit"), SubResource("Resource_q6iyj"), SubResource("Resource_t73d7"), SubResource("Resource_ge67y"), SubResource("Resource_3htkm"), SubResource("Resource_r3kyg"), SubResource("Resource_6jt2q"), SubResource("Resource_8t7dc"), SubResource("Resource_qma0p"), SubResource("Resource_n6uwk"), SubResource("Resource_g0ndh"), SubResource("Resource_6um5u"), SubResource("Resource_ungsy"), SubResource("Resource_a0ig6"), SubResource("Resource_2hxnw"), SubResource("Resource_g74ay"), SubResource("Resource_dij6e"), SubResource("Resource_xfo6m"), SubResource("Resource_cvjf0"), SubResource("Resource_r7kqv"), SubResource("Resource_f8ajr"), SubResource("Resource_koqgl"), SubResource("Resource_wq01w"), SubResource("Resource_uoiks"), SubResource("Resource_1fuib"), SubResource("Resource_pno4l"), SubResource("Resource_di4h0"), SubResource("Resource_r87bd"), SubResource("Resource_v83vd"), SubResource("Resource_v3l0n"), SubResource("Resource_0mkhr"), SubResource("Resource_5tjoq"), SubResource("Resource_kjc8m"), SubResource("Resource_q4eei")])
-qualitoon = 1
-rarity = 0
+item_tags = null
+qualitoon = 2
+rarity = 2
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.5
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Monocle"

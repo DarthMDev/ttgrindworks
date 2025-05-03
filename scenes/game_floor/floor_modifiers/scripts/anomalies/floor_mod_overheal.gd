@@ -8,12 +8,11 @@ var raw_boost := 0
 
 func modify_floor() -> void:
 	var player := Util.get_player()
-	game_floor.s_floor_ended.connect(on_floor_end.bind(player))
-	
 	raw_boost = ceili(player.stats.max_hp * BOOST_AMOUNT) - player.stats.max_hp
 	player.stats.max_hp += raw_boost
 
-func on_floor_end(player: Player) -> void:
+func clean_up() -> void:
+	var player := Util.get_player()
 	player.stats.max_hp -= raw_boost
 	player.stats.hp = mini(player.stats.hp, player.stats.max_hp)
 

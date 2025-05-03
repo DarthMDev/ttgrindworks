@@ -14,11 +14,12 @@ radius = 11.2593
 [node name="faucet1" parent="Model/ZONE10/paintmixer/props6/Faucets" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9116, -32.9268, -285.397)
 
-[node name="LavaFloor" type="Area3D" parent="." index="4"]
+[node name="LavaFloor" type="Area3D" parent="." index="4" node_paths=PackedStringArray("default_spawn_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.763, 2.001, -101.057)
 collision_mask = 2
 script = ExtResource("3_so2ux")
 damage_name = "Goopy Paint"
+default_spawn_point = NodePath("../RespawnPoint")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
 shape = SubResource("CylinderShape3D_7s7ng")
@@ -71,6 +72,9 @@ transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-1
 
 [node name="treasure_chest" parent="." index="9" instance=ExtResource("5_ldx13")]
 transform = Transform3D(0.582889, 0, -0.812552, 0, 1, 0, 0.812552, 0, 0.582889, 77.8591, 12.6252, -111.023)
+
+[node name="RespawnPoint" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5366, 4.59873, -103.329)
 
 [connection signal="body_entered" from="LavaFloor" to="LavaFloor" method="body_entered"]
 

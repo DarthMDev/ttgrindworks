@@ -5,7 +5,10 @@ const SFX_ALERT := preload('res://audio/sfx/objects/goon/CHQ_GOON_tractor_beam_a
 const SFX_GOOD := preload('res://audio/sfx/battle/gags/toonup/sparkly.ogg')
 const SFX_NEUTRAL := preload('res://audio/sfx/misc/MG_sfx_travel_game_no_bonus.ogg')
 const SFX_BAD := preload('res://audio/sfx/battle/gags/drop/AA_drop_bigweight_miss.ogg')
+const SFX_IDK := preload("res://audio/sfx/misc/MG_maze_pickup.ogg")
 const SFX_LEAVE := preload("res://audio/sfx/objects/spotlight/LB_laser_beam_off_2.ogg")
+const RANDOM_CHARS := "?ABCDEFHIJLMOPQRSTUVWXYZ123456780      "
+
 
 ## Config
 @export var anomaly_label_settings : LabelSettings
@@ -61,9 +64,14 @@ func populate_anomalies() -> void:
 		anomaly_container.add_child(sizer)
 		sizer.get_node('AnomalyScaler').add_child(label)
 		label.label_settings = anomaly_label_settings.duplicate()
-		label.set_text("- " + anomaly.get_mod_name())
-		label.set_anchors_and_offsets_preset(Control.PRESET_CENTER,Control.PRESET_MODE_KEEP_SIZE)
+		if not is_obscured():
+			label.set_text("- " + anomaly.get_mod_name())
+		else:
+			label.set_text("- ")
+			for i in RandomService.randi_range_channel('true_random', 5, 20):
+				label.text += RANDOM_CHARS[RandomService.randi_channel('true_random') % RANDOM_CHARS.length()]
 		color_label(label,anomaly)
+		label.set_anchors_and_offsets_preset(Control.PRESET_CENTER,Control.PRESET_MODE_KEEP_SIZE)
 
 func tween_finished_editor() -> void:
 	title.scale = Vector2(0.01,0.01)
@@ -72,6 +80,8 @@ func tween_finished_editor() -> void:
 		child.queue_free()
 
 func get_sfx(mod_type : FloorModifier.ModType) -> AudioStream:
+	if is_obscured():
+		return SFX_IDK
 	match mod_type:
 		FloorModifier.ModType.POSITIVE:
 			return SFX_GOOD
@@ -81,10 +91,14 @@ func get_sfx(mod_type : FloorModifier.ModType) -> AudioStream:
 			return SFX_BAD
 
 func color_label(label : Label, anomaly : FloorModifier) -> void:
-	match anomaly.get_mod_quality():
-		FloorModifier.ModType.POSITIVE:
-			label.label_settings.font_color = Color.GREEN
-			label.label_settings.shadow_color = Color.DARK_GREEN
-		FloorModifier.ModType.NEGATIVE:
-			label.label_settings.font_color = Color.RED
-			label.label_settings.shadow_color = Color.DARK_RED
+	if is_obscured():
+		label.label_settings.font_color = Color.DIM_GRAY
+		label.label_settings.shadow_color = Color.BLACK
+	else:
+		label.label_settings.font_color = anomaly.text_color
+		label.label_settings.shadow_color = anomaly.outline_color
+
+func is_obscured() -> bool:
+	if not is_instance_valid(Util.get_player()):
+		return false
+	return Util.get_player().obscured_anomalies and not Util.get_player().see_descriptions

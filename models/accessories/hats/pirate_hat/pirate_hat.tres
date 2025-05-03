@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dh8anqx3dphcu"]
+
+[ext_resource type="Texture2D" uid="uid://bo3ix0knhxm68" path="res://models/accessories/hats/pirate_hat/tt_m_chr_avt_acc_hat_pirateHat_tt_t_chr_avt_acc_hat_pirateHat.png" id="1_gqdrr"]
+
+[resource]
+resource_name = "default.235"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_gqdrr")

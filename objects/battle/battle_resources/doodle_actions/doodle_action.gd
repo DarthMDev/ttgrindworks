@@ -12,7 +12,7 @@ func begin_trick():
 	var target_pos : Vector3 = targets[0].global_position
 	
 	# Animate walking
-	set_camera_angle(camera_angles.TOON_FOCUS)
+	set_camera_angle('TOON_FOCUS')
 	user.set_animation('walk')
 	var walk_tween : Tween = user.create_tween()
 	walk_tween.tween_property(user,'global_position',action_pos,walk_time)
@@ -28,7 +28,7 @@ func end_trick():
 	var battle_pos : Vector3 = manager.battle_node.global_position
 	
 	# Animate walking
-	set_camera_angle(camera_angles.TOON_FOCUS)
+	set_camera_angle('TOON_FOCUS')
 	user.set_animation('walk')
 	user.face_position(end_pos)
 	var walk_tween : Tween = user.create_tween()

@@ -82,7 +82,7 @@ one_time_use = false
 
 [resource]
 script = ExtResource("14_mkclo")
-track_type = 0
+track_type = 1
 track_name = "Squirt"
 track_color = Color(0.968627, 0.2, 0.721569, 1)
 gags = Array[ExtResource("1_51n6n")]([SubResource("Resource_kig6x"), SubResource("Resource_teoux"), SubResource("Resource_0fqpw"), SubResource("Resource_we2gn"), SubResource("Resource_qj0t3"), SubResource("Resource_mgg2q"), SubResource("Resource_lmjjy")])

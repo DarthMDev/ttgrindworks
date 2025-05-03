@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bruosr4c0bash"]
+
+[ext_resource type="Script" uid="uid://y48dsoiqjqw5" path="res://objects/battle/battle_resources/cog_attacks/clip_on_tie.gd" id="1_ahr11"]
+[ext_resource type="PackedScene" uid="uid://g8y8nk27j6d2" path="res://models/props/cog_props/clip_on_tie/clip_on_tie.fbx" id="1_yvdfa"]
+[ext_resource type="AudioStream" uid="uid://c13tykgnbuaqv" path="res://audio/sfx/battle/cogs/attacks/SA_powertie_throw.ogg" id="3_vp53o"]
+
+[resource]
+script = ExtResource("1_ahr11")
+model = ExtResource("1_yvdfa")
+model_rotation = Vector3(-0.228851, -1.87019, 2.443)
+model_scale = Vector3(1, 1, 1)
+model_position = Vector3(-0.320663, 0.61715, -0.615531)
+sfx_throw = ExtResource("3_vp53o")
+accuracy = 75
+damage = 2
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["Better dress for our meeting.", "You can't go OUT without your tie.", "The best dressed Cogs wear them.", "Try this on for size.", "You should dress for success.", "No tie, no service.", "Do you need help putting this on?", "Nothing says powerful like a good tie.", "Let's see if this fits.", "This is going to choke you up.", "You'll want to dress up before you go OUT.", "I think I'll tie you up."])
+target_type = 0
+action_name = "Clip On Tie"
+one_time_use = false
+metadata/_custom_type_script = "uid://bb27him60xtnk"

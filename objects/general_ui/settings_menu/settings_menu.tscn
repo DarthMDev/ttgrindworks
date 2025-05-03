@@ -58,7 +58,7 @@ shader_parameter/alpha = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01sws"]
 shader = ExtResource("5_07ilt")
-shader_parameter/Shift_Hue = 0.065
+shader_parameter/Shift_Hue = 0.72
 shader_parameter/alpha = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmgey"]
@@ -94,10 +94,6 @@ label_settings = SubResource("LabelSettings_ddgja")
 
 [node name="Body" parent="Panel" index="1"]
 text = ""
-
-[node name="CancelButton" parent="Panel" index="2"]
-hover_db_offset = 6.0
-press_db_offset = 0.0
 
 [node name="SettingScroller" type="ScrollContainer" parent="Panel" index="3"]
 layout_mode = 1
@@ -156,8 +152,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen/FullscreenButton" index="0"]
@@ -183,8 +177,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "60"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit/FPSButton" index="0"]
@@ -210,8 +202,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing/AliasButton" index="0"]
@@ -304,8 +294,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound/AmbientButton" index="0"]
@@ -336,8 +324,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "I'M STUCK!"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ImStuck/StuckButton" index="0"]
@@ -363,8 +349,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "1.0x"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed/SpeedButton" index="0"]
@@ -390,8 +374,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle/ControlStyleButton" index="0"]
@@ -438,8 +420,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint/AutoSprintButton" index="0"]
@@ -465,8 +445,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Default"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions/ReactionButton" index="0"]
@@ -492,8 +470,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Off"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer/TimerButton" index="0"]
@@ -520,8 +496,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Off"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton" index="0"]
@@ -547,15 +521,38 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton" index="0"]
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="DiscordRPC" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="10"]
+[node name="ButtonPrompts" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="10"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="0"]
+layout_mode = 2
+text = "Show Button Prompts:"
+label_settings = SubResource("LabelSettings_n41hl")
+
+[node name="ButtonPromptsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="1" instance=ExtResource("4_aygce")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xvvqb")
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("5_p4xtr")
+texture_pressed = ExtResource("6_bs0ac")
+texture_hover = ExtResource("7_nxqst")
+texture_disabled = ExtResource("6_bs0ac")
+text = "On"
+
+[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts/ButtonPromptsButton" index="0"]
+text = "On"
+label_settings = SubResource("LabelSettings_xxrhd")
+
+[node name="DiscordRPC" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="11"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -575,15 +572,41 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
-text = "Off"
+text = "On"
 
 [node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" index="0"]
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
+[node name="SaveFileSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="0"]
+layout_mode = 2
+text = "Save Files"
+label_settings = SubResource("LabelSettings_0uktb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpenFolder" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="1"]
+layout_mode = 2
+
+[node name="SaveFolderButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder" index="0" instance=ExtResource("4_aygce")]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("5_p4xtr")
+texture_pressed = ExtResource("6_bs0ac")
+texture_hover = ExtResource("7_nxqst")
+texture_disabled = ExtResource("6_bs0ac")
+text = "Open Save Folder"
+
+[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder/SaveFolderButton" index="0"]
+text = "Open Save Folder"
+label_settings = SubResource("LabelSettings_xxrhd")
+
+[node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="5"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -612,8 +635,6 @@ texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Save"
 
 [node name="Label" parent="Panel/SaveButton" index="0"]
@@ -636,13 +657,10 @@ custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
-focus_mode = 0
 texture_normal = ExtResource("5_p4xtr")
 texture_pressed = ExtResource("6_bs0ac")
 texture_hover = ExtResource("7_nxqst")
 texture_disabled = ExtResource("6_bs0ac")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "W"
 
 [node name="Label" parent="ControlTemplate/GeneralButton" index="0"]
@@ -665,7 +683,9 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer/TimerButton" to="." method="toggle_timer"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton" to="." method="toggle_intro_skip"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton" to="." method="toggle_custom_cogs"]
+[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts/ButtonPromptsButton" to="." method="toggle_button_prompts"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" to="." method="toggle_discord_rpc"]
+[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder/SaveFolderButton" to="." method="open_save_folder"]
 [connection signal="pressed" from="Panel/SaveButton" to="." method="close" binds= [true]]
 
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen/FullscreenButton"]
@@ -680,6 +700,8 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer/TimerButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton"]
+[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts/ButtonPromptsButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton"]
+[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder/SaveFolderButton"]
 [editable path="Panel/SaveButton"]
 [editable path="ControlTemplate/GeneralButton"]

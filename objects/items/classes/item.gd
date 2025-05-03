@@ -38,6 +38,14 @@ const QualityToRarity: Dictionary[QualitoonRating, Rarity] = {
 	QualitoonRating.Q5: Rarity.Q5,
 }
 
+enum ItemTag {
+	GAG_POINT_RELATED,
+}
+
+@export_flags(
+	"GAG_POINT_RELATED:1",
+) var item_tags
+
 ## The in-game displayed qualitoon of an item
 @export var qualitoon: QualitoonRating
 ## Item rarity value. Q0 = Super duper common. Q7 = Super duper rare. Nil uses qualitoon as rarity.
@@ -56,6 +64,7 @@ enum ItemSlot {
 }
 @export var slot := ItemSlot.PASSIVE
 @export var world_scale := 1.0
+@export var world_y_offset := 0.0
 @export var want_ui_spin := true
 @export var ui_cam_offset := 0.0
 
@@ -116,15 +125,18 @@ func reroll() -> void:
 		print(item_name + ": Attempted to reroll, but was unable to")
 
 ## Applies item stats and script.
-func apply_item(player: Player) -> void:
-	if item_script:
-		var item_node := ItemScript.add_item_script(player,item_script)
-		if item_node is ItemScript:
-			item_node.on_collect(self,null)
-	
+func apply_item(player: Player, _apply_visuals := true, object : Node3D = null) -> void:
+	apply_item_script(player, object)
+	apply_item_stats(player)
+	run_item_config(player)
+
+func apply_item_stats(player : Player) -> void:
 	var stats := player.stats
 	
 	for stat in stats_add:
+		if stat == 'active_charge':
+			stats.charge_active_item(stats_add[stat])
+			continue
 		if str(stat) in stats:
 			if stat == 'money':
 				print("Calling special money func")
@@ -144,7 +156,16 @@ func apply_item(player: Player) -> void:
 	
 	for value in player_values:
 		player.set(value, player_values[value])
-	
+
+func apply_item_script(player : Player, object : Node3D = null) -> void:
+	if item_script:
+		var item_node := ItemScript.add_item_script(player,item_script)
+		if item_node is ItemScript:
+			if not is_instance_valid(Util.get_player()):
+				await Util.s_player_assigned
+			item_node.on_collect(self,object)
+
+func run_item_config(player : Player) -> void:
 	# Check the model for custom item setups
 	if model:
 		rerollable = false
@@ -156,7 +177,7 @@ func apply_item(player: Player) -> void:
 			mod.collect()
 		mod.queue_free()
 	
-	if remember_item:
+	if remember_item and not self is ItemActive:
 		player.stats.items.append(self)
 		print('added %s to item list' % item_name)
 		ItemService.s_item_applied.emit(self)
@@ -167,3 +188,56 @@ func play_collection_sound() -> void:
 		AudioManager.play_sound(pickup_sfx)
 	else:
 		AudioManager.play_sound(load(SFX_FALLBACK))
+
+func get_shop_price() -> int:
+	var base_price: float
+	if custom_shop_price != 0:
+		base_price = custom_shop_price
+	else:
+		base_price = 2.0 + float(qualitoon as int + 1) * 7.0
+	return roundi(base_price)
+
+func remove_item(player : Player) -> void:
+	# If these stats are in stats_add/mult
+	# They will not be undone
+	var excluded_stats : Array[String] =[
+		"active_charge",
+		"money",
+	]
+	var stats := player.stats
+	
+	# Undo stat boosts
+	for stat in stats_add:
+		if not stat in excluded_stats and stat in stats:
+			stats[stat] -= stats_add[stat]
+	for stat in stats_multiply:
+		if not stat in excluded_stats and stat in stats:
+			stats[stat] *= 1.0 / stats_multiply[stat]
+	
+	# Undo player values
+	for value in player_values:
+		if player_values[value] is bool:
+			player.set(value, not player_values[value])
+		else:
+			printerr("Data type of %s is not set up to be un-applied in item class!" % value)
+	
+	# Remove item node
+	for node in player.item_node.get_children():
+		if node is ItemScript and node.get_script() == item_script:
+			node.on_item_removed()
+			node.queue_free()
+			break
+	
+	# Remove self from player's item list
+	stats.items.erase(self)
+	
+	print("Successfully removed item: %s." % item_name)
+
+func get_true_rarity() -> Rarity:
+	if rarity == Rarity.NIL:
+		return qualitoon as Rarity
+	else:
+		return rarity
+
+static func get_item_flag_value(item : Item, flag : ItemTag) -> bool:
+	return item.item_tags & flag

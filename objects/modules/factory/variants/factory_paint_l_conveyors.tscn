@@ -1,0 +1,237 @@
+[gd_scene load_steps=27 format=3 uid="uid://c81lrwygbqosa"]
+
+[ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_qhxj5"]
+[ext_resource type="PackedScene" uid="uid://wpoc3xs1yy0" path="res://objects/player/player.tscn" id="2_0auxg"]
+[ext_resource type="Script" uid="uid://b4cxlqwfntoba" path="res://objects/player/player.gd" id="3_dh7xi"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="4_udttr"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="5_lythf"]
+[ext_resource type="Texture2D" uid="uid://v0n7tknvy2jk" path="res://models/toon/textures/clothes/shorts/desat_shorts_10_2.png" id="6_rx4mp"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="7_clsqg"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="8_ij28j"]
+[ext_resource type="Texture2D" uid="uid://c4qvk4ssy1c0n" path="res://models/toon/textures/clothes/shirts/desat_shirt_4.png" id="9_3oa2j"]
+[ext_resource type="Texture2D" uid="uid://cdawen500xuqx" path="res://models/toon/textures/clothes/shirts/desat_sleeve_4.png" id="10_udodx"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="11_of8w6"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="12_srdn3"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="13_ciicp"]
+[ext_resource type="Resource" uid="uid://cyiwxplege133" path="res://objects/items/resources/passive/emergency_unite.tres" id="14_5a25q"]
+[ext_resource type="Script" uid="uid://dfa2ic7ngy7sg" path="res://objects/quests/quest.gd" id="15_gyqhy"]
+[ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="16_8ce6t"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="17_udttr"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="18_lythf"]
+[ext_resource type="PackedScene" uid="uid://06fotrmiu7r5" path="res://objects/obstacles/pusher/pusher.tscn" id="19_lythf"]
+
+[sub_resource type="Resource" id="Resource_jj61k"]
+script = ExtResource("4_udttr")
+damage = 1.0
+defense = 1.0
+evasiveness = 1.0
+accuracy = 1.0
+speed = 1.0
+max_turns = 3
+max_hp = 25
+hp = 25
+turns = 1
+
+[sub_resource type="Resource" id="Resource_ugrs1"]
+script = ExtResource("5_lythf")
+texture = ExtResource("6_rx4mp")
+base_color = Color(0.71, 0.231, 0.435, 1)
+color_type = 0
+
+[sub_resource type="Resource" id="Resource_2lryd"]
+script = ExtResource("8_ij28j")
+shirt_texture = ExtResource("9_3oa2j")
+sleeve_texture = ExtResource("10_udodx")
+base_color = Color(0.992157, 0.478431, 0.168627, 1)
+sleeve_color = Color(0.992157, 0.478431, 0.168627, 1)
+color_type = 0
+
+[sub_resource type="Resource" id="Resource_e5n6o"]
+script = ExtResource("7_clsqg")
+body_type = 1
+species = 2
+head_index = 2
+eyelashes = false
+skirt = false
+head_color = Color(0.345098, 0.819608, 0.952941, 1)
+torso_color = Color(0.345098, 0.819608, 0.952941, 1)
+leg_color = Color(0.345098, 0.819608, 0.952941, 1)
+shirt = SubResource("Resource_2lryd")
+bottoms = SubResource("Resource_ugrs1")
+
+[sub_resource type="Resource" id="Resource_e5olc"]
+script = ExtResource("12_srdn3")
+character_name = "Flippy"
+character_summary = "- Can revive once before going sad
+- 5% base Throw boost
+- Starts with Toon-Up and Throw"
+dna = SubResource("Resource_e5n6o")
+gag_loadout = ExtResource("11_of8w6")
+starting_laff = 25
+starting_items = Array[ExtResource("13_ciicp")]([ExtResource("14_5a25q")])
+base_stats = SubResource("Resource_jj61k")
+random_character_stored_name = ""
+
+[sub_resource type="Resource" id="Resource_wdmji"]
+script = ExtResource("16_8ce6t")
+money = 55
+items = Array[ExtResource("13_ciicp")]([])
+gags_unlocked = Dictionary[String, int]({
+"Drop": 7,
+"Lure": 7,
+"Sound": 7,
+"Squirt": 7,
+"Throw": 7,
+"Trap": 7
+})
+gag_balance = Dictionary[String, int]({
+"Drop": 10,
+"Lure": 10,
+"Sound": 10,
+"Squirt": 10,
+"Throw": 10,
+"Trap": 10
+})
+gag_effectiveness = Dictionary[String, float]({
+"Drop": 1.0,
+"Lure": 1.0,
+"Sound": 1.0,
+"Squirt": 1.0,
+"Throw": 1.05,
+"Trap": 1.0
+})
+gag_regeneration = Dictionary[String, int]({
+"Drop": 5,
+"Lure": 5,
+"Sound": 5,
+"Squirt": 5,
+"Throw": 5,
+"Trap": 5
+})
+gag_vouchers = Dictionary[String, int]({
+"Drop": 1,
+"Lure": 1,
+"Sound": 1,
+"Squirt": 1,
+"Throw": 1,
+"Trap": 1
+})
+gag_battle_start_point_boost = Dictionary[String, int]({})
+global_battle_start_point_boost = 0
+toonups = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1,
+3: 1,
+4: 1,
+5: 1,
+6: 0
+})
+gag_cap = 100
+gag_discount = -1
+character = SubResource("Resource_e5olc")
+quests = Array[ExtResource("15_gyqhy")]([])
+quest_rerolls = 3
+pink_slips = 10
+luck = 1.0
+crit_mult = 1.25
+mod_cog_dmg_mult = 1.0
+shop_discount = 0
+healing_effectiveness = 1.0
+throw_heal_boost = 0.15
+squirt_defense_boost = 0.8
+drop_aftershock_round_boost = 0
+trap_knockback_percent = 0.0
+anomaly_boost = 0
+laff_boost_boost = 0
+extra_lives = 0
+sellbot_boost = 1.0
+cashbot_boost = 1.0
+lawbot_boost = 1.0
+bossbot_boost = 1.0
+proxy_chance_boost = 0.0
+cog_hp_death_threshold = 0.0
+battle_timers = Array[int]([])
+damage = 2.0
+defense = 1.2
+evasiveness = 1.1
+accuracy = 1.5
+speed = 1.1
+max_turns = 3
+max_hp = 100
+hp = 70
+turns = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rx4mp"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("18_lythf")
+roughness = 0.552786
+uv1_scale = Vector3(1, 5, 1)
+uv1_offset = Vector3(0, -1.909, 0)
+
+[node name="factory_paint_l_room" instance=ExtResource("1_qhxj5")]
+
+[node name="Bridge" parent="." index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Bridge/StaticBody3D" index="0"]
+visible = false
+disabled = true
+
+[node name="NavigationRegion3D" parent="." index="16"]
+visible = false
+
+[node name="Player" type="CharacterBody3D" parent="." index="23" node_paths=PackedStringArray("head_node") instance=ExtResource("2_0auxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7114, 10.147, 1.65713)
+collision_layer = 6
+collision_mask = 5
+floor_max_angle = 1.309
+script = ExtResource("3_dh7xi")
+state = 0
+stats = SubResource("Resource_wdmji")
+head_node = NodePath("Head")
+
+[node name="ConveyerBelt3" parent="." index="24" instance=ExtResource("17_udttr")]
+transform = Transform3D(-4.44112e-08, 0.00315905, 0.999995, -7.79017e-09, 0.999995, -0.00315902, -1, -7.93043e-09, -4.43863e-08, 4.71243, 10.1597, 1.60665)
+constant_linear_velocity = Vector3(5, 0, -2.18557e-07)
+size = Vector3(1.3, 1, 5)
+platform_mat = SubResource("StandardMaterial3D_rx4mp")
+speed = 5.0
+
+[node name="pusher" parent="." index="25" instance=ExtResource("19_lythf")]
+transform = Transform3D(5.55, 0, 0, 0, 5.55, 0, 0, 0, 5.55, 10.4529, 12.0645, -0.793843)
+push_speed = 3.0
+push_distance = 4.505
+push_delay = 0.3
+graceful_push = false
+stop_duration = 0.3
+
+[node name="shaft" parent="pusher/square__stomper/head" index="2"]
+transform = Transform3D(1.33, 0, 0, 0, 0.85, 0, 0, 0, 6.2, 0, 2.16573e-15, 9.23369)
+
+[node name="pusher3" parent="." index="26" instance=ExtResource("19_lythf")]
+transform = Transform3D(5.55, 0, 0, 0, 5.55, 0, 0, 0, 5.55, 2.98383, 12.0645, -0.793843)
+push_speed = 3.0
+push_distance = 4.505
+push_delay = 0.3
+graceful_push = false
+stop_duration = 0.3
+
+[node name="shaft" parent="pusher3/square__stomper/head" index="2"]
+transform = Transform3D(1.33, 0, 0, 0, 0.85, 0, 0, 0, 6.2, 0, 2.16573e-15, 9.23369)
+
+[node name="pusher2" parent="." index="27" instance=ExtResource("19_lythf")]
+transform = Transform3D(-5.55, 0, -4.85196e-07, 0, 5.55, 0, 4.85196e-07, 0, -5.55, 6.6915, 12.0645, -0.0392277)
+push_speed = 3.0
+push_distance = 4.505
+push_delay = 0.3
+graceful_push = false
+stop_duration = 0.3
+
+[node name="shaft" parent="pusher2/square__stomper/head" index="2"]
+transform = Transform3D(1.33, 0, 0, 0, 0.85, 0, 0, 0, 6.2, 0, 2.16573e-15, 9.23369)
+
+[editable path="pusher"]
+[editable path="pusher3"]
+[editable path="pusher2"]

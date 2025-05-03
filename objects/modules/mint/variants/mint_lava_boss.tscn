@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://brg7tsqoenlxv" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
 [ext_resource type="Texture2D" uid="uid://c72xdn0nwkaug" path="res://models/facilities/mint/textures/CFOCeiling2.png" id="2_xdjiy"]
-[ext_resource type="Texture2D" uid="uid://bixkesses7em4" path="res://models/facilities/mint/textures/CementFloorx4.png" id="4_e4xhb"]
+[ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="4_e4xhb"]
 [ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="5_lxubv"]
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="6_evdwi"]
 [ext_resource type="Texture2D" uid="uid://bgpgnhnm622sk" path="res://models/facilities/mint/textures/RollUpDoors.png" id="7_v68sw"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dnip6uj60poax" path="res://objects/props/mint/pipes/pipes_c.tscn" id="16_3kylo"]
 [ext_resource type="PackedScene" uid="uid://modfjavgnpjq" path="res://objects/props/factory/grate.tscn" id="17_257sr"]
 [ext_resource type="PackedScene" uid="uid://cfmtdq84k5wwh" path="res://objects/props/mint/pipes/kit/pipe_connector.tscn" id="17_ht7gh"]
-[ext_resource type="AudioStream" uid="uid://02mc3k3k1brp" path="res://audio/music/ground_floor_investor.ogg" id="17_xovc6"]
+[ext_resource type="AudioStream" uid="uid://d2mcc6eps0cf5" path="res://audio/music/action_cash.ogg" id="17_xovc6"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="18_hum0e"]
 [ext_resource type="PackedScene" uid="uid://ds050pq3gfubn" path="res://objects/props/mint/pipes/kit/large_straight_pipe_1.tscn" id="18_yjgi0"]
 [ext_resource type="PackedScene" uid="uid://7q6wova01fov" path="res://objects/props/mint/pipes/kit/elbow_pipe.tscn" id="19_j1tso"]
@@ -1328,6 +1328,8 @@ size = Vector3(4.56714, 6.29126, 1)
 resource_name = "lava_boss_fight"
 script/source = "extends Node3D
 
+const REINFORCEMENTS_MOVIE := \"res://objects/battle/battle_resources/cog_attacks/resources/call_reinforcements_gfi.tres\"
+
 @export_category(\"WORLD OBJECTS\")
 @export var platform: Node3D
 @export var lava: Node3D
@@ -1344,38 +1346,48 @@ script/source = "extends Node3D
 @export var intro_pos: Node3D
 @export var sink_pos: Node3D
 
-var sink_unit := 1.47
-var round_count := 0
+var sink_unit := 2.2
+var current_unit := 0
+var battle : BattleNode:
+	get: return get_parent()
 const MAX_ROUNDS = 6
 
 func _ready():
-	BattleService.s_battle_started.connect(test_battle)
+	await battle.s_battle_initialized
+	BattleService.s_battle_started.connect(on_battle_started, CONNECT_ONE_SHOT)
 
-func sink_platform(units: float):
+func sink_platform(pos: int):
 	if not platform:
 		return
+	pos = mini(pos, 4)
 	var sink_tween := create_tween()
 	sink_tween.set_trans(Tween.TRANS_QUAD)
-	sink_tween.tween_property(platform, 'position:y', platform.position.y - (sink_unit * units), 2.0)
+	sink_tween.tween_property(platform, 'position:y', -(sink_unit * float(pos)), 2.0)
 	await sink_tween.finished
 	sink_tween.kill()
+	current_unit = pos
 
 func on_round_begin(_round_actions : Array[BattleAction]):
-	round_count += 1
-	var action: ActionScript
-	if round_count >= MAX_ROUNDS:
-		action = BurnAll.new()
-		action.damage = -Util.get_hazard_damage(-round_count)
-	else:
-		action = BossLavaSink.new()
-	action.user = self
-	BattleService.ongoing_battle.inject_battle_action(action,0)
+	if battle.cogs.size() == 4:
+		var burn_all := BurnAll.new()
+		burn_all.user = self
+		burn_all.damage = Util.get_player().stats.max_hp / 6
+		BattleService.ongoing_battle.inject_battle_action(burn_all, 0)
+	elif is_instance_valid(battle.focus_cog) and BattleService.ongoing_battle.current_round % 2 == 1:
+		var reinforcements_movie : CogAttack = GameLoader.load(REINFORCEMENTS_MOVIE).duplicate()
+		reinforcements_movie.user = battle.focus_cog
+		reinforcements_movie.targets = [self]
+		if not Util.on_easy_floor():
+			reinforcements_movie.cog_amount = min(2, 4 - battle.cogs.size())
+		BattleService.ongoing_battle.round_end_actions.append(reinforcements_movie)
+	
+	var sink_movie := BossLavaSink.new()
+	sink_movie.user = self
+	sink_movie.targets = [self]
+	BattleService.ongoing_battle.round_end_actions.append(sink_movie)
 
-func test_battle(manager: BattleManager):
-	if manager.battle_node != get_parent():
-		return
+func on_battle_started(manager : BattleManager) -> void:
 	manager.s_round_started.connect(on_round_begin)
-	manager.s_battle_ended.connect(on_battle_end)
 	for partner in Util.get_player().partners:
 		partner.reparent(platform)
 	
@@ -1387,11 +1399,6 @@ func test_battle(manager: BattleManager):
 	win_movie.user = self
 	win_movie.platform = platform
 	manager.battle_win_movie = win_movie
-
-func on_battle_end():
-	SceneLoader.add_persistent_node(Util.get_player())
-	for partner in Util.get_player().partners:
-		SceneLoader.add_persistent_node(partner)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nkma"]
@@ -1681,10 +1688,13 @@ surface_material_override/0 = ExtResource("14_m2r8c")
 surface_material_override/1 = ExtResource("15_4n8fl")
 surface_material_override/2 = ExtResource("15_4n8fl")
 
+[node name="platformcollision" parent="BossObjects/BossFight/BattlePlatform/group1" index="0"]
+visible = false
+
 [node name="BattleNode" parent="BossObjects/BossFight" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("10_4xj8y")]
 transform = Transform3D(-1, 0, -8.49832e-08, 0, 0.999996, 0, 8.49832e-08, 0, -1, 1.76951e-08, 3.05829, -3.18976)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
-focus_cog = NodePath("Cog2")
+cogs = [NodePath("Cog"), NodePath("GroundFloorInvestor")]
+focus_cog = NodePath("GroundFloorInvestor")
 override_intro = SubResource("Resource_8vpei")
 boss_battle = true
 
@@ -1693,19 +1703,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.378779, 3.13534, 23.6856)
 shape = SubResource("BoxShape3D_ih2xx")
 
 [node name="Cog" parent="BossObjects/BossFight/BattleNode" instance=ExtResource("13_l0xot")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.53596, 0, -2.38419e-07)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.27654, 0, 0)
 
-[node name="Cog2" parent="BossObjects/BossFight/BattleNode" instance=ExtResource("13_l0xot")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.43851, 0, -2.38419e-07)
-level_range_offset = 1
+[node name="GroundFloorInvestor" parent="BossObjects/BossFight/BattleNode" instance=ExtResource("13_l0xot")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.820909, 0, 0)
+level_range_offset = 2
 dna = ExtResource("15_4dds3")
 skelecog_chance = 0
-
-[node name="Cog3" parent="BossObjects/BossFight/BattleNode" instance=ExtResource("13_l0xot")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.976287, 0, 0)
-
-[node name="Cog4" parent="BossObjects/BossFight/BattleNode" instance=ExtResource("13_l0xot")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.16376, 0, 2.38419e-07)
 
 [node name="LavaBossManager" type="Node3D" parent="BossObjects/BossFight/BattleNode" node_paths=PackedStringArray("platform", "lava", "lava_particles", "lava_plane", "player_spawn", "ledge_pos", "jump_pos", "land_pos", "intro_pos", "sink_pos")]
 script = SubResource("GDScript_iai3g")

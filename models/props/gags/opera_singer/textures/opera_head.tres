@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ci6tfpxgltig6"]
+
+[ext_resource type="Texture2D" uid="uid://0rfhgrq4746x" path="res://models/props/gags/opera_singer/textures/opera_head.png" id="1_kl6vr"]
+
+[resource]
+resource_name = "opera_head"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.109804, 0.505882, 1, 1)
+albedo_texture = ExtResource("1_kl6vr")
+emission_enabled = true

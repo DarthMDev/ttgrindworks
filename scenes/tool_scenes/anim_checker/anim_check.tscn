@@ -4,3 +4,4 @@
 
 [node name="AnimCheck" type="Node"]
 script = ExtResource("1_w11cp")
+check_type = 1

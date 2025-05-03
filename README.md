@@ -5,7 +5,7 @@ This is a single-player game based on Disney's Toontown Online developed with th
 
 ## Requirements
 
-- Godot v4.4
+- Godot v4.4.1
 
 ## Disclaimer
 - We are under no obligation to:
@@ -29,17 +29,19 @@ Enjoy!
 - TheRandomDog
   - Programmer
 - squiddy
-  - Programmer
+  - Programmer, 3D & Texture Artist
 - Kel'Block
   - 3D Artist, Animator & Texture Artist
 - Elisei
   - 3D Artist & Texture Artist
 - neoNote
-  - 3D Artist & Texture Artist
+  - 3D Artist & Texture Artist, Sound & Game Deisgner
 - Measured Moth
   - Programmer, Game Designer & Rigging
 - Boots
   - 3D Artist & Animator
+- Peppersnoop
+  - 3D Animator
 - Loonatic
   - Technical Artist & Texture Artist
 - Lavender
@@ -59,7 +61,7 @@ Enjoy!
 - StuckTheDuck
   - Writer, Game Designer & Polisher
 - Niko Frost
-  - Quality Assurance
+  - Game Designer
 - Raine
   - Quality Assurance
 - Supergoose
@@ -71,6 +73,7 @@ Enjoy!
 - Toontown: Event Horizon
   - Cog Rigs
 ### Special Thanks
+- Erin (Cosmic)
 - Goatcanon
 - Just a BLU Toon
 - Niji

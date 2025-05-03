@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6tfgkr33627l"]
+
+[ext_resource type="PackedScene" uid="uid://decktf3m5p26w" path="res://models/props/toon_props/pbj/PBJ.fbx" id="1_jqxvt"]
+
+[node name="PBJ" instance=ExtResource("1_jqxvt")]
+
+[node name="Object" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -88.6712, 46.2321, 0, -46.2321, -88.6712, 0, 0, 0)

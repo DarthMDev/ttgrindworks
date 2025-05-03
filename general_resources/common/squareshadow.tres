@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c0oqskakk1fq3"]
+
+[ext_resource type="Texture2D" uid="uid://b770kqlkmpwn5" path="res://general_resources/common/squareshadow.png" id="1_8sm8b"]
+
+[resource]
+resource_name = "squareshadow"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.905882, 0.905882, 0.576471)
+albedo_texture = ExtResource("1_8sm8b")
+emission_enabled = true

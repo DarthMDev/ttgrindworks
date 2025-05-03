@@ -11,15 +11,17 @@ var music_player: AudioStreamPlayer
 
 # For music effects
 @onready var MusicFilter: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
-@export var MusicLPFCutoff: float = 1200
 
+var MusicLPFCutoff: float = 1200
 var fx_tweens = []
 
 var tween: Tween:
 	set(x):
 		if tween and tween.is_valid():
-			tween.kill()
+			tween.kill() 
 		tween = x
+
+var music_vol_tween: Tween
 
 @onready var music_pitch_tween: Tween:
 	set(x):
@@ -31,6 +33,7 @@ var tween: Tween:
 var sound_effects: Array[AudioStreamPlayer] = []
 
 # Signals
+signal s_music_changed(music: AudioStream, is_default: bool)
 signal s_music_looped(music: AudioStream)
 signal s_sound_effect_played(sfx: AudioStream)
 signal s_sound_effect_finished(sfx: AudioStream)
@@ -73,16 +76,27 @@ func set_music(music: AudioStream) -> void:
 		music_player.stop()
 	current_music = music
 	music_player.play()
+	s_music_changed.emit(music, false)
 
 func set_clip(clip: int) -> void:
 	var playback = music_player.get_stream_playback()
 	if playback is AudioStreamPlaybackInteractive:
 		playback.switch_to_clip(clip)
 
+func set_clip_autoadvance(clip: int, destination: int) -> void:
+	var playback = music_player.get_stream_playback()
+	if playback is AudioStreamPlaybackInteractive:
+		if destination < 0:
+			current_music.set_clip_auto_advance(clip, AudioStreamInteractive.AUTO_ADVANCE_DISABLED)
+			return
+		current_music.set_clip_auto_advance(clip, AudioStreamInteractive.AUTO_ADVANCE_ENABLED)
+		current_music.set_clip_auto_advance_next_clip(clip, destination)
+
 func set_default_music(music: AudioStream) -> void:
 	if not music_player.playing or music_player.stream == default_music:
 		set_music(music)
 	default_music = music
+	s_music_changed.emit(music, true)
 
 func stop_music(stop_all := false) -> void:
 	music_player.stop()
@@ -133,6 +147,15 @@ func play_snippet(sfx: AudioStream, start: float = 0.0, end: float = -1.0, volum
 	get_tree().create_timer(end-start).timeout.connect(sound_finished.bind(sfx_player))
 	return sfx_player
 
+func fade_music(vol_db: float, time: float, should_stop := true) -> void:
+	if music_vol_tween and music_vol_tween.is_running():
+		music_vol_tween.kill()
+	music_vol_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	music_vol_tween.tween_property(music_player, 'volume_db', vol_db, time)
+	if should_stop:
+		music_vol_tween.tween_callback(stop_music.bind(true))
+		music_vol_tween.tween_callback(music_player.set_volume_db.bind(0.0))
+	music_vol_tween.finished.connect(music_vol_tween.kill)
 
 func is_audio_playing(sound: AudioStream) -> bool:
 	# First, check music

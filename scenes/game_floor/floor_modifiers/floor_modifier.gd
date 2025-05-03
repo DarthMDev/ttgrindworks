@@ -7,8 +7,17 @@ enum ModType {
 	NEGATIVE
 }
 
-var game_floor: GameFloor
+const QUALITY_COLORS : Dictionary[ModType, Array] = {
+	ModType.POSITIVE : [Color.GREEN, Color.DARK_GREEN],
+	ModType.NEUTRAL : [Color(0.067, 0.42, 1.0), Color("001f8a")],
+	ModType.NEGATIVE : [Color.RED, Color.DARK_RED],
+}
 
+var game_floor: GameFloor
+var text_color : Color:
+	get: return QUALITY_COLORS[get_mod_quality()][0]
+var outline_color : Color:
+	get: return QUALITY_COLORS[get_mod_quality()][1]
 
 ## Do not override.
 ## Unless you really want to :)

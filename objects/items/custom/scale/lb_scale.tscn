@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://dhg405h16fbv3"]
 
 [ext_resource type="PackedScene" uid="uid://wjibyue3cmwn" path="res://models/props/facility_objects/da_office/scale/lb_scale.fbx" id="1_ykcpa"]
-[ext_resource type="Material" uid="uid://bmkf0qjfaiu3b" path="res://models/props/facility_objects/da_office/scale/lambert6.tres" id="2_djkq2"]
-[ext_resource type="Material" uid="uid://boj1p5rjenihq" path="res://models/props/facility_objects/da_office/scale/lambert15.tres" id="3_bxm7s"]
+[ext_resource type="Material" uid="uid://c3n21aektlurt" path="res://models/props/facility_objects/da_office/scale/textures/gold2.tres" id="2_64v12"]
+[ext_resource type="Material" uid="uid://c53ndkg5jumep" path="res://models/props/facility_objects/da_office/scale/textures/LB_Scale_CJ_Icon.tres" id="3_8mcld"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w6o58"]
 _surfaces = [{
@@ -36,8 +36,8 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 72,
 "index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwA"),
-"material": ExtResource("2_djkq2"),
-"name": "lambert6",
+"material": ExtResource("2_64v12"),
+"name": "gold2",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 48,
@@ -48,8 +48,8 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 72,
 "index_data": PackedByteArray("AAABAAIAAgABAAMAAwABAAQABAABAAUABQABAAYABgABAAcABwABAAgACAABAAkACQABAAoACgABAAsACwABAAwADAABAAAADQAOAA8AEAAOAA0AEQAOABAAEgAOABEAEwAOABIAFAAOABMAFQAOABQAFgAOABUAFwAOABYAGAAOABcAGQAOABgADwAOABkA"),
-"material": ExtResource("3_bxm7s"),
-"name": "lambert15",
+"material": ExtResource("3_8mcld"),
+"name": "LB_Scale_CJ_Icon",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 26,
@@ -62,6 +62,12 @@ shadow_mesh = SubResource("ArrayMesh_w6o58")
 
 [node name="scaleBeam" parent="Scale" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25236e-13, 100.958, -1.5264e-14)
+
+[node name="DefenseLocator" parent="Scale/scaleBeam" index="2"]
+visible = false
+
+[node name="ProsecutionLocator" parent="Scale/scaleBeam" index="3"]
+visible = false
 
 [node name="GeometryTransformHelper11" type="MeshInstance3D" parent="Scale/scaleBeam/Pros_Icon" index="1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, -1.98523e-23, 0, 5.29396e-23, 0.8, -90.0335, 16.2096, 9.1684)
@@ -77,6 +83,9 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1.65, 0, 0, 0, 1, 5.8136e-07, 58.7021, -5.8136e-07)
 
 [node name="BaseHighCol" parent="Scale/scaleStand" index="6"]
+visible = false
+
+[node name="StandLocator1" parent="Scale/scaleStand" index="8"]
 visible = false
 
 [node name="polySurface12" parent="Scale/scaleStand" index="15"]

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://boqbe80gqdcby"]
+
+[ext_resource type="Texture2D" uid="uid://b1c81hk6yvrn1" path="res://models/accessories/hats/toonosaur_hat/tt_m_chr_avt_acc_hat_dinosaur_tt_t_chr_avt_acc_hat_dinosaur.png" id="1_110sb"]
+
+[resource]
+resource_name = "default.217"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_110sb")

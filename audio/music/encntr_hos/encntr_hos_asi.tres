@@ -1,0 +1,614 @@
+[gd_resource type="AudioStreamInteractive" load_steps=73 format=4 uid="uid://b31b8dpu7ommp"]
+
+[ext_resource type="AudioStream" uid="uid://2h2dg3banfi2" path="res://audio/music/encntr_hos/intro_01/encntr_hos_intro_01_Unpitched Percussion_144bpm.ogg" id="1_ej8il"]
+[ext_resource type="AudioStream" uid="uid://c65kcbduqy22c" path="res://audio/music/encntr_hos/intro_02/encntr_hos_intro_02_Bass_144bpm.ogg" id="2_2x30v"]
+[ext_resource type="AudioStream" uid="uid://nj83xo2c8mlg" path="res://audio/music/encntr_hos/intro_02/encntr_hos_intro_02_Unpitched Percussion_144bpm.ogg" id="3_x4eqn"]
+[ext_resource type="AudioStream" uid="uid://bj4dl3koko0or" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Woodwinds_144bpm.ogg" id="4_ilr2d"]
+[ext_resource type="AudioStream" uid="uid://p7digcotbh0i" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Trumpets_144bpm.ogg" id="5_8aufe"]
+[ext_resource type="AudioStream" uid="uid://dee1123hdhxyj" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Strings_144bpm.ogg" id="6_iov1w"]
+[ext_resource type="AudioStream" uid="uid://c1fb22xu8abyu" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Bass_144bpm.ogg" id="7_gl35i"]
+[ext_resource type="AudioStream" uid="uid://bxb527kr4te5h" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Unpitched Percussion_144bpm.ogg" id="8_cegr8"]
+[ext_resource type="AudioStream" uid="uid://dxgj5pspypx6c" path="res://audio/music/encntr_hos/segment_02c/encntr_hos_segment_02c_Pitched Percussion_144bpm.ogg" id="9_auabw"]
+[ext_resource type="AudioStream" uid="uid://bwol7d3tenqjo" path="res://audio/music/encntr_hos/segment_03a/encntr_hos_segment_03a_Strings_144bpm.ogg" id="11_c6vcv"]
+[ext_resource type="AudioStream" uid="uid://d2wro4pr8kiof" path="res://audio/music/encntr_hos/segment_03a/encntr_hos_segment_03a_Bass_144bpm.ogg" id="12_mw5kh"]
+[ext_resource type="AudioStream" uid="uid://cb0ksslfc5tj6" path="res://audio/music/encntr_hos/segment_03a/encntr_hos_segment_03a_Unpitched Percussion_144bpm.ogg" id="13_gcypa"]
+[ext_resource type="AudioStream" uid="uid://6e4ttu42nhai" path="res://audio/music/encntr_hos/segment_03a/encntr_hos_segment_03a_Pitched Percussion_144bpm.ogg" id="14_4veb3"]
+[ext_resource type="AudioStream" uid="uid://5gs2b1ppg2c0" path="res://audio/music/encntr_hos/outro/encntr_hos_outro_Trumpets_144bpm.ogg" id="14_x4eqn"]
+[ext_resource type="AudioStream" uid="uid://d334fhbeges3w" path="res://audio/music/encntr_hos/intro_03/encntr_hos_intro_03_Bass_144bpm.ogg" id="15_elvyi"]
+[ext_resource type="AudioStream" uid="uid://d3o5oycwc6qqm" path="res://audio/music/encntr_hos/outro/encntr_hos_outro_Strings_144bpm.ogg" id="15_ilr2d"]
+[ext_resource type="AudioStream" uid="uid://baivky5lsxmhd" path="res://audio/music/encntr_hos/outro/encntr_hos_outro_Bass_144bpm.ogg" id="16_8aufe"]
+[ext_resource type="AudioStream" uid="uid://c22x3umnwgl37" path="res://audio/music/encntr_hos/intro_03/encntr_hos_intro_03_Pitched Percussion_144bpm.ogg" id="16_icq0b"]
+[ext_resource type="AudioStream" uid="uid://dqttqrrl4syhr" path="res://audio/music/encntr_hos/intro_03/encntr_hos_intro_03_Unpitched Percussion_144bpm.ogg" id="17_6oysv"]
+[ext_resource type="AudioStream" uid="uid://b7etyuv3apvhc" path="res://audio/music/encntr_hos/outro/encntr_hos_outro_Unpitched Percussion_144bpm.ogg" id="17_iov1w"]
+[ext_resource type="AudioStream" uid="uid://5r1tk44v2cnx" path="res://audio/music/encntr_hos/intro_04/encntr_hos_intro_04_Bass_144bpm.ogg" id="18_buhn2"]
+[ext_resource type="AudioStream" uid="uid://bk0wamcdhwli7" path="res://audio/music/encntr_hos/intro_04/encntr_hos_intro_04_Pitched Percussion_144bpm.ogg" id="19_rmo4f"]
+[ext_resource type="AudioStream" uid="uid://dylaoj7nwbc0n" path="res://audio/music/encntr_hos/intro_04/encntr_hos_intro_04_Unpitched Percussion_144bpm.ogg" id="20_s37yp"]
+[ext_resource type="AudioStream" uid="uid://dqrifkjy1geob" path="res://audio/music/encntr_hos/intro_05/encntr_hos_intro_05_Strings_144bpm.ogg" id="21_qfseq"]
+[ext_resource type="AudioStream" uid="uid://d1wpibpy6ksu3" path="res://audio/music/encntr_hos/intro_05/encntr_hos_intro_05_Bass_144bpm.ogg" id="22_70sal"]
+[ext_resource type="AudioStream" uid="uid://d0f5tak8vk7h3" path="res://audio/music/encntr_hos/intro_05/encntr_hos_intro_05_Pitched Percussion_144bpm.ogg" id="23_mupud"]
+[ext_resource type="AudioStream" uid="uid://dxejgpe65abht" path="res://audio/music/encntr_hos/intro_05/encntr_hos_intro_05_Unpitched Percussion_144bpm.ogg" id="24_h3xdf"]
+[ext_resource type="AudioStream" uid="uid://cmsrgpai5644x" path="res://audio/music/encntr_hos/intro_06/encntr_hos_intro_06_Strings_144bpm.ogg" id="25_masji"]
+[ext_resource type="AudioStream" uid="uid://dx7i8tpvtx1e2" path="res://audio/music/encntr_hos/intro_06/encntr_hos_intro_06_Bass_144bpm.ogg" id="26_0gjwk"]
+[ext_resource type="AudioStream" uid="uid://cb75m6sswmk34" path="res://audio/music/encntr_hos/intro_06/encntr_hos_intro_06_Pitched Percussion_144bpm.ogg" id="27_gotd5"]
+[ext_resource type="AudioStream" uid="uid://bjhxk68bbqhtq" path="res://audio/music/encntr_hos/intro_06/encntr_hos_intro_06_Unpitched Percussion_144bpm.ogg" id="28_f1set"]
+[ext_resource type="AudioStream" uid="uid://dfo8liutkg6jq" path="res://audio/music/encntr_hos/intro_transition/encntr_hos_intro_transition_Trumpets_144bpm.ogg" id="29_xx2et"]
+[ext_resource type="AudioStream" uid="uid://blsiuk1jpmqo8" path="res://audio/music/encntr_hos/intro_transition/encntr_hos_intro_transition_Strings_144bpm.ogg" id="30_ytl1f"]
+[ext_resource type="AudioStream" uid="uid://ck5cwtojteh75" path="res://audio/music/encntr_hos/intro_transition/encntr_hos_intro_transition_Bass_144bpm.ogg" id="31_d8dr3"]
+[ext_resource type="AudioStream" uid="uid://drj1dvox6agfy" path="res://audio/music/encntr_hos/intro_transition/encntr_hos_intro_transition_Pitched Percussion_144bpm.ogg" id="32_djfo0"]
+[ext_resource type="AudioStream" uid="uid://dmy24hphpk404" path="res://audio/music/encntr_hos/intro_transition/encntr_hos_intro_transition_Unpitched Percussion_144bpm.ogg" id="33_ni17c"]
+[ext_resource type="AudioStream" uid="uid://bobyv5l8slvht" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Woodwinds_144bpm.ogg" id="34_olq2y"]
+[ext_resource type="AudioStream" uid="uid://lww1os6t7vag" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Bassoon_144bpm.ogg" id="35_jk2im"]
+[ext_resource type="AudioStream" uid="uid://cvqql7734ot7m" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Trumpets_144bpm.ogg" id="36_psx80"]
+[ext_resource type="AudioStream" uid="uid://blp0kpqgvxt86" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Strings_144bpm.ogg" id="37_0e5rt"]
+[ext_resource type="AudioStream" uid="uid://c3118h47n11mh" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Bass_144bpm.ogg" id="38_5x7cj"]
+[ext_resource type="AudioStream" uid="uid://u50syduddsjd" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Unpitched Percussion_144bpm.ogg" id="39_6tj1i"]
+[ext_resource type="AudioStream" uid="uid://db5nskboao38b" path="res://audio/music/encntr_hos/segment_01/encntr_hos_segment_01_Pitched Percussion_144bpm.ogg" id="40_s0c54"]
+[ext_resource type="AudioStream" uid="uid://dtqqp5xbwo435" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Woodwinds_144bpm.ogg" id="41_hxlkf"]
+[ext_resource type="AudioStream" uid="uid://uqi56vwp2atd" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Bassoon_144bpm.ogg" id="42_xdx2l"]
+[ext_resource type="AudioStream" uid="uid://xfmnvfoxf3sv" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Trumpets_144bpm.ogg" id="43_ghdl4"]
+[ext_resource type="AudioStream" uid="uid://c463ihib8cpww" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Strings_144bpm.ogg" id="44_d2gtv"]
+[ext_resource type="AudioStream" uid="uid://bt4a5xmppcq3n" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Bass_144bpm.ogg" id="45_ly3rl"]
+[ext_resource type="AudioStream" uid="uid://bpalu7i72jma0" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Unpitched Percussion_144bpm.ogg" id="46_cct43"]
+[ext_resource type="AudioStream" uid="uid://cbxb6awpdeqsr" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Pitched Percussion_144bpm.ogg" id="47_4lfl0"]
+[ext_resource type="AudioStream" uid="uid://cojgddy2ivear" path="res://audio/music/encntr_hos/segment_02a/encntr_hos_segment_02a_Organ_144bpm.ogg" id="48_qewqv"]
+[ext_resource type="AudioStream" uid="uid://dpa86me5gs5t3" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Woodwinds_144bpm.ogg" id="49_ev7mw"]
+[ext_resource type="AudioStream" uid="uid://pgkyy5voq8r2" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Trumpets_144bpm.ogg" id="51_4w0su"]
+[ext_resource type="AudioStream" uid="uid://daobraqf343rf" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Strings_144bpm.ogg" id="52_er4tk"]
+[ext_resource type="AudioStream" uid="uid://c2cic81anya78" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Bass_144bpm.ogg" id="53_ddcnn"]
+[ext_resource type="AudioStream" uid="uid://bmcigt5g6gg8l" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Unpitched Percussion_144bpm.ogg" id="54_3e4q1"]
+[ext_resource type="AudioStream" uid="uid://bw4csxxed7b50" path="res://audio/music/encntr_hos/segment_02b/encntr_hos_segment_02b_Pitched Percussion_144bpm.ogg" id="55_gc7sp"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_86voe"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/volume = 0.0
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("1_ej8il")
+stream_5/volume = 0.0
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_c588p"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("2_2x30v")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("3_x4eqn")
+stream_5/volume = 0.0
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_n4pnd"]
+stream_count = 8
+stream_0/stream = ExtResource("4_ilr2d")
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("5_8aufe")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("6_iov1w")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("7_gl35i")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("8_cegr8")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("9_auabw")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ugmku"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("11_c6vcv")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("12_mw5kh")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("13_gcypa")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("14_4veb3")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gl35i"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("14_x4eqn")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("15_ilr2d")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("16_8aufe")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("17_iov1w")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("14_4veb3")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_dbsqi"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("15_elvyi")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("16_icq0b")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("17_6oysv")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_xmja4"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("18_buhn2")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("19_rmo4f")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("20_s37yp")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ri351"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("21_qfseq")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("22_70sal")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("23_mupud")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("24_h3xdf")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_pfn1d"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("25_masji")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("26_0gjwk")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("27_gotd5")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("28_f1set")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_b16de"]
+stream_count = 8
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("29_xx2et")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("30_ytl1f")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("31_d8dr3")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("32_djfo0")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("33_ni17c")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_f5688"]
+stream_count = 8
+stream_0/stream = ExtResource("34_olq2y")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("35_jk2im")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("36_psx80")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("37_0e5rt")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("38_5x7cj")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("39_6tj1i")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("40_s0c54")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_1sqf3"]
+stream_count = 8
+stream_0/stream = ExtResource("41_hxlkf")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("42_xdx2l")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("43_ghdl4")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("44_d2gtv")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("45_ly3rl")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("46_cct43")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("47_4lfl0")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("48_qewqv")
+stream_7/volume = 0.0
+
+[sub_resource type="OggPacketSequence" id="OggPacketSequence_sug0y"]
+packet_data = Array[Array]([[PackedByteArray("AXZvcmJpcwAAAAACgLsAAAAAAAAA6AMAAAAAALgB")], [PackedByteArray("A3ZvcmJpcwYAAABSRUFQRVIGAAAADgAAAEVOQ09ERVI9UkVBUEVSCwAAAEFSVElTVD1CS1NUBwAAAEJQTT0xNDQkAAAAREVTQ1JJUFRJT049VG9vbnRvd246IFRoZSBHcmluZHdvcmtzCwAAAEtFWT1EIE1pbm9yFwAAAFRJVExFPUwuRS5ELiBNYXplIFRhbmdvAQ=="), PackedByteArray("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")], [PackedByteArray("AA=="), PackedByteArray("Cg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg==")], [PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg==")], [PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg=="), PackedByteArray("Dg==")]])
+granule_positions = PackedInt64Array(0, 0, 259648, 520768, 610000)
+sampling_rate = 48000.0
+
+[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_fybf6"]
+packet_sequence = SubResource("OggPacketSequence_sug0y")
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_4a53w"]
+stream_count = 8
+stream_0/stream = ExtResource("49_ev7mw")
+stream_0/volume = 0.0
+stream_1/stream = SubResource("AudioStreamOggVorbis_fybf6")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("51_4w0su")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("52_er4tk")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("53_ddcnn")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("54_3e4q1")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("55_gc7sp")
+stream_6/volume = 0.0
+stream_7/volume = 0.0
+
+[resource]
+clip_count = 13
+clip_0/name = &"intro_01"
+clip_0/stream = SubResource("AudioStreamSynchronized_86voe")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"intro_02"
+clip_1/stream = SubResource("AudioStreamSynchronized_c588p")
+clip_1/auto_advance = 0
+clip_2/name = &"intro_03"
+clip_2/stream = SubResource("AudioStreamSynchronized_dbsqi")
+clip_2/auto_advance = 0
+clip_3/name = &"intro_04"
+clip_3/stream = SubResource("AudioStreamSynchronized_xmja4")
+clip_3/auto_advance = 0
+clip_4/name = &"intro_05"
+clip_4/stream = SubResource("AudioStreamSynchronized_ri351")
+clip_4/auto_advance = 0
+clip_5/name = &"intro_06"
+clip_5/stream = SubResource("AudioStreamSynchronized_pfn1d")
+clip_5/auto_advance = 0
+clip_6/name = &"intro_transition"
+clip_6/stream = SubResource("AudioStreamSynchronized_b16de")
+clip_6/auto_advance = 1
+clip_6/next_clip = 7
+clip_7/name = &"segment_01"
+clip_7/stream = SubResource("AudioStreamSynchronized_f5688")
+clip_7/auto_advance = 1
+clip_7/next_clip = 7
+clip_8/name = &"segment_02a"
+clip_8/stream = SubResource("AudioStreamSynchronized_1sqf3")
+clip_8/auto_advance = 1
+clip_8/next_clip = 9
+clip_9/name = &"segment_02b"
+clip_9/stream = SubResource("AudioStreamSynchronized_4a53w")
+clip_9/auto_advance = 1
+clip_9/next_clip = 10
+clip_10/name = &"segment_02c"
+clip_10/stream = SubResource("AudioStreamSynchronized_n4pnd")
+clip_10/auto_advance = 1
+clip_10/next_clip = 7
+clip_11/name = &"segment_03a"
+clip_11/stream = SubResource("AudioStreamSynchronized_ugmku")
+clip_11/auto_advance = 1
+clip_11/next_clip = 8
+clip_12/name = &"outro"
+clip_12/stream = SubResource("AudioStreamSynchronized_gl35i")
+clip_12/auto_advance = 0
+_transitions = {
+Vector2i(-1, 12): {
+"fade_beats": 0.5,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(0, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(0, 3): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(0, 4): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(0, 5): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(0, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(1, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(1, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(1, 3): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(1, 4): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(1, 5): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(1, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(2, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(2, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(2, 3): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 4): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(2, 5): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(2, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(3, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(3, 2): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(3, 3): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(3, 4): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(3, 5): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(3, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(4, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(4, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(4, 3): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(4, 4): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(4, 5): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(4, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(5, 1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(5, 2): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(5, 3): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(5, 4): {
+"fade_beats": 2.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(5, 5): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 2
+},
+Vector2i(5, 6): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(6, 1): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(6, 2): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(6, 3): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(6, 4): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(6, 5): {
+"fade_beats": 0.0,
+"fade_mode": 4,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(7, 8): {
+"fade_beats": 0.5,
+"fade_mode": 2,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(8, 7): {
+"fade_beats": 0.5,
+"fade_mode": 2,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(8, 9): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(9, 10): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(10, 11): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(11, 10): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(12, -1): {
+"fade_beats": 0.5,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
+}
+}

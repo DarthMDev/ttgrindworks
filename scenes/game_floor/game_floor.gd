@@ -2,6 +2,7 @@ extends Node3D
 class_name GameFloor
 
 const ROOM_REPEAT_DETECTION_SIZE := 3
+const ANOMALY_TRACKER := preload("res://objects/general_ui/anomaly_tracker/anomaly_tracker.tscn")
 
 ## The Floor Variant to be loaded into.
 @export var floor_variant: FloorVariant
@@ -26,10 +27,14 @@ var rooms_remaining: Array[int] = []
 var one_time_room_indexes: Array[int] = []
 var previous_rooms : Array[FacilityRoom] = []
 
+
+## Simplified method of storing custom values on the floor
+var floor_tags : Dictionary[String, Variant] = {}
+
+
 class StoredRoom:
 	var room: Node3D
 	var room_transform: Transform3D
-
 # Signals
 signal s_floor_ended
 
@@ -38,6 +43,14 @@ signal s_floor_ended
 
 var anomalies: Array[FloorModifier] = []
 
+# Debug
+var debug_modifiers: Array[Script]
+var debug_anomalies: Array[Script]
+var debug_floor_variant: FloorVariant
+
+func _init() -> void:
+	EngineDebugger.register_message_capture('toonlike', _capture_debug_message)
+	EngineDebugger.send_message('toonlike:ready_for', ['game_floor'])
 
 func _ready() -> void:
 	unloaded_rooms = Node3D.new()
@@ -52,6 +65,8 @@ func _ready() -> void:
 		SaveFileService.run_file.floor_choice = null
 
 func generate_floor() -> void:
+	if debug_floor_variant:
+		floor_variant = debug_floor_variant
 	if not floor_variant:
 		push_error("Failed to generate floor: No floor variant specified.")
 		return
@@ -70,23 +85,9 @@ func generate_floor() -> void:
 			if not floor_variant.discard_item in ItemService.seen_items:
 				ItemService.seen_item(floor_variant.discard_item)
 	
-	# Set up floor modifiers
-	for modifier in floor_variant.modifiers:
-		var new_mod := Node.new()
-		new_mod.set_script(modifier)
-		if new_mod is FloorModifier:
-			$Modifiers.add_child(new_mod)
-			new_mod.initialize(self)
-			new_mod.set_name(new_mod.get_mod_name())
-			if modifier in floor_variant.anomalies:
-				anomalies.append(new_mod)
-	
-	if not anomalies.is_empty():
-		$AnomalyTracker.anomalies = anomalies
-		$AnomalyTracker.show()
-		$AnomalyTracker.play()
-	else:
-		$AnomalyTracker.queue_free()
+	# Set up floor modifiers (debug anomalies set below)
+	for modifier in floor_variant.modifiers + debug_modifiers:
+		initialize_floor_mod(modifier)
 
 	if Util.floor_number == 0:
 		$LocationText.set_text("Ground Floor\n%s" % floor_variant.floor_name)
@@ -107,7 +108,7 @@ func generate_floor() -> void:
 	var total_battles := int(total_rooms * battle_ratio)
 	rooms_remaining = [total_battles, total_rooms - total_battles]
 
-	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') > 0.8:
+	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') < get_special_room_chance():
 		# 50% chance to add a "special room" to the pool
 		var sr_idx := RandomService.randi_range_channel('room_logic', 1, floor_rooms.special_rooms.size()) - 1
 		print('Adding special room: %s' % floor_rooms.special_rooms[sr_idx].room.get_state().get_node_name(0))
@@ -137,6 +138,16 @@ func generate_floor() -> void:
 		player = load("res://objects/player/player.tscn").instantiate()
 		SceneLoader.add_persistent_node(player)
 	player.s_fell_out_of_world.connect(player_out_of_bounds)
+	
+	# Setup debug anomalies
+	for modifier in debug_anomalies:
+		var new_mod := initialize_floor_mod(modifier)
+		if new_mod:
+			anomalies.append(new_mod)
+	
+	# Start anomaly tracker now that we've gotten all our anomalies
+	if not anomalies.is_empty():
+		show_anomalies()
 	
 	player.global_position = entrance.get_node('SPAWNPOINT').global_position
 	player.state = Player.PlayerState.WALK
@@ -240,18 +251,17 @@ func body_entered_room(body, index: int):
 		room_index = index
 		adjust_view(room_index)
 
-func roll_for_room(rooms: Array[FacilityRoom], _seed_channel := 'true_random') -> PackedScene:
+func roll_for_room(rooms: Array[FacilityRoom], seed_channel := 'true_random') -> PackedScene:
 	rooms = rooms.duplicate()
 	for room in previous_rooms:
 		if room in rooms:
 			rooms.erase(room)
 	
-	var rng := RandomNumberGenerator.new()
 	var weights : Array[float] = []
 	for room in rooms:
 		weights.append(room.rarity_weight)
 	
-	var room_idx := rng.rand_weighted(weights)
+	var room_idx := RandomService.rand_weighted_channel(seed_channel, weights)
 	if previous_rooms.size() >= ROOM_REPEAT_DETECTION_SIZE:
 		previous_rooms.pop_front()
 	previous_rooms.append(rooms[room_idx])
@@ -289,19 +299,80 @@ func _notification(what):
 	# Free unloaded rooms when scene is being freed
 	if what == NOTIFICATION_PREDELETE:
 		unloaded_rooms.queue_free()
+		EngineDebugger.unregister_message_capture('toonlike')
 
 func player_out_of_bounds(player : Player) -> void:
 	var entrance_node: Node3D
-	if get_current_room().name == '0':
+	if get_current_room().has_node('SPAWNPOINT'):
 		entrance_node = get_current_room().get_node('SPAWNPOINT')
 	else:
 		entrance_node = get_current_room().get_node('ENTRANCE')
 	player.global_position = entrance_node.global_position
 	player.fall_in(true)
 
+func initialize_floor_mod(modifier : Script) -> FloorModifier:
+	var new_mod := Node.new()
+	new_mod.set_script(modifier)
+	if new_mod is FloorModifier:
+		$Modifiers.add_child(new_mod)
+		new_mod.initialize(self)
+		new_mod.set_name(new_mod.get_mod_name())
+		if modifier in floor_variant.anomalies:
+			anomalies.append(new_mod)
+		return new_mod
+	return null
+
+func show_anomalies(new_anomalies : Array[FloorModifier] = anomalies) -> void:
+	var tracker := ANOMALY_TRACKER.instantiate()
+	tracker.anomalies = new_anomalies
+	add_child(tracker)
+	tracker.play()
+
+func spawn_new_anomalies(count : int) -> Array[FloorModifier]:
+	var new_anomalies : Array[FloorModifier] = []
+	for i in count:
+		var new_anomaly := floor_variant.get_new_anomaly()
+		if new_anomaly:
+			var anomaly_node := initialize_floor_mod(new_anomaly)
+			new_anomalies.append(anomaly_node)
+			anomalies.append(anomaly_node)
+			if not Util.get_player().obscured_anomalies:
+				Util.get_player().boost_queue.queue_text(anomaly_node.get_mod_name(), anomaly_node.text_color)
+	return new_anomalies
+
+func remove_anomaly(anomaly : FloorModifier) -> void:
+	if anomaly in anomalies:
+		anomaly.clean_up()
+		anomalies.erase(anomaly)
+		floor_variant.anomalies.erase(anomaly.get_script())
+		anomaly.queue_free()
+
+func get_special_room_chance() -> float:
+	var luck := 1.0
+	var base_chance := 0.12
+	if is_instance_valid(Util.get_player()):
+		luck = Util.get_player().stats.luck
+	luck -= 1.0
+	return base_chance + luck
+
+func _capture_debug_message(message: String, data: Array) -> bool:
+	if message == 'game_floor:add_floor_mods':
+		var anomalies_list = (
+			FloorVariant.ANOMALIES_POSITIVE +
+			FloorVariant.ANOMALIES_NEUTRAL +
+			FloorVariant.ANOMALIES_NEGATIVE
+		)
+		for modifier in data:
+			if modifier in anomalies_list:
+				debug_anomalies.append(load(modifier))
+			else:
+				debug_modifiers.append(load(modifier))
+		return true
+	elif message == 'game_floor:set_floor_variant':
+		debug_floor_variant = load(data[0])
+	return false
 
 #region GAME TRACKING
 ## Game Signals
 signal s_cog_spawned(cog: Cog)
-signal s_chest_spawned(chest: TreasureChest)
 #endregion

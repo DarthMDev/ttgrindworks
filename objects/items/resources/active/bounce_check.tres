@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dyt4cqi2xkctw"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_1xod0"]
+[ext_resource type="PackedScene" uid="uid://ckstshgoiqux3" path="res://models/props/cog_props/bounce_check/bouncecheck.tscn" id="1_a6y8c"]
+[ext_resource type="Script" uid="uid://rfmq1ruqdbfw" path="res://objects/items/custom/bounce_check/item_bounce_check.gd" id="1_db243"]
+[ext_resource type="Texture2D" uid="uid://8axm4hidm85g" path="res://ui_assets/player_ui/pocket_prank_icons/bounce_check_blue.png" id="1_pdcxx"]
+
+[resource]
+script = ExtResource("1_1xod0")
+sfx = Array[AudioStream]([])
+active_type = 1
+charge_count = 4
+current_charge = 4
+qualitoon = 2
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.8
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Tax Write-Off"
+item_description = "A not-so-charitable act"
+big_description = "Increase the damage and health of all cogs in battle. Defeating them grants jellybeans."
+model = ExtResource("1_a6y8c")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("1_db243")
+remember_item = true
+icon = ExtResource("1_pdcxx")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

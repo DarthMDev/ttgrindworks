@@ -5,8 +5,8 @@ class_name LureFish
 
 
 func action():
-	set_camera_angle(camera_angles.SIDE_RIGHT)
-	var target = targets[0]
+	set_camera_angle('SIDE_RIGHT')
+	var target: Cog = targets[0]
 	if target.lured:
 		return
 	user.face_position(target.global_position)
@@ -24,7 +24,7 @@ func action():
 	
 	# Animate
 	user.set_animation('bait')
-	user.animator.animation_finished.connect(func(_x=null): user.set_animation("neutral"), CONNECT_ONE_SHOT)
+	user.animator.animation_finished.connect(func(_x=null): user.set_animation("lured"), CONNECT_ONE_SHOT)
 	rod.get_node('AnimationPlayer').play('cast')
 	dollar.get_node('AnimationPlayer').play('cast')
 	
@@ -63,3 +63,5 @@ func action():
 		await dollar_move_seq.finished
 
 	rod.queue_free()
+	if target.lured:
+		target.set_animation('lured')

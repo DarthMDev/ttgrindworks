@@ -12,9 +12,11 @@ const WARNING_COLOR := Color.RED
 var unlocked: int 
 var track: Track
 var gags: Array[ToonAttack]
+var free := false
 
 ## Signals
 signal s_refreshing(element: TrackElement)
+signal s_refreshed(element: TrackElement)
 
 
 func _ready():
@@ -29,13 +31,13 @@ func _ready():
 	
 	# Set the track color and name
 	if unlocked > 0:
-		track_label.set_text(track.track_name.to_upper())
-		self_modulate = track.track_color
+		show_track()
 	else:
 		grey_out()
 	
 	# Always check the refunds
-	ui_root.s_gag_canceled.connect(refund_gag)
+	if ui_root:
+		ui_root.s_gag_canceled.connect(refund_gag)
 	
 	# Add track to the bar
 	refresh()
@@ -51,6 +53,10 @@ func refresh():
 	if not track:
 		return
 	
+	unlocked = Util.get_player().stats.gags_unlocked[track.track_name]
+	if unlocked > 0:
+		show_track()
+	
 	# Allow scripts to alter the gag track by signaling out
 	# Duplicate the base track so that the effects are not permanent
 	gags = track.gags.duplicate()
@@ -61,24 +67,31 @@ func refresh():
 			var gag := gags[i]
 			var button: GagButton = gag_buttons[i]
 			button.image = gag.icon
+			button.show()
 			
 			if button.pressed.is_connected(emit_gag):
 				button.pressed.disconnect(emit_gag)
 				button.mouse_entered.disconnect(ui_root.gag_hovered)
+				button.mouse_exited.disconnect(ui_root.gag_unhovered)
 			
 			var price := 0
+			var stats : PlayerStats
+			if is_instance_valid(BattleService.ongoing_battle):
+				stats = BattleService.ongoing_battle.battle_stats[Util.get_player()]
+			else:
+				stats = Util.get_player().stats
 			if not button.pressed.is_connected(emit_gag):
-				price = i
-				price -= BattleService.ongoing_battle.battle_stats[Util.get_player()].gag_discount
-				button.mouse_entered.connect(ui_root.gag_hovered.bind(gag))
+				if not is_gag_free(gag):
+					price = i
+					price -= stats.gag_discount
+					price = maxi(price, 0)
 				button.set_count(price)
-				button.pressed.connect(emit_gag.bind(gag,price))
+				if ui_root:
+					button.mouse_entered.connect(ui_root.gag_hovered.bind(gag))
+					button.mouse_exited.connect(ui_root.gag_unhovered)
+					button.pressed.connect(emit_gag.bind(gag,price))
 			
-			if Util.get_player().stats.gag_balance[track.track_name] < price:
-				button.disable()
-			elif (gag is GagLure) and all_cogs_lured():
-				button.disable()
-			elif (gag is GagTrap) and ((all_cogs_lured() and Util.get_player().trap_needs_lure) or all_cogs_trapped()):
+			if should_disable(gag, price):
 				button.disable()
 			else:
 				button.enable()
@@ -90,16 +103,21 @@ func refresh():
 		point_label.self_modulate = WARNING_COLOR
 	else:
 		point_label.self_modulate = Color.WHITE
+	
+	s_refreshed.emit(self)
 
 func refund_gag(gag: ToonAttack):
+	var player := Util.get_player()
 	for i in track.gags.size():
 		if track.gags[i].action_name == gag.action_name:
-			Util.get_player().stats.gag_balance[track.track_name] += gag.price
+			player.stats.gag_balance[track.track_name] += gag.price
 			refresh()
 			return
 
 # Gag checks
 func all_cogs_lured() -> bool:
+	if not ui_root:
+		return false
 	var battle_manager: BattleManager = ui_root.get_parent()
 	var all_lured := true
 	for cog in battle_manager.cogs:
@@ -109,6 +127,8 @@ func all_cogs_lured() -> bool:
 	return all_lured
 
 func all_cogs_trapped() -> bool:
+	if not ui_root:
+		return false
 	var battle_manager: BattleManager = ui_root.get_parent()
 	var all_trapped := true
 	for cog in battle_manager.cogs:
@@ -130,3 +150,25 @@ func set_disabled(disabled : bool) -> void:
 			button.disable()
 		else:
 			refresh()
+
+func show_track() -> void:
+	track_label.set_text(track.track_name.to_upper())
+	self_modulate = track.track_color
+
+func should_disable(gag : ToonAttack, price : int) -> bool:
+	if Util.get_player().stats.gag_balance[track.track_name] < price:
+		return true
+	
+	if (gag is GagLure) and all_cogs_lured():
+		return true
+	elif (gag is GagTrap) and ((all_cogs_lured() and Util.get_player().trap_needs_lure) or all_cogs_trapped()):
+		return true
+	return false
+
+func is_gag_free(gag : ToonAttack) -> bool:
+	for free_gag in Util.get_player().free_gags:
+		if free_gag.action_name == gag.action_name:
+			return true
+	if gag in Util.get_player().free_gags:
+		return true
+	return free

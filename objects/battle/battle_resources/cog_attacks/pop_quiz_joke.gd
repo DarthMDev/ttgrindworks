@@ -11,6 +11,7 @@ func get_question() -> Array[String]:
 	# Get joke file as array
 	var file := FileAccess.open(JOKE_FILE,FileAccess.READ)
 	var jokes := file.get_as_text().split("\n")
+	jokes.remove_at(jokes.size() - 1)
 	
 	# Sort setups and punchlines
 	var setups : Array[String] = []

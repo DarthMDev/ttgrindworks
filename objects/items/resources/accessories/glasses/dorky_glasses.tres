@@ -287,6 +287,7 @@ evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.5
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.2
 item_name = "Dorky Glasses"

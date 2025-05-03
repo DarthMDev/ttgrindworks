@@ -1,13 +1,12 @@
-[gd_scene load_steps=59 format=4 uid="uid://dwxw7pxsu8i2y"]
+[gd_scene load_steps=58 format=4 uid="uid://dwxw7pxsu8i2y"]
 
 [ext_resource type="PackedScene" uid="uid://5cys4v0p1jgj" path="res://models/facilities/factory/sales_director_boss_room.fbx" id="1_egp1p"]
 [ext_resource type="Material" uid="uid://c0edym63lw3aj" path="res://models/facilities/general/materials/paint_mat.tres" id="2_0268j"]
-[ext_resource type="Script" uid="uid://g7a3x7pxjdy8" path="res://objects/modules/factory/base_rooms/sales_director_boss_room.gd" id="2_eheo5"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_ldinr"]
 [ext_resource type="Texture2D" uid="uid://dj5lnvim0vwrs" path="res://models/facilities/factory/SB_Paint.png" id="2_qv7sn"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_uyfsw"]
 [ext_resource type="Resource" uid="uid://d4j0edul57mrg" path="res://objects/cog/presets/sellbot/sales_director.tres" id="4_f0866"]
-[ext_resource type="AudioStream" uid="uid://02mc3k3k1brp" path="res://audio/music/ground_floor_investor.ogg" id="6_woyho"]
+[ext_resource type="AudioStream" uid="uid://02mc3k3k1brp" path="res://audio/music/action_sell.ogg" id="6_woyho"]
 [ext_resource type="PackedScene" uid="uid://b6eexfh4v078o" path="res://objects/interactables/elevators/sellbot_elevator.tscn" id="8_v7r8k"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="9_6htv0"]
 [ext_resource type="Texture2D" uid="uid://b6002o4ssp3ld" path="res://models/facilities/factory/FINALFACTORY_90.png" id="10_tlask"]
@@ -15,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d35gru1sglser" path="res://models/facilities/factory/FINALFACTORY_24.png" id="12_daayg"]
 [ext_resource type="Texture2D" uid="uid://vb1mg0ta3bta" path="res://models/facilities/factory/FINALFACTORY_60.png" id="13_8d0wk"]
 [ext_resource type="Texture2D" uid="uid://dai74xkx6u3dv" path="res://models/facilities/factory/FINALFACTORY_107.png" id="14_f84qa"]
-[ext_resource type="Texture2D" uid="uid://b3m4ki8a0y1i1" path="res://models/facilities/factory/FINALFACTORY_64.png" id="15_hdbvu"]
+[ext_resource type="Texture2D" uid="uid://4d8qdd4icuiu" path="res://models/facilities/factory/FINALFACTORY_64.png" id="15_hdbvu"]
 [ext_resource type="Texture2D" uid="uid://conb0dcb5scpe" path="res://models/facilities/factory/GearCap1.png" id="16_6r8fd"]
 [ext_resource type="Texture2D" uid="uid://bfarayhobfa4j" path="res://models/facilities/factory/GearEdgePaint.png" id="17_ffb4k"]
 [ext_resource type="Script" uid="uid://wvjrcdb1afbv" path="res://objects/battle/battle_resources/misc_movies/sales_director/sd_intro_movie.gd" id="18_ghjnl"]
@@ -426,14 +425,13 @@ shadow_mesh = SubResource("ArrayMesh_j87di")
 
 [sub_resource type="Resource" id="Resource_qip20"]
 script = ExtResource("18_ghjnl")
-skippable = false
+skippable = true
 override_music = ExtResource("6_woyho")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mueo2"]
 size = Vector3(45.6834, 18.2656, 21.1189)
 
 [node name="sales_director_boss_room" instance=ExtResource("1_egp1p")]
-script = ExtResource("2_eheo5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Balcony" index="0"]
 
@@ -534,11 +532,12 @@ sync_to_floor = true
 scene_path = "res://scenes/elevator_scene/elevator_scene.tscn"
 opened = false
 
-[node name="LavaFloor" parent="." index="20" instance=ExtResource("9_6htv0")]
+[node name="LavaFloor" parent="." index="20" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("9_6htv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63227, 1.37293)
 tick_delay = 3.0
 base_damage = -4
 damage_name = "Goopy Paint"
+default_spawn_point = NodePath("../PlayerSpawn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3153, -0.249593, 0.457684)
@@ -673,5 +672,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.776311, 0.0244733, -8.0834
 unique_name_in_owner = true
 transform = Transform3D(0.82655, 0, -0.562863, 0, 1, 0, 0.562863, 0, 0.82655, -5.37525, 2.57012, 1.89763)
 
-[connection signal="s_lava_hit" from="LavaFloor" to="." method="reset"]
 [connection signal="s_battle_ending" from="BossDirectory/BattleNode" to="SellbotElevator" method="open"]

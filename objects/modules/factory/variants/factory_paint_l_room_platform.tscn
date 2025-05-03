@@ -1,0 +1,273 @@
+[gd_scene load_steps=22 format=4 uid="uid://dwqhe1xe18u11"]
+
+[ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_wg33k"]
+[ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="4_edefv"]
+[ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="5_jmg7o"]
+[ext_resource type="Texture2D" uid="uid://c7gtsd6v3580e" path="res://models/props/facility_objects/mint/gear/gear_0.png" id="6_7cjng"]
+[ext_resource type="Texture2D" uid="uid://dunyhns3tkdq" path="res://models/props/facility_objects/mint/gear/gear_1.png" id="7_l5o7u"]
+[ext_resource type="Texture2D" uid="uid://cg73nmwwywaxm" path="res://models/props/facility_objects/mint/paint_platform/paintmixer_platform_GearCapJoint.png" id="8_58hy2"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="9_niata"]
+[ext_resource type="PackedScene" uid="uid://celxj5u1aay0l" path="res://objects/props/etc/wood_crate.tscn" id="10_4ce4k"]
+[ext_resource type="PackedScene" uid="uid://ciyyhun2e5nmf" path="res://objects/props/etc/crate/crate_general.tscn" id="11_6kgys"]
+
+[sub_resource type="Curve3D" id="Curve3D_lmbys"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 0, 0, 0, 7),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_qc6ci"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, -8),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_y0jop"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 4.5, 0, 0, 0, 0, 0, 0, 0, 0, -8),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_w62v0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 4.5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_qiag1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_1qr6a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_8ccya"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7mv2"]
+resource_name = "gear5b"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.603922, 0.603922, 0.603922, 0.8)
+albedo_texture = ExtResource("6_7cjng")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu72h"]
+resource_name = "lock2b"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.605273, 0.605275, 0.605274, 0.8)
+albedo_texture = ExtResource("7_l5o7u")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1h4l"]
+resource_name = "Gears_v2s2_GearCapJointSHD"
+cull_mode = 2
+albedo_texture = ExtResource("8_58hy2")
+roughness = 0.552786
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_63l81"]
+_surfaces = [{
+"aabb": AABB(-174.402, -173.318, 0.775909, 350.025, 350.068, 292.907),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AgAFAAMAAgAEAAUABgABAAcABgAAAAEAAQAFAAcAAQADAAUACAAKAAsACAAJAAoADQAOAA8ADQAMAA4ADgAKAAkADgAMAAoACAASABEACAALABIABAAQABMABAACABAAEAASABMAEAARABIADwAVAA0ADwAUABUABgAXAAAABgAWABcAFwAVABQAFwAWABUA"),
+"name": "Gears_v2s2_GearCapJointSHD",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("n3Bfj/7/AAAAAGGP/v8AAJ9woXD+/wAAAAChcP7/AACfcKFwTAAAAAAAoXBMAAAAn3BfjwAAAAAAAGGPAAAAAFqPoXD+/wAA//+hcP7/AAD//6FwTAAAAFqPoXBMAAAA//9hjwAAAABaj1+PAAAAAP//YY///wAAWo9fj/7/AACZcAAA/v8AAFqPAAD+/wAAWo8AALEAAACZcAAAsQAAAFqP///+/wAAWo///wAAAACZcP//AAAAAJlw/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_clcqx"]
+resource_name = "paintmixer_platform_Mesh_003"
+_surfaces = [{
+"aabb": AABB(-174.402, -173.318, 0.775909, 350.025, 350.068, 292.907),
+"attribute_data": PackedByteArray("inn4v4p5+L/soPi////Df6t57X+Kefi/l6DtfwrXw3+refS/inn//5eg9L8K1x/Ainn//4p5///soP///v8fwKt57X+ree1/l6DtfwrXw3+XoPS/CtcfwKt59L+refS//v8fwOyg//+refS/inn/////w3/soPi/q3ntf4p5+L///8N/7KD4vwrXw3+XoO1/CtcfwJeg9L/+/x/A7KD//wrXw3+XoO1/CtcfwJeg9L/+/x/A7KD/////w3/soPi/"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("BAAKAAYABAAIAAoADAACAA4ADAAAAAIAAwALAA8AAwAHAAsAEAAUABYAEAASABQAGwAdAB8AGwAZAB0AHAAVABMAHAAYABUAEQAlACMAEQAXACUACQAhACcACQAFACEAIAAkACYAIAAiACQAHgArABoAHgApACsADQAvAAEADQAtAC8ALgAqACgALgAsACoA"),
+"material": SubResource("StandardMaterial3D_b1h4l"),
+"name": "Gears_v2s2_GearCapJointSHD",
+"primitive": 3,
+"uv_scale": Vector4(1.78564, 3.99827, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("n3Bfj/7///+fcF+P/v+pKgAAYY/+////AABhj/7/piqfcKFw/v8AAJ9woXD+/1XVAAChcP7/AAAAAKFw/v+qKp9woXBMAAAAn3ChcEwASdUAAKFwTAAAAAAAoXBMAH0qn3BfjwAA//+fcF+PAACpKgAAYY8AAP//AABhjwAAeSpaj6Fw/v//v1qPoXD+/6Uq//+hcP7//7///6Fw/v9U1f//oXBMAP+///+hcEwAJ9Vaj6FwTAD/v1qPoXBMAJgq//9hjwAAI9X//2GPAAD/P1qPX48AAFTVWo9fjwAA/z///2GP//9Q1f//YY////8/Wo9fj/7/VNVaj1+P/v//P5lwAAD+/wAAmXAAAP7/UNVajwAA/v8AAFqPAAD+/6oqWo8AALEAAABajwAAsQCeKplwAACxAAAAmXAAALEARNVaj////v///1qP///+/1TVWo///wAA//9aj///AABU1Zlw//8AAP//mXD//wAAqSqZcP///////5lw/////6kq/78AAFPVVdX/vwAAWdVR1f9//z9WVaqq/3//P1TVVNX/f/8/XVW5qv9//z+K1TnV/78AAFPVVdX/vwAAj9U21QAA/3+tqltVAAD/f6oqqioAAP9/4CqPKgAA/3+0qmpV5SqMKv3/AoCqKqoq/f8CgK8qpyr9/wKAqiqqKv3/AoD/f/8/WVWxqv9//z+qqlRV/3//P7GqY1X/f/8/YVXAqv9//7+qKqoq/3//v6oqqir/f/+/U9VV1f9//79T1VXV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_63l81")
+
+[node name="factory_paint_l_room" instance=ExtResource("1_wg33k")]
+
+[node name="Bridge" parent="." index="0"]
+transform = Transform3D(1.2224, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, -6.239, 1.286, 1.626)
+
+[node name="StaticBody3D" parent="Bridge" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Bridge/StaticBody3D" index="0"]
+visible = false
+
+[node name="ENTRANCE" parent="." index="3"]
+transform = Transform3D(-100, 8.74228e-06, 3.82137e-13, 0, -4.37114e-06, 100, 8.74228e-06, 100, 4.37114e-06, -6.25868, 10.1414, -24.9948)
+visible = false
+
+[node name="Node3D" parent="ENTRANCE" index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+
+[node name="EXIT" parent="." index="4"]
+transform = Transform3D(-4.37114e-06, 100, 4.37114e-06, 0, -4.37114e-06, 100, 100, 4.37114e-06, 1.91069e-13, 29.7258, 10.1414, 1.62619)
+
+[node name="Node3D2" parent="EXIT" index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+
+[node name="NavigationRegion3D" parent="." index="16"]
+enabled = false
+
+[node name="PlayerSpawn" parent="." index="20"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.31832, 10.1468, -21.4828)
+
+[node name="Platforms" type="Node3D" parent="." index="23"]
+
+[node name="Plaform2" type="Node3D" parent="Platforms" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 2.5)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform2" index="0"]
+curve = SubResource("Curve3D_lmbys")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.67229)
+path = NodePath("../Path3D")
+speed = 3.0
+
+[node name="Plaform3" type="Node3D" parent="Platforms" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 9, 2.5)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform3" index="0"]
+curve = SubResource("Curve3D_qc6ci")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.55941)
+path = NodePath("../Path3D")
+speed = 3.2
+
+[node name="Plaform6" type="Node3D" parent="Platforms" index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 8.81086, -15)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform6" index="0"]
+curve = SubResource("Curve3D_y0jop")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform6" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.7269)
+path = NodePath("../Path3D")
+speed = 3.0
+
+[node name="Plaform7" type="Node3D" parent="Platforms" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 9, -9.3007)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform7" index="0"]
+curve = SubResource("Curve3D_w62v0")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform7" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74213)
+path = NodePath("../Path3D")
+speed = 3.2
+
+[node name="Plaform4" type="Node3D" parent="Platforms" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 8.5)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform4" index="0"]
+curve = SubResource("Curve3D_qiag1")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform4" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9137, 0, 0)
+path = NodePath("../Path3D")
+speed = 4.0
+
+[node name="Plaform8" type="Node3D" parent="Platforms" index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 10, 3.5)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform8" index="0"]
+curve = SubResource("Curve3D_1qr6a")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform8" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.864383, 0, 0)
+path = NodePath("../Path3D")
+speed = 4.0
+
+[node name="Plaform5" type="Node3D" parent="Platforms" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10, 8.5)
+
+[node name="Path3D" type="Path3D" parent="Platforms/Plaform5" index="0"]
+curve = SubResource("Curve3D_8ccya")
+
+[node name="ElevatingPlatform" parent="Platforms/Plaform5" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.312697, 0)
+path = NodePath("../Path3D")
+speed = 0.75
+
+[node name="Gears" type="Node3D" parent="." index="24"]
+
+[node name="SpinningGear4" parent="Gears" index="0" instance=ExtResource("5_jmg7o")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -4.86514, 15.1939, 0.580551)
+rotation_order = 1
+spin_speed = -60.0
+
+[node name="gearHead" parent="Gears/SpinningGear4/Collision/gear/gearAll/gearGeo" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_b7mv2")
+surface_material_override/1 = SubResource("StandardMaterial3D_cu72h")
+
+[node name="PaintMixerBase" type="MeshInstance3D" parent="Gears/SpinningGear4" index="1"]
+transform = Transform3D(0.001, 0, 0, 0, -4.37114e-11, -0.00357378, 0, 0.001, -1.56215e-10, -0.0186242, -0.0809618, 0)
+mesh = SubResource("ArrayMesh_clcqx")
+skeleton = NodePath("")
+
+[node name="treasure_chest" parent="Gears/SpinningGear4" index="2" instance=ExtResource("9_niata")]
+transform = Transform3D(-2.73196e-09, 0, 0.0625, 0, 0.0625, 0, -0.0625, 0, -2.73196e-09, 0.000152111, -0.000425458, 0.000321865)
+
+[node name="Direction" type="Node3D" parent="Gears" index="1"]
+transform = Transform3D(-0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, -0.707107, 3.09086e-08, 9.37923, 2.3533, -1.29284)
+
+[node name="SpinningGear" parent="Gears/Direction" index="0" instance=ExtResource("5_jmg7o")]
+transform = Transform3D(15.1, 0, 0, 0, 22.65, 0, 0, 0, 15.1, 1.78639, 10.7325, -8.70392)
+spin_speed = -70.0
+
+[node name="Crates" type="Node3D" parent="." index="25"]
+
+[node name="wood_crate" parent="Crates" index="0" instance=ExtResource("10_4ce4k")]
+transform = Transform3D(2.21473, 0, -0.0347917, 0, 2.215, 0, 0.0347917, 0, 2.21473, 14.2663, 10.1468, 9.17308)
+
+[node name="wood_crate4" parent="Crates" index="1" instance=ExtResource("10_4ce4k")]
+transform = Transform3D(0.886278, 0, -1.38583, 0, 1.645, 0, 1.38583, 0, 0.886278, 14.2663, 13.3504, 4.90173)
+
+[node name="wood_crate2" parent="Crates" index="2" instance=ExtResource("10_4ce4k")]
+transform = Transform3D(1.80677, 0, -0.63467, 0, 1.915, 0, 0.63467, 0, 1.80677, 14.2663, 10.1468, 4.95442)
+
+[node name="wood_crate3" parent="Crates" index="3" instance=ExtResource("10_4ce4k")]
+transform = Transform3D(2.32876, 0, 0.761157, 0, 2.45, 0, -0.761157, 0, 2.32876, 14.9773, 10.1468, 0.0927016)
+
+[node name="crate_general" parent="Crates" index="4" instance=ExtResource("11_6kgys")]
+transform = Transform3D(1.77612, 0, -0.29222, 0, 1.8, 0, 0.29222, 0, 1.77612, 27.8601, 10.1373, -4.22209)
+
+[node name="crate_general2" parent="Crates" index="5" instance=ExtResource("11_6kgys")]
+transform = Transform3D(2.49722, 0, 0.117766, 0, 2.5, 0, -0.117766, 0, 2.49722, 27.2862, 10.1373, 8.73741)
+
+[node name="Node3D" type="Node3D" parent="." index="26"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 29.7258, 10.1414, 1.62619)
+
+[editable path="Gears/SpinningGear4"]
+[editable path="Gears/SpinningGear4/Collision/gear"]

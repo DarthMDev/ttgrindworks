@@ -31,12 +31,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("2_g18od")
 accessory_placements = Array[ExtResource("1_gfdeh")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+item_tags = null
 qualitoon = 4
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.15
 item_name = "Dragon Wings"

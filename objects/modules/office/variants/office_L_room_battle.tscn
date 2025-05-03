@@ -1,8 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqrejftx6uyso"]
+[gd_scene load_steps=26 format=3 uid="uid://cqrejftx6uyso"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_n4mhl"]
-[ext_resource type="Texture2D" uid="uid://dqmp1vpb7ao0u" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_qsgki"]
-[ext_resource type="Texture2D" uid="uid://u0k5kfqlf8sc" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="3_j0nmw"]
+[ext_resource type="Texture2D" uid="uid://bdq0remkc4roq" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_qsgki"]
+[ext_resource type="Texture2D" uid="uid://co4lyd6o35sxd" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="3_j0nmw"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="4_5dnvp"]
 [ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="5_l0hhy"]
 [ext_resource type="PackedScene" uid="uid://bqvkntyk0ljsq" path="res://objects/goon/goon.tscn" id="5_yqbps"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="17_s50cb"]
 [ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="20_olsst"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="21_nxy5u"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="22_mdenv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbvsn"]
 resource_name = "lambert4"
@@ -191,10 +190,11 @@ beam_length_mult = 0.7
 [node name="Path3D" type="Path3D" parent="Goon1" index="1"]
 curve = SubResource("Curve3D_hxjwl")
 
-[node name="BattleNodeDynamic" parent="." index="9" instance=ExtResource("17_s50cb")]
+[node name="BattleNodeDynamic" parent="." index="9" node_paths=PackedStringArray("cogs") instance=ExtResource("17_s50cb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5906, 0.00379369, -13.5478)
 cog_range = Vector2i(3, 4)
 cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573364, 4.69458, -0.234771)
@@ -214,4 +214,3 @@ transform = Transform3D(-0.99765, 0, 0.0685202, 0, 1, 0, -0.0685202, 0, -0.99765
 
 [node name="treasure_chest2" parent="." index="12" instance=ExtResource("21_nxy5u")]
 transform = Transform3D(-0.99765, 0, 0.0685202, 0, 1, 0, -0.0685202, 0, -0.99765, 8.91149, 0, 6.06384)
-item_pool = ExtResource("22_mdenv")
