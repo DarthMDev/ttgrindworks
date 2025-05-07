@@ -536,6 +536,21 @@ func update_accessories() -> void:
 				Item.ItemSlot.HAT: hat = item
 				Item.ItemSlot.GLASSES: glasses = item
 				Item.ItemSlot.BACKPACK: backpack = item
-	if hat: hat.place_accessory(self)
-	if glasses: glasses.place_accessory(self)
-	if backpack: backpack.place_accessory(self)
+	if hat: 
+		hat.place_accessory(self)
+	else:
+		# Remove the hat if it exists
+		for accessory in toon.body.hat_bone.get_children():
+			accessory.queue_free()
+	if glasses: 
+		glasses.place_accessory(self)
+	else:
+		# Remove the glasses if they exist
+		for accessory in toon.body.glasses_bone.get_children():
+			accessory.queue_free()
+	if backpack: 
+		backpack.place_accessory(self)
+	else:
+		# Remove the backpack if it exists
+		for accessory in toon.body.backpack_bone.get_children():
+			accessory.queue_free()
