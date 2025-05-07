@@ -10,7 +10,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# Iterate through items to find accessories
 	# then remove the item and its effects
 	var accessories: Array[Item] = []
-	for item in items:
+	for item in items.duplicate():
 		if item is ItemAccessory:
 			accessories.append(item)
 	if accessories.size() > 0:

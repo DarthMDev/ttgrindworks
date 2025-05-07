@@ -6,7 +6,7 @@ class_name CCRandomizeAccessories
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	if player != null:
-		for item in player.stats.items:
+		for item in player.stats.items.duplicate():
 			if item is ItemAccessory:
 				item.remove_item(player)
 				var new_item = ItemService.get_random_accessory().duplicate()

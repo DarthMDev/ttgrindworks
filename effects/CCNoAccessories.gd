@@ -7,7 +7,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var items: Array[Item] = player.stats.items
 	# Iterate through items to find accessories
 	# then remove the item and its effects
-	for item in items:
+	for item in items.duplicate():
 		if item is ItemAccessory:
 			item.remove_item(player)
 	return SUCCESS
