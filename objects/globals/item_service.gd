@@ -138,7 +138,13 @@ func get_random_candy() -> Item:
 	
 func get_track_frame() -> Item:
 	return load("res://objects/items/resources/passive/track_frame.tres")
-	
+
+func get_random_active_item() -> Item:
+	return get_random_item(load("res://objects/items/pools/active_items.tres"), true)
+
+func get_doodle() -> Item:
+	return load("res://objects/items/resources/passive/doodle.tres")
+
 func seen_item(item: Item, allow_duplicate := false):
 	if not allow_duplicate and item.resource_path == "":
 		return

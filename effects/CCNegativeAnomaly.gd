@@ -8,6 +8,9 @@ class_name CCNegativeAnomaly
 const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_out_of_touch.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_safety_violations.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_time_crunch.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
 ]
 
 

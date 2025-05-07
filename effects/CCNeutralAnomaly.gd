@@ -9,6 +9,8 @@ const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_reorganization.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
 ]
 
 
@@ -24,7 +26,6 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 		Util.floor_manager.add_anomaly(loaded_mod)
 		if loaded_mod.get_mod_name() == "Marathon":
 			# if we are in the shop we should refund the user as the next room is a boss room
-			
 			if Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.pre_final_rooms or Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.final_rooms:
 				# we are in the shop or we are in the boss room
 				# we need to refund the user
@@ -38,7 +39,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 
 func new_anomalies() -> Array[String]:
 	var anomalies = ANOMALIES_NEUTRAL.duplicate()
-	# TODO , rework marathon to account for cases where we are are in the shop or boss room then we can remove this
+	# TODO , rework marathon to queue marathon to next floor
 	anomalies.erase("res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd")
 	return anomalies
 

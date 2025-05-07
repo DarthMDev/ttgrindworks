@@ -8,16 +8,16 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# Iterate through items to find accessories
 	# then remove the item and its effects
 	for item in items:
-		if item.slot in [Item.ItemSlot.HAT, Item.ItemSlot.GLASSES, Item.ItemSlot.BACKPACK]:
+		if item is ItemAccessory:
 			item.remove_item(player)
 	return SUCCESS
 
 
 func _can_run() -> bool:
-	return false # temporarily disabled till we have a proper way to remove accessories
 	var player = Util.get_player()
 	if (player != null and player.stats.hp > 0):
 		return true
-	if player.stats.items.find(func(item): return item.slot in [Item.ItemSlot.HAT, Item.ItemSlot.GLASSES, Item.ItemSlot.BACKPACK]) != null:
-		return true
+	for item in player.stats.items:
+		if item is ItemAccessory:
+			return true
 	return false

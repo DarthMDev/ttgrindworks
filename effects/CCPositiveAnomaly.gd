@@ -5,6 +5,8 @@ const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overheal.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
 ]
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:

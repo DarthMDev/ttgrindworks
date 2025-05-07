@@ -18,7 +18,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	var new_debuff := STAT_BOOST.duplicate()
 	new_debuff.target = player
-	new_debuff.rounds = 1
+	new_debuff.rounds = 2
 	new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
 	new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
 	new_debuff.boost = BoostNums[new_debuff.stat]
