@@ -293,9 +293,6 @@ func roll_for_room(rooms: Array[FacilityRoom], seed_channel := 'true_random') ->
 	var room_idx := RandomService.rand_weighted_channel(seed_channel, weights)
 	if previous_rooms.size() >= ROOM_REPEAT_DETECTION_SIZE:
 		previous_rooms.pop_front()
-	if room_idx == -1:
-		# invalid room, so just return a random one
-		room_idx = RandomService.randi_channel(_seed_channel) % rooms.size()
 	previous_rooms.append(rooms[room_idx])
 	return rooms[room_idx].room
 
@@ -366,8 +363,6 @@ func add_anomaly(modifier : Script) -> void:
 		anomalies.append(new_mod)
 		if not Util.get_player().obscured_anomalies:
 			Util.get_player().boost_queue.queue_text(new_mod.get_mod_name(), new_mod.text_color)
-
-	return new_mod
 	
 func spawn_new_anomalies(count : int) -> Array[FloorModifier]:
 	var new_anomalies : Array[FloorModifier] = []

@@ -274,7 +274,7 @@ func _physics_process_walk(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().get_root().add_child(load(PAUSE_MENU).instantiate())
+		get_tree().get_root().add_child(PAUSE_MENU.instantiate())
 	# if we press the c key, we will spawn a test effects menu
 	if Input.is_action_just_pressed("test_effects"):
 		get_tree().get_root().add_child(load(TEST_EFFECTS).instantiate())
