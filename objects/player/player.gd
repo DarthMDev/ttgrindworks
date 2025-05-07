@@ -1,7 +1,7 @@
 extends Actor
 class_name Player
 
-var PAUSE_MENU : PackedScene
+var PAUSE_MENU: PackedScene
 const DEATH_THRESHOLD := -20.0
 const COYOTE_TIME := 0.07
 const IFRAME_TIME := 3.0
@@ -60,8 +60,7 @@ var game_timer_tick := false:
 		if not lock_game_timer:
 			game_timer_tick = x
 var lock_game_timer := false
-@onready var active_item_ui : Control = %ActiveItemUI
-
+@onready var active_item_ui: Control = %ActiveItemUI
 
 
 ## Misc.
@@ -76,6 +75,15 @@ var gravity := 16.0
 var last_floor_time: float = 0.0
 var last_damage_source: String = "Something"
 const TURN_SPEED := 90.0
+var movement_disabled := false:
+	set(x):
+		movement_disabled = x
+		if x:
+			velocity = Vector3.ZERO
+			speed = 0.0
+			set_animation('neutral')
+		else:
+			assess_anim()
 var control_style: bool:
 	get: return SaveFileService.settings_file.control_style
 var moving := false:
@@ -105,7 +113,7 @@ var immune_to_light_damage := false
 ## Damage immunity from stompers and other crush-based obstacles
 var immune_to_crush_damage := false
 ## Used in battle to override Gag prices
-var free_gags : Array[ToonAttack] = []
+var free_gags: Array[ToonAttack] = []
 
 var laff_lock_enabled := false:
 	set(x):
@@ -186,9 +194,9 @@ func _physics_process_walk(delta: float) -> void:
 		if Input.is_action_just_pressed('jump') and can_jump:
 			velocity.y = get_platform_velocity().y + jump_velocity
 			s_jumped.emit()
-			if moving: 
+			if moving:
 				set_animation('leap')
-			else: 
+			else:
 				set_animation('jump')
 	if not _floored:
 		velocity.y -= gravity * delta
@@ -199,8 +207,10 @@ func _physics_process_walk(delta: float) -> void:
 	if not sprint: target_speed /= 2.0
 	target_speed *= stats.get_stat('speed')
 	
-	if speed != target_speed:
+	if speed != target_speed and not movement_disabled:
 		speed = lerp(speed, target_speed, 0.2)
+	else:
+		speed = 0.0
 	
 	if control_style:
 		# Get the input/direction vectors
@@ -223,8 +233,8 @@ func _physics_process_walk(delta: float) -> void:
 	else:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
-		var input_dir := Input.get_axis('move_back','move_forward')
-		if input_dir == -1 and sprint: 
+		var input_dir := Input.get_axis('move_back', 'move_forward')
+		if input_dir == -1 and sprint:
 			speed = (run_speed * stats.get_stat('speed')) / 2.0
 		var direction = (toon.transform.basis * Vector3(0, 0, input_dir)).normalized()
 		if direction:
@@ -257,16 +267,16 @@ func _physics_process_walk(delta: float) -> void:
 
 	# Camera zoom
 	if Input.is_action_just_pressed('zoom_in'):
-		camera_dist = max(camera_dist-0.5,1.5)
+		camera_dist = max(camera_dist - 0.5, 1.5)
 	elif Input.is_action_just_pressed('zoom_out'):
-		camera_dist = min(camera_dist+0.5,4.0)
+		camera_dist = min(camera_dist + 0.5, 4.0)
 	
 	# Camera sprint FOV
 	if sprint:
 		if camera.fov < 60:
-			camera.fov = lerp(camera.fov,60.0,0.15)
+			camera.fov = lerp(camera.fov, 60.0, 0.15)
 	elif camera.fov > 52:
-		camera.fov = lerp(camera.fov,52.0,0.15)
+		camera.fov = lerp(camera.fov, 52.0, 0.15)
 	
 	# Emit signal when player is under death threshold
 	if global_position.y < DEATH_THRESHOLD:
@@ -353,7 +363,7 @@ func toon_lerp_angle(weight: float, start_angle: float, end_angle: float, toon_s
 	toon.rotation.y = lerp_angle(start_angle, end_angle, weight)
 	toon.set_scale(toon_scale)
 
-func set_animation(anim : String):
+func set_animation(anim: String):
 	if not get_animation() == anim:
 		toon.body.set_animation(anim)
 
@@ -454,7 +464,7 @@ func connect_stats() -> void:
 	s_stats_connected.emit(stats)
 
 var prev_hp := -1
-func check_hp(hp : int) -> void:
+func check_hp(hp: int) -> void:
 	if prev_hp > -1 and laff_lock and hp > prev_hp:
 		stats.hp = prev_hp
 	
@@ -475,7 +485,7 @@ func quick_heal(amount: int) -> void:
 	if sign(diff) == -1:
 		if state == PlayerState.WALK:
 			do_invincibility_frames()
-		Util.do_3d_text(self,str(diff))
+		Util.do_3d_text(self, str(diff))
 	else:
 		Util.do_3d_text(self, "+" + str(diff), Color.GREEN, Color.DARK_GREEN)
 
@@ -491,7 +501,7 @@ func do_invincibility_frames(time := IFRAME_TIME) -> void:
 	set_collision_layer_value(Globals.HAZARD_COLLISION_LAYER, true)
 	set_collision_mask_value(Globals.HAZARD_COLLISION_LAYER, true)
 
-var iframe_tween : Tween
+var iframe_tween: Tween
 func do_iframe_tween(time := IFRAME_TIME) -> Tween:
 	if iframe_tween:
 		iframe_tween.kill()
@@ -517,10 +527,10 @@ func swap_toon_visibility() -> void:
 	toon.body.visible = not toon.body.visible
 
 func update_accessories() -> void:
-	var hat : ItemAccessory
-	var glasses : ItemAccessory
-	var backpack : ItemAccessory
-	for item : Item in stats.items:
+	var hat: ItemAccessory
+	var glasses: ItemAccessory
+	var backpack: ItemAccessory
+	for item: Item in stats.items:
 		if item is ItemAccessory:
 			match item.slot:
 				Item.ItemSlot.HAT: hat = item

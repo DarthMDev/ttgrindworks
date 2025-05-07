@@ -3,11 +3,10 @@ extends CCEffectTimed
 
 class_name CCFreeze
 
-var original_speed;
 func _start(_instance: CCEffectInstanceTimed) -> EffectResult:
 	var player = Util.get_player()
-	original_speed = player.stats.speed
-	player.stats.speed = 0
+	if player:
+		player.movement_disabled = true # Disable movement inputs
 	return RUNNING
 
 func _should_be_running() -> bool:
@@ -20,13 +19,16 @@ func _should_be_running() -> bool:
 
 func _stop(_instance: CCEffectInstanceTimed, _force := false) -> bool:
 	var player = Util.get_player()
-	player.stats.speed = original_speed
+	if player:
+		player.movement_disabled = false # Re-enable movement inputs
 	return true
 
 func _resume() -> void:
 	var player = Util.get_player()
-	player.stats.speed = 0
+	if player:
+		player.movement_disabled = true # Reapply movement restriction on resume
 
 func _pause() -> void:
 	var player = Util.get_player()
-	player.stats.speed = original_speed
+	if player:
+		player.movement_disabled = false # Temporarily allow movement during pause
