@@ -91,14 +91,14 @@ visible = false
 [node name="CollisionShape3D" parent="Bridge/StaticBody3D" index="0"]
 disabled = true
 
-[node name="NavigationRegion3D" parent="." index="17"]
+[node name="NavigationRegion3D" parent="." index="16"]
 navigation_mesh = SubResource("NavigationMesh_agp4j")
 
 [node name="Bridge" parent="NavigationRegion3D" index="1"]
 transform = Transform3D(1.2224, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, -6.23908, -6.45647, 1.6262)
 mesh = null
 
-[node name="PlayerSpawn" parent="." index="21"]
+[node name="PlayerSpawn" parent="." index="20"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.8332, 10.1468, 1.6062)
 
 [node name="Gears" type="Node3D" parent="." index="22"]

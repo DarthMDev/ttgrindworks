@@ -1,7 +1,7 @@
 extends Node3D
 
-const GAME_FLOOR := preload("res://scenes/game_floor/game_floor.tscn")
-const INTRO_STINGER := preload("res://audio/music/intro_stinger.ogg")
+var GAME_FLOOR: PackedScene
+var INTRO_STINGER: AudioStreamOggVorbis
 
 @export var gags: Array[PackedScene]
 @export var camera_final_y: float = 100.0
@@ -16,6 +16,13 @@ const INTRO_STINGER := preload("res://audio/music/intro_stinger.ogg")
 ## Locals
 var scene_ending := false
 
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.FALLING_SEQ, self, {
+		'INTRO_STINGER': 'res://audio/music/intro_stinger.ogg'
+	})
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'GAME_FLOOR': 'res://scenes/game_floor/game_floor.tscn'
+	})
 
 func _ready() -> void:
 	AudioManager.stop_music(true)
@@ -36,6 +43,8 @@ func _ready() -> void:
 	toon.body.animator.play()
 	toon.set_emotion(Toon.Emotion.SURPRISE)
 	toon.reset_physics_interpolation()
+	var twoon := toon.create_tween()
+	twoon.tween_property(toon, 'scale', Vector3.ONE * 0.01, 5.0)
 	animate_toon()
 	do_gag_creation()
 	await move_camera()
@@ -123,8 +132,11 @@ func create_random_gag(volume := 0.0) -> void:
 
 func end_scene() -> void:
 	if is_instance_valid(Util.get_player()):
+		await GameLoader.wait_for_phase(GameLoader.Phase.GAMEPLAY)
 		Util.get_player().show()
 		Util.get_player().reset_stats()
+		Util.get_player().lock_game_timer = false
+		Globals.s_game_started.emit()
 		var gamefloor := GAME_FLOOR.instantiate()
 		gamefloor.floor_variant = get_first_floor()
 		SceneLoader.change_scene_to_node(gamefloor)
@@ -133,7 +145,7 @@ func end_scene() -> void:
 
 # Make a custom floor variant for first floor
 func get_first_floor() -> FloorVariant:
-	var floor_var: FloorVariant = RandomService.array_pick_random('floors', Globals.FLOOR_VARIANTS.load()).duplicate()
+	var floor_var: FloorVariant = RandomService.array_pick_random('floors', Globals.FLOOR_VARIANTS).duplicate()
 	# Guarantee 0 difficulty floor to start
 	floor_var.floor_difficulty = 0
 	floor_var.level_range = Vector2i(1,2)

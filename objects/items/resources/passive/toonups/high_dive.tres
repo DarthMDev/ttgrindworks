@@ -12,11 +12,16 @@ evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.4
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "High Dive"
 item_description = "All stats boost"
-big_description = ""
+big_description = "Lasts 3 rounds
++ 10% Damage
++ 10% Defense
++ 10% Evasiveness
++ 10% Luck"
 model = ExtResource("1_7x86c")
 pickup_sfx = ExtResource("2_46gtl")
 stats_add = {}

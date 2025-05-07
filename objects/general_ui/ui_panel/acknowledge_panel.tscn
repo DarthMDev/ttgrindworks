@@ -24,8 +24,7 @@ offset_right = 225.0
 offset_bottom = 135.0
 pivot_offset = Vector2(225, 135)
 title = ""
-body = "You have gone sad and will be
-dead forever :("
+body = "You have gone sad and will be dead forever :("
 cancelable = false
 
 [node name="Panel" parent="." index="0"]
@@ -48,17 +47,19 @@ anchors_preset = 5
 anchor_top = 0.0
 anchor_bottom = 0.0
 offset_left = -178.0
-offset_top = -9.0
+offset_top = 82.0
 offset_right = 178.0
-offset_bottom = 197.0
+offset_bottom = 157.0
 grow_vertical = 1
-text = "You have gone sad and will be
-dead forever :("
+text = "You have gone sad and will be dead forever :("
+autowrap_mode = 2
 
 [node name="CancelButton" parent="Panel" index="2"]
 visible = false
+hover_db_offset = 6.0
+press_db_offset = 0.0
 
-[node name="GeneralButton" parent="Panel" index="3" instance=ExtResource("2_lka8o")]
+[node name="ConfirmButton" parent="Panel" index="3" instance=ExtResource("2_lka8o")]
 material = SubResource("ShaderMaterial_3ujb1")
 layout_mode = 1
 anchors_preset = 7
@@ -76,12 +77,14 @@ texture_normal = ExtResource("4_shvpx")
 texture_pressed = ExtResource("5_soyab")
 texture_hover = ExtResource("6_ish85")
 texture_disabled = ExtResource("5_soyab")
+hover_db_offset = 6.0
+press_db_offset = 0.0
 text = "Okay"
 
-[node name="Label" parent="Panel/GeneralButton" index="0"]
+[node name="Label" parent="Panel/ConfirmButton" index="0"]
 text = "Okay"
 label_settings = SubResource("LabelSettings_kvift")
 
-[connection signal="pressed" from="Panel/GeneralButton" to="." method="close"]
+[connection signal="pressed" from="Panel/ConfirmButton" to="." method="close"]
 
-[editable path="Panel/GeneralButton"]
+[editable path="Panel/ConfirmButton"]

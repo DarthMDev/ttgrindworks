@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=38 format=3 uid="uid://qky6hxt0lyw2"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=44 format=3 uid="uid://qky6hxt0lyw2"]
 
 [ext_resource type="PackedScene" uid="uid://b1nbdcg8lvn4k" path="res://objects/modules/office/base_rooms/connector1.tscn" id="1_i5e2j"]
 [ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_kxs6h"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="3_75e7d"]
 [ext_resource type="PackedScene" uid="uid://dtaq2wty6bytx" path="res://objects/modules/office/variants/office_battle_room_battle.tscn" id="3_gbl83"]
 [ext_resource type="PackedScene" uid="uid://cr1htfcl3unfw" path="res://objects/modules/office/variants/office_diamond_room_battle.tscn" id="4_w1muv"]
-[ext_resource type="PackedScene" uid="uid://c3jefjvjikh4q" path="res://objects/modules/office/variants/office_skull_finder_room.tscn" id="4_w4332"]
 [ext_resource type="PackedScene" uid="uid://s7hcmq7vdag6" path="res://objects/modules/office/variants/office_puzzle_room_battle.tscn" id="5_645mc"]
 [ext_resource type="PackedScene" uid="uid://bh3gbfvcrqsw2" path="res://objects/modules/office/base_rooms/connector2.tscn" id="5_of1qx"]
 [ext_resource type="PackedScene" uid="uid://3a1rn2dg5dw4" path="res://objects/modules/office/variants/office_entrance_standard.tscn" id="6_b4kxl"]
@@ -19,9 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://d0lb5hhynsva" path="res://objects/modules/office/variants/office_shop.tscn" id="10_44tp6"]
 [ext_resource type="PackedScene" uid="uid://bwy6nw86pgfc6" path="res://objects/modules/office/variants/office_obstacle_course.tscn" id="10_bnm3e"]
 [ext_resource type="PackedScene" uid="uid://cnuqkx4m7bxhq" path="res://objects/modules/office/variants/office_bookshelf_maze.tscn" id="13_88wmc"]
+[ext_resource type="PackedScene" uid="uid://be4vavros0suo" path="res://objects/modules/office/variants/office_head_of_security_boss.tscn" id="14_x72hs"]
 [ext_resource type="PackedScene" uid="uid://ce2757t0r7axg" path="res://objects/modules/office/variants/office_puzzle_room_buttons.tscn" id="16_7fkw1"]
 [ext_resource type="PackedScene" uid="uid://bgivn1na5b2qh" path="res://objects/modules/office/variants/office_L_room_spotlights.tscn" id="17_83oh5"]
 [ext_resource type="PackedScene" uid="uid://dnr4jopyijvee" path="res://objects/modules/office/variants/office_L_room_puzzles.tscn" id="19_hoo1n"]
+[ext_resource type="PackedScene" uid="uid://cc1tsojhw6x8o" path="res://objects/modules/office/variants/office_diamond_room_puzzle.tscn" id="20_hrunt"]
+[ext_resource type="PackedScene" uid="uid://c7jpg878lyye3" path="res://objects/modules/office/variants/office_l_room_stomper.tscn" id="24_epcxj"]
+[ext_resource type="PackedScene" uid="uid://yu15nnc5gm1r" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.tscn" id="25_epcxj"]
 
 [sub_resource type="Resource" id="Resource_d10vb"]
 script = ExtResource("3_75e7d")
@@ -53,15 +56,16 @@ script = ExtResource("3_75e7d")
 room = ExtResource("9_orj4w")
 rarity_weight = 0.9
 
-[sub_resource type="Resource" id="Resource_b6b7v"]
-script = ExtResource("3_75e7d")
-room = ExtResource("4_w4332")
-rarity_weight = 1.0
-
 [sub_resource type="Resource" id="Resource_wmqbf"]
 script = ExtResource("3_75e7d")
 room = ExtResource("9_7gbeu")
 rarity_weight = 1.0
+
+[sub_resource type="Resource" id="Resource_481lp"]
+script = ExtResource("3_75e7d")
+room = ExtResource("14_x72hs")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
 
 [sub_resource type="Resource" id="Resource_4hddu"]
 script = ExtResource("3_75e7d")
@@ -88,6 +92,18 @@ script = ExtResource("3_75e7d")
 room = ExtResource("19_hoo1n")
 rarity_weight = 1.0
 
+[sub_resource type="Resource" id="Resource_5lpgc"]
+script = ExtResource("3_75e7d")
+room = ExtResource("20_hrunt")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+
+[sub_resource type="Resource" id="Resource_gfh6x"]
+script = ExtResource("3_75e7d")
+room = ExtResource("24_epcxj")
+rarity_weight = 0.9
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+
 [sub_resource type="Resource" id="Resource_ckkc0"]
 script = ExtResource("3_75e7d")
 room = ExtResource("10_44tp6")
@@ -98,15 +114,21 @@ script = ExtResource("3_75e7d")
 room = ExtResource("16_7fkw1")
 rarity_weight = 1.0
 
+[sub_resource type="Resource" id="Resource_87wki"]
+script = ExtResource("3_75e7d")
+room = ExtResource("25_epcxj")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+
 [resource]
 script = ExtResource("1_kxs6h")
 entrances = Array[PackedScene]([ExtResource("6_b4kxl")])
 battle_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_d10vb"), SubResource("Resource_xhxje"), SubResource("Resource_yt051"), SubResource("Resource_i3bs5"), SubResource("Resource_twmee"), SubResource("Resource_41cqb")])
-obstacle_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_4hddu"), SubResource("Resource_kg1bk"), SubResource("Resource_k3k2e"), SubResource("Resource_1bmyi"), SubResource("Resource_lap2p")])
+obstacle_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_4hddu"), SubResource("Resource_kg1bk"), SubResource("Resource_k3k2e"), SubResource("Resource_1bmyi"), SubResource("Resource_lap2p"), SubResource("Resource_5lpgc"), SubResource("Resource_gfh6x")])
 connectors = Array[PackedScene]([ExtResource("1_i5e2j"), ExtResource("5_of1qx")])
 pre_final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_ckkc0")])
-final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_b6b7v"), SubResource("Resource_wmqbf")])
+final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_wmqbf"), SubResource("Resource_481lp")])
 one_time_rooms = Array[PackedScene]([])
-special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew")])
+special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew"), SubResource("Resource_87wki")])
 background_music = Array[AudioStream]([ExtResource("1_ojny5")])
 battle_music = ExtResource("2_18ffd")

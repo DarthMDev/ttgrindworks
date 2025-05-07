@@ -281,12 +281,14 @@ scale = Vector3(0.35, 0.35, 0.35)
 [resource]
 script = ExtResource("4_ppwca")
 accessory_placements = Array[ExtResource("1_ty6rv")]([SubResource("Resource_q57fn"), SubResource("Resource_q42nf"), SubResource("Resource_rd633"), SubResource("Resource_jtby2"), SubResource("Resource_e5qpi"), SubResource("Resource_u4vnh"), SubResource("Resource_f5d13"), SubResource("Resource_x4g72"), SubResource("Resource_2tnfx"), SubResource("Resource_woxkm"), SubResource("Resource_j2kcf"), SubResource("Resource_sh7m2"), SubResource("Resource_c4xdi"), SubResource("Resource_uorpx"), SubResource("Resource_svvjw"), SubResource("Resource_8j8f6"), SubResource("Resource_ymhoe"), SubResource("Resource_dkjt4"), SubResource("Resource_0qsk0"), SubResource("Resource_gh4uu"), SubResource("Resource_uwcri"), SubResource("Resource_qifjg"), SubResource("Resource_4v2d8"), SubResource("Resource_ckb4y"), SubResource("Resource_y4ho7"), SubResource("Resource_3pp7v"), SubResource("Resource_kocle"), SubResource("Resource_s3jjp"), SubResource("Resource_dyltl"), SubResource("Resource_6yeml"), SubResource("Resource_w3j28"), SubResource("Resource_4q183"), SubResource("Resource_ulkq3"), SubResource("Resource_uixbd")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
 slot = 2
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.2
 item_name = "Aviators"

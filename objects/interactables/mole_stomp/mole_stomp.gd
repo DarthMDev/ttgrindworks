@@ -4,6 +4,7 @@ class_name MoleStompGame
 signal s_endless_hit
 signal s_managed_red_hit
 signal s_normal_finished
+signal s_game_win
 
 ## Constants
 const WAIT_TIME := Vector2(0.25,1.0)
@@ -126,6 +127,7 @@ func win_game() -> void:
 
 	Util.get_player().quick_heal(-base_damage)
 	end_game()
+	s_game_win.emit()
 
 ## I know TTO doesn't do this but I don't know if I care
 ## Cog Golf courses are terrible

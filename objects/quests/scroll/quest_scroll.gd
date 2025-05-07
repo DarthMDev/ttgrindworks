@@ -20,6 +20,7 @@ const DICE_BUTTON_TYPE := ".png"
 @onready var reroll_button := %RerollButton
 
 signal s_quest_rerolled
+signal s_quest_completed
 
 
 @export var quest : Quest:
@@ -80,6 +81,7 @@ func hover_item() -> void:
 ## Complete the quest and reset
 func complete_quest() -> void:
 	quest.item_reward.apply_item(Util.get_player())
+	s_quest_completed.emit()
 	reset_quest()
 
 func reroll_quest() -> void:
@@ -90,6 +92,7 @@ func set_rerolls(count : int) -> void:
 	if count == 0:
 		reroll_button.set_disabled(true)
 		reroll_button.self_modulate = Color.DARK_GRAY
+		reroll_button.texture_normal = load("res://ui_assets/quests/dice_buttons/dice_button0.png")
 		return
 	# Failsafe as no 5+ textures exist
 	if count > 4: count = 4
@@ -109,3 +112,7 @@ func reset_quest() -> void:
 	quest.setup()
 	update_quest()
 	$QuestBG.self_modulate = Color.WHITE
+
+func set_elements_visible(vis : bool) -> void:
+	for child in $QuestBG.get_children():
+		child.set_visible(vis)

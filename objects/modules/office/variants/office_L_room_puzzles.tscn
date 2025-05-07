@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dnr4jopyijvee"]
+[gd_scene load_steps=25 format=3 uid="uid://dnr4jopyijvee"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_0bo6q"]
 [ext_resource type="Texture2D" uid="uid://dmelmjyqb5mqh" path="res://models/facilities/office/textures/LB_Carpet.png" id="2_5lghk"]
-[ext_resource type="Texture2D" uid="uid://dqmp1vpb7ao0u" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_ih6u8"]
+[ext_resource type="Texture2D" uid="uid://bdq0remkc4roq" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_ih6u8"]
 [ext_resource type="Script" uid="uid://bhw074lp4woc" path="res://objects/modules/office/variants/office_l_room_puzzles.gd" id="2_xiadh"]
-[ext_resource type="Texture2D" uid="uid://u0k5kfqlf8sc" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="3_xxova"]
+[ext_resource type="Texture2D" uid="uid://co4lyd6o35sxd" path="res://models/facilities/office/textures/LB_tanSurface2.png" id="3_xxova"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="6_c8je7"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="7_1j6pf"]
 [ext_resource type="Script" uid="uid://jcqkmum0itxp" path="res://objects/battle/battle_resources/misc_movies/battle_entrances/virtual_cog_intro.gd" id="8_s0ouo"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="13_8kb3r"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="13_548ji"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="14_d5rig"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="14_h31es"]
 [ext_resource type="PackedScene" uid="uid://b1i34vu3l3bj6" path="res://objects/props/office/endtable.tscn" id="15_ivv2j"]
 [ext_resource type="PackedScene" uid="uid://b1cl5gdttc2ps" path="res://objects/props/office/lamp_small.tscn" id="16_lao01"]
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="17_uq4xy"]
@@ -88,9 +87,9 @@ surface_material_override/4 = SubResource("StandardMaterial3D_q6pec")
 transform = Transform3D(1.9, 0, 3.55271e-14, 0, 1.9, 0, -3.55271e-14, 0, 1.9, 4.938, 0.05, -20.343)
 
 [node name="CogButton" parent="Puzzles/Puzzle1" index="0" node_paths=PackedStringArray("connected_objects") instance=ExtResource("6_c8je7")]
-transform = Transform3D(0.75, 3.38813e-21, 0, 0, -3.27835e-08, -0.75, -3.38813e-21, 0.75, -3.27835e-08, 3.47515, -0.0219819, 8.71104)
-up_color = Color(1, 1, 1, 1)
+transform = Transform3D(0.75, 0, 3.38813e-21, 0, 0.75, 0, -3.38813e-21, 0, 0.75, 3.47515, -0.0219819, 8.71104)
 connected_objects = [NodePath("../../../CogDoor")]
+up_color = Color(1, 1, 1, 1)
 
 [node name="BattleNode" parent="Puzzles/Puzzle1" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("7_1j6pf")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
@@ -124,9 +123,9 @@ virtual_cog = true
 transform = Transform3D(0.0304407, 0, -1.89976, 0, 1.9, 0, 1.89976, 0, 0.0304407, 4.853, 0.05, -6.478)
 
 [node name="CogButton" parent="Puzzles/Puzzle2" index="0" node_paths=PackedStringArray("connected_objects") instance=ExtResource("6_c8je7")]
-transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 3.40344, -0.0212126, 7.98577)
-up_color = Color(1, 1, 1, 1)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 3.40344, -0.0212126, 7.98577)
 connected_objects = [NodePath("../../../CogDoor")]
+up_color = Color(1, 1, 1, 1)
 
 [node name="BattleNode" parent="Puzzles/Puzzle2" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("7_1j6pf")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
@@ -205,4 +204,3 @@ transform = Transform3D(1.27922, 0, 0.568851, 0, 1.4, 0, -0.568851, 0, 1.27922, 
 
 [node name="treasure_chest" parent="." index="10" instance=ExtResource("13_8kb3r")]
 transform = Transform3D(-0.99945, 0, 0.0331727, 0, 1, 0, -0.0331727, 0, -0.99945, 10.2279, 0, 6.90199)
-item_pool = ExtResource("14_h31es")

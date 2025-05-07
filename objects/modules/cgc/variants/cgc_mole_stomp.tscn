@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vqyn38aio7i2"]
+[gd_scene load_steps=6 format=3 uid="uid://vqyn38aio7i2"]
 
 [ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_oc3ju"]
 [ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="2_ferxm"]
 [ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="3_0cw1j"]
+[ext_resource type="PackedScene" uid="uid://ckhnse61p76s" path="res://objects/interactables/signal_chests/signal_chests.tscn" id="4_f61ge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bf60"]
 size = Vector3(8.98352, 8.01105, 3.54165)
@@ -12,6 +13,8 @@ size = Vector3(8.98352, 8.01105, 3.54165)
 [node name="MoleStomp" type="Area3D" parent="." index="4" node_paths=PackedStringArray("door", "launch_cam")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.66192, -0.09, -8.22481)
 script = ExtResource("2_ferxm")
+game_time = 50.0
+quota = 8
 door = NodePath("../CogDoor")
 launch_cam = NodePath("LaunchCam")
 
@@ -24,3 +27,14 @@ fov = 52.0
 
 [node name="CogDoor" parent="." index="5" instance=ExtResource("3_0cw1j")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.7046, 0, -0.617949)
+
+[node name="SignalChests" parent="." index="19" instance=ExtResource("4_f61ge")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.46024, 0, -0.631011)
+
+[node name="Chest1" type="Node3D" parent="SignalChests" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.189, 0, 0)
+
+[node name="Chest2" type="Node3D" parent="SignalChests" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.539, 0, 0)
+
+[connection signal="s_game_win" from="MoleStomp" to="SignalChests" method="spawn_chests"]

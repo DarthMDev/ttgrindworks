@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=4 uid="uid://0ppc3v31rkfn"]
+
+[ext_resource type="Script" uid="uid://dh2t45816c7vi" path="res://objects/battle/effects/sparkle_effect.gd" id="1_c43vk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vk45m"]
+emission_shape_scale = Vector3(2, 0.1, 0.1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c43vk"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vk45m"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA/wAA5QAAAAAAAAAAzMzMZgAAAAAAAIA//wAA5QAAgD8AAIA/zMzMZgAAgD8AAAAA"),
+"format": 34359738393,
+"material": SubResource("StandardMaterial3D_c43vk"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC/")
+}]
+
+[node name="GuiltTripEffect" type="GPUParticles3D"]
+amount = 40
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vk45m")
+draw_pass_1 = SubResource("ArrayMesh_vk45m")
+script = ExtResource("1_c43vk")
+center_color = Color(1, 0, 0, 0.9)
+edge_color = Color(0.8, 0.8, 0.8, 0.4)
+metadata/_custom_type_script = "uid://dh2t45816c7vi"

@@ -32,7 +32,18 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"ladder": {
+"use_external/enabled": true,
+"use_external/path": "res://models/props/gags/ladder/textures/ladder.tres"
+},
+"square_drop_shadow": {
+"use_external/enabled": true,
+"use_external/path": "res://general_resources/common/drop_shadow_square.tres"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
-fbx/embedded_image_handling=1
+fbx/embedded_image_handling=0

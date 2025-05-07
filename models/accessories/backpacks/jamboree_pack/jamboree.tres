@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cudinmbefxwu6"]
+
+[ext_resource type="Texture2D" uid="uid://cnyvpcvlrcn0i" path="res://models/accessories/backpacks/jamboree_pack/tt_m_chr_avt_acc_pac_band_tt_t_chr_avt_acc_pac_band.png" id="1_8hpda"]
+
+[resource]
+resource_name = "default.283"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_8hpda")

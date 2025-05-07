@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bu0okv1jydf5c"]
 
 [ext_resource type="Script" uid="uid://citga8di56ecl" path="res://objects/battle/battle_ui/status_effect_icon.gd" id="1_kmxcj"]
-[ext_resource type="Texture2D" uid="uid://dhn5kflsrx35n" path="res://ui_assets/battle/positive_icon.png" id="2_2v2fs"]
+[ext_resource type="Texture2D" uid="uid://c10rbf13ht1p3" path="res://ui_assets/battle/neutral_icon.png" id="2_i4y0p"]
 [ext_resource type="Texture2D" uid="uid://cp4aaluignlma" path="res://objects/battle/effects/fire/fire.png" id="3_w28ga"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="4_uyrus"]
 
@@ -18,6 +18,7 @@ anchors_preset = 0
 offset_right = 72.0
 offset_bottom = 72.0
 pivot_offset = Vector2(45, 45)
+mouse_filter = 1
 script = ExtResource("1_kmxcj")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -28,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2v2fs")
+texture = ExtResource("2_i4y0p")
 expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="."]

@@ -14,11 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://y6ineseqnb3c" path="res://objects/props/mint/boiler_a1.tscn" id="12_c2t08"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="13_yef6v"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="14_h35r2"]
-[ext_resource type="PackedScene" uid="uid://cov8sw7eluipo" path="res://objects/obstacles/stomper/stomper.tscn" id="16_dk6go"]
+[ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="16_dk6go"]
 [ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="17_o5uqo"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="18_7l4q3"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="18_tg5yo"]
 [ext_resource type="PackedScene" uid="uid://csdrrw6xiokuy" path="res://objects/props/mint/pipes/kit/pipe_shadow.tscn" id="19_2s15l"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="19_skp66"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1ht6"]
 albedo_texture = ExtResource("10_g0w7k")
@@ -32,9 +32,6 @@ size = Vector3(40.9873, 6.77917, 8.48987)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yifgo"]
 size = Vector3(12.0766, 12.8862, 6.78424)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qe4q0"]
-size = Vector3(1.81198, 5.35254, 23.0281)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60w0d"]
 size = Vector3(2.80405, 0.626145, 26.6923)
@@ -56,6 +53,9 @@ size = Vector3(4.74194, 9.27051, 8.40413)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3m56"]
 size = Vector3(2.29416, 2.09717, 2.15223)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qe4q0"]
+size = Vector3(2.16125, 5.80762, 23.0281)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i2q05"]
 data = PackedVector3Array(9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 0.0191, 9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 9.2792, 6.2624, -6.2624, 11.8353, -6.2624, -6.2624, 11.8353, -6.2624, 6.2624, 11.8353, -6.2624, 6.2624, 11.8353, 6.2624, 6.2624, 11.8353, 6.2624, -6.2624, 11.8353, -7.4652, -7.4652, 10.3864, -9.2647, -9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -9.2647, 9.2647, 9.2792, -7.4652, 7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -9.2647, -9.2647, 9.2792, -7.4652, -7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 9.2792, 7.4652, -7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 7.4652, -7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 7.4652, 7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -6.2624, -6.2624, 11.8353, -7.4652, -7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -7.4652, 7.4652, 10.3864, -6.2624, 6.2624, 11.8353, -6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 7.4652, -7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -7.4652, -7.4652, 10.3864, -6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 6.2624, -6.2624, 11.8353, 6.2624, 6.2624, 11.8353, 7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 7.4652, -7.4652, 10.3864, 6.2624, -6.2624, 11.8353, -6.2624, 6.2624, 11.8353, -7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 7.4652, 7.4652, 10.3864, 6.2624, 6.2624, 11.8353, -6.2624, 6.2624, 11.8353, 9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, -9.2647, 0.0191, -9.2647, -9.2647, 0.0191, 9.2647, -9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, 9.2647, 0.0191, 9.2647, -9.2647, 0.0191, 9.2647, -9.2647, 9.2792, 9.2647, -9.2647, 9.2792, 9.2647, 9.2647, 9.2792, 9.2647, 9.2647, 0.0191, -9.2647, -9.2647, 9.2792, -9.2647, -9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 0.0191, -9.2647, 9.2647, 9.2792, -9.2647, -9.2647, 9.2792)
@@ -510,37 +510,37 @@ shape = SubResource("BoxShape3D_yifgo")
 
 [node name="Blockers" type="StaticBody3D" parent="." index="13"]
 
-[node name="PipeWall" type="CollisionShape3D" parent="Blockers" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1229, 6.87792, -2.19288)
-shape = SubResource("BoxShape3D_qe4q0")
-
-[node name="PipeFloor" type="CollisionShape3D" parent="Blockers" index="1"]
+[node name="PipeFloor" type="CollisionShape3D" parent="Blockers" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9704, 4.31777, 0.944839)
 shape = SubResource("BoxShape3D_60w0d")
 
-[node name="PipeFloorWall" type="CollisionShape3D" parent="Blockers" index="2"]
+[node name="PipeFloorWall" type="CollisionShape3D" parent="Blockers" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6265, 1.43339, -12.6034)
 shape = SubResource("BoxShape3D_mpvtv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockers" index="3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockers" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1868, 6.15838, -14.3591)
 shape = SubResource("BoxShape3D_5dmij")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Blockers" index="4"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Blockers" index="3"]
 transform = Transform3D(0.417249, 0, -0.908792, 0, 1, 0, 0.908792, 0, 0.417249, -11.4687, 6.15838, -18.3845)
 shape = SubResource("BoxShape3D_68pa7")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Blockers" index="5"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Blockers" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2406, 2.83188, -20.8167)
 shape = SubResource("BoxShape3D_y2ua6")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Blockers" index="6"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Blockers" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7155, 4.55225, -9.72626)
 shape = SubResource("BoxShape3D_gxqsv")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Blockers" index="7"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Blockers" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8658, 2.68188, -4.4142)
 shape = SubResource("BoxShape3D_l3m56")
+
+[node name="PipeWall" type="CollisionShape3D" parent="Blockers" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6557, 6.65038, -2.19288)
+shape = SubResource("BoxShape3D_qe4q0")
 
 [node name="Stompers" type="Node3D" parent="." index="14"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.35233, 0, -4.64682)
@@ -887,10 +887,12 @@ shape = SubResource("BoxShape3D_obngl")
 
 [node name="treasure_chest" parent="." index="15" instance=ExtResource("18_7l4q3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.20235, 0, 2.96588)
+item_pool = ExtResource("18_tg5yo")
 
 [node name="treasure_chest2" parent="." index="16" instance=ExtResource("18_7l4q3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.20235, 0, 0.452563)
-item_pool = ExtResource("19_skp66")
+override_replacement_rolls = true
+item_pool = ExtResource("18_tg5yo")
 
 [node name="PipeShadows" type="Node3D" parent="." index="17"]
 

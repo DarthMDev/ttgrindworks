@@ -17,10 +17,10 @@ func action():
 	await manager.check_pulses([Util.get_player()])
 	
 	# Burn Cogs
-	targets = manager.cogs
-	manager.battle_node.focus_cogs()
-	for target in targets:
-		manager.affect_target(target, damage)
-		target.set_animation('pie-small')
-	await targets[0].animator.animation_finished
+	#targets = manager.cogs
+	#manager.battle_node.focus_cogs()
+	#for target in targets:
+		#manager.affect_target(target, damage)
+		#target.set_animation('pie-small')
+	#await targets[0].animator.animation_finished
 	await manager.check_pulses(targets)

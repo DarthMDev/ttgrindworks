@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dofa1h0rxt2q3"]
+
+[ext_resource type="Texture2D" uid="uid://dn3armsisxt2f" path="res://models/props/gags/presentation/textures/chart2.png" id="1_cgjjd"]
+
+[resource]
+resource_name = "chart2"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_cgjjd")
+emission_enabled = true

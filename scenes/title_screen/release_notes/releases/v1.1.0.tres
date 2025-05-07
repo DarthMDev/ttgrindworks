@@ -1,0 +1,156 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://7dckiiu21s44"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_jdwmb"]
+
+[resource]
+script = ExtResource("1_jdwmb")
+release_version = "v1.1.0"
+notes = "[TITLE]Engine
+Upgraded to Godot v4.4.1
+[TITLE]Items
+Added a new type of item: Pocket Pranks
+Added Jellybean Jar (1-Star)
+Added Pompadour Hairdo (1-Star)
+Added Goon Foot (2-Star)
+Added Sandwich (2-Star)
+Added Flowerpot Hat (3-Star)
+Added Gag Button (3-Star)
+Added Jester Hat (3-Star)
+Added Scuba Mask (3-Star)
+Added Sombrero (3-Star)
+Added Unstoppable Gobstopper (3-Star)
+Added Tax Write-Off (3-Star)
+Added Wizard Hat (3-Star)
+Added Jet Pack (4-Star)
+Added Cash Register (4-Star)
+Added Golden Jellybean (4-Star)
+Added Gumball Machine (4-Star)
+Added Treasure Map (4-Star)
+Added Big Foghorn (5-Star)
+Added Paint Bucket (5-Star)
+Treasures now heal half of their value on-pickup, and can be used as consumables in battle
+Lipstick now grants a Gag Discount for 3 rounds
+Juggling Cubes' now boosts Luck by 10% rather than 20%
+You can now have multiple Doodles
+Propeller Hat now adds a new anomaly to your current floor
+Rainbow Wig now removes negative anomalies on your current floor
+Safari Hat now grants full knockback damage to trap gags
+Monocle's item descriptions now display as speech bubbles above the item
+Witch Hat's Poison does not expire, and can be stacked infinitely
+Witch Hat is now a 4-Star item
+Angel Wings is now a pure all stats boost
+Slightly increased the boosts the Party Hat grants
+Standard treasure chest pools are now randomized across the game
+Added a new Item Pool for Special Rooms
+Moved some items to different pools than before
+The items you get are now more consistently tied to the game seed
+Better items are slightly more common
+Did a lot of cleanup on the item backend
+[TITLE]Facilities
+Added several new rooms to the facilities
+Added seven new anomalies
+Increased confusion induced by the Out of Touch anomaly
+Added functionality for checkpoints in some rooms with lava / paint / oil
+Changed the Mint's lava mixer room to teleport you instead of doing a damage tick
+Added some more chests to the Cog Golf Course
+Cogs are now weighted more heavily to spawn as the department of the current facility
+Slightly lowered some Mole Stomp quotas
+Special Room chance now increases with Luck
+Slightly decreased base Special Room chance
+Generated rooms are now much more consistently aligned with the run's seed
+[TITLE]Gags
+Lure knockback damage now scales with your damage stat
+[TITLE]Characters
+Julius Wheezer now starts with Gumball Machine
+Rebalanced Julius Wheezer's stats around having Gumball Machine
+Mystery Toon's starting Laff is now randomized
+Mystery Toon now starts with a random Accessory, and Pocket Prank
+Made a lot of backend changes to characters
+[TITLE]Bosses
+A new Boss has appeared in the D.A. Office
+Removed the \"Big Skull Finder\" Boss Fight
+The Ground Floor Investor boss fight has been redesigned
+Added new department variations of the \"Action!\" boss fight music 
+Slightly increased the Directors' health and damage
+Phase 2 of the Directors boss fight can now be triggered by triggered by getting the directors under a collective 1/2 HP
+Whistleblower's Compensation has a new icon, lasts an additional round, and will stack upon subsequent rounds of damage
+Chartist can now only call for reinforcements if none remain on early floors
+The Security Goon boss fight feature two sets of 3 Cogs on early floors
+Proxy Cogs can now spawn in the Security Goon Fight on later floors
+Golden Goose's conveyor belts now move faster, and spawn double safes on later floors
+The Fairway Fiend's Golf Balls now move faster on later floors
+The Factory silo's paint now rises faster on later floors
+You can now backtrack from the paint silo boss
+The Fairway Fiend's Golf Ball speed will now reset upon failure
+[TITLE]Cogs
+The Sellbots have been fitted for new suits
+Added Guilt Trip
+Added Power Trip
+Added Clip On Tie
+Added Power Tie
+Increased Cog levels slightly on later floors
+All Cashbots can now steal your jellybeans using \"Embezzle\"
+Jellybean steal is now only a chance
+Stolen jellybeans can now be taken back if you defeat the Cog quickly
+[TITLE]Proxy Cogs
+Three new proxy Cogs have appeared in Cog HQ
+Proxy Cogs have gained a new ability
+Renamed the Embezzler proxy ability to \"Schadenfreude\"
+[TITLE]Cog Creator
+Cog name prefixes and suffixes can now be specified
+Added the Waiter suit to the suit override options
+Added the Classic Sellbot suit to the suit override options
+[TITLE]Tweaks
+Added two new achievements
+Added a new title screen sequence for intro skips
+The title screen now displays a notice for when there is a newer game version to download
+Added a button to visit itch.io on the Release Notes panel
+Improved the look of the Release Notes panel
+Stats now display as percentages
+Stat Boosts combining is now additive
+The pause menu now shows you how much your stats changed since you last paused
+The pause menu now supports multiple pages
+You can now see your current Gag loadout on the pause menu
+Added a new icon for when you have 0 Task Rerolls left
+The game timer now pauses for more sequences than it did before
+Treasure Chests have a new model, and new textures depending on which item pool they belong to
+Regeneration status effects won't play their animation if their target is already at full hp
+The status effects on Cog Panels can now be expanded on hover when there are more than two lines to show
+Status effects and anomalies have been given a slight makeover for cohesion
+Defense, Damage, Luck and Evasiveness all have a minimum value of 10%
+Unfinished ToonTasks will be cleared out after the fifth floor
+Made many visual improvements to battle movies
+The Laff Meter now plays unique animations based on if you are damaged or healed
+The Laff Meter will now flash red when you are on low laff
+Made the Toon Tip in the elevator scene slightly smaller
+Added confirmation dialogs to some otherwise haphazard UI elements
+Added a button to open the save file folder in settings
+Added a x2.0 battle speed option
+Asset loading has been revamped, no more force loading on the title screen
+Various minor visual improvements
+Made the game a smidge shorter
+A lot of backend changes were made for the purpose of making modding easier
+[TITLE]Bugfixes
+Made a new system for fading out objects that are in the way of the battle camera. Please report any new or remaining problematic camera angles!
+Placing a Trap on a Trap immune Cog should no longer set the Gag's damage to 0
+Fixed a bug where moving platform velocity wouldn't be properly applied on low fps systems
+Fixed a bug where Cogs wouldn't properly play the lured animation when lured
+Fixed a bug that caused Eviction Notice to be unable to defeat the player
+Fixed a bug where unluring a Cog would not undo the damage down effect
+Fixed a bug where Cogs absorbing damage for Union Buster would play the defeat animation twice
+Fixed a collision box size in A Cog Golf Course special room
+Fixed a bug where you would drop your current shape in the Drag Three in a Row puzzle
+Fixed a bug where group Lure's damage down was not properly reduced for adjacent Cogs
+Fixed a bug where Geyser made the Cog's head sink inwards during the animation
+Fixed the Monkey's Laff Meter size
+The Doodle's animation now properly returns to Neutral after joining a fight
+Fixed an issue with backface culling on the Dog toon ears
+Fixed an issue where Mover & Shaker couldn't appear as a Task Cog
+Fixed a bug where stacking aftershock/poison wouldn't display on the status effect
+Fixed the default suit option in the Cog Creator not properly reverting the suit textures of custom Cogs
+Fixed an exploit in the Special Mint pipe room
+Fixed an exploit in the D.A. Office tri-color button room
+Fixed a crash when trying to load an invalid save file
+Potentially fixed Toon decapitation on the lose screen
+Potentially fixed a bug where the elevator would not appear in the Paint Silo Boss
+Minor Text Fixes"

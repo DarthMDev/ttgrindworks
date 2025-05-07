@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxbwnis7yc03g"]
+
+[ext_resource type="PackedScene" uid="uid://u4vik7rgy7we" path="res://objects/general_ui/ui_panel/acknowledge_panel.tscn" id="1_ahl3m"]
+[ext_resource type="Script" uid="uid://capoh323fylby" path="res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.gd" id="2_ahl3m"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_tvhaa"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="4_7svek"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="5_p1n6x"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="6_ay325"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="7_b76ya"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahl3m"]
+font = ExtResource("7_b76ya")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iscji"]
+font = ExtResource("7_b76ya")
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvhaa"]
+font = ExtResource("7_b76ya")
+font_size = 24
+font_color = Color(0.821911, 2.62313e-06, 7.70092e-07, 1)
+shadow_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2i1sy"]
+font = ExtResource("7_b76ya")
+font_size = 24
+font_color = Color(0, 0.643698, 3.85046e-07, 1)
+shadow_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7svek"]
+font = ExtResource("7_b76ya")
+font_size = 24
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.784314)
+
+[node name="SaveErrorPanel" instance=ExtResource("1_ahl3m")]
+offset_left = -283.0
+offset_top = -172.0
+offset_right = 283.0
+offset_bottom = 172.0
+script = ExtResource("2_ahl3m")
+title = "ERROR LOADING SAVE FILES"
+body = "Some files could not be loaded."
+
+[node name="Panel" parent="." index="0"]
+pivot_offset = Vector2(283, 172)
+
+[node name="Title" parent="Panel" index="0"]
+text = "ERROR LOADING SAVE FILES"
+
+[node name="Body" parent="Panel" index="1"]
+offset_left = -273.0
+offset_top = 63.0
+offset_right = 273.0
+offset_bottom = 138.0
+text = "Some files could not be loaded."
+label_settings = SubResource("LabelSettings_ahl3m")
+
+[node name="ConfirmButton" parent="Panel" index="3"]
+offset_left = 6.0
+offset_right = 180.0
+
+[node name="Label" parent="Panel/ConfirmButton" index="0"]
+label_settings = SubResource("LabelSettings_iscji")
+
+[node name="FolderButton" parent="Panel" index="4" instance=ExtResource("2_tvhaa")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -116.0
+offset_right = -11.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_7svek")
+texture_pressed = ExtResource("5_p1n6x")
+texture_hover = ExtResource("6_ay325")
+texture_disabled = ExtResource("5_p1n6x")
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Open Folder"
+
+[node name="Label" parent="Panel/FolderButton" index="0"]
+text = "Open Folder"
+label_settings = SubResource("LabelSettings_iscji")
+
+[node name="LabelContainer" type="VBoxContainer" parent="Panel" index="5"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 45.0
+offset_top = 127.0
+offset_right = 524.0
+offset_bottom = 228.0
+
+[node name="ProgressLabel" type="Label" parent="Panel/LabelContainer" index="0"]
+layout_mode = 2
+text = "- user://save/progress.tres"
+label_settings = SubResource("LabelSettings_tvhaa")
+
+[node name="RunLabel" type="Label" parent="Panel/LabelContainer" index="1"]
+layout_mode = 2
+text = "- user://save/current_save.tres"
+label_settings = SubResource("LabelSettings_2i1sy")
+
+[node name="SettingsLabel" type="Label" parent="Panel/LabelContainer" index="2"]
+layout_mode = 2
+text = "- user://save/settings.tres"
+label_settings = SubResource("LabelSettings_7svek")
+
+[connection signal="pressed" from="Panel/FolderButton" to="." method="open_save_folder"]
+
+[editable path="Panel/ConfirmButton"]
+[editable path="Panel/FolderButton"]

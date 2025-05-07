@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://dijh2jf6717ci"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=10 format=3 uid="uid://dijh2jf6717ci"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_8q27p"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_6kt31"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_vvq27"]
 [ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="3_duvfn"]
 [ext_resource type="Resource" uid="uid://dwkmwkdn3ws4k" path="res://objects/battle/battle_resources/cog_attacks/resources/evil_eye.tres" id="3_tqasm"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="4_3lolw"]
 [ext_resource type="Texture2D" uid="uid://bhgp2rx51bvin" path="res://models/cogs/heads/tt_t_ene_hed_robberBaron.png" id="4_q5yyg"]
+[ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="5_4ynmt"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="6_jaa1a"]
 
 [resource]
@@ -23,7 +25,7 @@ hand_color = Color(0.662745, 0.756863, 0.733333, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_8q27p")]([ExtResource("2_vvq27"), ExtResource("3_tqasm")])
+attacks = Array[ExtResource("1_8q27p")]([ExtResource("2_vvq27"), ExtResource("3_tqasm"), ExtResource("4_3lolw"), ExtResource("5_4ynmt")])
 level_low = 8
 level_high = 20
 status_effects = Array[ExtResource("6_jaa1a")]([])

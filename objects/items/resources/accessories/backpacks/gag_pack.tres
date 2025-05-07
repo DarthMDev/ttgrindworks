@@ -31,12 +31,14 @@ scale = Vector3(1, 1, 1)
 [resource]
 script = ExtResource("1_ltiyy")
 accessory_placements = Array[ExtResource("1_gjp8m")]([SubResource("Resource_lhhvb"), SubResource("Resource_sl4s4"), SubResource("Resource_by7s7")])
+item_tags = null
 qualitoon = 4
 rarity = 6
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.25
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.375
 item_name = "Gag Attack Pack"

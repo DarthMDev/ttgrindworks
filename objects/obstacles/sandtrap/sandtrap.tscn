@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://f6p3f57tkk11"]
+
+[ext_resource type="Shader" uid="uid://3bv5mj5bjsjm" path="res://objects/obstacles/sandtrap/sandtrap.tres" id="1_8hold"]
+[ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="2_dkymw"]
+[ext_resource type="Script" uid="uid://yxhwab534eoo" path="res://objects/obstacles/sandtrap/sandtrap.gd" id="3_n5d0c"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_md4hg"]
+frequency = 0.0205
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n5d0c"]
+noise = SubResource("FastNoiseLite_md4hg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1twe"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_8hold")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+shader_parameter/uv_scale = Vector2(0.509395, 0.394402)
+shader_parameter/ImageTexture = ExtResource("2_dkymw")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_n5d0c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_efgor"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_p1twe")
+size = Vector2(1.22, 0.93)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hold"]
+size = Vector3(0.976, 1, 0.744)
+
+[node name="SandTrap" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_efgor")
+script = ExtResource("3_n5d0c")
+size = Vector2(1.22, 0.93)
+
+[node name="PlayerDetection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.338291, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_8hold")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="body_exited"]

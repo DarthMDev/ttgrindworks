@@ -53,6 +53,13 @@ shader_parameter/alpha = 1.0
 font = ExtResource("14_ndcfx")
 font_size = 24
 
+[sub_resource type="LabelSettings" id="LabelSettings_fdkeb"]
+font = ExtResource("14_ndcfx")
+font_size = 24
+font_color = Color(1, 1, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.631373)
+
 [sub_resource type="LabelSettings" id="LabelSettings_1pg68"]
 font = ExtResource("10_dmagf")
 font_size = 48
@@ -140,7 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_pgrta")
 toon_collision = SubResource("CapsuleShape3D_j5ei2")
 AuthPopup = NodePath("GUI/Popup")
@@ -162,6 +169,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ClickLabel" type="Label" parent="GUI/Logo"]
 unique_name_in_owner = true
@@ -188,10 +196,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = -281.0
-offset_right = 367.0
-offset_bottom = 281.0
+offset_left = -337.0
+offset_top = -258.0
+offset_right = 337.0
+offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_yo3if")
@@ -238,6 +246,25 @@ text = "Release Notes"
 [node name="Label" parent="GUI/Logo/ReleaseNotesButton" index="0"]
 text = "Release Notes"
 label_settings = SubResource("LabelSettings_5vlir")
+
+[node name="NewVersionLabel" type="Label" parent="GUI/Logo/ReleaseNotesButton"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -54.0
+offset_right = -7.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "New Version Available!"
+label_settings = SubResource("LabelSettings_fdkeb")
+horizontal_alignment = 2
 
 [node name="NewGameMenu" type="Control" parent="GUI"]
 unique_name_in_owner = true
@@ -1024,6 +1051,10 @@ gizmo_extents = 1.0
 [node name="MenuTerrain" parent="World3D" instance=ExtResource("21_1byba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.97, -41.5)
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
+[connection signal="gui_input" from="." to="." method="gui_input"]
 [connection signal="pressed" from="GUI/Logo/ReleaseNotesButton" to="." method="open_releases"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/BackButton" to="." method="back_pressed"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/ExtrasButton" to="." method="open_extras"]
@@ -1045,3 +1076,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.97, -41.5)
 [editable path="GUI/NewGameMenu/MiddleButtons/CrowdControlButton"]
 [editable path="GUI/ToonSummary/Panel/HBoxContainer/Cancel"]
 [editable path="GUI/ToonSummary/Panel/HBoxContainer/PlayButton"]
+[editable path="World3D/CogBuilding"]
+[editable path="World3D/CogBuilding/suit_landmark_new_corp/locators/suit_landmark_new_corp_door_origin/GeometryTransformHelper11/sellbot_elevator"]

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://c8wjy8fdkxarx"]
+
+[ext_resource type="Texture2D" uid="uid://b8vyudhdyu5e" path="res://ui_assets/player_ui/pocket_prank_icons/gag button.png" id="1_pqv1w"]
+[ext_resource type="Script" uid="uid://cktwtmwoiu3ko" path="res://objects/items/custom/item_gag_button.gd" id="2_2w4li"]
+[ext_resource type="PackedScene" uid="uid://cf2wgv8gpygb" path="res://models/props/gags/button/toon_button.tscn" id="2_pqv1w"]
+[ext_resource type="AudioStream" uid="uid://pja6h30go3ts" path="res://audio/sfx/battle/gags/AA_trigger_box.ogg" id="3_2w4li"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="4_m73g3"]
+
+[resource]
+script = ExtResource("4_m73g3")
+sfx = Array[AudioStream]([])
+active_type = 1
+charge_count = 3
+current_charge = 3
+qualitoon = 2
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.4
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Gag Button"
+item_description = "Gag generator"
+big_description = "Makes your gags free for one round"
+model = ExtResource("2_pqv1w")
+pickup_sfx = ExtResource("3_2w4li")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_2w4li")
+remember_item = true
+icon = ExtResource("1_pqv1w")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

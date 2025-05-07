@@ -244,7 +244,11 @@ func battle_started(battle : BattleNode) -> void:
 		global_position = battle.get_partner_position(player.partners.find(self))
 		face_position(battle.global_position)
 		teleport_in(DoodleState.BATTLE)
-		tween.finished.connect(func(): s_battle_ready.emit())
+		tween.finished.connect(
+		func(): 
+			s_battle_ready.emit()
+			set_animation('neutral')
+		)
 	)
 	
 	battle.s_battle_ending.connect(battle_ending)
@@ -253,6 +257,7 @@ func battle_started(battle : BattleNode) -> void:
 func get_attack() -> DoodleAction:
 	if not doodle_actions.is_empty():
 		var action := doodle_actions[RandomService.randi_channel('true_random') % doodle_actions.size()]
+		action = action.duplicate()
 		action.user = self
 		action.targets = [player]
 		return action

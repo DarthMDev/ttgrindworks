@@ -31,7 +31,7 @@ func on_round_start(_actions: Array[BattleAction], _manager: BattleManager) -> v
 		attack.targets = [self]
 		attack.user = cog
 		manager.round_end_actions.append(attack)
-	if manager.current_round % 4 == 0 and manager.cogs.size() < 4:
+	if manager.current_round % 4 == 0 and can_reboot():
 		# Insert reboot
 		attack = load("res://objects/battle/battle_resources/misc_movies/sales_director/sd_reboot.tres").duplicate()
 		attack.elevator = elevator
@@ -44,3 +44,8 @@ func on_round_start(_actions: Array[BattleAction], _manager: BattleManager) -> v
 		attack.suit_walk_cam = %SuitWalkCam
 		attack.user = cog
 		manager.round_end_actions.append(attack)
+
+func can_reboot() -> bool:
+	if Util.on_easy_floor():
+		return manager.cogs.size() == 1
+	return manager.cogs.size() < 4

@@ -1,0 +1,110 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bs35ff21limfb"]
+
+[sub_resource type="Shader" id="Shader_4l7jw"]
+code = "
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+uniform float fade = 0.5;
+
+// Glitch intensity
+uniform float shake_power = 0.5;
+
+// Probability
+uniform float shake_rate : hint_range(0.0, 1.0) = 0.5;
+
+uniform float shake_speed = 5.0;
+
+uniform float shake_time = 5.0;
+
+uniform bool should_shake = true;
+
+// Hard to describe, change it and monitor result
+uniform float shake_block_size = 30.5;
+
+varying float enable_shift;
+
+float random(float seed) {
+    return fract(sin(seed * 12345.678) * 43758.5453);
+}
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+
+	float adjusted_time = mod(TIME, shake_time);
+
+	enable_shift = float(random(trunc(adjusted_time * shake_speed)) < shake_rate);
+	
+	if (should_shake) {
+		float offset_x = (random((trunc(VERTEX.y * shake_block_size) / shake_block_size) + adjusted_time) - 0.5) * shake_power * enable_shift;
+		VERTEX.x += offset_x;
+	}
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+
+	// Vertex Color Use as Albedo: Enabled
+	albedo_tex *= COLOR;
+
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	{
+		
+		
+		// Use interleaved gradient noise, which is fast but still looks good.
+		const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
+		
+		// Use a hard cap to prevent a few stray pixels from remaining when past the fade-out distance.
+		if (fade < 0.001 || fade < fract(magic.z * fract(dot(FRAGCOORD.xy, magic.xy)))) {
+			discard;
+		}
+	}
+	
+
+
+}
+"
+
+[resource]
+resource_name = "lambert3SG.001"
+render_priority = 0
+shader = SubResource("Shader_4l7jw")
+shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/fade = 0.75
+shader_parameter/shake_power = 0.3
+shader_parameter/shake_rate = 0.611071
+shader_parameter/shake_speed = 1.0
+shader_parameter/shake_time = 2.0
+shader_parameter/should_shake = false
+shader_parameter/shake_block_size = 30.5

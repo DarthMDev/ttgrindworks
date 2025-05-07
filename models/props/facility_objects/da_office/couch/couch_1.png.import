@@ -2,13 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5asl4vi3ppyo"
+uid="uid://dmoflvm0p8a42"
 path="res://.godot/imported/couch_1.png-f8686434a58c5cd99ff20f10efdd8705.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "bf720b4a5e4d960dccd0c821a2d634bf"
 }
 
 [deps]

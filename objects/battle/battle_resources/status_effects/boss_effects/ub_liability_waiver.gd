@@ -27,7 +27,7 @@ func apply() -> void:
 	
 	movie.tween_callback(battle_node.focus_character.bind(target))
 	movie.tween_callback(target.speak.bind(dialogue_choice))
-	movie.tween_callback(manager.battle_text.bind(target, "+%s Max HP" % hp_increase, BattleText.colors.green[0], BattleText.colors.green[1]))
+	movie.tween_callback(manager.battle_text.bind(target, "+%d Max HP" % hp_increase, BattleText.colors.green[0], BattleText.colors.green[1]))
 	await movie.finished
 	movie.kill()
 

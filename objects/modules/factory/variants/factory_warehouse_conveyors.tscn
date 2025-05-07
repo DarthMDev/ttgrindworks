@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://4tnbltasjda3"]
+[gd_scene load_steps=34 format=4 uid="uid://4tnbltasjda3"]
 
 [ext_resource type="PackedScene" uid="uid://du44f34bf0nmq" path="res://objects/modules/factory/base_rooms/factory_warehouse_empty.tscn" id="1_qsn1m"]
 [ext_resource type="PackedScene" uid="uid://celxj5u1aay0l" path="res://objects/props/etc/wood_crate.tscn" id="2_5tyui"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="12_3wgqh"]
 [ext_resource type="PackedScene" uid="uid://082ydm2p46ld" path="res://objects/props/factory/wall_lamp.tscn" id="12_fei4c"]
 [ext_resource type="PackedScene" uid="uid://bqvkntyk0ljsq" path="res://objects/goon/goon.tscn" id="19_s16hn"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="19_xp8hd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jk81"]
 resource_name = "__WAREHOUSE_newfixes_v1s2___WAREHOUSE_finalfixesv1s5_XBeamx4SHD"
@@ -109,29 +110,29 @@ data = PackedVector3Array(-11.1283, 420.737, -4922.61, -11.1283, 369.824, -4922.
 [sub_resource type="BoxShape3D" id="BoxShape3D_st2g8"]
 size = Vector3(1.81195, 2.26929, 0.76178)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muxx4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xp8hd"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("6_5ihuv")
 roughness = 0.552786
 uv1_scale = Vector3(1, 4, 1)
-uv1_offset = Vector3(0, -1.68889, 0)
+uv1_offset = Vector3(0, -0.483011, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kflty"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp7er"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("6_5ihuv")
 roughness = 0.552786
 uv1_scale = Vector3(1, 4, 1)
-uv1_offset = Vector3(0, -1.68889, 0)
+uv1_offset = Vector3(0, -0.483011, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viauh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05tgp"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("6_5ihuv")
 roughness = 0.552786
 uv1_scale = Vector3(1, 4, 1)
-uv1_offset = Vector3(0, -1.55556, 0)
+uv1_offset = Vector3(0, -1.07346, 0)
 
 [sub_resource type="Curve3D" id="Curve3D_baf3d"]
 _data = {
@@ -567,21 +568,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.18783, 0)
 transform = Transform3D(1, 0, 0, 0, 0.984549, 0.175109, 0, -0.175109, 0.984549, 21.2404, 4.89388, -0.326682)
 constant_linear_velocity = Vector3(0, 0, 8)
 size = Vector3(1, 1, 4)
-platform_mat = SubResource("StandardMaterial3D_muxx4")
+platform_mat = SubResource("StandardMaterial3D_xp8hd")
 speed = 8.0
 
 [node name="ConveyerBelt2" parent="Conveyors" index="1" instance=ExtResource("5_uegom")]
 transform = Transform3D(-4.30116e-08, -0.00315905, -0.999995, -7.79017e-09, 0.999995, -0.00315902, 1, 7.65426e-09, -4.3036e-08, 11.827, 5.98231, 11.2717)
 constant_linear_velocity = Vector3(-8, 0, -3.49691e-07)
 size = Vector3(1, 1, 4)
-platform_mat = SubResource("StandardMaterial3D_kflty")
+platform_mat = SubResource("StandardMaterial3D_qp7er")
 speed = 8.0
 
 [node name="ConveyerBelt3" parent="Conveyors" index="2" instance=ExtResource("5_uegom")]
 transform = Transform3D(-4.44112e-08, 0.00315905, 0.999995, -7.79017e-09, 0.999995, -0.00315902, -1, -7.93043e-09, -4.43863e-08, 1.9454, 5.98231, 4.78711)
 constant_linear_velocity = Vector3(5, 0, -2.18557e-07)
 size = Vector3(1, 1, 4)
-platform_mat = SubResource("StandardMaterial3D_viauh")
+platform_mat = SubResource("StandardMaterial3D_05tgp")
 speed = 5.0
 
 [node name="SpinningGear" parent="." index="9" instance=ExtResource("10_lid6c")]
@@ -620,7 +621,9 @@ eye_color = Color(0.407843, 0.407843, 0, 1)
 state = 1
 
 [node name="treasure_chest" parent="." index="16" instance=ExtResource("12_3wgqh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.574, 18.6981, 0.961773)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.574, 18.7188, 0.961773)
+override_replacement_rolls = true
+item_pool = ExtResource("19_xp8hd")
 
 [node name="Goons" type="Node3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11175, 7.66464, 0)

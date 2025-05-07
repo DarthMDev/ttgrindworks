@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://w47mu07t0gki"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_irxac"]
+[ext_resource type="Texture2D" uid="uid://djpyvs5sy15jr" path="res://ui_assets/player_ui/pocket_prank_icons/treasure map.png" id="1_ph8hn"]
+[ext_resource type="PackedScene" uid="uid://iooedglblfmw" path="res://objects/items/custom/treasure_map/treasure_map.tscn" id="1_ynng0"]
+[ext_resource type="Script" uid="uid://ctmlvygro0pep" path="res://objects/items/custom/treasure_map/item_treasure_map.gd" id="2_ph8hn"]
+
+[resource]
+script = ExtResource("1_irxac")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 0
+current_charge = 0
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.3
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Treasure Map"
+item_description = "Double yer booty!"
+big_description = "Duplicate the next nearest unopened chest"
+model = ExtResource("1_ynng0")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_ph8hn")
+remember_item = true
+icon = ExtResource("1_ph8hn")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

@@ -2,26 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct3lpchsmtc0u"
-path.s3tc="res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.s3tc.ctex"
-path.etc2="res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.etc2.ctex"
+uid="uid://b8qao3ri04mbs"
+path="res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "bb4e4199f891c7b794d1aef39fde6a62"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/props/cog_props/calculator/calculator_crank.png"
-dest_files=["res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.s3tc.ctex", "res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.etc2.ctex"]
+dest_files=["res://.godot/imported/calculator_crank.png-0374d5aefd0b153548d5cf14306e8250.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=3
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

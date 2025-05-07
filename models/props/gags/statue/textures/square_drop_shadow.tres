@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3u4yiu1a0eas"]
+
+[ext_resource type="Texture2D" uid="uid://dhqat08aapjgj" path="res://models/props/gags/statue/textures/square_drop_shadow.png" id="1_jpw22"]
+
+[resource]
+resource_name = "square_drop_shadow"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_jpw22")
+emission_enabled = true

@@ -2,8 +2,10 @@
 extends StatusEffect
 
 const FIRE = preload("res://objects/battle/effects/fire/fire.tscn")
+const FIRE_BURST := preload("res://objects/battle/effects/fire/fireburst.tscn")
 const SFX_FLAMES := preload("res://audio/sfx/battle/cogs/attacks/SA_hot_air.ogg")
 const VISUAL_DOT := preload("res://objects/battle/battle_resources/status_effects/resources/fire_sale_visual_dot.tres")
+
 
 const APPLY_LINES: Array[String] = [
 	"Get 'em while they're hot!",
@@ -42,6 +44,7 @@ func renew() -> void:
 	var battle_node := manager.battle_node
 	
 	# Focus Player
+	movie.tween_callback(do_fire_burst)
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('cringe'))
 	movie.tween_callback(manager.affect_target.bind(player, damage))
@@ -69,6 +72,7 @@ func application_movie() -> void:
 	movie.tween_interval(2.5)
 	
 	# Focus Toon
+	movie.tween_callback(do_fire_burst)
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('slip_forwards'))
 	movie.tween_callback(player.add_child.bind(fire))
@@ -84,3 +88,13 @@ func application_movie() -> void:
 	await movie.finished
 	movie.kill()
 	await manager.check_pulses([player])
+
+func do_fire_burst() -> void:
+	var fire_burst := FIRE_BURST.instantiate()
+	manager.battle_node.add_child(fire_burst)
+	fire_burst.global_position = player.toon.backpack_bone.global_position
+	for child in fire_burst.get_children():
+		if child is GPUParticles3D:
+			child.emitting = true
+	await Task.delay(1.5)
+	fire_burst.queue_free()

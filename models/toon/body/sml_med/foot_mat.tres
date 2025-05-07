@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://jstsvmhsauo4"]
 
-[ext_resource type="Texture2D" uid="uid://blgbrr4vxctet" path="res://models/toon/textures/bodies/sml_med-58ba2d349c8605706a1c4c98510749d2_bareFeetGeneric.png" id="1_wvlyx"]
+[ext_resource type="Texture2D" uid="uid://blgbrr4vxctet" path="res://models/toon/body/sml_med/sml_med-58ba2d349c8605706a1c4c98510749d2_bareFeetGeneric.png" id="1_wvlyx"]
 
 [resource]
 cull_mode = 2

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cslmi54rt8j8w"]
+
+[ext_resource type="Texture2D" uid="uid://dwopoky6elvft" path="res://models/accessories/glasses/scuba_mask/tt_m_chr_avt_acc_msk_scubaMask_tt_t_chr_avt_acc_msk_scubaMask.png" id="1_hd5t0"]
+
+[resource]
+resource_name = "default.276"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hd5t0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpa5vpkfj7mq6"]
+[gd_scene load_steps=18 format=4 uid="uid://cpa5vpkfj7mq6"]
 
 [ext_resource type="PackedScene" uid="uid://dumm43iwldfhs" path="res://objects/modules/factory/base_rooms/factory_silo_int.tscn" id="1_2e01g"]
 [ext_resource type="PackedScene" uid="uid://b6eexfh4v078o" path="res://objects/interactables/elevators/sellbot_elevator.tscn" id="2_5v41x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://buvo6xgnf27w8" path="res://objects/battle/battle_resources/misc_movies/clown_boss/clown_intro.gd" id="7_dfrhk"]
 [ext_resource type="PackedScene" uid="uid://dgqurwn1l3pdg" path="res://models/props/facility_objects/memo/memo.fbx" id="8_hd2mx"]
 [ext_resource type="Texture2D" uid="uid://c3siydcrqhpte" path="res://models/props/facility_objects/memo/memo_clown.png" id="9_4xpdn"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="11_mxy3y"]
 
 [sub_resource type="GDScript" id="GDScript_foksf"]
 resource_name = "scene_setter"
@@ -74,6 +75,9 @@ shadow_mesh = SubResource("ArrayMesh_5a6st")
 
 [node name="SiloInterior" instance=ExtResource("1_2e01g")]
 script = SubResource("GDScript_foksf")
+
+[node name="Generator" parent="." index="2"]
+metadata/battle_cam_hide = true
 
 [node name="BossFight" type="Node3D" parent="." index="3"]
 
@@ -168,6 +172,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 62.857, -221.263)
 
 [node name="Node3D" parent="ENTRANCE" index="0" instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="DebugPlayerPositionMarker" parent="." index="14" instance=ExtResource("11_mxy3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.364395, 64.901, -221.143)
 
 [connection signal="s_battle_end" from="BossFight/BattleNode" to="." method="boss_completed"]
 

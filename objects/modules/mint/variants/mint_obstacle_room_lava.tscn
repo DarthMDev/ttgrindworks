@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="4_xt6bn"]
 [ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="4_y365j"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="5_e4pgp"]
-[ext_resource type="Texture2D" uid="uid://bixkesses7em4" path="res://models/facilities/mint/textures/CementFloorx4.png" id="5_wx15j"]
+[ext_resource type="Texture2D" uid="uid://du0hhwdlmawws" path="res://models/facilities/mint/textures/CementFloorx4.png" id="5_wx15j"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="6_05nx2"]
 [ext_resource type="Material" uid="uid://dmafgykr0wfb3" path="res://models/facilities/general/materials/lava_mat.tres" id="7_r6v00"]
 [ext_resource type="Texture2D" uid="uid://dw0ovgcnsmkqi" path="res://objects/misc/spotlight_1.png" id="8_jbmn2"]
@@ -390,6 +390,7 @@ texture_type = 1
 
 [node name="LavaFloor" parent="." index="12" instance=ExtResource("6_05nx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.094188, 0)
+lava_type = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.517563, -0.249593, -1.92697)

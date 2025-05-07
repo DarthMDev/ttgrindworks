@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2afui5p28af" path="res://objects/modules/mint/base_rooms/mint_diamond_room.tscn" id="1_h2rqk"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_alx7d"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_okjj0"]
-[ext_resource type="Resource" uid="uid://cdnhms1ktp5l3" path="res://objects/cog/presets/sellbot/rainbow_hander.tres" id="4_16xtn"]
+[ext_resource type="Resource" uid="uid://q8ev1hag3yvy" path="res://objects/cog/presets/sellbot/mr_hollywood.tres" id="4_16xtn"]
 [ext_resource type="PackedScene" uid="uid://wpoc3xs1yy0" path="res://objects/player/player.tscn" id="4_fefq8"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="5_wgpvb"]
 [ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="6_sp5d7"]
@@ -23,11 +23,11 @@
 [ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="17_8fcps"]
 [ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="17_aepo7"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="23_16xtn"]
-[ext_resource type="Resource" uid="uid://ba7mgoe7i5oq4" path="res://objects/items/resources/accessories/backpacks/gag_pack.tres" id="24_1xuw6"]
-[ext_resource type="Resource" uid="uid://divycml3lyvqr" path="res://objects/items/resources/accessories/hats/detective_hat.tres" id="25_66vty"]
-[ext_resource type="Resource" uid="uid://b4pssn72ke7uu" path="res://objects/items/resources/accessories/glasses/heart_glasses.tres" id="26_ouruu"]
+[ext_resource type="Resource" uid="uid://dyt4cqi2xkctw" path="res://objects/items/resources/active/bounce_check.tres" id="24_16xtn"]
+[ext_resource type="Resource" uid="uid://thgjta7yh73q" path="res://objects/items/resources/accessories/hats/witch_hat.tres" id="25_1xuw6"]
+[ext_resource type="Resource" uid="uid://csrgfcqxhl18x" path="res://objects/items/resources/active/golden_jellybean.tres" id="26_16xtn"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="27_4p2an"]
-[ext_resource type="Resource" uid="uid://dwo2a46e1wwew" path="res://objects/items/resources/accessories/hats/fedora.tres" id="28_qncha"]
+[ext_resource type="Resource" uid="uid://bed0hxns3is4g" path="res://objects/items/resources/accessories/hats/fedora.tres" id="28_qncha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pfdn"]
 size = Vector3(14.6639, 5.65576, 10.2309)
@@ -95,7 +95,10 @@ gag_loadout = SubResource("Resource_s4oci")
 starting_laff = 25
 starting_items = Array[ExtResource("14_7upve")]([ExtResource("15_8ctgi")])
 base_stats = SubResource("Resource_4yraj")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({})
 random_character_stored_name = ""
+achievement_index = 0
 
 [sub_resource type="Resource" id="Resource_vs51t"]
 script = ExtResource("17_8fcps")
@@ -152,6 +155,14 @@ toonups = Dictionary[int, int]({
 5: 10,
 6: 10
 })
+treasures = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0
+})
 gag_cap = 100
 gag_discount = -1
 character = SubResource("Resource_br8l0")
@@ -170,12 +181,14 @@ trap_knockback_percent = 0.0
 anomaly_boost = 0
 laff_boost_boost = 0
 extra_lives = 0
+toonup_boost = 0.0
 sellbot_boost = 1.0
 cashbot_boost = 1.0
 lawbot_boost = 1.0
 bossbot_boost = 1.0
 proxy_chance_boost = 0.0
 cog_hp_death_threshold = 0.0
+battle_timers = Array[int]([])
 damage = 2.0
 defense = 1.25
 evasiveness = 1.1
@@ -215,6 +228,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 cogs = [NodePath("Cog")]
 
 [node name="Cog" parent="Root Scene/BattleNode2" instance=ExtResource("3_okjj0")]
+use_floor_pool = false
 dna = ExtResource("4_16xtn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Root Scene/BattleNode2"]
@@ -228,15 +242,15 @@ stats = SubResource("Resource_vs51t")
 
 [node name="treasure_chest" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0877, 0, -5.41882)
-override_item = ExtResource("24_1xuw6")
+override_item = ExtResource("24_16xtn")
 
 [node name="treasure_chest2" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9695, 0, -5.41882)
-override_item = ExtResource("25_66vty")
+override_item = ExtResource("25_1xuw6")
 
 [node name="treasure_chest3" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5301, 0, -5.41882)
-override_item = ExtResource("26_ouruu")
+override_item = ExtResource("26_16xtn")
 
 [node name="treasure_chest4" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.05854, 0, -5.41882)

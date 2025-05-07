@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxmu75wqo46iw"]
+
+[ext_resource type="PackedScene" uid="uid://csnvhy4yc8ljo" path="res://models/props/toon_props/jellybean_jar/jellybean_jar.fbx" id="1_gbgnw"]
+[ext_resource type="Texture2D" uid="uid://casigl3fby36o" path="res://models/props/toon_props/jellybean_jar/beanBankLid.png" id="2_gbgnw"]
+[ext_resource type="Texture2D" uid="uid://0ckelyet1nq7" path="res://models/props/toon_props/jellybean_jar/beanBankGlass.png" id="3_415rs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jbkf"]
+albedo_texture = ExtResource("2_gbgnw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xir6"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.470588)
+albedo_texture = ExtResource("3_415rs")
+
+[node name="jellybean_jar" instance=ExtResource("1_gbgnw")]
+
+[node name="jellybeanjar" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7jbkf")
+surface_material_override/1 = SubResource("StandardMaterial3D_4xir6")

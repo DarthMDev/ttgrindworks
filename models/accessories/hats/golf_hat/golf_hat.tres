@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1skfxa85jc77"]
+
+[ext_resource type="Texture2D" uid="uid://r27fftofn2ns" path="res://models/accessories/hats/golf_hat/tt_m_chr_avt_acc_hat_golfHat_tt_t_chr_avt_acc_hat_golfHat.png" id="1_1rjk4"]
+
+[resource]
+resource_name = "default.225"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_1rjk4")

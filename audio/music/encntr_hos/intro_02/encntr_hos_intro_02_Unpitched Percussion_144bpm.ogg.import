@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://nj83xo2c8mlg"
+path="res://.godot/imported/encntr_hos_intro_02_Unpitched Percussion_144bpm.ogg-04b1353b56eab8e0a46d37535e0d50aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/encntr_hos/intro_02/encntr_hos_intro_02_Unpitched Percussion_144bpm.ogg"
+dest_files=["res://.godot/imported/encntr_hos_intro_02_Unpitched Percussion_144bpm.ogg-04b1353b56eab8e0a46d37535e0d50aa.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=144.0
+beat_count=0
+bar_beats=7

@@ -109,3 +109,4 @@ func eviction_notice() -> void:
 		manager.battle_text(player, "MISSED")
 	
 	await manager.barrier(player.animator.animation_finished, 3.0)
+	await manager.check_pulses(targets)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtaq2wty6bytx"]
+[gd_scene load_steps=14 format=3 uid="uid://dtaq2wty6bytx"]
 
 [ext_resource type="PackedScene" uid="uid://bwm67lsp8m00r" path="res://objects/modules/office/base_rooms/office_battle_room.tscn" id="1_sgdmf"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_854qf"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b4h3df6nrryna" path="res://objects/props/office/filing_cabinet.tscn" id="10_06k6p"]
 [ext_resource type="PackedScene" uid="uid://umat7c5gw2t3" path="res://objects/props/office/filing_cabinet_open.tscn" id="11_8cykk"]
 [ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="12_kbwck"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="13_at5x7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0akml"]
 size = Vector3(15.087, 20.3477, 10.9252)
@@ -23,10 +22,11 @@ size = Vector3(14.3852, 12.1217, 8.6762)
 
 [node name="Battles" type="Node3D" parent="." index="5"]
 
-[node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("4_pjnun")]
+[node name="BattleNodeDynamic" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("4_pjnun")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 cog_range = Vector2i(2, 3)
 cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.891198, 10.251, 0.119884)
@@ -44,7 +44,6 @@ shape = SubResource("BoxShape3D_q3bqs")
 
 [node name="treasure_chest" parent="." index="6" instance=ExtResource("4_854qf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.33771, 2.59479, -9.93839)
-item_pool = ExtResource("13_at5x7")
 
 [node name="Props" type="Node3D" parent="." index="7"]
 
@@ -98,4 +97,3 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.846
 
 [node name="treasure_chest3" parent="." index="9" instance=ExtResource("4_854qf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.534857, 0, 18.8507)
-item_pool = ExtResource("13_at5x7")

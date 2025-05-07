@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://rd3bytip2nnb"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://k6xqk4oypmy1"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_5068w"]
 [ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_i5ipy"]
@@ -76,7 +76,7 @@ script = ExtResource("2_i5ipy")
 species = 1
 head_index = 3
 position = Vector3(0.01, -0.42, -0.2)
-rotation = Vector3(-14.49, 0, 0)
+rotation = Vector3(-10.13, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
 [sub_resource type="Resource" id="Resource_hyj6y"]
@@ -84,23 +84,23 @@ script = ExtResource("2_i5ipy")
 species = 1
 head_index = 2
 position = Vector3(0.01, -0.42, -0.2)
-rotation = Vector3(-14.49, 0, 0)
+rotation = Vector3(-10.13, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
 [sub_resource type="Resource" id="Resource_i73se"]
 script = ExtResource("2_i5ipy")
 species = 1
 head_index = 1
-position = Vector3(0.01, -0.11, -0.1)
-rotation = Vector3(-20, 0, 0)
+position = Vector3(0, -0.1, -0.14)
+rotation = Vector3(-9.21, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
 [sub_resource type="Resource" id="Resource_xvdmt"]
 script = ExtResource("2_i5ipy")
 species = 1
 head_index = 0
-position = Vector3(0.01, -0.11, -0.1)
-rotation = Vector3(-20, 0, 0)
+position = Vector3(0, -0.1, -0.14)
+rotation = Vector3(-9.21, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
 [sub_resource type="Resource" id="Resource_nimd7"]
@@ -282,12 +282,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("2_l4e7p")
 accessory_placements = Array[ExtResource("1_5068w")]([SubResource("Resource_uj5ac"), SubResource("Resource_o5eik"), SubResource("Resource_ijhra"), SubResource("Resource_sy7tn"), SubResource("Resource_3y32j"), SubResource("Resource_ul74g"), SubResource("Resource_fqru4"), SubResource("Resource_fikqq"), SubResource("Resource_0quys"), SubResource("Resource_hyj6y"), SubResource("Resource_i73se"), SubResource("Resource_xvdmt"), SubResource("Resource_nimd7"), SubResource("Resource_smpwu"), SubResource("Resource_yntnx"), SubResource("Resource_k5gqk"), SubResource("Resource_rqhjw"), SubResource("Resource_64e8t"), SubResource("Resource_srnaf"), SubResource("Resource_o1sfv"), SubResource("Resource_pj1vf"), SubResource("Resource_gy1m1"), SubResource("Resource_n5rlc"), SubResource("Resource_s8uvo"), SubResource("Resource_t3yfl"), SubResource("Resource_w2dgi"), SubResource("Resource_moy80"), SubResource("Resource_j8cx5"), SubResource("Resource_a4x2s"), SubResource("Resource_ifo1h"), SubResource("Resource_cjpjt"), SubResource("Resource_7icll"), SubResource("Resource_gsr86"), SubResource("Resource_em7wd")])
+item_tags = null
 qualitoon = 3
 rarity = 5
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.2
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.6
 item_name = "Tiara"

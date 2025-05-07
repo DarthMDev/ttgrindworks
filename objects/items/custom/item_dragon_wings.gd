@@ -16,6 +16,10 @@ func on_collect(_item: Item, _object: Node3D) -> void:
 func on_load(_item: Item) -> void:
 	setup()
 
+func on_item_removed() -> void:
+	for multiplier in multipliers:
+		Util.get_player().stats.multipliers.erase(multiplier)
+
 func setup() -> void:
 	if not Util.get_player():
 		await Util.s_player_assigned

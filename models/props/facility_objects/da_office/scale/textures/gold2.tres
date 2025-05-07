@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3n21aektlurt"]
+
+[ext_resource type="Texture2D" uid="uid://dr038h2q2u4m7" path="res://models/props/facility_objects/da_office/scale/textures/gold2.png" id="1_iiwr4"]
+
+[resource]
+resource_name = "gold2"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_iiwr4")
+emission_enabled = true

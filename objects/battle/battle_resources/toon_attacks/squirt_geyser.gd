@@ -1,7 +1,7 @@
 extends GagSquirt
 class_name SquirtGeyser
 
-const PROP := preload('res://models/props/gags/geyser/geyser.tscn')
+const PROP := preload('res://models/props/gags/geyser-revamp/geyser_gag.tscn')
 const SFX := preload('res://audio/sfx/battle/gags/squirt/AA_squirt_Geyser.ogg')
 
 
@@ -9,6 +9,11 @@ func action() -> void:
 	var player: Player = user
 	var cog: Cog = targets[0]
 	var geyser := PROP.instantiate()
+	
+	if Util.get_player().stats.has_item('Witch Hat'):
+		geyser.get_node('Geyser').water_color = Color(0, 0.43, 0.151)
+	else:
+		geyser.get_node('Geyser').water_color = Color.WHITE
 	
 	# Movie Start
 	var movie := manager.create_tween()
@@ -34,6 +39,7 @@ func action() -> void:
 			movie.tween_callback(cog_flyup.bind(cog))
 			movie.tween_callback(manager.affect_target.bind(cog, damage))
 			movie.tween_interval(0.01)
+			movie.tween_callback(cog.reset_physics_interpolation)
 			movie.tween_callback(cog.body_root.reparent.bind(geyser.get_node('CogRoot')))
 			movie.tween_interval(0.5)
 			# Knockback damage here

@@ -21,6 +21,7 @@ var state := BattleState.INACTIVE
 @export var override_intro: BattleStartMovie
 @export var item_pool: ItemPool
 @export var boss_battle := false
+@export var override_camera_angles : Dictionary[String, Transform3D] = {}
 
 # Child References
 @onready var battle_cam := $BirdsEye/BattleCamera
@@ -37,6 +38,8 @@ var player_pos: Vector3:
 	get:
 		return global_position + (global_transform.basis.z * cog_toon_distance * .66)
 var mod_cogs := 0
+
+var hidden_objects : Dictionary[Node3D, Node3D] = {}
 
 func _ready():
 	$ArrowReference.queue_free()
@@ -57,6 +60,9 @@ func body_entered(body: Node3D):
 		s_player_entered.emit(body)
 
 func player_entered(player : Player):
+	# Disable game timer tick until battle is initialized
+	player.game_timer_tick = false
+	
 	s_battle_initialized.emit()
 	
 	# Start loading the battle UI
@@ -162,6 +168,8 @@ func player_entered(player : Player):
 			s_battle_end.emit()
 			queue_free()
 	)
+	# Re-enable game timer tick
+	player.game_timer_tick = true
 
 func face_battle_center(object: Node3D):
 	if object is Cog:
@@ -289,7 +297,7 @@ func get_mod_cog_chance() -> float:
 	if not SaveFileService.progress_file.proxies_unlocked:
 		return 0.0
 
-	var test : CogPool = Globals.GRUNT_COG_POOL.load()
+	var test : CogPool = Globals.GRUNT_COG_POOL
 
 	var floor_num := Util.floor_number
 	var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
@@ -299,9 +307,68 @@ func get_mod_cog_chance() -> float:
 	var chance := (floor_num * 0.075)
 	if Util.get_player() and not is_equal_approx(Util.get_player().stats.proxy_chance_boost, 0.0):
 		chance += Util.get_player().stats.proxy_chance_boost
-	return chance
-
+	return minf(chance, Globals.PROXY_CHANCE_MAXIMUM)
 
 func get_cog_orgin_point() -> Vector3:
 	var cog_center := get_local_position(global_position - (global_transform.basis.z * cog_toon_distance * 0.33))
 	return cog_center
+	
+func _on_camera_area_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		return
+	var current_node: Node = body
+	while current_node:
+		if current_node.has_meta("battle_cam_hide"):
+			if current_node is Node3D:
+				hidden_objects[body] = current_node
+				fade_node_and_children(current_node)
+			break
+		current_node = current_node.get_parent()
+	
+func _on_camera_area_body_exited(body: Node3D) -> void:
+	if body in hidden_objects:
+		var hidden_object: Node3D = hidden_objects[body]
+		unfade_node_and_children(hidden_object)
+		hidden_objects.erase(body)
+
+func fade_node_and_children(node: Node3D):
+	var tween: Tween = create_tween()
+	tween.set_parallel()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	if RenderingServer.get_current_rendering_method() == 'forward_plus':
+		for geom_node in NodeGlobals.get_children_of_type(node, GeometryInstance3D, true):
+			tween.tween_property(geom_node, "transparency", 0.9, 0.3)
+		if node is GeometryInstance3D:
+			tween.tween_property(node, "transparency", 0.9, 0.3)
+	else:
+		var mesh_nodes := NodeGlobals.get_children_of_type(node, MeshInstance3D, true)
+		if node is MeshInstance3D:
+			mesh_nodes.append(node)
+		for mesh_node: MeshInstance3D in mesh_nodes:
+			for i in range(mesh_node.get_surface_override_material_count()):
+				var material: BaseMaterial3D = mesh_node.get_surface_override_material(i)
+				if material:
+					material = material.duplicate()
+					material.set_meta("original_color", material.albedo_color)
+					material.set_meta("original_transparency", material.transparency)
+					material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+					mesh_node.set_surface_override_material(i, material)
+					tween.tween_property(material, "albedo_color:a", 0.1, 0.3)
+
+func unfade_node_and_children(node: Node3D):
+	if RenderingServer.get_current_rendering_method() == 'forward_plus':
+		for geom_node in NodeGlobals.get_children_of_type(node, GeometryInstance3D, true):
+			geom_node.transparency = 0.0
+		if node is GeometryInstance3D:
+			node.transparency = 0.0
+	else:
+		var mesh_nodes := NodeGlobals.get_children_of_type(node, MeshInstance3D, true)
+		if node is MeshInstance3D:
+			mesh_nodes.append(node)
+		for mesh_node: MeshInstance3D in mesh_nodes:
+			for i in range(mesh_node.get_surface_override_material_count()):
+				var material: BaseMaterial3D = mesh_node.get_surface_override_material(i)
+				if material and material.has_meta("original_transparency"):
+					material.transparency = material.get_meta("original_transparency")
+					material.albedo_color = material.get_meta("original_color")

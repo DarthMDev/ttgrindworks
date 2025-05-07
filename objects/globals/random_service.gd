@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 ## Simplified seeding for runs
@@ -74,18 +75,17 @@ func array_pick_random(channel_name: String, array: Array):
 	increment_channel(channel_name)
 	return ret
 
-func random_weights(channel: String, dict: Dictionary):
-	var weight_sum: float = dict.values().reduce(func (x, y): return x + y)
-	var weight_rng: float = randf_channel(channel) * weight_sum
-	var total: float = 0
-	for key in dict.keys():
-		total += dict[key]
-		if total >= weight_rng:
-			return key
+func rand_weighted_channel(channel_name : String, weights : PackedFloat32Array) -> int:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = get_channel_seed(channel_name)
+	var answer := rng.rand_weighted(weights)
+	increment_channel(channel_name)
+	return answer
 
 func _ready() -> void: 
 	generate_seed()
-	SaveFileService.s_reset.connect(reset)
+	if not Engine.is_editor_hint():
+		SaveFileService.s_reset.connect(reset)
 
 func reset() -> void:
 	channels.clear()

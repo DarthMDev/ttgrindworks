@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://08861uv78r5r"]
+
+[ext_resource type="PackedScene" uid="uid://b53wsrolr42l5" path="res://objects/items/custom/goon_foot/goon_foot.tscn" id="1_3g22k"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_pjx1j"]
+[ext_resource type="Texture2D" uid="uid://e5b2tf3v7sur" path="res://ui_assets/player_ui/pocket_prank_icons/goon_foot.png" id="1_ub7wi"]
+[ext_resource type="AudioStream" uid="uid://0egnjnjsv8jp" path="res://audio/sfx/objects/goon/CHQ_GOON_hunker_down.ogg" id="2_gqm7s"]
+[ext_resource type="Script" uid="uid://bisjoyu7btqiw" path="res://objects/items/custom/goon_foot/item_goon_foot.gd" id="2_ub7wi"]
+
+[resource]
+script = ExtResource("1_pjx1j")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 1
+current_charge = 1
+qualitoon = 1
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.4
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Goon Foot"
+item_description = "Run like the wind!"
+big_description = "+ 50% Speed for 8 seconds"
+model = ExtResource("1_3g22k")
+pickup_sfx = ExtResource("2_gqm7s")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_ub7wi")
+remember_item = true
+icon = ExtResource("1_ub7wi")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

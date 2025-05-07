@@ -1,22 +1,27 @@
 extends Node
 
-const LOADING_SCREEN := preload('res://scenes/loading_screen/loading_screen.tscn')
+var LOADING_SCREEN: PackedScene
 
 var persistent_node: Node
 var persistent_nodes: Array[Node]:
 	get: return persistent_node.get_children()
 var current_scene: Node
 
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.GAME_START, self, {
+		'LOADING_SCREEN': 'res://scenes/loading_screen/loading_screen.tscn'
+	})
 
 func _ready() -> void:
 	persistent_node = Node.new()
 	add_child(persistent_node)
 	persistent_node.name = "Persistent"
 	
-	if not get_tree().current_scene.is_node_ready():
-		await get_tree().current_scene.ready
-	LazyLoader.waiting_for_game_start = false
-	get_tree().current_scene.call_deferred('reparent', self)
+	var starting_scene : Node = get_tree().current_scene
+	if not starting_scene.is_node_ready():
+		await starting_scene.ready
+	starting_scene.call_deferred('reparent', self)
+	current_scene = starting_scene
 
 func change_scene_to_node(new_scene: Node):
 	for child in get_children():
@@ -40,10 +45,13 @@ func add_persistent_node(node: Node) -> void:
 	else:
 		node.reparent(persistent_node)
 
-func load_into_scene(scene_path: String) -> void:
-	var loading_screen := LOADING_SCREEN.instantiate()
-	change_scene_to_node(loading_screen)
-	loading_screen.load_scene(scene_path)
+func load_into_scene(scene_path: String, load_phase: GameLoader.Phase = GameLoader.Phase.GAME_START) -> void:
+	if scene_path in GameLoader.cache and GameLoader.is_phase_loaded(load_phase):
+		SceneLoader.change_scene_to_packed(GameLoader.cache[scene_path])
+	else:
+		var loading_screen := LOADING_SCREEN.instantiate()
+		change_scene_to_node(loading_screen)
+		loading_screen.load_scene(scene_path, load_phase)
 
 func clear_persistent_nodes() -> void:
 	# Remove all persistent nodes from sceneloader

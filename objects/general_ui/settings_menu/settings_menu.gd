@@ -11,7 +11,10 @@ func _ready() -> void:
 	super()
 	if not Engine.is_editor_hint():
 		_sync_settings()
-	backup_prev_settings()
+		backup_prev_settings()
+		Globals.s_settings_opened.emit()
+	cancel_button.pressed.disconnect(close)
+	cancel_button.pressed.connect(cancel_changes)
 
 func _sync_settings() -> void:
 	_sync_video_settings()
@@ -21,6 +24,14 @@ func _sync_settings() -> void:
 
 func backup_prev_settings() -> void:
 	prev_file = SaveFileService.settings_file.duplicate()
+
+func cancel_changes() -> void:
+	var panel : UIPanel = Util.confirm(
+		"Cancel Changes?",
+		"Are you sure you want to revert your settings?"
+		)
+	panel.s_confirmed.connect(close)
+	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 
 ## VIDEO SETTINGS
 
@@ -36,12 +47,6 @@ const FPSOptionText: Dictionary = {
 	5: "240",
 	6: "360",
 	7: "Unlimited",
-}
-const SpeedOptionText: Dictionary = {
-	0: "x1.0",
-	1: "x1.25",
-	2: "x1.5",
-	3: "x1.75",
 }
 
 func _sync_video_settings() -> void:
@@ -118,11 +123,10 @@ func toggle_ambient_sfx() -> void:
 @onready var discord_rpc_element: HBoxContainer = %DiscordRPC
 @onready var discord_rpc_button: GeneralButton = %DiscordRPCButton
 @onready var custom_cogs_button : GeneralButton = %CustomCogsButton
-@onready var crowd_control_element : HBoxContainer = %CrowdControl
-@onready var crowd_control_button : GeneralButton = %CrowdControlButton
+@onready var button_prompts_button: GeneralButton = %ButtonPromptsButton
 
 func _sync_gameplay_settings() -> void:
-	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
+	speed_button.text = get_speed_string(SaveFileService.settings_file.SpeedOptions[get_setting("battle_speed_idx")])
 	reaction_button.text = get_toggle_text(get_setting('item_reactions'))
 	auto_sprint_button.text = get_toggle_text(get_setting('auto_sprint'))
 	control_style_button.text = get_control_style(get_setting('control_style'))
@@ -130,6 +134,8 @@ func _sync_gameplay_settings() -> void:
 	timer_button.text = get_toggle_text(get_setting('show_timer'))
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
 	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
+	button_prompts_button.text = get_toggle_text(get_setting('button_prompts'))
+	
 	if not is_instance_valid(Util.floor_manager) or Util.stuck_lock:
 		stuck_element.queue_free()
 	if not SaveFileService.progress_file.characters_unlocked > 1:
@@ -139,10 +145,15 @@ func _sync_gameplay_settings() -> void:
 func change_speed() -> void:
 	var curr_idx: int = get_setting('battle_speed_idx')
 	curr_idx += 1
-	if curr_idx >= SettingsFile.SpeedOptions.size():
+	if curr_idx >= SaveFileService.settings_file.SpeedOptions.size():
 		curr_idx = 0
 	update_setting('battle_speed_idx', curr_idx)
-	speed_button.text = SpeedOptionText[get_setting('battle_speed_idx')]
+	speed_button.text = get_speed_string(SaveFileService.settings_file.SpeedOptions[curr_idx])
+
+func get_speed_string(speed : float) -> String:
+	var text := "x%.2f" % speed
+	if text.ends_with("00"): text = text.trim_suffix("0")
+	return text
 
 func toggle_item_reactions() -> void:
 	toggle_setting('item_reactions')
@@ -182,6 +193,9 @@ func toggle_custom_cogs() -> void:
 	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	Globals.import_custom_cogs()
 
+func toggle_button_prompts() -> void:
+	toggle_setting('button_prompts')
+	button_prompts_button.text = get_toggle_text(get_setting('button_prompts'))
 
 # It's for the I'm stuck button
 func cry_for_help() -> void:
@@ -195,6 +209,11 @@ func get_control_style(style : bool) -> String:
 	if style:
 		return "Default"
 	return "Classic"
+
+
+## SAVE FILE SETTINGS
+func open_save_folder() -> void:
+	OS.shell_open(ProjectSettings.globalize_path("user://"))
 
 ## Controls
 
@@ -216,7 +235,7 @@ func add_setting(action_title : String, action_name : String) -> void:
 
 func update_control_setting(element: Control, action_title: String, action_name: String) -> void:
 	element.set_name(action_name)
-	element.get_node('Label').set_text(action_title + ":")
+	element.get_node('Label').set_text(action_title.replace("_", " ") + ":")
 	element.get_node('GeneralButton').text = input_to_text(get_keybind(action_name))
 
 func get_keybind(action_name : String) -> InputEvent:
@@ -247,6 +266,10 @@ func set_keybind(action_name: String, input: InputEvent) -> void:
 func get_action_title(action_name: String) -> String:
 	if action_name.begins_with("move_"):
 		action_name = action_name.trim_prefix("move_")
+	var space_index := 0
+	while not action_name.find("_", space_index) == -1:
+		space_index = action_name.find("_", space_index) + 1
+		action_name[space_index] = action_name[space_index].to_upper()
 	action_name[0] = action_name[0].to_upper()
 	return action_name
 

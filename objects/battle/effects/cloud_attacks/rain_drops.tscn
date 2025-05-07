@@ -1,21 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd8hmy8x3naei"]
+[gd_scene load_steps=13 format=3 uid="uid://dd8hmy8x3naei"]
 
 [ext_resource type="Texture2D" uid="uid://dagt56e2uov87" path="res://models/props/gags/storm_cloud/raindrop.png" id="1_c4yda"]
+[ext_resource type="Texture2D" uid="uid://b2111o0dlwcvh" path="res://objects/misc/CircleHollow.png" id="2_ao1hi"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qppbs"]
 emission_shape = 1
 emission_sphere_radius = 0.5
+direction = Vector3(0, 0, 0)
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6p4rs"]
 transparency = 1
 cull_mode = 2
 albedo_texture = ExtResource("1_c4yda")
+billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hba7"]
 material = SubResource("StandardMaterial3D_6p4rs")
 size = Vector2(0.1, 0.1)
 
+[sub_resource type="Curve" id="Curve_ykxcb"]
+_data = [Vector2(0, 1), 0.0, 0.0466009, 0, 0, Vector2(1, 0), -2.77901, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k11vh"]
+curve = SubResource("Curve_ykxcb")
+
+[sub_resource type="Curve" id="Curve_wujjk"]
+_data = [Vector2(0, 0), 0.0, 2.61622, 0, 0, Vector2(1, 1), 0.201929, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qh31q"]
+curve = SubResource("Curve_wujjk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tgw12"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.55
+scale_curve = SubResource("CurveTexture_qh31q")
+alpha_curve = SubResource("CurveTexture_k11vh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_086wo"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.628644, 0.634955, 0.824375, 1)
+albedo_texture = ExtResource("2_ao1hi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4uqog"]
+material = SubResource("StandardMaterial3D_086wo")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
 [node name="RainDrops" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0316955, 0, 0, 0, 1, 0, 0, 0)
+layers = 2
 amount = 32
+sub_emitter = NodePath("Ripples")
+fixed_fps = 60
+collision_base_size = 1.0
+visibility_aabb = AABB(-0.542771, -157.53, -0.512711, 1.04716, 158.111, 1.06241)
 process_material = SubResource("ParticleProcessMaterial_qppbs")
 draw_pass_1 = SubResource("QuadMesh_5hba7")
+
+[node name="Ripples" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.907907, 0)
+amount = 32
+lifetime = 0.83
+collision_base_size = 1.0
+visibility_aabb = AABB(-0.759294, -156.795, -0.883699, 1.65319, 158.224, 1.65204)
+process_material = SubResource("ParticleProcessMaterial_tgw12")
+draw_pass_1 = SubResource("QuadMesh_4uqog")

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dd0sbni62get8"]
+
+[ext_resource type="Texture2D" uid="uid://bkg31uikw8l6t" path="res://models/props/pickups/candy/CandyOverlay_Lightning.png" id="1_d2oew"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 0.880833, 0.45, 1)
+albedo_texture = ExtResource("1_d2oew")

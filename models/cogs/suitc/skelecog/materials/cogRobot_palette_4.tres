@@ -1,10 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xtn6oc6ntsam"]
-
-[ext_resource type="Texture2D" uid="uid://d2s3lglwqg5lj" path="res://models/cogs/suitc/skelecog/skelecog_c_cogRobots_palette_4amla_1.png" id="1_mrv4j"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xtn6oc6ntsam"]
 
 [resource]
 resource_name = "cogRobot_palette_4"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_mrv4j")
 roughness = 0.5

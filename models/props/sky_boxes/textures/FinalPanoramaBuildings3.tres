@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsk7xkaw5t6oq"]
+
+[ext_resource type="Texture2D" uid="uid://bf6cpuwd0jej6" path="res://models/props/sky_boxes/textures/FinalPanoramaBuildings3.png" id="1_h1bm5"]
+
+[resource]
+resource_name = "FinalPanoramaBuildings3"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
+albedo_texture = ExtResource("1_h1bm5")
+emission_enabled = true

@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://yu15nnc5gm1r"]
+
+[ext_resource type="PackedScene" uid="uid://blrbxv7xr3fhq" path="res://objects/modules/office/base_rooms/office_puzzle_long_room.tscn" id="1_65xoy"]
+[ext_resource type="Script" uid="uid://oh8ow6s4svm6" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.gd" id="2_h8r4s"]
+[ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="5_ld0e2"]
+[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="5_u8cf0"]
+[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="6_h8r4s"]
+[ext_resource type="Script" uid="uid://bfds4ecmwyos7" path="res://objects/battle/battle_resources/misc_movies/battle_entrances/battle_start_movie.gd" id="7_3yg42"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="10_iclto"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="10_meflt"]
+[ext_resource type="PackedScene" uid="uid://sd8lfcjqv38j" path="res://objects/interactables/pressure_button/pressure_button.tscn" id="16_7qehg"]
+[ext_resource type="Script" uid="uid://bbdjshdi7ojl" path="res://objects/interactables/lawbot_puzzles/puzzle_memory.gd" id="17_lyoio"]
+
+[sub_resource type="Resource" id="Resource_meflt"]
+script = ExtResource("7_3yg42")
+skippable = false
+metadata/_custom_type_script = "uid://bfds4ecmwyos7"
+
+[node name="office_puzzle_long_room" instance=ExtResource("1_65xoy")]
+script = ExtResource("2_h8r4s")
+
+[node name="PressureButton" parent="." index="5" instance=ExtResource("16_7qehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176572, -1.32057e-06, -11.2622)
+
+[node name="PuzzleMemory" type="Node3D" parent="." index="6"]
+unique_name_in_owner = true
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -10.2555, 0.08, -8.817)
+script = ExtResource("17_lyoio")
+grid_width = 11
+grid_height = 12
+beam_origin = Vector3(0, 6.935, 0)
+lose_type = 2
+metadata/_custom_type_script = "uid://bbdjshdi7ojl"
+
+[node name="BattleNode" parent="." index="7" node_paths=PackedStringArray("cogs") instance=ExtResource("5_u8cf0")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 24.2915)
+cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
+override_intro = SubResource("Resource_meflt")
+item_pool = null
+
+[node name="Cog" parent="BattleNode" index="3" instance=ExtResource("6_h8r4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49264, 0, 0)
+visible = false
+skelecog = true
+skelecog_chance = 0
+virtual_cog = true
+
+[node name="Cog2" parent="BattleNode" index="4" instance=ExtResource("6_h8r4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29681, 0, 0)
+visible = false
+skelecog = true
+skelecog_chance = 0
+virtual_cog = true
+
+[node name="Cog3" parent="BattleNode" index="5" instance=ExtResource("6_h8r4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44845, 0, 0)
+visible = false
+skelecog = true
+skelecog_chance = 0
+virtual_cog = true
+
+[node name="Cog4" parent="BattleNode" index="6" instance=ExtResource("6_h8r4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2391, 0, 0)
+visible = false
+skelecog = true
+skelecog_chance = 0
+virtual_cog = true
+
+[node name="Props" type="Node3D" parent="." index="8"]
+
+[node name="law_bookshelf" parent="Props" index="0" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 11.1587, 0.0326757, -5.15822)
+
+[node name="law_bookshelf2" parent="Props" index="1" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 11.1587, 0.0326757, 2.96501)
+
+[node name="law_bookshelf3" parent="Props" index="2" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 11.1587, 0.0326757, 11.1126)
+
+[node name="law_bookshelf4" parent="Props" index="3" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -11.0685, 0.0326757, 10.7664)
+
+[node name="law_bookshelf5" parent="Props" index="4" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -11.0685, 0.0326757, 2.64312)
+
+[node name="law_bookshelf6" parent="Props" index="5" instance=ExtResource("5_ld0e2")]
+transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -11.0685, 0.0326757, -5.50446)
+
+[node name="PanCamera" type="Camera3D" parent="." index="9"]
+transform = Transform3D(-1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 5.945, -16.52)
+fov = 52.0
+
+[node name="treasure_chest" parent="." index="10" instance=ExtResource("10_iclto")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.83729, 0, 33.046)
+item_pool = ExtResource("10_meflt")
+
+[node name="treasure_chest2" parent="." index="11" instance=ExtResource("10_iclto")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.24937, 0, 33.046)
+override_replacement_rolls = true
+item_pool = ExtResource("10_meflt")
+
+[connection signal="s_pressed" from="PressureButton" to="." method="show_puzzle"]
+[connection signal="s_pressed" from="PressureButton" to="PuzzleMemory" method="show_correct_path"]
+[connection signal="s_retracted" from="PressureButton" to="." method="button_stepped_off"]
+[connection signal="s_retracted" from="PressureButton" to="PuzzleMemory" method="hide_correct_path"]
+[connection signal="s_lose" from="PuzzleMemory" to="." method="on_puzzle_lose"]
+[connection signal="s_lose" from="PuzzleMemory" to="PressureButton" method="disable"]
+[connection signal="s_strike" from="PuzzleMemory" to="." method="strike_added"]
+[connection signal="s_win" from="PuzzleMemory" to="." method="on_game_win"]
+[connection signal="s_win" from="PuzzleMemory" to="PressureButton" method="disable"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=15 format=3 uid="uid://v7w5xrdb3eh4"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=16 format=3 uid="uid://v7w5xrdb3eh4"]
 
 [ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="1_43siw"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_jr8hs"]
@@ -14,7 +14,8 @@
 [ext_resource type="Resource" uid="uid://cpk24jes1t7we" path="res://objects/items/resources/passive/ice_cream_treasure.tres" id="11_odrti"]
 [ext_resource type="Resource" uid="uid://c5cavaivrrvb" path="res://objects/items/resources/passive/toonups/feather.tres" id="12_m08qa"]
 [ext_resource type="Resource" uid="uid://cp2b6gwnfjlib" path="res://objects/items/resources/passive/toonups/bamboo_cane.tres" id="13_qb5pl"]
+[ext_resource type="Resource" uid="uid://wsx4jasny47f" path="res://objects/items/resources/passive/candies/candy_battery.tres" id="14_3qpea"]
 
 [resource]
 script = ExtResource("1_43siw")
-items = Array[ExtResource("1_jr8hs")]([ExtResource("1_viigd"), ExtResource("3_f2s62"), ExtResource("4_wdtmg"), ExtResource("6_6vl6k"), ExtResource("7_17sfp"), ExtResource("8_53r3f"), ExtResource("8_cutad"), ExtResource("9_8pp1l"), ExtResource("11_odrti"), ExtResource("11_4ge2c"), ExtResource("12_m08qa"), ExtResource("13_qb5pl")])
+items = Array[ExtResource("1_jr8hs")]([ExtResource("1_viigd"), ExtResource("3_f2s62"), ExtResource("4_wdtmg"), ExtResource("6_6vl6k"), ExtResource("7_17sfp"), ExtResource("8_53r3f"), ExtResource("8_cutad"), ExtResource("9_8pp1l"), ExtResource("11_odrti"), ExtResource("11_4ge2c"), ExtResource("12_m08qa"), ExtResource("13_qb5pl"), ExtResource("14_3qpea")])

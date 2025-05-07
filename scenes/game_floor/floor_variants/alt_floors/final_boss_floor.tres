@@ -13,3 +13,6 @@ override_scene = ExtResource("1_0mwni")
 modifiers = Array[Script]([])
 end_rooms = Array[ExtResource("1_luhji")]([])
 floor_icon = ExtResource("1_ylmf6")
+anomalies = Array[Script]([])
+level_range = Vector2i(1, 12)
+room_count = 13

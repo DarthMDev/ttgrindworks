@@ -18,9 +18,8 @@ func action():
 	sfx_track()
 	
 	# Begin
-	var cog: Cog = main_target
-	if is_instance_valid(cog):
-		user.face_position(cog.global_position)
+	if is_instance_valid(main_target):
+		user.face_position(main_target.global_position)
 	else:
 		user.face_position(manager.battle_node.global_position)
 	user.set_animation('shout')
@@ -60,7 +59,7 @@ func action():
 				continue
 			animator_target = target
 			var real_damage = damage
-			if target != main_target:
+			if (not target == main_target and not user.inverted_sound_damage) or (user.inverted_sound_damage and target == main_target):
 				real_damage *= 0.5
 			if get_immunity(target):
 				manager.battle_text(target, 'IMMUNE')
@@ -109,7 +108,7 @@ func sfx_track():
 		AudioManager.play_sound(sfx_blast)
 
 func get_stats() -> String:
-	var string := "Damage: " + get_true_damage() + "\n"\
+	var string := "Damage: " + get_main_damage_str() + "\n"\
 	+ "Affects: "
 	match target_type:
 		ActionTarget.SELF:
@@ -121,6 +120,16 @@ func get_stats() -> String:
 		ActionTarget.ENEMY_SPLASH:
 			string += "Three Cogs"
 
-	string += "\nSplash: %s" % get_true_damage(0.5)
+	string += "\nSplash: %s" % get_splash_damage_str()
 
 	return string
+
+func get_main_damage_str() -> String:
+	if Util.get_player().inverted_sound_damage:
+		return get_true_damage(0.5)
+	return get_true_damage()
+
+func get_splash_damage_str() -> String:
+	if Util.get_player().inverted_sound_damage:
+		return get_true_damage()
+	return get_true_damage(0.5)

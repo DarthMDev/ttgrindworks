@@ -14,6 +14,8 @@ func _ready() -> void:
 
 	if not Util.get_player():
 		await Util.s_player_assigned
+	if Util.get_player().stats.current_active_item:
+		add_new_item(Util.get_player().stats.current_active_item)
 	for item: Item in Util.get_player().stats.items:
 		add_new_item(item)
 

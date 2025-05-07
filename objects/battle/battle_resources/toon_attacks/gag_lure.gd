@@ -19,9 +19,7 @@ func get_stats() -> String:
 	else:
 		player_stats = Util.get_player().stats
 
-	var knockback_damage: int = lure_effect.knockback_effect
-	if not is_equal_approx(player_stats.gag_effectiveness["Lure"], 1.0):
-		knockback_damage = roundi(knockback_damage * player_stats.gag_effectiveness["Lure"])
+	var knockback_damage: int = lure_effect.get_true_knockback()
 	var string := "Knockback Damage: " + str(knockback_damage) + "\n"\
 	+ "Rounds: " + str(lure_effect.rounds) +"\n"\
 	+ "Affects: "
@@ -48,8 +46,6 @@ func get_lure_effect() -> StatusLured:
 		new_effect.icon = icon
 		new_effect.lure_type = lure_effect.lure_type
 		new_effect.knockback_effect = lure_effect.knockback_effect
-		if not is_equal_approx(user.stats.gag_effectiveness["Lure"], 1.0):
-			new_effect.knockback_effect = roundi(new_effect.knockback_effect * user.stats.gag_effectiveness["Lure"])
 		new_effect.damage_nerf = lure_effect.damage_nerf
 	
 	return new_effect
@@ -57,4 +53,6 @@ func get_lure_effect() -> StatusLured:
 func apply_lure(who: Cog) -> void:
 	var effect := get_lure_effect()
 	effect.target = who
+	if not who == main_target:
+		effect.damage_nerf += effect.damage_nerf / 2.0
 	manager.add_status_effect(effect)

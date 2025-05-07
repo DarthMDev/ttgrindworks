@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://cf2wgv8gpygb"]
+[gd_scene load_steps=9 format=4 uid="uid://cf2wgv8gpygb"]
 
-[ext_resource type="Texture2D" uid="uid://c0qwk2rwmnocs" path="res://models/props/gags/button/toon_button-9e69772207ffb222e234cd4501a09c54_neutral_gradient.png" id="1_udd2k"]
+[ext_resource type="Texture2D" uid="uid://03njkqkgvnnl" path="res://models/props/gags/button/textures/neutral_gradient.png" id="1_udd2k"]
+[ext_resource type="Material" uid="uid://dk3qnwhnh1r7d" path="res://models/props/gags/button/textures/neutral_gradient.tres" id="2_c3q01"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6en8"]
 resource_name = "toon_props_cvs_PICTURES_neutral_gradient_picShader"
@@ -13,6 +14,7 @@ roughness = 0.8
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34nsa"]
 resource_name = "lambert1"
 vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
 metallic = 0.2
 roughness = 0.8
@@ -79,8 +81,8 @@ _surfaces = [{
 "format": 34896613407,
 "index_count": 24,
 "index_data": PackedByteArray("AAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADwARABAAEgAUABMAFQAXABYA"),
-"material": SubResource("StandardMaterial3D_g6en8"),
-"name": "toon_props_cvs_PICTURES_neutral_gradient_picShader",
+"material": ExtResource("2_c3q01"),
+"name": "neutral_gradient",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
@@ -100,6 +102,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="BoxMesh" id="BoxMesh_300wj"]
+size = Vector3(2.16, 1.37, 1)
+
 [node name="Button" type="Node3D"]
 
 [node name="TheBigButton" type="MeshInstance3D" parent="."]
@@ -109,3 +114,8 @@ skeleton = NodePath("")
 [node name="TheCase" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_slf4p")
 skeleton = NodePath("")
+
+[node name="UIHelper" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506259, 0)
+visible = false
+mesh = SubResource("BoxMesh_300wj")

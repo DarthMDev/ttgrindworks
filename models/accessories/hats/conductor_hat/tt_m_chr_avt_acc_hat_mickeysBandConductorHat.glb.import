@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "default.228": {
 "use_external/enabled": true,
-"use_external/path": "res://models/accessories/hats/conductor_hat/default.228.tres"
+"use_external/path": "uid://bscobdyd8dvpl"
 }
 }
 }

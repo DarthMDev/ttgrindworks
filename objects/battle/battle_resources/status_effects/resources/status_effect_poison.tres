@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="StatEffectPoison" load_steps=2 format=3 uid="uid://dtsw4nfjdp0s3"]
+[gd_resource type="Resource" script_class="StatEffectPoison" load_steps=3 format=3 uid="uid://dtsw4nfjdp0s3"]
 
+[ext_resource type="Texture2D" uid="uid://dukeuvs66w1cs" path="res://ui_assets/battle/statuses/poison.png" id="1_8awle"]
 [ext_resource type="Script" uid="uid://rae1ckj2sbpy" path="res://objects/battle/battle_resources/status_effects/status_effect_poison.gd" id="1_pesur"]
 
 [resource]
@@ -8,12 +9,13 @@ amount = 0
 instant_effect = true
 quality = 1
 rounds = 1
+rounds_offset = 0
+icon = ExtResource("1_8awle")
 icon_color = Color(1, 1, 1, 1)
 icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
-description = "This is a Status Effect"
+description = ""
 status_name = "Status Effect"
 id = 11
-_generate_id = false

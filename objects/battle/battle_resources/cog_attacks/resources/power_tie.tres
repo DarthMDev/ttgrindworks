@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://305avsq3iu30"]
+
+[ext_resource type="PackedScene" uid="uid://dw6n51u6rf4av" path="res://models/props/cog_props/power_tie/power_tie.fbx" id="1_eri7w"]
+[ext_resource type="Script" uid="uid://y48dsoiqjqw5" path="res://objects/battle/battle_resources/cog_attacks/clip_on_tie.gd" id="2_cu4ck"]
+[ext_resource type="AudioStream" uid="uid://bt3ay0e6yi0wo" path="res://audio/sfx/battle/cogs/attacks/SA_powertie_impact.ogg" id="3_euyhs"]
+[ext_resource type="AudioStream" uid="uid://c13tykgnbuaqv" path="res://audio/sfx/battle/cogs/attacks/SA_powertie_throw.ogg" id="4_odnih"]
+
+[resource]
+script = ExtResource("2_cu4ck")
+model = ExtResource("1_eri7w")
+model_rotation = Vector3(0.377732, 0.18314, 0.0439979)
+model_scale = Vector3(4, 4, 4)
+model_position = Vector3(-0.857762, -0.365314, -0.704837)
+sfx_throw = ExtResource("4_odnih")
+sfx_impact = ExtResource("3_euyhs")
+accuracy = 75
+damage = 4
+ignore_stats = false
+summary = ""
+attack_lines = Array[String](["I'll call later, you looked tied up.", "Are you ready to tie die?", "Ladies and gentlemen, it's a tie!", "You had better learn how to tie.", "I'll have you tongue-tied!", "This is the worst tie you'll ever get!", "Can you feel the power?", "My powers are far too great for you!", "I've got the power!", "By the powers vested in me, I'll tie you up."])
+target_type = 0
+action_name = "Power Tie"
+one_time_use = false
+metadata/_custom_type_script = "uid://bb27him60xtnk"

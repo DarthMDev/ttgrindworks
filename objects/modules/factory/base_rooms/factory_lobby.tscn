@@ -4090,13 +4090,13 @@ skeleton = NodePath("")
 [node name="factory_lobby" parent="." instance=ExtResource("17_u0kpm")]
 
 [node name="FanBlade1" parent="factory_lobby" index="1"]
-transform = Transform3D(-14.3115, -12.6931, 7.3852e-07, -12.6931, 14.3115, 7.3852e-07, -2.36082e-06, 1.4149e-07, -8.44768, 24.7621, 2.51024, -60.6563)
+transform = Transform3D(-11.9361, -14.9487, -7.3852e-07, -14.9487, 11.9361, 7.38525e-07, -2.63387e-07, 2.35035e-06, -8.44768, 24.7621, 2.51024, -60.6563)
 script = ExtResource("18_ked08")
 rotation_speed = 1000.0
 rotation_type = 2
 
 [node name="FanBlade2" parent="factory_lobby" index="2"]
-transform = Transform3D(14.464, -12.519, 7.3852e-07, -12.519, -14.464, 7.38519e-07, 1.70042e-07, -2.35893e-06, -8.44768, 28.4435, 2.51024, -60.6563)
+transform = Transform3D(9.23988, 16.7499, -7.3852e-07, 16.7499, -9.23988, 7.38521e-07, 6.56546e-07, -2.2721e-06, -8.44768, 28.4435, 2.51024, -60.6563)
 script = ExtResource("18_ked08")
 rotation_speed = 750.0
 rotation_type = 2

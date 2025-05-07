@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://8cgcqc0hel46"]
+
+[ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_cehdy"]
+[ext_resource type="Script" uid="uid://bdyjpadqv4djt" path="res://objects/general_ui/ui_panel/confirm_panel.gd" id="2_o4ov7"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="3_l477t"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="4_0bd1o"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="5_6n2fl"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="6_b3kdo"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="7_0mrm3"]
+[ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="8_0bd1o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o775n"]
+font = ExtResource("7_0mrm3")
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n2fl"]
+shader = ExtResource("8_0bd1o")
+shader_parameter/Shift_Hue = 0.56
+shader_parameter/alpha = 1.0
+
+[node name="ConfirmPanel" instance=ExtResource("1_cehdy")]
+offset_left = -234.0
+offset_top = -189.0
+offset_right = 234.0
+offset_bottom = 140.0
+script = ExtResource("2_o4ov7")
+title = "Are you sure?"
+body = "Are you sure you're sure?"
+cancelable = false
+
+[node name="Panel" parent="." index="0"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+pivot_offset = Vector2(234, 164.5)
+
+[node name="Title" parent="Panel" index="0"]
+text = "Are you sure?"
+autowrap_mode = 2
+
+[node name="Body" parent="Panel" index="1"]
+text = "Are you sure you're sure?"
+autowrap_mode = 2
+
+[node name="CancelButton" parent="Panel" index="2"]
+visible = false
+hover_db_offset = 6.0
+press_db_offset = 0.0
+
+[node name="ButtonContainer" type="HBoxContainer" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -108.0
+offset_right = -36.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="CancelButton" parent="ButtonContainer" index="0" instance=ExtResource("3_l477t")]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_0bd1o")
+texture_pressed = ExtResource("5_6n2fl")
+texture_hover = ExtResource("6_b3kdo")
+texture_disabled = null
+ignore_texture_size = false
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Cancel"
+
+[node name="Label" parent="ButtonContainer/CancelButton" index="0"]
+text = "Cancel"
+label_settings = SubResource("LabelSettings_o775n")
+
+[node name="ConfirmButton" parent="ButtonContainer" index="1" instance=ExtResource("3_l477t")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6n2fl")
+layout_mode = 2
+texture_normal = ExtResource("4_0bd1o")
+texture_pressed = ExtResource("5_6n2fl")
+texture_hover = ExtResource("6_b3kdo")
+texture_disabled = null
+ignore_texture_size = false
+hover_db_offset = 6.0
+press_db_offset = 0.0
+text = "Confirm"
+
+[node name="Label" parent="ButtonContainer/ConfirmButton" index="0"]
+text = "Confirm"
+label_settings = SubResource("LabelSettings_o775n")
+
+[connection signal="pressed" from="ButtonContainer/CancelButton" to="." method="cancel"]
+[connection signal="pressed" from="ButtonContainer/ConfirmButton" to="." method="confirm"]
+
+[editable path="ButtonContainer/CancelButton"]
+[editable path="ButtonContainer/ConfirmButton"]

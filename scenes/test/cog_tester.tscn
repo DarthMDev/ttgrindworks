@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="2_gqgwy"]
 [ext_resource type="Script" uid="uid://dsfdyywdrayhv" path="res://scenes/test/cog_tester.gd" id="2_rxi8i"]
 [ext_resource type="PackedScene" uid="uid://wpoc3xs1yy0" path="res://objects/player/player.tscn" id="4_5lgf2"]
-[ext_resource type="Resource" uid="uid://cdnhms1ktp5l3" path="res://objects/cog/presets/sellbot/rainbow_hander.tres" id="4_ws0mt"]
-[ext_resource type="Resource" uid="uid://d7keo6qbekul" path="res://objects/cog/presets/bossbot/downsizer.tres" id="5_3el4x"]
-[ext_resource type="Resource" uid="uid://ckn41hxv8gwaw" path="res://objects/cog/presets/lawbot/whistleblower.tres" id="6_qwc3d"]
-[ext_resource type="Resource" uid="uid://ba7yjm7wpt1fu" path="res://objects/cog/presets/bossbot/union_buster.tres" id="7_p8s5t"]
+[ext_resource type="Resource" uid="uid://b4jf6084dolhy" path="res://objects/cog/presets/sellbot/cold_caller.tres" id="4_ws0mt"]
+[ext_resource type="Resource" uid="uid://canccpjghjae7" path="res://objects/cog/presets/sellbot/glad_hander.tres" id="5_3el4x"]
+[ext_resource type="Resource" uid="uid://d3j6v3o7y5d0w" path="res://objects/cog/presets/sellbot/the_mingler.tres" id="6_4t31c"]
+[ext_resource type="Resource" uid="uid://b0iiauyxvm2su" path="res://objects/cog/presets/sellbot/mover_shaker.tres" id="7_rh7iq"]
 
 [node name="OfficeEntrance" instance=ExtResource("1_pqm5n")]
 script = ExtResource("2_rxi8i")
@@ -27,13 +27,13 @@ skelecog_chance = 0
 [node name="Cog3" parent="." index="7" instance=ExtResource("2_gqgwy")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4432, 0, -2.91055)
-dna = ExtResource("6_qwc3d")
+dna = ExtResource("6_4t31c")
 skelecog_chance = 0
 
 [node name="Cog4" parent="." index="8" instance=ExtResource("2_gqgwy")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4432, 0, -2.91055)
-dna = ExtResource("7_p8s5t")
+dna = ExtResource("7_rh7iq")
 skelecog_chance = 0
 
 [node name="Player" parent="." index="9" instance=ExtResource("4_5lgf2")]

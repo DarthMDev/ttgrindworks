@@ -43,4 +43,4 @@ func player_entered(player : Player):
 	fall_tween.kill()
 	floor_tween.kill()
 	player.toon.set_emotion(Toon.Emotion.NEUTRAL)
-	SceneLoader.change_scene_to_packed(load('res://scenes/falling_scene/falling_scene.tscn'))
+	SceneLoader.change_scene_to_packed(Globals.FALLING_SCENE)

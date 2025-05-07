@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8tjg61wyhrh"]
+
+[ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="1_8gdvv"]
+[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="2_q8b1f"]
+
+[sub_resource type="Curve" id="Curve_u0nwi"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 720.0, 0, 1, Vector2(1, 360), 720.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5qjio"]
+curve = SubResource("Curve_u0nwi")
+
+[sub_resource type="Gradient" id="Gradient_rp23m"]
+offsets = PackedFloat32Array(0.402655, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.672278, 0.00346869, 0.963694, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4pfsd"]
+gradient = SubResource("Gradient_rp23m")
+
+[sub_resource type="Curve" id="Curve_0vet0"]
+_data = [Vector2(0, 1), 0.0, 1.19294, 0, 0, Vector2(1, 0), -2.73277, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ts36a"]
+curve = SubResource("Curve_0vet0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4uhkx"]
+angle_min = -0.999989
+angle_max = 2.00001
+angle_curve = SubResource("CurveTexture_5qjio")
+direction = Vector3(0, 1, 0)
+spread = 13.085
+initial_velocity_min = 18.05
+initial_velocity_max = 18.05
+gravity = Vector3(0, -22.42, 0)
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 0.525907, 0.460418, 1)
+color_ramp = SubResource("GradientTexture1D_4pfsd")
+emission_curve = SubResource("CurveTexture_ts36a")
+hue_variation_min = -0.05
+hue_variation_max = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v34o6"]
+transparency = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_8gdvv")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lh0bb"]
+material = SubResource("StandardMaterial3D_v34o6")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.529827, 0, 0, 0, 0.529827, 0, 0, 0, 0.529827, 0.000464916, 0.951567, -0.00132895)
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4uhkx")
+draw_pass_1 = SubResource("QuadMesh_lh0bb")
+
+[node name="Cog" parent="." instance=ExtResource("2_q8b1f")]

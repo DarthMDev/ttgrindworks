@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dai74xkx6u3dv" path="res://models/facilities/factory/FINALFACTORY_107.png" id="2_u3r3o"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="3_13dxh"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="4_4wdcb"]
-[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="4_o1kw7"]
+[ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="4_yhlr1"]
 [ext_resource type="AudioStream" uid="uid://cio4wsrqfbehf" path="res://audio/sfx/misc/CHQ_SOS_cage_lower.ogg" id="5_ysn76"]
 [ext_resource type="AudioStream" uid="uid://cex7lljsu0uyp" path="res://audio/sfx/misc/CHQ_SOS_cage_land.ogg" id="6_esf1c"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="8_opkvt"]
@@ -137,10 +137,12 @@ skeleton = NodePath("../..")
 
 [node name="treasure_chest" parent="TopFloorArea/Platform" index="0" instance=ExtResource("3_13dxh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.858, 0, 0)
-item_pool = ExtResource("4_o1kw7")
+override_replacement_rolls = true
+item_pool = ExtResource("4_yhlr1")
 
 [node name="treasure_chest2" parent="TopFloorArea/Platform" index="1" instance=ExtResource("3_13dxh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.46565, 0, 0)
+item_pool = ExtResource("4_yhlr1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TopFloorArea/Platform" index="2"]
 
@@ -175,7 +177,7 @@ attenuation_model = 3
 bus = &"SFX"
 
 [node name="CogButton" parent="." index="7" instance=ExtResource("4_4wdcb")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.2995, 0.00401926, -4.53462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2995, 0.00401926, -4.53462)
 
 [node name="Props" type="Node3D" parent="." index="8"]
 

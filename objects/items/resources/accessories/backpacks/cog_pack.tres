@@ -30,12 +30,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 [resource]
 script = ExtResource("2_soqtj")
 accessory_placements = Array[ExtResource("1_s0aaq")]([SubResource("Resource_m68us"), SubResource("Resource_8p7e6"), SubResource("Resource_f8er1")])
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Cog Pack"

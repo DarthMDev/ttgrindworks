@@ -94,12 +94,3 @@ func lower_ramp(_x=null) -> void:
 func _exit_tree() -> void:
 	if obj_task:
 		obj_task = obj_task.cancel()
-
-func reset() -> void:
-	if Util.get_player().stats.hp > 0:
-		Util.circle_in(1.0)
-		
-		Util.get_player().global_position = %PlayerStartPos.global_position
-		await Util.get_player().teleport_in(true)
-		if Util.get_player().stats.hp <= 0:
-			Util.get_player().lose()
