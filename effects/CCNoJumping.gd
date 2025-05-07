@@ -24,8 +24,8 @@ func _stop(_instance: CCEffectInstanceTimed, _force := false) -> bool:
 
 func _resume() -> void:
 	var player = Util.get_player()
-	player.jump_enabled = false
+	player.can_jump = false
 
 func _pause() -> void:
 	var player = Util.get_player()
-	player.jump_enabled = true
+	player.can_jump = true
