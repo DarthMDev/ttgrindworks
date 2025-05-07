@@ -4,7 +4,7 @@ class_name CCAddPocketPrankCharge
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	player.current_active_item.current_charge += 1
+	player.stats.current_active_item.current_charge += 1
 	return SUCCESS
 	
 func _can_run() -> bool:

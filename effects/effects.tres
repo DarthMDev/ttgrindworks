@@ -428,6 +428,7 @@ icon = ExtResource("27_d5qei")
 id = &"RandomizeAccessories"
 display_name = "Randomize All Accessories"
 description = "This effect will randomize all the player's toon's currently equipped accessories."
+price = 1000
 script = ExtResource("65_dq4h3")
 metadata/_custom_type_script = "uid://dgvuun5foo1iw"
 

@@ -4,7 +4,7 @@ class_name CCRemovePocketPrank
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	player.current_active_item = null
+	player.stats.current_active_item = null
 	return SUCCESS
 
 func _can_run() -> bool:
