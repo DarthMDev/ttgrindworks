@@ -39,8 +39,10 @@ func action():
 			manager.affect_target(target, damage)
 			if target.lured:
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 			else:
 				target.set_animation('soak')
+				do_dizzy_stars(target)
 			apply_debuff(target)
 			await Task.delay(0.5 * (2 if was_lured else 1))
 			manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])

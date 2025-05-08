@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ddm25h41xncsy"]
+
+[ext_resource type="Texture2D" uid="uid://bmkfccaan6l4y" path="res://models/props/cog_props/half_windsor/half_windsor_0.png" id="1_qs1gv"]
+
+[resource]
+resource_name = "suit_props_cvs_PICTURES_half_windsor_tie2_picShader"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_qs1gv")
+emission_enabled = true

@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_25hrb")
+item_tags = null
 qualitoon = 0
 rarity = 0
 evergreen = true
@@ -18,7 +19,7 @@ ui_cam_offset = 0.15
 item_name = "Juggling Cubes"
 item_description = "Luck boost"
 big_description = "Lasts 3 rounds
-+ 20% Luck"
++ 10% Luck"
 model = ExtResource("1_en8ih")
 pickup_sfx = ExtResource("2_o4js4")
 stats_add = {}

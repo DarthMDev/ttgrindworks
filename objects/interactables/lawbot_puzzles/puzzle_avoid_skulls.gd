@@ -4,6 +4,7 @@ class_name PuzzleAvoidSkulls
 
 ## Config
 @export var flip_time := 1.0
+@export var skull_chance := 4
 
 ## Locals
 var timer : Timer
@@ -24,7 +25,7 @@ func randomize_panels() -> void:
 			var panel : PuzzlePanel = grid[i][j]
 			match panel.panel_shape:
 				PuzzlePanel.PanelShape.NOTHING:
-					if RandomService.randi_channel('puzzles') % 4 == 0:
+					if RandomService.randi_channel('puzzles') % skull_chance == 0:
 						panel.panel_shape = PuzzlePanel.PanelShape.DOT
 				PuzzlePanel.PanelShape.DOT:
 					panel.panel_shape = PuzzlePanel.PanelShape.SKULL

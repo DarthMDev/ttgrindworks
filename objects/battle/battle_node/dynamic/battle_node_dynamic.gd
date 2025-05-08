@@ -52,9 +52,14 @@ func spawn_cogs(cog_count := 1) -> void:
 	
 	for cog in cogs:
 		cog.global_position = get_cog_position(cog)
-		
 		cog.set_name("Cog%d" % cogs.find(cog))
 		face_battle_center(cog)
+		if cog_count == 1 and not Engine.is_editor_hint():
+			var new_level := cog.level + 2
+			if is_instance_valid(Util.floor_manager):
+				new_level = Util.floor_manager.floor_variant.level_range.y + 2
+			cog.level = new_level
+			cog.randomize_cog()
 
 func clear_cogs() -> void:
 	for cog in cog_node.get_children():

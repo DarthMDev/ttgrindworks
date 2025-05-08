@@ -220,8 +220,6 @@ func _physics_process_walk(delta: float) -> void:
 		if direction:
 			toon.rotation.y = lerp_angle(toon.rotation.y, atan2(direction.x, direction.z), .3)
 	else:
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir := Input.get_axis('move_back','move_forward')
 		if input_dir == -1 and sprint: 
 			speed = (run_speed * stats.get_stat('speed')) / 2.0
@@ -509,6 +507,9 @@ func do_iframe_tween(time := IFRAME_TIME) -> Tween:
 	iframe_tween.tween_callback(toon.body.show)
 	return iframe_tween
 
+func is_invincible() -> bool:
+	return (iframe_tween and iframe_tween.is_running())
+
 func swap_toon_visibility() -> void:
 	toon.body.visible = not toon.body.visible
 
@@ -523,5 +524,10 @@ func update_accessories() -> void:
 				Item.ItemSlot.GLASSES: glasses = item
 				Item.ItemSlot.BACKPACK: backpack = item
 	if hat: hat.place_accessory(self)
+	else: Util.free_all_children(toon.hat_bone)
+	
 	if glasses: glasses.place_accessory(self)
+	else: Util.free_all_children(toon.glasses_bone)
+	
 	if backpack: backpack.place_accessory(self)
+	else: Util.free_all_children(toon.backpack_bone)

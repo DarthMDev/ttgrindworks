@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://banu3o2kvb7iq"]
+
+[ext_resource type="Texture2D" uid="uid://dlyme0t7ou6dd" path="res://models/props/cog_props/stun_stars/stun_stars_1.png" id="1_siyfj"]
+
+[resource]
+resource_name = "battle_effects_cvs_PICTURES_Blur2_picShader"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_siyfj")
+emission_enabled = true

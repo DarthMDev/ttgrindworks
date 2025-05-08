@@ -8,7 +8,7 @@ const COG_SCENE := preload("res://objects/cog/cog.tscn")
 const SFX_CAGE_LOWER := preload("res://audio/sfx/misc/CHQ_SOS_cage_lower.ogg")
 const SFX_CAGE_LAND := preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
 
-var WANT_DEBUG_BOSSES := true
+var WANT_DEBUG_BOSSES := false
 var DEBUG_FORCE_BOSS_ONE: CogDNA = load("res://objects/cog/presets/lawbot/whistleblower.tres")
 var DEBUG_FORCE_BOSS_TWO: CogDNA = load("res://objects/cog/presets/bossbot/union_buster.tres")
 
@@ -172,7 +172,7 @@ func end_game() -> void:
 	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
 
 func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
-	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and not darkened_sky
+	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and darkened_sky
 	var new_cogs: Array[Cog]
 	for i in cog_count:
 		var cog := COG_SCENE.instantiate()

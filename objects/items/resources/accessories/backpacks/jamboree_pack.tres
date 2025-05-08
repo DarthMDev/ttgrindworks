@@ -31,6 +31,7 @@ scale = Vector3(0.25, 0.25, 0.25)
 [resource]
 script = ExtResource("2_0yskw")
 accessory_placements = Array[ExtResource("1_vjyui")]([SubResource("Resource_j7yfl"), SubResource("Resource_7erd4"), SubResource("Resource_hkqv2")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://b2ia8h86cdjo2"]
+[gd_scene load_steps=131 format=4 uid="uid://b2ia8h86cdjo2"]
 
 [ext_resource type="Texture2D" uid="uid://brg7tsqoenlxv" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
 [ext_resource type="Texture2D" uid="uid://c72xdn0nwkaug" path="res://models/facilities/mint/textures/CFOCeiling2.png" id="2_xdjiy"]
@@ -22,11 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://dnip6uj60poax" path="res://objects/props/mint/pipes/pipes_c.tscn" id="16_3kylo"]
 [ext_resource type="PackedScene" uid="uid://modfjavgnpjq" path="res://objects/props/factory/grate.tscn" id="17_257sr"]
 [ext_resource type="PackedScene" uid="uid://cfmtdq84k5wwh" path="res://objects/props/mint/pipes/kit/pipe_connector.tscn" id="17_ht7gh"]
-[ext_resource type="AudioStream" uid="uid://d2mcc6eps0cf5" path="res://audio/music/action_cash.ogg" id="17_xovc6"]
+[ext_resource type="AudioStream" uid="uid://d1exogp3pkqdh" path="res://audio/music/action_cash.ogg" id="17_xovc6"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="18_hum0e"]
 [ext_resource type="PackedScene" uid="uid://ds050pq3gfubn" path="res://objects/props/mint/pipes/kit/large_straight_pipe_1.tscn" id="18_yjgi0"]
 [ext_resource type="PackedScene" uid="uid://7q6wova01fov" path="res://objects/props/mint/pipes/kit/elbow_pipe.tscn" id="19_j1tso"]
 [ext_resource type="PackedScene" uid="uid://csdrrw6xiokuy" path="res://objects/props/mint/pipes/kit/pipe_shadow.tscn" id="20_ndv07"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="28_mtimn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m36j5"]
 resource_name = "WallCementLightEdgeSHD_WallCementLightEdgeSHD"
@@ -1346,11 +1347,15 @@ const REINFORCEMENTS_MOVIE := \"res://objects/battle/battle_resources/cog_attack
 @export var intro_pos: Node3D
 @export var sink_pos: Node3D
 
-var sink_unit := 2.2
+
+var sink_unit: float:
+	get: return IN_LAVA_POS / float(INCREMENT_COUNT)
 var current_unit := 0
 var battle : BattleNode:
 	get: return get_parent()
-const MAX_ROUNDS = 6
+const INCREMENT_COUNT := 5
+const IN_LAVA_POS := 8.8
+
 
 func _ready():
 	await battle.s_battle_initialized
@@ -1359,7 +1364,7 @@ func _ready():
 func sink_platform(pos: int):
 	if not platform:
 		return
-	pos = mini(pos, 4)
+	pos = mini(pos, INCREMENT_COUNT)
 	var sink_tween := create_tween()
 	sink_tween.set_trans(Tween.TRANS_QUAD)
 	sink_tween.tween_property(platform, 'position:y', -(sink_unit * float(pos)), 2.0)
@@ -1368,7 +1373,7 @@ func sink_platform(pos: int):
 	current_unit = pos
 
 func on_round_begin(_round_actions : Array[BattleAction]):
-	if battle.cogs.size() == 4:
+	if current_unit == INCREMENT_COUNT:
 		var burn_all := BurnAll.new()
 		burn_all.user = self
 		burn_all.damage = Util.get_player().stats.max_hp / 6
@@ -1385,6 +1390,14 @@ func on_round_begin(_round_actions : Array[BattleAction]):
 	sink_movie.user = self
 	sink_movie.targets = [self]
 	BattleService.ongoing_battle.round_end_actions.append(sink_movie)
+
+func do_increment(count: int) -> void:
+	if signi(count) == 1 and current_unit == INCREMENT_COUNT:
+		return
+	elif signi(count) == -1 and current_unit == 0:
+		return
+	elif signi(count) == 0: return
+	await sink_platform(current_unit + count)
 
 func on_battle_started(manager : BattleManager) -> void:
 	manager.s_round_started.connect(on_round_begin)
@@ -1927,5 +1940,8 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="shelf3" parent="Shelves" instance=ExtResource("18_hum0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05341, 3.0113, -26.4602)
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("28_mtimn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03144, -16.744)
 
 [editable path="BossObjects/BossFight/BattlePlatform"]

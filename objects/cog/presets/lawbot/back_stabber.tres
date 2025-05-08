@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_psk51"]
 [ext_resource type="PackedScene" uid="uid://b3ckmevkvxrq6" path="res://models/cogs/heads/backstabber.glb" id="3_fxaxj"]
 [ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="3_kg3rv"]
-[ext_resource type="Texture2D" uid="uid://b8s23xt7vfrj" path="res://models/cogs/heads/backstabber_tt_t_ene_hed_backStabber.png" id="4_ww4r0"]
+[ext_resource type="Texture2D" uid="uid://d4jk7bkmn8kk2" path="res://models/cogs/heads/backstabber_tt_t_ene_hed_backStabber.png" id="4_ww4r0"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_4bu30"]
 
 [resource]
@@ -14,6 +14,8 @@ department = 2
 suit = 0
 cog_name = "Back Stabber"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("3_fxaxj")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)

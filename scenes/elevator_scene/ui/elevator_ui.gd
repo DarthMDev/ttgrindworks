@@ -63,6 +63,12 @@ func start_tip_tween() -> void:
 	tip_tween.tween_callback(change_tip.bind(tips))
 	tip_tween.tween_property(tip_label, 'self_modulate:a', 1.0, FADE_TIME)
 
+func _process(_delta) -> void:
+	if Input.is_action_just_pressed('move_right'):
+		move_floor_index(1)
+	elif Input.is_action_just_pressed('move_left'):
+		move_floor_index(-1)
+
 func change_tip(tips : PackedStringArray) -> void:
 	tip_label.set_text("TOON TIP:\n" + tips[RandomService.randi_channel('true_random') % tips.size()])
 

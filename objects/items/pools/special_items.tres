@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=33 format=3 uid="uid://kcxno616hkgc"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=34 format=3 uid="uid://kcxno616hkgc"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_oxrd8"]
 [ext_resource type="Resource" uid="uid://mcma7hjx2dbi" path="res://objects/items/resources/passive/candies/candy_super_luck.tres" id="2_n4ktm"]
@@ -32,8 +32,9 @@
 [ext_resource type="Resource" uid="uid://dyl7r5ve67tbs" path="res://objects/items/resources/accessories/backpacks/pixie_wings.tres" id="29_yjdyf"]
 [ext_resource type="Resource" uid="uid://hqfvncal8xvq" path="res://objects/items/resources/accessories/hats/fez.tres" id="30_a5mu0"]
 [ext_resource type="Resource" uid="uid://bye8a25d8np3f" path="res://objects/items/resources/accessories/backpacks/angel_wings.tres" id="31_66m13"]
+[ext_resource type="Resource" uid="uid://dkbg3o5aa81j8" path="res://objects/items/resources/active/white_out.tres" id="32_cgk14"]
 
 [resource]
 script = ExtResource("18_5jvy5")
-items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("5_wersp"), ExtResource("6_w52d4"), ExtResource("7_x61t0"), ExtResource("8_vk3ji"), ExtResource("9_athb6"), ExtResource("10_s4qlt"), ExtResource("11_3s3yo"), ExtResource("12_ebao6"), ExtResource("13_yjdyf"), ExtResource("14_a5mu0"), ExtResource("15_66m13"), ExtResource("16_cgk14"), ExtResource("17_chn5m"), ExtResource("18_e731w"), ExtResource("19_eqgxa"), ExtResource("20_eqgxa"), ExtResource("21_w52d4"), ExtResource("22_x61t0"), ExtResource("23_x61t0"), ExtResource("24_vk3ji"), ExtResource("25_athb6"), ExtResource("26_s4qlt"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13")])
+items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("5_wersp"), ExtResource("6_w52d4"), ExtResource("7_x61t0"), ExtResource("8_vk3ji"), ExtResource("9_athb6"), ExtResource("10_s4qlt"), ExtResource("11_3s3yo"), ExtResource("12_ebao6"), ExtResource("13_yjdyf"), ExtResource("14_a5mu0"), ExtResource("15_66m13"), ExtResource("16_cgk14"), ExtResource("17_chn5m"), ExtResource("18_e731w"), ExtResource("19_eqgxa"), ExtResource("20_eqgxa"), ExtResource("21_w52d4"), ExtResource("22_x61t0"), ExtResource("23_x61t0"), ExtResource("24_vk3ji"), ExtResource("25_athb6"), ExtResource("26_s4qlt"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13"), ExtResource("32_cgk14")])
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

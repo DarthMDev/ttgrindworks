@@ -20,7 +20,10 @@ enum CogState {
 	PATH
 }
 @export var state := CogState.IDLE
-@export_range(0, 20) var level: int
+@export_range(0, 20) var level: int:
+	set(x):
+		if x < 0: level = 0
+		else: level = x
 @export var custom_level_range := Vector2i(1, 12)
 @export var level_range_offset := 0
 @export var stats: BattleStats
@@ -501,6 +504,8 @@ func do_knockback():
 
 # Make the cog say stuff
 func speak(phrase: String, want_sfx := true):
+	if not dna.can_speak: return
+	
 	# Check for existing speech bubble and remove it
 	for child in body.nametag_node.get_children():
 		if child is SpeechBubble and not child.is_queued_for_deletion():

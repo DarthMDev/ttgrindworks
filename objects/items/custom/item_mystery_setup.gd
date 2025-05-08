@@ -1,5 +1,7 @@
 extends ItemCharSetup
 
+const MIN_HP := 25
+const MAX_HP := 35
 
 func first_time_setup(player : Player) -> void:
 	if player.stats.character.starting_items.size() == 1:
@@ -14,14 +16,18 @@ func randomize_stats(player : Player) -> void:
 	]
 	
 	# Random HP
-	player.stats.max_hp = RandomService.randi_range_channel('true_random', 20, 40)
+	player.stats.max_hp = RandomService.randi_range_channel('true_random', MIN_HP, MAX_HP)
 	player.stats.hp = player.stats.max_hp
 	player.character.starting_laff = player.stats.max_hp
+	var avg_hp := (MAX_HP + MIN_HP) / 2
+	var point_boost := avg_hp - player.stats.max_hp
 	
 	# Randomize stats
 	var good_points := 20
 	var bad_points := 12
 	var point_cost := 0.02
+	if signi(point_boost) == 1: good_points += point_boost
+	else: bad_points += absi(point_boost)
 	while good_points > 0:
 		var stat := random_stats[RandomService.randi_channel('random_stat_rolls') % random_stats.size()]
 		player.stats.set(stat, player.stats.get(stat) + point_cost)

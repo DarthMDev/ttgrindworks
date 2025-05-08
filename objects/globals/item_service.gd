@@ -201,9 +201,9 @@ func apply_inventory() -> void:
 
 const GagGoals: Dictionary = {
 	1: 0.2,
-	2: 0.35,
-	3: 0.5,
-	4: 0.7,
+	2: 0.375,
+	3: 0.55,
+	4: 0.725,
 	5: 0.9,
 	6: 1.0,
 }

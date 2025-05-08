@@ -281,6 +281,7 @@ scale = Vector3(1.4, 1.3, 1)
 [resource]
 script = ExtResource("1_oo2q4")
 accessory_placements = Array[ExtResource("1_j33wr")]([SubResource("Resource_r3qvl"), SubResource("Resource_qiq75"), SubResource("Resource_0djsu"), SubResource("Resource_5vf4w"), SubResource("Resource_vg3j2"), SubResource("Resource_5l321"), SubResource("Resource_q8llv"), SubResource("Resource_m0ur8"), SubResource("Resource_yxfbj"), SubResource("Resource_l72nl"), SubResource("Resource_0jvls"), SubResource("Resource_ilq1o"), SubResource("Resource_bx2nr"), SubResource("Resource_v3ij4"), SubResource("Resource_pg2ip"), SubResource("Resource_7e6cv"), SubResource("Resource_461wh"), SubResource("Resource_btpuu"), SubResource("Resource_ld2b8"), SubResource("Resource_rbs0m"), SubResource("Resource_4deh1"), SubResource("Resource_ql8os"), SubResource("Resource_cuqoy"), SubResource("Resource_wgtfg"), SubResource("Resource_fs164"), SubResource("Resource_3v6js"), SubResource("Resource_mntnk"), SubResource("Resource_kdg5d"), SubResource("Resource_p33hi"), SubResource("Resource_cch21"), SubResource("Resource_6ymf7"), SubResource("Resource_sfk14"), SubResource("Resource_0lg3p"), SubResource("Resource_vp0qt")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
@@ -292,7 +293,7 @@ want_ui_spin = true
 ui_cam_offset = 0.2
 item_name = "Dorky Glasses"
 item_description = "Pinpoint precision"
-big_description = "Adds +15% to critical hit damage multiplier"
+big_description = "Adds +15% to critical hit damage multiplier."
 model = ExtResource("2_yh3d7")
 stats_add = {
 "crit_mult": 0.15

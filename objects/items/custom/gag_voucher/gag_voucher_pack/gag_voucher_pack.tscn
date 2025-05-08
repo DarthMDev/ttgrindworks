@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://5me85j0pivwk"]
+
+[ext_resource type="PackedScene" uid="uid://eqtswktr1h3j" path="res://objects/items/custom/gag_voucher/gag_voucher.tscn" id="1_m4e2v"]
+[ext_resource type="Script" uid="uid://dec3fwrhestgn" path="res://objects/items/custom/gag_voucher/gag_voucher_pack/gag_voucher_pack.gd" id="1_t84gk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t84gk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m4e2v"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lcknk"]
+viewport_path = NodePath("SubViewport")
+
+[node name="GagVoucherPack" type="Node3D"]
+script = ExtResource("1_t84gk")
+
+[node name="GagVoucher" parent="." instance=ExtResource("1_m4e2v")]
+texture = SubResource("ViewportTexture_t84gk")
+
+[node name="GagVoucher2" parent="." instance=ExtResource("1_m4e2v")]
+transform = Transform3D(0.980955, 0.194234, 0, -0.194234, 0.980955, 0, 0, 0, 1, 0, 0, 0)
+render_priority = -1
+texture = SubResource("ViewportTexture_m4e2v")
+
+[node name="GagVoucher3" parent="." instance=ExtResource("1_m4e2v")]
+transform = Transform3D(0.910684, 0.413104, 0, -0.413104, 0.910684, 0, 0, 0, 1, 0, 0, 0)
+render_priority = -2
+texture = SubResource("ViewportTexture_lcknk")

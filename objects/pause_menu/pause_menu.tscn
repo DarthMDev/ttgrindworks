@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://gpi3rtcvtk4r"]
+[gd_scene load_steps=42 format=3 uid="uid://gpi3rtcvtk4r"]
 
 [ext_resource type="Script" uid="uid://b2dsu58yfd5a7" path="res://objects/pause_menu/pause_menu.gd" id="1_0r2dl"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="1_nhuu3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="6_2ls0o"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="7_pio3r"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="8_l83vw"]
+[ext_resource type="PackedScene" uid="uid://dvch4ydlcxhu6" path="res://objects/battle/battle_ui/item_panel.tscn" id="9_1s8xm"]
 [ext_resource type="Texture2D" uid="uid://dpt21awypabxf" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowUp.png" id="9_bs06e"]
 [ext_resource type="Texture2D" uid="uid://bkbmvj823roof" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDown.png" id="10_jrqgq"]
 [ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="10_lmpwx"]
@@ -921,6 +922,23 @@ text = "Gags"
 label_settings = SubResource("LabelSettings_0wxjl")
 horizontal_alignment = 1
 
+[node name="ConsumablePage" type="Control" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemPanel" parent="Pages/ConsumablePage" instance=ExtResource("9_1s8xm")]
+layout_mode = 1
+offset_left = -269.5
+offset_top = -293.0
+offset_right = 269.5
+offset_bottom = 172.0
+hide_close_button = true
+
 [node name="TopLevelElements" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -974,8 +992,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Resume"
 
 [node name="Settings" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
@@ -986,8 +1002,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Settings"
 
 [node name="Quit" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
@@ -997,8 +1011,6 @@ texture_normal = ExtResource("6_2ls0o")
 texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Quit"
 
 [node name="VersionLabel" type="Label" parent="TopLevelElements/BackdropHolder/Backdrop"]
@@ -1038,8 +1050,6 @@ grow_vertical = 2
 texture_normal = ExtResource("9_bs06e")
 texture_pressed = ExtResource("10_jrqgq")
 texture_disabled = ExtResource("11_1s8xm")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 
 [node name="ButtonRight" type="Control" parent="TopLevelElements"]
 layout_mode = 1
@@ -1067,8 +1077,6 @@ texture_normal = ExtResource("9_bs06e")
 texture_pressed = ExtResource("10_jrqgq")
 texture_disabled = ExtResource("11_1s8xm")
 flip_h = true
-hover_db_offset = 6.0
-press_db_offset = 0.0
 
 [node name="ItemHolder" type="Control" parent="TopLevelElements"]
 layout_mode = 1

@@ -32,6 +32,7 @@ func create_boost(who: Cog) -> StatBoost:
 	var status_effect := STAT_BOOST_RESOURCE.duplicate()
 	status_effect.target = who
 	status_effect.boost = BOOST_AMOUNT
+	status_effect.stat = 'defense'
 	status_effect.description = "+25% Defense"
 	status_effect.rounds = -1
 	status_effect.quality = StatusEffect.EffectQuality.POSITIVE
