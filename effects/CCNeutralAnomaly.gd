@@ -11,6 +11,7 @@ const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
 ]
 
 
