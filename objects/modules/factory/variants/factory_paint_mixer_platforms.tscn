@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6eci400go3qt"]
+[gd_scene load_steps=7 format=3 uid="uid://c6eci400go3qt"]
 
 [ext_resource type="PackedScene" uid="uid://chdkp682v5kgu" path="res://objects/modules/factory/base_rooms/factory_paint_mixer.tscn" id="1_owb7g"]
 [ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="2_718mm"]
+[ext_resource type="Script" uid="uid://d0osnx7cfdtd6" path="res://objects/modules/factory/variants/factory_paint_mixer_platforms.gd" id="2_j5qgc"]
 [ext_resource type="Script" uid="uid://0v6jh8nv5lnx" path="res://objects/obstacles/lava_floor/lava_floor.gd" id="3_so2ux"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="5_ldx13"]
 
@@ -10,9 +11,13 @@ height = 2.18952
 radius = 11.2593
 
 [node name="FactoryPaintMixer" instance=ExtResource("1_owb7g")]
+script = ExtResource("2_j5qgc")
 
 [node name="faucet1" parent="Model/ZONE10/paintmixer/props6/Faucets" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9116, -32.9268, -285.397)
+
+[node name="faucet4" parent="Model/ZONE10/paintmixer/props6/Faucets" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.152, -32.927, 285.397)
 
 [node name="LavaFloor" type="Area3D" parent="." index="4" node_paths=PackedStringArray("default_spawn_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.763, 2.001, -101.057)
@@ -71,9 +76,14 @@ transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, -0.140648)
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="treasure_chest" parent="." index="9" instance=ExtResource("5_ldx13")]
-transform = Transform3D(0.582889, 0, -0.812552, 0, 1, 0, 0.812552, 0, 0.582889, 77.8591, 12.6252, -111.023)
+unique_name_in_owner = true
+transform = Transform3D(-0.0225828, 0, -0.999745, 0.121561, 0.99258, -0.00274589, 0.992327, -0.121592, -0.0224152, 77.5249, 12.6166, -91.663)
 
-[node name="RespawnPoint" type="Node3D" parent="." index="10"]
+[node name="treasure_chest2" parent="." index="10" instance=ExtResource("5_ldx13")]
+unique_name_in_owner = true
+transform = Transform3D(-0.114038, 0.0118555, -0.993406, -0.0850342, 0.996143, 0.0216497, 0.989831, 0.0869423, -0.11259, 77.8083, 12.7946, -111.034)
+
+[node name="RespawnPoint" type="Node3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5366, 4.59873, -103.329)
 
 [connection signal="body_entered" from="LavaFloor" to="LavaFloor" method="body_entered"]

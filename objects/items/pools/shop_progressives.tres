@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=21 format=3 uid="uid://d4by7sqhd5sko"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=22 format=3 uid="uid://d4by7sqhd5sko"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_63l0p"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="2_l6kf2"]
@@ -20,7 +20,8 @@
 [ext_resource type="Resource" uid="uid://y5nhq5oudm83" path="res://objects/items/resources/passive/candies/candy_evasiveness.tres" id="17_7hrog"]
 [ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="18_xiyfc"]
 [ext_resource type="Resource" uid="uid://wsx4jasny47f" path="res://objects/items/resources/passive/candies/candy_battery.tres" id="19_t7sfb"]
+[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="20_dx67f"]
 
 [resource]
 script = ExtResource("7_fg0s0")
-items = Array[ExtResource("1_63l0p")]([ExtResource("2_l6kf2"), ExtResource("5_51rbi"), ExtResource("6_lqllk"), ExtResource("7_igkuc"), ExtResource("9_s3ka2"), ExtResource("8_7orw7"), ExtResource("9_08yos"), ExtResource("10_rkg7b"), ExtResource("11_5cdsj"), ExtResource("12_x67hd"), ExtResource("13_mrom7"), ExtResource("14_tkmso"), ExtResource("14_2rhsd"), ExtResource("15_ejiqj"), ExtResource("16_acbtx"), ExtResource("17_7hrog"), ExtResource("18_xiyfc"), ExtResource("19_t7sfb")])
+items = Array[ExtResource("1_63l0p")]([ExtResource("2_l6kf2"), ExtResource("5_51rbi"), ExtResource("6_lqllk"), ExtResource("7_igkuc"), ExtResource("9_s3ka2"), ExtResource("8_7orw7"), ExtResource("9_08yos"), ExtResource("10_rkg7b"), ExtResource("11_5cdsj"), ExtResource("12_x67hd"), ExtResource("13_mrom7"), ExtResource("14_tkmso"), ExtResource("14_2rhsd"), ExtResource("15_ejiqj"), ExtResource("16_acbtx"), ExtResource("17_7hrog"), ExtResource("18_xiyfc"), ExtResource("19_t7sfb"), ExtResource("20_dx67f")])

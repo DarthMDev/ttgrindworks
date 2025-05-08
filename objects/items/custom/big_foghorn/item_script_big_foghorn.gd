@@ -71,6 +71,7 @@ func search_node(node : Node) -> Array[BattleNode]:
 
 func destroy_battle(battle : BattleNode) -> void:
 	for cog in battle.cogs:
+		BattleService.battle_participant_died(cog)
 		cog.explode()
 	
 	var chest : TreasureChest = load(TREASURE_CHEST).instantiate()

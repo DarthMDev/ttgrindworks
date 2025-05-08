@@ -38,6 +38,7 @@ func apply_random_effect(cog : Cog) -> void:
 		tweak_stat_boost(effect)
 	if effect is StatEffectRegeneration:
 		effect.instant_effect = false
+	await Util.s_process_frame
 	BattleService.ongoing_battle.add_status_effect(effect)
 
 func tweak_stat_boost(effect : StatBoost) -> void:

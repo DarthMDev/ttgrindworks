@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("2_dsog6")
+item_tags = null
 qualitoon = 4
 rarity = 0
 evergreen = true

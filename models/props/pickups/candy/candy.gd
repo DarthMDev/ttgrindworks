@@ -99,13 +99,17 @@ func _update_candy_visual() -> void:
 #region Misc. Logic
 
 ## Check for battery validity
-## Battery is valid if player has an active item with a charge count greater than 0
+## Battery is valid if a player has an uncharged active item
 func is_battery_valid() -> bool:
 	var player := Util.get_player()
 	if not is_instance_valid(player):
 		return true
 	
-	return player.stats.current_active_item and not player.stats.current_active_item.charge_count == 0
+	var active_item := player.stats.current_active_item
+	if not active_item or active_item.charge_count == active_item.current_charge:
+		return false
+	
+	return true
 
 
 #endregion

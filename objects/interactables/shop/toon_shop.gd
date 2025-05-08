@@ -2,6 +2,10 @@ extends Node3D
 class_name ToonShop
 
 const SHOP_SALE_MULT := 0.5
+const SOLD_OUT_PHRASES: Array[String] = [
+	"Fresh out of stock, sorry pal.",
+	"I've got nothing else to sell you. Try again later.",
+]
 
 @export var toon: Toon
 @export var toon_speaks := true
@@ -17,6 +21,13 @@ var discounted_items: Dictionary = {}
 
 
 func _ready() -> void:
+	# Animate toon
+	if toon:
+		var dna := ToonDNA.new()
+		dna.randomize_dna()
+		toon.construct_toon(dna)
+		toon.set_animation('neutral')
+	
 	# And completely remove their collision shapes
 	for world_item: WorldItem in world_items:
 		world_item.get_node('CollisionShape3D').queue_free()
@@ -25,13 +36,6 @@ func _ready() -> void:
 		if Util.get_player().less_shop_items and world_items.find(world_item) in [1, 2]:
 			world_item.queue_free()
 	
-	# Animate toon
-	if toon:
-		var dna := ToonDNA.new()
-		dna.randomize_dna()
-		toon.construct_toon(dna)
-		toon.set_animation('neutral')
-
 	# Do this separately so that shops with less items (i.e. dragon wings)
 	# won't bug out w/ discounts
 	for i: int in world_items.size():
@@ -49,6 +53,10 @@ func _ready() -> void:
 ## React to player interact
 func body_entered(body: Node3D) -> void:
 	if not body is Player:
+		return
+	
+	if is_shop_empty():
+		cancel_shop_enter()
 		return
 	
 	# Free the mouse
@@ -142,6 +150,15 @@ func yeah_ill_hold_that_for_you() -> void:
 	world_items[current_index].monitorable = true
 	stored_prices[current_index] = 0
 
+func is_shop_empty() -> bool:
+	for item in world_items:
+		if is_instance_valid(item):
+			return false
+	return true
+
+func cancel_shop_enter() -> void:
+	if toon_speaks:
+		toon.speak(RandomService.array_pick_random('true_random', SOLD_OUT_PHRASES))
 
 func exit() -> void:
 	ui.hide()

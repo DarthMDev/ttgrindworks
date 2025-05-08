@@ -198,6 +198,7 @@ func lose_game() -> void:
 		if player.stats.hp > 0:
 			await player.animator.animation_finished
 			player.state = Player.PlayerState.WALK
+			player.do_invincibility_frames(1.0)
 
 func get_all_panels() -> Array[PuzzlePanel]:
 	var all_panels : Array[PuzzlePanel] = []

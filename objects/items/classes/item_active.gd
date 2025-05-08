@@ -22,6 +22,11 @@ enum ActiveType {
 		current_charge = clampi(x, 0, charge_count)
 		s_current_charge_changed.emit(x)
 
+## Not sure how to best implement this yet
+#@export var one_time_use := false
+@export var custom_discharge_time := 1.0
+
+
 var node : ItemScriptActive
 
 signal s_current_charge_changed(new_charges : int)

@@ -74,6 +74,9 @@ transform = Transform3D(1.4785, 0, 0.611597, 0, 1.6, 0, -0.611597, 0, 1.4785, 14
 [node name="da_crate2" parent="Bookshelves" index="14" instance=ExtResource("11_7jrax")]
 transform = Transform3D(-0.25767, 0, 1.42692, 0, 1.45, 0, -1.42692, 0, -0.25767, 12.0805, 0, -13.9312)
 
+[node name="da_crate3" parent="Bookshelves" index="15" instance=ExtResource("11_7jrax")]
+transform = Transform3D(0.121122, 0, 0.937206, 0, 0.945, 0, -0.937206, 0, 0.121122, 17.2987, 0, -10.2893)
+
 [node name="Battles" type="Node3D" parent="." index="7"]
 
 [node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("3_74480")]

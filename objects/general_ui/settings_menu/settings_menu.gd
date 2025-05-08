@@ -32,6 +32,7 @@ func cancel_changes() -> void:
 		)
 	panel.s_confirmed.connect(close)
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
+	tree_exited.connect(panel.queue_free)
 
 ## VIDEO SETTINGS
 

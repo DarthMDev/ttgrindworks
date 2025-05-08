@@ -17,5 +17,5 @@ mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
 description = ""
-status_name = "Status Effect"
+status_name = "Regeneration"
 id = 12

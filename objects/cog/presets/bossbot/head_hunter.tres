@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=7 format=3 uid="uid://dpqmbcewheqv1"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://dpqmbcewheqv1"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_mjemx"]
 [ext_resource type="Resource" uid="uid://erbbarg5bxm8" path="res://objects/battle/battle_resources/cog_attacks/resources/rolodex.tres" id="2_1sm6k"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_meefj"]
+[ext_resource type="Resource" uid="uid://cltphjfp4x2rk" path="res://objects/battle/battle_resources/cog_attacks/resources/half_windsor.tres" id="3_hrld1"]
 [ext_resource type="PackedScene" uid="uid://cgixf426hp8dn" path="res://models/cogs/heads/headhunter.glb" id="3_sl41b"]
 [ext_resource type="Texture2D" uid="uid://bkejbm6l0vf12" path="res://models/cogs/heads/headhunter_tt_t_ene_hed_headHunter.png" id="4_0cmlw"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_cxaa6"]
@@ -24,7 +25,8 @@ hand_color = Color(0.941176, 0.745098, 0.741176, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_mjemx")]([ExtResource("2_1sm6k")])
+can_speak = true
+attacks = Array[ExtResource("1_mjemx")]([ExtResource("2_1sm6k"), ExtResource("3_hrld1")])
 level_low = 6
 level_high = 13
 status_effects = Array[ExtResource("5_cxaa6")]([])

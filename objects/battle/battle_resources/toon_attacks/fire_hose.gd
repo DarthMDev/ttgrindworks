@@ -47,8 +47,10 @@ func action():
 		if not get_immunity(target):
 			if target.lured:
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 			else:
 				target.set_animation('squirt-small')
+				do_dizzy_stars(target)
 			apply_debuff(target)
 			s_hit.emit()
 			await Task.delay(0.5 * (2 if was_lured else 1))

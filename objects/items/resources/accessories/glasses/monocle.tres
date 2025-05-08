@@ -293,8 +293,8 @@ want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Monocle"
 item_description = "Gift of insight"
-big_description = "- Shows a detailed description for items when you're nearby them
-- Reveals anomalies before selecting the next floor"
+big_description = "- Shows a detailed description for items when you're nearby them.
+- Reveals anomalies before selecting the next floor."
 model = ExtResource("2_x6de0")
 stats_add = {}
 stats_multiply = {}

@@ -247,6 +247,10 @@ func stop_player_safe() -> void:
 		get_player().state = Player.PlayerState.STOPPED
 		get_player().set_animation('neutral')
 
+func free_all_children(node: Node) -> void:
+	for child in node.get_children():
+		child.queue_free()
+
 func resume_player_safe() -> void:
 	if is_instance_valid(get_player()):
 		get_player().state = Player.PlayerState.WALK

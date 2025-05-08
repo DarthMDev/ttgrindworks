@@ -36,6 +36,8 @@ var boss_battle := false
 var current_round := 0
 var has_moved : Array[Node3D] = []
 var is_round_ongoing := false
+var force_watch_death: Array[Cog] = []
+var overkill_amounts: Dictionary[Variant, int] = {}
 
 ## Signals
 signal s_focus_char(character: Node3D)
@@ -157,6 +159,8 @@ func someone_died(who: Node3D) -> void:
 	
 	# Remove from cog array if is cog
 	if who is Cog and who in cogs:
+		if who.v2:
+			create_v2_cog(who)
 		cogs.remove_at(cogs.find(who))
 	
 	var check_arrays := [round_actions, round_end_actions]
@@ -187,16 +191,11 @@ func kill_someone(who: Node3D, signal_only := false) -> void:
 		return
 
 	if who.has_method('lose'):
-		if who is Cog:
-			#Util.get_player().toon.duck_and_cover()
-			if who.v2:
-				create_v2_cog(who)
-		
 		# Use player cam if player dies
 		if who is Player:
 			Util.get_player().camera.make_current()
 		
-		if who is Cog and not round_actions.is_empty():
+		if who is Cog and not round_actions.is_empty() and not who in force_watch_death:
 			who.lose()
 		else:
 			await who.lose()
@@ -286,6 +285,14 @@ func check_pulses(targets):
 	for target in targets:
 		if is_target_dead(target):
 			dead_guys.append(target)
+	# Move a 2.0 to the back of the line if any exist in dead guys
+	for guy in dead_guys:
+		if guy is Cog:
+			if guy.v2:
+				dead_guys.erase(guy)
+				dead_guys.append(guy)
+				break
+	
 	for i in dead_guys.size():
 		someone_died(dead_guys[i])
 		if i < dead_guys.size()-1:
@@ -382,6 +389,10 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 			Util.get_player().boost_queue.queue_text.callv(boost_text_arr)
 		current_action.stored_boost_text = []
 
+	# Record overkill amount if hp is 0
+	if target.stats.get_stat(stat) == 0:
+		overkill_amounts[target] = int(amount - pre_stat)
+
 	return roundi(amount)
 
 func battle_text(target, string, text_color: Color = Color('ff0000'), outline_color: Color = Color('7a0000'), raise_height := 0.0):
@@ -418,7 +429,10 @@ func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 	if user is Player:
 		var user_stats: PlayerStats = battle_stats[user]
 		if action is GagLure:
-			boosted_damage *= user_stats.gag_effectiveness['Trap']
+			if action.action_name == "KnockbackTest":
+				boosted_damage *= user_stats.gag_effectiveness['Lure']
+			else:
+				boosted_damage *= user_stats.gag_effectiveness['Trap']
 		elif action is GagSound:
 			boosted_damage *= user_stats.gag_effectiveness['Sound']
 		elif action is GagThrow:
@@ -637,7 +651,6 @@ func force_unlure(target: Cog) -> void:
 	if target.stats.hp > 0 and lure_effect.lure_type == StatusLured.LureType.STUN and not target in has_moved:
 		unskip_turn(target)
 
-
 func unskip_turn(who: Actor) -> void:
 	if who is Cog:
 		var cog_index := cogs.find(who)
@@ -691,7 +704,8 @@ func do_standalone_knockback_damage(cog: Cog, damage: int) -> void:
 	battle_text(cog, "-" + str(damage), Color('ff4d00'), Color('802200'))
 
 func get_knockback_damage(cog: Cog) -> int:
-	var fake_action := ToonAttack.new()
+	var fake_action := GagLure.new()
+	fake_action.action_name = "KnockbackTest"
 	fake_action.user = Util.get_player()
 	fake_action.targets = [cog]
 	fake_action.damage = find_cog_lure(cog).knockback_effect
@@ -747,15 +761,53 @@ func add_cog(cog: Cog, pos := -1) -> void:
 
 ## Creates a Skelecog based on the Cog specified
 func create_v2_cog(cog: Cog) -> Cog:
+	force_watch_death.append(cog)
 	var new_cog: Cog = load('res://objects/cog/cog.tscn').instantiate()
 	new_cog.skelecog_chance = 0
-	new_cog.level = cog.level - 1
+	new_cog.level = cog.level
 	new_cog.skelecog = true
 	new_cog.dna = cog.dna
 	battle_node.add_child(new_cog)
 	new_cog.global_transform = cog.global_transform
 	new_cog.battle_start()
 	new_cog.hide()
-	add_cog(new_cog)
+	add_cog(new_cog, cogs.find(cog))
+	boost_v2_stats(cog, new_cog)
+	transfer_cog_attributes(cog, new_cog)
 	Task.delay(6.0).connect(new_cog.show)
+	Task.delay(6.0).connect(force_watch_death.erase.bind(cog))
 	return new_cog
+
+## Transfers stuff like round actions, and status effects to new Cog
+func transfer_cog_attributes(old_cog: Cog, new_cog: Cog) -> void:
+	for action in round_actions:
+		if action.user == old_cog:
+			action.user = new_cog
+		elif old_cog in action.targets:
+			action.targets.insert(action.targets.find(old_cog), new_cog)
+			action.targets.erase(old_cog)
+
+## Calculates the boost the 2.0 skelecog should receive
+func boost_v2_stats(old_cog: Cog, cog: Cog) -> void:
+	# Cant. sory :(
+	if not old_cog in overkill_amounts.keys(): return
+	
+	var statboost: Resource = load("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
+	
+	var overkill := overkill_amounts[old_cog]
+	var ratio := float(overkill) / float(cog.stats.max_hp)
+	ratio = clampf(ratio, 0.1, 0.5) / 2.0
+	var def_nerf: StatBoost = statboost.duplicate()
+	def_nerf.boost = 1.0 - ratio
+	def_nerf.stat = 'defense'
+	def_nerf.rounds = -1
+	def_nerf.quality = StatusEffect.EffectQuality.NEGATIVE
+	var dmg_boost: StatBoost = statboost.duplicate()
+	dmg_boost.boost = ratio + 1.0
+	dmg_boost.stat = 'damage'
+	dmg_boost.rounds = -1
+	dmg_boost.quality = StatusEffect.EffectQuality.POSITIVE
+	
+	for boost: StatBoost in [def_nerf, dmg_boost]:
+		boost.target = cog
+		add_status_effect(boost)

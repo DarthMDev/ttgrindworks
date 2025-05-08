@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxnsyppa38vgy"]
+
+[ext_resource type="PackedScene" uid="uid://c2qy76wccuv4r" path="res://models/props/cog_props/stun_stars/stun_stars.fbx" id="1_i33sl"]
+[ext_resource type="Script" uid="uid://503cqmqe654x" path="res://models/props/cog_props/stun_stars/stun_stars.gd" id="2_qeolw"]
+
+[node name="stun_stars" instance=ExtResource("1_i33sl")]
+script = ExtResource("2_qeolw")
+
+[node name="stun" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81, 0)
+
+[node name="Skeleton3D" parent="stun" index="0"]
+bones/1/rotation = Quaternion(0, 0.130526, 0, 0.991445)
+bones/2/position = Vector3(-5.2977e-09, -6.86909e-08, -1.78097e-08)
+bones/2/rotation = Quaternion(-0.015062, 0.735021, 0.0163365, 0.677681)
+bones/3/position = Vector3(-5.2977e-09, -6.86909e-08, -1.78097e-08)
+bones/3/rotation = Quaternion(0.103495, -0.394934, 0.0448295, 0.91176)
+bones/4/position = Vector3(-5.2977e-09, -6.86909e-08, -1.78097e-08)
+bones/4/rotation = Quaternion(0.0211851, 0.979099, 0.170942, -0.108144)
+bones/4/scale = Vector3(1.12486, 1.12486, 1.12486)
+bones/5/position = Vector3(-5.2977e-09, -6.86909e-08, -1.78097e-08)
+bones/5/rotation = Quaternion(-0.102887, 0.832037, 0.164753, 0.519601)
+bones/6/position = Vector3(0.161068, 1.03049, 0.136329)
+bones/6/rotation = Quaternion(0.0211551, -0.19394, 0.106354, 0.975002)
+bones/7/position = Vector3(0.161068, 1.03049, 0.136329)
+bones/7/rotation = Quaternion(0.0591509, 0.185907, -0.297372, 0.934618)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Take 001"
+
+[node name="DeleteTimer" type="Timer" parent="." index="2"]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="DeleteTimer" to="." method="on_timer_timeout"]

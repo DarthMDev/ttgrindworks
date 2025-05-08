@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://1r5i4ax366co"]
+[gd_scene load_steps=36 format=3 uid="uid://1r5i4ax366co"]
 
 [ext_resource type="PackedScene" uid="uid://bbmpk0bcnkij1" path="res://objects/modules/cgc/base_rooms/cgc_long_room.tscn" id="1_ybll3"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_m4jup"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://rmq8qnyxi0yu" path="res://objects/props/cgc/cgc_brush_wall.tscn" id="10_imadm"]
 [ext_resource type="PackedScene" uid="uid://d3br8qv0sep7h" path="res://objects/props/cgc/tree1.tscn" id="11_drqol"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="12_nnd17"]
-[ext_resource type="Material" uid="uid://cp8vv8al3i6nl" path="res://models/facilities/general/materials/oil_mat.tres" id="15_hgfvj"]
+[ext_resource type="Shader" uid="uid://b3xje7jv3si6v" path="res://general_resources/shaders/liquid_shader.gdshader" id="14_wschq"]
 [ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="15_pxxxq"]
+[ext_resource type="Texture2D" uid="uid://bdf3g7nyxirat" path="res://models/facilities/cgc/textures/oil.png" id="15_ywtpp"]
 [ext_resource type="PackedScene" uid="uid://b35wcbrb3kc82" path="res://objects/obstacles/golf_door/golf_door.tscn" id="16_y2dli"]
 [ext_resource type="PackedScene" uid="uid://bwu5l3d7uncro" path="res://objects/props/cgc/hedge_pillar_spiked.tscn" id="20_3ltig"]
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="21_m5g4g"]
@@ -34,8 +35,33 @@ size = Vector3(38.3027, 17.3056, 130.625)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf3f3"]
 size = Vector3(40.4557, 0.419852, 31.2242)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ywtpp"]
+noise_type = 3
+frequency = 0.0101
+offset = Vector3(47.62, 0, 0)
+fractal_type = 3
+fractal_octaves = 2
+fractal_lacunarity = 1.0
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_51x5q"]
+seamless = true
+noise = SubResource("FastNoiseLite_ywtpp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihasp"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("14_wschq")
+shader_parameter/albedo = Color(0.634945, 0.641827, 0.701894, 1)
+shader_parameter/texture_albedo = ExtResource("15_ywtpp")
+shader_parameter/uv1_scale = Vector3(5, 1.5, 15)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_scroll = 0.03
+shader_parameter/height_scale = 0.6
+shader_parameter/displacement = SubResource("NoiseTexture2D_51x5q")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_xgme6"]
-material = ExtResource("15_hgfvj")
+material = SubResource("ShaderMaterial_ihasp")
 size = Vector2(79.585, 45.355)
 subdivide_width = 32
 subdivide_depth = 32
@@ -471,13 +497,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.272)
 [node name="treasure_chest" parent="." index="29" instance=ExtResource("23_47x68")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.03764, 0, -10.8814)
 item_pool = ExtResource("21_wschq")
-texture_lock = false
 
 [node name="treasure_chest2" parent="." index="30" instance=ExtResource("23_47x68")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.56529, 0, -10.8814)
 override_replacement_rolls = true
 item_pool = ExtResource("21_wschq")
-texture_lock = false
 
 [node name="GrateSet1" type="Node3D" parent="." index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4836, -1.9907, 39.7778)

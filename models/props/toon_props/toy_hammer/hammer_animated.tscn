@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://drije3o1ot8ho"]
+
+[ext_resource type="PackedScene" uid="uid://bbrcfwwkp3uhk" path="res://models/props/gags/anvil/anvil.tscn" id="1_6byau"]
+[ext_resource type="PackedScene" uid="uid://c1o3q1hgrjs0y" path="res://models/props/toon_props/toy_hammer/toyHammer.glb" id="2_1ifnh"]
+
+[node name="anvil2" instance=ExtResource("1_6byau")]
+
+[node name="Skeleton3D" parent="anvil" index="0"]
+bones/0/position = Vector3(-304.553, -446.498, 1350.8)
+bones/0/rotation = Quaternion(-0.476432, 0.559407, 0.523025, -0.431881)
+bones/0/scale = Vector3(1, 1.83, 1)
+
+[node name="anvil_uv" parent="anvil/Skeleton3D" index="0"]
+visible = false
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="anvil/Skeleton3D" index="1"]
+transform = Transform3D(-0.172983, -0.148723, -0.981566, -0.984808, -0.00198628, 0.173644, -0.0151772, 1.82395, -0.0798473, -304.553, -446.498, 1350.8)
+bone_name = "anvil_uv"
+bone_idx = 1
+
+[node name="toyHammer2" parent="anvil/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_1ifnh")]
+transform = Transform3D(77.88, 0, 0, 0, 77.88, 0, 0, 0, 77.88, 0, 0, 0)
+
+[node name="toyHammer" parent="anvil/Skeleton3D/BoneAttachment3D/toyHammer2" index="0"]
+transform = Transform3D(8.50725e-05, -0.999957, -0.00922545, 0.999957, -4.37114e-08, 0.00922584, -0.00922545, -0.00922585, 0.999915, 0.0260749, 1.11997, -2.82618)
+
+[editable path="anvil/Skeleton3D/BoneAttachment3D/toyHammer2"]

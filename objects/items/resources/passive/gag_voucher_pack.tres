@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dcsxiitw5cbcq"]
+
+[ext_resource type="PackedScene" uid="uid://5me85j0pivwk" path="res://objects/items/custom/gag_voucher/gag_voucher_pack/gag_voucher_pack.tscn" id="1_88hnp"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_ub0rq"]
+[ext_resource type="AudioStream" uid="uid://ba7r434bfqtfx" path="res://audio/sfx/items/voucher_pickup.ogg" id="2_2srfl"]
+
+[resource]
+script = ExtResource("1_ub0rq")
+item_tags = 1
+qualitoon = 2
+rarity = 0
+evergreen = true
+realtime = false
+slot = 0
+world_scale = 0.5
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Gag Voucher Pack"
+item_description = ""
+big_description = ""
+model = ExtResource("1_88hnp")
+pickup_sfx = ExtResource("2_2srfl")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+remember_item = false
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://combwqypom1ru"

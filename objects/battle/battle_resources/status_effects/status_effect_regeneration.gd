@@ -38,6 +38,11 @@ func get_description() -> String:
 		return "+%s Laff regeneration" % amount
 	return "+%s HP regeneration" % amount
 
+func get_status_name() -> String:
+	if status_name == "Status Effect":
+		return "Regeneration"
+	return status_name
+
 func randomize_effect() -> void:
 	rounds = RandomService.randi_range_channel('true_random', 1, 3)
 	if target:

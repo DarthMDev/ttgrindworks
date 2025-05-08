@@ -72,7 +72,7 @@ Removed the \"Big Skull Finder\" Boss Fight
 The Ground Floor Investor boss fight has been redesigned
 Added new department variations of the \"Action!\" boss fight music 
 Slightly increased the Directors' health and damage
-Phase 2 of the Directors boss fight can now be triggered by triggered by getting the directors under a collective 1/2 HP
+Phase 2 of the Directors boss fight can now be triggered by getting the directors under a collective 1/2 HP
 Whistleblower's Compensation has a new icon, lasts an additional round, and will stack upon subsequent rounds of damage
 Chartist can now only call for reinforcements if none remain on early floors
 The Security Goon boss fight feature two sets of 3 Cogs on early floors
@@ -153,4 +153,4 @@ Fixed an exploit in the D.A. Office tri-color button room
 Fixed a crash when trying to load an invalid save file
 Potentially fixed Toon decapitation on the lose screen
 Potentially fixed a bug where the elevator would not appear in the Paint Silo Boss
-Minor Text Fixes"
+Minor text fixes"

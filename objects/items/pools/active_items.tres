@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=15 format=3 uid="uid://n10qdgwgfm3j"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=17 format=3 uid="uid://n10qdgwgfm3j"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_8ecmc"]
 [ext_resource type="Resource" uid="uid://c8wjy8fdkxarx" path="res://objects/items/resources/active/gag_button.tres" id="2_rmt0d"]
@@ -14,8 +14,10 @@
 [ext_resource type="Resource" uid="uid://dyt4cqi2xkctw" path="res://objects/items/resources/active/bounce_check.tres" id="11_fsci2"]
 [ext_resource type="Resource" uid="uid://wu70ua24wujr" path="res://objects/items/resources/active/unstoppable_gobstopper.tres" id="12_masq4"]
 [ext_resource type="Resource" uid="uid://bpctsghink3ao" path="res://objects/items/resources/active/gumball_machine.tres" id="13_s4224"]
+[ext_resource type="Resource" uid="uid://cmlaxrdbmxvfu" path="res://objects/items/resources/active/toy_hammer.tres" id="14_3508d"]
+[ext_resource type="Resource" uid="uid://dkbg3o5aa81j8" path="res://objects/items/resources/active/white_out.tres" id="15_qv51l"]
 
 [resource]
 script = ExtResource("2_xkinw")
-items = Array[ExtResource("1_8ecmc")]([ExtResource("2_rmt0d"), ExtResource("3_4t5qj"), ExtResource("4_giqwn"), ExtResource("5_o4chs"), ExtResource("6_o4chs"), ExtResource("7_4ovt0"), ExtResource("8_egflh"), ExtResource("9_4ovt0"), ExtResource("10_egflh"), ExtResource("11_fsci2"), ExtResource("12_masq4"), ExtResource("13_s4224")])
+items = Array[ExtResource("1_8ecmc")]([ExtResource("2_rmt0d"), ExtResource("3_4t5qj"), ExtResource("4_giqwn"), ExtResource("5_o4chs"), ExtResource("6_o4chs"), ExtResource("7_4ovt0"), ExtResource("8_egflh"), ExtResource("9_4ovt0"), ExtResource("10_egflh"), ExtResource("11_fsci2"), ExtResource("12_masq4"), ExtResource("13_s4224"), ExtResource("14_3508d"), ExtResource("15_qv51l")])
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

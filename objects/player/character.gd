@@ -39,3 +39,15 @@ func get_unlocked() -> bool:
 		return true
 	
 	return SaveFileService.progress_file.get_achievement_unlocked(achievement_index)
+
+func get_true_summary() -> String:
+	var desc := character_summary
+	for entry in achievement_qualities.keys():
+		if SaveFileService.is_achievement_unlocked(entry):
+			desc += "\n- %s" % achievement_qualities[entry]
+	return desc
+
+## NEXT CHARACTER V1.1.2: CINDY SPRINKLES
+## Can only access Throw
+## Starts with Fedora
+## Can't get more than 1 Turn

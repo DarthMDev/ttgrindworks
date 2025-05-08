@@ -27,6 +27,7 @@ func use() -> void:
 	chest.override_item = closest_chest.override_item
 	closest_chest.get_parent().add_child(chest)
 	chest.update_texture(closest_chest.get_current_texture())
+	chest.set_ray_gradient(closest_chest.ray_tex.gradient)
 	
 	# Positions the chest between the player and chest
 	chest.global_position = closest_chest.global_position
@@ -44,10 +45,6 @@ func use() -> void:
 	chest.get_parent().add_child(dust_cloud)
 	dust_cloud.scale *= chest.scale
 	dust_cloud.global_position = chest.global_position
-	
-	# Delete item. Move this to ItemScriptActive as a default function?
-	attempt_disconnect()
-	player.stats.current_active_item = null
 
 func search_node(node : Node) -> Array[TreasureChest]:
 	var chests : Array[TreasureChest] = []

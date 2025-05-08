@@ -85,3 +85,5 @@ func _process(_delta: float) -> void:
 		left_pressed()
 	elif Input.is_action_just_pressed("move_right"):
 		right_pressed()
+	if Input.is_action_just_pressed('pause'):
+		exit_pressed()
