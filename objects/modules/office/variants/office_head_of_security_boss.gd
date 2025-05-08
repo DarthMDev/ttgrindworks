@@ -81,6 +81,7 @@ func play_intro() -> Tween:
 	var movie := create_tween()
 	
 	# Setup
+	movie.tween_callback(func(): Util.stuck_lock = true)
 	movie.tween_callback(func(): player.game_timer_tick = false)
 	movie.tween_callback(camera.set_global_transform.bind(player.camera.camera.global_transform))
 	movie.tween_callback(camera.make_current)
@@ -240,6 +241,7 @@ func do_end_cutscene() -> Tween:
 	var movie := create_tween()
 	
 	# Setup
+	movie.tween_callback(func(): Util.stuck_lock = false)
 	movie.tween_callback(func(): player.game_timer_tick = false)
 	movie.tween_callback(camera.set_global_transform.bind(get_camera_angle('SkullFocus').global_transform))
 	movie.tween_callback(camera.make_current)

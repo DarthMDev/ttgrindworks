@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=44 format=3 uid="uid://qky6hxt0lyw2"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=46 format=3 uid="uid://qky6hxt0lyw2"]
 
 [ext_resource type="PackedScene" uid="uid://b1nbdcg8lvn4k" path="res://objects/modules/office/base_rooms/connector1.tscn" id="1_i5e2j"]
 [ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_kxs6h"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cc1tsojhw6x8o" path="res://objects/modules/office/variants/office_diamond_room_puzzle.tscn" id="20_hrunt"]
 [ext_resource type="PackedScene" uid="uid://c7jpg878lyye3" path="res://objects/modules/office/variants/office_l_room_stomper.tscn" id="24_epcxj"]
 [ext_resource type="PackedScene" uid="uid://yu15nnc5gm1r" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.tscn" id="25_epcxj"]
+[ext_resource type="PackedScene" uid="uid://c3jefjvjikh4q" path="res://objects/modules/office/variants/office_skull_finder_room.tscn" id="26_5lpgc"]
 
 [sub_resource type="Resource" id="Resource_d10vb"]
 script = ExtResource("3_75e7d")
@@ -120,6 +121,12 @@ room = ExtResource("25_epcxj")
 rarity_weight = 1.0
 metadata/_custom_type_script = "uid://dhyadt7p1gv78"
 
+[sub_resource type="Resource" id="Resource_0qre3"]
+script = ExtResource("3_75e7d")
+room = ExtResource("26_5lpgc")
+rarity_weight = 1.0
+metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+
 [resource]
 script = ExtResource("1_kxs6h")
 entrances = Array[PackedScene]([ExtResource("6_b4kxl")])
@@ -129,6 +136,6 @@ connectors = Array[PackedScene]([ExtResource("1_i5e2j"), ExtResource("5_of1qx")]
 pre_final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_ckkc0")])
 final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_wmqbf"), SubResource("Resource_481lp")])
 one_time_rooms = Array[PackedScene]([])
-special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew"), SubResource("Resource_87wki")])
+special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew"), SubResource("Resource_87wki"), SubResource("Resource_0qre3")])
 background_music = Array[AudioStream]([ExtResource("1_ojny5")])
 battle_music = ExtResource("2_18ffd")

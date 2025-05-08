@@ -170,7 +170,7 @@ func hover() -> void:
 			char_name = player_char.random_character_stored_name
 		else:
 			char_name = player_char.character_name
-		var char_desc := player_char.character_summary
+		var char_desc := player_char.get_true_summary()
 		var char_color := player_char.dna.head_color
 		HoverManager.hover(char_desc, 18, 0.025, char_name, char_color.darkened(0.3))
 

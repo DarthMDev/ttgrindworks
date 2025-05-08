@@ -146,7 +146,7 @@ func on_game_over() -> void:
 	run_file = null
 
 func _process(delta : float) -> void:
-	progress_file.total_playtime += delta
+	progress_file.total_playtime += delta / Engine.time_scale
 	
 	#if Input.is_action_just_pressed('save'):
 	#	save()
@@ -177,6 +177,11 @@ func _on_tween_all_completed(save_text_instance):
 func save_file_error(file_path : String) -> void:
 	DirAccess.copy_absolute(file_path, file_path.trim_suffix(".tres") + "_BROKEN.tres")
 	DirAccess.remove_absolute(file_path)
+
+func is_achievement_unlocked(achievement: ProgressFile.GameAchievement) -> bool:
+	if not progress_file: return false
+	if not progress_file.achievements_earned.has(achievement): return false
+	return progress_file.achievements_earned[achievement]
 
 const SAVE_ERROR_PANEL := "res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.tscn"
 func show_save_errors(invalid_paths : Array[String]) -> void:

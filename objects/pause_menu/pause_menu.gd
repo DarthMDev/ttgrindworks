@@ -23,15 +23,22 @@ const ANOMALY_ICON := preload("res://objects/player/ui/anomaly_icon.tscn")
 var page_current := 0:
 	set(x):
 		if not is_node_ready(): await ready
+		var force_dir := -1
 		if x < 0:
 			x = menu_pages.get_child_count() - 1
+			force_dir = 0
 		elif x >= menu_pages.get_child_count():
 			x = 0
+			force_dir = 1
+		
 		set_page_view(x)
-		if x > page_current:
-			do_page_transition(menu_pages.get_child(page_current), menu_pages.get_child(x), 1)
-		else:
-			do_page_transition(menu_pages.get_child(page_current), menu_pages.get_child(x), 0)
+		
+		if force_dir == -1:
+			if x > page_current: force_dir = 1
+			else: force_dir = 0
+		
+		do_page_transition(menu_pages.get_child(page_current), menu_pages.get_child(x), force_dir)
+		
 		page_current = x
 
 

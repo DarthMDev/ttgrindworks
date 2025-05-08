@@ -34,6 +34,9 @@ func get_status_name() -> String:
 	return stat[0].to_upper() + stat.substr(1) + (" Up" if boost > 1.0 else " Down")
 
 func combine(effect: StatusEffect) -> bool:
+	if not effect is StatBoost:
+		return false
+	
 	if force_no_combine or effect.force_no_combine:
 		return false
 

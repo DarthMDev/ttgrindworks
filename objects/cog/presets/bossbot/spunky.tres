@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://cl12y4k5plcs0"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=14 format=3 uid="uid://cl12y4k5plcs0"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_j2m33"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_pbwfv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_761eu"]
 [ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="4_gt70c"]
 [ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_a648u"]
+[ext_resource type="Resource" uid="uid://cltphjfp4x2rk" path="res://objects/battle/battle_resources/cog_attacks/resources/half_windsor.tres" id="5_jieve"]
 [ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_jqj4w"]
 [ext_resource type="PackedScene" uid="uid://dyur4g6dt1hio" path="res://models/cogs/heads/Spunky.glb" id="7_xwdgh"]
 [ext_resource type="Texture2D" uid="uid://c4rtcb5vx4ej4" path="res://models/cogs/heads/Spunky_Spunky.png" id="8_dh2si"]
@@ -22,6 +23,8 @@ custom_arm_tex = ExtResource("4_761eu")
 custom_leg_tex = ExtResource("6_jqj4w")
 cog_name = "Spunky"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("7_xwdgh")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, -0.225)
@@ -31,7 +34,8 @@ hand_color = Color(0.94902, 0.74902, 0.74902, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 9.3
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_j2m33")]([ExtResource("2_y6htd"), ExtResource("2_pbwfv"), ExtResource("4_gt70c")])
+can_speak = true
+attacks = Array[ExtResource("1_j2m33")]([ExtResource("2_y6htd"), ExtResource("2_pbwfv"), ExtResource("4_gt70c"), ExtResource("5_jieve")])
 level_low = 7
 level_high = 20
 status_effects = Array[ExtResource("10_v1je0")]([ExtResource("11_g2kab")])

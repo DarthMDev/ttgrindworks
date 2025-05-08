@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://cmlaxrdbmxvfu"]
+
+[ext_resource type="Texture2D" uid="uid://dwaigpqds42pv" path="res://ui_assets/player_ui/pocket_prank_icons/toy_hammer.png" id="1_xra8y"]
+[ext_resource type="Script" uid="uid://sg60xkxtvfnu" path="res://objects/items/custom/item_script_toy_hammer.gd" id="2_xra8y"]
+[ext_resource type="PackedScene" uid="uid://15p6j6k3110c" path="res://models/props/toon_props/toy_hammer/toy_hammer_item_mod.tscn" id="3_xra8y"]
+[ext_resource type="AudioStream" uid="uid://ck7oraupaxhhe" path="res://audio/sfx/items/clock05.ogg" id="4_xra8y"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="5_it3fh"]
+
+[resource]
+script = ExtResource("5_it3fh")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 6
+current_charge = 6
+item_tags = null
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.2
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Toy Hammer"
+item_description = "Knock ‘em down!"
+big_description = "Cog levels in the room will decrease by 1-3"
+model = ExtResource("3_xra8y")
+pickup_sfx = ExtResource("4_xra8y")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_xra8y")
+remember_item = true
+icon = ExtResource("1_xra8y")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

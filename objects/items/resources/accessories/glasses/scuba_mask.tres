@@ -293,8 +293,8 @@ want_ui_spin = true
 ui_cam_offset = 0.2
 item_name = "Scuba Mask"
 item_description = "Now you're all wet!"
-big_description = "Adds +20% to Squirt's drenched effect
-Obscures all Anomalies (Overridden by Monocle)"
+big_description = "Adds +20% to Squirt's drenched effect.
+Obscures all Anomalies (Overridden by Monocle)."
 model = ExtResource("4_keo6p")
 stats_add = {
 "squirt_defense_boost": -0.2

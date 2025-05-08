@@ -143,13 +143,6 @@ func generate_floor() -> void:
 			rand_room = maxi(rand_room,1)
 		one_time_room_indexes.append(rand_room * 2)
 	
-	# Generate random rooms
-	for i in render_rooms:
-		if i >= room_count:
-			break
-		add_random_room()
-	
-	var entrance = room_node.get_child(0)
 	
 	var player := Util.get_player()
 	if not player:
@@ -162,6 +155,14 @@ func generate_floor() -> void:
 		var new_mod := initialize_floor_mod(modifier)
 		if new_mod:
 			anomalies.append(new_mod)
+	
+	# Generate random rooms
+	for i in render_rooms:
+		if i >= room_count:
+			break
+		add_random_room()
+	
+	var entrance = room_node.get_child(0)
 	
 	# Start anomaly tracker now that we've gotten all our anomalies
 	if not anomalies.is_empty():

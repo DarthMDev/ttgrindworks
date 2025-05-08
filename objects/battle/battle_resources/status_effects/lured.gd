@@ -42,7 +42,7 @@ func expire() -> void:
 
 func get_true_knockback() -> int:
 	var stats := Util.get_player().stats
-	return ceili(knockback_effect * stats.get_stat('damage') * stats.gag_effectiveness['Lure'])
+	return roundi(knockback_effect * stats.get_stat('damage') * stats.gag_effectiveness['Lure'])
 
 func create_walk_tween() -> Tween:
 	var cog: Cog = target

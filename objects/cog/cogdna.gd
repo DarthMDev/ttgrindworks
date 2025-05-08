@@ -38,6 +38,7 @@ enum SuitType {
 @export var head_color: Color = Color.WHITE
 @export var custom_nametag_height := 0.0
 @export var custom_nametag_suffix := ""
+@export var can_speak := true
 
 @export var attacks: Array[CogAttack]
 @export var level_low := 1
