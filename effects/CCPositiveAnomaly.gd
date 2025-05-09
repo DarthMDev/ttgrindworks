@@ -1,14 +1,6 @@
 extends CCEffect
 
 class_name CCPositiveAnomaly
-const ANOMALIES_POSITIVE: Array[String] = [
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overheal.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_victory_cry.gd",
-]
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	randomize()
@@ -24,7 +16,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
+	var anomaly_files_pos: Array[String] = FloorVariant.ANOMALIES_POSITIVE.duplicate()
 	return anomaly_files_pos
 
 func _can_run() -> bool:

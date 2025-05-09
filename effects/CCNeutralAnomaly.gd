@@ -5,14 +5,6 @@ extends CCEffect
 
 class_name CCNeutralAnomaly
 
-const ANOMALIES_NEUTRAL: Array[String] = [
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_reorganization.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
-]
 
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
@@ -39,7 +31,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomalies = ANOMALIES_NEUTRAL.duplicate()
+	var anomalies = FloorVariant.ANOMALIES_NEUTRAL.duplicate()
 	# TODO , rework marathon to queue marathon to next floor
 	anomalies.erase("res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd")
 	return anomalies
