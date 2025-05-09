@@ -70,11 +70,11 @@ func do_charge_tween(value : float) -> void:
 		charge_tween.kill()
 	
 	var time := 1.0
+	if is_equal_approx(0.0, value):
+		time = item.custom_discharge_time
 	charge_tween = create_tween().set_trans(Tween.TRANS_QUAD)
 	charge_tween.tween_property(progress_circle, 'value', value, time)
 	charge_tween.finished.connect(charge_tween.kill)
-
-
 
 func set_ticks(ticks : int) -> void:
 	clear_ticks()
@@ -111,7 +111,7 @@ func on_use_failed() -> void:
 	denycon.self_modulate.a = 0.0
 	
 	fail_tween = create_tween()
-	fail_tween.tween_callback(fail_sound_sfx.set_pitch_scale.bind(RandomService.randf_range_channel('true_random', 0.8, 1.2)))
+	fail_tween.tween_callback(fail_sound_sfx.set_pitch_scale.bind(RandomService.randf_range_channel('true_random', 0.7, 1.8)))
 	fail_tween.tween_callback(fail_sound_sfx.play)
 	fail_tween.tween_property(denycon, 'self_modulate:a', 1.0, 0.25)
 	fail_tween.tween_property(denycon, 'self_modulate:a', 0.0, 0.25)
@@ -127,19 +127,21 @@ func on_settings_changed() -> void:
 func sync_button_prompt() -> void:
 	var size_per_char := 3
 	var key_label: Label = %KeyLabel
-	key_label.set_text(input_to_text(InputMap.action_get_events('use_pocket_prank')[1]))
+	var new_text := input_to_text(InputMap.action_get_events('use_pocket_prank')[1])
+	var test = InputMap.action_get_events('use_pocket_prank')
+	key_label.set_text(new_text)
 	key_label.label_settings.font_size = 24 - ((key_label.text.length() * size_per_char) - size_per_char)
 	%KeyInput.set_visible(get_button_prompt_visible())
 
 func input_to_text(input : InputEvent) -> String:
 	if not input: 
 		return "<UNBOUND>"
-	var base_string := input.as_text()
-	if base_string.ends_with(" (Physical)"):
-		base_string = base_string.trim_suffix(" (Physical)")
-	else:
+	var text := input.as_text()
+	if text.begins_with("Joypad"):
 		return "Q"
-	return base_string
+	elif text.ends_with(" (Physical)"):
+		return text.trim_suffix(" (Physical)")
+	return input.as_text()
 
 func get_button_prompt_visible() -> bool:
 	if not SaveFileService.settings_file.button_prompts:

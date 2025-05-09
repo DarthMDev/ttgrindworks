@@ -18,6 +18,8 @@ const SfxData := {
 	"Drop": [SFX_DROP, 0.0],
 }
 
+@export var hide_close_button := false
+
 signal s_voucher_used
 
 
@@ -25,6 +27,11 @@ func _ready() -> void:
 	_ready_vouchers()
 	_ready_toonup()
 	_ready_treasures()
+	if NodeGlobals.get_ancestor_of_type(self, BattleUI):
+		%VoucherPreventer.hide()
+		%ToonupPreventer.hide()
+	if hide_close_button:
+		%CloseButton.hide()
 
 #region GAG VOUCHERS
 @export_category('Gag Vouchers')
@@ -57,9 +64,13 @@ func create_new_voucher(track: Track, count: int) -> Control:
 	button_copy.get_node('TrackName').set_text(track.track_name)
 	button_copy.get_node('Quantity').set_text("x%d" % count)
 	button_copy.get_node('GagSprite').set_disabled(count == 0)
-	button_copy.get_node('GagSprite').pressed.connect(use_voucher.bind(track))
-	button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind("+5 %s points" % track.track_name))
-	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if is_instance_valid(BattleService.ongoing_battle):
+		button_copy.get_node('GagSprite').pressed.connect(use_voucher.bind(track))
+		button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind("+5 %s points" % track.track_name))
+		button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	else:
+		button_copy.get_node('GagSprite').pressed.connect(play_fail_sfx)
+		button_copy.modulate = Color.GRAY
 	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
 	return button_copy
 
@@ -89,7 +100,8 @@ func use_voucher(track: Track) -> void:
 
 func _ready_toonup() -> void:
 	_refresh_toonup()
-	get_parent().s_update_toonups.connect(_refresh_toonup)
+	if is_instance_valid(BattleService.ongoing_battle):
+		get_parent().s_update_toonups.connect(_refresh_toonup)
 
 func _populate_toonup() -> void:
 	var toonups := get_toonup_counts()
@@ -117,9 +129,13 @@ func create_new_toonup(level: int, count: int) -> Control:
 	button_copy.get_node('GagName').set_text(action_name)
 	button_copy.get_node('Quantity').set_text("x%d" % count)
 	button_copy.get_node('GagSprite').set_disabled(count == 0)
-	button_copy.get_node('GagSprite').pressed.connect(use_toonup.bind(level))
-	button_copy.get_node('GagSprite').mouse_entered.connect(hover_toonup.bind(level))
-	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if is_instance_valid(BattleService.ongoing_battle):
+		button_copy.get_node('GagSprite').pressed.connect(use_toonup.bind(level))
+		button_copy.get_node('GagSprite').mouse_entered.connect(hover_toonup.bind(level))
+		button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	else:
+		button_copy.get_node('GagSprite').pressed.connect(play_fail_sfx)
+		button_copy.modulate = Color.GRAY
 	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
 	return button_copy
 
@@ -235,3 +251,9 @@ func get_track(track_name: String) -> Track:
 func _exit() -> void:
 	hide()
 	get_parent().main_container.show()
+
+func play_fail_sfx() -> void:
+	AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
+	# Focus testing said this was stupid :(
+	#var audio_player := AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
+	#audio_player.set_pitch_scale(RandomService.randf_range_channel('true_random', 0.7, 1.8))

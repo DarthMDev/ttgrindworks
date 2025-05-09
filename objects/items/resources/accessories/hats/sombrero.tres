@@ -293,8 +293,8 @@ want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Sombrero"
 item_description = "Play it loud!"
-big_description = "- 15% Sound damage
-- Sound does full damage to adjacent Cogs, half to targeted Cog"
+big_description = "-15% Sound damage
+Sound does full damage to adjacent Cogs, half to targeted Cog"
 model = ExtResource("3_rte55")
 stats_add = {}
 stats_multiply = {

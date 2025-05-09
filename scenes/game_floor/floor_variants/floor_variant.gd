@@ -14,6 +14,7 @@ const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_victory_cry.gd",
 ]
 const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
@@ -21,6 +22,7 @@ const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
 ]
 const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
@@ -28,14 +30,15 @@ const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_safety_violations.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_time_crunch.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_double_trouble.gd",
 ]
 
 const LEVEL_RANGES: Dictionary[int, Array] = {
 	0: [1, 3],
 	1: [2, 5],
 	2: [3, 7],
-	3: [6, 10],
-	4: [8, 13],
+	3: [6, 9],
+	4: [8, 12],
 	5: [9, 15],
 }
 

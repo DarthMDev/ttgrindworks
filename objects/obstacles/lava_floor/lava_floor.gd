@@ -57,6 +57,8 @@ func body_entered(body : Node3D) -> void:
 func hurt_player() -> void:
 	s_lava_hit.emit()
 	var player := Util.get_player()
+	if player.is_invincible():
+		return
 	if lava_type == LavaType.TELEPORT:
 		reset_to_checkpoint(player)
 	player.last_damage_source = damage_name

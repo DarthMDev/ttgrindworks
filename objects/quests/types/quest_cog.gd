@@ -10,7 +10,7 @@ const FALLBACK_ICON := preload("res://ui_assets/quests/gear2.png")
 
 
 func _init() -> void:
-	BattleService.s_battle_started.connect(battle_started)
+	BattleService.s_battle_participant_died.connect(participant_died)
 
 func setup() -> void:
 	# Reset the quest
@@ -96,9 +96,6 @@ func randomize_objective() -> void:
 		quotaf /= maxf(min_level/4.0,1.25)
 	
 	quota = int(round(quotaf))
-
-func battle_started(battle : BattleManager) -> void:
-	battle.s_participant_died.connect(participant_died)
 
 func participant_died(participant : Node3D) -> void:
 	var cog : Cog

@@ -14,7 +14,7 @@ func setup(res : Item) -> void:
 
 func collect() -> void:
 	if is_instance_valid(Util.get_player()):
-		Util.get_player().quick_heal(get_heal_value() / 2)
+		Util.get_player().quick_heal(get_heal_value() / 4)
 		Util.get_player().stats.treasures[get_treasure_index()] += 1
 
 func modify(ui_asset : Sprite3D) -> void:

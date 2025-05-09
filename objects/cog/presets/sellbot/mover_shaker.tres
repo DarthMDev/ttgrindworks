@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=10 format=3 uid="uid://b0iiauyxvm2su"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=11 format=3 uid="uid://b0iiauyxvm2su"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_m5vcq"]
 [ext_resource type="Resource" uid="uid://6hjcsu17tt4g" path="res://objects/battle/battle_resources/cog_attacks/resources/brain_storm.tres" id="2_2rg62"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cae3lr6y4rrb8" path="res://objects/battle/battle_resources/cog_attacks/resources/quake.tres" id="4_oduic"]
 [ext_resource type="Resource" uid="uid://55lp6noha8te" path="res://objects/battle/battle_resources/cog_attacks/resources/shake.tres" id="5_phrcf"]
 [ext_resource type="PackedScene" uid="uid://d2pl7oar1aevb" path="res://models/cogs/heads/movershaker.glb" id="6_8ik2y"]
+[ext_resource type="Resource" uid="uid://cltphjfp4x2rk" path="res://objects/battle/battle_resources/cog_attacks/resources/half_windsor.tres" id="6_14dwj"]
 [ext_resource type="Texture2D" uid="uid://0md7vdsufcf6" path="res://models/cogs/heads/movershaker_movershaker.png" id="7_jv581"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="8_f1gcb"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="9_hqbam"]
@@ -16,7 +17,7 @@ department = 0
 suit = 1
 cog_name = "Mover & Shaker"
 name_plural = ""
-name_prefix = "Mover *"
+name_prefix = "Mover"
 name_suffix = "Shaker"
 head = ExtResource("6_8ik2y")
 head_scale = Vector3(1, 1, 1)
@@ -27,7 +28,8 @@ hand_color = Color(0.988235, 0.839216, 0.8, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_m5vcq")]([ExtResource("2_2rg62"), ExtResource("3_jnshr"), ExtResource("4_oduic"), ExtResource("5_phrcf")])
+can_speak = true
+attacks = Array[ExtResource("1_m5vcq")]([ExtResource("2_2rg62"), ExtResource("3_jnshr"), ExtResource("4_oduic"), ExtResource("5_phrcf"), ExtResource("6_14dwj")])
 level_low = 5
 level_high = 12
 status_effects = Array[ExtResource("9_hqbam")]([])

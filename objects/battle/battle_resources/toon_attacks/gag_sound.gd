@@ -67,8 +67,10 @@ func action():
 				manager.affect_target(target, real_damage)
 			if not target.lured or not do_knockback:
 				target.set_animation('squirt-small')
+				do_dizzy_stars(target)
 			elif not get_immunity(target):
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 		
 		if animator_target:
 			await manager.barrier(animator_target.animator.animation_finished, 5.0)

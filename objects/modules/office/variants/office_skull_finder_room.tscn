@@ -1,8 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3jefjvjikh4q"]
+[gd_scene load_steps=26 format=3 uid="uid://c3jefjvjikh4q"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_c305m"]
-[ext_resource type="Script" uid="uid://bv8cu0qj4m224" path="res://objects/interactables/lawbot_puzzles/puzzle_skull_finder.gd" id="4_02t2o"]
+[ext_resource type="Script" uid="uid://csd0hjpyfudfl" path="res://objects/modules/office/variants/office_big_puzzle_room.gd" id="2_xw74j"]
 [ext_resource type="Texture2D" uid="uid://dmelmjyqb5mqh" path="res://models/facilities/office/textures/LB_Carpet.png" id="5_nl5fk"]
+[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="5_uum76"]
+[ext_resource type="Script" uid="uid://jcqkmum0itxp" path="res://objects/battle/battle_resources/misc_movies/battle_entrances/virtual_cog_intro.gd" id="6_awmgu"]
+[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="7_lb7p1"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="7_q5d2e"]
 [ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="8_tfo1h"]
 [ext_resource type="Script" uid="uid://c873n3duiy2t4" path="res://objects/interactables/lawbot_puzzles/puzzle_run.gd" id="9_nymlb"]
@@ -33,6 +36,10 @@ albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
 albedo_texture = ExtResource("5_nl5fk")
 emission_enabled = true
 
+[sub_resource type="Resource" id="Resource_g7soa"]
+script = ExtResource("6_awmgu")
+skippable = false
+
 [sub_resource type="GDScript" id="GDScript_873pa"]
 resource_name = "puzzle_treasures"
 script/source = "extends Node3D
@@ -54,7 +61,8 @@ func delete_chest(chest: TreasureChest) -> void:
 	chest.queue_free()
 "
 
-[node name="SkullFinderRoom" instance=ExtResource("1_c305m")]
+[node name="BigPuzzleRoom" instance=ExtResource("1_c305m")]
+script = ExtResource("2_xw74j")
 
 [node name="floor" parent="Z08_ALL/Z08/boiler_room/room/geometry_boiler_room" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ukme4")
@@ -65,21 +73,43 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1ugpq")
 [node name="Puzzle" type="Node3D" parent="." index="10"]
 
 [node name="CogButton" parent="Puzzle" index="0" node_paths=PackedStringArray("connected_objects") instance=ExtResource("7_q5d2e")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.39, 0, 0.61)
-connected_objects = [NodePath("../PuzzleSkullFinder")]
+connected_objects = [NodePath("../PuzzleOrigin")]
 up_color = Color(1, 1, 1, 1)
 
-[node name="PuzzleSkullFinder" type="Node3D" parent="Puzzle" index="1"]
-transform = Transform3D(-8.30516e-08, 0, -1.9, 0, 1.9, 0, 1.9, 0, -8.30516e-08, 18.495, 0.05, -7.905)
-script = ExtResource("4_02t2o")
-bomb_count = 32
-grid_width = 9
-grid_height = 15
-beam_height = 5.0
-use_beam_height = false
-beam_origin = Vector3(0, 5, 0)
-lose_type = 1
-explosion_damage = -4
+[node name="PuzzleOrigin" type="Node3D" parent="Puzzle" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(-8.30516e-08, 0, -1.9, 0, 1.9, 0, 1.9, 0, -8.30516e-08, 17.7192, 0.05, -7.905)
+
+[node name="BattleNode" parent="Puzzle" index="2" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("5_uum76")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.52951, 0, 0.117605)
+visible = false
+cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
+focus_cog = NodePath("Cog")
+override_intro = SubResource("Resource_g7soa")
+item_pool = null
+
+[node name="Cog" parent="Puzzle/BattleNode" index="2" instance=ExtResource("7_lb7p1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227, 0, -0.646177)
+skelecog = true
+virtual_cog = true
+
+[node name="Cog2" parent="Puzzle/BattleNode" index="3" instance=ExtResource("7_lb7p1")]
+transform = Transform3D(-0.599429, 0, 0.800428, 0, 1, 0, -0.800428, 0, -0.599429, 0.737486, 0, -0.856627)
+skelecog = true
+virtual_cog = true
+
+[node name="Cog3" parent="Puzzle/BattleNode" index="4" instance=ExtResource("7_lb7p1")]
+transform = Transform3D(-0.237228, 0, -0.971454, 0, 1, 0, 0.971454, 0, -0.237228, -4.1492, 0, -2.36801)
+skelecog = true
+virtual_cog = true
+
+[node name="Cog4" parent="Puzzle/BattleNode" index="5" instance=ExtResource("7_lb7p1")]
+transform = Transform3D(0.316378, 0, -0.948633, 0, 1, 0, 0.948633, 0, 0.316378, 2.8795, 0, -2.21154)
+skelecog = true
+virtual_cog = true
 
 [node name="Partitions" type="Node3D" parent="." index="11"]
 
@@ -235,6 +265,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01649, 0.973984, 0.222244)
 
 [node name="chair" parent="Props/desk" index="3" instance=ExtResource("23_hfqgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0873713, 0, -1.35911)
+
+[node name="Blocker" type="Node3D" parent="." index="14"]
+transform = Transform3D(0.995567, 0, 0.0940562, 0, 1, 0, -0.0940562, 0, 0.995567, 22.3826, 0, -3.23399)
+
+[node name="law_bookshelf" parent="Blocker" index="0" instance=ExtResource("18_vk3hr")]
+unique_name_in_owner = true
+transform = Transform3D(-1.04308e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.04308e-07, 0, 0, 7.854)
 
 [connection signal="s_lose" from="PuzzleTreasures/PuzzleRun" to="PuzzleTreasures" method="right_puzzle_lost"]
 [connection signal="s_opened" from="PuzzleTreasures/TreasureRight" to="PuzzleTreasures/PuzzleRun" method="win_game"]

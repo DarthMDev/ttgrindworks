@@ -21,6 +21,8 @@ func start(time: float) -> void:
 		s_timeout.emit()
 		queue_free()
 	)
+	# Free self if player leaves for title screen
+	Globals.s_title_screen_entered.connect(func(_title_screen = null): queue_free())
 
 func _process(_delta) -> void:
 	if timer:

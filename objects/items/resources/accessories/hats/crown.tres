@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://otvh1cgj4l40"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://otvh1cgj4l40"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_jlps2"]
 [ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_1b5y1"]
 [ext_resource type="PackedScene" uid="uid://cmcrvrgkphr7k" path="res://models/accessories/hats/crown/tt_m_chr_avt_acc_hat_crown.glb" id="2_6qtlc"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_oe7y8"]
 [ext_resource type="Texture2D" uid="uid://btpuxn8wy483k" path="res://models/accessories/hats/crown/tt_m_chr_avt_acc_hat_crown.glb-pix-1.png" id="3_bkh6a"]
-[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="5_nripe"]
 
 [sub_resource type="Resource" id="Resource_uj5ac"]
 script = ExtResource("2_1b5y1")
@@ -283,7 +282,7 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_oe7y8")
 accessory_placements = Array[ExtResource("1_jlps2")]([SubResource("Resource_uj5ac"), SubResource("Resource_o5eik"), SubResource("Resource_ijhra"), SubResource("Resource_sy7tn"), SubResource("Resource_3y32j"), SubResource("Resource_ul74g"), SubResource("Resource_fqru4"), SubResource("Resource_fikqq"), SubResource("Resource_0quys"), SubResource("Resource_hyj6y"), SubResource("Resource_i73se"), SubResource("Resource_xvdmt"), SubResource("Resource_nimd7"), SubResource("Resource_smpwu"), SubResource("Resource_yntnx"), SubResource("Resource_k5gqk"), SubResource("Resource_rqhjw"), SubResource("Resource_64e8t"), SubResource("Resource_srnaf"), SubResource("Resource_o1sfv"), SubResource("Resource_pj1vf"), SubResource("Resource_gy1m1"), SubResource("Resource_n5rlc"), SubResource("Resource_s8uvo"), SubResource("Resource_t3yfl"), SubResource("Resource_w2dgi"), SubResource("Resource_moy80"), SubResource("Resource_j8cx5"), SubResource("Resource_a4x2s"), SubResource("Resource_ifo1h"), SubResource("Resource_cjpjt"), SubResource("Resource_7icll"), SubResource("Resource_gsr86"), SubResource("Resource_em7wd")])
 item_tags = null
-qualitoon = 4
+qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
@@ -296,7 +295,6 @@ item_name = "Crown"
 item_description = "You're in charge!"
 big_description = "Gags will run in the order you choose them."
 model = ExtResource("2_6qtlc")
-pickup_sfx = ExtResource("5_nripe")
 stats_add = {}
 stats_multiply = {}
 player_values = {

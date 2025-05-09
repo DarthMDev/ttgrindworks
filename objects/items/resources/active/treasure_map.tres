@@ -9,8 +9,10 @@
 script = ExtResource("1_irxac")
 sfx = Array[AudioStream]([])
 active_type = 2
-charge_count = 0
-current_charge = 0
+charge_count = 6
+current_charge = 6
+custom_discharge_time = 1.0
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false

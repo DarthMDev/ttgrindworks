@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://cmwth04hxrxf4"]
+[gd_scene load_steps=92 format=4 uid="uid://cmwth04hxrxf4"]
 
 [ext_resource type="PackedScene" uid="uid://bbpa14c3mhbii" path="res://models/facilities/mint/mint_conveyor_room.fbx" id="1_3hn8j"]
 [ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="2_cncj2"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dxyojq8quwnus" path="res://models/facilities/mint/textures/FINALFACTORY_4.png" id="17_ivbpi"]
 [ext_resource type="Texture2D" uid="uid://dtm13qbxxohgl" path="res://models/facilities/mint/textures/FINALFACTORY_137.png" id="18_4khn2"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="25_bub7a"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="25_bv5h8"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="26_5dmvp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ksdy"]
 resource_name = "FINALFACTORY_66"
@@ -240,7 +242,7 @@ cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -0.447385, 0)
+uv1_offset = Vector3(0, -0.930562, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6muf"]
 resource_name = "ConveyerBeltV3SHD"
@@ -248,16 +250,16 @@ cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -3.40392, 0)
+uv1_offset = Vector3(0, -0.820814, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2y4s"]
-size = Vector3(1.53235, 12.2654, 16.5046)
+size = Vector3(1.53235, 4.8617, 16.5046)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_klbl8"]
 size = Vector3(0.916657, 9.4856, 5.41891)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2ujy"]
-size = Vector3(22.4657, 12.9282, 27.5473)
+size = Vector3(0.38707, 4.07434, 27.5473)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fkln"]
 size = Vector3(0.333435, 4.28683, 11.9544)
@@ -809,82 +811,88 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 0.01, -6.46332
 [node name="cog_nation_crate37" parent="Crates" index="28" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 14.8067, 0.01, -9.15949)
 
-[node name="cog_nation_crate38" parent="Crates" index="29" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate49" parent="Crates" index="29" instance=ExtResource("9_henam")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 14.4417, 0.01, -6.87816)
+
+[node name="cog_nation_crate50" parent="Crates" index="30" instance=ExtResource("9_henam")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 8.87735, 2.51349, -22.0316)
+
+[node name="cog_nation_crate38" parent="Crates" index="31" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 2.50068, -9.15949)
 want_shadow = false
 
-[node name="cog_nation_crate9" parent="Crates" index="30" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate9" parent="Crates" index="32" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.849, 0.01, -17.2396)
 
-[node name="cog_nation_crate10" parent="Crates" index="31" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate10" parent="Crates" index="33" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.849, 2.50068, -19.9317)
 want_shadow = false
 
-[node name="cog_nation_crate11" parent="Crates" index="32" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate11" parent="Crates" index="34" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.59988, 0.01, -17.2396)
 
-[node name="cog_nation_crate12" parent="Crates" index="33" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate12" parent="Crates" index="35" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.59988, 2.50068, -17.2396)
 want_shadow = false
 
-[node name="cog_nation_crate13" parent="Crates" index="34" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate13" parent="Crates" index="36" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 0.01, -17.2396)
 
-[node name="cog_nation_crate14" parent="Crates" index="35" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate14" parent="Crates" index="37" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 0.01, -17.2396)
 
-[node name="cog_nation_crate15" parent="Crates" index="36" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate15" parent="Crates" index="38" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 14.8067, 0.01, -17.2396)
 
-[node name="cog_nation_crate16" parent="Crates" index="37" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate16" parent="Crates" index="39" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 2.50068, -17.2396)
 want_shadow = false
 
-[node name="cog_nation_crate17" parent="Crates" index="38" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate17" parent="Crates" index="40" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.59988, 0.01, -14.5531)
 
-[node name="cog_nation_crate18" parent="Crates" index="39" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate18" parent="Crates" index="41" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.59988, 2.50068, -14.5531)
 want_shadow = false
 
-[node name="cog_nation_crate19" parent="Crates" index="40" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate19" parent="Crates" index="42" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 0.01, -14.5531)
 
-[node name="cog_nation_crate20" parent="Crates" index="41" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate20" parent="Crates" index="43" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 0.01, -14.5531)
 
-[node name="cog_nation_crate39" parent="Crates" index="42" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate39" parent="Crates" index="44" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 2.51142, -11.8525)
 want_shadow = false
 
-[node name="cog_nation_crate24" parent="Crates" index="43" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate24" parent="Crates" index="45" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 2.51142, -17.2396)
 want_shadow = false
 
-[node name="cog_nation_crate40" parent="Crates" index="44" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate40" parent="Crates" index="46" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 2.51142, -14.5531)
 want_shadow = false
 
-[node name="cog_nation_crate46" parent="Crates" index="45" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate46" parent="Crates" index="47" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.0685, 4.99249, -14.5531)
 want_shadow = false
 
-[node name="cog_nation_crate21" parent="Crates" index="46" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate21" parent="Crates" index="48" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 14.8067, 0.01, -14.5531)
 
-[node name="cog_nation_crate22" parent="Crates" index="47" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate22" parent="Crates" index="49" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 2.50068, -14.5531)
 want_shadow = false
 
-[node name="cog_nation_crate44" parent="Crates" index="48" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate44" parent="Crates" index="50" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 4.99292, -11.8525)
 want_shadow = false
 
-[node name="cog_nation_crate45" parent="Crates" index="49" instance=ExtResource("9_henam")]
+[node name="cog_nation_crate45" parent="Crates" index="51" instance=ExtResource("9_henam")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.33119, 4.99292, -14.5531)
 want_shadow = false
 
-[node name="CrateBlock" type="Node3D" parent="Crates" index="50"]
+[node name="CrateBlock" type="Node3D" parent="Crates" index="52"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 1.15013, 0, -0.280596)
 
 [node name="cog_nation_crate2" parent="Crates/CrateBlock" index="0" instance=ExtResource("9_henam")]
@@ -1003,7 +1011,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3144
 [node name="Blockers" type="StaticBody3D" parent="." index="24"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blockers" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66554, 5.63269, -8.11495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66554, 1.93084, -8.11495)
 shape = SubResource("BoxShape3D_y2y4s")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Blockers" index="1"]
@@ -1011,7 +1019,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991413, -1.14942, 2.76003)
 shape = SubResource("BoxShape3D_klbl8")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Blockers" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3076, 5.96408, -12.9361)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268285, 1.53715, -12.9361)
 shape = SubResource("BoxShape3D_a2ujy")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Blockers" index="3"]
@@ -1174,5 +1182,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5078, -2.28727, 12.9155)
 [node name="PlayerStartPos" type="Node3D" parent="." index="39"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4274, 0, -11.8237)
+
+[node name="treasure_chest2" parent="." index="40" instance=ExtResource("11_n1faw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.987, 2.509, -18.5656)
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="41" instance=ExtResource("25_bv5h8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1413, 0, -12.0068)
+script = ExtResource("26_5dmvp")
 
 [connection signal="s_pressed" from="CogButton" to="." method="lower_ramp"]

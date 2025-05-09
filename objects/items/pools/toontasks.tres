@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=15 format=3 uid="uid://7tn6to82356s"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=17 format=3 uid="uid://7tn6to82356s"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_o8p4s"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="2_g673f"]
@@ -13,8 +13,10 @@
 [ext_resource type="Resource" uid="uid://y5nhq5oudm83" path="res://objects/items/resources/passive/candies/candy_evasiveness.tres" id="12_bj61c"]
 [ext_resource type="Resource" uid="uid://rytsv7bygrwl" path="res://objects/items/resources/passive/candies/candy_luck.tres" id="13_31fts"]
 [ext_resource type="Resource" uid="uid://d0n6coya2868f" path="res://objects/items/resources/passive/flower_treasure.tres" id="13_hlkw0"]
+[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="14_82jbt"]
 [ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="14_b0d2e"]
+[ext_resource type="Resource" uid="uid://c8yh80vqngv1b" path="res://objects/items/resources/passive/music_treasure.tres" id="15_bu400"]
 
 [resource]
 script = ExtResource("7_dju7n")
-items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0")])
+items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0"), ExtResource("14_82jbt"), ExtResource("15_bu400")])
