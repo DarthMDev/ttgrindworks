@@ -99,7 +99,7 @@ func get_next_floors() -> void:
 
 func final_boss_time_baby() -> void:
 	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
-	final_floor.level_range = Vector2i(8, 12)
+	final_floor.level_range = Vector2i(9, 14)
 	next_floors = [final_floor]
 	$ElevatorUI.floors = next_floors
 	$ElevatorUI.set_floor_index(0)

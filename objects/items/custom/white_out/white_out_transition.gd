@@ -82,7 +82,7 @@ func restart_floor() -> void:
 	clean_current_floor()
 	
 	# Get our new floor variant
-	var floor_variant: FloorVariant = RandomService.array_pick_random('white_out_floor', Globals.FLOOR_VARIANTS)
+	var floor_variant: FloorVariant = RandomService.array_pick_random('white_out_floor', Globals.FLOOR_VARIANTS).duplicate()
 	if floor_variant.alt_floor and RandomService.randi_channel('floors') % 10 == 0:
 		floor_variant = floor_variant.alt_floor
 	floor_variant.randomize_details()
@@ -91,10 +91,7 @@ func restart_floor() -> void:
 	else:
 		floor_variant.reward = null
 	
-	# Save that floor variant to the save file
-	SaveFileService.run_file.floor_choice = floor_variant
 	Util.floor_number -= 1
-	SaveFileService.save()
 	
 	var game_floor: GameFloor = load("res://scenes/game_floor/game_floor.tscn").instantiate()
 	game_floor.floor_variant = floor_variant
