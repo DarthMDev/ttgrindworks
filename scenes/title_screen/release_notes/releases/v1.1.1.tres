@@ -71,4 +71,10 @@ Game timers now get removed if you quit to the title screen while they are runni
 Fixed Regeneration showing the default status effect name when applied to Cogs
 Fixed a softlock in the D.A. Office
 Fixed a typo in the v1.1.0 release notes
-Minor text fixes"
+Minor text fixes
+[TITLE]Hotfix #1
+Fixed Cowboy Hat's Description
+Fixed an issue where White-Out wouldn't duplicate the floor variant properly
+White-Out will no longer save your current game file on use
+Fixed the level range for the Executive Office not displaying properly
+Floor Clear rewards should be a bit nicer now"
