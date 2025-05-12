@@ -61,7 +61,7 @@ func _ready() -> void:
 	Util.floor_number += 1
 	DiscordManager.update_presence()
 	generate_floor()
-	player = Util.get_player()
+	var player = Util.get_player()
 	if player:
 		if OS.has_feature("mobile"):
 			player.joystick_left.show()
