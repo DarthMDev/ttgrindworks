@@ -12,6 +12,10 @@ func on_collect(_item: Item, _object: Node3D) -> void:
 func on_load(_item: Item) -> void:
 	pass
 
+## Called if the item is removed from the Player
+func on_item_removed() -> void:
+	pass
+
 ## Adds an item script to the player
 static func add_item_script(player: Player, item_script: Script) -> Node:
 	var new_node := Node.new()

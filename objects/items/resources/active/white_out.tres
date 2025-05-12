@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dkbg3o5aa81j8"]
+
+[ext_resource type="Texture2D" uid="uid://bt2odeej3111t" path="res://ui_assets/player_ui/pocket_prank_icons/white_out.png" id="1_8cb01"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_8lvqc"]
+[ext_resource type="Script" uid="uid://dil4ba6bt6krg" path="res://objects/items/custom/white_out/item_white_out.gd" id="2_6nsfr"]
+[ext_resource type="PackedScene" uid="uid://cenicsw45ina8" path="res://models/props/toon_props/white_out/white_out.tscn" id="3_6nsfr"]
+
+[resource]
+script = ExtResource("1_8lvqc")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 0
+current_charge = 0
+custom_discharge_time = 1.0
+item_tags = null
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.75
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "White-Out"
+item_description = "Do-Over!"
+big_description = "Restarts the current floor. You keep all of the items you've collected on it thus far (one-time use)"
+model = ExtResource("3_6nsfr")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_6nsfr")
+remember_item = true
+icon = ExtResource("1_8cb01")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

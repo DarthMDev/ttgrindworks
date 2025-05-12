@@ -18,23 +18,35 @@ signal s_gag_canceled(index : int)
 func _ready():
 	# Add the first gag panel to the array
 	panels.append(gag_panel)
-	
+	configure_panel(gag_panel)
+	update_panels()
+
+func configure_panel(panel) -> void:
+	panel.get_node('GagIcon').mouse_entered.connect(hover_slot.bind(panels.find(panel)))
+	panel.get_node('GagIcon').mouse_exited.connect(stop_hover)
+	panel.get_node('GeneralButton').disabled = true
+	panel.get_node('GeneralButton').hide()
+	panel.get_node('GeneralButton').pressed.connect(cancel_gag.bind(panels.find(panel)))
+		
+func update_panels() -> void:
 	# Amount of panels is based on Player turns (-1)
-	var panels_to_make: int = Util.get_player().stats.turns - 1
-	
-	# Append the panels
-	for i in panels_to_make:
-		var panel = gag_panel.duplicate()
-		add_child(panel)
-		panels.append(panel)
-	
-	# X Button configuration
-	for panel in panels:
-		panel.get_node('GagIcon').mouse_entered.connect(hover_slot.bind(panels.find(panel)))
-		panel.get_node('GagIcon').mouse_exited.connect(stop_hover)
-		panel.get_node('GeneralButton').disabled = true
-		panel.get_node('GeneralButton').hide()
-		panel.get_node('GeneralButton').pressed.connect(cancel_gag.bind(panels.find(panel)))
+	var panels_to_make: int = manager.battle_stats[Util.get_player()].turns - panels.size()
+	if panels_to_make > 0:
+		# Append the panels
+		for i in panels_to_make:
+			var panel = gag_panel.duplicate()
+			reset_panel(panel)
+			add_child(panel)
+			panels.append(panel)
+		
+		# X Button configuration
+		for i in range(panels.size() - panels_to_make, panels.size()):
+			configure_panel(panels[i])
+			
+	# definitely not complete negative support
+	if panels_to_make < 0:
+		for i in abs(panels_to_make):
+			panels.pop_back().queue_free()
 
 func append_gag(gag: ToonAttack) -> void:
 	# Add the icon to the gag panels
@@ -50,11 +62,14 @@ func append_gag(gag: ToonAttack) -> void:
 		panel.get_node('GeneralButton').visible = not panel.get_node('GeneralButton').disabled
 
 ## Reset all panels
-func on_round_start(_gag_order: Array[ToonAttack]) -> void:
-	for panel in panels:
+func reset_panel(panel) -> void:
 		panel.get_node('GagIcon').texture = null
 		panel.get_node('GeneralButton').disabled = true
 		panel.get_node('GeneralButton').hide()
+
+func on_round_start(_gag_order: Array[ToonAttack]) -> void:
+	for panel in panels:
+		reset_panel(panel)
 
 func cancel_gag(index: int):
 	s_gag_canceled.emit(index)

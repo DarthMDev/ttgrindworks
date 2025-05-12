@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=16 format=3 uid="uid://bgid3wnjubxl"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=17 format=3 uid="uid://bgid3wnjubxl"]
 
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_5k5p5"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_26hj0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dp1mwoshkp6pb" path="res://models/toon/textures/clothes/shirts/desat_sleeve_2_1.png" id="6_bmcq1"]
 [ext_resource type="Resource" uid="uid://oromnsmw0dhr" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/bessie_loadout.tres" id="8_vetyy"]
 [ext_resource type="Resource" uid="uid://w2jk7lsyrodm" path="res://objects/items/resources/passive/bessie_boost.tres" id="11_yb4tn"]
+[ext_resource type="Resource" uid="uid://dpnuurdnowhsv" path="res://objects/items/resources/passive/bessie_setup.tres" id="12_omx0v"]
 
 [sub_resource type="Resource" id="Resource_4mp7f"]
 script = ExtResource("1_26hj0")
@@ -62,6 +63,8 @@ character_summary = "- 25% less damage
 dna = SubResource("Resource_ppw05")
 gag_loadout = ExtResource("8_vetyy")
 starting_laff = 30
-starting_items = Array[ExtResource("3_2km26")]([ExtResource("11_yb4tn")])
+starting_items = Array[ExtResource("3_2km26")]([ExtResource("11_yb4tn"), ExtResource("12_omx0v")])
 base_stats = SubResource("Resource_4mp7f")
+override_index = -1
 random_character_stored_name = ""
+achievement_index = 15

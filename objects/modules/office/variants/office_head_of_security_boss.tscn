@@ -1,0 +1,249 @@
+[gd_scene load_steps=22 format=3 uid="uid://be4vavros0suo"]
+
+[ext_resource type="PackedScene" uid="uid://botwlahodbbmq" path="res://objects/modules/office/base_rooms/office_skull_boss_room.tscn" id="1_6t424"]
+[ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_1f8b8"]
+[ext_resource type="Script" uid="uid://dhawhjb1278w0" path="res://objects/modules/office/variants/office_head_of_security_boss.gd" id="2_gwvhn"]
+[ext_resource type="PackedScene" uid="uid://bw40g4r5ql7yj" path="res://objects/props/office/head_of_security.tscn" id="3_g3sbm"]
+[ext_resource type="Texture2D" uid="uid://cwsb163k5ij6d" path="res://models/facilities/office/textures/CBStationLightTubes.png" id="3_sr1te"]
+[ext_resource type="Texture2D" uid="uid://b5uykjn42clf" path="res://models/facilities/office/textures/CogBldgEyes.png" id="4_2e43l"]
+[ext_resource type="Shader" uid="uid://cnr7goyg47115" path="res://models/props/facility_objects/da_office/head_of_security/hos_wall_shader.gdshader" id="4_gb0pg"]
+[ext_resource type="Script" uid="uid://wb1dvup51a1q" path="res://objects/interactables/lawbot_puzzles/puzzle_boss.gd" id="4_gwvhn"]
+[ext_resource type="PackedScene" uid="uid://bjhle6ljdlsvr" path="res://objects/interactables/chq_door/chq_door_no_wall.tscn" id="9_g3sbm"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="10_2e43l"]
+[ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="10_gb0pg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d65n6"]
+render_priority = -1
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xknh6"]
+resource_local_to_scene = true
+resource_name = "CBStationLightTubes.001"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.321728, 0.321728, 0.321728, 1)
+albedo_texture = ExtResource("3_sr1te")
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e43l"]
+resource_local_to_scene = true
+resource_name = "CogBldgEyes"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_2e43l")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0hybq"]
+frequency = 0.047
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gwvhn"]
+noise = SubResource("FastNoiseLite_0hybq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liuo2"]
+resource_name = "Material.001"
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.0980392)
+albedo_texture = SubResource("NoiseTexture2D_gwvhn")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2e43l"]
+render_priority = 0
+shader = ExtResource("4_gb0pg")
+shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/fade = 0.43
+
+[sub_resource type="QuadMesh" id="QuadMesh_2e43l"]
+material = SubResource("ShaderMaterial_2e43l")
+size = Vector2(18, 5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gb0pg"]
+data = PackedVector3Array(9, -2.5, 0, -9, -2.5, 0, 9, 2.5, 0, -9, -2.5, 0, -9, 2.5, 0, 9, 2.5, 0)
+backface_collision = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l7jw"]
+size = Vector3(1, 11.4326, 17.7207)
+
+[node name="OfficeHeadOfSecurityBoss" instance=ExtResource("1_6t424")]
+script = ExtResource("2_gwvhn")
+
+[node name="AmbulanceChaserFrame" parent="." index="0"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="BloodsuckerFrame" parent="." index="1"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Bookshelves" parent="." index="2"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Building" parent="." index="3"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Connector" parent="." index="4"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Floor" parent="." index="6"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="LB_LightPanel" parent="." index="7"]
+unique_name_in_owner = true
+transform = Transform3D(256.704, 0, 0, 0, -4.20739e-06, 100, 0, -96.2538, -4.37114e-06, -21.0055, 9.57381, 0.00722647)
+surface_material_override/0 = null
+surface_material_override/2 = SubResource("StandardMaterial3D_xknh6")
+
+[node name="LB_PictureFrame" parent="." index="8"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Screen" parent="." index="9"]
+unique_name_in_owner = true
+surface_material_override/0 = SubResource("StandardMaterial3D_2e43l")
+
+[node name="EXIT" parent="." index="13"]
+visible = false
+
+[node name="Sofa" parent="." index="16"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Static" parent="." index="17"]
+unique_name_in_owner = true
+surface_material_override/0 = SubResource("StandardMaterial3D_liuo2")
+
+[node name="TV" parent="." index="18"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="WindowShutters" parent="." index="19"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="WireHangers" parent="." index="20"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Wires" parent="." index="21"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Walls" type="Node3D" parent="." index="23"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -4.197, 0)
+visible = false
+
+[node name="WallFront" type="MeshInstance3D" parent="Walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09624e-07, 2.00113, -13.9466)
+mesh = SubResource("QuadMesh_2e43l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallFront" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallFront/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_gb0pg")
+
+[node name="WallBack" type="MeshInstance3D" parent="Walls" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97892e-07, 2.00113, 15.9659)
+mesh = SubResource("QuadMesh_2e43l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBack" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBack/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_gb0pg")
+
+[node name="SkullActor" type="Node3D" parent="." index="24"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7048, 9.582, 0)
+visible = false
+
+[node name="head_of_security" parent="SkullActor" index="0" instance=ExtResource("3_g3sbm")]
+unique_name_in_owner = true
+
+[node name="office_elevator" parent="." index="25" instance=ExtResource("2_1f8b8")]
+unique_name_in_owner = true
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -21.1426, 0.293851, 0)
+opened = false
+
+[node name="GeometryTransformHelper7" parent="office_elevator/LBElevator1/Doors/left_door" index="0"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="GeometryTransformHelper8" parent="office_elevator/LBElevator1/Doors/right_door" index="0"]
+material_overlay = SubResource("StandardMaterial3D_d65n6")
+
+[node name="Puzzle" type="Node3D" parent="." index="26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.469, 0.25, -0.599)
+
+[node name="PuzzleBoss" type="Node3D" parent="Puzzle" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 18.495, 0.05, -8.45)
+script = ExtResource("4_gwvhn")
+grid_width = 9
+grid_height = 15
+beam_height = 5.0
+use_beam_height = false
+beam_origin = Vector3(0, 10, 0)
+lose_type = 1
+should_heal_player = false
+metadata/_custom_type_script = "uid://wb1dvup51a1q"
+
+[node name="CameraAngles" type="Node3D" parent="." index="27"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.469, 0.25, -0.599)
+
+[node name="PaintingFocus" type="Camera3D" parent="CameraAngles" index="0"]
+transform = Transform3D(0.0174524, 0, 0.999848, 0, 1, 0, -0.999848, 0, 0.0174524, -9.955, 9.345, 0.735)
+fov = 52.0
+
+[node name="SkullFocus" type="Camera3D" parent="CameraAngles" index="1"]
+transform = Transform3D(0.0174524, 0.382625, 0.923739, 0, 0.92388, -0.382683, -0.999848, 0.00667874, 0.0161239, -5, 6.25, 0.735)
+fov = 52.0
+
+[node name="SkullFurious" type="Camera3D" parent="CameraAngles" index="2"]
+transform = Transform3D(0.0174524, 0.382625, 0.923739, 0, 0.92388, -0.382683, -0.999848, 0.00667874, 0.0161239, -4, 5.5, 0.735)
+fov = 52.0
+
+[node name="CharPositions" type="Node3D" parent="." index="28"]
+unique_name_in_owner = true
+
+[node name="PuzzleStart" type="Node3D" parent="CharPositions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0448, 0.29196, 0)
+
+[node name="CutsceneCamera" type="Camera3D" parent="." index="29"]
+unique_name_in_owner = true
+fov = 52.0
+
+[node name="PlayerDetection" type="Area3D" parent="." index="30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6896, 0.79196, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.21631, 0)
+shape = SubResource("BoxShape3D_4l7jw")
+
+[node name="CogDoor" parent="." index="31" instance=ExtResource("9_g3sbm")]
+unique_name_in_owner = true
+transform = Transform3D(-3.91217e-08, 0, -1, 0, 1, 0, 0.895, 0, -4.37114e-08, 22.0751, 0.313586, 0)
+
+[node name="Props" type="Node3D" parent="." index="32"]
+
+[node name="Bookshelves" type="Node3D" parent="Props" index="0"]
+transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, 20.8452, -8.9407e-08, -5.36175)
+
+[node name="BossChestGroup" parent="." index="33" instance=ExtResource("10_gb0pg")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.481, 0.33, 0)
+automatic = false
+
+[node name="DebugPlayerPositionMarker" parent="." index="34" instance=ExtResource("10_2e43l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2533, 0, 0)
+
+[connection signal="s_finder_row_reached" from="Puzzle/PuzzleBoss" to="." method="skullfinder_row_reached"]
+[connection signal="s_win" from="Puzzle/PuzzleBoss" to="." method="game_won"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="body_entered_room"]
+
+[editable path="office_elevator"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dui2hdkuqux28"]
+[gd_scene load_steps=5 format=3 uid="uid://dui2hdkuqux28"]
 
 [ext_resource type="PackedScene" uid="uid://7dgrh0jdr7k5" path="res://objects/modules/factory/base_rooms/factory_gear_room.tscn" id="1_bp8xq"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_grxj3"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_o5rti"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_yk5og"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_qhq11"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbexw"]
@@ -11,54 +10,63 @@ size = Vector3(13.6173, 8.23639, 8.47775)
 [node name="FactoryGearRoom" instance=ExtResource("1_bp8xq")]
 
 [node name="Prop_Rotate_Y_5_Gear1" parent="Model/ZONE07/gear_center/props3/GearsAll" index="26"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 147.743, 504.12, 243.775)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 147.743, 504.12, 243.775)
 
 [node name="Prop_Rotate_Y_8_Gear2" parent="Model/ZONE07/gear_center/props3/GearsAll" index="27"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 121.741, 254.318, 443.588)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 121.741, 254.318, 443.588)
 
 [node name="Prop_Rotate_Y_N7_Gear3" parent="Model/ZONE07/gear_center/props3/GearsAll" index="28"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 212.163, 380.941, 566.372)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 212.163, 380.941, 566.372)
 
 [node name="Prop_Rotate_Y_4_Gear5" parent="Model/ZONE07/gear_center/props3/GearsAll" index="29"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 334.052, 353.211, 474.635)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 334.052, 353.211, 474.635)
 
 [node name="Prop_Rotate_Z_15_Gear5" parent="Model/ZONE07/gear_center/props3/GearsAll" index="30"]
-transform = Transform3D(-0.685942, 0.727656, 0, -0.727656, -0.685942, 0, 0, 0, 1, 295.713, 665.516, 350.306)
+transform = Transform3D(-0.620962, 0.783841, 0, -0.783841, -0.620962, 0, 0, 0, 1, 295.713, 665.516, 350.306)
 
 [node name="Prop_Rotate_X_10_Gear6" parent="Model/ZONE07/gear_center/props3/GearsAll" index="31"]
-transform = Transform3D(1, 0, 0, 0, -0.685942, 0.727656, 0, -0.727656, -0.685942, 125.295, 76.1002, 139.413)
+transform = Transform3D(1, 0, 0, 0, -0.620962, 0.783841, 0, -0.783841, -0.620962, 125.295, 76.1002, 139.413)
 
 [node name="Prop_Rotate_Y_9_Gear8" parent="Model/ZONE07/gear_center/props3/GearsAll" index="32"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 741.96, 377.093, 376.291)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 741.96, 377.093, 376.291)
 
 [node name="Prop_Rotate_Y_17_Gear9" parent="Model/ZONE07/gear_center/props3/GearsAll" index="33"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, -249.618, 336.72, 122.61)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, -249.618, 336.72, 122.61)
 
 [node name="Prop_Rotate_Y_N15_Gear10" parent="Model/ZONE07/gear_center/props3/GearsAll" index="34"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 224.057, 381.328, 92.6723)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 224.057, 381.328, 92.6723)
 
 [node name="Prop_Rotate_Y_N10_Gear11" parent="Model/ZONE07/gear_center/props3/GearsAll" index="35"]
-transform = Transform3D(-0.685942, 0, -0.727656, 0, 1, 0, 0.727656, 0, -0.685942, 531.32, 398.652, 125.569)
+transform = Transform3D(-0.620962, 0, -0.783841, 0, 1, 0, 0.783841, 0, -0.620962, 531.32, 398.652, 125.569)
 
-[node name="Battle" parent="." index="4" node_paths=PackedStringArray("cogs") instance=ExtResource("2_grxj3")]
+[node name="BattleNodeDynamic" parent="." index="4" instance=ExtResource("2_yk5og")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.7573, 1.52, -75.9103)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
 
-[node name="Cog" parent="Battle" index="3" instance=ExtResource("3_o5rti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77, 0, -0.770805)
-skelecog = true
-
-[node name="Cog2" parent="Battle" index="4" instance=ExtResource("3_o5rti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92682, 0, -0.770805)
-skelecog = true
-
-[node name="Cog3" parent="Battle" index="5" instance=ExtResource("3_o5rti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00141144, 0, -0.770805)
-skelecog = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battle" index="6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375366, 4.17978, 3.73888)
 shape = SubResource("BoxShape3D_bbexw")
 
 [node name="treasure_chest" parent="." index="5" instance=ExtResource("4_qhq11")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45.9847, 4.59298, -84.2925)
+
+[node name="FanBlade" parent="factory_gear_room_building" index="1"]
+transform = Transform3D(3.10184e-06, 1.21289e-06, -9.3564, -16.8086, -12.8984, -1.41278e-06, -12.8984, 16.8086, -4.08981e-07, 26.691, 10.1333, -92.1446)
+
+[node name="FanBlade_001" parent="factory_gear_room_building" index="2"]
+transform = Transform3D(-2.27038e-06, -2.43676e-06, -9.3564, 9.56289, 18.9063, -1.41277e-06, 18.9063, -9.56289, -4.08981e-07, 26.691, 3.64776, -92.1446)
+
+[node name="Gear_001" parent="factory_gear_room_building" index="3"]
+transform = Transform3D(18.3603, 98.3156, 0.0618707, -98.2009, 18.3812, 0.172132, 0.309546, -0.181533, 50.9376, 26.9519, 17.9899, -59.4227)
+
+[node name="Gear_002" parent="factory_gear_room_building" index="4"]
+transform = Transform3D(10.7612, -99.4375, 0.0639928, 99.3212, 10.7741, 0.178036, -0.348706, 0.0843725, 52.6844, 27.297, 5.35306, -65.8303)
+
+[node name="Gear_003" parent="factory_gear_room_building" index="5"]
+transform = Transform3D(-25.5597, -36.9096, 0.0618708, 36.8656, -25.5898, 0.172132, -0.0935331, 0.131307, 50.9375, 26.9518, 17.9915, -62.2211)
+
+[node name="Gear_004" parent="factory_gear_room_building" index="6"]
+transform = Transform3D(-0.287114, -0.215344, -52.6844, -54.9796, -83.5104, 0.178036, -83.4134, 55.0444, 0.0639957, 43.5414, 22.1571, -84.4386)
+
+[editable path="factory_gear_room_building"]

@@ -6,6 +6,7 @@ class_name ProgressFile
 @export var characters_unlocked := 1
 @export var needs_custom_cog_help := true
 @export var cog_creator_unlocked := false
+@export var mystery_toon_win := false
 
 ## Fun statistics
 ## Accounted for v
@@ -24,6 +25,7 @@ var total_cogs_defeated : int:
 @export var total_playtime := 0.0
 @export var jellybeans_collected := 0
 @export var win_streak := 0
+@export var wins := 0
 @export var best_time := 0.0
 
 
@@ -38,8 +40,8 @@ func start_listening() -> void:
 	BattleService.s_battle_started.connect(on_battle_start)
 	BattleService.s_boss_died.connect(func(_cog): boss_cogs_defeated += 1)
 	Util.s_floor_ended.connect(on_floor_end)
-	Util.s_player_assigned.connect(player_created)
 	initialize_achievements()
+	run_infer_checks()
 
 func on_battle_start(manager: BattleManager) -> void:
 	manager.s_round_started.connect(on_round_start)
@@ -57,7 +59,6 @@ func battle_participant_died(participant: Node3D) -> void:
 		else:
 			add_cog_defeat(participant.dna.cog_name)
 	elif participant is Player:
-		deaths += 1
 		win_streak = 0
 
 func add_cog_defeat(cog: String) -> void:
@@ -68,10 +69,6 @@ func add_cog_defeat(cog: String) -> void:
 
 func on_floor_end() -> void:
 	floors_cleared += 1
-
-func player_created(player: Player) -> void:
-	player.s_died.connect(func(): deaths += 1)
-
 
 #region ACHIEVEMENTS
 
@@ -84,6 +81,7 @@ func initialize_achievements() -> void:
 		achievement._setup()
 
 enum GameAchievement {
+	# 1.0 Achievements
 	DEFEAT_COGS_1,
 	DEFEAT_COGS_10,
 	DEFEAT_COGS_100,
@@ -108,7 +106,11 @@ enum GameAchievement {
 	GO_SAD_10,
 	EASTER_EGG_EXPLORER,
 	EASTER_EGG_GEAR,
-	ONE_HUNDRED_PERCENT
+	ONE_HUNDRED_PERCENT,
+	
+	# 1.1 Achievements
+	WIN_GAME_HOUR,
+	FLIPPY_GETS_BUCKET,
 }
 
 const ACHIEVEMENT_RESOURCES := {
@@ -136,7 +138,9 @@ const ACHIEVEMENT_RESOURCES := {
 	GameAchievement.GO_SAD_10: "res://objects/save_file/achievements/resources/achievement_sad_10.tres",
 	GameAchievement.EASTER_EGG_EXPLORER: "res://objects/save_file/achievements/resources/achievement_easteregg_secret_floor.tres",
 	GameAchievement.EASTER_EGG_GEAR: "res://objects/save_file/achievements/resources/achievement_easteregg_gears.tres",
-	GameAchievement.ONE_HUNDRED_PERCENT: "res://objects/save_file/achievements/resources/achievement_100p.tres"
+	GameAchievement.ONE_HUNDRED_PERCENT: "res://objects/save_file/achievements/resources/achievement_100p.tres",
+	GameAchievement.WIN_GAME_HOUR: "res://objects/save_file/achievements/resources/achievement_one_hour.tres",
+	GameAchievement.FLIPPY_GETS_BUCKET: "res://objects/save_file/achievements/resources/achievement_bucket.tres",
 }
 
 @export var achievements_earned := {
@@ -164,7 +168,9 @@ const ACHIEVEMENT_RESOURCES := {
 	GameAchievement.GO_SAD_10: false,
 	GameAchievement.EASTER_EGG_EXPLORER: false,
 	GameAchievement.EASTER_EGG_GEAR: false,
-	GameAchievement.ONE_HUNDRED_PERCENT: false
+	GameAchievement.ONE_HUNDRED_PERCENT: false,
+	GameAchievement.WIN_GAME_HOUR : false,
+	GameAchievement.FLIPPY_GETS_BUCKET: false,
 }
 var achievement_count: int:
 	get:
@@ -179,4 +185,17 @@ func unlock_achievement(id: GameAchievement) -> void:
 		var new_unlock: Achievement = load(ACHIEVEMENT_RESOURCES[id])
 		new_unlock.unlock()
 
+func get_achievement_unlocked(achievement : GameAchievement) -> bool:
+	if not achievement in achievements_earned.keys():
+		return false
+	return achievements_earned[achievement]
+
 #endregion
+
+#region Infer Checks
+
+func run_infer_checks() -> void:
+	# Check for initial wins
+	if wins == 0:
+		wins = characters_unlocked - 1
+	

@@ -35,7 +35,7 @@ func action():
 		var was_lured: bool = target.lured
 		if not get_immunity(target):
 			s_hit.emit()
-			manager.affect_target(target, 'hp', damage, false)
+			manager.affect_target(target, damage)
 			var splat = load("res://objects/battle/effects/splat/splat.tscn").instantiate()
 			if Util.get_player().stats.has_item('Witch Hat'):
 				splat.modulate = POISON_COLOR
@@ -45,8 +45,10 @@ func action():
 			target.head_node.add_child(splat)
 			if target.lured:
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 			else:
 				target.set_animation('squirt-small')
+				do_dizzy_stars(target)
 			apply_debuff(target)
 			await Task.delay(0.5 * (2 if was_lured else 1))
 			manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])

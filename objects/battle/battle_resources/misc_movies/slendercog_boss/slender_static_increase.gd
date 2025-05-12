@@ -44,7 +44,7 @@ func action() -> void:
 	# Focus Player and do damage
 	action_tween.tween_callback(battle_node.focus_character.bind(player))
 	action_tween.tween_callback(player.set_animation.bind('cringe'))
-	action_tween.tween_callback(manager.affect_target.bind(player, 'hp', get_scaled_damage(alpha_current + ALPHA_INCREMENT), false))
+	action_tween.tween_callback(manager.affect_target.bind(player, get_scaled_damage(alpha_current + ALPHA_INCREMENT)))
 	action_tween.tween_interval(3.0)
 	
 	await action_tween.finished

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cenicsw45ina8"]
+
+[ext_resource type="PackedScene" uid="uid://dsdmcmhb2ax3c" path="res://models/props/toon_props/white_out/White-out.glb" id="1_awfxw"]
+
+[node name="White-out" instance=ExtResource("1_awfxw")]
+
+[node name="Whiteout" parent="." index="0"]
+transform = Transform3D(-0.368825, 0.0227845, 3.22437e-08, 0.022465, 0.363654, -0.0616639, -0.00380212, -0.0615466, -0.364347, 0, -0.174473, 0)

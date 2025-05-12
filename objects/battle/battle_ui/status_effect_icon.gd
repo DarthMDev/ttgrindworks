@@ -3,6 +3,7 @@ class_name StatusEffectIcon
 
 const POSITIVE_ICON := preload("res://ui_assets/battle/positive_icon.png")
 const NEGATIVE_ICON := preload("res://ui_assets/battle/negative_icon.png")
+const NEUTRAL_ICON := preload("res://ui_assets/battle/neutral_icon.png")
 
 const HOVER_SFX := preload("res://audio/sfx/ui/GUI_rollover.ogg")
 
@@ -20,7 +21,7 @@ var hover_seq: Tween:
 		hover_seq = x
 
 static func create() -> StatusEffectIcon:
-	return preload("res://objects/battle/battle_ui/status_effect_icon.tscn").instantiate()
+	return GameLoader.load("res://objects/battle/battle_ui/status_effect_icon.tscn").instantiate()
 
 func _ready() -> void:
 	refresh()
@@ -28,14 +29,19 @@ func _ready() -> void:
 	%Icon.mouse_exited.connect(stopped_hover)
 
 func refresh() -> void:
+	if get_effect_rounds() == 0 and not effect.rounds == -1:
+		queue_free()
+	
 	# Change background image
 	if effect.quality == StatusEffect.EffectQuality.POSITIVE:
 		%Background.texture = POSITIVE_ICON
 	elif effect.quality == StatusEffect.EffectQuality.NEGATIVE:
 		%Background.texture = NEGATIVE_ICON
+	elif effect.quality == StatusEffect.EffectQuality.NEUTRAL:
+		%Background.texture = NEUTRAL_ICON
 	else:
 		# Fallback for neutral or whatever
-		%Background.texture = POSITIVE_ICON
+		%Background.texture = NEUTRAL_ICON
 
 	%Icon.texture = effect.get_icon()
 	%Icon.self_modulate = effect.get_icon_color()
@@ -46,8 +52,11 @@ func refresh() -> void:
 	if effect.rounds == -1:
 		%RoundLabel.hide()
 	else:
-		%RoundLabel.text = str(effect.rounds + 1)
+		%RoundLabel.text = str(get_effect_rounds())
 		%RoundLabel.show()
+
+func get_effect_rounds() -> int:
+	return effect.rounds + 1 + effect.rounds_offset
 
 func _exit_tree() -> void:
 	if is_hovered:

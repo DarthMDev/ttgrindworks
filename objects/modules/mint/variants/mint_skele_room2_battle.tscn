@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8kkjyolhf1dt"]
+[gd_scene load_steps=12 format=3 uid="uid://c8kkjyolhf1dt"]
 
 [ext_resource type="PackedScene" uid="uid://srxbjtdik0jv" path="res://objects/modules/mint/base_rooms/mint_skele_room2.tscn" id="1_hihgc"]
 [ext_resource type="Texture2D" uid="uid://dcasoiu0axwxw" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="2_7tq46"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_r14cy"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_1an4g"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_0m0hq"]
 [ext_resource type="PackedScene" uid="uid://cfmtdq84k5wwh" path="res://objects/props/mint/pipes/kit/pipe_connector.tscn" id="5_kwydo"]
 [ext_resource type="PackedScene" uid="uid://6q10lgmvy153" path="res://objects/props/mint/pipes/kit/small_elbow_pipe.tscn" id="6_negen"]
 [ext_resource type="PackedScene" uid="uid://ds050pq3gfubn" path="res://objects/props/mint/pipes/kit/large_straight_pipe_1.tscn" id="7_dyh4x"]
@@ -30,21 +29,14 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 620.794, -73.242, -2313.11)
 
 [node name="Battles" type="Node3D" parent="." index="4"]
 
-[node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("2_r14cy")]
+[node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("3_0m0hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.66841)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
+cog_range = Vector2i(2, 3)
+cog_dist = 1.75
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498774, 4.55096, -1.56866)
 shape = SubResource("BoxShape3D_k65xd")
-
-[node name="Cog" parent="Battles/BattleNode" index="3" instance=ExtResource("3_1an4g")]
-
-[node name="Cog2" parent="Battles/BattleNode" index="4" instance=ExtResource("3_1an4g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97513, 0, 0)
-
-[node name="Cog3" parent="Battles/BattleNode" index="5" instance=ExtResource("3_1an4g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97723, 0, 0)
 
 [node name="Pipes" type="Node3D" parent="." index="11"]
 

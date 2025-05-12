@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dv0b3yegxd4m0"]
 
-[ext_resource type="Texture2D" uid="uid://dsqwmq70n32sn" path="res://models/cogs/suitb/suitb_s_blazer.png" id="1_w7bhb"]
+[ext_resource type="Texture2D" uid="uid://cd2hjcuupjhib" path="res://models/cogs/suitb/suitb_s_blazer.png" id="1_w7bhb"]
 
 [resource]
 resource_name = "suitB_cvs_PICTURES_s_blazer_picShader"

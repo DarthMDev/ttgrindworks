@@ -49,7 +49,7 @@ func action():
 		var immune := get_immunity(cog)
 		
 		if not immune:
-			var throw_damage: int = manager.affect_target(cog, 'hp', damage, false)
+			var throw_damage: int = manager.affect_target(cog, damage)
 			if user.throw_heals:
 				user.quick_heal(roundi(throw_damage * user.stats.get_stat("throw_heal_boost")))
 		else:
@@ -64,8 +64,10 @@ func action():
 		if not immune:
 			if not cog.lured:
 				cog.set_animation('pie-small')
+				do_dizzy_stars(cog)
 			else:
 				manager.knockback_cog(cog)
+				do_dizzy_stars(cog)
 			
 		await manager.barrier(cog.animator.animation_finished, 4.0)
 		await manager.check_pulses(targets)

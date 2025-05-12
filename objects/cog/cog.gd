@@ -20,7 +20,10 @@ enum CogState {
 	PATH
 }
 @export var state := CogState.IDLE
-@export_range(0, 20) var level: int
+@export_range(0, 20) var level: int:
+	set(x):
+		if x < 0: level = 0
+		else: level = x
 @export var custom_level_range := Vector2i(1, 12)
 @export var level_range_offset := 0
 @export var stats: BattleStats
@@ -68,6 +71,7 @@ var head_node: Node3D
 var lured := false
 var stunned := false
 var trap: GagTrap
+var losing := false
 
 # Child references
 @onready var sfx := $CogDial
@@ -136,14 +140,6 @@ func set_dna(cog_dna: CogDNA, full_reset := true) -> void:
 	attacks = get_attacks()
 	construct_cog()
 	set_up_stats()
-	
-func set_new_level(new_level: int):
-	level = new_level
-	var health_percentage: float = stats.hp / stats.max_hp
-	
-	set_up_stats()
-	
-	stats.hp = round(stats.max_hp * health_percentage)
 
 func roll_for_attributes() -> void:
 	# Skelecog perchance?
@@ -170,11 +166,14 @@ func roll_for_level() -> void:
 
 func roll_for_dna() -> void:
 	if use_mod_cogs_pool:
-		pool = Globals.MOD_COG_POOL.load()
+		pool = Globals.MOD_COG_POOL
 	# Try to get the cog pool from the floor manager
 	elif use_floor_pool:
 		if is_instance_valid(Util.floor_manager) and Util.floor_manager.cog_pool:
-			pool = Util.floor_manager.cog_pool
+			if RandomService.randi_channel('cog_pool_chance') % 4 == 0:
+				pool = Util.floor_manager.cog_pool
+			else:
+				pool = Globals.GRUNT_COG_POOL
 	
 	# Make it more likely for quest related Cogs to appear
 	if (not dna) and RandomService.randi_channel('true_random') % 100 < QUEST_HELP_CHANCE and is_instance_valid(Util.get_player()):
@@ -257,19 +256,21 @@ func construct_cog():
 	if body:
 		body.queue_free()
 	
+	# Some Cog shaders want to change aspects of a Cog's DNA before building
+	if dna.head_shader:
+		dna.head_shader = dna.head_shader.duplicate()
+		dna.head_shader.tweak_cog(self)
+	
 	if fusion:
 		dna = dna.duplicate()
 		var second_dna: CogDNA 
 		while not second_dna or second_dna.cog_name == dna.cog_name:
 			second_dna = pool.cogs[RandomService.randi_channel('cog_dna') % pool.cogs.size()].duplicate()
 		dna.combine_attributes(second_dna)
-		dna.cog_name = dna.combine_names(dna.cog_name,second_dna.cog_name)
+		dna.cog_name = dna.combine_names(second_dna)
 	
 	# First, get the body
-	var cogsuit: String = CogDNA.SuitType.keys()[dna.suit].to_lower()
-	if skelecog:
-		cogsuit += "_skelecog"
-	body = Globals.suits.load()[cogsuit].instantiate()
+	body = Globals.fetch_suit(dna.suit, skelecog).instantiate()
 	match dna.suit:
 		CogDNA.SuitType.SUIT_A:
 			body.scale /= 6.06
@@ -303,10 +304,7 @@ func construct_cog():
 	s_dna_set.emit()
 
 func animation_end(_anim):
-	if lured:
-		set_animation('lured')
-	else:
-		set_animation('neutral')
+	set_animation('neutral')
 
 func battle_start():
 	department_emblem.hide()
@@ -343,6 +341,9 @@ func update_health_light():
 		light_tween.tween_interval(0.1)
 
 func set_animation(anim: String):
+	if lured and anim == 'neutral':
+		set_animation('lured')
+		return
 	if animator.has_animation(anim):
 		skeleton.reset_bone_poses()
 		animator.play(anim)
@@ -430,6 +431,10 @@ func lose():
 	# Get the lose model
 	# (Should refactor this later because I hate looking at it)
 	# ^ This never happened lol
+	if losing:
+		return
+	losing = true
+	
 	var lose_mod: Node3D
 	if not skelecog:
 		match dna.suit:
@@ -464,7 +469,7 @@ func lose():
 	var gear_part: GPUParticles3D = load("res://objects/battle/effects/cog_gears/cog_gears.tscn").instantiate()
 	lose_mod.add_child(gear_part)
 	gear_part.global_position = department_emblem.global_position
-	if RandomService.randi_channel('true_random') % 10000 == 0:
+	if RandomService.randi_channel('true_random') % 5000 == 0:
 		gear_part.amount = 6000
 		Globals.s_cog_volcano.emit()
 	
@@ -499,6 +504,8 @@ func do_knockback():
 
 # Make the cog say stuff
 func speak(phrase: String, want_sfx := true):
+	if not dna.can_speak: return
+	
 	# Check for existing speech bubble and remove it
 	for child in body.nametag_node.get_children():
 		if child is SpeechBubble and not child.is_queued_for_deletion():
@@ -583,6 +590,19 @@ func fly_out(y_to := 20.0) -> void:
 		fly_tween.kill()
 		propeller.queue_free()
 	)
+
+func explode() -> void:
+	body.hide()
+	AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))
+	var explosion : AnimatedSprite3D = load('res://models/cogs/misc/explosion/cog_explosion.tscn').instantiate()
+	explosion.billboard = BaseMaterial3D.BillboardMode.BILLBOARD_FIXED_Y
+	add_child(explosion)
+	explosion.global_position = department_emblem.global_position
+	explosion.scale = Vector3(15, 15, 15)
+	explosion.play('explode')
+	await Util.barrier(explosion.animation_finished, 0.5)
+	explosion.hide()
+	queue_free()
 
 ## Global functions
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:

@@ -30,12 +30,14 @@ scale = Vector3(0.6, 0.6, 0.6)
 [resource]
 script = ExtResource("2_wrirq")
 accessory_placements = Array[ExtResource("1_36wjr")]([SubResource("Resource_bcdov"), SubResource("Resource_8f25r"), SubResource("Resource_hv6iv")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.45
 item_name = "Bat Wings"

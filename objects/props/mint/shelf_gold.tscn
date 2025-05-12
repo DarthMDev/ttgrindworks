@@ -6,6 +6,7 @@
 size = Vector3(4.10889, 4.44043, 1.52594)
 
 [node name="shelf2" type="Node3D"]
+metadata/battle_cam_hide = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07791, -0.228497)

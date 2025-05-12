@@ -25,7 +25,7 @@ func action():
 	# Roll for accuracy
 	var hit := manager.roll_for_accuracy(self)
 	if hit:
-		manager.affect_target(target,'hp',damage,false)
+		manager.affect_target(target, damage)
 		target.set_animation('slip_backward')
 	else:
 		manager.battle_text(target,"MISSED")

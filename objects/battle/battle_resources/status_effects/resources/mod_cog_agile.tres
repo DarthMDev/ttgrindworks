@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3qbdaody8qao"]
+
+[ext_resource type="Texture2D" uid="uid://ytd41vxj2y4v" path="res://ui_assets/battle/statuses/agile.png" id="1_62sml"]
+[ext_resource type="Script" uid="uid://bpsn3cixqqhts" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_agile.gd" id="2_0u8vt"]
+
+[resource]
+script = ExtResource("2_0u8vt")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_62sml")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This Cog will attack before you"
+status_name = "Agile"
+id = 40
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

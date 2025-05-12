@@ -310,7 +310,7 @@ func do_alert() -> void:
 		alert_tween.set_loops(2)
 		alert_tween.finished.connect(
 		func(): 
-			light_mat.albedo_color = Color.WHITE
+			light_mat.albedo_color = Color(1, 1, 1, 0.39)
 			audio_player.stop()
 		)
 

@@ -5864,7 +5864,7 @@ mesh = SubResource("ArrayMesh_chprr")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_5_Gear1" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 147.743, 504.12, 243.775)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 147.743, 504.12, 243.775)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper570" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_5_Gear1"]
@@ -5911,7 +5911,7 @@ mesh = SubResource("ArrayMesh_njt8i")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_8_Gear2" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 121.741, 254.318, 443.588)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 121.741, 254.318, 443.588)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper571" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_8_Gear2"]
@@ -5982,7 +5982,7 @@ mesh = SubResource("ArrayMesh_vuc45")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_N7_Gear3" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 212.163, 380.941, 566.372)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 212.163, 380.941, 566.372)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper572" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_N7_Gear3"]
@@ -6021,7 +6021,7 @@ mesh = SubResource("ArrayMesh_0rs7e")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_4_Gear5" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 334.052, 353.211, 474.635)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 334.052, 353.211, 474.635)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper573" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_4_Gear5"]
@@ -6068,7 +6068,7 @@ mesh = SubResource("ArrayMesh_ltnc0")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Z_15_Gear5" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, -0.687577, 0, 0.687577, 0.726111, 0, 0, 0, 1, 295.713, 665.516, 350.306)
+transform = Transform3D(0.545521, -0.838097, 0, 0.838097, 0.545521, 0, 0, 0, 1, 295.713, 665.516, 350.306)
 script = ExtResource("15_qm1ww")
 rotation_type = 2
 
@@ -6100,7 +6100,7 @@ mesh = SubResource("ArrayMesh_425lc")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_X_10_Gear6" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(1, 0, 0, 0, 0.726111, -0.687577, 0, 0.687577, 0.726111, 125.295, 76.1002, 139.413)
+transform = Transform3D(1, 0, 0, 0, 0.545521, -0.838097, 0, 0.838097, 0.545521, 125.295, 76.1002, 139.413)
 script = ExtResource("15_qm1ww")
 rotation_type = 0
 
@@ -6148,7 +6148,7 @@ mesh = SubResource("ArrayMesh_kwwtj")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_9_Gear8" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 741.96, 377.093, 376.291)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 741.96, 377.093, 376.291)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper576" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_9_Gear8"]
@@ -6195,7 +6195,7 @@ mesh = SubResource("ArrayMesh_qltnm")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_17_Gear9" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, -249.618, 336.72, 122.61)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, -249.618, 336.72, 122.61)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper577" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_17_Gear9"]
@@ -6226,7 +6226,7 @@ mesh = SubResource("ArrayMesh_p6bx5")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_N15_Gear10" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 224.057, 381.328, 92.6723)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 224.057, 381.328, 92.6723)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper578" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_N15_Gear10"]
@@ -6257,7 +6257,7 @@ mesh = SubResource("ArrayMesh_7g8ix")
 skeleton = NodePath("")
 
 [node name="Prop_Rotate_Y_N10_Gear11" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll"]
-transform = Transform3D(0.726111, 0, 0.687577, 0, 1, 0, -0.687577, 0, 0.726111, 531.32, 398.652, 125.569)
+transform = Transform3D(0.545521, 0, 0.838097, 0, 1, 0, -0.838097, 0, 0.545521, 531.32, 398.652, 125.569)
 script = ExtResource("15_qm1ww")
 
 [node name="GeometryTransformHelper579" type="Node3D" parent="Model/ZONE07/gear_center/props3/GearsAll/Prop_Rotate_Y_N10_Gear11"]
@@ -6637,36 +6637,36 @@ skeleton = NodePath("")
 [node name="factory_gear_room_building" parent="." instance=ExtResource("28_w5fs6")]
 
 [node name="FanBlade" parent="factory_gear_room_building" index="1"]
-transform = Transform3D(2.06795e-06, 2.61076e-06, -9.3564, -8.01819, -19.6114, -1.41278e-06, -19.6114, 8.01819, -4.08981e-07, 26.691, 10.1333, -92.1446)
+transform = Transform3D(2.63477e-06, -2.03727e-06, -9.3564, -19.7039, 7.78819, -1.41278e-06, 7.78819, 19.7039, -4.08981e-07, 26.691, 10.1333, -92.1446)
 script = ExtResource("15_qm1ww")
 rotation_speed = 180.0
 rotation_type = 2
 
 [node name="FanBlade_001" parent="factory_gear_room_building" index="2"]
-transform = Transform3D(-7.31382e-07, -3.24923e-06, -9.3564, -1.27851, 21.1486, -1.41278e-06, 21.1486, 1.27851, -4.08981e-07, 26.691, 3.64776, -92.1446)
+transform = Transform3D(-3.25245e-06, 7.16922e-07, -9.3564, 21.1427, 1.37259, -1.41277e-06, 1.37259, -21.1427, -4.08981e-07, 26.691, 3.64776, -92.1446)
 script = ExtResource("15_qm1ww")
 rotation_speed = 180.0
 rotation_type = 2
 
 [node name="Gear_001" parent="factory_gear_room_building" index="3"]
-transform = Transform3D(9.84843, 99.532, 0.0618707, -99.4159, 9.85943, 0.172132, 0.323991, -0.154213, 50.9376, 26.9519, 17.9899, -59.4227)
+transform = Transform3D(33.3555, 94.2797, 0.0618708, -94.1698, 33.3937, 0.172132, 0.277711, -0.227363, 50.9376, 26.9519, 17.9899, -59.4227)
 script = ExtResource("15_qm1ww")
 rotation_type = 2
 
 [node name="Gear_002" parent="factory_gear_room_building" index="4"]
-transform = Transform3D(27.6621, -96.1089, 0.0639927, 95.9964, 27.6946, 0.178035, -0.357999, 0.0231502, 52.6844, 27.297, 5.35306, -65.8303)
+transform = Transform3D(-19.0011, -98.1938, 0.063993, 98.079, -19.0228, 0.178036, -0.308358, 0.183554, 52.6844, 27.297, 5.35306, -65.8303)
 script = ExtResource("15_qm1ww")
 rotation_speed = 60.0
 rotation_type = 2
 
 [node name="Gear_003" parent="factory_gear_room_building" index="5"]
-transform = Transform3D(-3.45432, -44.7796, 0.0618709, 44.7261, -3.45823, 0.172132, -0.146946, 0.0660775, 50.9375, 26.9518, 17.9915, -62.2211)
+transform = Transform3D(-44.7192, 3.54892, 0.0618708, -3.54449, -44.7723, 0.172132, 0.0662957, 0.146987, 50.9375, 26.9518, 17.9915, -62.2211)
 script = ExtResource("15_qm1ww")
 rotation_speed = 180.0
 rotation_type = 2
 
 [node name="Gear_004" parent="factory_gear_room_building" index="6"]
-transform = Transform3D(-0.0607406, 0.35398, -52.6844, -49.2235, 87.0356, 0.178036, 86.9349, 49.2808, 0.0639957, 43.5414, 22.1571, -84.4386)
+transform = Transform3D(-0.289731, -0.211801, -52.6844, -55.9988, -82.8289, 0.178036, -82.7326, 56.0647, 0.0639957, 43.5414, 22.1571, -84.4386)
 script = ExtResource("15_qm1ww")
 rotation_speed = 20.0
 rotation_type = 2

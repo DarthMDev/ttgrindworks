@@ -16,7 +16,7 @@ func action() -> void:
 	var cog : Cog = targets[0]
 	var cannon := CANNON.instantiate()
 	var player : Player = user
-	var dust_cloud = Globals.DUST_CLOUD.load().instantiate()
+	var dust_cloud = Globals.DUST_CLOUD.instantiate()
 	
 	
 	# Player hits switch
@@ -40,7 +40,7 @@ func action() -> void:
 		return
 	
 	# Bring cannon in
-	set_camera_angle(camera_angles['SIDE_RIGHT'])
+	set_camera_angle('SIDE_RIGHT')
 	manager.battle_text(cog,str(-cog.stats.hp))
 	cog.stats.hp = 0
 	battle_node.add_child(cannon)

@@ -8,10 +8,15 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Node" type="Node3D"]
 script = ExtResource("1_iketc")
-vertices = PackedVector3Array(5, 0, 0, 5, 0, 5, 4.6194, 0, 1.91342, 5, 0, 5, 3.53553, 0, 3.53553, 5, 0, 5, 1.91342, 0, 4.6194, 5, 0, 5, 3.06152e-16, 0, 5, 5, 0, 5, -1.91342, 0, 4.6194, 5, 0, 5, -3.53553, 0, 3.53553, 5, 0, 5, -4.6194, 0, 1.91342, 5, 0, 5, -5, 0, 6.12303e-16, 5, 0, 5, -4.6194, 0, -1.91342, 5, 0, 5, -3.53553, 0, -3.53553, 5, 0, 5, -1.91342, 0, -4.6194, 5, 0, 5, -9.18455e-16, 0, -5, 5, 0, 5, 1.91342, 0, -4.6194, 5, 0, 5, 3.53553, 0, -3.53553, 5, 0, 5, 4.6194, 0, -1.91342, 5, 0, 5, 5, 0, 0)
-mesh_type = 4
+vertices = PackedVector3Array(0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+mesh_type = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2diyl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0.495, 2.052, 0.52)
+current = true
+fov = 52.0

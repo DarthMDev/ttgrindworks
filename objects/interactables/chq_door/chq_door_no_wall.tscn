@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjhle6ljdlsvr"]
+
+[ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="1_v3ut0"]
+
+[node name="CogDoor" instance=ExtResource("1_v3ut0")]
+
+[node name="pocket" parent="Doorway1" index="5"]
+visible = false
+
+[node name="CollisionShape3D" parent="Doorway1/pocketCollision/StaticBody3D" index="0"]
+disabled = true

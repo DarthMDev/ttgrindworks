@@ -20,7 +20,8 @@ func _ready() -> void:
 		player.touch_jump.hide()
 		player.pause_button.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	%DefeatedBy.text = "Defeated by %s" % Util.get_player().last_damage_source
+	if is_instance_valid(Util.get_player()):
+		%DefeatedBy.text = "Defeated by %s" % Util.get_player().last_damage_source
 	Engine.time_scale = 1.0
 	get_tree().paused = true
 	root.modulate.a = 0.0
@@ -36,13 +37,14 @@ func _ready() -> void:
 		dna = Util.get_player().toon.toon_dna
 		Util.get_player().hide()
 
+	toon.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	toon.construct_toon(dna)
 	toon.set_animation('lose')
 	toon.rotation_degrees.y = 210.0
 	toon.body.animator.seek(3.73, true)
 	toon.body.animator.pause()
-	toon.set_eyes(Toon.Emotion.SAD)
 	toon.reset_physics_interpolation()
+	toon.set_eyes(Toon.Emotion.SAD)
 
 	Sequence.new([
 		LerpProperty.new(root, ^"modulate:a", 1.0, 1.0).interp(Tween.EASE_IN, Tween.TRANS_QUAD)

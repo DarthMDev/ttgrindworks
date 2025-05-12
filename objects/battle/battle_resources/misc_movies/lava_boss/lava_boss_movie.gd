@@ -1,8 +1,6 @@
 extends BattleStartMovie
 class_name LavaBossMovie
 
-const BATTLE_MUSIC := preload("res://audio/music/ground_floor_investor.ogg")
-
 
 ## WILL ONLY WORK IN THE LAVA BOSS ROOM
 func _skip() -> void:
@@ -107,7 +105,7 @@ func play() -> Tween:
 	
 	# View the platform as it sinks
 	movie.tween_callback(set_camera_angle.bind(manager.sink_pos))
-	movie.tween_callback(manager.sink_platform.bind(1.0))
+	movie.tween_callback(manager.sink_platform.bind(battle_node.cogs.size()))
 	movie.tween_interval(4.0)
 	
 	# Cog Dialogue finisher
@@ -116,7 +114,7 @@ func play() -> Tween:
 	movie.tween_interval(4.0)
 	
 	# Start the battle music
-	movie.tween_callback(start_music.bind(BATTLE_MUSIC))
+	movie.tween_callback(start_music)
 	
 	return movie
 

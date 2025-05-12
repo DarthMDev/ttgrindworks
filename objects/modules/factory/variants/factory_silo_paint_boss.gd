@@ -1,10 +1,13 @@
 extends Node3D
 
-const RISE_SPEED := 17.0
+var RISE_SPEED : float:
+	get:
+		if not Util.on_easy_floor(): return 18.0
+		return 15.0
 const PAINT_SCROLL_SPEED := -3.0
 const PAINT_START_POS := 0.0
 const PAINT_FINAL_POS := 1800.0
-const ELEVATOR_LOWER_POS := 35.3
+const ELEVATOR_LOWER_POS := -27.49
 const ELEVATOR_POS := Vector3(5.783, 63.064, 6.873)
 const BOSS_MUSIC := preload('res://audio/music/climb_boss.ogg')
 
@@ -12,9 +15,11 @@ const BOSS_MUSIC := preload('res://audio/music/climb_boss.ogg')
 @export var paint_mat: StandardMaterial3D
 @export var paint: Node3D
 
-@onready var elevator: FactoryElevator = $Platforms/FactoryElevator
+@onready var elevator: FactoryElevator = %FactoryElevator
+@onready var hidden_chest : TreasureChest = %HiddenChest
 
 var paint_rising := false
+
 var player: Player
 var base_elevator_y: float
 var buttons_pressed := 0
@@ -26,7 +31,7 @@ func _ready() -> void:
 	elevator.transform = elevator_transform
 
 func body_entered(body: Node3D) -> void:
-	if body is Player and not paint_rising:
+	if body is Player and not paint_rising and not game_won:
 		player = body
 		initialize()
 
@@ -40,6 +45,7 @@ func initialize() -> void:
 	$CogDoor.add_lock()
 
 func intro_cutscene() -> void:
+	Util.get_player().game_timer_tick = false
 	var movie_tween := create_tween()
 	movie_tween.tween_callback($FaucetCam.make_current)
 	movie_tween.set_trans(Tween.TRANS_QUAD)
@@ -54,6 +60,7 @@ func intro_cutscene() -> void:
 		AudioManager.set_music(BOSS_MUSIC)
 		movie_tween.kill()
 		begin()
+		Util.get_player().game_timer_tick = true
 	)
 
 func start_faucets() -> void:
@@ -68,14 +75,14 @@ func _process(delta: float) -> void:
 	if paint_mat: 
 		paint_mat.uv1_offset.y += PAINT_SCROLL_SPEED * delta
 	
+	if player:
+		if player.global_position.y < $Model/RisingPaint/DeathBarrier.global_position.y:
+			reset()
+	
 	if not paint_rising: return
 	
 	if paint.position.y < PAINT_FINAL_POS:
 		paint.position.y = min(paint.position.y + (RISE_SPEED * delta), PAINT_FINAL_POS)
-	
-	if player:
-		if player.global_position.y < $Model/RisingPaint/DeathBarrier.global_position.y:
-			reset()
 
 func begin() -> void:
 	if player:
@@ -98,6 +105,10 @@ func reset() -> void:
 	if player.stats.hp > 0:
 		Util.circle_in(1.0)
 		paint.position.y = PAINT_START_POS
+		if game_won: 
+			player.global_position = $PlayerSpawn.global_position
+			player.teleport_in(true)
+			return
 		
 		if buttons_pressed == 3:
 			if elevator.rise_tween and elevator.rise_tween.is_running():
@@ -105,7 +116,6 @@ func reset() -> void:
 				elevator.sfx_player.stop()
 			elevator.position.y = ELEVATOR_LOWER_POS
 			elevator.can_rise = true
-		
 		player.global_position = $PlayerSpawn.global_position
 		await player.teleport_in(true)
 		paint_rising = true
@@ -131,5 +141,15 @@ func win_area_entered(body : Node3D) -> void:
 
 func win_game() -> void:
 	paint_rising = false
+	paint_damage_active = false
 	AudioManager.stop_music()
-	
+	paint.position.y = PAINT_START_POS
+	$CogDoor.monitoring = true
+	$CogDoor.unlock()
+	for stream in paint_streams:
+		stream.hide()
+	elevator.mode = FactoryElevator.ElevatorMode.TIMER
+	elevator.rise_time = 7.0
+	if is_instance_valid(hidden_chest):
+		hidden_chest.queue_free()
+	Util.get_player().stats.charge_active_item(2)

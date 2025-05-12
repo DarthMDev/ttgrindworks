@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://bj4h3vmdjr7r3"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_tbhch"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_6o0n0"]
+[ext_resource type="Texture2D" uid="uid://03qo4g840oq1" path="res://models/accessories/backpacks/jetpack/tt_m_chr_avt_acc_pac_jetPack.glb-pix-1.png" id="3_6o0n0"]
+[ext_resource type="PackedScene" uid="uid://3c5ode2sdd5u" path="res://models/accessories/backpacks/jetpack/tt_m_chr_avt_acc_pac_jetPack.glb" id="4_6o0n0"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="5_8gude"]
+
+[sub_resource type="Resource" id="Resource_ryjws"]
+script = ExtResource("2_6o0n0")
+body_type = 0
+position = Vector3(-0.03, 0.65, -0.58)
+rotation = Vector3(17.02, 3.65, -0.46)
+scale = Vector3(0.32, 0.32, 0.32)
+
+[sub_resource type="Resource" id="Resource_2cphq"]
+script = ExtResource("2_6o0n0")
+body_type = 1
+position = Vector3(-0.03, 0.59, -0.49)
+rotation = Vector3(11.88, 3.65, -0.46)
+scale = Vector3(0.32, 0.32, 0.32)
+
+[sub_resource type="Resource" id="Resource_mw3is"]
+script = ExtResource("2_6o0n0")
+body_type = 2
+position = Vector3(-0.03, 0.76, -0.46)
+rotation = Vector3(1, 3.65, -0.46)
+scale = Vector3(0.34, 0.34, 0.34)
+
+[resource]
+script = ExtResource("5_8gude")
+accessory_placements = Array[ExtResource("1_tbhch")]([SubResource("Resource_ryjws"), SubResource("Resource_2cphq"), SubResource("Resource_mw3is")])
+item_tags = null
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 3
+world_scale = 0.125
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Jet Pack"
+item_description = "Gotta Blast!"
+big_description = "+ 20% Speed"
+model = ExtResource("4_6o0n0")
+stats_add = {
+"speed": 0.2
+}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+remember_item = true
+icon = ExtResource("3_6o0n0")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://ctar8v82te6fl"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_qo64o"]
+
+[resource]
+script = ExtResource("1_qo64o")
+release_version = "v1.1.1"
+notes = "[TITLE]Items
+Added Alien Glasses (1-Star)
+Added Gag Voucher Pack (3-Star)
+Added Cowboy Hat (4-Star)
+Added Toy Hammer (4-Star)
+Added White-Out (4-Star)
+Treasure Map is no longer a one time use item
+Crown is now a 4-Star item
+Witch Hat's Poison effect has been increased to 40% from 25%
+You can now use Treasures on the pause menu
+Treasures now only heal 25% on pickup
+Added Music Treasure to the ToonTask item pool
+The Pocket Prank meter will now deplete over the course of a timed item's use
+BIG Foghorn now contributes to ToonTasks
+Increased the amount of Jellybeans given by Jellybean Jar
+Made Gags more common on floors 2 & 3
+[TITLE]Facilities
+Added three new anomalies
+Reimplemented the \"Big Skull Finder\" room as a special \"Big Puzzle\" room
+[TITLE]Characters
+Mystery Toon's Laff range has been updated to 25 - 35
+Rolling lower Laff on Mystery Toon will grant you slightly higher stats in other areas, and vice versa
+[TITLE]Cogs
+v2.0 Cogs have been reimplemented and rebalanced
+Cog battles with only 1 Cog will have their level increased
+Cog levels on floors 3/4 have been slightly lowered
+Added Half Windsor
+[TITLE]Proxy Cogs
+Proxy Cogs have gained a new ability
+[TITLE]Cog Creator
+Added Embezzle as an attack option
+[TITLE]Bosses
+The Ground Floor Investor fight has been tweaked slightly based on player feedback
+Added 1 second of invincibility after taking damage in the Head of Security fight
+Lowered the amount of Skulls in the Skull Finder portion of the Head of Securty fight
+Proxies should now properly spawn in Phase 2 of the Director's boss fight only
+[TITLE]Tweaks
+You can now view your consumable items on the pause menu
+The Battle item panel has been expanded to show all three item types at once
+The Pocket Prank use fail sound effect pitch range has been widened
+Tweaked the visuals of the Barrel Room just before the directors
+The first chest on the final boss floor now just holds a random progressive item
+You can now navigate the elevator scene UI with the left and right keys
+You can now exit the shop with the pause button
+Shops can no longer be interacted with after all items have been purchased
+Tweaked oil texture for Cog Golf Course
+\"Stun Stars\" now appear over the Cog during certain battle movies
+Added more phrases for when the Cogs' Heckle attack misses
+[TITLE]Bugfixes
+Fixed Lure effectiveness not being accounted for in its knockback damage
+Fixed the rolling golf ball being on the wrong collision layer
+Fixed Tax-Writeoff having the wrong shop title
+Fixed the Pocket Prank UI not showing re-mapped controls properly
+Fixed an issue where some character starting items wouldn't be added to the seen items list
+Fixed an issue where Flippy's full description wasn't available on laff meter hover
+Fixed a rare bug with Mixed Bag that gave a Cog the appearance of instant Gag immunity, but would still take damage
+Fixed a targetting issue when Mini Blinds would level up 10 Dollar Bill
+Fixed a bug where the total game playtime counted faster during sped up battle movies
+Chests duplicated with Treasure Map should now have the light ray properly copied from it
+The setting's confirm panel will now properly leave when you unpause
+The \"I'M STUCK!\" button will no longer appear in the Head of Security boss
+Slendercog and his Vessels can no longer speak in certain, previously forgotten about circumstances (this is important to their characterization)
+Game timers now get removed if you quit to the title screen while they are running
+Fixed Regeneration showing the default status effect name when applied to Cogs
+Fixed a softlock in the D.A. Office
+Fixed a typo in the v1.1.0 release notes
+Minor text fixes
+[TITLE]Hotfix #1
+Fixed Cowboy Hat's Description
+Fixed an issue where White-Out wouldn't duplicate the floor variant properly
+White-Out will no longer save your current game file on use
+Fixed the level range for the Executive Office not displaying properly
+Floor Clear rewards should be a bit nicer now"

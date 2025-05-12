@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfob2kn7oy66u"]
+
+[ext_resource type="Texture2D" uid="uid://cou8kf3iss1k0" path="res://models/accessories/backpacks/bird_wings/tt_m_chr_avt_acc_pac_birdWings_tt_t_chr_avt_acc_pac_birdWings.png" id="1_x8kk8"]
+
+[resource]
+resource_name = "default.286"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_x8kk8")

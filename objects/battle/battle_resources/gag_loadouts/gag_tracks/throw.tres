@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dd75urtji65pw" path="res://models/props/gags/bday_cake/bday_cake.tscn" id="13_mauup"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="14_8sa22"]
 [ext_resource type="AudioStream" uid="uid://dfh8hagq1yfae" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_cog.ogg" id="14_t7csw"]
-[ext_resource type="PackedScene" uid="uid://cu1ntnsur4xqq" path="res://models/props/gags/wedding_cake/wedding_cake.tscn" id="15_wwuuu"]
 [ext_resource type="AudioStream" uid="uid://csjxqnrh0pi1p" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_miss.ogg" id="16_p0ejo"]
+[ext_resource type="PackedScene" uid="uid://co5xwy40e1sv5" path="res://models/props/gags/wedding_cake/wedding_cake.fbx" id="17_st2xv"]
 [ext_resource type="AudioStream" uid="uid://dp6taj5mnaa3e" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake.ogg" id="18_k0b62"]
 
 [sub_resource type="Resource" id="Resource_cf3iq"]
@@ -100,8 +100,8 @@ one_time_use = false
 
 [sub_resource type="Resource" id="Resource_4x2ni"]
 script = ExtResource("4_d1roh")
-model = ExtResource("15_wwuuu")
-scale = 1.0
+model = ExtResource("17_st2xv")
+scale = 4.54
 splat_color = Color(1, 0.454902, 1, 1)
 splat_sfx = ExtResource("14_t7csw")
 present_sfx = ExtResource("18_k0b62")

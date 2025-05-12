@@ -1,16 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://muojd5dgpyau"]
+[gd_scene load_steps=13 format=3 uid="uid://muojd5dgpyau"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_cjfis"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_2go33"]
 [ext_resource type="Script" uid="uid://3u6hgk8yjcjd" path="res://scenes/title_screen/release_notes/release_notes_panel.gd" id="2_6i2ap"]
 [ext_resource type="Theme" uid="uid://dhqxwi6busihb" path="res://objects/general_ui/settings_menu/slider_theme.tres" id="3_l8nkk"]
 [ext_resource type="Theme" uid="uid://cr4dpunodqkjk" path="res://scenes/title_screen/release_notes/dropdown_theme.tres" id="5_dngbr"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="6_5cf6w"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="7_ie7r0"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="8_gpwvu"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="9_ft4wy"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="10_u28oc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_doejf"]
 font = ExtResource("2_2go33")
 font_size = 40
 font_color = Color(5.96821e-06, 0.752916, 0.870809, 1)
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_36abd"]
+font = ExtResource("10_u28oc")
+font_size = 24
 
 [node name="ReleaseNotesPanel" instance=ExtResource("1_cjfis")]
 offset_left = -300.0
@@ -42,10 +51,6 @@ label_settings = SubResource("LabelSettings_doejf")
 [node name="Body" parent="Panel" index="1"]
 visible = false
 
-[node name="CancelButton" parent="Panel" index="2"]
-hover_db_offset = 6.0
-press_db_offset = 0.0
-
 [node name="Scroller" type="ScrollContainer" parent="Panel" index="3"]
 layout_mode = 1
 anchors_preset = 8
@@ -53,9 +58,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -170.0
-offset_right = 250.0
+offset_left = -282.0
+offset_top = -158.0
+offset_right = 257.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -67,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 24
 
 [node name="ReleasesContainer" type="VBoxContainer" parent="Panel/Scroller/MarginContainer" index="0"]
 unique_name_in_owner = true
@@ -75,15 +80,39 @@ layout_mode = 2
 
 [node name="ReleasesDropdown" type="OptionButton" parent="Panel" index="4"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -70.0
-offset_top = 93.0
-offset_right = 70.0
-offset_bottom = 123.0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 148.0
+offset_bottom = 126.0
 grow_horizontal = 2
 theme = ExtResource("5_dngbr")
 
+[node name="GeneralButton" parent="." index="2" instance=ExtResource("6_5cf6w")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 82.0
+offset_right = 6.0
+offset_bottom = 142.0
+grow_horizontal = 2
+texture_normal = ExtResource("7_ie7r0")
+texture_pressed = ExtResource("8_gpwvu")
+texture_hover = ExtResource("9_ft4wy")
+texture_disabled = null
+text = "Visit Website"
+
+[node name="Label" parent="GeneralButton" index="0"]
+text = "Visit Website"
+label_settings = SubResource("LabelSettings_36abd")
+
 [connection signal="item_selected" from="Panel/ReleasesDropdown" to="." method="select_entry"]
+[connection signal="pressed" from="GeneralButton" to="." method="open_browser"]
+
+[editable path="GeneralButton"]

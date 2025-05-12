@@ -35,7 +35,7 @@ func action():
 		await manager.sleep(0.4)
 		manager.s_focus_char.emit(target)
 		target.set_animation('conked')
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 		await manager.sleep(1.0)
 	else:
 		manager.s_focus_char.emit(target)

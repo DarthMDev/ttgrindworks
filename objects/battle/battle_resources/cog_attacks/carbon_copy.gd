@@ -23,6 +23,8 @@ func action() -> void:
 	copy.skelecog_chance = 0
 	copy.virtual_cog = user.virtual_cog
 	manager.battle_node.add_child(copy)
+	copy.stats.hp = user.stats.hp
+	copy.update_health_light()
 	copy.global_transform = user.global_transform
 	
 	# Add the copy to the battle
@@ -59,10 +61,12 @@ func action() -> void:
 	
 	# Copy some necessary values over from this attack
 	new_attack.manager = manager
+	new_attack.battle_node = battle_node
 	
 	# Create a copy of that attack for the main user
 	var user_attack := new_attack.duplicate()
 	user_attack.user = user
+	user_attack.battle_node = battle_node
 	user_attack.manager = manager
 	user_attack.targets = targets
 	user_attack.accuracy = new_attack.accuracy

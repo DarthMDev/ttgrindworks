@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dlpxkpdxfucv1"]
+
+[ext_resource type="Texture2D" uid="uid://cojeoyknhl7vv" path="res://ui_assets/battle/statuses/leverage.png" id="1_qm452"]
+[ext_resource type="Script" uid="uid://8ohptk516o3l" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_leverage.gd" id="1_r0j11"]
+
+[resource]
+script = ExtResource("1_r0j11")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_qm452")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "All other Cogs gain 25% Damage while this Cog is active"
+status_name = "Leverage"
+id = 42
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

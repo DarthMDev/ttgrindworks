@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=13 format=3 uid="uid://b343pcatcpagr"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=14 format=3 uid="uid://b343pcatcpagr"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_uj63m"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_7r63x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="4_nr71f"]
 [ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="4_xy74k"]
 [ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="5_7mvpa"]
+[ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="5_a8dgu"]
 [ext_resource type="Texture2D" uid="uid://bd1o0dprf170" path="res://models/cogs/heads/peoplepleaser.png" id="6_ibwyo"]
 [ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="6_j03k7"]
 [ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="7_hsu6a"]
@@ -31,7 +32,7 @@ hand_color = Color(0.469069, 0.602725, 0.684153, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
-attacks = Array[ExtResource("1_uj63m")]([ExtResource("2_pjcma"), ExtResource("3_23ovk"), ExtResource("4_nr71f")])
+attacks = Array[ExtResource("1_uj63m")]([ExtResource("2_pjcma"), ExtResource("3_23ovk"), ExtResource("4_nr71f"), ExtResource("5_a8dgu")])
 level_low = 6
 level_high = 20
 status_effects = Array[ExtResource("3_tcrmr")]([ExtResource("4_xy74k")])

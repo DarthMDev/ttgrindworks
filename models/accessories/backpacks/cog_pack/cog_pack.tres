@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bby1kijukhilp"]
+
+[ext_resource type="Texture2D" uid="uid://bv7ulf5naxblk" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky_tt_t_chr_avt_acc_pac_flunky.png" id="1_4a5d1"]
+
+[resource]
+resource_name = "default.291"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_4a5d1")

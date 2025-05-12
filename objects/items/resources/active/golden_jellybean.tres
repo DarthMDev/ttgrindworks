@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://csrgfcqxhl18x"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_4romf"]
+[ext_resource type="Texture2D" uid="uid://b5tr1kw8aowod" path="res://ui_assets/player_ui/pocket_prank_icons/golden jellybean.png" id="1_q638d"]
+[ext_resource type="Script" uid="uid://c1vvex50engat" path="res://objects/items/custom/gold_jellybean/item_golden_jellybean.gd" id="2_hru5m"]
+[ext_resource type="PackedScene" uid="uid://dlokoiu80vds6" path="res://objects/items/custom/gold_jellybean/gold_jellybean.tscn" id="3_q638d"]
+
+[resource]
+script = ExtResource("1_4romf")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 3
+current_charge = 3
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Golden Jellybean"
+item_description = "Midas touch"
+big_description = "Destroys the nearest item in exchange for jellybeans"
+model = ExtResource("3_q638d")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_hru5m")
+remember_item = true
+icon = ExtResource("1_q638d")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

@@ -20,6 +20,7 @@ const DICE_BUTTON_TYPE := ".png"
 @onready var reroll_button := %RerollButton
 
 signal s_quest_rerolled
+signal s_quest_completed
 
 
 @export var quest : Quest:
@@ -29,6 +30,12 @@ signal s_quest_rerolled
 		quest = x
 		#quest.s_quest_updated.connect(update_quest)
 		update_quest()
+
+func _ready() -> void:
+	%NodeViewer.mouse_entered.connect(hover_item)
+	%NodeViewer.mouse_exited.connect(HoverManager.stop_hover)
+	reroll_button.mouse_entered.connect(func(): if not reroll_button.disabled: %RerollLabel.show())
+	reroll_button.mouse_exited.connect(%RerollLabel.hide)
 
 func update_quest() -> void:
 	title.set_text(quest.title)
@@ -68,9 +75,13 @@ func set_item(item: Item) -> void:
 	if item_model.has_method('setup'):
 		item_model.setup(item)
 
+func hover_item() -> void:
+	Util.do_item_hover(quest.item_reward)
+
 ## Complete the quest and reset
 func complete_quest() -> void:
 	quest.item_reward.apply_item(Util.get_player())
+	s_quest_completed.emit()
 	reset_quest()
 
 func reroll_quest() -> void:
@@ -81,6 +92,7 @@ func set_rerolls(count : int) -> void:
 	if count == 0:
 		reroll_button.set_disabled(true)
 		reroll_button.self_modulate = Color.DARK_GRAY
+		reroll_button.texture_normal = load("res://ui_assets/quests/dice_buttons/dice_button0.png")
 		return
 	# Failsafe as no 5+ textures exist
 	if count > 4: count = 4
@@ -100,3 +112,7 @@ func reset_quest() -> void:
 	quest.setup()
 	update_quest()
 	$QuestBG.self_modulate = Color.WHITE
+
+func set_elements_visible(vis : bool) -> void:
+	for child in $QuestBG.get_children():
+		child.set_visible(vis)

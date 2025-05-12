@@ -25,7 +25,7 @@ func action():
 	if manager.roll_for_accuracy(self) or target.lured:
 		var was_lured: bool = target.lured
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_seltzer.ogg"))
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
 		var splat = load("res://objects/battle/effects/splat/splat.tscn").instantiate()
 		if Util.get_player().stats.has_item('Witch Hat'):
 			splat.modulate = POISON_COLOR
@@ -36,8 +36,10 @@ func action():
 			target.head_node.add_child(splat)
 			if target.lured:
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 			else:
 				target.set_animation('squirt-small')
+				do_dizzy_stars(target)
 			apply_debuff(target)
 			s_hit.emit()
 			await Task.delay(0.5 * (2 if was_lured else 1))

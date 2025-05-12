@@ -36,7 +36,7 @@ func set_item(item: Item, price: int, discounted := false) -> void:
 		price_label.label_settings.font_color = Color.DARK_RED if discounted else Color.BLACK
 		sale_label.visible = discounted
 		sale_label.position = Vector2(57, 48) if price_label.text.length() == 1 else Vector2(75, 48)
-		if item.is_acessory or item.force_show_shop_category:
+		if item is ItemAccessory or item is ItemActive or item.force_show_shop_category:
 			set_stars(int(item.qualitoon + 1))
 			%DescTitle.label_settings.font_size = 22
 			%DescTitle.label_settings.font_color = item.shop_category_color
@@ -45,6 +45,10 @@ func set_item(item: Item, price: int, discounted := false) -> void:
 				%DescTitle.label_settings.font_size -= 1
 			%DescLabel.text = "\"%s\"" % item.item_description
 			%DescPanel.show()
+	if price == 0:
+		buy_button.text =  "TAKE"
+	else:
+		buy_button.text  = "BUY"
 
 func set_stars(stars: int):
 	for i in star_container.get_child_count():
@@ -81,3 +85,5 @@ func _process(_delta: float) -> void:
 		left_pressed()
 	elif Input.is_action_just_pressed("move_right"):
 		right_pressed()
+	if Input.is_action_just_pressed('pause'):
+		exit_pressed()

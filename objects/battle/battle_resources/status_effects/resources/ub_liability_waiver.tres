@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_c3vcg")
 damage_redirected = 0.15
-levels_gained = 3
+maxhp_boost = 1.5
 quality = 0
 rounds = -1
 icon = ExtResource("1_mxxn1")
@@ -18,4 +18,3 @@ visible = true
 description = "This Cog will have damage redirected to them!"
 status_name = "Liability Waiver"
 id = 30
-_generate_id = false

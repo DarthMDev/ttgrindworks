@@ -39,6 +39,8 @@ func randomize_track() -> void:
 	
 	# Store the track in the item resource
 	resource.arbitrary_data['track'] = track
+	resource.item_description = "New %s Gag!" % track
+	resource.big_description = resource.item_description
 
 func get_color() -> Color:
 	if get_track(track):
@@ -49,7 +51,7 @@ func get_color() -> Color:
 func collect() -> void:
 	Util.get_player().stats.gags_unlocked[track] += 1
 	resource.item_name = get_gag_got().action_name
-	resource.item_description = "New %s Gag!" % track
+
 func get_track(track_name : String) -> Track:
 	var loadout := Util.get_player().stats.character.gag_loadout
 	

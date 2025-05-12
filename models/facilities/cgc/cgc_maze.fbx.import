@@ -34,73 +34,29 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"BossbotBattle_lambert169": {
+"CogHedgeFar2": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
+"use_external/path": "uid://b45hb25eo5q6v"
 },
-"BossbotBattle_lambert174": {
+"CogHedgeMaze2": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
+"use_external/path": "uid://bv4ojtkb3obxf"
 },
-"SeemFix_BossbotMaze_A_landscape_lambert11": {
+"CogHedgeMaze3": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
+"use_external/path": "uid://c3vi6h4mq71ow"
 },
-"fartrees_lambert156": {
+"CogHedgeVine": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/tree_mat.tres"
+"use_external/path": "uid://do7bpsdy2nk"
 },
-"hedgeFix_fartrees_lambert156": {
+"CogThinTree": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/tree_mat.tres"
+"use_external/path": "uid://do7bpsdy2nk"
 },
-"hedgefix_lambert164": {
+"mazedirt_golf": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_full.tres"
-},
-"hedgefix_lambert173": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres"
-},
-"lambert164": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_full.tres"
-},
-"lambert169": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
-},
-"lambert173": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres"
-},
-"lambert174": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
-},
-"lambert2": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
-},
-"landscape_lambert11": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/floor_mat.tres"
-},
-"mazecenter_lambert164": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_full.tres"
-},
-"mazecenter_lambert169": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
-},
-"mazecenter_lambert173": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres"
-},
-"treefix_landscape_lambert2": {
-"use_external/enabled": true,
-"use_external/path": "res://models/facilities/cgc/materials/branch_mat.tres"
+"use_external/path": "uid://dlodnyf0k6y17"
 }
 }
 }

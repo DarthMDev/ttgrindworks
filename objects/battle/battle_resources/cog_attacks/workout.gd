@@ -1,7 +1,10 @@
 extends CogAttack
 class_name CogAttackWorkout
 
-const BOOST_AMT := 1.25
+const BOOST_AMT := 1.2
+
+const STAT_BOOST_REFERENCE := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
+
 
 
 func action() -> void:
@@ -45,5 +48,13 @@ func action() -> void:
 	tween.kill()
 
 func apply_boost(cog : Cog) -> void:
-	if manager.battle_stats.has(cog):
-		manager.battle_stats[cog].damage *= BOOST_AMT
+	var new_boost := STAT_BOOST_REFERENCE.duplicate()
+	
+	new_boost.quality = StatusEffect.EffectQuality.POSITIVE
+	
+	new_boost.stat = "damage"
+	new_boost.boost = BOOST_AMT
+	new_boost.rounds = -1
+	new_boost.target = cog
+	
+	manager.add_status_effect(new_boost)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusTrapped" load_steps=2 format=3 uid="uid://bhutskijccnnh"]
+
+[ext_resource type="Script" uid="uid://c4mlgwtgxyg7i" path="res://objects/battle/battle_resources/status_effects/trapped.gd" id="1_a46u8"]
+
+[resource]
+script = ExtResource("1_a46u8")
+quality = 2
+rounds = 1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Status Effect"
+id = 43
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

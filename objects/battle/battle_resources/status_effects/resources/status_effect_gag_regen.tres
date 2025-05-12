@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatusEffectGagRegen" load_steps=3 format=3 uid="uid://cyb710lywwjnq"]
+
+[ext_resource type="Texture2D" uid="uid://cvpui52kv2cvg" path="res://ui_assets/battle/statuses/gag_regeneration.png" id="1_jvltj"]
+[ext_resource type="Script" uid="uid://m6jf0ato4xln" path="res://objects/battle/battle_resources/status_effects/status_effect_gag_regen.gd" id="2_fqfer"]
+
+[resource]
+script = ExtResource("2_fqfer")
+amount = 1
+quality = 0
+rounds = 3
+rounds_offset = -1
+icon = ExtResource("1_jvltj")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = ""
+status_name = "Gag Regeneration"
+id = 39
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjvyavqogqqju"]
+
+[ext_resource type="PackedScene" uid="uid://chfee8c8kabld" path="res://objects/modules/mint/variants/golden_goose_obj_safe.tscn" id="1_siwnx"]
+[ext_resource type="PackedScene" uid="uid://ca5iu2h5u2ltv" path="res://objects/props/mint/mint_safe.tscn" id="2_xed21"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_siwnx"]
+size = Vector3(3.54786, 3.12805, 1.71359)
+
+[node name="GoldenGooseObjDoubleSafe" instance=ExtResource("1_siwnx")]
+
+[node name="cb_safe" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.82791)
+
+[node name="CollisionShape3D" parent="cb_safe/CBSafe/CBSafeTop/GeometryTransformHelper2/StaticBody3D" index="0"]
+disabled = true
+
+[node name="cb_safe2" parent="." index="2" instance=ExtResource("2_xed21")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.00524)
+
+[node name="CollisionShape3D" parent="cb_safe2/CBSafe/CBSafeTop/GeometryTransformHelper2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.913968, 1.56838, -0.00340229)
+shape = SubResource("BoxShape3D_siwnx")
+
+[editable path="cb_safe"]
+[editable path="cb_safe2"]

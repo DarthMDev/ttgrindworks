@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxts0pfand7r7"]
+
+[ext_resource type="PackedScene" uid="uid://chdkp682v5kgu" path="res://objects/modules/factory/base_rooms/factory_paint_mixer.tscn" id="1_bjffj"]
+[ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="2_prisq"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="3_da8dp"]
+[ext_resource type="Script" uid="uid://0v6jh8nv5lnx" path="res://objects/obstacles/lava_floor/lava_floor.gd" id="4_r0moo"]
+
+[sub_resource type="Curve3D" id="Curve3D_87smo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_j0e6w"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1.99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_cjh6x"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2.01, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_8rqws"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.01, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2.01, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_hb2o8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 7.501, 0, 0, 0, 0, 0, 0, 0, 0, 7.5, 0, 0, 0, 0, 0, 0, 0, 0, 7.501, 0, 0, 0, 0, 0, 0, 0, 0, 7.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.501, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jhe8f"]
+height = 2.18952
+radius = 11.2593
+
+[node name="FactoryPaintMixer" instance=ExtResource("1_bjffj")]
+
+[node name="faucet3" parent="Model/ZONE10/paintmixer/props6/Faucets" index="3"]
+visible = false
+
+[node name="Plaforms" type="Node3D" parent="." index="7"]
+
+[node name="Plaform2" type="Node3D" parent="Plaforms" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1.027, -104)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform2" index="0"]
+curve = SubResource("Curve3D_87smo")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99422, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform3" type="Node3D" parent="Plaforms" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1.027, -99)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform3" index="0"]
+curve = SubResource("Curve3D_87smo")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99422, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform4" type="Node3D" parent="Plaforms" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5, 1.027, -99)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform4" index="0"]
+curve = SubResource("Curve3D_j0e6w")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform4" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99578, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform5" type="Node3D" parent="Plaforms" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5, 1.027, -104)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform5" index="0"]
+curve = SubResource("Curve3D_j0e6w")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform5" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99578, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform6" type="Node3D" parent="Plaforms" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 1.027, -99)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform6" index="0"]
+curve = SubResource("Curve3D_cjh6x")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform6" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16065, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform7" type="Node3D" parent="Plaforms" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 1.027, -104)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform7" index="0"]
+curve = SubResource("Curve3D_cjh6x")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform7" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16065, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform8" type="Node3D" parent="Plaforms" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, 1.027, -104)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform8" index="0"]
+curve = SubResource("Curve3D_8rqws")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform8" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00578217, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform9" type="Node3D" parent="Plaforms" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, 1.027, -99)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform9" index="0"]
+curve = SubResource("Curve3D_8rqws")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform9" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00578217, 0)
+path = NodePath("../Path3D")
+
+[node name="Plaform10" type="Node3D" parent="Plaforms" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 4, -109)
+
+[node name="Path3D" type="Path3D" parent="Plaforms/Plaform10" index="0"]
+curve = SubResource("Curve3D_hb2o8")
+
+[node name="ElevatingPlatform" parent="Plaforms/Plaform10" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.50058, 0)
+path = NodePath("../Path3D")
+
+[node name="treasure_chest" parent="." index="8" instance=ExtResource("3_da8dp")]
+transform = Transform3D(0.0193896, 0, 0.999812, 0, 1, 0, -0.999812, 0, 0.0193896, 73.3254, 12.5834, -110.988)
+
+[node name="LavaFloor" type="Area3D" parent="." index="9" node_paths=PackedStringArray("default_spawn_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.763, 2.001, -101.057)
+collision_mask = 2
+script = ExtResource("4_r0moo")
+damage_name = "Goopy Paint"
+default_spawn_point = NodePath("../RespawnPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
+shape = SubResource("CylinderShape3D_jhe8f")
+
+[node name="RespawnPoint" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5366, 4.59873, -103.329)
+
+[connection signal="body_entered" from="LavaFloor" to="LavaFloor" method="body_entered"]

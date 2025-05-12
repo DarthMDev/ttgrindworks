@@ -18,7 +18,7 @@ func bring_in_reinforcements() -> void:
 	action.user = mole_cog
 	action.cog_amount = 3
 	action.targets = [mole_cog]
-	BattleService.ongoing_battle.inject_battle_action(action, 0)
+	BattleService.ongoing_battle.round_end_actions.append(action)
 
 ## For intro cutscene
 func get_camera_angle(angle : String) -> Transform3D:

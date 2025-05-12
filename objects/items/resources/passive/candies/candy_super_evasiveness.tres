@@ -1,22 +1,25 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://drm7n8ce5entv"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://drm7n8ce5entv"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_caqps"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_6sofy"]
+[ext_resource type="AudioStream" uid="uid://7ma308jln3fn" path="res://audio/sfx/items/big_chomp.ogg" id="2_i3mcl"]
 
 [resource]
 script = ExtResource("2_6sofy")
 qualitoon = 3
-rarity = 0
+rarity = 3
 evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.11
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Super Nimbly Num"
 item_description = "Evasiveness up!"
 big_description = "+ 8% evasiveness"
 model = ExtResource("1_caqps")
+pickup_sfx = ExtResource("2_i3mcl")
 stats_add = {
 "evasiveness": 0.08
 }

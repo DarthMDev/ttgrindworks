@@ -30,12 +30,14 @@ scale = Vector3(0.3, 0.3, 0.3)
 [resource]
 script = ExtResource("1_kbdgi")
 accessory_placements = Array[ExtResource("1_pof3x")]([SubResource("Resource_3frid"), SubResource("Resource_3jk26"), SubResource("Resource_cixyy")])
+item_tags = null
 qualitoon = 2
 rarity = 0
 evergreen = false
 realtime = false
 slot = 3
 world_scale = 0.15
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.55
 item_name = "Shark Fin"

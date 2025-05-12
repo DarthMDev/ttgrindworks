@@ -1,6 +1,11 @@
 extends Node3D
+class_name ToonShop
 
 const SHOP_SALE_MULT := 0.5
+const SOLD_OUT_PHRASES: Array[String] = [
+	"Fresh out of stock, sorry pal.",
+	"I've got nothing else to sell you. Try again later.",
+]
 
 @export var toon: Toon
 @export var toon_speaks := true
@@ -16,6 +21,13 @@ var discounted_items: Dictionary = {}
 
 
 func _ready() -> void:
+	# Animate toon
+	if toon:
+		var dna := ToonDNA.new()
+		dna.randomize_dna()
+		toon.construct_toon(dna)
+		toon.set_animation('neutral')
+	
 	# And completely remove their collision shapes
 	for world_item: WorldItem in world_items:
 		world_item.get_node('CollisionShape3D').queue_free()
@@ -24,13 +36,6 @@ func _ready() -> void:
 		if Util.get_player().less_shop_items and world_items.find(world_item) in [1, 2]:
 			world_item.queue_free()
 	
-	# Animate toon
-	if toon:
-		var dna := ToonDNA.new()
-		dna.randomize_dna()
-		toon.construct_toon(dna)
-		toon.set_animation('neutral')
-
 	# Do this separately so that shops with less items (i.e. dragon wings)
 	# won't bug out w/ discounts
 	for i: int in world_items.size():
@@ -48,6 +53,10 @@ func _ready() -> void:
 ## React to player interact
 func body_entered(body: Node3D) -> void:
 	if not body is Player:
+		return
+	
+	if is_shop_empty():
+		cancel_shop_enter()
 		return
 	
 	# Free the mouse
@@ -98,7 +107,16 @@ func get_price(world_item: WorldItem) -> int:
 	if RandomService.randf_channel('shop_item_random') < Util.get_player().stats.get_stat('luck') * 0.2:
 		price_with_discount *= SHOP_SALE_MULT
 		discounted_items[world_items.find(world_item)] = true
+	price_with_discount *= get_inflation_rate()
 	return maxi(0, roundi(price_with_discount))
+
+func get_inflation_rate() -> float:
+	if not is_instance_valid(Util.floor_manager):
+		return 1.0
+	var game_floor : GameFloor = Util.floor_manager
+	if game_floor.floor_tags.has('shop_inflation'):
+		return game_floor.floor_tags['shop_inflation']
+	return 1.0
 
 func move_selection(dir: int) -> void:
 	item_index += dir
@@ -116,11 +134,31 @@ func get_item(index: int) -> Item:
 
 func purchase() -> void:
 	Util.get_player().stats.money -= stored_prices[item_index]
-	world_items[item_index].body_entered(Util.get_player())
 	world_items[item_index].monitorable = false
+	if Util.get_player().stats.current_active_item and world_items[item_index].item is ItemActive:
+		yeah_ill_hold_that_for_you()
 	ui.set_item(null, -1)
+	world_items[item_index].body_entered(Util.get_player())
 	if toon and toon_speaks:
 		toon.speak("It's all yours. Enjoy!")
+	DiscordManager.update_presence()
+
+## Yeah they'll hold it for you
+func yeah_ill_hold_that_for_you() -> void:
+	var current_index := item_index
+	await Task.delay(5.0)
+	world_items[current_index].monitorable = true
+	stored_prices[current_index] = 0
+
+func is_shop_empty() -> bool:
+	for item in world_items:
+		if is_instance_valid(item):
+			return false
+	return true
+
+func cancel_shop_enter() -> void:
+	if toon_speaks:
+		toon.speak(RandomService.array_pick_random('true_random', SOLD_OUT_PHRASES))
 
 func exit() -> void:
 	ui.hide()

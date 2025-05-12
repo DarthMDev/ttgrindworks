@@ -77,7 +77,7 @@ shadow_mesh = SubResource("ArrayMesh_w0y1g")
 
 [node name="shelf2" type="Node3D"]
 script = ExtResource("1_v2aqt")
-texture_type = 0
+metadata/battle_cam_hide = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07791, -0.228497)

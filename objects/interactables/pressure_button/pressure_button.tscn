@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://sd8lfcjqv38j"]
+
+[ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="1_tm0ry"]
+[ext_resource type="Script" uid="uid://cxl2cn8twev8q" path="res://objects/interactables/pressure_button/pressure_button.gd" id="2_xwcol"]
+[ext_resource type="Texture2D" uid="uid://d046bnroqh3a8" path="res://models/props/facility_objects/button/button_button3.png" id="3_txiqm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na5sg"]
+resource_name = "button1"
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("3_txiqm")
+roughness = 0.552786
+
+[node name="PressureButton" instance=ExtResource("1_tm0ry")]
+script = ExtResource("2_xwcol")
+
+[node name="button" parent="Model" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_na5sg")
+
+[connection signal="body_entered" from="PlayerCheck" to="." method="body_entered"]
+[connection signal="body_exited" from="PlayerCheck" to="." method="body_exited"]

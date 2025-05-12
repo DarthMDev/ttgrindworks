@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c8h76u7dspxxc"]
+[gd_scene load_steps=33 format=3 uid="uid://c8h76u7dspxxc"]
 
 [ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_1bm4i"]
 [ext_resource type="PackedScene" uid="uid://xxhl4spi53gq" path="res://objects/props/mint/mint_stairs.tscn" id="2_picoi"]
@@ -42,6 +42,9 @@ emission_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_icpx3"]
 size = Vector3(38.5891, 0.419852, 31.2242)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6f2q"]
+size = Vector3(7.26251, 6.92654, 6.98737)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ym7g5"]
 material = ExtResource("6_gpwrl")
@@ -153,9 +156,11 @@ transform = Transform3D(-4.37114e-08, 0, 0.66, 0, 1.1, 0, -1, 0, -2.88495e-08, 1
 
 [node name="MintStairs2" parent="." index="11" instance=ExtResource("2_picoi")]
 transform = Transform3D(7.54979e-08, 0, -0.66, 0, 1.15, 0, 1, 0, 4.98286e-08, 16.5421, -2.24091, 11.5765)
+visible = false
 
 [node name="MintStairs3" parent="." index="12" instance=ExtResource("2_picoi")]
 transform = Transform3D(4.45438e-08, 0, -0.66, 0, 1.15, 0, 0.59, 0, 4.98286e-08, 16.5421, -2.24091, -12.66)
+visible = false
 
 [node name="Shelves" type="Node3D" parent="." index="13"]
 
@@ -194,103 +199,109 @@ transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 18.5138, 0, -9.528
 [node name="mint_crate12" parent="Crates" index="2" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.415, 18.5138, 0, -12.4489)
 
-[node name="mint_crate3" parent="Crates" index="3" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate42" parent="Crates" index="3" instance=ExtResource("4_ajbpu")]
+transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.415, 15.1662, 0, -12.4489)
+
+[node name="mint_crate3" parent="Crates" index="4" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 18.5138, 0, 4.98814)
 
-[node name="mint_crate4" parent="Crates" index="4" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate4" parent="Crates" index="5" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 18.5138, 0, 1.68174)
 
-[node name="mint_crate10" parent="Crates" index="5" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate10" parent="Crates" index="6" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 2.1, 18.5138, 0, 11.8434)
 
-[node name="mint_crate11" parent="Crates" index="6" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate43" parent="Crates" index="7" instance=ExtResource("4_ajbpu")]
+transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 2.1, 15.164, 0, 11.843)
+
+[node name="mint_crate11" parent="Crates" index="8" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 18.5138, 0, 8.29568)
 
-[node name="mint_crate13" parent="Crates" index="7" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate13" parent="Crates" index="9" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 15.1751, 0, 8.29568)
 
-[node name="mint_crate35" parent="Crates" index="8" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate35" parent="Crates" index="10" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 3.77679, -0.393756, 12.6695)
 
-[node name="mint_crate5" parent="Crates" index="9" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate5" parent="Crates" index="11" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 15.1628, 0, -6.22254)
 
-[node name="mint_crate9" parent="Crates" index="10" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate9" parent="Crates" index="12" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.765, 0, 0, 0, 1.84, 0, 0, 0, 2.56, 14.5481, 0, -2.26603)
 
-[node name="mint_crate6" parent="Crates" index="11" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate6" parent="Crates" index="13" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 15.1628, 0, -9.52895)
 
-[node name="mint_crate7" parent="Crates" index="12" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate7" parent="Crates" index="14" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 15.1628, 0, 4.98814)
 
-[node name="mint_crate14" parent="Crates" index="13" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate14" parent="Crates" index="15" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -7.93791, 0, 12.0936)
 
-[node name="mint_crate15" parent="Crates" index="14" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate15" parent="Crates" index="16" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -7.93791, 0, 8.48435)
 
-[node name="mint_crate27" parent="Crates" index="15" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate27" parent="Crates" index="17" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 1.315, 0, 0, 0, 2, -19.1045, 3.05161, -15.5582)
 
-[node name="mint_crate28" parent="Crates" index="16" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate28" parent="Crates" index="18" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.26, 0, 0, 0, 0.765, 0, 0, 0, 2, -16.1035, 3.05161, -15.5582)
 
-[node name="mint_crate18" parent="Crates" index="17" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate18" parent="Crates" index="19" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, 5.30735, 0.448541, -8.25878)
 
-[node name="mint_crate19" parent="Crates" index="18" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate19" parent="Crates" index="20" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, 5.30735, 0.448541, -11.868)
 
-[node name="mint_crate20" parent="Crates" index="19" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate20" parent="Crates" index="21" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, 5.30735, 3.75235, -8.25878)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate20/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate21" parent="Crates" index="20" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate21" parent="Crates" index="22" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, 5.30735, 3.75235, -11.868)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate21/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate36" parent="Crates" index="21" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate36" parent="Crates" index="23" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2.335, 0, 0, 0, 2.005, 0, 0, 0, 1.47, 12.6312, 3.01247, -15.0934)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate36/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate29" parent="Crates" index="22" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate29" parent="Crates" index="24" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -2.81144, 0.448541, -3.32162)
 
-[node name="mint_crate30" parent="Crates" index="23" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate30" parent="Crates" index="25" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -2.00071, 0.448541, -6.83863)
 
-[node name="mint_crate31" parent="Crates" index="24" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate31" parent="Crates" index="26" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -2.81144, 3.77825, -3.32162)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate31/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate38" parent="Crates" index="25" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate38" parent="Crates" index="27" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.487443, 0, 0.845, 0, 0.449256, 0, 2.11454, -3.08975, 7.10484, -2.11429)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate38/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate39" parent="Crates" index="26" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate39" parent="Crates" index="28" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.487443, 0, 0.845, 0, 0.449256, 0, 2.11454, -2.2101, 7.10484, -5.93027)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate39/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate40" parent="Crates" index="27" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate40" parent="Crates" index="29" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.99966, 0, 0.0371434, 0, 0.845, 0, -0.0366848, 0, 2.02466, 5.31257, 7.10484, -8.30676)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate40/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate41" parent="Crates" index="28" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate41" parent="Crates" index="30" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.99966, 0, 0.0347589, 0, 0.845, 0, -0.0366848, 0, 1.89468, 5.24074, 7.10484, -12.1544)
 
 [node name="GeometryTransformHelper" parent="Crates/mint_crate41/CBMetalBoxAll/CBMetalBox/CBMetalBoxSides" index="0"]
@@ -299,63 +310,80 @@ transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, 0, 0, 1, -0.275192, -63.1689
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate41/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate33" parent="Crates" index="29" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate33" parent="Crates" index="31" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -3.61833, 0.448541, 0.178685)
 
-[node name="mint_crate34" parent="Crates" index="30" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate34" parent="Crates" index="32" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -3.61833, 3.77825, 0.178685)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate34/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate37" parent="Crates" index="31" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate37" parent="Crates" index="33" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2.0532, 0, -0.0503551, 0, 2.005, 0, 0.0858753, 0, 1.20395, -3.78464, 7.08238, 1.16946)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate37/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate32" parent="Crates" index="32" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate32" parent="Crates" index="34" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.94889, 0, -0.449256, 0, 2.005, 0, 0.449256, 0, 1.94889, -2.00071, 3.77825, -6.83863)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate32/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate25" parent="Crates" index="33" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate25" parent="Crates" index="35" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(0, 0, -2, 0, 2.005, 0, 2, 0, 0, -19.0989, 3.00697, -11.9335)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate25/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate26" parent="Crates" index="34" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate26" parent="Crates" index="36" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(0, 0, -2, 0, 2.005, 0, 2, 0, 0, -15.4896, 3.00697, -11.9335)
 
 [node name="CBMetalBoxShadow" parent="Crates/mint_crate26/CBMetalBoxAll/CBMetalBox" index="1"]
 visible = false
 
-[node name="mint_crate16" parent="Crates" index="35" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate16" parent="Crates" index="37" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -11.5873, 0, 12.0936)
 
-[node name="mint_crate17" parent="Crates" index="36" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate17" parent="Crates" index="38" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -11.5873, 0, 8.48435)
 
-[node name="mint_crate23" parent="Crates" index="37" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate23" parent="Crates" index="39" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -15.5011, -0.317247, -11.8963)
 
-[node name="mint_crate24" parent="Crates" index="38" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate24" parent="Crates" index="40" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 2.005, 0, 0, 0, 2, -19.1505, -0.317247, -11.8963)
 
-[node name="mint_crate22" parent="Crates" index="39" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate22" parent="Crates" index="41" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(2, 0, 0, 0, 0.955, 0, 0, 0, 2, -11.5873, 3.36118, 8.48435)
 
-[node name="mint_crate8" parent="Crates" index="40" instance=ExtResource("4_ajbpu")]
+[node name="mint_crate8" parent="Crates" index="42" instance=ExtResource("4_ajbpu")]
 transform = Transform3D(1.835, 0, 0, 0, 1.84, 0, 0, 0, 1.835, 15.1628, 0, 1.68174)
 
-[node name="LavaFloor" parent="." index="15" instance=ExtResource("5_jb78m")]
+[node name="LavaFloor" parent="." index="15" node_paths=PackedStringArray("checkpoints", "default_spawn_point") instance=ExtResource("5_jb78m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727154, 0)
+checkpoints = {
+NodePath("Checkpoint1"): NodePath("Checkpoint1/RespawnPoint")
+}
+default_spawn_point = NodePath("DefaultSpawn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59721, -0.249593, -1.92697)
 shape = SubResource("BoxShape3D_icpx3")
+
+[node name="Checkpoint1" type="Area3D" parent="LavaFloor" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59489, 3.07968, 9.13407)
+
+[node name="RespawnPoint" type="Node3D" parent="LavaFloor/Checkpoint1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66449, -0.449252, 1.26316)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor/Checkpoint1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135529, 3.0204, 1.06406)
+shape = SubResource("BoxShape3D_e6f2q")
+
+[node name="DefaultSpawn" type="Node3D" parent="LavaFloor" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5391, 2.35412, -2.1826)
 
 [node name="LavaPlane" type="MeshInstance3D" parent="." index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76687, 0.536291, 0)

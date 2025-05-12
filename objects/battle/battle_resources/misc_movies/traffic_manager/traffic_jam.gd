@@ -16,7 +16,7 @@ func action() -> void:
 	# Focus player
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('slip_backward'))
-	movie.tween_callback(manager.affect_target.bind(player, 'hp', damage, false))
+	movie.tween_callback(manager.affect_target.bind(player, damage))
 	movie.tween_interval(4.0)
 	
 	await movie.finished

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://crfbs0ltdlqor"]
+
+[ext_resource type="Texture2D" uid="uid://18f5apiocui0" path="res://models/props/gags/opera_singer/textures/opera_muzzle.png" id="1_2v5k3"]
+
+[resource]
+resource_name = "opera_muzzle"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_2v5k3")
+emission_enabled = true

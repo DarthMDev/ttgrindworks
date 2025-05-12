@@ -75,7 +75,7 @@ func activate():
 	var target = targets[0]
 	target.get_node('Body').position = Vector3(0, 0, 2)
 	
-	set_camera_angle(camera_angles['SIDE_RIGHT'])
+	set_camera_angle('SIDE_RIGHT')
 	
 	# Unique sink/fall
 	match trap_type:
@@ -118,7 +118,8 @@ func activate():
 		activating_lure.current_activating_trap = self
 	
 	if not get_immunity(target):
-		manager.affect_target(target, 'hp', damage, false)
+		manager.affect_target(target, damage)
+		apply_extra_knockback(target)
 	else:
 		manager.battle_text(target, "IMMUNE")
 	

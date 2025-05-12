@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c53ndkg5jumep"]
+
+[ext_resource type="Texture2D" uid="uid://du0e5v33yr4lr" path="res://models/props/facility_objects/da_office/scale/textures/LB_Scale_CJ_Icon.png" id="1_k1o07"]
+
+[resource]
+resource_name = "LB_Scale_CJ_Icon"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_k1o07")
+emission_enabled = true

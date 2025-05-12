@@ -2,7 +2,7 @@ extends Resource
 class_name BattleStartMovie
 
 # Not preloaded bc it shouldn't be needed
-const FALLBACK_MUSIC := "res://audio/music/encntr_suit_winning_indoor.ogg"
+const FALLBACK_MUSIC := "res://audio/music/encntr_general_bg.ogg"
 
 @export var skippable := false
 @export var override_music : AudioStream
@@ -39,7 +39,7 @@ func focus_random_cog(dial := "") -> Cog:
 	if cogs.size() == 0:
 		return null
 	var cog := cogs[RandomService.randi_channel('true_random') % cogs.size()]
-	battle_node.focus_character(cog)
+	battle_node.focus_character(cog, -4.01)
 	if not dial == "":
 		cog.speak(dial)
 	return cog

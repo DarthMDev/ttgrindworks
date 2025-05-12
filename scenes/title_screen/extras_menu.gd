@@ -2,14 +2,21 @@
 extends UIPanel
 
 const COG_CREATOR := "res://scenes/cog_creator/cog_creator.tscn"
-var STATISTICS := LazyLoader.defer('res://scenes/title_screen/stats/statistics_panel.tscn')
-var CREDITS := LazyLoader.defer("res://scenes/title_screen/credits/credits_panel.tscn")
-var ACHIEVEMENTS := LazyLoader.defer("res://scenes/title_screen/achievement_panel/achievement_panel.tscn")
+var STATISTICS: PackedScene
+var CREDITS: PackedScene
+var ACHIEVEMENTS: PackedScene
 
 @onready var statistics_button: GeneralButton = $Panel/Buttons/StatisticsButton
 @onready var cog_creator_button: GeneralButton = $Panel/Buttons/CogCreatorButton
 
 var hint_tracking := false
+
+func _init():
+	GameLoader.queue_into(GameLoader.Phase.GAME_START, self, {
+		'STATISTICS': 'res://scenes/title_screen/stats/statistics_panel.tscn',
+		'CREDITS': 'res://scenes/title_screen/credits/credits_panel.tscn',
+		'ACHIEVEMENTS': 'res://scenes/title_screen/achievement_panel/achievement_panel.tscn',
+	})
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -32,10 +39,10 @@ func open_cog_creator() -> void:
 	close()
 
 func open_statistics() -> void:
-	get_tree().get_root().add_child(STATISTICS.load().instantiate())
+	get_tree().get_root().add_child(STATISTICS.instantiate())
 
 func open_credits() -> void:
-	get_tree().get_root().add_child(CREDITS.load().instantiate())
+	get_tree().get_root().add_child(CREDITS.instantiate())
 
 func open_achievements() -> void:
-	get_tree().get_root().add_child(ACHIEVEMENTS.load().instantiate())
+	get_tree().get_root().add_child(ACHIEVEMENTS.instantiate())

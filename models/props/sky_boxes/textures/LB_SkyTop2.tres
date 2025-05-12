@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4yi211e48ljh"]
+
+[ext_resource type="Texture2D" uid="uid://dhet8ox11d8ja" path="res://models/props/sky_boxes/textures/LB_SkyTop2.png" id="1_dct8e"]
+
+[resource]
+resource_name = "LB_SkyTop2"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_dct8e")
+emission_enabled = true

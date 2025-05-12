@@ -112,6 +112,10 @@ func action():
 		await manager.barrier(user.animator.animation_finished, 10.0)
 		user.set_animation('neutral')
 		prop.queue_free()
+	
+	for cog in targets:
+		if is_instance_valid(cog) and cog.lured:
+			cog.set_animation('neutral')
 
 func animate_magnet_pull(target):
 	var animator : AnimationPlayer = target.animator

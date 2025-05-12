@@ -12,7 +12,7 @@ const POSE_TIMES := {
 }
 
 const TOON_SCALE := 2.45
-const STONE_TEX := preload("res://models/props/gags/statue/smoothwall_1.png")
+const STONE_TEX := preload("res://models/props/gags/statue/textures/smoothwall_1.png")
 const SHIRT_TEX := preload("res://models/toon/textures/clothes/shirts/desat_shirt_1_4.png")
 const SLEEVE_TEX := preload("res://models/toon/textures/clothes/shirts/desat_sleeve_1.png")
 const SHORTS_TEX := preload("res://models/toon/textures/clothes/shorts/desat_shorts_1_5.png")

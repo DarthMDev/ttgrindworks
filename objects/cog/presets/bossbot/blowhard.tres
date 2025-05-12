@@ -21,6 +21,8 @@ custom_arm_tex = ExtResource("5_4p8hq")
 custom_leg_tex = ExtResource("7_3nv83")
 cog_name = "Blowhard"
 name_plural = ""
+name_prefix = "Blow"
+name_suffix = "Hard"
 head = ExtResource("8_ec4bb")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, -0.1, 0)
@@ -37,7 +39,7 @@ status_effects = Array[ExtResource("11_i4jfh")]([ExtResource("12_iirv8")])
 is_mod_cog = true
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["I'll huff, and I'll puff, and I'll blow you down.", "We'll have a whale of a time.", "There's a blustering breeze rolling through.", "Save your breath.", "Not to brag, but you'll never beat me.", "Watch out, this whale is killer."])
+battle_phrases = Array[String](["I'll huff, and I'll puff, and I'll blow you down.", "We'll have a whale of a time.", "There's a blustering breeze rolling through.", "Save your breath.", "Not to brag, but you'll never beat me.", "Watch out, this whale is killer.", "Beating me will be your white whale."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

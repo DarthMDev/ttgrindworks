@@ -1,0 +1,115 @@
+[gd_scene load_steps=20 format=3 uid="uid://dlokoiu80vds6"]
+
+[ext_resource type="PackedScene" uid="uid://biosycr5f2tcv" path="res://models/props/pickups/jellybean/jellybean.glb" id="1_kl5o4"]
+[ext_resource type="Texture2D" uid="uid://dmnoqecnruj5t" path="res://models/props/pickups/jellybean/jellybean_jellybean3.png" id="2_oqad6"]
+[ext_resource type="Texture2D" uid="uid://oq4s4vmay61t" path="res://objects/misc/Star.png" id="3_2g3w2"]
+[ext_resource type="Texture2D" uid="uid://dw0ovgcnsmkqi" path="res://objects/misc/spotlight_1.png" id="4_a04sb"]
+[ext_resource type="PackedScene" uid="uid://dif5p8fgc5hic" path="res://objects/items/custom/gold_jellybean/GoldJellybean.glb" id="5_ngkgw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g3w2"]
+resource_name = "jellybean3_tif"
+cull_mode = 2
+albedo_color = Color(1, 0.85098, 0, 1)
+albedo_texture = ExtResource("2_oqad6")
+roughness = 0.552786
+
+[sub_resource type="Gradient" id="Gradient_l2idi"]
+offsets = PackedFloat32Array(0.0530973, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xpp7m"]
+gradient = SubResource("Gradient_l2idi")
+
+[sub_resource type="Gradient" id="Gradient_a04sb"]
+offsets = PackedFloat32Array(0.460177, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.905882, 0.729412, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ngkgw"]
+gradient = SubResource("Gradient_a04sb")
+
+[sub_resource type="Curve" id="Curve_l2idi"]
+_data = [Vector2(0, 0), 0.0, 10.5647, 0, 0, Vector2(0.234127, 0.453782), 0.0, 0.0, 0, 0, Vector2(0.507937, 0.857983), 0.0, 0.0, 0, 0, Vector2(0.730159, 0.115126), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.0789, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_xpp7m"]
+_data = [Vector2(0, 0), 0.0, 6.98824, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.77381, 0.180672), 1.76188, 1.76188, 0, 0, Vector2(1, 0), -2.81471, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_a04sb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_lf7wh"]
+curve_x = SubResource("Curve_l2idi")
+curve_y = SubResource("Curve_xpp7m")
+curve_z = SubResource("Curve_a04sb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbl45"]
+lifetime_randomness = 0.45
+emission_shape_scale = Vector3(1, 0.734, 1)
+emission_shape = 2
+emission_sphere_radius = 0.68
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveXYZTexture_lf7wh")
+color_ramp = SubResource("GradientTexture1D_ngkgw")
+color_initial_ramp = SubResource("GradientTexture1D_xpp7m")
+hue_variation_min = -0.19
+hue_variation_max = 0.11
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 13
+sub_emitter_keep_velocity = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oobh5"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_2g3w2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_6f1en"]
+material = SubResource("StandardMaterial3D_oobh5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngkgw"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0.415686, 1)
+albedo_texture = ExtResource("4_a04sb")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_l2idi"]
+material = SubResource("StandardMaterial3D_ngkgw")
+size = Vector2(1.5, 1.5)
+
+[node name="jellybean2" instance=ExtResource("1_kl5o4")]
+
+[node name="Jellybean_all" parent="." index="0"]
+transform = Transform3D(0.04, 0, 0, 0, 0.02, -0.034641, 0, 0.034641, 0.02, 0, 0, 0)
+visible = false
+
+[node name="jellybean" parent="Jellybean_all" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2g3w2")
+
+[node name="Sparkle" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(0.342068, 0, 0, 0, 0.171034, -0.296239, 0, 0.296239, 0.171034, 0, 0, 0)
+amount = 6
+lifetime = 0.7
+randomness = 0.65
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sbl45")
+draw_passes = 2
+draw_pass_1 = SubResource("QuadMesh_6f1en")
+draw_pass_2 = SubResource("QuadMesh_l2idi")
+
+[node name="GoldJellybean" parent="." index="2" instance=ExtResource("5_ngkgw")]
+transform = Transform3D(4.03817, 0, 0, 0, 3.49267, 2.02683, 0, -2.02683, 3.49267, -0.00263761, -0.00159471, 0.00706544)

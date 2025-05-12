@@ -18,12 +18,20 @@ const SfxData := {
 	"Drop": [SFX_DROP, 0.0],
 }
 
+@export var hide_close_button := false
+
 signal s_voucher_used
 
 
 func _ready() -> void:
 	_ready_vouchers()
 	_ready_toonup()
+	_ready_treasures()
+	if NodeGlobals.get_ancestor_of_type(self, BattleUI):
+		%VoucherPreventer.hide()
+		%ToonupPreventer.hide()
+	if hide_close_button:
+		%CloseButton.hide()
 
 #region GAG VOUCHERS
 @export_category('Gag Vouchers')
@@ -56,9 +64,13 @@ func create_new_voucher(track: Track, count: int) -> Control:
 	button_copy.get_node('TrackName').set_text(track.track_name)
 	button_copy.get_node('Quantity').set_text("x%d" % count)
 	button_copy.get_node('GagSprite').set_disabled(count == 0)
-	button_copy.get_node('GagSprite').pressed.connect(use_voucher.bind(track))
-	button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind("+5 %s points" % track.track_name))
-	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if is_instance_valid(BattleService.ongoing_battle):
+		button_copy.get_node('GagSprite').pressed.connect(use_voucher.bind(track))
+		button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind("+5 %s points" % track.track_name))
+		button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	else:
+		button_copy.get_node('GagSprite').pressed.connect(play_fail_sfx)
+		button_copy.modulate = Color.GRAY
 	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
 	return button_copy
 
@@ -88,7 +100,8 @@ func use_voucher(track: Track) -> void:
 
 func _ready_toonup() -> void:
 	_refresh_toonup()
-	get_parent().s_update_toonups.connect(_refresh_toonup)
+	if is_instance_valid(BattleService.ongoing_battle):
+		get_parent().s_update_toonups.connect(_refresh_toonup)
 
 func _populate_toonup() -> void:
 	var toonups := get_toonup_counts()
@@ -116,11 +129,25 @@ func create_new_toonup(level: int, count: int) -> Control:
 	button_copy.get_node('GagName').set_text(action_name)
 	button_copy.get_node('Quantity').set_text("x%d" % count)
 	button_copy.get_node('GagSprite').set_disabled(count == 0)
-	button_copy.get_node('GagSprite').pressed.connect(use_toonup.bind(level))
-	button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind(TOON_UP.gags[level].custom_description))
-	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if is_instance_valid(BattleService.ongoing_battle):
+		button_copy.get_node('GagSprite').pressed.connect(use_toonup.bind(level))
+		button_copy.get_node('GagSprite').mouse_entered.connect(hover_toonup.bind(level))
+		button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	else:
+		button_copy.get_node('GagSprite').pressed.connect(play_fail_sfx)
+		button_copy.modulate = Color.GRAY
 	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
 	return button_copy
+
+func hover_toonup(level: int) -> void:
+	HoverManager.hover(get_toonup_description(level))
+
+func get_toonup_description(level: int) -> String:
+	match level:
+		4:
+			return "%s%% laff regeneration" % roundi(20.0 * Util.get_player().stats.healing_effectiveness)
+		_:
+			return TOON_UP.gags[level].custom_description
 
 func _clear_toonup() -> void:
 	for child in toonup_container.get_children():
@@ -138,6 +165,83 @@ func use_toonup(level: int) -> void:
 
 #endregion
 
+
+#region TREASURES
+@onready var treasure_template := %TreasureTemplate
+@onready var treasure_pool : ItemPool = GameLoader.load("res://objects/items/pools/treasures.tres")
+@onready var treasure_container := %TreasureContainer
+
+func _ready_treasures() -> void:
+	_refresh_treasures()
+
+func _populate_treasures() -> void:
+	var treasures := get_treasure_counts()
+	
+	for entry in treasures.keys():
+		var new_button := create_new_treasure(entry, treasures[entry])
+		treasure_container.add_child(new_button)
+
+func get_treasure_counts() -> Dictionary:
+	var player := Util.get_player()
+	if not is_instance_valid(player):
+		return {}
+	return player.stats.treasures
+
+func _refresh_treasures() -> void:
+	_clear_treasures()
+	_populate_treasures()
+
+func use_treasure(level: int) -> void:
+	var treasure : Item = get_treasure(level)
+	if Util.get_player().stats.treasures[level] > 0:
+		Util.get_player().stats.treasures[level] -= 1
+		Util.get_player().quick_heal(get_treasure_heal(treasure))
+		treasure.play_collection_sound()
+		_refresh_treasures()
+
+func _clear_treasures() -> void:
+	for child in treasure_container.get_children():
+		child.queue_free()
+
+func hover_treasure(level: int) -> void:
+	HoverManager.hover(get_treasure_description(level))
+
+func create_new_treasure(level: int, count: int) -> Control:
+	var treasure := get_treasure(level)
+	var button_copy := treasure_template.duplicate()
+	button_copy.show()
+	button_copy.get_node('GagSprite').texture_normal = get_treasure_icon(treasure)
+	var action_name: String
+	action_name = treasure.item_name.replace(" Treasure","")
+	action_name = action_name.replace(" ", "\n")
+	button_copy.get_node('GagName').set_text(action_name)
+	button_copy.get_node('Quantity').set_text("x%d" % count)
+	button_copy.get_node('GagSprite').set_disabled(count == 0)
+	button_copy.get_node('GagSprite').pressed.connect(use_treasure.bind(level))
+	button_copy.get_node('GagSprite').mouse_entered.connect(hover_treasure.bind(level))
+	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
+	return button_copy
+
+func get_treasure(idx: int) -> Item:
+	return treasure_pool.items[idx]
+
+func get_treasure_icon(item : Item) -> Texture2D:
+	return item.arbitrary_data['texture']
+
+func get_treasure_heal(item : Item) -> int:
+	var stats := Util.get_player().stats
+	var heal_perc = float(item.arbitrary_data['heal_perc']) / 100.0
+	return ceili(stats.max_hp * heal_perc)
+
+func get_treasure_perc(item : Item) -> int:
+	return item.arbitrary_data['heal_perc']
+
+func get_treasure_description(level: int) -> String:
+	return "Heals: %d%% Laff (+%d)" % [get_treasure_perc(get_treasure(level)), get_treasure_heal(get_treasure(level))]
+
+#endregion
+
 func get_track(track_name: String) -> Track:
 	for track in Util.get_player().stats.character.gag_loadout.loadout:
 		if track.track_name == track_name:
@@ -147,3 +251,9 @@ func get_track(track_name: String) -> Track:
 func _exit() -> void:
 	hide()
 	get_parent().main_container.show()
+
+func play_fail_sfx() -> void:
+	AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
+	# Focus testing said this was stupid :(
+	#var audio_player := AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
+	#audio_player.set_pitch_scale(RandomService.randf_range_channel('true_random', 0.7, 1.8))

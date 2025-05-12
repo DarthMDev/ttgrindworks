@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cthojhm1w7mns" path="res://ui_assets/battle/target_select/PckMn_Arrow_Rlvr.png" id="27_tk20p"]
 [ext_resource type="Texture2D" uid="uid://d0h1ustg0fvfo" path="res://ui_assets/misc/BookIcon_CLSD.png" id="28_1g4tr"]
 [ext_resource type="Texture2D" uid="uid://cgugkgelrg1jy" path="res://ui_assets/misc/BookIcon_RLVR.png" id="29_ja0yg"]
+[ext_resource type="PackedScene" uid="uid://6se4ghde6e11" path="res://objects/player/ui/active_item_ui/active_item_ui.tscn" id="25_r5k7d"]
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("2_mf0eg")
@@ -80,9 +81,12 @@ gag_loadout = ExtResource("9_cak40")
 starting_laff = 25
 starting_items = Array[ExtResource("3_hfcpd")]([ExtResource("12_sveqr")])
 base_stats = SubResource("Resource_jj61k")
+override_index = -1
+achievement_qualities = Dictionary[int, String]({})
 random_character_stored_name = ""
+achievement_index = 0
 
-[sub_resource type="Resource" id="Resource_wdmji"]
+[sub_resource type="Resource" id="Resource_tmow5"]
 script = ExtResource("4_f7fek")
 money = 55
 items = Array[ExtResource("3_hfcpd")]([])
@@ -137,6 +141,14 @@ toonups = Dictionary[int, int]({
 5: 1,
 6: 0
 })
+treasures = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0
+})
 gag_cap = 100
 gag_discount = -1
 character = SubResource("Resource_e5olc")
@@ -147,17 +159,22 @@ luck = 1.0
 crit_mult = 1.25
 mod_cog_dmg_mult = 1.0
 shop_discount = 0
+healing_effectiveness = 1.0
 throw_heal_boost = 0.15
 squirt_defense_boost = 0.8
 drop_aftershock_round_boost = 0
+trap_knockback_percent = 0.0
 anomaly_boost = 0
+laff_boost_boost = 0
 extra_lives = 0
+toonup_boost = 0.0
 sellbot_boost = 1.0
 cashbot_boost = 1.0
 lawbot_boost = 1.0
 bossbot_boost = 1.0
 proxy_chance_boost = 0.0
 cog_hp_death_threshold = 0.0
+battle_timers = Array[int]([])
 damage = 2.0
 defense = 1.2
 evasiveness = 1.1
@@ -181,8 +198,9 @@ shadow_color = Color(0, 0, 0, 1)
 collision_layer = 6
 collision_mask = 5
 floor_max_angle = 1.309
+platform_on_leave = 2
 script = ExtResource("1_nexlg")
-stats = SubResource("Resource_wdmji")
+stats = SubResource("Resource_tmow5")
 head_node = NodePath("Head")
 joystick_left = NodePath("Virtual Joystick Left")
 touch_jump = NodePath("JumpButton")
@@ -205,10 +223,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920243, 0)
 [node name="MoveSFX" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
-[node name="ItemDescriptions" parent="." instance=ExtResource("5_ajyaa")]
-visible = false
+[node name="Items" type="Node" parent="."]
 
-[node name="LaffMeter" parent="." instance=ExtResource("6_553ug")]
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuestNotification" parent="GUI" instance=ExtResource("19_2bvb5")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="LaffMeter" parent="GUI" instance=ExtResource("6_553ug")]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 2
 anchor_left = 0.0
 anchor_top = 1.0
@@ -222,7 +254,9 @@ grow_horizontal = 1
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 
-[node name="BeanJar" parent="." instance=ExtResource("9_2bgkf")]
+[node name="BeanJar" parent="GUI" instance=ExtResource("9_2bgkf")]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 2
 anchor_left = 0.0
 anchor_top = 1.0
@@ -237,12 +271,9 @@ grow_vertical = 0
 scale = Vector2(0.85, 0.85)
 pivot_offset = Vector2(50, 62.5)
 
-[node name="Items" type="Node" parent="."]
-
-[node name="QuestNotification" parent="." instance=ExtResource("19_2bvb5")]
-
-[node name="FloorLabel" type="Label" parent="."]
+[node name="FloorLabel" type="Label" parent="GUI"]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -259,12 +290,12 @@ label_settings = SubResource("LabelSettings_530nt")
 horizontal_alignment = 2
 script = ExtResource("21_dh5ch")
 
-[node name="GameTimer" parent="." instance=ExtResource("22_0c65h")]
-visible = false
-
-[node name="BoostTextQueue" type="Control" parent="."]
+[node name="GameTimer" parent="GUI" instance=ExtResource("22_0c65h")]
 unique_name_in_owner = true
-layout_mode = 3
+
+[node name="BoostTextQueue" type="Control" parent="GUI"]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -312,3 +343,21 @@ action = "pause"
 visibility_mode = 1
 
 [editable path="Virtual Joystick Left"]
+[node name="ItemDescriptions" parent="GUI" instance=ExtResource("5_ajyaa")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ActiveItemUI" parent="GUI" instance=ExtResource("25_r5k7d")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -324.0
+offset_right = 116.0
+offset_bottom = -234.0
+grow_horizontal = 1
+grow_vertical = 0

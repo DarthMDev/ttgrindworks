@@ -2,25 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6qvartjleb5w"
-path.bptc="res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.bptc.ctex"
-path.astc="res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.astc.ctex"
+uid="uid://cs51oiqeo46xk"
+path="res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "79bee36afeeaa2891656c33aa843e1ce"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/toon/head/monkey/monkey_heads_8.png"
-dest_files=["res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.bptc.ctex", "res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.astc.ctex"]
+dest_files=["res://.godot/imported/monkey_heads_8.png-94eaa3cab3ab73cd52112bfc1fda96bf.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

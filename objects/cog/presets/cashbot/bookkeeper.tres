@@ -18,6 +18,8 @@ department = 1
 suit = 2
 cog_name = "Bookkeeper"
 name_plural = ""
+name_prefix = ""
+name_suffix = ""
 head = ExtResource("4_6ql6r")
 head_scale = Vector3(1, 1, 1)
 head_pos = Vector3(0, 0, 0)
@@ -33,7 +35,7 @@ level_high = 20
 status_effects = Array[ExtResource("7_1kdhu")]([ExtResource("8_kct6m"), ExtResource("9_tgwk5"), ExtResource("10_onfbe")])
 is_mod_cog = false
 is_admin = false
-health_mod = 4.87
+health_mod = 5.952
 battle_phrases = Array[String](["I am the bookkeeper"])
 external_assets = {
 &"head_model": "",

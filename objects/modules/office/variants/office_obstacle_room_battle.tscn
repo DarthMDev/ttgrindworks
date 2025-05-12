@@ -41,7 +41,7 @@ disabled = true
 disabled = true
 
 [node name="P_Switch" parent="." index="10" instance=ExtResource("4_2pbvk")]
-transform = Transform3D(0.996015, 0.0891898, -3.89861e-09, 0, -4.37114e-08, -1, -0.0891898, 0.996015, -4.35372e-08, 17.0046, 0.0381639, 9.17819)
+transform = Transform3D(0.996015, 0, 0.0891898, 0, 1, 0, -0.0891898, 0, 0.996015, 17.0046, 0.0381639, 9.17819)
 up_color = Color(0.00392157, 0.870588, 0.988235, 1)
 pressed_color = Color(1, 1, 0, 1)
 retracts = true

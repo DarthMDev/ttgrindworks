@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://jbiqt03aq2rh"]
+
+[ext_resource type="Texture2D" uid="uid://br5dvo2q2y246" path="res://models/accessories/glasses/heart_glasses/tt_m_chr_avt_acc_msk_heartGlasses.glb-pix-1.png" id="1_tn4y6"]
+[ext_resource type="Script" path="res://objects/items/custom/item_active_test_addturn.gd" id="2_tn4y6"]
+[ext_resource type="PackedScene" uid="uid://cieocqdcjp4aj" path="res://models/accessories/glasses/heart_glasses/tt_m_chr_avt_acc_msk_heartGlasses.glb" id="3_007uo"]
+[ext_resource type="Script" path="res://objects/items/classes/item_active.gd" id="4_ukedd"]
+[ext_resource type="AudioStream" uid="uid://baowr8kjjuou8" path="res://audio/sfx/ui/GUI_stickerbook_open.ogg" id="5_3vosa"]
+
+[resource]
+script = ExtResource("4_ukedd")
+sfx = Array[AudioStream]([ExtResource("5_3vosa")])
+active_type = 1
+charge_count = 0
+current_charge = 0
+qualitoon = 0
+rarity = 0
+evergreen = false
+realtime = false
+slot = 4
+world_scale = 0.15
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Quick Hand"
+item_description = "For good measure!"
+big_description = "- 0 Charge
+- Use: Add 1 turn"
+model = ExtResource("3_007uo")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_tn4y6")
+remember_item = true
+icon = ExtResource("1_tn4y6")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

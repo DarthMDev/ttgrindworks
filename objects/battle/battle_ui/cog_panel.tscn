@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://g50de2joqp6k"]
+[gd_scene load_steps=21 format=4 uid="uid://g50de2joqp6k"]
 
 [ext_resource type="Texture2D" uid="uid://d0hyk56ofpvrm" path="res://ui_assets/battle/target_select/ToonBtl_Status_BG.png" id="1_1tuon"]
 [ext_resource type="Script" uid="uid://twsu6btug060" path="res://objects/battle/battle_ui/cog_panel.gd" id="2_luwxf"]
@@ -1535,6 +1535,13 @@ font_color = Color(0, 0, 0, 1)
 font = SubResource("FontFile_8sp2b")
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsfax"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="CogPanel" type="Control"]
 custom_minimum_size = Vector2(160, 140)
 layout_mode = 3
@@ -1616,16 +1623,39 @@ text = "6/6"
 label_settings = SubResource("LabelSettings_q00sf")
 horizontal_alignment = 1
 
-[node name="StatusEffects" type="GridContainer" parent="."]
+[node name="StatusEffectMask" type="Control" parent="."]
 unique_name_in_owner = true
+clip_contents = true
+anchors_preset = 0
+offset_left = -4.0
+offset_top = 88.0
+offset_right = 368.0
+offset_bottom = 272.0
+scale = Vector2(0.5, 0.5)
+
+[node name="EffectPanel" type="Panel" parent="StatusEffectMask"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.25)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lsfax")
+
+[node name="StatusEffects" type="GridContainer" parent="StatusEffectMask"]
+unique_name_in_owner = true
+clip_contents = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -93.0
-offset_top = 92.0
-offset_right = 279.0
-offset_bottom = 182.0
+offset_left = -186.0
+offset_right = 186.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
 columns = 4
+
+[connection signal="mouse_entered" from="StatusEffectMask" to="." method="statuses_hovered"]
+[connection signal="mouse_exited" from="StatusEffectMask" to="." method="statuses_unhovered"]

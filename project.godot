@@ -16,10 +16,10 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="Toontown: The Grindworks"
-config/version="1.0.2"
+config/version="1.1.1a"
 run/main_scene="res://scenes/title_screen/title_screen.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://ui_assets/general/logo_eyes.png"
+config/icon="uid://cgljrd8dis8an"
 config/windows_native_icon="res://ui_assets/general/icon.ico"
 
 [autoload]
@@ -28,15 +28,18 @@ ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
 TaskContainer="*res://addons/task/task_container.gd"
 Logging="*res://addons/toonlike_tools/logging/logging.gd"
+GameLoader="*res://objects/globals/game_loader.gd"
 Util="*res://objects/globals/util.gd"
 ItemService="*res://objects/globals/item_service.gd"
 AudioManager="*res://objects/globals/audio_manager.gd"
 SceneLoader="*res://objects/globals/scene_loader.gd"
+SaveFileService="*res://objects/globals/save_file_service.gd"
 Globals="*res://objects/globals/globals.gd"
 BattleService="*res://objects/globals/battle_service.gd"
-SaveFileService="*res://objects/globals/save_file_service.gd"
 RandomService="*res://objects/globals/random_service.gd"
 HoverManager="*res://objects/globals/hover_manager.tscn"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+DiscordManager="*res://objects/globals/discord_manager.gd"
 
 [debug]
 
@@ -52,7 +55,7 @@ mouse_cursor/custom_image="res://ui_assets/cursor.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/mod_tool/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/mod_tool/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [file_customization]
 
@@ -166,6 +169,12 @@ toggle_freecam={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194337,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+use_pocket_prank={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [navigation]
 
@@ -173,6 +182,7 @@ toggle_freecam={
 
 [physics]
 
+3d/physics_engine="GodotPhysics3D"
 common/physics_interpolation=true
 
 [rendering]

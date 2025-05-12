@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dw5lay4y05vb4"]
+
+[ext_resource type="Script" uid="uid://vacaaha188f5" path="res://objects/battle/battle_resources/status_effects/status_effect_payraise.gd" id="1_0m1qb"]
+[ext_resource type="Texture2D" uid="uid://nwdfih0dmi80" path="res://ui_assets/battle/statuses/pay_raise.png" id="1_42ukf"]
+
+[resource]
+script = ExtResource("1_0m1qb")
+bean_count = 1
+diminish_factor = 0.8
+quality = 1
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_42ukf")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Payraise"
+id = 38
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

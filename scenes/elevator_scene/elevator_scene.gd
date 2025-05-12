@@ -15,6 +15,10 @@ var next_floors: Array[FloorVariant] = []
 
 
 func _ready():
+	if Util.floor_number == 5:
+		$ElevatorUI.arrow_left.hide()
+		$ElevatorUI.arrow_right.hide()
+	
 	# Get the player in here or so help me
 	player = Util.get_player()
 	if not player:
@@ -31,6 +35,12 @@ func _ready():
 	player.joystick_left.hide()
 	player.touch_jump.hide()
 	player.pause_button.hide()
+	
+	if SaveFileService.run_file and SaveFileService.run_file.floor_choice:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		start_game_floor(SaveFileService.run_file.floor_choice)
+		return
+	
 	# Close the elevator doors
 	elevator.animator.play('open')
 	elevator.animator.seek(0.0)
@@ -47,12 +57,18 @@ func _ready():
 	get_next_floors()
 
 func start_floor(floor_var: FloorVariant):
+	SaveFileService.run_file.floor_choice = floor_var
+	SaveFileService.save()
 	elevator.animator.play('open')
 	player.turn_to_position($Outside.global_position, 1.5)
 	$ElevatorUI.hide()
 	await camera.exit()
 	
+	start_game_floor(floor_var)
+
+func start_game_floor(floor_var : FloorVariant) -> void:
 	player.scale = Vector3(1, 1, 1)
+	player.game_timer_tick = true
 	if floor_var.override_scene:
 		SceneLoader.change_scene_to_packed(floor_var.override_scene)
 	else:
@@ -86,11 +102,7 @@ func get_next_floors() -> void:
 
 func final_boss_time_baby() -> void:
 	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
-	final_floor.level_range = Vector2i(8, 12)
+	final_floor.level_range = Vector2i(9, 14)
 	next_floors = [final_floor]
 	$ElevatorUI.floors = next_floors
 	$ElevatorUI.set_floor_index(0)
-
-func _exit_tree() -> void:
-	if Util.get_player():
-		Util.get_player().game_timer_tick = true

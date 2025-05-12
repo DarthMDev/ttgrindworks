@@ -21,8 +21,8 @@ func _ready() -> void:
 	if not is_instance_valid(golf_ball) or not is_instance_valid(path):
 		return
 	if want_evil_ball:
-		golf_ball.get_node("golf_ball").hide()
-		golf_ball.get_node("EvilBall").show()
+		golf_ball.get_node("Model/golf_ball").hide()
+		golf_ball.get_node("Model/EvilBall").show()
 	if start_off:
 		stopped = true
 		delayed = true
@@ -68,7 +68,7 @@ func delay_ball(wait_time := 0.0) -> void:
 
 func _process(delta: float) -> void:
 	if golf_ball:
-		golf_ball.rotation_degrees.x -= delta * 120.0 * speed * 10
+		golf_ball.get_node('Model').rotation_degrees.x -= delta * 120.0 * speed * 10
 
 func stop_balls() -> void:
 	stopped = true

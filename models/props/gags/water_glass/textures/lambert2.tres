@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dadtepq1ka7dg"]
+
+[resource]
+resource_name = "lambert2"
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+metallic = 0.2
+roughness = 0.8

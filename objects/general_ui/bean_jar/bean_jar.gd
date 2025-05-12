@@ -30,3 +30,15 @@ func scale_pop() -> void:
 		LerpProperty.new(self, ^"scale", 0.2, start_scale * 1.2).interp(Tween.EASE_OUT),
 		LerpProperty.new(self, ^"scale", 0.2, start_scale * 1.0).interp(Tween.EASE_IN),
 	]).as_tween(self)
+
+func scale_shrink() -> void:
+	tween = Parallel.new([
+		Sequence.new([
+			LerpProperty.new(self, ^"scale", 0.15, start_scale * 0.8).interp(Tween.EASE_IN),
+			LerpProperty.new(self, ^"scale", 0.15, start_scale * 1.0).interp(Tween.EASE_OUT),
+		]),
+		Sequence.new([
+			SetProperty.new(count_label, &"modulate", Color.RED),
+			LerpProperty.new(count_label, ^"modulate", 0.4, Color.WHITE).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
+		])
+	]).as_tween(self)

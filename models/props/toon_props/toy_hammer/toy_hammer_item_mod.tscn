@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://15p6j6k3110c"]
+
+[ext_resource type="PackedScene" uid="uid://c1o3q1hgrjs0y" path="res://models/props/toon_props/toy_hammer/toyHammer.glb" id="1_dvi5l"]
+
+[node name="toyHammer2" instance=ExtResource("1_dvi5l")]
+
+[node name="toyHammer" parent="." index="0"]
+transform = Transform3D(0.915761, -1.43668e-07, 0.401724, -0.401724, -3.27502e-07, 0.915761, 0, -1, -3.57628e-07, -0.534108, -1.19997, 0)

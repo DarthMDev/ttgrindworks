@@ -2,7 +2,7 @@ extends FloorModifier
 
 
 func modify_floor() -> void:
-	var skybox: Node3D = load('res://models/props/sky_boxes/bbhq/bbhq_skybox.fbx').instantiate()
+	var skybox: Node3D = load('res://models/props/sky_boxes/bbhq_skybox.fbx').instantiate()
 	var player: Player
 	if not Util.get_player():
 		player = await Util.s_player_assigned

@@ -15,9 +15,15 @@ func _ready() -> void:
 func check_anims(mode : CheckType) -> void:
 	var body_dict : Dictionary
 	if mode == CheckType.TOON:
-		body_dict = Globals.ToonBodies.load()
+		for body_type in ToonDNA.BodyType:
+			var body_type_str: String = ToonDNA.BodyType.keys()[body_type].to_lower()
+			body_dict[body_type_str] = Globals.fetch_toon_body(body_type, false)
+			body_dict[body_type_str + '_skirt'] = Globals.fetch_toon_body(body_type, true)
 	else:
-		body_dict = Globals.suits.load()
+		for body_type in CogDNA.SuitType:
+			var body_type_str: String = CogDNA.SuitType.keys()[body_type].to_lower()
+			body_dict[body_type_str] = Globals.fetch_suit(body_type, false)
+			body_dict[body_type_str + '_skelecog'] = Globals.fetch_suit(body_type, true)
 	var anim_dict := {}
 	var anim_master_list : Array[String] = []
 	

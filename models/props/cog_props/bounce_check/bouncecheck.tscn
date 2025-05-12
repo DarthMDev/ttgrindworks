@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckstshgoiqux3"]
+
+[ext_resource type="PackedScene" uid="uid://bwovn5qyuqkt0" path="res://models/props/cog_props/bounce_check/bouncecheck.glb" id="1_uu2dt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uu2dt"]
+size = Vector3(0.125, 0.75, 1.5)
+
+[node name="bouncecheck" instance=ExtResource("1_uu2dt")]
+
+[node name="Check" parent="." index="0"]
+transform = Transform3D(-8.21774e-09, 0.15, 0, -0.188, -6.55671e-09, 0, 0, 0, 0.375, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+visible = false
+mesh = SubResource("BoxMesh_uu2dt")

@@ -82,3 +82,11 @@ func get_immunity(cog : Cog) -> bool:
 					if gag.action_name == action_name:
 						return true
 	return false
+
+
+func do_dizzy_stars(cog: Cog, time := 2.0) -> Node3D:
+	var stars: Node3D = load("res://models/props/cog_props/stun_stars/stun_stars.tscn").instantiate()
+	stars.delete_time = time
+	cog.body.head_bone.add_child(stars)
+	stars.rotation_degrees.x = 90.0
+	return stars

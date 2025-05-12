@@ -67,7 +67,7 @@ enum VERSION_VALIDATION {
 ## Replace the getter in options_profile.gd if your game stores the version somewhere else
 @export var semantic_version := "0.0.0":
 	get:
-		return semantic_version
+		return Globals.VERSION_NUMBER
 
 @export_group("Mod Sources")
 ## Indicates whether to load mods from the Steam Workshop directory, or the overridden workshop path.

@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bchcm0txqesmn"]
+
+[ext_resource type="PackedScene" uid="uid://dbcgynfy3r1tk" path="res://objects/obstacles/burner/BurnerFlame.fbx" id="1_58dy6"]
+[ext_resource type="Shader" uid="uid://vgg5px6wnyc" path="res://objects/obstacles/burner/shaders/outerburner.tres" id="1_ao7jf"]
+[ext_resource type="Shader" uid="uid://b4l5edm0sdpba" path="res://objects/obstacles/burner/shaders/innerburner.tres" id="2_aoydd"]
+[ext_resource type="Script" uid="uid://1c6kvqn5ls0g" path="res://objects/obstacles/burner/burner.gd" id="2_boa2t"]
+[ext_resource type="PackedScene" uid="uid://b7504o1ma7vu8" path="res://models/props/drop_shadow/drop_shadow.glb" id="4_yg3t6"]
+[ext_resource type="AudioStream" uid="uid://bn8gshb3u2w7g" path="res://audio/sfx/objects/burner/burner_burning.ogg" id="6_x8rm5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58dy6"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("2_aoydd")
+shader_parameter/FirePanningSpeed = Vector2(1, 3.34)
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/Fresnel_visibility = 2.0
+shader_parameter/Flame_Visibility = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yg3t6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_boa2t"]
+noise = SubResource("FastNoiseLite_yg3t6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yg3t6"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_ao7jf")
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/fire_panning_speed = Vector2(0.5, 2)
+shader_parameter/FirePanningVisibility = 1.0
+shader_parameter/AddFresnelVisibility = 3.59
+shader_parameter/Noise_Texture = SubResource("NoiseTexture2D_boa2t")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8rm5"]
+height = 6.22
+
+[node name="BurnerFlame" instance=ExtResource("1_58dy6")]
+script = ExtResource("2_boa2t")
+enabled = true
+automatic = false
+
+[node name="Flame" parent="." index="1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="Flame" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(122.155, 0, 0, 0, 122.155, -1.98949e-12, 0, 1.81899e-12, 133.605, 0, 0, 5.96046e-08)
+surface_material_override/0 = SubResource("ShaderMaterial_58dy6")
+
+[node name="FlameOuter" parent="Flame" index="1"]
+unique_name_in_owner = true
+surface_material_override/0 = SubResource("ShaderMaterial_yg3t6")
+
+[node name="PlayerDetection" type="Area3D" parent="Flame" index="2"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.579836, 2.39281)
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flame/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0, -2.51095e-08, 0.574438)
+shape = SubResource("CapsuleShape3D_x8rm5")
+
+[node name="drop_shadow2" parent="." index="2" instance=ExtResource("4_yg3t6")]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -1, 0, 0.7, -4.37114e-08, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="burning_sfx" type="AudioStreamPlayer3D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("6_x8rm5")
+volume_db = -7.0
+autoplay = true
+bus = &"Ambient"
+
+[connection signal="body_entered" from="Flame/PlayerDetection" to="." method="on_body_entered"]

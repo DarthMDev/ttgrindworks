@@ -18,9 +18,8 @@ func action():
 	sfx_track()
 	
 	# Begin
-	var cog: Cog = main_target
-	if is_instance_valid(cog):
-		user.face_position(cog.global_position)
+	if is_instance_valid(main_target):
+		user.face_position(main_target.global_position)
 	else:
 		user.face_position(manager.battle_node.global_position)
 	user.set_animation('shout')
@@ -60,16 +59,18 @@ func action():
 				continue
 			animator_target = target
 			var real_damage = damage
-			if target != main_target:
+			if (not target == main_target and not user.inverted_sound_damage) or (user.inverted_sound_damage and target == main_target):
 				real_damage *= 0.5
 			if get_immunity(target):
 				manager.battle_text(target, 'IMMUNE')
 			else:
-				manager.affect_target(target, 'hp', real_damage, false)
+				manager.affect_target(target, real_damage)
 			if not target.lured or not do_knockback:
 				target.set_animation('squirt-small')
+				do_dizzy_stars(target)
 			elif not get_immunity(target):
 				manager.knockback_cog(target)
+				do_dizzy_stars(target)
 		
 		if animator_target:
 			await manager.barrier(animator_target.animator.animation_finished, 5.0)
@@ -96,7 +97,7 @@ func action():
 		await manager.sleep(1.0)
 	
 	if user.get_animation() == 'shout':
-		await user.animator.animation_finished
+		await manager.barrier(user.animator.animation_finished, 4.0)
 	
 	megaphone.queue_free()
 
@@ -109,7 +110,7 @@ func sfx_track():
 		AudioManager.play_sound(sfx_blast)
 
 func get_stats() -> String:
-	var string := "Damage: " + get_true_damage() + "\n"\
+	var string := "Damage: " + get_main_damage_str() + "\n"\
 	+ "Affects: "
 	match target_type:
 		ActionTarget.SELF:
@@ -121,6 +122,16 @@ func get_stats() -> String:
 		ActionTarget.ENEMY_SPLASH:
 			string += "Three Cogs"
 
-	string += "\nSplash: %s" % get_true_damage(0.5)
+	string += "\nSplash: %s" % get_splash_damage_str()
 
 	return string
+
+func get_main_damage_str() -> String:
+	if Util.get_player().inverted_sound_damage:
+		return get_true_damage(0.5)
+	return get_true_damage()
+
+func get_splash_damage_str() -> String:
+	if Util.get_player().inverted_sound_damage:
+		return get_true_damage()
+	return get_true_damage(0.5)

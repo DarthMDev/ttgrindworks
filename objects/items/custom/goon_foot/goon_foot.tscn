@@ -1,0 +1,228 @@
+[gd_scene load_steps=8 format=4 uid="uid://b53wsrolr42l5"]
+
+[ext_resource type="Texture2D" uid="uid://wcpl4bxrtsoh" path="res://models/goon/goon_7.png" id="1_w6tpr"]
+[ext_resource type="Texture2D" uid="uid://b12231eulg8i3" path="res://models/goon/goon_8.png" id="2_0edkl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bosau"]
+resource_name = "foot2"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("1_w6tpr")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8105i"]
+resource_name = "foot_right"
+_surfaces = [{
+"aabb": AABB(-7.25394, -0.0136608, -4.09942, 6.50955, 6.12372, 10.9777),
+"attribute_data": PackedByteArray("qRkMPI7PfT8L/6k+7lr2Poz2gD6Zz30/I04rPu5a9j6aMPw+7lr2PjRf+j6Ez30/jPaAPpnPfT+aMPw+7lr2PhrkPj+Pz30/NF/6PoTPfT+6kyo/7lr2PtE1Xz8wwYE9fYEiP5Byxj59gSI/6MGBPdE1Xz88csY+GuQ+P4/PfT94LFU/7lr2PprPfT+Oz30/upMqP+5a9j7EL74+gBkMPMQvvj7YPkA+WO+GPtg+QD5c74Y+gBkMPMQvvj7Ye7E+WO+GPtg+QD7EL74+2D5APlTvhj7Ue7E+xC++Ptg+QD5P7/Y+0HuxPsQvvj7Ye7E+T+/2Ptg+QD68Thg/1HuxPk/v9j7YPkA+vk4YP9g+QD5P7/Y+0HuxPiaEGD7Ue7E+WO+GPtg+QD5U74Y+1HuxPiaEGD7YPkA+9uDaPvjc4D7EL74+2HuxPk/v9j7Qe7E+qRkMPBXHaz+M9oA+FcdrPxrkPj8Vx2s/NF/6PhXHaz8L/6k+7lr2PjRf+j4Vx2s/jPaAPhXHaz8a5D4/FcdrP5rPfT8Vx2s/ms99PxXHaz8a5D4/FcdrPzRf+j4Vx2s/GuQ+PxXHaz+M9oA+FcdrPzRf+j4Vx2s/"),
+"bone_aabbs": [AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-7.25394, -0.0136608, -4.09942, 6.50955, 6.12372, 10.9777)],
+"format": 34359745559,
+"index_count": 87,
+"index_data": PackedByteArray("KgABACsAKgADAAEAAgAqACsAAgAAACoABwAsAC0ACgAsAAcACwAMAA0ACwAOAAwALgAvADAABAAvAC4AMQAQADIAMQASABAAEwAUABUAFQAWABMADwAzABEADwA0ADMACAA1ADYACAAJADUANwAFAAYANwA4AAUAFwAYABkAGAAXABoAGwAcAB0AGwAeABwAHwAgACEAIAAfACIAIwAkACUAJgAkACMAJwAoACkA"),
+"lods": [0.0200591, PackedByteArray("AAABAAIAAAADAAEABAAFAAEAAQAFAAYABwAIAAkACgAIAAcACwAMAA0ACwAOAAwADwAQABEADwASABAAEwAUABUAFQAWABMAFwAYABkAGAAXABoAGwAcAB0AGwAeABwAHwAgACEAIAAfACIAIwAkACUAJgAkACMAJwAoACkA")],
+"material": SubResource("StandardMaterial3D_bosau"),
+"name": "foot2",
+"primitive": 3,
+"skin_data": PackedByteArray("DwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAADwAAAAAAAAD//wAAAAAAAA8AAAAAAAAA//8AAAAAAAAPAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 57,
+"vertex_data": PackedByteArray("QCDowOrQX7wjG9xA3VZOwBBNVkCrAARA2Y8+v+rQX7wjG9xAysaYwBBNVkCrAARArwVbwJerdEB57N2/ILPhv4bRX7x1LoPA2Y8+v+rQX7wjG9xArwVbwJerdEB57N2/cYXHwIbRX7xwLoPAILPhv4bRX7x1LoPAYG+SwJerdEBrRN6/ILPhv4bRX7x1LoPAQCDowOrQX7wjG9xA2Y8+v+rQX7wjG9xAcYXHwIbRX7xwLoPAcYXHwIbRX7xwLoPAysaYwBBNVkCrAARAQCDowOrQX7wjG9xAYG+SwJerdEBrRN6/WCtawJOFw0B57N2/iTFNwJOFw0A5JH0/c1mZwJOFw0A5JH0/jNySwJOFw0B57N2/3VZOwBBNVkCrAARAc1mZwJOFw0A5JH0/iTFNwJOFw0A5JH0/ysaYwBBNVkCrAARAiTFNwJOFw0A5JH0/rwVbwJerdEB57N2/3VZOwBBNVkCrAARAWCtawJOFw0B57N2/YG+SwJerdEBrRN6/WCtawJOFw0B57N2/jNySwJOFw0B57N2/rwVbwJerdEB57N2/YG+SwJerdEBrRN6/c1mZwJOFw0A5JH0/ysaYwBBNVkCrAARAjNySwJOFw0B57N2/L2ltwJerdEB57N2/3VZOwBBNVkCrAARArwVbwJerdEB57N2/QCDowPkUgj/bWttA2Y8+v/kUgj/bWttAcYXHwPkUgj9pHoPAILPhv/kUgj9sHoPA3VZOwBBNVkCrAARAILPhv/kUgj9sHoPA2Y8+v/kUgj/bWttAcYXHwPkUgj9pHoPAQCDowPkUgj/bWttAQCDowPkUgj/bWttAcYXHwPkUgj9pHoPAILPhv/kUgj9sHoPAcYXHwPkUgj9pHoPA2Y8+v/kUgj/bWttAILPhv/kUgj9sHoPA/3/Zgv7//7//fxjW////v/9/2YL+//+//38Y1v///79K0CGulw0o/eH/AnUAAHCFv//mdAAAb4Xi1Nv/BwAbwD4A/v8AAP+/PgD+/wAA/7/X59f/BgDjv/9/AAD//+eB/38AAAAA04L/fwAAAABvhf9/AAD//26FHQACdR11/79ENKm2xXiWvT8A5nQgdf+/tS8hrlN6NLn/f/7/////v/9//v////+//3/+/////7//f/7/////v/9/1KP+//+//3/Uo/7//7//f9Sj////v/9/1KP+//+//P1JdvMIbvz8/Ul24AZZ/Kz8GHaXDSj9Tv98dgAAb4TX59f/AADmv+z/2P8AABLA2P///wAA/7/i1Nv/CQDdvwACS3a1eI+8AAJLdt54hbtSAxl2U3o0ua4AfnYgd/+/OI4AAJcNKP04jgAAlw0o/TiOAACXDSj9/38Esv7//7//fwSy////v4/F6v8LABPAgzr+/wAA/7+6y6m20QRh/LrLqbbyBq77McfcvgAAjPpENKm2X3eGvM043L4adf+/HQACdR11/78FAOmKGnX/vz4A/v8AAP+/PgD+/wAA/7/h/wJ1AABwhfn/6YoAAIz6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_kkydw"]
+resource_name = "Skin10"
+bind_count = 50
+bind/0/name = &"joint7"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -23.4548, -0.45807)
+bind/1/name = &"joint1"
+bind/1/bone = -1
+bind/1/pose = Transform3D(5.95596e-17, -0.972682, 0.232143, 7.5447e-17, -0.232143, -0.972682, 1, 7.5447e-17, 5.95596e-17, 22.0206, 6.08802, -4.00809)
+bind/2/name = &"joint2"
+bind/2/bone = -1
+bind/2/pose = Transform3D(5.80879e-17, -0.948647, -0.316336, 4.18624e-17, 0.316336, -0.948647, 1, 4.18624e-17, 5.80879e-17, 14.4623, -1.82131, -4.00809)
+bind/3/name = &"joint4"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-7.55443e-17, -0.55332, 0.832969, 0.975498, 0.183262, 0.121736, -0.22001, 0.812559, 0.539763, 2.88493, -4.7578, -2.87854)
+bind/4/name = &"joint5"
+bind/4/bone = -1
+bind/4/pose = Transform3D(0.22001, -0.812559, -0.539763, 0.975486, 0.180625, 0.125701, -0.00464517, -0.554187, 0.832379, 2.87854, -4.78521, -5.74317)
+bind/5/name = &"joint37"
+bind/5/bone = -1
+bind/5/pose = Transform3D(1, 1.59161e-17, 1.249e-16, -1.59161e-17, 1, -1.04083e-17, -1.249e-16, 1.04083e-17, 1, -2.39122, -4.79434, 0.310012)
+bind/6/name = &"joint36"
+bind/6/bone = -1
+bind/6/pose = Transform3D(1, 1.59161e-17, 1.249e-16, -1.59161e-17, 1, -1.04083e-17, -1.249e-16, 1.04083e-17, 1, -5.61122, -4.79434, 0.310012)
+bind/7/name = &"joint25"
+bind/7/bone = -1
+bind/7/pose = Transform3D(1, 1.84094e-16, -5.26605e-17, -1.84094e-16, 1, 5.55112e-17, 5.26605e-17, -5.55112e-17, 1, -5.32725, -11.9402, -0.659634)
+bind/8/name = &"joint28"
+bind/8/bone = -1
+bind/8/pose = Transform3D(1, 1.84094e-16, -5.26605e-17, -1.84094e-16, 1, 5.55112e-17, 5.26605e-17, -5.55112e-17, 1, -2.63773, -11.9402, -0.659634)
+bind/9/name = &"joint26"
+bind/9/bone = -1
+bind/9/pose = Transform3D(1, 1.84094e-16, -5.26605e-17, -1.84094e-16, 1, 5.55112e-17, 5.26605e-17, -5.55112e-17, 1, -2.70046, -14.2857, -2.87874)
+bind/10/name = &"joint23"
+bind/10/bone = -1
+bind/10/pose = Transform3D(1, 1.84094e-16, -5.26605e-17, -1.84094e-16, 1, 5.55112e-17, 5.26605e-17, -5.55112e-17, 1, -5.38999, -14.2857, -2.87874)
+bind/11/name = &"joint24"
+bind/11/bone = -1
+bind/11/pose = Transform3D(1, 4.56576e-17, -2.82216e-17, -4.56576e-17, 1, -5.55112e-17, 2.82216e-17, 5.55112e-17, 1, -5.32701, -16.6034, -0.668417)
+bind/12/name = &"joint27"
+bind/12/bone = -1
+bind/12/pose = Transform3D(1, 4.56576e-17, -2.82216e-17, -4.56576e-17, 1, -5.55112e-17, 2.82216e-17, 5.55112e-17, 1, -2.63749, -16.6034, -0.668417)
+bind/13/name = &"joint6"
+bind/13/bone = -1
+bind/13/pose = Transform3D(5.95596e-17, -0.972682, 0.232143, -2.70181e-08, -0.232143, -0.972682, 1, -6.27207e-09, -2.628e-08, 22.0206, 6.08802, 4.02814)
+bind/14/name = &"joint2_2"
+bind/14/bone = -1
+bind/14/pose = Transform3D(-1.42633e-08, -0.948647, -0.316336, -2.29464e-08, 0.316336, -0.948647, 1, -6.27207e-09, -2.628e-08, 14.4623, -1.82131, 4.02814)
+bind/15/name = &"joint4_2"
+bind/15/bone = -1
+bind/15/pose = Transform3D(1.84919e-08, -0.550279, 0.834981, 1.96984e-08, 0.834981, 0.550279, -1, 6.27207e-09, 2.628e-08, 2.90757, -3.83419, -4.02814)
+bind/16/name = &"joint5_2"
+bind/16/bone = -1
+bind/16/pose = Transform3D(1, -6.27207e-09, -2.628e-08, 1.97862e-08, 0.832351, 0.554249, 1.83979e-08, -0.554249, 0.832351, 4.02814, -3.86158, -5.74343)
+bind/17/name = &"joint39"
+bind/17/bone = -1
+bind/17/pose = Transform3D(1, 4.95135e-17, 7.31083e-18, -4.95135e-17, 1, -4.78888e-10, -7.31083e-18, 4.78888e-10, 1, 5.60128, -4.79434, 0.310012)
+bind/18/name = &"joint38"
+bind/18/bone = -1
+bind/18/pose = Transform3D(1, 4.95135e-17, 7.31083e-18, -4.95135e-17, 1, -4.78888e-10, -7.31083e-18, 4.78888e-10, 1, 2.39959, -4.79434, 0.310012)
+bind/19/name = &"joint32"
+bind/19/bone = -1
+bind/19/pose = Transform3D(1, 9.92983e-17, 8.09711e-17, -9.92983e-17, 1, -4.78888e-10, -8.09711e-17, 4.78888e-10, 1, 5.3381, -14.2857, -2.87874)
+bind/20/name = &"joint29"
+bind/20/bone = -1
+bind/20/pose = Transform3D(1, 9.92983e-17, 8.09711e-17, -9.92983e-17, 1, -4.78888e-10, -8.09711e-17, 4.78888e-10, 1, 2.57151, -14.2857, -2.87874)
+bind/21/name = &"joint34"
+bind/21/bone = -1
+bind/21/pose = Transform3D(1, 9.92983e-17, 8.09711e-17, -9.92983e-17, 1, -4.78888e-10, -8.09711e-17, 4.78888e-10, 1, 5.40084, -11.9402, -0.659634)
+bind/22/name = &"joint31"
+bind/22/bone = -1
+bind/22/pose = Transform3D(1, 9.92983e-17, 8.09711e-17, -9.92983e-17, 1, -4.78888e-10, -8.09711e-17, 4.78888e-10, 1, 2.63425, -11.9402, -0.659634)
+bind/23/name = &"joint30"
+bind/23/bone = -1
+bind/23/pose = Transform3D(1, -3.18766e-18, 4.23794e-17, 3.18766e-18, 1, -4.78888e-10, -4.23794e-17, 4.78888e-10, 1, 2.63448, -16.6034, -0.668417)
+bind/24/name = &"joint33"
+bind/24/bone = -1
+bind/24/pose = Transform3D(1, -3.18766e-18, 4.23794e-17, 3.18766e-18, 1, -4.78888e-10, -4.23794e-17, 4.78888e-10, 1, 5.40107, -16.6034, -0.668417)
+bind/25/name = &"joint22"
+bind/25/bone = -1
+bind/25/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -23.4548, -0.45807)
+bind/26/name = &"joint11"
+bind/26/bone = -1
+bind/26/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -24.7789, -0.424969)
+bind/27/name = &"joint43"
+bind/27/bone = -1
+bind/27/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33665, -24.9444, 4.63962)
+bind/28/name = &"joint44"
+bind/28/bone = -1
+bind/28/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33665, -24.9113, -4.56271)
+bind/29/name = &"joint15"
+bind/29/bone = -1
+bind/29/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47636, -24.9444, 4.63962)
+bind/30/name = &"joint14"
+bind/30/bone = -1
+bind/30/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47636, -24.9113, -4.56271)
+bind/31/name = &"joint40"
+bind/31/bone = -1
+bind/31/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -26.4805, -0.424969)
+bind/32/name = &"joint41"
+bind/32/bone = -1
+bind/32/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73643, -26.5333, -6.64813)
+bind/33/name = &"joint12"
+bind/33/bone = -1
+bind/33/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54566, -26.5333, -6.64813)
+bind/34/name = &"joint13"
+bind/34/bone = -1
+bind/34/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54566, -26.4009, 9.27389)
+bind/35/name = &"joint42"
+bind/35/bone = -1
+bind/35/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73643, -26.4009, 9.27389)
+bind/36/name = &"joint35"
+bind/36/bone = -1
+bind/36/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -30.2692, -0.424969)
+bind/37/name = &"joint8"
+bind/37/bone = -1
+bind/37/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -31.9253, -0.556037)
+bind/38/name = &"joint10"
+bind/38/bone = -1
+bind/38/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -30.3069, 4.73893)
+bind/39/name = &"joint9"
+bind/39/bone = -1
+bind/39/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60102e-14, -30.0752, -6.61503)
+bind/40/name = &"joint46"
+bind/40/bone = -1
+bind/40/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11023, -22.9763, -3.64937)
+bind/41/name = &"joint48"
+bind/41/bone = -1
+bind/41/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11023, -22.9763, 3.26984)
+bind/42/name = &"joint47"
+bind/42/bone = -1
+bind/42/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40498, -22.9763, 3.26984)
+bind/43/name = &"joint45"
+bind/43/bone = -1
+bind/43/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40498, -22.9763, -3.64937)
+bind/44/name = &"joint16"
+bind/44/bone = -1
+bind/44/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58428, -22.9763, -2.96658)
+bind/45/name = &"joint17"
+bind/45/bone = -1
+bind/45/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58475, -22.9763, 2.17195)
+bind/46/name = &"joint20"
+bind/46/bone = -1
+bind/46/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57177, -22.9763, -2.96658)
+bind/47/name = &"joint21"
+bind/47/bone = -1
+bind/47/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58286, -22.9763, 2.17195)
+bind/48/name = &"joint19"
+bind/48/bone = -1
+bind/48/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32227, -20.3939, -0.419275)
+bind/49/name = &"joint18"
+bind/49/bone = -1
+bind/49/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31848, -20.3939, -0.419275)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrig"]
+resource_name = "shin3"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("2_0edkl")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fkrri"]
+resource_name = "leg_right_shin"
+_surfaces = [{
+"aabb": AABB(-4.89055, 2.17583, -1.58654, 1.70953, 12.0886, 4.80797),
+"attribute_data": PackedByteArray("aGqoPLCNoz1TcLY+ugxpP2hqqDy/DGk/U3C2PviOoz0M6C8/aIyjPa28ej+/DGk/DOgvP8QMaT+tvHo/sI2jPVNwtj74jqM9DOgvP8QMaT9TcLY+ugxpPwzoLz9ojKM9h1QKP2BqqDwM6C8/aIyjPVNwtj74jqM9DOgvP8QMaT+HVAo/rbx6P1Nwtj66DGk/"),
+"bone_aabbs": [AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(0, 0, 0, -1, -1, -1), AABB(-4.89055, 2.17583, -1.58654, 1.70953, 12.0886, 4.80797)],
+"format": 34359745559,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACQAIAAsADAANAA4ADwAQABEA"),
+"material": SubResource("StandardMaterial3D_ucrig"),
+"name": "shin3",
+"primitive": 3,
+"skin_data": PackedByteArray("DgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAADgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAADgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAADgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAADgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAADgAAAAAAAAD//wAAAAAAAA4AAAAAAAAA//8AAAAAAAAOAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("duOSwCI7ZEGEqxtAzsV/wM5AC0D8/su+ZX+cwMHuI0DQE8u/2sV/wCUiYEHoK05AzMRZwCY7ZEGKqxtAZX+cwMHuI0DQE8u/6pVLwMHuI0DQE8u/duOSwCI7ZEGEqxtA2sV/wCUiYEHoK05A6pVLwMHuI0DQE8u/zsV/wM5AC0D8/su+zMRZwCY7ZEGKqxtAduOSwCI7ZEGEqxtAzMRZwCY7ZEGKqxtA2sV/wCUiYEHoK05A6pVLwMHuI0DQE8u/ZX+cwMHuI0DQE8u/zsV/wM5AC0D8/su+ajzYcV+u/7VqPNhxX67/tWo82HFfrv+1ajzYcV+u/7W4IP//AQD/v7gg//8AAP+/Rt///wAA/7+4IP//AQD/v/XE/nGu63rp9cT+cajre+mBxodyVusn6m/Dd3EA7M7o/3+h4P/rzuj/f6Hg/+vO6P9/oeD/687oXJ8AAFbrJ+pcnwAAVusn6lyfAABW6yfq")
+}]
+blend_shape_mode = 0
+
+[node name="GoonFoot" type="Node3D"]
+
+[node name="Scaler" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="foot_right" type="MeshInstance3D" parent="Scaler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45162, -4.60472, 0)
+mesh = SubResource("ArrayMesh_8105i")
+skin = SubResource("Skin_kkydw")
+skeleton = NodePath("../..")
+
+[node name="leg_right_shin" type="MeshInstance3D" parent="Scaler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45162, -4.60472, 0)
+mesh = SubResource("ArrayMesh_fkrri")
+skin = SubResource("Skin_kkydw")
+skeleton = NodePath("../..")

@@ -27,10 +27,11 @@ func body_entered(body : Node3D) -> void:
 		player_entered(body)
 
 func player_entered(player : Player) -> void:
-	s_elevator_entered.emit()
-
-	elevator_cam.current = true
+	player.game_timer_tick = false
+	elevator_cam.make_current()
 	player.state = Player.PlayerState.STOPPED
+	s_elevator_entered.emit()
+	
 	player.set_animation('run')
 	var move_tween := player.move_to(player_pos.global_position)
 	await move_tween.finished

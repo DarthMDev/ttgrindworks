@@ -5,13 +5,13 @@ class_name UBContractLimitBomb
 const STOMPER := preload("res://objects/battle/battle_resources/misc_movies/union_buster/contract_stomper.tscn")
 const STOMPER_SFX := preload("res://audio/sfx/objects/stomper/CHQ_FACT_stomper_large.ogg")
 
-const DMG_MULT: float = 2.0
+const DMG_MULT: float = 1.0
 const SCALE_MULT: float = 0.1
 const SCALE_LIM: float = 8.0
 
 var response_lines: Array[String] = [
-	"Ah. Well. It was a good run.",
-	"Wait what? I thought I was doing good work."
+	"Ah... Well... It was a good run.",
+	"Wait, what? I thought I was doing good work!"
 ]
 
 var union_buster: Cog
@@ -61,7 +61,7 @@ func renew() -> void:
 
 	movie.tween_callback(battle_node.focus_character.bind(target))
 	# Damage multiplied by how much health was left on the Cog
-	var cog_health_difference = target.stats.hp / target.stats.max_hp
+	var cog_health_difference = max(target.stats.hp / target.stats.max_hp, 0.2)
 	target.stats.hp = -1
 	
 	var boost_amount = cog_health_difference * DMG_MULT
@@ -73,9 +73,9 @@ func renew() -> void:
 	
 	scale_vector.clamp(Vector3.ZERO, Vector3(SCALE_LIM, SCALE_LIM, SCALE_LIM))
 
-	apply_buff(target, boost_amount)
+	apply_buff(union_buster, boost_amount)
 	# Cog dies, uh oh!
-	movie.tween_callback(manager.show_action_name.bind('Times up!', "You are busted!"))
+	movie.tween_callback(manager.show_action_name.bind("Time's up!", "You are busted!"))
 	movie.tween_callback(target.set_animation.bind("soak"))
 	movie.tween_interval(1.6)
 	movie.tween_callback(target.animator.pause)
@@ -99,7 +99,7 @@ func renew() -> void:
 
 func apply_buff(_target: Cog, boost_amount: float) -> void:
 	if manager.battle_stats.has(_target):
-		manager.battle_stats[_target].damage *= boost_amount
+		manager.battle_stats[_target].damage += boost_amount
 
 func make_explosion(_target: Cog) -> void:
 	var explosion: AnimatedSprite3D = load('res://models/cogs/misc/explosion/cog_explosion.tscn').instantiate()

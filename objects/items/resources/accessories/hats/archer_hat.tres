@@ -282,12 +282,14 @@ scale = Vector3(0.3, 0.3, 0.3)
 [resource]
 script = ExtResource("2_sp7t2")
 accessory_placements = Array[ExtResource("1_uarig")]([SubResource("Resource_3c76d"), SubResource("Resource_bw4td"), SubResource("Resource_ahuew"), SubResource("Resource_75wqj"), SubResource("Resource_rx2ln"), SubResource("Resource_nn0hb"), SubResource("Resource_ds8on"), SubResource("Resource_m7x10"), SubResource("Resource_dpmhf"), SubResource("Resource_q81pq"), SubResource("Resource_mtifn"), SubResource("Resource_t6u4d"), SubResource("Resource_nlstn"), SubResource("Resource_teupn"), SubResource("Resource_3xsh5"), SubResource("Resource_osdo2"), SubResource("Resource_awgyd"), SubResource("Resource_uk85t"), SubResource("Resource_s7yi2"), SubResource("Resource_gaky3"), SubResource("Resource_nh8fd"), SubResource("Resource_aepgt"), SubResource("Resource_1nq8q"), SubResource("Resource_5nkvm"), SubResource("Resource_jb4iv"), SubResource("Resource_bm7iv"), SubResource("Resource_62oja"), SubResource("Resource_f6wy8"), SubResource("Resource_bbv3t"), SubResource("Resource_tarji"), SubResource("Resource_iu4ir"), SubResource("Resource_ywu8r"), SubResource("Resource_ypn3l"), SubResource("Resource_jpiny")])
+item_tags = null
 qualitoon = 3
 rarity = 0
 evergreen = false
 realtime = false
 slot = 1
 world_scale = 0.1
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 1.1
 item_name = "Archer Hat"

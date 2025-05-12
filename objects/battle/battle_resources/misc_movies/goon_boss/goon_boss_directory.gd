@@ -14,6 +14,19 @@ const GAG_IMMUNITY_EFFECT := preload("res://objects/battle/battle_resources/stat
 func _ready() -> void:
 	await Task.delay(0.25)
 	
+	# Remove a Cog from the fight on earlier floors
+	if Util.on_easy_floor():
+		var kill_this_man : Cog = battle_node.cogs[-1]
+		battle_node.cogs.erase(kill_this_man)
+		kill_this_man.queue_free()
+	
+	for cog: Cog in battle_node.cogs:
+		if Util.on_easy_floor(): break
+		if RandomService.randf_channel('goon_boss_proxies') < battle_node.get_mod_cog_chance() / 2.0:
+			cog.use_mod_cogs_pool = true
+			cog.dna = null
+			cog.randomize_cog()
+	
 	# Assign the initial gag immunities of the Cogs
 	assign_gag_immunities(battle_node.cogs)
 	
@@ -25,6 +38,7 @@ func _ready() -> void:
 	# Await the battle's start
 	await battle_node.s_battle_initialized
 	var manager : BattleManager = await BattleService.s_battle_started
+	manager.s_participant_will_die.connect(participant_will_die)
 	manager.s_participant_died.connect(on_participant_died)
 	
 	# Connect the round start signal to the method
@@ -34,6 +48,7 @@ func _ready() -> void:
 	var end_movie := GoonBossEnd.new()
 	end_movie.user = goon
 	manager.battle_win_movie = end_movie
+	
 
 ## Insert the goon action at the beginning of each round
 func on_round_start(_actions : Array[BattleAction], manager : BattleManager) -> void:
@@ -42,12 +57,18 @@ func on_round_start(_actions : Array[BattleAction], manager : BattleManager) -> 
 	attack.targets = manager.cogs.duplicate()
 	manager.round_end_actions.append(attack)
 
-func on_participant_died(_who) -> void:
+func on_participant_died(who : Node3D) -> void:
 	if BattleService.ongoing_battle.cogs.is_empty():
 		var phase_movie := PHASE_SWAP_MOVIE.duplicate()
 		phase_movie.user = goon
 		BattleService.ongoing_battle.round_end_actions.append(phase_movie)
 		BattleService.ongoing_battle.s_participant_died.disconnect(on_participant_died)
+	if who is Cog:
+		who.virtual_cog = true
+
+func participant_will_die(who : Node3D) -> void:
+	if who is Cog:
+		who.virtual_cog = false
 
 ## For intro cutscene
 func get_camera_angle(angle : String) -> Transform3D:

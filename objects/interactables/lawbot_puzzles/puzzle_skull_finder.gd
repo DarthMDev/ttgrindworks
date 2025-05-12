@@ -1,3 +1,4 @@
+@tool
 extends LawbotPuzzleGrid
 class_name PuzzleSkullFinder
 
@@ -9,6 +10,7 @@ var panels := {}
 
 ## Document each panel place and place bombs
 func initialize_game() -> void:
+	var _bomb_count := bomb_count
 	while bomb_count > 0:
 		var pos_check := Vector2i(RandomService.randi_channel('puzzles')%grid_width,(RandomService.randi_channel('puzzles')%(grid_height-1))+1)
 		if pos_check not in bombs:
@@ -21,7 +23,7 @@ func initialize_game() -> void:
 			var panel : PuzzlePanel = grid[i][j]
 			panel.panel_shape = PuzzlePanel.PanelShape.SQUARE
 			panels[panel] = Vector2i(i,j)
-
+	bomb_count = _bomb_count
 
 func panel_shape_changed(panel : PuzzlePanel, _shape : PuzzlePanel.PanelShape) -> void:
 	panel.set_color(Color.RED)
@@ -34,7 +36,7 @@ func get_panel(x : int, y: int) -> PuzzlePanel:
 
 func get_surrounding_bombs(x : int,y : int) -> int:
 	# Get surrounding panels
-	var positions := get_adjacent_panels(x,y)
+	var positions := get_adjacent_positions(x,y)
 	
 	# Find number of bombs surrounding 
 	var nearby_bombs := 0
@@ -62,7 +64,7 @@ func check_panel(panel : PuzzlePanel, player_stepped := true) -> void:
 		if player_stepped:
 			lose_game()
 		if player_stepped:
-			check_chain(get_adjacent_panels(pos.x, pos.y))
+			check_chain(get_adjacent_positions(pos.x, pos.y))
 		return
 	match get_surrounding_bombs(pos.x,pos.y):
 		0: panel.panel_shape = PuzzlePanel.PanelShape.NOTHING
@@ -74,9 +76,9 @@ func check_panel(panel : PuzzlePanel, player_stepped := true) -> void:
 		_: panel.panel_shape = PuzzlePanel.PanelShape.SIX
 	
 	if panel.panel_shape == PuzzlePanel.PanelShape.NOTHING:
-		check_chain(get_adjacent_panels(pos.x,pos.y))
+		check_chain(get_adjacent_positions(pos.x,pos.y))
 
-func get_adjacent_panels(x: int,y: int) -> Array[Vector2i]:
+func get_adjacent_positions(x: int,y: int) -> Array[Vector2i]:
 	var positions : Array[Vector2i] = [
 		Vector2i(x-1,y-1),
 		Vector2i(x,y-1),

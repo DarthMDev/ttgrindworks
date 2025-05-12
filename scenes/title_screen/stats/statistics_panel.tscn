@@ -31,9 +31,9 @@ font_size = 36
 font_color = Color(0, 0, 0, 1)
 
 [node name="PopupPanel" instance=ExtResource("1_rpke5")]
-offset_left = -256.0
+offset_left = -283.0
 offset_top = -294.0
-offset_right = 256.0
+offset_right = 283.0
 offset_bottom = 294.0
 pivot_offset = Vector2(256, 294)
 script = ExtResource("2_eef6o")
@@ -59,7 +59,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-pivot_offset = Vector2(256, 294)
+pivot_offset = Vector2(283, 294)
 
 [node name="Title" parent="Panel" index="0"]
 offset_top = 43.0
@@ -70,6 +70,10 @@ label_settings = SubResource("LabelSettings_i5vcb")
 [node name="Body" parent="Panel" index="1"]
 text = ""
 
+[node name="CancelButton" parent="Panel" index="2"]
+hover_db_offset = 6.0
+press_db_offset = 0.0
+
 [node name="StatScroller" type="ScrollContainer" parent="Panel" index="3"]
 custom_minimum_size = Vector2(420, 460)
 layout_mode = 1
@@ -78,9 +82,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -205.0
+offset_left = -240.0
 offset_top = -208.0
-offset_right = 205.0
+offset_right = 240.0
 offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2

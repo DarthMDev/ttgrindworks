@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://g1nav4uqhm7i"]
+[gd_scene load_steps=8 format=3 uid="uid://g1nav4uqhm7i"]
 
 [ext_resource type="Texture2D" uid="uid://f7ntk0vapgkd" path="res://models/cogs/heads/face.png" id="1_na0na"]
 [ext_resource type="Script" uid="uid://brvr2hl2xooyt" path="res://scenes/cog_creator/file_displayer.gd" id="1_nituf"]
+[ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="2_6i5lg"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_ts4jl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6twr0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2g4f1"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_e8ncw"]
 font = ExtResource("2_ts4jl")
@@ -28,6 +32,13 @@ offset_top = 4.0
 offset_right = 133.0
 offset_bottom = 157.0
 mouse_filter = 2
+
+[node name="ModelView" parent="Elements" instance=ExtResource("2_6i5lg")]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("ViewportTexture_2g4f1")
+expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="Elements"]
 clip_contents = true
