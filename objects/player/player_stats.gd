@@ -188,7 +188,6 @@ func attempt_revive(_hp: int) -> void:
 func add_money(amount: int) -> void:
 	money += amount
 	SaveFileService.progress_file.jellybeans_collected += amount
-	DiscordManager.update_presence()
 
 func charge_active_item(amount := 1) -> void:
 	if current_active_item:

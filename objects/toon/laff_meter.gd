@@ -128,14 +128,11 @@ func update_obscured_face() -> void:
 
 func set_laff(hp: int):
 	laff = hp
-	DiscordManager.update_presence()
-
 
 func set_max_laff(hp: int):
 	max_laff = hp
 	laff = laff
-	DiscordManager.update_presence()
-
+	
 func update_extra_lives() -> void:
 	%ReviveLabel.text = "x%s" % extra_lives
 	%ReviveLabel.visible = extra_lives >= 1

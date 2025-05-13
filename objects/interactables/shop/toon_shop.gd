@@ -141,7 +141,6 @@ func purchase() -> void:
 	world_items[item_index].body_entered(Util.get_player())
 	if toon and toon_speaks:
 		toon.speak("It's all yours. Enjoy!")
-	DiscordManager.update_presence()
 
 ## Yeah they'll hold it for you
 func yeah_ill_hold_that_for_you() -> void:

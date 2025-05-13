@@ -59,7 +59,6 @@ func _ready() -> void:
 	if room_count % 2 == 0:
 		room_count += 1
 	Util.floor_number += 1
-	DiscordManager.update_presence()
 	generate_floor()
 	var player = Util.get_player()
 	if player:

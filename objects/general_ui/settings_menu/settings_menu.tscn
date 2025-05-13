@@ -552,32 +552,6 @@ text = "On"
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="DiscordRPC" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="11"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC" index="0"]
-layout_mode = 2
-text = "Discord Rich Presence:"
-label_settings = SubResource("LabelSettings_n41hl")
-
-[node name="DiscordRPCButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC" index="1" instance=ExtResource("4_aygce")]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_xvvqb")
-custom_minimum_size = Vector2(160, 60)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-texture_normal = ExtResource("5_p4xtr")
-texture_pressed = ExtResource("6_bs0ac")
-texture_hover = ExtResource("7_nxqst")
-texture_disabled = ExtResource("6_bs0ac")
-text = "On"
-
-[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" index="0"]
-text = "On"
-label_settings = SubResource("LabelSettings_xxrhd")
-
 [node name="SaveFileSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
 layout_mode = 2
 
@@ -684,7 +658,6 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton" to="." method="toggle_intro_skip"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton" to="." method="toggle_custom_cogs"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts/ButtonPromptsButton" to="." method="toggle_button_prompts"]
-[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton" to="." method="toggle_discord_rpc"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder/SaveFolderButton" to="." method="open_save_folder"]
 [connection signal="pressed" from="Panel/SaveButton" to="." method="close" binds= [true]]
 
@@ -701,7 +674,6 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs/CustomCogsButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts/ButtonPromptsButton"]
-[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/DiscordRPC/DiscordRPCButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder/SaveFolderButton"]
 [editable path="Panel/SaveButton"]
 [editable path="ControlTemplate/GeneralButton"]

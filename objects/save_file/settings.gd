@@ -38,7 +38,6 @@ var SpeedOptions = [1.0, 1.25, 1.5, 1.75, 2.0]
 @export var auto_sprint := true
 @export var show_timer := false
 @export var skip_intro := false
-@export var discord_rpc := false
 @export var dev_tools := false
 @export var use_custom_cogs := true
 @export var button_prompts := true

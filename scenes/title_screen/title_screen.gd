@@ -252,7 +252,6 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	player.stats.character = character.duplicate(true)
 	player.reset_stats()
 	SceneLoader.add_persistent_node(player)
-	DiscordManager.update_presence()
 	player.stats.max_out()
 	SaveFileService.progress_file.new_games += 1
 	if falling_scene:
