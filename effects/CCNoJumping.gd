@@ -6,7 +6,7 @@ class_name CCNoJumping
 
 func _start(_instance: CCEffectInstanceTimed) -> EffectResult:
 	var player = Util.get_player()
-	player.jump_enabled = false
+	player.can_jump = false
 	return RUNNING
 
 func _should_be_running() -> bool:
@@ -19,7 +19,7 @@ func _should_be_running() -> bool:
 
 func _stop(_instance: CCEffectInstanceTimed, _force := false) -> bool:
 	var player = Util.get_player()
-	player.jump_enabled = true
+	player.can_jump = true
 	return true
 
 func _resume() -> void:

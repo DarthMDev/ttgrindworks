@@ -69,7 +69,6 @@ var speed = 0.0
 var can_sprint := true
 var can_jump := true
 var jump_velocity := 7.0
-var jump_enabled := true
 var sprint: bool
 var gravity := 16.0
 var last_floor_time: float = 0.0
@@ -305,7 +304,7 @@ func should_sprint() -> bool:
 
 func assess_anim() -> void:
 	var anim := base_anim
-	if is_on_floor() and not (Input.is_action_just_pressed('jump') and jump_enabled):
+	if is_on_floor() and not (Input.is_action_just_pressed('jump') and can_jump):
 		if moving:
 			if sprint:
 				anim = 'run'

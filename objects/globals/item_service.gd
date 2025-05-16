@@ -145,6 +145,9 @@ func get_random_active_item() -> Item:
 func get_doodle() -> Item:
 	return load("res://objects/items/resources/passive/doodle.tres")
 
+func get_random_treasure() -> Item:
+	return get_random_item(load("res://objects/items/pools/treasures.tres"), true)
+
 func seen_item(item: Item, allow_duplicate := false):
 	if not allow_duplicate and item.resource_path == "":
 		return

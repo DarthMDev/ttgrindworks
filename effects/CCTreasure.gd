@@ -6,7 +6,7 @@ var treasure: Item
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	treasure = ItemService.get_random_roll_fail_item()
+	treasure = ItemService.get_random_treasure()
 	treasure = treasure.duplicate()
 	treasure.apply_item(player)
 	treasure.play_collection_sound()
@@ -14,5 +14,5 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 
 func _can_run() -> bool:
 	var player = Util.get_player()
-	return (player != null and player.stats.hp != player.stats.max_hp
+	return (player != null
 			and player.stats.hp > 0)
