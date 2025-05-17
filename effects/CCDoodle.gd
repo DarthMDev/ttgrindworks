@@ -5,24 +5,15 @@ class_name CCDoodle
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	# Load and instantiate the doodle
-	var doodle : RoamingDoodle = load('res://objects/doodle/roaming_doodle/roaming_doodle.tscn').instantiate()
-	SceneLoader.add_persistent_node(doodle)
-	doodle.doodle.hide()
-	doodle.shadow.hide()
 
-	# Apply random DNA to the doodle
-	var doodle_dna := DoodleDNA.new()
-	doodle_dna.randomize_dna()
-	doodle.doodle.dna = doodle_dna
-	doodle.doodle.apply_dna()
+	# setup a doodle item that will be applied to the player using apply_item 
+	var doodle_item : Item = ItemService.get_doodle()
+	doodle_item = doodle_item.duplicate()
+	doodle_item.apply_item(player)
+	doodle_item.play_collection_sound()
+	
+	# save the doodle to the player's save data
 
-	# Add the doodle to the player's partners
-	player.partners.append(doodle)
-
-	# Set the doodle's state after a delay
-	await Task.delay(1.0)
-	doodle.state = RoamingDoodle.DoodleState.AWAIT
 	return SUCCESS
 
 func _can_run() -> bool:

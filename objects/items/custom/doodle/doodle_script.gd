@@ -1,6 +1,9 @@
 extends ItemScript
 
 func on_collect(item : Item, object : Node3D) -> void:
+	if object == null:
+		on_load(item)
+		return 
 	var doodle : RoamingDoodle = object.doodle
 	item.arbitrary_data['dna'] = doodle.doodle.dna
 
