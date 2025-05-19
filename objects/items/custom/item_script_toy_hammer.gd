@@ -18,9 +18,11 @@ func use() -> void:
 	for battle in battles:
 		cogs.append_array(battle.cogs)
 	
+	player.set_collision_layer_value(Globals.PLAYER_COLLISION_LAYER, false)
 	var tween := make_tween(player, cogs)
 	await tween.finished
 	tween.kill()
+	player.set_collision_layer_value(Globals.PLAYER_COLLISION_LAYER, true)
 	player.state = Player.PlayerState.WALK
 
 func make_tween(player: Player, cogs: Array[Cog]) -> Tween:
@@ -89,5 +91,17 @@ func parent_prop(cog: Cog, prop: Node3D) -> void:
 
 func lower_cog_level(cog: Cog) -> void:
 	Util.do_3d_text(cog, "Level Down!")
+	if cog.dna.cog_name == "Mad Hander":
+		pass
+	# Undo DNA health mod change
+	if not is_equal_approx(cog.dna.health_mod, 1.0):
+		cog.health_mod /= cog.dna.health_mod
+	# Undo Mod Cog DNA Change
+	if cog.dna.is_mod_cog:
+		cog.health_mod /= Util.get_mod_cog_health_mod()
+	var cog_is_fusion := cog.fusion
+	cog.fusion = false
 	cog.level = maxi(1, cog.level - 3)
 	cog.set_dna(cog.dna, false)
+	if cog_is_fusion:
+		cog.fusion = true

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://cmlaxrdbmxvfu"]
 
 [ext_resource type="Texture2D" uid="uid://dwaigpqds42pv" path="res://ui_assets/player_ui/pocket_prank_icons/toy_hammer.png" id="1_xra8y"]
-[ext_resource type="Script" uid="uid://sg60xkxtvfnu" path="res://objects/items/custom/item_script_toy_hammer.gd" id="2_xra8y"]
+[ext_resource type="Script" path="res://objects/items/custom/item_script_toy_hammer.gd" id="2_xra8y"]
 [ext_resource type="PackedScene" uid="uid://15p6j6k3110c" path="res://models/props/toon_props/toy_hammer/toy_hammer_item_mod.tscn" id="3_xra8y"]
 [ext_resource type="AudioStream" uid="uid://ck7oraupaxhhe" path="res://audio/sfx/items/clock05.ogg" id="4_xra8y"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="5_it3fh"]
@@ -12,6 +12,7 @@ sfx = Array[AudioStream]([])
 active_type = 2
 charge_count = 6
 current_charge = 6
+custom_discharge_time = 1.0
 item_tags = null
 qualitoon = 3
 rarity = 0

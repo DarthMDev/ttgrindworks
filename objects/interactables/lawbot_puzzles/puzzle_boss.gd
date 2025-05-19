@@ -558,6 +558,9 @@ func avoid_initialize() -> void:
 	avoid_start()
 
 func avoid_start() -> void:
+	for panel: PuzzlePanel in get_all_panels():
+		panel.collision_box.size = Vector3(0.8, 100.0, 0.8)
+	
 	var size := 3
 	while avoid_rounds > 0:
 		if not avoid_safe_panels.is_empty():
@@ -641,6 +644,8 @@ func avoid_player_stepped_on(panel : PuzzlePanel) -> void:
 func avoid_end() -> void:
 	avoid_timer.queue_free()
 	set_all_panel_shapes(PuzzlePanel.PanelShape.NOTHING)
+	for panel: PuzzlePanel in get_all_panels():
+		panel.collision_box.size = Vector3(0.72, 100.0, 0.72)
 
 #endregion
 

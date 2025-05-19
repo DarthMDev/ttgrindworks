@@ -12,3 +12,4 @@
 [resource]
 script = ExtResource("2_uusho")
 items = Array[ExtResource("1_0at1t")]([ExtResource("2_03i7t"), ExtResource("3_3bukp"), ExtResource("4_b2s0a"), ExtResource("5_j11i0"), ExtResource("6_w3ug4"), ExtResource("7_lsmu2")])
+low_roll_override = 0
