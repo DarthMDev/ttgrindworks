@@ -77,4 +77,20 @@ Fixed Cowboy Hat's Description
 Fixed an issue where White-Out wouldn't duplicate the floor variant properly
 White-Out will no longer save your current game file on use
 Fixed the level range for the Executive Office not displaying properly
-Floor Clear rewards should be a bit nicer now"
+Floor Clear rewards should be a bit nicer now
+[TITLE]Hotfix #2
+We're testing out a new build system with this release, let us know if you experience any strange issues like application icons not showing up
+The Special Item pool has been rebalanced
+Added a slight delay to pausing/unpausing the game
+Firing a v2.0 Cog should no longer result in a Skelecog spawning extremely far away
+Fixed an issue where v2.0 Skelecogs could appear on the Haunted Cog Golf Course
+Fixed a bug where Toy Hammer would actually increase the HP of later floor Proxy Cogs
+Fixed a bug where Toy Hammer would re-shuffle the head of fusion Cogs
+Potentially fixed a frame-perfect battle skip using Toy Hammer
+Fixed a bug that allowed use of White-Out in some unallowed areas
+Fixed a bug where White-Out would cause the repeated floor to use the next floor's Cog level range
+Fixed a bug where using White-Out in a shop would cause the music's volume not to reset properly
+Fixed a bug where Treasure Map would still duplicate an already opened chest
+Fixed a bug where you could get locked out of backtracking from the D.A. Office's \"Big Puzzle\" room if you failed the puzzle
+Fixed an exploit in the Head of Security Boss Fight
+Fixed a softlock that would occur if you fell out of bounds during the Golden Goose boss fight"

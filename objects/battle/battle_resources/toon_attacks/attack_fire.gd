@@ -18,6 +18,8 @@ func action() -> void:
 	var player : Player = user
 	var dust_cloud = Globals.DUST_CLOUD.instantiate()
 	
+	# Cheat v2.0s
+	cog.v2 = false
 	
 	# Player hits switch
 	player.set_animation('button_press')

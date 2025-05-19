@@ -53,8 +53,6 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 			#print('Forcing bean spawn')
 			#return get_random_item(BEAN_POOL, true)
 	
-	
-	
 	# 50% chance to remove all active items from the pool
 	var exclude_actives := not override_rolls and RandomService.randi_channel('active_item_discard') % 2 == 0
 	
@@ -63,6 +61,8 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	var lowest_rarity := pool.get_lowest_rarity()
 	if rarity_goal < lowest_rarity:
 		rarity_goal = lowest_rarity
+	if not pool.low_roll_override == Item.Rarity.NIL:
+		rarity_goal = pool.low_roll_override as int
 	
 	# Trim out all seen items from pool
 	var trimmed_pool: Array[Item] = []
@@ -77,7 +77,7 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	# If no item can be given to the player, just give them treasure
 	if trimmed_pool.size() == 0:
 		return get_random_roll_fail_item()
-
+	
 	# Quality-scaled rarity
 	var quality_trimmed_pool: Array[Item] = []
 	# Rarity goal determines what item rarities we want to allow into the pool.

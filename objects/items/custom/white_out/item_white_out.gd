@@ -5,6 +5,7 @@ const TRANSITION := preload("res://objects/items/custom/white_out/white_out_tran
 func use() -> void:
 	if not is_instance_valid(Util.floor_manager):
 		cancel_use()
+		return
 	
 	get_tree().get_root().add_child(TRANSITION.instantiate())
 	Util.get_player().state = Player.PlayerState.STOPPED

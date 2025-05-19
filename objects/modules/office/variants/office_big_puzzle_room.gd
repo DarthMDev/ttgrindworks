@@ -3,6 +3,7 @@ extends Node3D
 const MUSIC := "res://audio/music/encntr_skull_master.ogg"
 
 @onready var shelf: Node3D = %law_bookshelf
+@onready var shelf2: Node3D = %law_bookshelf2
 @onready var puzzle_origin: Node3D = %PuzzleOrigin
 @onready var button: CogButton = %CogButton
 
@@ -21,15 +22,17 @@ func setup_puzzle() -> void:
 	button.connect_to(new_puzzle)
 
 func block() -> void:
-	var block_tween := create_tween().set_trans(Tween.TRANS_QUAD)
+	var block_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_parallel()
 	block_tween.tween_callback(AudioManager.set_music.bind(load(MUSIC)))
 	block_tween.tween_property(shelf, 'position:z', 0.0, 0.5)
+	block_tween.tween_property(shelf2, 'position:z', 0.0, 0.5)
 	block_tween.finished.connect(block_tween.kill)
 
 func unblock() -> void:
-	var block_tween := create_tween().set_trans(Tween.TRANS_QUAD)
+	var block_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_parallel()
 	block_tween.tween_callback(AudioManager.stop_music)
 	block_tween.tween_property(shelf, 'position:z', 7.854, 0.5)
+	block_tween.tween_property(shelf2, 'position:z', 7.854, 0.5)
 	block_tween.finished.connect(block_tween.kill)
 
 func setup_game_specifics(puzzle: LawbotPuzzleGrid) -> void:
