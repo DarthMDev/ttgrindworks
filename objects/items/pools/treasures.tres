@@ -12,4 +12,5 @@
 [resource]
 script = ExtResource("2_50qe7")
 items = Array[ExtResource("1_mu1jj")]([ExtResource("2_7kxhg"), ExtResource("3_navh6"), ExtResource("4_irobk"), ExtResource("5_wkxdy"), ExtResource("6_fa05c"), ExtResource("7_cx7ei")])
+low_roll_override = 0
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

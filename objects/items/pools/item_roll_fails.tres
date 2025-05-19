@@ -22,4 +22,5 @@
 [resource]
 script = ExtResource("2_actsy")
 items = Array[ExtResource("1_ftruq")]([ExtResource("2_psoa7"), ExtResource("3_wpnjd"), ExtResource("4_h1xoi"), ExtResource("5_n4a6u"), ExtResource("6_lqx3p"), ExtResource("7_2wqhk"), ExtResource("8_r528v"), ExtResource("9_bdw2e"), ExtResource("10_booam"), ExtResource("11_14aqa"), ExtResource("12_h0q6v"), ExtResource("13_3kxqr"), ExtResource("14_uueyv"), ExtResource("15_qdksw"), ExtResource("16_u46sa"), ExtResource("17_goci1")])
+low_roll_override = 7
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

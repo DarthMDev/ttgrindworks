@@ -22,10 +22,11 @@ const PHRASE_CHANCE := 1.0 / 3.0
 func modify_floor() -> void:
 	game_floor.s_cog_spawned.connect(
 		func(cog: Cog): 
-			if cog.dna:
+			if cog.dna or cog.skelecog:
 				return
 			if RandomService.randf_channel('true_random') < V2_CHANCE:
 				cog.v2 = true
+				cog.skelecog_chance = 0
 			cog.s_dna_set.connect(cog_dna_set.bind(cog))
 	)
 

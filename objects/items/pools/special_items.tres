@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=34 format=3 uid="uid://kcxno616hkgc"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=43 format=3 uid="uid://kcxno616hkgc"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_oxrd8"]
 [ext_resource type="Resource" uid="uid://mcma7hjx2dbi" path="res://objects/items/resources/passive/candies/candy_super_luck.tres" id="2_n4ktm"]
@@ -6,13 +6,9 @@
 [ext_resource type="Resource" uid="uid://dyxf8l3n5r0vb" path="res://objects/items/resources/passive/candies/candy_super_defense.tres" id="4_eqgxa"]
 [ext_resource type="Resource" uid="uid://drm7n8ce5entv" path="res://objects/items/resources/passive/candies/candy_super_evasiveness.tres" id="5_wersp"]
 [ext_resource type="Resource" uid="uid://b3e3bj8ick774" path="res://objects/items/resources/passive/pink_jellybean.tres" id="6_w52d4"]
-[ext_resource type="Resource" uid="uid://u6t6t6a38cb2" path="res://objects/items/resources/passive/blue_jellybean.tres" id="7_x61t0"]
-[ext_resource type="Resource" uid="uid://duygfpffob40k" path="res://objects/items/resources/passive/zzz_treasure.tres" id="8_vk3ji"]
 [ext_resource type="Resource" uid="uid://bjtq481jok2t4" path="res://objects/items/resources/active/big_foghorn.tres" id="9_athb6"]
 [ext_resource type="Resource" uid="uid://bi4y4a3o4dqma" path="res://objects/items/resources/accessories/glasses/goggles.tres" id="10_s4qlt"]
 [ext_resource type="Resource" uid="uid://rp2nc8f2wt77" path="res://objects/items/resources/accessories/backpacks/dragon_wings.tres" id="11_3s3yo"]
-[ext_resource type="Resource" uid="uid://dn3tyrs1qljko" path="res://objects/items/resources/accessories/hats/big_weight_hat.tres" id="12_ebao6"]
-[ext_resource type="Resource" uid="uid://b2mopcra35yt3" path="res://objects/items/resources/accessories/glasses/groucho_glasses.tres" id="13_yjdyf"]
 [ext_resource type="Resource" uid="uid://cyiwxplege133" path="res://objects/items/resources/passive/emergency_unite.tres" id="14_a5mu0"]
 [ext_resource type="Resource" uid="uid://otvh1cgj4l40" path="res://objects/items/resources/accessories/hats/crown.tres" id="15_66m13"]
 [ext_resource type="Resource" uid="uid://k6xqk4oypmy1" path="res://objects/items/resources/accessories/hats/tiara.tres" id="16_cgk14"]
@@ -31,10 +27,24 @@
 [ext_resource type="Resource" uid="uid://b8woaed8cv7go" path="res://objects/items/resources/accessories/backpacks/bee_wings.tres" id="28_ebao6"]
 [ext_resource type="Resource" uid="uid://dyl7r5ve67tbs" path="res://objects/items/resources/accessories/backpacks/pixie_wings.tres" id="29_yjdyf"]
 [ext_resource type="Resource" uid="uid://hqfvncal8xvq" path="res://objects/items/resources/accessories/hats/fez.tres" id="30_a5mu0"]
+[ext_resource type="Resource" uid="uid://bfiv6exev26qj" path="res://objects/items/resources/accessories/backpacks/jamboree_pack.tres" id="31_5jvy5"]
 [ext_resource type="Resource" uid="uid://bye8a25d8np3f" path="res://objects/items/resources/accessories/backpacks/angel_wings.tres" id="31_66m13"]
+[ext_resource type="Resource" uid="uid://crvenqtyote8y" path="res://objects/items/resources/accessories/hats/party_hat.tres" id="31_cgk14"]
 [ext_resource type="Resource" uid="uid://dkbg3o5aa81j8" path="res://objects/items/resources/active/white_out.tres" id="32_cgk14"]
+[ext_resource type="Resource" uid="uid://dew5y5asdfaph" path="res://objects/items/resources/accessories/backpacks/small_pouch.tres" id="32_chn5m"]
+[ext_resource type="Resource" uid="uid://bj4h3vmdjr7r3" path="res://objects/items/resources/accessories/backpacks/jet_pack.tres" id="32_i0rje"]
+[ext_resource type="Resource" uid="uid://xi4ggdxlwnu" path="res://objects/items/resources/accessories/glasses/scuba_mask.tres" id="33_4fcd8"]
+[ext_resource type="Resource" uid="uid://dcrx4av7o6ivk" path="res://objects/items/resources/accessories/glasses/aviator_glasses.tres" id="34_lviim"]
+[ext_resource type="Resource" uid="uid://bgw6nin360tg5" path="res://objects/items/resources/accessories/backpacks/wood_sword.tres" id="35_lviim"]
+[ext_resource type="Resource" uid="uid://dpbjr75nuswfn" path="res://objects/items/resources/accessories/hats/jester_hat.tres" id="37_a272n"]
+[ext_resource type="Resource" uid="uid://bpctsghink3ao" path="res://objects/items/resources/active/gumball_machine.tres" id="38_a272n"]
+[ext_resource type="Resource" uid="uid://c8wjy8fdkxarx" path="res://objects/items/resources/active/gag_button.tres" id="39_v6ptv"]
+[ext_resource type="Resource" uid="uid://cs5v54jdptmge" path="res://objects/items/resources/accessories/glasses/square_frames.tres" id="40_5d57v"]
+[ext_resource type="Resource" uid="uid://thgjta7yh73q" path="res://objects/items/resources/accessories/hats/witch_hat.tres" id="41_5d57v"]
+[ext_resource type="Resource" uid="uid://ba7mgoe7i5oq4" path="res://objects/items/resources/accessories/backpacks/gag_pack.tres" id="41_dtr78"]
 
 [resource]
 script = ExtResource("18_5jvy5")
-items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("5_wersp"), ExtResource("6_w52d4"), ExtResource("7_x61t0"), ExtResource("8_vk3ji"), ExtResource("9_athb6"), ExtResource("10_s4qlt"), ExtResource("11_3s3yo"), ExtResource("12_ebao6"), ExtResource("13_yjdyf"), ExtResource("14_a5mu0"), ExtResource("15_66m13"), ExtResource("16_cgk14"), ExtResource("17_chn5m"), ExtResource("18_e731w"), ExtResource("19_eqgxa"), ExtResource("20_eqgxa"), ExtResource("21_w52d4"), ExtResource("22_x61t0"), ExtResource("23_x61t0"), ExtResource("24_vk3ji"), ExtResource("25_athb6"), ExtResource("26_s4qlt"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13"), ExtResource("32_cgk14")])
+items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("5_wersp"), ExtResource("6_w52d4"), ExtResource("9_athb6"), ExtResource("10_s4qlt"), ExtResource("11_3s3yo"), ExtResource("14_a5mu0"), ExtResource("15_66m13"), ExtResource("16_cgk14"), ExtResource("17_chn5m"), ExtResource("18_e731w"), ExtResource("19_eqgxa"), ExtResource("20_eqgxa"), ExtResource("21_w52d4"), ExtResource("22_x61t0"), ExtResource("23_x61t0"), ExtResource("24_vk3ji"), ExtResource("25_athb6"), ExtResource("26_s4qlt"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13"), ExtResource("32_cgk14"), ExtResource("31_cgk14"), ExtResource("32_chn5m"), ExtResource("31_5jvy5"), ExtResource("32_i0rje"), ExtResource("33_4fcd8"), ExtResource("34_lviim"), ExtResource("35_lviim"), ExtResource("37_a272n"), ExtResource("38_a272n"), ExtResource("39_v6ptv"), ExtResource("40_5d57v"), ExtResource("41_dtr78"), ExtResource("41_5d57v")])
+low_roll_override = 7
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

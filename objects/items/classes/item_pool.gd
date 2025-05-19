@@ -3,6 +3,7 @@ extends Resource
 class_name ItemPool
 
 @export var items: Array[Item]
+@export var low_roll_override: Item.Rarity = Item.Rarity.NIL
 
 @export_tool_button("Print Item List") var print_action = print_items
 @export_tool_button("Get Lowest Rarity") var print_rarity = print_rarity_minimum

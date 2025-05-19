@@ -81,6 +81,9 @@ func restart_floor() -> void:
 	# Clean up the current floor
 	clean_current_floor()
 	
+	# Decrement the floor number
+	Util.floor_number -= 1
+	
 	# Get our new floor variant
 	var floor_variant: FloorVariant = RandomService.array_pick_random('white_out_floor', Globals.FLOOR_VARIANTS).duplicate()
 	if floor_variant.alt_floor and RandomService.randi_channel('floors') % 10 == 0:
@@ -91,13 +94,12 @@ func restart_floor() -> void:
 	else:
 		floor_variant.reward = null
 	
-	Util.floor_number -= 1
-	
 	var game_floor: GameFloor = load("res://scenes/game_floor/game_floor.tscn").instantiate()
 	game_floor.floor_variant = floor_variant
 	
 	SceneLoader.change_scene_to_node(game_floor)
 	queue_free()
+	AudioManager.set_music_volume(0.0)
 
 func clean_current_floor() -> void:
 	var game_floor := Util.floor_manager

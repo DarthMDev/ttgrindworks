@@ -273,6 +273,14 @@ transform = Transform3D(0.995567, 0, 0.0940562, 0, 1, 0, -0.0940562, 0, 0.995567
 unique_name_in_owner = true
 transform = Transform3D(-1.04308e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.04308e-07, 0, 0, 7.854)
 
+[node name="Blocker2" type="Node3D" parent="." index="15"]
+transform = Transform3D(0.018098, 0, 0.999836, 0, 1, 0, -0.999836, 0, 0.018098, -0.491353, 2.98042, -28.5835)
+
+[node name="law_bookshelf2" parent="Blocker2" index="0" instance=ExtResource("18_vk3hr")]
+unique_name_in_owner = true
+transform = Transform3D(-1.04308e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.04308e-07, 0, 0, 7.854)
+
+[connection signal="s_battle_end" from="Puzzle/BattleNode" to="." method="unblock"]
 [connection signal="s_lose" from="PuzzleTreasures/PuzzleRun" to="PuzzleTreasures" method="right_puzzle_lost"]
 [connection signal="s_opened" from="PuzzleTreasures/TreasureRight" to="PuzzleTreasures/PuzzleRun" method="win_game"]
 [connection signal="s_lose" from="PuzzleTreasures/PuzzleAvoidSkulls" to="PuzzleTreasures" method="left_puzzle_lost"]

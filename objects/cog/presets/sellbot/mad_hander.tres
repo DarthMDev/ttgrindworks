@@ -30,6 +30,7 @@ hand_color = Color(0.862745, 0.760784, 0.756863, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
+can_speak = true
 attacks = Array[ExtResource("1_x602y")]([ExtResource("2_14dyf")])
 level_low = 4
 level_high = 20

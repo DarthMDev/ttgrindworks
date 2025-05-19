@@ -51,7 +51,8 @@ func spawn_item() -> void:
 	if not item.evergreen and not item is ItemActive:
 		ItemService.seen_item(item)
 	elif item is ItemActive:
-		ItemService.seen_item(item)
+		if not item.evergreen:
+			ItemService.seen_item(item)
 		item = item.duplicate()
 	else:
 		item = item.duplicate()
@@ -127,9 +128,10 @@ func _tween_model() -> void:
 	bob_tween.tween_property(model, 'position:y', item.world_y_offset - 0.1, 1.5)
 	bob_tween.set_loops()
 
-func body_entered(body) -> void:
+func body_entered(body: Node3D) -> void:
 	if not body is Player:
 		return
+	var player: Player = body
 	
 	s_collected.emit()
 	
@@ -179,7 +181,6 @@ func body_entered(body) -> void:
 				model.scale = accessory_placement.scale
 				model.rotation_degrees = accessory_placement.rotation)
 		elif item is ItemActive:
-			var player := Util.get_player()
 			if player.stats.current_active_item:
 				var replacement_item := player.stats.current_active_item
 				item.apply_item(player, true, model)

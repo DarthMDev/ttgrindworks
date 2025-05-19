@@ -50,7 +50,7 @@ func search_node(node : Node) -> Array[TreasureChest]:
 	var chests : Array[TreasureChest] = []
 	for child in node.get_children():
 		if child is TreasureChest:
-			if child.opened and len(child.get_node("Item").get_children()) == 0:
+			if child.opened:
 				continue
 			chests.append(child)
 		else:
