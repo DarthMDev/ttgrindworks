@@ -101,4 +101,4 @@ func color_label(label : Label, anomaly : FloorModifier) -> void:
 func is_obscured() -> bool:
 	if not is_instance_valid(Util.get_player()):
 		return false
-	return Util.get_player().obscured_anomalies and not Util.get_player().see_descriptions
+	return Util.get_player().obscured_anomalies and not Util.get_player().see_anomalies

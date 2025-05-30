@@ -3,8 +3,6 @@ class_name BattleManager
 
 const ACTION_TIMEOUT_TIME := 60.0
 
-const ITEM_POOL_PROGRESSIVES := "res://objects/items/pools/progressives.tres"
-
 const CRIT_SFX_1 := preload("res://audio/sfx/battle/gags/crit/crit_1.ogg")
 const CRIT_SFX_2 := preload("res://audio/sfx/battle/gags/crit/crit_2.ogg")
 const CRIT_SFX_3 := preload("res://audio/sfx/battle/gags/crit/crit_3.ogg")
@@ -262,7 +260,7 @@ func spawn_reward() -> void:
 			chest.global_position = battle_node.global_position
 			chest.global_rotation = battle_node.global_rotation
 			if player.better_battle_rewards == true and current_round <= 2:
-				chest.item_pool = load(ITEM_POOL_PROGRESSIVES)
+				chest.item_pool = ItemService.PROGRESSIVE_POOL
 				player.boost_queue.queue_text("Bounty!", Color.GREEN)
 			else:
 				chest.item_pool = battle_node.item_pool

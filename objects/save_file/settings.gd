@@ -54,7 +54,8 @@ var REMAPPABLE_CONTROLS := [
 	"jump",
 	"sprint",
 	"pause",
-	"use_pocket_prank"
+	"use_pocket_prank",
+	"end_turn"
 ]
 @export var saved_controls := {}
 var controls := {}

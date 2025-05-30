@@ -148,5 +148,5 @@ func get_first_floor() -> FloorVariant:
 	var floor_var: FloorVariant = RandomService.array_pick_random('floors', Globals.FLOOR_VARIANTS).duplicate()
 	# Guarantee 0 difficulty floor to start
 	floor_var.floor_difficulty = 0
-	floor_var.level_range = Vector2i(1,2)
+	floor_var.level_range = Vector2i(FloorVariant.LEVEL_RANGES[0][0], FloorVariant.LEVEL_RANGES[0][1])
 	return floor_var

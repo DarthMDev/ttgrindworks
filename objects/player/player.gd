@@ -34,7 +34,7 @@ const DEBUG_COLLISION_PRINT := false
 @export var partners: Array[CharacterBody3D] = []
 
 ## Child References
-@onready var camera := %PlayerCamera
+@onready var camera: PlayerCamera = %PlayerCamera
 @onready var camera_dist: float:
 	set(x):
 		var cam_tween := create_tween()
@@ -92,6 +92,7 @@ var see_descriptions: bool = false:
 	set(x):
 		see_descriptions = x
 		%ItemDescriptions.visible = x
+var see_anomalies := false
 var random_cog_heals := false
 var custom_gag_order := false
 var less_shop_items := false

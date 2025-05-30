@@ -140,6 +140,7 @@ player_pos = NodePath("PlayerPosition")
 elevator_cam = NodePath("ElevatorCam")
 scene_path = "res://scenes/elevator_scene/elevator_scene.tscn"
 opened = true
+run_player_check = true
 
 [node name="left_door" parent="LBElevator1/Doors" index="1"]
 transform = Transform3D(1.223, 0, 0, 0, 1, 0, 0, 0, 1, -102.601, 5.65263, -1.0168)

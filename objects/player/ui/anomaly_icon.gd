@@ -31,7 +31,7 @@ var quality: FloorModifier.ModType:
 
 var obscured : bool:
 	get:
-		return Util.get_player().obscured_anomalies and not Util.get_player().see_descriptions
+		return Util.get_player().obscured_anomalies and not Util.get_player().see_anomalies
 
 @onready var background: TextureRect = %Background
 @onready var icon: TextureRect = %Icon

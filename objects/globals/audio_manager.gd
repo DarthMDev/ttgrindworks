@@ -147,7 +147,7 @@ func play_snippet(sfx: AudioStream, start: float = 0.0, end: float = -1.0, volum
 	get_tree().create_timer(end-start).timeout.connect(sound_finished.bind(sfx_player))
 	return sfx_player
 
-func fade_music(vol_db: float, time: float, should_stop := true) -> void:
+func fade_music(vol_db: float, time: float, should_stop := true) -> Tween:
 	if music_vol_tween and music_vol_tween.is_running():
 		music_vol_tween.kill()
 	music_vol_tween = create_tween().set_trans(Tween.TRANS_SINE)
@@ -156,6 +156,7 @@ func fade_music(vol_db: float, time: float, should_stop := true) -> void:
 		music_vol_tween.tween_callback(stop_music.bind(true))
 		music_vol_tween.tween_callback(music_player.set_volume_db.bind(0.0))
 	music_vol_tween.finished.connect(music_vol_tween.kill)
+	return music_vol_tween
 
 func is_audio_playing(sound: AudioStream) -> bool:
 	# First, check music

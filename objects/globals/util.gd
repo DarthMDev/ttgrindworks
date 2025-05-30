@@ -305,7 +305,7 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
 	for i in range(4):
 		var chest: TreasureChest = chest_scene.instantiate()
-		chest.item_pool = Globals.PROGRESSIVE_ITEM_POOL
+		chest.item_pool = ItemService.PROGRESSIVE_POOL
 		holder_node.add_child(chest)
 		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
 		chest.global_rotation = pos_node.global_rotation

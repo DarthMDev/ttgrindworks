@@ -76,7 +76,7 @@ func destroy_battle(battle : BattleNode) -> void:
 	
 	var chest : TreasureChest = load(TREASURE_CHEST).instantiate()
 	if Util.get_player().better_battle_rewards:
-		chest.item_pool = Globals.PROGRESSIVE_ITEM_POOL
+		chest.item_pool = ItemService.PROGRESSIVE_POOL
 		Util.get_player().boost_queue.queue_text("Bounty!", Color.GREEN)
 	else:
 		chest.item_pool = load(BATTLE_CLEAR_POOL)

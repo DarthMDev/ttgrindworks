@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://bablbd6r8nx4u"]
+[gd_scene load_steps=108 format=4 uid="uid://bablbd6r8nx4u"]
 
 [ext_resource type="PackedScene" uid="uid://d0l3ucdou3gof" path="res://objects/modules/factory/base_rooms/factory_silo.tscn" id="1_kwh8e"]
 [ext_resource type="Script" uid="uid://c45m4ugolua3j" path="res://objects/modules/factory/variants/factory_silo_paint_boss.gd" id="2_7yupl"]
@@ -23,7 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="15_tvpod"]
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="17_8jefi"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="23_pa8wx"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="24_ebw32"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="24_ebw32"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="25_wmn5m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ad0cc"]
 resource_name = "lambert55"
@@ -1094,6 +1095,11 @@ size = Vector3(3.32593, 3.93689, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kd26n"]
 size = Vector3(4.53857, 5.46826, 6.04681)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bxfyw"]
+font = ExtResource("25_wmn5m")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="FactorySiloPaintBoss" node_paths=PackedStringArray("paint_streams", "paint") instance=ExtResource("1_kwh8e")]
 script = ExtResource("2_7yupl")
 paint_streams = [NodePath("Model/faucet3/PaintStream"), NodePath("Model/faucet2/PaintStream"), NodePath("Model/faucet1/PaintStream")]
@@ -1563,7 +1569,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.15802, -9.69864)
 curve = SubResource("Curve3D_ng43k")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8287)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1574,7 +1580,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.02651, 0.873352)
 curve = SubResource("Curve3D_gflmi")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16061, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171302, 0)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1585,7 +1591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98055, 7.81042, 0.842331)
 curve = SubResource("Curve3D_upte8")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8287)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1621,6 +1627,7 @@ transform = Transform3D(0.703122, 0, 0.711069, 0, 1, 0, -0.711069, 0, 0.703122, 
 curve = SubResource("Curve3D_4t780")
 
 [node name="ElevatingPlatform" parent="Platforms/ThirdFloorObstacles/GoalPlatform" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.18022, 0)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -1646,11 +1653,12 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(2.79877, 0, -0.0889987, 0, 3.045, 0, 0.0830655, 0, 2.99868, 13.4845, 35.307, -0.175735)
 
 [node name="ElevatorOrigin" type="Node3D" parent="Platforms" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.78284, 62.8357, 6.87267)
+unique_name_in_owner = true
+transform = Transform3D(0.716911, 0, 0.697165, 0, 1, 0, -0.697165, 0, 0.716911, 5.78284, 62.8357, 6.87267)
 
 [node name="FactoryElevator" parent="Platforms/ElevatorOrigin" index="0" instance=ExtResource("11_mwgg0")]
 unique_name_in_owner = true
-transform = Transform3D(0.717494, 0, 0.696564, 0, 1, 0, -0.696564, 0, 0.717494, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 initial_y = -50.554
 rise_time = 3.0
 
@@ -1666,10 +1674,15 @@ shape = SubResource("BoxShape3D_n7lg2")
 wait_time = 3.0
 one_shot = true
 
-[node name="BossChestGroup" parent="." index="11" instance=ExtResource("17_8jefi")]
+[node name="ElevatorResetTimer" type="Timer" parent="." index="11"]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="BossChestGroup" parent="." index="12" instance=ExtResource("17_8jefi")]
 transform = Transform3D(0.700648, 0, 0.713507, 0, 1, 0, -0.713507, 0, 0.700648, 27.7066, 62.8328, -188.468)
 
-[node name="WinArea" type="Area3D" parent="." index="12"]
+[node name="WinArea" type="Area3D" parent="." index="13"]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 40.8355, 63.5671, -181.305)
 collision_mask = 2
 
@@ -1677,9 +1690,28 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153099, 2.23413, 0.0339813)
 shape = SubResource("BoxShape3D_kd26n")
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="13" instance=ExtResource("23_pa8wx")]
+[node name="DebugPlayerPositionMarker" parent="." index="14" instance=ExtResource("23_pa8wx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5461, 37.1165, -201.289)
-script = ExtResource("24_ebw32")
+
+[node name="SkipButton" parent="." index="15" instance=ExtResource("24_ebw32")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -101.0
+offset_right = -7.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="Label" parent="SkipButton" index="0"]
+text = "Skip"
+label_settings = SubResource("LabelSettings_bxfyw")
 
 [connection signal="body_entered" from="Model/faucet1/PaintStream/MeshInstance3D/Area3D" to="." method="paint_stream_entered"]
 [connection signal="body_entered" from="Model/faucet2/PaintStream/MeshInstance3D/Area3D" to="." method="paint_stream_entered"]
@@ -1689,4 +1721,7 @@ script = ExtResource("24_ebw32")
 [connection signal="s_pressed" from="Platforms/FinalButtonRush/CogButton2" to="." method="button_pressed"]
 [connection signal="s_pressed" from="Platforms/FinalButtonRush/CogButton3" to="." method="button_pressed"]
 [connection signal="body_entered" from="Activator" to="." method="body_entered"]
+[connection signal="timeout" from="ElevatorResetTimer" to="." method="reset_elevator_position"]
 [connection signal="body_entered" from="WinArea" to="." method="win_area_entered"]
+
+[editable path="SkipButton"]

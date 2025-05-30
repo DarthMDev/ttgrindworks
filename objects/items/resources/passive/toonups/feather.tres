@@ -6,8 +6,9 @@
 
 [resource]
 script = ExtResource("3_l5yp1")
-qualitoon = 0
-rarity = 0
+item_tags = null
+qualitoon = 1
+rarity = 1
 evergreen = true
 realtime = false
 slot = 0

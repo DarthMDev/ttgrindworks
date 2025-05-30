@@ -87,10 +87,19 @@ func play_intro() -> Tween:
 	movie.tween_callback(camera.make_current)
 	movie.tween_callback(func(): player.state = Player.PlayerState.STOPPED)
 	movie.tween_callback(player.set_animation.bind("neutral"))
+	movie.tween_callback(Input.set_mouse_mode.bind(Input.MOUSE_MODE_VISIBLE))
 	
 	# Pan camera to painting
-	movie.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/sequences/hos/hos_intro.ogg")))
-	movie.tween_callback(AudioManager.fade_music.bind(-80.0, 6.0))
+	movie.tween_callback(
+	func():
+		var audio_player := AudioManager.play_sound(load("res://audio/sfx/sequences/hos/hos_intro.ogg"))
+		%SkipButton.pressed.connect(audio_player.queue_free, CONNECT_ONE_SHOT)
+	)
+	movie.tween_callback(
+	func():
+			var fade_tween := AudioManager.fade_music(-80.0, 6.0)
+			%SkipButton.pressed.connect(fade_tween.kill)
+	)
 	movie.tween_callback(do_camera_transition.bind('PaintingFocus', 3.0))
 	movie.tween_interval(1.5)
 	movie.tween_callback(door.add_lock)
@@ -147,9 +156,18 @@ func play_intro() -> Tween:
 	movie.tween_callback(func(): player.state = Player.PlayerState.WALK)
 	movie.tween_callback(AudioManager.set_clip.bind(2))
 	movie.tween_callback(func(): player.game_timer_tick = true)
+	movie.tween_callback(%SkipButton.hide)
 	movie.finished.connect(movie.kill)
 	
+	%SkipButton.show()
+	%SkipButton.pressed.connect(skip_cutscene.bind(movie))
+	
 	return movie
+
+func skip_cutscene(tween: Tween) -> void:
+	tween.custom_step(10000.0)
+	AudioManager.music_player.set_volume_db(0.0)
+	%CogDoor.skip_tween()
 
 func do_transition_cutscene() -> Tween:
 	transition_count += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://be4vavros0suo"]
+[gd_scene load_steps=25 format=3 uid="uid://be4vavros0suo"]
 
 [ext_resource type="PackedScene" uid="uid://botwlahodbbmq" path="res://objects/modules/office/base_rooms/office_skull_boss_room.tscn" id="1_6t424"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_1f8b8"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bjhle6ljdlsvr" path="res://objects/interactables/chq_door/chq_door_no_wall.tscn" id="9_g3sbm"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="10_2e43l"]
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="10_gb0pg"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="12_lgq1c"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="13_ftyqj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d65n6"]
 render_priority = -1
@@ -74,6 +76,11 @@ backface_collision = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l7jw"]
 size = Vector3(1, 11.4326, 17.7207)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qx1ei"]
+font = ExtResource("13_ftyqj")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="OfficeHeadOfSecurityBoss" instance=ExtResource("1_6t424")]
 script = ExtResource("2_gwvhn")
@@ -242,8 +249,29 @@ automatic = false
 [node name="DebugPlayerPositionMarker" parent="." index="34" instance=ExtResource("10_2e43l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2533, 0, 0)
 
+[node name="SkipButton" parent="." index="35" instance=ExtResource("12_lgq1c")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -101.0
+offset_right = -7.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="Label" parent="SkipButton" index="0"]
+text = "Skip"
+label_settings = SubResource("LabelSettings_qx1ei")
+
 [connection signal="s_finder_row_reached" from="Puzzle/PuzzleBoss" to="." method="skullfinder_row_reached"]
 [connection signal="s_win" from="Puzzle/PuzzleBoss" to="." method="game_won"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="body_entered_room"]
 
 [editable path="office_elevator"]
+[editable path="SkipButton"]

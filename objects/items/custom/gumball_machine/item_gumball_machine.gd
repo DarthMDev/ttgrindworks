@@ -1,8 +1,8 @@
 extends ItemScriptActive
 
-const SUPER_CHANCE := 0.1
-var CANDY_POOL : ItemPool
-var SUPER_CANDY_POOL : ItemPool
+const SUPER_CHANCE := 0.2
+var CANDY_POOL: ItemPool
+var SUPER_CANDY_POOL: ItemPool
 
 
 func _init() -> void:
@@ -11,13 +11,13 @@ func _init() -> void:
 
 func use() -> void:
 	var player := Util.get_player()
-	var use_pool : ItemPool
+	var use_pool: ItemPool
 	if RandomService.randf_channel('gumball_machine_rolls') < SUPER_CHANCE:
-		use_pool = SUPER_CANDY_POOL
+		use_pool = ItemService.get_centralized_pool(SUPER_CANDY_POOL)
 	else:
-		use_pool = CANDY_POOL
+		use_pool = ItemService.get_centralized_pool(CANDY_POOL)
 	
-	var item : Item = RandomService.array_pick_random('gumball_machine_rolls', use_pool.items)
+	var item: Item = RandomService.array_pick_random('gumball_machine_rolls', use_pool.items)
 	item.apply_item(player)
 	item.play_collection_sound()
 	var ui := ItemService.display_item(item)

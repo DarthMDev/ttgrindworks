@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://b84tkx6l2id8o"]
+
+[ext_resource type="Texture2D" uid="uid://dlpxfjbax82nr" path="res://ui_assets/player_ui/pocket_prank_icons/trunk.png" id="1_aalwr"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_di541"]
+[ext_resource type="Script" uid="uid://byrbtwkoejrmw" path="res://objects/items/custom/accessory_trunk/item_accessory_trunk.gd" id="2_ddnvi"]
+[ext_resource type="PackedScene" uid="uid://clty1e5563d3u" path="res://models/props/toon_props/accessory_trunk/accessory_trunk.tscn" id="3_ddnvi"]
+
+[resource]
+script = ExtResource("1_di541")
+sfx = Array[AudioStream]([])
+active_type = 2
+charge_count = 12
+current_charge = 0
+custom_discharge_time = 1.0
+item_tags = null
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Accessory Trunk"
+item_description = "What's inside?"
+big_description = "Grants 2-4 random accessories (one-time-use)"
+model = ExtResource("3_ddnvi")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_ddnvi")
+remember_item = true
+icon = ExtResource("1_aalwr")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"
