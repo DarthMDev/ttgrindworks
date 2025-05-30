@@ -110,3 +110,7 @@ func open_audio(step : int) -> void:
 func connect_button(button : CogButton) -> void:
 	add_lock()
 	button.s_pressed.connect(unlock.unbind(1))
+
+func skip_tween() -> void:
+	if open_tween and open_tween.is_running():
+		open_tween.custom_step(1000.0)

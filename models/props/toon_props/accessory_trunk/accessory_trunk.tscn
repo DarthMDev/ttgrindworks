@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clty1e5563d3u"]
+
+[ext_resource type="PackedScene" uid="uid://nnrcjp5qaxv0" path="res://models/props/toon_props/accessory_trunk/accessory_trunk.glb" id="1_6hanm"]
+
+[node name="accessory_trunk" instance=ExtResource("1_6hanm")]
+
+[node name="Trunk" parent="." index="0"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

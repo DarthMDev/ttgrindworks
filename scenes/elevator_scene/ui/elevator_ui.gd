@@ -28,7 +28,7 @@ func _ready() -> void:
 	tips = read_tip_file()
 	change_tip(tips)
 	start_tip_tween()
-	if Util.get_player().see_descriptions:
+	if Util.get_player().see_anomalies:
 		anomaly_container.show()
 
 func set_floor_index(index : int) -> void:

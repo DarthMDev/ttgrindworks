@@ -19,8 +19,14 @@ func modify_floor() -> void:
 	var ground: Node3D = load("res://objects/props/factory/factory_ground.tscn").instantiate()
 	add_child(ground)
 	ground.position.y -= 30
-	game_floor.s_floor_ended.connect(func(): skybox.queue_free(); skybox = null; ground.queue_free())
 	game_floor.render_rooms = FACTORY_RENDER_REQUIREMENT
+	
+	# Await a process frame
+	# Apparently game floor's tree exited signal is emitted on startup when direclty loading into the scene
+	# Only affects debug but I don't like the sky not being there
+	await get_tree().process_frame
+	game_floor.tree_exited.connect(func(): skybox.queue_free(); skybox = null; ground.queue_free())
+	
 
 func get_mod_name() -> String:
 	return "Sellbot Skybox"

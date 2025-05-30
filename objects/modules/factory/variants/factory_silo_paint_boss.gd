@@ -26,9 +26,6 @@ var buttons_pressed := 0
 
 func _ready() -> void:
 	base_elevator_y = elevator.position.y
-	var elevator_transform := elevator.transform
-	await Task.delay(3.0)
-	elevator.transform = elevator_transform
 
 func body_entered(body: Node3D) -> void:
 	if body is Player and not paint_rising and not game_won:
@@ -46,6 +43,8 @@ func initialize() -> void:
 
 func intro_cutscene() -> void:
 	Util.get_player().game_timer_tick = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	%SkipButton.show()
 	var movie_tween := create_tween()
 	movie_tween.tween_callback($FaucetCam.make_current)
 	movie_tween.set_trans(Tween.TRANS_QUAD)
@@ -57,11 +56,17 @@ func intro_cutscene() -> void:
 	movie_tween.tween_interval(3.0)
 	movie_tween.finished.connect(
 	func():
+		%SkipButton.hide()
 		AudioManager.set_music(BOSS_MUSIC)
 		movie_tween.kill()
 		begin()
 		Util.get_player().game_timer_tick = true
 	)
+	%SkipButton.pressed.connect(skip_intro.bind(movie_tween))
+
+func skip_intro(tween: Tween) -> void:
+	tween.custom_step(10000.0)
+	$CogDoor.skip_tween()
 
 func start_faucets() -> void:
 	var paint_tween := create_tween()
@@ -92,6 +97,7 @@ func begin() -> void:
 func button_pressed(_button: CogButton) -> void:
 	buttons_pressed += 1
 	if buttons_pressed == 3:
+		%ElevatorResetTimer.queue_free()
 		lower_elevator()
 
 func lower_elevator() -> void:
@@ -153,3 +159,9 @@ func win_game() -> void:
 	if is_instance_valid(hidden_chest):
 		hidden_chest.queue_free()
 	Util.get_player().stats.charge_active_item(2)
+
+## Gets called every 3 seconds until all 3 buttons are pressed
+## This will for definitely and on real fix the bug with the node
+## I have an immense distaste for the AnimatableBody3D Node
+func reset_elevator_position() -> void:
+	elevator.set_global_transform(%ElevatorOrigin.global_transform)

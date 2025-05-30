@@ -36,6 +36,8 @@ Enjoy!
   - 3D Artist & Texture Artist
 - neoNote
   - 3D Artist & Texture Artist, Sound & Game Deisgner
+- Treetop Legend
+  - 3D Artist, Animator & Rigging
 - Measured Moth
   - Programmer, Game Designer & Rigging
 - Boots

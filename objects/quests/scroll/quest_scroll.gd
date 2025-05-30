@@ -89,7 +89,7 @@ func reroll_quest() -> void:
 	s_quest_rerolled.emit()
 
 func set_rerolls(count : int) -> void:
-	if count == 0:
+	if count <= 0:
 		reroll_button.set_disabled(true)
 		reroll_button.self_modulate = Color.DARK_GRAY
 		reroll_button.texture_normal = load("res://ui_assets/quests/dice_buttons/dice_button0.png")

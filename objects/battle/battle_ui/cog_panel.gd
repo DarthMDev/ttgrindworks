@@ -52,7 +52,8 @@ func sync_colors(light_color: Color, glow_color: Color, cog: Cog):
 func populate_status_effects(target : Cog) -> void:
 	for icon in status_container.get_children():
 		icon.queue_free()
-	for effect in BattleService.ongoing_battle.get_statuses_for_target(target):
+	status_effects = BattleService.ongoing_battle.get_statuses_for_target(target)
+	for effect in status_effects:
 		if not effect.visible:
 			continue
 		var new_icon: StatusEffectIcon = StatusEffectIcon.create()

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=11 format=3 uid="uid://cm5r6l5idf6rw"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_2xn1p"]
+[ext_resource type="Resource" uid="uid://3l28x2fofrgl" path="res://objects/battle/battle_resources/cog_attacks/resources/carbon_copy.tres" id="2_gvw1q"]
+[ext_resource type="Resource" uid="uid://c27ek2anjbx88" path="res://objects/battle/battle_resources/cog_attacks/resources/pound_key.tres" id="3_r5qds"]
+[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_h8wpw"]
+[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_02n4p"]
+[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_i733w"]
+[ext_resource type="PackedScene" uid="uid://bgx7270etnyok" path="res://models/cogs/heads/flunky.glb" id="7_cujpq"]
+[ext_resource type="Texture2D" uid="uid://c2pvani3yo7i" path="res://models/cogs/heads/flunky_tt_t_ene_hed_flunky.png" id="8_x4kam"]
+[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="9_x0p4g"]
+[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="10_lsqua"]
+
+[resource]
+script = ExtResource("9_x0p4g")
+department = 3
+suit = 2
+custom_blazer_tex = ExtResource("5_02n4p")
+custom_arm_tex = ExtResource("4_h8wpw")
+custom_leg_tex = ExtResource("6_i733w")
+cog_name = "Armchair Manager"
+name_plural = ""
+name_prefix = ""
+name_suffix = ""
+head = ExtResource("7_cujpq")
+head_scale = Vector3(1, 1, 1)
+head_pos = Vector3(0, 0, 0)
+scale = 7.0
+head_textures = Array[Texture2D]([ExtResource("8_x4kam")])
+hand_color = Color(0.94902, 0.74902, 0.74902, 1)
+head_color = null
+custom_nametag_height = 0.0
+custom_nametag_suffix = ""
+can_speak = true
+attacks = Array[ExtResource("1_2xn1p")]([ExtResource("2_gvw1q"), ExtResource("3_r5qds")])
+level_low = 1
+level_high = 12
+status_effects = Array[ExtResource("10_lsqua")]([])
+is_mod_cog = false
+is_admin = true
+health_mod = 1.0
+battle_phrases = Array[String](["I'm gonna tell the boss about you!", "I may just be a flunky - but I'm real spunky.", "I'm going to use you to step up the corporate ladder.", "You're not going to like the way I work.", "The boss is counting on me to stop you.", "You'll have to go through me first.", "You're going to look good on my resume.", "I excel at Toon disposal.", "I'm sending you back to the playground.", "Let's see how you rate my job performance", "You're never going to meet my boss."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

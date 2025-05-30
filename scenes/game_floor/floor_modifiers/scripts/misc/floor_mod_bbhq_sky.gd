@@ -10,7 +10,6 @@ func modify_floor() -> void:
 		player = Util.get_player()
 	player.add_child(skybox)
 	skybox.scale *= 3.0
-	game_floor.s_floor_ended.connect(skybox.queue_free)
 
 	# Set up fog
 	var env: Environment = game_floor.environment.environment.duplicate()
@@ -21,6 +20,12 @@ func modify_floor() -> void:
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color("0f0f0f")
 	game_floor.environment.environment = env
+
+	# Await a process frame
+	# Apparently game floor's tree exited signal is emitted on startup when direclty loading into the scene
+	# Only affects debug but I don't like the sky not being there
+	await get_tree().process_frame
+	game_floor.tree_exited.connect(skybox.queue_free)
 
 func get_mod_name() -> String:
 	return "Bossbot Skybox"

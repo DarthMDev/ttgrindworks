@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bnrf8npmyldj6"]
+[gd_scene load_steps=31 format=3 uid="uid://bnrf8npmyldj6"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_85mw3"]
 [ext_resource type="PackedScene" uid="uid://htqva4ris6a4" path="res://objects/props/cgc/cgc_kart_door.tscn" id="2_rrbqw"]
@@ -16,6 +16,8 @@
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="12_dd2y1"]
 [ext_resource type="PackedScene" uid="uid://cweh68oq3ya3" path="res://models/props/facility_objects/cgc/evil_golf_ball/evil_ball.fbx" id="15_18jq5"]
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="15_77tfq"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="17_cmky1"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="18_q2qby"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd3if"]
 resource_name = "gate_blinn1"
@@ -138,6 +140,11 @@ _data = {
 &"RESET": SubResource("Animation_dky35"),
 &"dialogue": SubResource("Animation_1bk0c")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e2pq"]
+font = ExtResource("18_q2qby")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="fairway" instance=ExtResource("1_85mw3")]
 
@@ -607,6 +614,26 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -33.0813, 0, 2.07092)
 [node name="fence2" parent="FenceBlockGroup" index="1" instance=ExtResource("4_aafw1")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -33.0813, 0, -2.3466)
 
+[node name="SkipButton" parent="." index="37" instance=ExtResource("17_cmky1")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -101.0
+offset_right = -7.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="Label" parent="SkipButton" index="0"]
+text = "Skip"
+label_settings = SubResource("LabelSettings_3e2pq")
+
 [connection signal="s_game_won" from="MoleBossManager" to="Props/FenceGate" method="open"]
 [connection signal="s_game_won" from="MoleBossManager" to="GolfDoors/GolfDoor1" method="stop_balls"]
 [connection signal="s_game_won" from="MoleBossManager" to="GolfDoors/GolfDoor2" method="stop_balls"]
@@ -620,3 +647,4 @@ transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 
 [editable path="GolfDoors/GolfDoor3"]
 [editable path="GolfDoors/GolfDoor4"]
 [editable path="GolfDoors/GolfDoor5"]
+[editable path="SkipButton"]

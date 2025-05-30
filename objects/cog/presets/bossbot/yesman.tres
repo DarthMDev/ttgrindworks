@@ -26,6 +26,7 @@ hand_color = Color(0.960784, 0.960784, 0.960784, 1)
 head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 12.0
 custom_nametag_suffix = ""
+can_speak = true
 attacks = Array[ExtResource("1_1de7l")]([ExtResource("2_j4lnf"), ExtResource("3_i0v4j"), ExtResource("4_6giqt")])
 level_low = 3
 level_high = 10
@@ -33,7 +34,7 @@ status_effects = Array[ExtResource("7_n6q6c")]([])
 is_mod_cog = false
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["You need some positive enforcement.", "I haven't been wrong yet.", "Want to meet? I say yes, anytime.", "I won't take no for an answer", "I'll be sure to end this on a positive note.", "I'm positive you're not going to like this.", "I'm confirming our meeting time.", "I don't know the meaning of no."])
+battle_phrases = Array[String](["You need some positive enforcement.", "I haven't been wrong yet.", "Want to meet? I say yes, anytime.", "I won't take no for an answer.", "I'll be sure to end this on a positive note.", "I'm positive you're not going to like this.", "I'm confirming our meeting time.", "I don't know the meaning of no."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

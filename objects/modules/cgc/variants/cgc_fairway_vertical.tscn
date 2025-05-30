@@ -1260,3 +1260,7 @@ endless_stop_moles = false
 want_launch = false
 grid_size = Vector2i(4, 3)
 hole_separation = 1.6
+
+[node name="treasure_chest2" parent="." index="59" instance=ExtResource("17_uns6d")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.20401, 0, 7.93267)
+item_pool = ExtResource("17_crsqn")

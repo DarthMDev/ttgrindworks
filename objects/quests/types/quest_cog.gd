@@ -7,6 +7,7 @@ const FALLBACK_ICON := preload("res://ui_assets/quests/gear2.png")
 @export var specific_cog : CogDNA
 @export var department := CogDNA.CogDept.NULL
 @export_range(1,12) var min_level := 1
+var prev_quest_roll := -1
 
 
 func _init() -> void:
@@ -54,11 +55,12 @@ func randomize_objective() -> void:
 	quota = RandomService.randi_range_channel('quests',OBJECTIVE_RANGE.x,OBJECTIVE_RANGE.y)
 	var quotaf := float(quota)
 	
-	var quest_type := RandomService.randi_channel('cog_quest_types') % 3
+	var quest_type = RandomService.randi_channel('cog_quest_types') % 3
+	if quest_type == 1 and prev_quest_roll == 1:
+		quest_type += 1 * RandomService.array_pick_random('cog_quest_types', [-1, 1])
 	
 	var minimum_level := maxi(1, min(4, Util.floor_number + 1))
 	var maximum_level := maxi(2, min(7, Util.floor_number + 3))
-	
 	
 	# 33% chance of department specific
 	if quest_type == 0:
@@ -150,6 +152,10 @@ func get_icon() -> Texture2D:
 
 func reset() -> void:
 	super()
+	if specific_cog:
+		prev_quest_roll = 1
+	elif not department == CogDNA.CogDept.NULL:
+		prev_quest_roll = 0
 	specific_cog = null
 	department = CogDNA.CogDept.NULL
 	min_level = 1
