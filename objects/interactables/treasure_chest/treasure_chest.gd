@@ -141,12 +141,12 @@ func do_reroll_chance() -> void:
 	var reward_chest_roll := RandomService.randf_channel('chest_rolls')
 	if reward_chest_roll < Globals.reward_chest_chance:
 		print("Spawning reward pool chest")
-		item_pool = Globals.REWARD_ITEM_POOL
+		item_pool = ItemService.REWARD_POOL
 		if RandomService.randf_channel('chest_rolls') < REWARD_OVERRIDE_CHANCE:
 			override_replacement_rolls = true
 	else:
 		print("Spawning progressive pool chest")
-		item_pool = Globals.PROGRESSIVE_ITEM_POOL
+		item_pool = ItemService.PROGRESSIVE_POOL
 
 func get_chest_tex() -> Texture2D:
 	var texture : Texture2D

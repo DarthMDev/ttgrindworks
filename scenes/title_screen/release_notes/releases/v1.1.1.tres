@@ -92,5 +92,5 @@ Fixed a bug where White-Out would cause the repeated floor to use the next floor
 Fixed a bug where using White-Out in a shop would cause the music's volume not to reset properly
 Fixed a bug where Treasure Map would still duplicate an already opened chest
 Fixed a bug where you could get locked out of backtracking from the D.A. Office's \"Big Puzzle\" room if you failed the puzzle
-Fixed an exploit in the Head of Security Boss Fight
+Fixed an exploit in the Head of Security boss fight
 Fixed a softlock that would occur if you fell out of bounds during the Golden Goose boss fight"

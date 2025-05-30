@@ -9,6 +9,7 @@ class_name Elevator
 @export var monitoring := true
 @export var opened := false
 @export var connect_to_game_floor := true
+@export var run_player_check := false
 
 signal s_elevator_entered
 
@@ -20,6 +21,10 @@ func _ready() -> void:
 	# Send floor ended signal when entered
 	if connect_to_game_floor and is_instance_valid(Util.floor_manager):
 		s_elevator_entered.connect(func(): Util.floor_manager.s_floor_ended.emit())
+	
+	# For elevators that players report as problematic
+	if run_player_check:
+		check_camera_status()
 
 func body_entered(body : Node3D) -> void:
 	if body is Player and monitoring:
@@ -59,3 +64,8 @@ func close() -> void:
 
 func set_monitoring(monitor : bool) -> void:
 	monitoring = monitor
+
+func check_camera_status() -> void:
+	if not is_instance_valid(Util.get_player()): return
+	var player := Util.get_player()
+	player.camera.make_current()

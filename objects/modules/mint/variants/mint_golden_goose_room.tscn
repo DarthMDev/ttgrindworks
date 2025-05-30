@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bxnc8400cjdt1"]
+[gd_scene load_steps=34 format=3 uid="uid://bxnc8400cjdt1"]
 
 [ext_resource type="PackedScene" uid="uid://dxa3077q0m2lo" path="res://objects/modules/mint/base_rooms/mint_shelf_room.tscn" id="1_hnu3i"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="2_soc5q"]
@@ -11,14 +11,17 @@
 [ext_resource type="Resource" uid="uid://c4f4cuaxtbd46" path="res://objects/cog/presets/cashbot/golden_goose.tres" id="10_obb3n"]
 [ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="11_ai0uy"]
 [ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="12_6hi6f"]
+[ext_resource type="Script" uid="uid://bqpn13l8t7glt" path="res://objects/modules/mint/variants/golden_goose_manager.gd" id="12_huelx"]
 [ext_resource type="PackedScene" uid="uid://ca5iu2h5u2ltv" path="res://objects/props/mint/mint_safe.tscn" id="13_qq4kb"]
 [ext_resource type="Texture2D" uid="uid://ofuuiundcoub" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="14_058ps"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="15_kdm8w"]
 [ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="16_sfeen"]
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="18_qqvjc"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="18_wcv2t"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="21_bn64l"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="22_jkjqs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnire"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -26,7 +29,7 @@ roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
 uv1_offset = Vector3(0, -0.894446, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pshe4"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -46,317 +49,6 @@ radius = 1.28955
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ewebg"]
 size = Vector3(0.774163, 0.0895839, 0.509327)
-
-[sub_resource type="GDScript" id="GDScript_xpjsb"]
-resource_name = "GooseManager"
-script/source = "extends Node3D
-
-const SLAM_SFX := preload(\"res://audio/sfx/battle/gags/drop/AA_drop_bigweight_miss.ogg\")
-const EXPLODE_SFX := preload(\"res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg\")
-const SFX_SWAP := preload(\"res://audio/sfx/objects/facility_door/CHQ_FACT_door_unlock.ogg\")
-const SFX_HIT = preload(\"res://audio/sfx/misc/CHQ_SOS_cage_land.ogg\")
-
-const REGULAR_OBJS: Array[PackedScene] = [
-	preload(\"res://objects/modules/mint/variants/golden_goose_obj_safe.tscn\"),
-	preload(\"res://objects/modules/mint/variants/golden_goose_obj_double_safe.tscn\")
-]
-
-const BUTTON_OBJ: PackedScene = preload(\"res://objects/modules/mint/variants/golden_goose_obj_button.tscn\")
-
-const HIT_DIALOGUE := [
-	\"HEY! Gold is delicate, you ingrate!\",
-	\"MY PRECIOUS PLATING!!!!!\",
-	\"YOU'RE REALLY RUFFLING MY FEATHERS, TOON.\",
-	\"QUIT EGGING ME ON.\",
-	\"I'LL SCRAMBLE YOU.\",
-	\"HOOOOOOONK!!!!!!\",
-]
-
-var BOSS_MUSIC = GameLoader.load(\"res://audio/music/action_cash.ogg\")
-const EXPLOSION := preload(\"res://models/cogs/misc/explosion/cog_explosion.tscn\")
-
-@onready var drop_shadow_template: Node3D = %DropShadowTemplate
-
-var game_stompers: Array[Node3D] = []
-var active_stompers: Array[Node3D] = []
-var objs_a: Array[Node3D] = []
-var objs_b: Array[Node3D] = []
-var game_started := false
-var stomper_task: Task
-var obj_task: Task
-var health := 3
-var conveyor_speed: float = 0.0:
-	set(x):
-		conveyor_speed = x
-		if is_node_ready():
-			conveyor_tween = Parallel.new([
-				LerpProperty.new(%CB1, ^\"speed\", 1.5, conveyor_speed).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-				LerpProperty.new(%CB2, ^\"speed\", 1.5, conveyor_speed).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-				LerpProperty.new(self, ^\"obj_a_speed\", 1.5, conveyor_speed).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-				LerpProperty.new(self, ^\"obj_b_speed\", 1.5, conveyor_speed).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-			]).as_tween(self)
-var conveyor_mult: float = 1.0
-var obj_a_speed: float = 0.0:
-	set(x):
-		obj_a_speed = x
-		if is_node_ready():
-			for obj: Node3D in objs_a:
-				obj.speed = obj_a_speed * -1.0
-var obj_b_speed: float = 0.0:
-	set(x):
-		obj_b_speed = x
-		if is_node_ready():
-			for obj: Node3D in objs_b:
-				obj.speed = obj_b_speed
-
-var fall_tween: Tween:
-	set(x):
-		if fall_tween and fall_tween.is_valid():
-			fall_tween.kill()
-		fall_tween = x
-var conveyor_tween: Tween:
-	set(x):
-		if conveyor_tween and conveyor_tween.is_valid():
-			conveyor_tween.kill()
-		conveyor_tween = x
-var goose_tween: Tween:
-	set(x):
-		if goose_tween and goose_tween.is_valid():
-			goose_tween.kill()
-		goose_tween = x
-var stomper_tweens: Dictionary = {}
-var base_speed : float:
-	get:
-		if Util.on_easy_floor(): return 7.25
-		return 10.0
-var speed_mult : float:
-	get:
-		if Util.on_easy_floor(): return 2.5
-		return 3.0
-
-var button_quota := 0
-
-func set_conveyor_coll_enabled(enabled: bool) -> void:
-	for child: CollisionShape3D in %ConveyorColl.get_children():
-		child.disabled = not enabled
-
-func _ready():
-	set_conveyor_coll_enabled.call_deferred(false)
-	game_stompers.assign(%GameStompersUp.get_children() + %GameStompersDown.get_children())
-	%Goose.set_animation(\"slip-backward\")
-	%Goose.animator.seek(1.2, true)
-	%Goose.pause_animator()
-
-func body_entered(body: Node3D) -> void:
-	if game_started:
-		return
-	if not body is Player:
-		return
-
-	game_started = true
-	run_intro()
-
-func run_intro() -> void:
-	Util.get_player().state = Player.PlayerState.STOPPED
-	Util.get_player().game_timer_tick = false
-	Util.get_player().set_animation(\"neutral\")
-	Util.get_player().apply_floor_snap()
-	Util.stuck_lock = true
-	CameraTransition.from_current(self, %GooseCam, 3.0)
-	await Task.delay(3.5)
-	%Goose.speak(\"What's this? A TOON? IN MY TREASURY?\")
-	%Goose.animator.play()
-	await Task.delay(4.0)
-	%Goose.speak(\"You think you can WALTZ IN and put your GRUBBY MITTS on MY gold!?!\")
-	await Task.delay(3.0)
-	%Goose.speak(\"Never! NEVER! [shake rate=30 level=15]NEVER!!!!!\")
-	%Goose.set_animation('jump')
-	Util.get_player().global_position = %SPAWNPOINT.global_position
-	Util.get_player().toon.global_rotation = %SPAWNPOINT.global_rotation
-	await Task.delay(3.5)
-	%BlockerCam.make_current()
-	fall_tween = Sequence.new([
-		LerpProperty.new(%Fallers, ^\"position\", 1.5, Vector3.ZERO).interp(Tween.EASE_OUT, Tween.TRANS_BOUNCE)
-	]).as_tween(self)
-	await Task.delay(0.5)
-	AudioManager.play_sound(SLAM_SFX)
-	await fall_tween.finished
-	await Task.delay(1.25)
-	%GooseCam.make_current()
-	%Goose.set_animation('effort')
-	%Goose.animator.seek(3.25)
-	%Goose.speak(\"YOU'LL NEVER TAKE MY NEST EGG!!!!\")
-	await Task.delay(3.0)
-	Util.get_player().game_timer_tick = true
-	begin_game()
-
-func get_random_object_time() -> float:
-	return RandomService.randf_range_channel('golden_goose', 1.1, 1.9) - (0.35 * get_missing_health())
-
-func get_random_stomp_time() -> float:
-	return RandomService.randf_range_channel('golden_goose', 1.0, 2.1) - (0.17 * get_missing_health())
-
-func begin_game() -> void:
-	set_conveyor_coll_enabled.call_deferred(true)
-	Util.get_player().camera.make_current()
-	Util.get_player().state = Player.PlayerState.WALK
-	AudioManager.set_music(BOSS_MUSIC)
-	button_quota = get_button_quota()
-	randomize_conveyor_speed()
-	stomper_task = Task.delayed_call(self, get_random_stomp_time(), random_stomp)
-	obj_task = Task.delayed_call(self, get_random_object_time(), spawn_random_obj)
-
-func random_stomp(add_task := true) -> void:
-	var available_stompers: Array[Node3D] = game_stompers.filter(func(x: Node3D): return x not in active_stompers)
-	if add_task:
-		stomper_task = Task.delayed_call(self, get_random_stomp_time(), random_stomp)
-	if available_stompers.size() == 0:
-		return
-
-	if get_missing_health() == 2 and RandomService.randf_channel('golden_goose') < 0.2:
-		# When golden goose is on their last HP, small chance to do 2 stompers.
-		random_stomp(false)
-
-	var chosen_stomper: Node3D = RandomService.array_pick_random('golden_goose', available_stompers)
-	active_stompers.append(chosen_stomper)
-	var new_shadow: Node3D = drop_shadow_template.duplicate()
-	add_child(new_shadow)
-	new_shadow.global_position = Vector3(chosen_stomper.global_position.x, drop_shadow_template.global_position.y + 0.01, chosen_stomper.global_position.z)
-	var shadow_mat: StandardMaterial3D = new_shadow.get_node(\"Mesh\").mesh.material.duplicate()
-	new_shadow.get_node(\"Mesh\").set_surface_override_material(0, shadow_mat)
-	shadow_mat.albedo_color.a = 0.0
-	new_shadow.show()
-	stomper_tweens[chosen_stomper] = Sequence.new([
-		LerpProperty.new(shadow_mat, ^\"albedo_color:a\", 1.25, 0.85).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-		Wait.new(0.75),
-		Func.new(chosen_stomper.do_stomp),
-		Wait.new(0.5),
-		LerpProperty.new(shadow_mat, ^\"albedo_color:a\", 0.5, 0.0).interp(Tween.EASE_IN, Tween.TRANS_QUAD),
-		Func.new(new_shadow.queue_free),
-		Func.new(func(): if chosen_stomper in active_stompers: active_stompers.erase(chosen_stomper)),
-	]).as_tween(self)
-
-func get_missing_health() -> int:
-	return 3 - health
-
-func randomize_conveyor_speed() -> void:
-	conveyor_mult = -conveyor_mult
-	conveyor_speed = (base_speed + (get_missing_health() * speed_mult)) * conveyor_mult
-
-func deal_damage() -> void:
-	health -= 1
-	if health == 0:
-		# Make the stomper kill Everything
-		%GooseStomper.floor_position -= 0.58
-		%EntranceStomper.do_stomp()
-	%GooseStomper.do_stomp()
-	await Task.delay(0.09)
-	if health > 0:
-		AudioManager.play_sound(SFX_HIT)
-		%Goose.set_animation(\"slip-backward\")
-		goose_tween = Sequence.new([
-			LerpProperty.new(%Goose, ^\"scale\", 0.11, Vector3(1, 0.01, 1)),
-			Wait.new(0.7),
-			LerpProperty.new(%Goose, ^\"scale\", 0.7, Vector3.ONE).interp(Tween.EASE_OUT, Tween.TRANS_BOUNCE),
-		]).as_tween(self)
-		await Task.delay(2.0)
-		%Goose.speak(RandomService.array_pick_random('golden_goose', HIT_DIALOGUE))
-		randomize_conveyor_speed()
-		AudioManager.play_sound(SFX_SWAP)
-	else:
-		win_game()
-
-func win_game() -> void:
-	Util.stuck_lock = false
-	conveyor_speed = 0
-	if stomper_task:
-		stomper_task = stomper_task.cancel()
-	if obj_task:
-		obj_task = obj_task.cancel()
-	Util.get_player().stats.charge_active_item(2)
-
-	make_explosion(%Goose.global_position)
-	%Goose.hide()
-	# Move it physically so that the collision doesn't stick around
-	%CrushCrate.position.y -= 50
-	%Fallers.position.y -= 50
-	AudioManager.stop_music()
-	await get_tree().process_frame
-	%WallReset.monitoring = false
-	set_conveyor_coll_enabled.call_deferred(false)
-	%BossChestGroup.make_chests()
-	BattleService.s_boss_died.emit(%Goose)
-	SaveFileService.progress_file.cogs_defeated[%Goose.dna.cog_name] = SaveFileService.progress_file.cogs_defeated.get_or_add(%Goose.dna.cog_name, 0) + 1
-	%DeadGoose.set_animation('goose-lose')
-	%DeadGoose.animator.pause()
-	%DeadGoose.animator.seek(0.0)
-	%DeadGoose.drop_shadow.hide()
-	%DeadGoose.body.nametag_node.hide()
-	%DeadGoose.body.department_emblem.hide()
-	%DeadGoose.body.head_bone.override_pose = true
-	%DeadGoose.body.head_bone.position = Vector3(0, 0, -5.6)
-	%DeadGoose.show()
-
-func spawn_random_obj() -> void:
-	var is_button := false
-	if button_quota <= 0:
-		button_quota = get_button_quota()
-		is_button = true
-
-	obj_task = Task.delayed_call(self, get_random_object_time(), spawn_random_obj)
-	var side: String = RandomService.array_pick_random('golden_goose', [\"a\", \"b\"])
-	var spawn_point: Node3D
-	var obj_arr: Array[Node3D]
-	var holder_node: Node3D
-	if side == \"a\":
-		spawn_point = %SpawnPointA if is_equal_approx(conveyor_mult, -1.0) else %SpawnPointA2
-		obj_arr = objs_a
-		holder_node = %ObjsA
-	else:
-		spawn_point = %SpawnPointB if is_equal_approx(conveyor_mult, -1.0) else %SpawnPointB2
-		obj_arr = objs_b
-		holder_node = %ObjsB
-
-	var new_obj: Node3D
-	if is_button:
-		new_obj = BUTTON_OBJ.instantiate()
-		new_obj.get_node(\"Button\").s_pressed.connect(deal_damage.unbind(1))
-	else:
-		new_obj = get_random_object().instantiate()
-	holder_node.add_child(new_obj)
-	new_obj.global_position = spawn_point.global_position
-	obj_arr.append(new_obj)
-	new_obj.speed = (obj_a_speed * -1.0 if side == \"a\" else obj_b_speed)
-	new_obj.tree_exited.connect(func(): if new_obj in obj_arr: obj_arr.erase(new_obj))
-	new_obj.s_stomped.connect(func(): make_explosion(new_obj.global_position))
-
-	button_quota -= 1
-
-func get_button_quota() -> int:
-	return 8 + (get_missing_health() * 8)
-
-func _exit_tree() -> void:
-	if stomper_task:
-		stomper_task = stomper_task.cancel()
-	if obj_task:
-		obj_task = obj_task.cancel()
-	stomper_tweens = {}
-
-func make_explosion(pos: Vector3) -> void:
-	var new_explosion: AnimatedSprite3D = EXPLOSION.instantiate()
-	add_child(new_explosion)
-	new_explosion.global_position = pos
-	new_explosion.scale = Vector3.ONE * 25.0
-	AudioManager.play_sound(EXPLODE_SFX, -4.0)
-	new_explosion.play('explode')
-	await new_explosion.animation_finished
-	new_explosion.queue_free()
-
-func get_random_object() -> PackedScene:
-	if Util.on_easy_floor() or RandomService.randi_channel('true_random') % 3 > 0:
-		return REGULAR_OBJS[0]
-	return RandomService.array_pick_random('golden_goose', REGULAR_OBJS)
-"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrvc2"]
 size = Vector3(43.1239, 15.677, 1.64496)
@@ -381,6 +73,11 @@ size = Vector2(4.24, 4.045)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52o88"]
 size = Vector3(1.84433, 6.72142, 13.0637)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jsk7n"]
+font = ExtResource("22_jkjqs")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="GoldenGooseRoom" instance=ExtResource("1_hnu3i")]
 
@@ -559,7 +256,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -3.57613)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_mnire")
+platform_mat = SubResource("StandardMaterial3D_huelx")
 speed = 0.0
 
 [node name="CB2" parent="." index="9" instance=ExtResource("4_dm27t")]
@@ -567,7 +264,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1.65557)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_huelx")
+platform_mat = SubResource("StandardMaterial3D_pshe4")
 speed = 0.0
 
 [node name="BeginColl" type="Area3D" parent="." index="10"]
@@ -681,7 +378,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00112915, -0.00119627, 0.0
 shape = SubResource("BoxShape3D_ewebg")
 
 [node name="GooseManager" type="Node3D" parent="." index="14"]
-script = SubResource("GDScript_xpjsb")
+script = ExtResource("12_huelx")
 
 [node name="GooseCam" type="Camera3D" parent="." index="15"]
 unique_name_in_owner = true
@@ -1342,6 +1039,26 @@ visible = false
 dna = ExtResource("10_obb3n")
 skelecog_chance = 0
 
+[node name="SkipButton" parent="." index="35" instance=ExtResource("21_bn64l")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -101.0
+offset_right = -7.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="Label" parent="SkipButton" index="0"]
+text = "Skip"
+label_settings = SubResource("LabelSettings_jsk7n")
+
 [connection signal="body_entered" from="BeginColl" to="GooseManager" method="body_entered"]
 
 [editable path="GooseStomper/stomper"]
@@ -1356,3 +1073,4 @@ skelecog_chance = 0
 [editable path="GameStompersDown/GameStomper3/stomper"]
 [editable path="GameStompersDown/GameStomper4/stomper"]
 [editable path="GameStompersDown/GameStomper5/stomper"]
+[editable path="SkipButton"]

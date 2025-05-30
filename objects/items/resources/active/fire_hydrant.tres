@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://73kxqwkg6ovx"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_6b7hg"]
+[ext_resource type="Texture2D" uid="uid://blynnplh0ndr2" path="res://ui_assets/player_ui/pocket_prank_icons/fire_hydrant.png" id="1_wqnbm"]
+[ext_resource type="Script" uid="uid://dp6p211yuw63y" path="res://objects/items/custom/fire_hydrant/item_fire_hydrant.gd" id="2_wqnbm"]
+[ext_resource type="PackedScene" uid="uid://d11khxi0akiot" path="res://models/props/gags/firehose/betterhydrant.tscn" id="3_mipkj"]
+[ext_resource type="AudioStream" uid="uid://chi5d3jp4grqn" path="res://audio/sfx/battle/gags/squirt/AA_squirt_flowersquirt.ogg" id="4_wqnbm"]
+
+[resource]
+script = ExtResource("1_6b7hg")
+sfx = Array[AudioStream]([])
+active_type = 1
+charge_count = 3
+current_charge = 3
+custom_discharge_time = 1.0
+item_tags = 0
+qualitoon = 2
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 0.3
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Fire Hydrant"
+item_description = "Water you doing?!"
+big_description = "Causes all cogs in battle to become drenched."
+model = ExtResource("3_mipkj")
+pickup_sfx = ExtResource("4_wqnbm")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_wqnbm")
+remember_item = true
+icon = ExtResource("1_wqnbm")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+force_show_shop_category = false
+custom_shop_price = 0
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

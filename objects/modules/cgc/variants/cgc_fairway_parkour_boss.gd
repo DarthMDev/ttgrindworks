@@ -74,22 +74,11 @@ func start_game() -> void:
 	hookup_moles()
 	game_started = true
 
-	tween = Sequence.new([
-		LerpFunc.new(AudioManager.set_music_volume, 3.0, 0.0, -80.0)
-	]).as_tween(self)
-
-	Util.stop_player_safe()
-	await CameraTransition.from_current(self, %DialogueCam, 3.0).s_done
-	ball_speak("Better be quick, or you're going back to the playground.")
-	%FenceBlockGroup.position.y = 0
-	%BallAnim.play(&"dialogue")
-	await %BallAnim.animation_finished
-	%DialogueBall.hide()
-	await CameraTransition.from_current(self, %MolePreviewCam, 1.0).s_done
-	%FenceGate.play_close_anim()
-	await Task.delay(2.0)
-	await CameraTransition.from_current(self, Util.get_player().camera.camera, 3.0).s_done
-	Util.resume_player_safe()
+	var intro_tween := play_intro()
+	%SkipButton.show()
+	%SkipButton.pressed.connect(skip_cutscene.bind(intro_tween))
+	await intro_tween.finished
+	%SkipButton.hide()
 
 	quota = quota  # Reset the label text via the setter
 	%MoleUI.show()
@@ -107,6 +96,49 @@ func start_game() -> void:
 	# Give a free win if you're somehow still here after 5 minutes
 	sanity_task = Task.delayed_call(self, 60 * 5, mole_hit)
 	Util.get_player().game_timer_tick = true
+
+func play_intro() -> Tween:
+	var player: Player = Util.get_player()
+	
+	var intro_tween := create_tween()
+	
+	# Setup
+	intro_tween.tween_callback(Util.stop_player_safe)
+	intro_tween.tween_callback(Input.set_mouse_mode.bind(Input.MOUSE_MODE_VISIBLE))
+	
+	# Move camera to ball
+	intro_tween.tween_method(AudioManager.set_music_volume, 0.0, -80.0, 3.0)
+	intro_tween.parallel().tween_callback(CameraTransition.from_current.bind(self, %DialogueCam, 3.0))
+	
+	# Ball dial
+	intro_tween.tween_callback(ball_speak.bind("Better be quick, or you're going back to the playground."))
+	intro_tween.tween_callback(
+		func():
+			%FenceBlockGroup.position.y = 0.0
+			%BallAnim.play('dialogue')
+	)
+	intro_tween.tween_interval(6.6)
+	
+	# Move camera to mole preview and close gate
+	intro_tween.tween_callback(CameraTransition.from_current.bind(self, %MolePreviewCam, 1.0))
+	intro_tween.tween_interval(1.0)
+	intro_tween.tween_callback(%FenceGate.play_close_anim)
+	intro_tween.tween_interval(2.0)
+	
+	# Move camera back to player
+	intro_tween.tween_callback(CameraTransition.from_current.bind(self, player.camera.camera, 3.0))
+	intro_tween.tween_interval(3.0)
+	intro_tween.tween_callback(Util.resume_player_safe)
+	intro_tween.finished.connect(intro_tween.kill)
+	
+	return intro_tween
+
+func skip_cutscene(tween: Tween) -> void:
+	tween.custom_step(10000.0)
+	%DialogueBall.hide()
+	%DialogueNode.queue_free()
+	Util.get_player().camera.make_current()
+	AudioManager.music_player.set_volume_db(0.0)
 
 func make_game_timer(timer_time: int = GameTimeBase) -> void:
 	game_timer = Util.run_timer(timer_time, Control.PRESET_BOTTOM_RIGHT)
@@ -229,4 +261,4 @@ func remove_ball_speak() -> void:
 func get_spd_increment() -> float:
 	if Util.on_easy_floor():
 		return 0.045
-	return 0.09
+	return 0.07

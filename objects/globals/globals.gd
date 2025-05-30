@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.1.1b"
+const VERSION_NUMBER := "v1.1.2"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -10,8 +10,6 @@ func _init():
 		'GRUNT_COG_POOL': 'res://objects/cog/presets/pools/grunt_cogs.tres',
 		'MOD_COG_POOL': 'res://objects/cog/presets/pools/mod_cogs.tres',
 		'ALL_COGS_POOL': 'res://objects/cog/presets/pools/all_cogs.tres',
-		'REWARD_ITEM_POOL' : "res://objects/items/pools/rewards.tres",
-		'PROGRESSIVE_ITEM_POOL' : "res://objects/items/pools/progressives.tres"
 	})
 	GameLoader.queue(GameLoader.Phase.AVATARS, [
 		'res://objects/toon/bodies/fat_sml.tscn',
@@ -492,8 +490,6 @@ const PLAYER_COLLISION_LAYER := 2
 const HAZARD_COLLISION_LAYER := 3
 var MAX_TURNS := 3
 var MAX_POINT_REGEN := 2
-var REWARD_ITEM_POOL : ItemPool
-var PROGRESSIVE_ITEM_POOL : ItemPool
 var factory_floor_variant: FloorVariant
 var mint_floor_variant: FloorVariant
 var da_floor_variant: FloorVariant

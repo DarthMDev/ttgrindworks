@@ -34,7 +34,7 @@ const ANOMALIES_NEGATIVE: Array[String] = [
 ]
 
 const LEVEL_RANGES: Dictionary[int, Array] = {
-	0: [1, 3],
+	0: [1, 2],
 	1: [2, 5],
 	2: [3, 7],
 	3: [6, 9],

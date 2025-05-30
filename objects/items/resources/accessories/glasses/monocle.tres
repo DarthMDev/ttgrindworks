@@ -299,6 +299,7 @@ model = ExtResource("2_x6de0")
 stats_add = {}
 stats_multiply = {}
 player_values = {
+"see_anomalies": true,
 "see_descriptions": true
 }
 arbitrary_data = {}

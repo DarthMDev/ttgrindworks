@@ -229,3 +229,7 @@ func open_items() -> void:
 func refresh_tracks() -> void:
 	for track: TrackElement in gag_tracks.get_children():
 		track.refresh()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed('end_turn') and visible:
+		complete_turn()
