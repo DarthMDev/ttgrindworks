@@ -1437,7 +1437,7 @@ mesh = SubResource("CylinderMesh_610uq")
 skeleton = NodePath("../../../..")
 
 [node name="Area3D" type="Area3D" parent="Model/faucet1/PaintStream/MeshInstance3D" index="0"]
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/faucet1/PaintStream/MeshInstance3D/Area3D" index="0"]
 transform = Transform3D(1, -3.23359e-13, 0, -5.35671e-06, 1, -4.66152e-05, 0, -2.46084e-13, 1, 0, 0, 0)
@@ -1469,7 +1469,7 @@ mesh = SubResource("CylinderMesh_610uq")
 skeleton = NodePath("../../../..")
 
 [node name="Area3D" type="Area3D" parent="Model/faucet2/PaintStream/MeshInstance3D" index="0"]
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/faucet2/PaintStream/MeshInstance3D/Area3D" index="0"]
 transform = Transform3D(1, -3.23359e-13, 0, -5.35671e-06, 1, -4.66152e-05, 0, -2.46084e-13, 1, 0, 0, 0)
@@ -1501,7 +1501,7 @@ mesh = SubResource("CylinderMesh_610uq")
 skeleton = NodePath("../../../..")
 
 [node name="Area3D" type="Area3D" parent="Model/faucet3/PaintStream/MeshInstance3D" index="0"]
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/faucet3/PaintStream/MeshInstance3D/Area3D" index="0"]
 transform = Transform3D(1, -3.23359e-13, 0, -5.35671e-06, 1, -4.66152e-05, 0, -2.46084e-13, 1, 0, 0, 0)
@@ -1569,7 +1569,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.15802, -9.69864)
 curve = SubResource("Curve3D_ng43k")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8287)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1580,7 +1579,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.690762, 1.02651, 0.873352)
 curve = SubResource("Curve3D_gflmi")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171302, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1591,7 +1590,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98055, 7.81042, 0.842331)
 curve = SubResource("Curve3D_upte8")
 
 [node name="ElevatingPlatform" parent="Platforms/MovingPlatforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8287)
 path = NodePath("../Path3D")
 speed = 2.0
 
@@ -1627,7 +1625,7 @@ transform = Transform3D(0.703122, 0, 0.711069, 0, 1, 0, -0.711069, 0, 0.703122, 
 curve = SubResource("Curve3D_4t780")
 
 [node name="ElevatingPlatform" parent="Platforms/ThirdFloorObstacles/GoalPlatform" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.18022, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.269189, 0)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -1658,7 +1656,6 @@ transform = Transform3D(0.716911, 0, 0.697165, 0, 1, 0, -0.697165, 0, 0.716911, 
 
 [node name="FactoryElevator" parent="Platforms/ElevatorOrigin" index="0" instance=ExtResource("11_mwgg0")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 initial_y = -50.554
 rise_time = 3.0
 

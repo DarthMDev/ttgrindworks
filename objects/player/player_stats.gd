@@ -175,7 +175,8 @@ func attempt_revive(_hp: int) -> void:
 		return
 	
 	extra_lives -= 1
-	Util.get_player().quick_heal(Util.get_player().stats.max_hp / 2)
+	var revive_amount := maxi(1, Util.get_player().stats.max_hp / 2)
+	Util.get_player().quick_heal(revive_amount)
 	
 	# Create the unite effect
 	var unite: GPUParticles3D = load('res://objects/battle/effects/unite/unite.tscn').instantiate()
