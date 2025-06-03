@@ -7,7 +7,7 @@
 size = Vector3(1.29866, 0.69449, 1.30016)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t6ffk"]
-size = Vector3(2.00235, 1, 2.06166)
+size = Vector3(2.35254, 1, 2.42358)
 
 [node name="GoldenGooseObjButton" type="Node3D"]
 script = ExtResource("1_7kvd5")

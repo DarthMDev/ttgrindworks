@@ -109,11 +109,15 @@ func reroll() -> void:
 	if model:
 		model.queue_free()
 	ItemService.item_removed(item)
+	var discard_item: Item = item
+	var test_item: Item = discard_item
 	item = null
 	if bob_tween:
 		bob_tween.kill()
 		rotation_tween.kill()
-	roll_for_item()
+	while discard_item.item_name == test_item.item_name:
+		roll_for_item()
+		test_item = item
 	spawn_item()
 
 func _tween_model() -> void:

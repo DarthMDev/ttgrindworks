@@ -36,8 +36,12 @@ func replace_gag(gag: ToonAttack, new_gag: ToonAttack) -> void:
 	# Assign the correct targets to the new gag
 	if gag.target_type == new_gag.target_type:
 		new_gag.targets = gag.targets
-	elif new_gag.target_type == BattleAction.ActionTarget.ENEMY_SPLASH:
-		new_gag.reassess_splash_targets(battle.cogs.find(gag.targets[0]), battle)
+		new_gag.main_target = gag.main_target
+	else:
+		return
+	#elif new_gag.target_type == BattleAction.ActionTarget.ENEMY_SPLASH:
+		#new_gag.main_target = gag.targets[0]
+		#new_gag.reassess_splash_targets(battle.cogs.find(gag.targets[0]), battle)
 
 	new_gag.user = gag.user
 	new_gag.store_boost_text("Level Up!", Color(1, 0.431, 0))

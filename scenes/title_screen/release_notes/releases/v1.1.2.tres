@@ -27,4 +27,15 @@ Fixed some issues where lava pits wouldn't teleport you out if you were invincib
 Potentially fixed a rare bug where the D.A. Office Elevator camera would take over the screen when spawned in
 Also, made the \"I'm Stuck\" button refocus the Player camera as a failsafe for any additional camera shenanigans
 Definitely and for real this time fixed the issue where the Paint Silo elevator wouldn't spawn in the right place
-Major text fixes"
+Major text fixes
+[TITLE]Hotfix #1
+Made Fire Hydrant's animation a little snappier
+Fixed a bug that caused Accessory Trunk to occasionally spawn Laff Boosts & Gag Frames
+Paint Bucket should no longer be able to reroll an item into the same item
+Wizard Hat will no longer retarget Gags targeting v2.0 Cogs
+Fixed a bug where Mini Blinds would not properly reassert the main target of a Gag
+Mini Blinds can no longer upgrade $10 Dollar Bill to Presentation
+The paint streams in the Paint Silo boss can no longer damage you during invincibility frames
+Slightly increased the press range of the buttons in the Golden Goose boss fight
+Hopefully fixed the long standing issue of getting stuck on treasure chests
+Shapes spawning 3 in a row in the \"Drag three of a color in a row\" puzzle will now clear automatically"
