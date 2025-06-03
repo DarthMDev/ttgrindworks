@@ -14,6 +14,7 @@ func use() -> void:
 
 func cutscene(cogs : Array[Cog]) -> void:
 	var battle := BattleService.ongoing_battle
+	var battle_node := battle.battle_node
 	
 	if is_instance_valid(battle.battle_ui.timer):
 		battle.battle_ui.timer.timer.set_paused(true)
@@ -23,17 +24,19 @@ func cutscene(cogs : Array[Cog]) -> void:
 	
 	var hyd = HYDRANT.instantiate()
 	
-	battle.add_child(hyd)
+	battle_node.add_child(hyd)
 	
 	hyd.scale = Vector3(.4,.4,.4)
-	hyd.global_position = battle.battle_node.global_position - Vector3(-2,3,0)
-	hyd.rotation_degrees -= Vector3(0,90,0)
+	hyd.position.z = 1.5
+	hyd.rotation_degrees -= Vector3(0,180,0)
+	hyd.scale.y = 0.01
 	
 	battle.battle_node.battle_cam.position -= Vector3(0, 3, 1)
 	battle.battle_node.battle_cam.rotation_degrees += Vector3(35,0,0)
 	
-	var tween = hyd.create_tween()
-	tween.tween_property(hyd, "global_position",battle.battle_node.global_position + Vector3(2,0,0), 0.7)
+	var tween = hyd.create_tween().set_trans(Tween.TRANS_BACK).set_parallel()
+	tween.tween_property(hyd, 'position:y', 0.0, 0.5)
+	tween.tween_property(hyd, 'scale:y', 0.4, 0.5)
 	
 	await tween.finished
 	tween.kill()
@@ -63,8 +66,9 @@ func cutscene(cogs : Array[Cog]) -> void:
 	
 	await Task.delay(2.5)
 	
-	tween = hyd.create_tween()
-	tween.tween_property(hyd, "global_position",battle.battle_node.global_position - Vector3(-2,3,0), 0.7)
+	tween = hyd.create_tween().set_trans(Tween.TRANS_BACK).set_parallel().set_ease(Tween.EASE_IN)
+	tween.tween_property(hyd, 'scale:y', 0.01, 0.5)
+	tween.tween_property(hyd, 'position:y', -3.0, 0.1).set_delay(0.4)
 	
 	await tween.finished
 	tween.kill()
