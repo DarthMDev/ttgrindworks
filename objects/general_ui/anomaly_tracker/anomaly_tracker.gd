@@ -39,7 +39,7 @@ func play() -> void:
 	
 	# Show Anomalies
 	for i in anomaly_container.get_child_count():
-		anomaly_container.get_child(i).show()
+		tween.tween_callback(set_control_alpha.bind(anomaly_container.get_child(i), 1.0))
 		tween.tween_callback(AudioManager.play_sound.bind(get_sfx(anomalies[i].get_mod_quality())))
 		var scaler := anomaly_container.get_child(i).get_node('AnomalyScaler')
 		tween.tween_property(scaler,'scale',Vector2(1,1),1.0)
@@ -57,6 +57,9 @@ func play() -> void:
 	
 	tween.finished.connect(func(): queue_free())
 
+func set_control_alpha(control: Control, alpha: float) -> void:
+	control.self_modulate.a = alpha
+
 func populate_anomalies() -> void:
 	for anomaly in anomalies:
 		var label := Label.new()
@@ -72,6 +75,8 @@ func populate_anomalies() -> void:
 				label.text += RANDOM_CHARS[RandomService.randi_channel('true_random') % RANDOM_CHARS.length()]
 		color_label(label,anomaly)
 		label.set_anchors_and_offsets_preset(Control.PRESET_CENTER,Control.PRESET_MODE_KEEP_SIZE)
+		set_control_alpha(sizer, 0.0)
+		sizer.show()
 
 func tween_finished_editor() -> void:
 	title.scale = Vector2(0.01,0.01)

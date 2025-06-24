@@ -1,21 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceghombqxco7o"]
+[gd_scene load_steps=4 format=3 uid="uid://ceghombqxco7o"]
 
 [ext_resource type="PackedScene" uid="uid://dp5ejyjjmcpwu" path="res://models/props/facility_objects/da_office/bookshelf/law_bookshelf.glb" id="1_3rfxt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ob3hy"]
-size = Vector3(2.65924, 1.92113, 0.457581)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k3mgf"]
+data = PackedVector3Array(-129.926, -20.1292, -7.8486, 124.551, -20.1292, -186.131, 124.564, -20.1292, -7.8486, -129.926, -20.1292, -7.8486, -129.99, -20.1292, -186.105, 124.551, -20.1292, -186.131, -134.983, 23, -192.482, 130.472, -23, -192.503, 130.472, 23, -192.503, -134.983, 23, -192.482, -134.983, -23, -192.482, 130.472, -23, -192.503, -134.983, -23, -192.482, 130.484, -23, -0.4367, 130.472, -23, -192.503, -134.983, -23, -192.482, -135.08, -23, -0.4367, 130.484, -23, -0.4367, -135.08, -23, -0.4367, 130.484, 23, -0.4367, 130.484, -23, -0.4367, -135.08, -23, -0.4367, -135.08, 23, -0.4367, 130.484, 23, -0.4367, 130.484, 23, -0.4367, 130.472, -23, -192.503, 130.484, -23, -0.4367, 130.484, 23, -0.4367, 130.472, 23, -192.503, 130.472, -23, -192.503, -135.08, -23, -0.4367, -134.983, 23, -192.482, -135.08, 23, -0.4367, -135.08, -23, -0.4367, -134.983, -23, -192.482, -134.983, 23, -192.482, -135.08, 23, -0.4367, 124.564, 23, -7.8486, 130.484, 23, -0.4367, -135.08, 23, -0.4367, -129.926, 23, -7.8486, 124.564, 23, -7.8486, 130.484, 23, -0.4367, 124.551, 23, -186.131, 130.472, 23, -192.503, 130.484, 23, -0.4367, 124.564, 23, -7.8486, 124.551, 23, -186.131, 130.472, 23, -192.503, -129.99, 23, -186.105, -134.983, 23, -192.482, 130.472, 23, -192.503, 124.551, 23, -186.131, -129.99, 23, -186.105, -134.983, 23, -192.482, -129.926, 23, -7.8486, -135.08, 23, -0.4367, -134.983, 23, -192.482, -129.99, 23, -186.105, -129.926, 23, -7.8486, -129.926, 23, -7.8486, 124.564, -20.1292, -7.8486, 124.564, 23, -7.8486, -129.926, 23, -7.8486, -129.926, -20.1292, -7.8486, 124.564, -20.1292, -7.8486, 124.564, 23, -7.8486, 124.551, -20.1292, -186.131, 124.551, 23, -186.131, 124.564, 23, -7.8486, 124.564, -20.1292, -7.8486, 124.551, -20.1292, -186.131, 124.551, 23, -186.131, -129.99, -20.1292, -186.105, -129.99, 23, -186.105, 124.551, 23, -186.131, 124.551, -20.1292, -186.131, -129.99, -20.1292, -186.105, -129.99, 23, -186.105, -129.926, -20.1292, -7.8486, -129.926, 23, -7.8486, -129.99, 23, -186.105, -129.99, -20.1292, -186.105, -129.926, -20.1292, -7.8486)
+backface_collision = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vcc86"]
+data = PackedVector3Array(-132.038, 17.8274, -188.646, 126.255, 17.8274, -6.8114, -132.102, 17.8274, -6.8114, -132.038, 17.8274, -188.646, 126.243, 17.8274, -188.662, 126.255, 17.8274, -6.8114)
+backface_collision = true
 
 [node name="law_bookshelf" instance=ExtResource("1_3rfxt")]
 
 [node name="collision" parent="Law_bookcaseB" index="0"]
 visible = false
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Law_bookcaseB/pCube1" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Law_bookcaseB/pCube1/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_k3mgf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Law_bookcaseB/polySurface1" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Law_bookcaseB/polySurface1/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_vcc86")
+
 [node name="shadow" parent="Law_bookcaseB" index="6"]
 transparency = 0.35
-
-[node name="Collision" type="StaticBody3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695074, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0235291, 0.269783, -0.00216675)
-shape = SubResource("BoxShape3D_ob3hy")

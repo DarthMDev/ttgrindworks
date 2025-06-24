@@ -7,7 +7,7 @@ var SUPER_CANDY_POOL: ItemPool
 
 func _init() -> void:
 	CANDY_POOL = GameLoader.load("res://objects/items/pools/candies.tres")
-	SUPER_CANDY_POOL = GameLoader.load("res://objects/items/pools/candies.tres")
+	SUPER_CANDY_POOL = GameLoader.load("res://objects/items/pools/super_candies.tres")
 
 func use() -> void:
 	var player := Util.get_player()

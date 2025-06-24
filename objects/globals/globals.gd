@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.1.2a"
+const VERSION_NUMBER := "v1.1.3"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -498,12 +498,16 @@ var reward_chest_chance := 0.4
 var floor_difficulty_increase := 1.0 / 3.0
 var FLOOR_VARIANTS: Array[FloorVariant]:
 	get:
-		return [
+		var variants: Array[FloorVariant] = [
 			factory_floor_variant,
 			mint_floor_variant,
 			da_floor_variant,
 			cgc_floor_variant,
 		]
+		variants.append_array(additional_floors)
+		return variants
+## For modders, add additional floors here
+var additional_floors: Array[FloorVariant] = []
 
 ## Common Scenes
 var DUST_CLOUD: PackedScene:
