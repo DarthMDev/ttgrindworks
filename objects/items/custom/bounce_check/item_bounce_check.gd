@@ -65,7 +65,7 @@ func cutscene() -> void:
 		battle.battle_ui.timer.timer.set_paused(true)
 		
 	battle.battle_ui.visible = false
-	Util.get_player().visible = false
+	Util.get_player().toon.hide()
 	
 	battle.battle_node.focus_cogs()
 	battle.battle_node.battle_cam.position.z += 3.0
@@ -82,7 +82,7 @@ func cutscene() -> void:
 	
 	await battle.sleep(2.0)
 	battle.battle_ui.visible = true
-	Util.get_player().visible = true
+	Util.get_player().toon.show()
 	battle.battle_node.focus_character(battle.battle_node)
 	
 	if is_instance_valid(battle.battle_ui.timer):

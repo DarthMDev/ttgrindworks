@@ -6,9 +6,9 @@ var FALLBACK_REWARD_POOL: ItemPool
 ## Default Cog Pool
 var FALLBACK_COG_POOL: CogPool
 ## Amount of rooms to add per difficulty (includes connectors)
-const DIFFICULTY_ROOM_ADDITION := 2
+static var DIFFICULTY_ROOM_ADDITION := 2
 
-const ANOMALIES_POSITIVE: Array[String] = [
+static var ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overheal.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_record_profits.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_organic_gags.gd",
@@ -16,7 +16,7 @@ const ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_victory_cry.gd",
 ]
-const ANOMALIES_NEUTRAL: Array[String] = [
+static var ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_reorganization.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
@@ -24,7 +24,7 @@ const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
 ]
-const ANOMALIES_NEGATIVE: Array[String] = [
+static var ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_out_of_touch.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_safety_violations.gd",
@@ -33,7 +33,7 @@ const ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_double_trouble.gd",
 ]
 
-const LEVEL_RANGES: Dictionary[int, Array] = {
+static var LEVEL_RANGES: Dictionary[int, Array] = {
 	0: [1, 2],
 	1: [2, 5],
 	2: [3, 7],
@@ -198,7 +198,10 @@ func clear() -> void:
 	anomalies.clear()
 
 
-const NEW_ANOMALY_BLOCKLIST := [
+## ATTN MODDERS:
+## Please do not remove marathon from this variable
+## You will crash if marathon is added mid-floor
+static var NEW_ANOMALY_BLOCKLIST := [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
 ]

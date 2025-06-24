@@ -106,7 +106,7 @@ func gag_selected(gag: BattleAction) -> void:
 	# Lower turns
 	turn += 1
 
-func refresh_turns():
+func refresh_turns() -> void:
 	attack_label.set_text("Turns Remaining: " + str(manager.battle_stats[Util.get_player()].turns - turn))
 	gag_order_menu.update_panels()
 	

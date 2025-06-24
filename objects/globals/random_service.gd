@@ -10,8 +10,16 @@ var base_seed: int
 var channels := {
 }
 
+# Here's a cool bounty for anyone reading this
+# Some people noticed a lot of correlations with random rolls
+# ie: "Mystery Toon always starts in CGC if the prank is Big Foghorn"
+# So I made some funky math below that I'm not convinced truly solves the issue
+# I am open to suggestion on how to improve this
 func add_channel(channel_name: String) -> void:
-	channels[channel_name] = base_seed
+	var base_channel_seed := base_seed
+	base_channel_seed += channel_name.hash()
+	base_channel_seed *= roundi(base_channel_seed / channel_name.hash())
+	channels[channel_name] = base_channel_seed
 
 func get_channel_seed(channel_name: String) -> int:
 	# Cool channel for true non-seeded randomness

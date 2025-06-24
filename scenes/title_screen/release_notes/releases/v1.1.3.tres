@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://0yd68mpj3psb"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_83fe4"]
+
+[resource]
+script = ExtResource("1_83fe4")
+release_version = "v1.1.3"
+notes = "[TITLE]Items
+Removed Task Reroll from the Gold Chest pool
+[TITLE]Tweaks
+The Anomaly Preview on starting a new floor will now properly hide the names of the anomalies until they are to be shown
+Made one of the more hidden chests always Gold
+[TITLE]Bugfixes
+Fixed a bug where White-Out would cause the player to spawn partway through the floor if certain conditions were met
+Fixed a bug where Sour Shockers would get rerolled from ToonTasks if prank was charged between pauses
+Fixed a bug where completing a turn while on the Target Select menu could grant Gag points over the maximum
+Fixed a softlock when swapping your pocket prank while using a scripted prank like Toy Hammer
+Skyboxes should no longer disappear during the Tax-Write-Off and Fire Hydrant battle movies
+Gumball Machine should now actually give you special candies sometimes (sory)
+[TITLE]For Modders
+That's right, this is its own section now
+Made stat clamps static variables
+Made the Anomaly arrays static variables
+Modded Floors can now be easily added to the game via the additional_floors array in Globals"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

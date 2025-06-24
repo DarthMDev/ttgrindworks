@@ -1,7 +1,6 @@
 extends Node3D
 class_name ElevatorScene
 
-const FLOOR_VARIANT_PATH := "res://scenes/game_floor/floor_variants/base_floors/"
 const FINAL_FLOOR_VARIANT := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor.tres")
 const ALT_FLOOR_CHANCE := 10
 
@@ -78,12 +77,12 @@ func get_next_floors() -> void:
 	if Util.floor_number == 5:
 		final_boss_time_baby()
 		return
-	var floor_variants := DirAccess.get_files_at(FLOOR_VARIANT_PATH)
+	var floor_variants := Globals.FLOOR_VARIANTS
 	var taken_items: Array[String] = []
 	for i in 3:
-		var random_floor := floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
-		floor_variants.remove_at(floor_variants.find(random_floor))
-		var new_floor: FloorVariant = Util.universal_load(FLOOR_VARIANT_PATH + random_floor).duplicate()
+		var new_floor := floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
+		floor_variants.erase(new_floor)
+		new_floor = new_floor.duplicate()
 		
 		# Roll for alt floor
 		if new_floor.alt_floor and RandomService.randi_channel('floors') % ALT_FLOOR_CHANCE == 0:
