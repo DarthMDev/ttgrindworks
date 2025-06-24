@@ -29,7 +29,7 @@ class_name BattleStats
 		s_accuracy_changed.emit(x)
 
 ## STAT CLAMPS
-var STAT_CLAMPS: Dictionary[String, Vector2] = {
+static var STAT_CLAMPS: Dictionary[String, Vector2] = {
 	'speed' : Vector2(0.7, 2.0),
 	'damage' : Vector2(0.1, UNCAPPED_STAT_VAL),
 	'defense' : Vector2(0.1, UNCAPPED_STAT_VAL),
