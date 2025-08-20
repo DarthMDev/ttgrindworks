@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("3_rie88")
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = true

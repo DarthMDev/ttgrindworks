@@ -3,6 +3,10 @@ extends Node3D
 
 var item: Item
 
+## For validation checks
+const DATA_FORCE_KEEP := "force_no_reroll"
+
+
 func setup(resource: Item):
 	item = resource
 	if 'damage' in item.stats_add:
@@ -17,8 +21,7 @@ func setup(resource: Item):
 		candy_type = CandyType.SPEED
 	elif 'active_charge' in item.stats_add:
 		candy_type = CandyType.BATTERY
-		if not is_battery_valid():
-			item.reroll()
+		run_battery_check()
 
 func modify(ui: Node3D) -> void:
 	ui.candy_type = candy_type
@@ -97,6 +100,24 @@ func _update_candy_visual() -> void:
 #endregion
 
 #region Misc. Logic
+
+func run_battery_check() -> void:
+	if not item:
+		return
+	
+	# Keep battery for tasks when reinitialized
+	if item.arbitrary_data.has(DATA_FORCE_KEEP):
+		return
+	
+	# Validate battery
+	var valid := is_battery_valid()
+	
+	# Mark battery as forced to keep even if reinitialized
+	if valid:
+		item.arbitrary_data[DATA_FORCE_KEEP] = true
+	# Attempt to reroll battery
+	else:
+		item.reroll()
 
 ## Check for battery validity
 ## Battery is valid if a player has an uncharged active item

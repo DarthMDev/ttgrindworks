@@ -138,7 +138,7 @@ func purchase() -> void:
 	if Util.get_player().stats.current_active_item and world_items[item_index].item is ItemActive:
 		yeah_ill_hold_that_for_you()
 	ui.set_item(null, -1)
-	world_items[item_index].body_entered(Util.get_player())
+	world_items[item_index].collect(Util.get_player())
 	if toon and toon_speaks:
 		toon.speak("It's all yours. Enjoy!")
 

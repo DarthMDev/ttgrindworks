@@ -1,7 +1,6 @@
 extends Node3D
 class_name ElevatorScene
 
-const FLOOR_VARIANT_PATH := "res://scenes/game_floor/floor_variants/base_floors/"
 const FINAL_FLOOR_VARIANT := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor.tres")
 const FINAL_FLOOR_VARIANT2 := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor2.tres")
 const ALT_FLOOR_CHANCE := 0
@@ -83,7 +82,7 @@ func get_next_floors() -> void:
 		final_boss2_time_baby()
 		return
 	var random_floor_amount = 4
-	var floor_variants := DirAccess.get_files_at(FLOOR_VARIANT_PATH)
+	var floor_variants := Globals.FLOOR_VARIANTS
 	if Util.floor_number >= 3:
 		floor_variants = [floor_variants[floor_variants.size() - 1]] #3 but it looks better than just 3
 	var taken_items: Array[String] = []
@@ -92,9 +91,9 @@ func get_next_floors() -> void:
 		add_positive_floor(floor_variants)
 		random_floor_amount = 2
 	for i in random_floor_amount:
-		var random_floor := floor_variants[RandomService.randi_channel('floors') % floor_variants.size()] 
-		#floor_variants.remove_at(floor_variants.find(random_floor))
-		var new_floor: FloorVariant = Util.universal_load(FLOOR_VARIANT_PATH + random_floor).duplicate()
+		var new_floor := floor_variants[RandomService.randi_channel('floors') % floor_variants.size()] 
+		#floor_variants.erase(new_floor)
+		new_floor = new_floor.duplicate()
 		
 		new_floor.randomize_details()
 		while not new_floor.reward or new_floor.reward.item_name in taken_items:

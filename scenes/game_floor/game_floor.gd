@@ -148,18 +148,13 @@ func generate_floor() -> void:
 		if i >= room_count:
 			break
 		add_random_room()
-	
-	var entrance = room_node.get_child(0)
+		if i == 0:
+			spawn_player(player)
 	
 	# Start anomaly tracker now that we've gotten all our anomalies
 	if not anomalies.is_empty():
 		show_anomalies()
 	
-	player.global_position = entrance.get_node('SPAWNPOINT').global_position
-	player.state = Player.PlayerState.WALK
-	player.camera.make_current()
-	player.recenter_camera(true)
-	player.face_position(entrance.get_node('EXIT').global_position)
 	if Util.floor_number == 0:
 		player.fall_in(true)
 		player.game_timer_tick = true
@@ -173,6 +168,14 @@ func generate_floor() -> void:
 		AudioManager.set_default_music(floor_rooms.background_music[RandomService.randi_channel('true_random') % floor_rooms.background_music.size()])
 		if floor_variant.floor_name == "The Factory":
 			if Util.floor_number < 4: AudioManager.set_default_music(load('res://audio/music/installer.ogg'))
+
+func spawn_player(player: Player) -> void:
+	var entrance = room_node.get_child(0)
+	player.global_position = entrance.get_node('SPAWNPOINT').global_position
+	player.state = Player.PlayerState.WALK
+	player.camera.make_current()
+	player.recenter_camera(true)
+	player.face_position(entrance.get_node('EXIT').global_position)
 
 func get_random_connector_room() -> PackedScene:
 	return floor_rooms.connectors[RandomService.randi_channel('true_random') % floor_rooms.connectors.size()]

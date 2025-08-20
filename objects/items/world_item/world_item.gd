@@ -137,12 +137,18 @@ func body_entered(body: Node3D) -> void:
 		return
 	var player: Player = body
 	
+	if player.state == Player.PlayerState.STOPPED:
+		return
+	collect(player)
+
+func collect(player: Player) -> void:
+	
 	s_collected.emit()
 	
 	# Turn of monitoring
 	set_deferred('monitoring', false)
 	$ReactionArea.set_deferred('monitoring', false)
-	body_not_reacting(body)
+	body_not_reacting(player)
 	
 	# Apply the item
 	apply_item()
