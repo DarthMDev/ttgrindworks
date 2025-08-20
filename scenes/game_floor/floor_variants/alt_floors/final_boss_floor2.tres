@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FloorVariant" load_steps=5 format=3 uid="uid://do2t6yyg5oo5a"]
+
+[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="1_vyl7i"]
+[ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="2_n4utk"]
+[ext_resource type="PackedScene" uid="uid://dhvmfpl18n8hu" path="res://scenes/final_boss/barrel_room2.tscn" id="3_uw5nu"]
+[ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="4_xcmc4"]
+
+[resource]
+script = ExtResource("4_xcmc4")
+floor_difficulty = 5
+floor_name = "The Executive Office 2"
+override_scene = ExtResource("3_uw5nu")
+modifiers = Array[Script]([])
+end_rooms = Array[ExtResource("1_vyl7i")]([])
+floor_icon = ExtResource("2_n4utk")
+anomalies = Array[Script]([])
+level_range = Vector2i(1, 12)
+room_count = 13

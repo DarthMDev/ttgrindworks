@@ -13,7 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.3854, 4.5987, -113.615)
 
 [node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("4_jysxp")]
 transform = Transform3D(0.085417, 0, 0.996345, 0, 1, 0, -0.996345, 0, 0.085417, -1.49075, 0, -11.1547)
-cog_range = Vector2i(2, 3)
 cog_dist = 1.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
@@ -22,7 +21,6 @@ shape = SubResource("BoxShape3D_6f1p1")
 
 [node name="BattleNodeDynamic2" parent="Battles" index="1" instance=ExtResource("4_jysxp")]
 transform = Transform3D(-0.491467, 0, 0.870896, 0, 1, 0, -0.870896, 0, -0.491467, 6.36037, 0, 12.8108)
-cog_range = Vector2i(2, 3)
 cog_dist = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]

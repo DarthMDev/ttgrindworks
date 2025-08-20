@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_mxwab"]
 [ext_resource type="AudioStream" uid="uid://bud30ag72grgs" path="res://audio/music/Corporate-Clash-Overclocked-Find-the-Foreman-Battle-Theme-1.ogg" id="2_4fcy8"]
 [ext_resource type="AudioStream" uid="uid://d4l0p6gq27dp7" path="res://audio/music/Corporate-Clash_-Overclocked-Find-the-Foreman-Battle-Theme-2.ogg" id="2_8ncy8"]
+[ext_resource type="AudioStream" uid="uid://be8qbbc4a5f51" path="res://audio/music/Corporate-Clash_oftf_no_president.ogg" id="8_8ncy8"]
 [ext_resource type="AudioStream" uid="uid://bdxsvibml5lmw" path="res://audio/music/seize_the_means.ogg" id="2_x2jwy"]
 [ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="3_jw8rd"]
 [ext_resource type="PackedScene" uid="uid://dui2hdkuqux28" path="res://objects/modules/factory/variants/factory_gear_room_battle.tscn" id="4_i1303"]
@@ -141,4 +142,4 @@ final_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_yfkbg"), SubR
 one_time_rooms = Array[PackedScene]([ExtResource("17_hupyr")])
 special_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_6xghj")])
 background_music = Array[AudioStream]([ExtResource("1_56p8i")])
-battle_music = Array[AudioStream]([ExtResource("2_x2jwy"), ExtResource("2_4fcy8"), ExtResource("2_8ncy8")])
+battle_music = Array[AudioStream]([ExtResource("2_x2jwy"), ExtResource("2_4fcy8"), ExtResource("2_8ncy8"), ExtResource("8_8ncy8")])

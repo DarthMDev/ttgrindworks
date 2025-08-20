@@ -196,6 +196,7 @@ func use_treasure(level: int) -> void:
 	if Util.get_player().stats.treasures[level] > 0:
 		Util.get_player().stats.treasures[level] -= 1
 		Util.get_player().quick_heal(get_treasure_heal(treasure))
+		Globals.healed_from_treasure += Globals.debug_heal_func(get_treasure_heal(treasure))
 		treasure.play_collection_sound()
 		_refresh_treasures()
 

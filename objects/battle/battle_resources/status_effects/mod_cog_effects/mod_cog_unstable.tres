@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dfltetlioc2s7"]
+
+[ext_resource type="Texture2D" uid="uid://b5msql025cie3" path="res://ui_assets/battle/statuses/pinpoint_accuracy.png" id="1_6mlav"]
+[ext_resource type="Script" uid="uid://c7cuvl6yksogk" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_unstable.gd" id="1_besxi"]
+
+[resource]
+script = ExtResource("1_besxi")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_6mlav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Cycle through certain abilities"
+status_name = "Unstable"
+is_foreman_effect = false
+id = 7020
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

@@ -21,7 +21,7 @@ const ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_reorganization.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
+	#"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
 ]
 const ANOMALIES_NEGATIVE: Array[String] = [
@@ -42,6 +42,10 @@ const LEVEL_RANGES: Dictionary[int, Array] = {
 	3: [8, 9],
 	4: [10, 12],
 	5: [12, 15],
+	6: [21, 22], #shouldn't happen but just incase / testing
+	7: [20, 21],
+	8: [21, 22],
+	9: [23, 24],
 }
 
 ## Floor difficulty from 0-5
@@ -235,7 +239,8 @@ func get_green_light_anomaly() -> Array[Script]:
 
 func get_gag_immunity_anomaly() -> Array[Script]:
 	var mods: Array[Script] = []
-	var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_gag_immunities.gd" 
+	var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_gag_immunities.gd"
+	#var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/misc/floor_mod_expansion.gd"
 	var loaded_mod: Script = Util.universal_load(new_mod)
 	mods.append(loaded_mod)
 	return mods

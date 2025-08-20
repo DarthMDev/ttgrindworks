@@ -172,9 +172,12 @@ func sort_gags(gags: Array[ToonAttack]) -> Array[ToonAttack]:
 func reset():
 	show()
 	cog_panels.assign_cogs(get_parent().cogs)
+	print("in line 175 battle ui")
+	print(gag_tracks)
 	for track in gag_tracks.get_children():
 		track.refresh()
 	status_container.refresh()
+	sort_tracks_to_loadout()
 
 	if %TargetSelect.visible:
 		# Force reset target select, and also potentially
@@ -258,4 +261,15 @@ func enable_items() -> void:
 		item_button.enable()
 		binded = false
 		check_pink_slips()
+func sort_tracks_to_loadout() -> void:
+	var loadout = Util.get_player().character.gag_loadout.loadout
+	var tracks = gag_tracks.get_children()
 	
+
+	for i in range(loadout.size()):
+		var track_name = loadout[i].track_name  # Assuming Track has a 'name' property
+		for track in tracks:
+			var track_fame = track.get_node("Labels/TrackName").text
+			if track_fame.to_upper() == track_name.to_upper():
+				gag_tracks.move_child(track, i)
+				break	

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://6bc84c1fknkc"]
+
+[ext_resource type="Script" uid="uid://bpec0mw0idbit" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_confused.gd" id="1_knbth"]
+[ext_resource type="Texture2D" uid="uid://yntqax0s856g" path="res://ui_assets/misc/PetEmoteConfused2.png" id="1_kooav"]
+
+[resource]
+script = ExtResource("1_knbth")
+quality = 2
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_kooav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Reorganizes your gags and has some wierd insurance"
+status_name = "Confused"
+is_foreman_effect = false
+id = 7026

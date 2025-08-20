@@ -1,7 +1,7 @@
 
 @tool
 extends StatusEffect
-class_name StatusEffectGagImmunity2 #I added a 2 just incase the names of this class matter in any way
+class_name StatusEffectGagImmunity2 #I added a 2 just incase the names of this class matter in any way # it does
 
 const immune_icon = preload("res://ui_assets/battle/statuses/lure_immunity.png")
 

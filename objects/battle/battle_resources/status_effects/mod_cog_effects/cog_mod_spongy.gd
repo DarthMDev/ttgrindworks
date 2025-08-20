@@ -4,7 +4,7 @@ extends StatusEffect
 const BOOST_AMOUNT := 1.515
 const STAT_BOOST_RESOURCE := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 var Recoil_Attack = preload("res://objects/battle/battle_resources/cog_attacks/resources/recoil.tres")
-var damage_redirected: float = 0.33
+var damage_redirected: float = 0.5 # 100 / 1.5 = 66 ||  66 / 0.5 == 0.33
 var boost_effects: Array[StatBoost] = []
 
 func apply() -> void:
@@ -37,7 +37,7 @@ func create_boost(who: Cog) -> StatBoost:
 	status_effect.target = who
 	status_effect.boost = BOOST_AMOUNT
 	status_effect.stat = 'defense'
-	status_effect.description = "+25% Defense"
+	status_effect.visible = false
 	status_effect.rounds = -1
 	status_effect.quality = StatusEffect.EffectQuality.POSITIVE
 	# Allowing these to combine can cause problems when the owner cog dies
@@ -60,4 +60,5 @@ func redirect_damage(_action: BattleAction, cog: Node3D, amount: int):
 	recoil.user = target
 	recoil.targets = [target]
 	recoil.damage = amount * damage_redirected
+	recoil.action_name = "  "
 	manager.inject_battle_action(recoil, 0)

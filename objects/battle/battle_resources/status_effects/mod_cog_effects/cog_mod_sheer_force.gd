@@ -4,7 +4,8 @@ var skip_index = 0
 var buff_turn_index = 0
 signal s_gag_modified(indexes: Array)  # New signal
 var effectdict = {}
-var battle_ui 
+var battle_ui
+var unstable = false
 
 func apply() -> void:
 	var cog: Cog = target
@@ -12,14 +13,28 @@ func apply() -> void:
 	#print(playerturns)
 	battle_ui = manager.battle_ui
 	if playerturns >= 2:
-		skip_index = RandomService.randi_channel('true_random') % playerturns 
-		for i in range(playerturns):
-			if i != skip_index:
-				effectdict[i] = {
-					"effect": 1,
-					"desc": "Gag secondary effects disabled",
-					"value": true
-				}
+		skip_index = RandomService.randi_channel('true_random') % playerturns
+		if unstable:
+			print("running unstable sheer force")
+			var skip_index2 = skip_index
+			while skip_index != skip_index2:
+				skip_index2 = RandomService.randi_channel('true_random') % playerturns
+				for i in range(playerturns):
+					if i != skip_index and i != skip_index2:
+						effectdict[i] = {
+							"effect": 1,
+							"desc": "Gag secondary effects disabled",
+							"value": true
+						}
+		else:
+			print("Stable sheer force")
+			for i in range(playerturns):
+				if i != skip_index:
+					effectdict[i] = {
+						"effect": 1,
+						"desc": "Gag secondary effects disabled",
+						"value": true
+					}
 	else: effectdict[0] = { "effect": 1, "desc": "Gag secondary effects disabled", "value": true }
 	#print("ui sledected gags? line 15")
 	await Task.delay(0.1)
@@ -36,6 +51,8 @@ func on_gags_chosen(actions: Array[ToonAttack]) -> void:
 	s_gag_modified.emit([0,1])
 
 func renew() -> void:
+	if unstable:
+		return
 	var playerturns = Util.get_player().stats.turns
 	effectdict.clear()
 	#print(playerturns)
@@ -62,4 +79,4 @@ func get_status_name() -> String:
 	return "Sheer Force"
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/statuses/pinpoint_accuracy.png")
+	return load("res://ui_assets/battle/statuses/sheer_force.png")

@@ -74,3 +74,11 @@ func ts_pmo() -> void:
 	var walk_tween := create_walk_tween()
 	await walk_tween.finished
 	walk_tween.kill()
+
+func i_love_lure() -> void:
+	target.lured = false
+	if lure_type == LureType.DAMAGE_DOWN:
+		manager.battle_stats[target].damage *= (1 / damage_nerf)
+	var walk_tween := create_walk_tween()
+	await walk_tween.finished
+	walk_tween.kill()

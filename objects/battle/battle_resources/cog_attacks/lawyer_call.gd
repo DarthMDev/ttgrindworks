@@ -21,6 +21,7 @@ func action() -> void:
 		new_cog.dna = load("res://objects/cog/presets/cashbot/loan_shark.tres").duplicate()
 		new_cog.dna.cog_name = "Lawyer Poser"
 		new_cog.has_forced_dna = true
+		new_cog.level = 12
 		#new_cog.body.set_color(Color.CORNFLOWER_BLUE)
 		new_cogs.append(new_cog)
 		new_cog.hide()

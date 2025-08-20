@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TiaraRegeneration" load_steps=3 format=3 uid="uid://dx8aqej0vmgpw"]
+
+[ext_resource type="Texture2D" uid="uid://c8unum8fxd5db" path="res://models/accessories/hats/faded_tiara/faded_tiara_view.png" id="1_3ng7"]
+[ext_resource type="Script" uid="uid://ddjmm1vdgq2pc" path="res://objects/battle/battle_resources/status_effects/status_effect_faded_tiara.gd" id="1_7ny4i"]
+
+[resource]
+script = ExtResource("1_7ny4i")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_3ng7")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Faded Tiara"
+status_name = "Faded Tiara"
+is_foreman_effect = false
+id = 51

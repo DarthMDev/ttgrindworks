@@ -1,0 +1,343 @@
+extends Node3D
+class_name FinalBossScene2
+
+const TITLE_SCREEN_SCENE := "res://scenes/title_screen/title_screen.tscn"
+const ELEVATOR_SCENE = "res://scenes/elevator_scene/elevator_scene.tscn"
+const SKY_SPEED := 3.0
+const COG_SCENE := preload("res://objects/cog/cog.tscn")
+
+const SFX_CAGE_LOWER := preload("res://audio/sfx/misc/CHQ_SOS_cage_lower.ogg")
+const SFX_CAGE_LAND := preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
+
+var WANT_DEBUG_BOSSES := true
+var DEBUG_FORCE_BOSS_ONE: CogDNA = load("res://objects/cog/presets/lawbot/whistleblower.tres")
+var DEBUG_FORCE_BOSS_TWO: CogDNA = load("res://objects/cog/presets/cashbot/bookkeeper.tres")
+var DEBUG_FORCE_BOSS_THREE: CogDNA = load("res://objects/cog/presets/lawbot/scapegoat.tres")
+
+var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
+var unstable_bump = false
+
+@export var possible_bosses: Array[CogDNA] = []
+
+@onready var battle: BattleNode = $BattleNode
+@onready var caged_toon: Toon = $Grp_animation/toonCage/CagedToon
+@onready var boss_cog: Cog = $BattleNode/BossCog
+@onready var boss_cog_2: Cog = $BattleNode/BossCog2
+@onready var boss_cog_3: Cog = $BattleNode/BossCog3
+@onready var toon_cage: MeshInstance3D = $Grp_animation/toonCage
+
+@onready var scene_animator: AnimationPlayer = $SceneAnimator
+
+## Elevators
+@onready var elevator_in: Elevator = $ElevatorEntrance
+@onready var elevator_out: Elevator = $ElevatorExit
+
+var unlock_toon := false
+
+## For battle tracking
+const COG_LEVEL_RANGE := Vector2i(20, 22)
+var boss_one_choice: CogDNA
+var boss_two_choice: CogDNA
+var boss_three_choice: CogDNA
+
+var boss_one_alive := true
+var boss_two_alive := true
+var boss_three_alive := true
+var elevator_cooldown = 1
+var darkened_sky := false
+
+func _ready() -> void:
+	Globals.s_entered_barrel_room.emit()
+	Util.final_boss = false
+	Util.final_boss2 = true
+	set_caged_toon_dna(get_caged_toon_dna())
+	AudioManager.set_music(MUSIC_TRACK)
+	# Pick the first boss
+	var boss_choices := possible_bosses.duplicate()
+	if DEBUG_FORCE_BOSS_ONE != null and WANT_DEBUG_BOSSES:
+		boss_one_choice = DEBUG_FORCE_BOSS_ONE
+		boss_cog.set_dna(boss_one_choice)
+	else:
+		boss_one_choice = RandomService.array_pick_random('base_seed', boss_choices)
+		boss_cog.set_dna(boss_one_choice)
+		boss_choices.erase(boss_one_choice)
+
+	# Pick the second boss
+	if DEBUG_FORCE_BOSS_TWO != null and WANT_DEBUG_BOSSES:
+		boss_two_choice = DEBUG_FORCE_BOSS_TWO
+		boss_cog_2.set_dna(boss_two_choice)
+		print(boss_cog_2.dna.health_mod, " is health mod")
+	else:
+		boss_two_choice = RandomService.array_pick_random('base_seed', boss_choices)
+		boss_cog_2.set_dna(boss_two_choice)
+	# Pick the thirth boss *_*
+	
+	if DEBUG_FORCE_BOSS_THREE != null and WANT_DEBUG_BOSSES:
+		boss_three_choice = DEBUG_FORCE_BOSS_THREE
+		boss_cog_3.set_dna(boss_three_choice)
+	else:
+		boss_three_choice = RandomService.array_pick_random('base_seed', boss_choices)
+		boss_cog_3.set_dna(boss_three_choice)
+
+	# Nerf their damage got damn!!!
+	
+	boss_cog.stats.damage = 2.4
+	boss_cog_2.stats.damage = 2.4
+	boss_cog_3.stats.damage = 3.5
+	boss_cog.stats.max_hp = 7000
+	boss_cog.stats.hp = 7000
+	boss_cog_2.stats.max_hp = 7000
+	boss_cog_2.stats.hp = 7000
+	boss_cog_3.stats.max_hp = 9000
+	boss_cog_3.stats.hp = 9000
+	#battle.cogs.append(boss_cog_3)
+	# Start the battle
+	Util.get_player().state = Player.PlayerState.WALK
+	battle.player_entered(Util.get_player())
+
+	if not BattleService.ongoing_battle:
+		await BattleService.s_battle_started
+
+	# Every 2 rounds, starting on round 2: Spawn in 2 more cogs
+	BattleService.ongoing_battle.s_round_started.connect(try_add_cogs)
+	BattleService.ongoing_battle.s_participant_died.connect(participant_died)
+	BattleService.ongoing_battle.s_battle_ending.connect(battle_ending)
+
+	boss_cog.stats.hp_changed.connect(on_boss_hp_changed)
+	boss_cog_2.stats.hp_changed.connect(on_boss_hp_changed)
+	boss_cog_3.stats.hp_changed.connect(on_boss_hp_changed)
+
+
+func try_add_cogs(_actions: Array[BattleAction]) -> void:
+	var has_union_buster := false
+	for cog: Cog in battle.cogs:
+		if cog.dna.cog_name == "Union Buster":
+			has_union_buster = true
+			break
+	if has_union_buster:
+		if BattleService.ongoing_battle.current_round % 1 == 0 and (boss_one_alive or boss_two_alive or boss_three_alive):
+			var new_reinforcements := ElevatorReinforcements.new()
+			new_reinforcements.user = self
+			BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
+	else:
+		#print("in penthouse line 90, ELEVATOR COOLDOWN: ", elevator_cooldown)
+		if should_spawn_foreman():
+			var new_reinforcements := ElevatorReinforcements.new()
+			new_reinforcements.user = self
+			BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
+			elevator_cooldown = 1
+
+func participant_died(who: Node3D) -> void:
+	if who == boss_cog:
+		boss_one_alive = false
+		a_boss_died()
+	elif who == boss_cog_2:
+		boss_two_alive = false
+		a_boss_died()
+	elif who == boss_cog_3:
+		boss_three_alive = false
+		a_boss_died()
+	elif who is Cog: #foreman
+		if not both_bosses_alive():
+			if elevator_cooldown < 2:
+				elevator_cooldown += 1
+		#print("stuff")
+
+func battle_ending() -> void:
+	Util.get_player().game_timer_tick = false
+	Util.get_player().lock_game_timer = true
+	Util.get_player().game_timer.become_full_visible()
+	var win_time : float = Util.get_player().game_timer.time
+	if win_time < 3600.0:
+		Globals.s_one_hour_win.emit()
+	if win_time < SaveFileService.progress_file.best_time or is_equal_approx(0.0, SaveFileService.progress_file.best_time):
+		SaveFileService.progress_file.best_time = Util.get_player().game_timer.time
+
+func to_dusk() -> void:
+	$WorldEnvironment.environment = $WorldEnvironment.environment.duplicate()
+	var env: Environment = $WorldEnvironment.environment
+	
+	var dusk_tween := create_tween()
+	dusk_tween.tween_property(env, "ambient_light_energy", 0.7, 15.0)
+	dusk_tween.parallel().tween_property(env, "ambient_light_color", Color("c3a192"), 15.0)
+	dusk_tween.finished.connect(dusk_tween.kill)
+	
+func a_boss_died() -> void:
+	if not darkened_sky:
+		darkened_sky = true
+		to_dusk()
+		# to unlock-loop
+		AudioManager.set_clip(2)
+
+func on_boss_hp_changed(_hp) -> void:
+	if not both_bosses_alive() or darkened_sky: return
+	
+	var maximum_hp := boss_cog.stats.max_hp + boss_cog_2.stats.max_hp + boss_cog_3.stats.max_hp
+	var current_hp := boss_cog.stats.hp + boss_cog_2.stats.hp + boss_cog_3.stats.hp 
+	if float(current_hp) / float(maximum_hp) < 0.5:
+		a_boss_died()
+
+func set_caged_toon_dna(dna: ToonDNA) -> void:
+	caged_toon.construct_toon(dna)
+	caged_toon.set_animation('neutral')
+
+func get_caged_toon_dna() -> ToonDNA:
+	var unlock_index: int = SaveFileService.progress_file.characters_unlocked
+	var can_unlock: bool = Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[unlock_index - 1].character_name
+	if Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[5].character_name:
+		can_unlock = false
+	if not can_unlock:
+		var dna := ToonDNA.new()
+		dna.randomize_dna()
+		return dna
+	unlock_toon = true
+	return Globals.fetch_toon_unlock_order()[unlock_index].dna
+
+func on_battle_finished() -> void:
+	if unlock_toon:
+		Globals.s_character_unlocked.emit(Globals.fetch_toon_unlock_order()[SaveFileService.progress_file.characters_unlocked])
+		SaveFileService.progress_file.characters_unlocked += 1
+	win_game()
+
+func end_game() -> void:
+	if not Util.get_player().stats.character.random_character_stored_name == "":
+		if not SaveFileService.progress_file.mystery_toon_win:
+			Globals.s_mystery_win.emit()
+			SaveFileService.make_progress('mystert_toon_win', true)
+	SaveFileService.progress_file.win_streak += 1
+	for partner in Util.get_player().partners:
+		partner.queue_free()
+	Util.get_player().queue_free()
+	SaveFileService.delete_run_file()
+	SaveFileService._save_progress()
+	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
+
+func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
+	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and darkened_sky
+	var new_cogs: Array[Cog]
+	for i in cog_count:
+		var cog := COG_SCENE.instantiate()
+		cog.foreman = true
+		cog.custom_level_range = COG_LEVEL_RANGE
+		if dna: cog.dna = dna
+		if roll_for_proxies and RandomService.randf_channel('mod_cog_chance') > 0.45: 
+			#cog.use_mod_cogs_pool = true
+			cog.unstable = true
+		battle.add_child(cog)
+		cog.global_position = get_char_position("CogPos%d" % (i + 1))
+		new_cogs.append(cog)
+	return new_cogs
+
+func get_char_position(pos: String) -> Vector3:
+	return $CharPositions.get_node(pos).global_position
+
+func both_bosses_alive() -> bool:
+	return boss_one_alive and boss_two_alive
+
+func should_spawn_foreman() -> bool:
+	#print("in penthouse, line 189 curr round: ", BattleService.ongoing_battle.current_round)
+	#always on round 2
+	print(elevator_cooldown, "is elevator cooldown")
+	if BattleService.ongoing_battle.current_round == 1:
+		return true
+	#never when no bosses
+	if not (boss_one_alive or boss_two_alive):
+		return false
+	#never when 4+ cogs huh? plus? 4 plus?
+	if battle.cogs.size() >= 4:
+		elevator_cooldown = 1
+		return false
+	if elevator_cooldown > 0:
+		elevator_cooldown -= 1
+		return false
+	else:
+		return true
+	return false
+
+#region Final sequence
+
+signal s_player_finished_walking
+signal s_caged_toon_finished_walking
+
+const FinalSpd := 3.0
+
+func win_game() -> void:
+	AudioManager.set_music(load("res://audio/music/encntr_hall_of_fame.ogg"))
+	var player := Util.get_player()
+	player.state = Player.PlayerState.STOPPED
+	player.set_animation("neutral")
+	var scene := create_tween()
+	scene.tween_callback(player.set_global_position.bind(get_char_position('PlayerWinPos')))
+	scene.tween_callback(player.face_position.bind(caged_toon.global_position))
+	scene.tween_callback($CameraAngles.get_node('GameWin').make_current)
+	scene.tween_callback(AudioManager.play_snippet.bind(SFX_CAGE_LOWER, 0.0, 1.0))
+	scene.tween_property(toon_cage, 'position:y', -3.49, 1.0)
+	scene.tween_callback(AudioManager.play_sound.bind(SFX_CAGE_LAND))
+	scene.tween_property(toon_cage.get_node('cage_door'), 'rotation_degrees:x', 90.0, 0.5)
+	scene.tween_callback(caged_toon.speak.bind("Whew, thanks for the rescue!"))
+	
+	if unlock_toon and SaveFileService.progress_file.characters_unlocked < 6:
+		scene.tween_interval(4.0)
+		scene.tween_callback(caged_toon.speak.bind("I think it's time I give the Cogs a little payback."))
+		scene.tween_interval(4.0)
+		scene.tween_callback(caged_toon.speak.bind("The least I could do is join you in taking them down!"))
+	
+	scene.tween_interval(4.0)
+	scene.tween_callback(caged_toon.speak.bind("We should really get out of here, though."))
+	scene.tween_interval(4.0)
+	scene.tween_callback(caged_toon.speak.bind("The Cogs will have those big bads rebuilt in no time!"))
+	scene.tween_interval(4.0)
+	await scene.finished
+
+	CameraTransition.from_current(self, %GameWinElevator, 4.0, Tween.EASE_IN_OUT, Tween.TRANS_QUAD)
+	elevator_out.open()
+	do_move_player_seq()
+	do_move_caged_toon_seq()
+	await SignalBarrier.new([s_player_finished_walking, s_caged_toon_finished_walking]).s_complete
+	elevator_out.close()
+	# Fade out the victory music
+	Sequence.new([
+		LerpFunc.new(AudioManager.set_music_volume, 3.0, 0.0, -80.0)
+	]).as_tween(self)
+	await CameraTransition.from_current(self, %PaintingFocus, 3.0).s_done
+	await Task.delay(1.0)
+	%FadeOutLayer.show()
+	await Sequence.new([
+		LerpProperty.new(%BlackFade, ^"color:a", 2.0, 1.0).interp(Tween.EASE_IN, Tween.TRANS_QUAD)
+	]).as_tween(self).finished
+	await Task.delay(1.75)
+
+	AudioManager.stop_music()
+	AudioManager.set_music_volume(0.0)
+	scene.kill()
+	end_game_editted()
+
+func do_move_player_seq() -> void:
+	var player: Player = Util.get_player()
+	await player.turn_to_position(%InFrontElevatorPos.global_position, 1.0)
+	await player.move_to(%InFrontElevatorPos.global_position, FinalSpd).finished
+	# player.toon.global_rotation.y += TAU
+	await player.turn_to_position(%ElevatorLeftPos.global_position, 1.0)
+	await player.move_to(%ElevatorLeftPos.global_position, FinalSpd).finished
+	await player.turn_to_position(Vector3.ZERO, 1.5)
+	s_player_finished_walking.emit()
+
+func do_move_caged_toon_seq() -> void:
+	await Task.delay(0.5)
+	await caged_toon.move_to(%PlayerWinPos.global_position, FinalSpd).finished
+	await caged_toon.turn_to_position(%InFrontElevatorPos.global_position, 1.0)
+	await caged_toon.move_to(%InFrontElevatorPos.global_position, FinalSpd).finished
+	await caged_toon.turn_to_position(%ElevatorRightPos.global_position, 1.0)
+	await caged_toon.move_to(%ElevatorRightPos.global_position, FinalSpd).finished
+	await caged_toon.turn_to_position(Vector3.ZERO, 1.5)
+	s_caged_toon_finished_walking.emit()
+func end_game_editted() -> void:
+	Util.floor_number += 1
+	if not Util.get_player().stats.character.random_character_stored_name == "":
+		if not SaveFileService.progress_file.mystery_toon_win:
+			Globals.s_mystery_win.emit()
+			SaveFileService.make_progress('mystert_toon_win', true)
+	SaveFileService._save_run()
+	SaveFileService._save_progress()
+	SceneLoader.load_into_scene(ELEVATOR_SCENE)
+#endregion

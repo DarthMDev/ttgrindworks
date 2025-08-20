@@ -2,6 +2,7 @@ extends Node3D
 class_name FinalBossScene
 
 const TITLE_SCREEN_SCENE := "res://scenes/title_screen/title_screen.tscn"
+const ELEVATOR_SCENE = "res://scenes/elevator_scene/elevator_scene.tscn"
 const SKY_SPEED := 3.0
 const COG_SCENE := preload("res://objects/cog/cog.tscn")
 
@@ -282,7 +283,7 @@ func win_game() -> void:
 	AudioManager.stop_music()
 	AudioManager.set_music_volume(0.0)
 	scene.kill()
-	end_game()
+	end_game_editted()
 
 func do_move_player_seq() -> void:
 	var player: Player = Util.get_player()
@@ -303,5 +304,13 @@ func do_move_caged_toon_seq() -> void:
 	await caged_toon.move_to(%ElevatorRightPos.global_position, FinalSpd).finished
 	await caged_toon.turn_to_position(Vector3.ZERO, 1.5)
 	s_caged_toon_finished_walking.emit()
-
+func end_game_editted() -> void:
+	Util.floor_number += 1
+	if not Util.get_player().stats.character.random_character_stored_name == "":
+		if not SaveFileService.progress_file.mystery_toon_win:
+			Globals.s_mystery_win.emit()
+			SaveFileService.make_progress('mystert_toon_win', true)
+	SaveFileService._save_run()
+	SaveFileService._save_progress()
+	SceneLoader.load_into_scene(ELEVATOR_SCENE)
 #endregion

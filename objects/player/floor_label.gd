@@ -15,4 +15,6 @@ func update_text() -> void:
 	if Util.floor_number == 0:
 		text = 'Ground Floor'
 	else:
-		text = 'Floor %s' % Util.floor_number
+		if Util.floor_manager:
+			text = "Floor " + str(Util.floor_number) + " " + Util.floor_manager.floor_variant.floor_name
+		else: text = 'Floor %s' % Util.floor_number 

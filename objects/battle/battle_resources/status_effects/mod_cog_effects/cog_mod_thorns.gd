@@ -6,6 +6,7 @@ signal s_gag_modified(indexes: Array)  # New signal
 var effectdict = {}
 var battle_ui
 var turns_used = 0
+var unstable = false
 
 func apply() -> void:
 	var cog: Cog = target
@@ -24,6 +25,13 @@ func apply() -> void:
 	
 
 func on_action_started(action: BattleAction) -> void:
+	if target:
+		print("thorns stuff and there is a thorny guy")
+		if target.stats.hp <= 0:
+			return
+	else:
+		print("thorn stuff no target")
+		return
 	if action is ToonAttack:
 		if turns_used == thorn_index:
 			var dmg_dealt = 0
@@ -45,10 +53,12 @@ func on_action_started(action: BattleAction) -> void:
 
 func on_gags_chosen(actions: Array[ToonAttack]) -> void:
 
-	if(actions.size() -1 >= thorn_index): actions[thorn_index].sheer_force = true
+	#if(actions.size() -1 >= thorn_index): actions[thorn_index].sheer_force = true
 	s_gag_modified.emit([0,1])
 
 func renew() -> void:
+	if unstable:
+		return
 	var playerturns = Util.get_player().stats.turns
 	effectdict.clear()
 	turns_used = 0
@@ -63,6 +73,7 @@ func renew() -> void:
 	
 func cleanup() -> void:
 	manager.s_gags_chosen.disconnect(on_gags_chosen)
+	BattleService.s_action_started.disconnect(on_action_started)
 
 func get_status_name() -> String:
 	return "Retributive"

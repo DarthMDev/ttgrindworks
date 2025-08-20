@@ -467,6 +467,8 @@ func check_hp(hp : int) -> void:
 	
 	if hp == 0 and not BattleService.ongoing_battle:
 		lose()
+	if prev_hp > hp:
+		Globals.damage_taken += prev_hp - hp
 	prev_hp = stats.hp
 
 func quick_heal(amount: int) -> void:

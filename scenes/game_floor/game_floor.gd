@@ -135,6 +135,7 @@ func generate_floor() -> void:
 		SceneLoader.add_persistent_node(player)
 	player.s_fell_out_of_world.connect(player_out_of_bounds)
 	player.stats.quest_rerolls = 4
+	player.stats.give_quests()
 	
 	# Setup debug anomalies
 	for modifier in debug_anomalies:
@@ -380,12 +381,14 @@ func _capture_debug_message(message: String, data: Array) -> bool:
 	return false
 
 func technical_debt_music() -> void:
-	print(floor_variant.floor_name)
 	if floor_rooms.battle_music.size() >= 3:
 		if Util.floor_number <= 3:
 			floor_rooms.battle_music = [floor_rooms.battle_music[0]]
+		elif Util.floor_number <= 5:
+			#reverse later, just want demos to be quieter
+			floor_rooms.battle_music = [floor_rooms.battle_music[2], floor_rooms.battle_music[1]]
 		else:
-			floor_rooms.battle_music = [floor_rooms.battle_music[1], floor_rooms.battle_music[2]]
+			floor_rooms.battle_music = [floor_rooms.battle_music[2], floor_rooms.battle_music[3]]
 
 #region GAME TRACKING
 ## Game Signals

@@ -378,7 +378,7 @@ func _on_request_completed(result, response_code, headers, body) -> void:
 	if version == Globals.VERSION_NUMBER:
 		print("you are on the newest version. hooray!!!")
 	else:
-		print("new version is available. what is wrong with you??")
+		print("new version is available. and i aint updating")
 		%NewVersionLabel.show()
 
 func battle_test() -> void:

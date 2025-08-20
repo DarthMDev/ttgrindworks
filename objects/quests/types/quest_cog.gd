@@ -95,6 +95,7 @@ func randomize_objective() -> void:
 	# reduce if gamemode is survive the foremen
 	if Util.survive_the_foreman:
 		quotaf /= 2
+	quotaf =  rebalance_quotaf(quotaf)
 	
 	# Level minimum objectives
 	if RandomService.randi_channel('cog_quest_types') % 3 == 0:
@@ -170,3 +171,12 @@ func reset() -> void:
 	specific_cog = null
 	department = CogDNA.CogDept.NULL
 	min_level = 1
+func rebalance_quotaf(quotaf) -> int:
+	if Util.floor_number >= 6:
+		print("quota stuff")
+		if quotaf < 4:
+			quotaf = 4
+	if Util.floor_number >= 8:
+		if quotaf < 5:
+			quotaf = 5
+	return quotaf

@@ -7,7 +7,7 @@ func apply() -> void:
 	var status_effect := Curse_Status_Reference.duplicate()
 	status_effect.target = Util.get_player()
 	status_effect.rounds = 0
-	manager.add_status_effect(status_effect)
+	#manager.add_status_effect(status_effect)
 
 	
 
@@ -20,8 +20,7 @@ func renew() -> void:
 	status_effect.rounds = 0
 	manager.add_status_effect(status_effect)
 	
-func cleanup() -> void:
-	print("ok")
+
 
 func get_status_name() -> String:
 	return "Red Tape"

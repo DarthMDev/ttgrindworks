@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dirqbhk3hkfbs"]
+
+[ext_resource type="Script" uid="uid://bna2cfiyuexda" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_hp_guy.gd" id="1_hpsxi"]
+
+[resource]
+script = ExtResource("1_hpsxi")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Hp guy. I hope ur not seeing this"
+status_name = "HPGuy"
+is_foreman_effect = false
+id = 7014
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

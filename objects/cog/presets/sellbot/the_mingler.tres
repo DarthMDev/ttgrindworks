@@ -36,7 +36,7 @@ is_mod_cog = false
 is_admin = false
 health_mod = 1.0
 is_v2 = false
-battle_phrases = Array[String](["Are you sure?", "Go ahead, make my day.", "I'm going to mingle in your business.", "@_@", "Had the best conversation with a lamp yesterday", "🤖", "Good, it takes two to mingle."])
+battle_phrases = Array[String](["Are you sure?", "Go ahead, make my day.", "Toon.", "@_@", "Had a great conversation with a lamp yesterday", "🤖", "The reason why the sprint button is bad is because Toontown has existed for 18 years without it. It just makes the game easier and more casual. Why would that be a good thing? Why is casualization of video games seen as an automatic plus in your eyes? If they added a button to allow people to reach 137 Laff Points and maxed gags instantly because some people have less time to play the game, would that be reasonable in your eyes?."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

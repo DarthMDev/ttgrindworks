@@ -49,9 +49,13 @@ var attacks : Array[CogAttack]
 @export var foreman_attack_boost := 1.25
 @export var last_damage_source = ""
 @export var ts_pmo = false #rebalancing these goddamn special room cogs
+@export var unstable = false
 var use_mod_cogs_pool := false
 var has_forced_dna := false
 #var arrow_indicator: Sprite3D
+var unstable_rotation_speed := 3.0 # Rotation speed in radians per second
+var unstable_rotation_tween: Tween
+var sitting = false
 
 # Movement Speed
 var walk_speed := 4.0 #was 4.0
@@ -99,6 +103,10 @@ const STATEMENT := preload("res://audio/sfx/battle/cogs/COG_VO_statement.ogg")
 const QUESTION := preload("res://audio/sfx/battle/cogs/COG_VO_question.ogg")
 const QUESTION_LONG := preload("res://audio/sfx/battle/cogs/COG_VO_question_old.ogg")
 
+const SGRUNT := preload("res://audio/sfx/battle/cogs/sgoat_grunt.ogg")
+const SMURMUR := preload("res://audio/sfx/battle/cogs/sgoat_murmur.ogg")
+const SSTATEMENT := preload("res://audio/sfx/battle/cogs/sgoat_statement.ogg")
+const SQUESTION := preload("res://audio/sfx/battle/cogs/sgoat_question.ogg")
 ## SKELECOG VO:
 const SKELE_GRUNT := preload("res://audio/sfx/battle/cogs/Skel_COG_VO_grunt.ogg")
 const SKELE_MURMUR := preload("res://audio/sfx/battle/cogs/Skel_COG_VO_murmur.ogg")
@@ -112,10 +120,12 @@ func _ready():
 	if is_instance_valid(Util.floor_manager):
 		Util.floor_manager.s_cog_spawned.emit(self)
 	print("running randomize cog")
-	if foreman:
-		has_forced_dna =true
+	if foreman or dna.custom_nametag_suffix == "Director" :
+		has_forced_dna = true
 	# Create a Cog based on the game's current parameters
 	randomize_cog()
+	if unstable:
+		unstable_animation()
 	
 
 func face_position(pos: Vector3):
@@ -131,6 +141,7 @@ func randomize_cog() -> void:
 	attacks = get_attacks()
 	construct_cog()
 	set_animation('neutral')
+	#else: set_animation('sit')
 	set_up_stats()
 	if skelecog:
 		grunt = SKELE_GRUNT
@@ -138,6 +149,12 @@ func randomize_cog() -> void:
 		statement = SKELE_STATEMENT
 		question = SKELE_QUESTION
 		question_long = SKELE_QUESTION
+	elif dna.cog_name == "Scapegoat":
+		grunt = SGRUNT
+		murmur = SMURMUR
+		statement = SSTATEMENT
+		question = SQUESTION
+		question_long = SQUESTION
 	else:
 		grunt = GRUNT
 		murmur = MURMUR
@@ -152,8 +169,16 @@ func set_dna(cog_dna: CogDNA, full_reset := true) -> void:
 		level = 0
 		roll_for_attributes()
 		roll_for_level()
+		if dna.cog_name == "Scapegoat":
+			grunt = SGRUNT
+			murmur = SMURMUR
+			statement = SSTATEMENT
+			question = SQUESTION
+			question_long = SQUESTION
 	attacks = get_attacks()
+	
 	construct_cog()
+	
 	set_up_stats()
 	
 func set_new_level(new_level: int):
@@ -172,6 +197,10 @@ func roll_for_attributes() -> void:
 	# Mayhaps even... fusion?
 	if not skelecog and RandomService.randi_channel('fusion_chance') % 100 < fusion_chance:
 		fusion = true
+	if Util.floor_number >= 8 and not Util.final_boss2:
+		if foreman and RandomService.randi_channel('skelecog_chance') % 100 < 20:
+			unstable = true
+			
 
 func roll_for_level() -> void:
 
@@ -235,7 +264,7 @@ func roll_for_dna() -> void:
 		if dna == Globals.foreman_dna:
 			print("changed a mingler into a two face ??, maybe lol")
 			dna = pool.cogs[ pool.cogs.size() - 3] # could potentially make it mingler again if custom cogs but eh
-	#dna = Globals.foreman_dna 
+
 	dna = dna.duplicate()
 
 func get_attacks() -> Array[CogAttack]:
@@ -257,7 +286,6 @@ func get_debug_attack() -> PickPocket:
 func set_up_stats() -> void:
 	if not stats: stats = BattleStats.new()
 	stats.max_hp = (level + 1) * (level + 2)
-
 	if dna.is_mod_cog:
 		health_mod *= Util.get_mod_cog_health_mod()
 	if not is_equal_approx(dna.health_mod, 1.0):
@@ -268,23 +296,27 @@ func set_up_stats() -> void:
 	stats.evasiveness = 0.5 + (level * 0.05)
 	stats.damage = 0.4 + (level * 0.1)
 	stats.accuracy = 0.75 + (level * 0.05)
+	print(health_mod, " ", dna.health_mod,  dna.cog_name)
+	print(stats.max_hp, " is hp of " ,dna.cog_name)
 	var new_text: String = dna.cog_name + '\n'
 	if foreman: new_text = 'Factory Foreman' + '\n'
 	new_text += 'Level ' + str(level)
-	if foreman: new_text += '.mgr'
+	if foreman or dna.cog_name == "Scapegoat": new_text += '.mgr'
 	if dna.is_v2: self.v2 = RandomService.randi_channel('true_random') % 100 < 60
 	if v2: new_text += " v2.0"
 	if dna.is_mod_cog: new_text += '\nProxy'
 	if dna.is_admin: new_text += '\nAdministrator'
-	#if foreman:
-		#new_text += '\n' + dna.status_effects[0].get_status_name()
+	if foreman and Util.floor_number > 5:
+		new_text += '\n' + dna.status_effects[0].get_status_name()
+	if unstable:
+		new_text += '\n🔅Unstable🔅'
 		
 		
 	#this runs afer initial dna but it can cause funny flunky / v1.5 foremen
 	dna.scale *= randf_range(1, 1.6)
 
 	if foreman: body.set_color(Color(0.867, 0.627, 0.867))
-	if dna.custom_nametag_suffix: new_text += '\n%s' % dna.custom_nametag_suffix
+	if dna.cog_name != "Scapegoat" and  dna.custom_nametag_suffix: new_text += '\n%s' % dna.custom_nametag_suffix
 	body.nametag.text = new_text
 	body.nametag_node.update_position(new_text)
 	if not stats.hp_changed.is_connected(update_health_light):
@@ -320,8 +352,18 @@ func construct_cog():
 			second_dna = pool.cogs[RandomService.randi_channel('cog_dna') % pool.cogs.size()].duplicate()
 		dna.combine_attributes(second_dna)
 		dna.cog_name = dna.combine_names(second_dna)
-	
+	if foreman:
+		var overcharged : StatusEffect = dna.status_effects[0].overcharged
+		dna.status_effects.append(overcharged) 
+		dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
+	if unstable:
+		var unstable_effect = load("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_unstable.tres")
+		dna.status_effects.append(unstable_effect)
+		health_mod*= 1.5
 	# First, get the body
+	if foreman:
+		if dna.status_effects[0].get_status_name() == "Confused":
+			dna.suit = dna.SuitType.SUIT_C
 	body = Globals.fetch_suit(dna.suit, skelecog).instantiate()
 	match dna.suit:
 		CogDNA.SuitType.SUIT_A:
@@ -337,10 +379,7 @@ func construct_cog():
 		dna.head_shader.randomize_shader()
 	#dna.scale *= randf_range(1, 1.6)
 	# Set the body's dna
-	if foreman:
-		var overcharged : StatusEffect = dna.status_effects[0].overcharged
-		dna.status_effects.append(overcharged) 
-		dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
+
 		
 	body.set_dna(dna)
 	
@@ -408,6 +447,7 @@ func update_health_light():
 
 func set_animation(anim: String):
 	if lured and anim == 'neutral':
+		unstable_rotation_speed = 0.5
 		set_animation('lured')
 		return
 	if animator.has_animation(anim):
@@ -441,6 +481,7 @@ func move_to(new_pos: Vector3, speed: float = walk_speed) -> Tween:
 	func():
 		move_tween.kill()
 		set_animation('neutral')
+		if sitting: set_animation('sit')
 	)
 	return move_tween
 
@@ -456,7 +497,7 @@ func turn_to_face(global_pos : Vector3, time := 3.0) -> Tween:
 	return rotation_tween
 
 func get_attack() -> CogAttack:
-	if stunned:
+	if stunned and not special_attack:
 		return null
 	else:
 		if attacks.size() == 0:
@@ -486,7 +527,8 @@ func get_attack() -> CogAttack:
 			stats.is_foreman = true
 			attack.action_name = "Worker's Compensation"
 			attack.summary = "Foreman recieves and damage and health bonus"
-			attack.attack_lines = ["Do you have any idea how much paperwork I will have to file after this?"]
+			if not unstable: attack.attack_lines = ["Do you have any idea how much paperwork I will have to file after this?"]
+			else: attack.attack_lines = ["Free heals gg", "Rip Bozo"]
 			attack.target_type = BattleAction.ActionTarget.SELF
 			attack.damage = stats.max_hp * -0.8333
 			attack.accuracy = 100
@@ -696,60 +738,36 @@ func explode() -> void:
 	queue_free()
 
 
-
-"""
-# Add these functions to handle showing/hiding the arrow
-func show_arrow_above_cog(color := Color.MEDIUM_PURPLE) -> void:
-	if arrow_indicator and is_instance_valid(arrow_indicator):
-		arrow_indicator.show()
-		return
+func start_unstable_rotation() -> void:
+	if unstable_rotation_tween:
+		unstable_rotation_tween.kill()
 	
-	# Create new arrow if one doesn't exist
-	var arrow_texture = load("res://ui_assets/misc/white_arrow.png")
-	arrow_indicator = Sprite3D.new()
-	arrow_indicator.texture = arrow_texture
-	arrow_indicator.modulate = color
-	arrow_indicator.pixel_size = 0.062
-	arrow_indicator.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	# Randomize rotation speed slightly
+	unstable_rotation_speed = randf_range(1.5, 2.5) * (1.0 if randf() > 0.5 else -1.0)
+	
+	# Create a continuous rotation tween
+	unstable_rotation_tween = create_tween()
+	unstable_rotation_tween.set_loops()
+	unstable_rotation_tween.tween_callback(rotate_body.bind(unstable_rotation_speed * 0.1))
+	unstable_rotation_tween.tween_interval(0.1)
 
-	if is_instance_valid(body) and is_instance_valid(body.head_node):
-		body.head_node.add_child(arrow_indicator)
-		arrow_indicator.position = Vector3(0, 4.0, 0)  # Adjust height as needed
-		arrow_indicator.show()
-		_start_bounce_animation()
-	else:
-		push_warning("Couldn't show arrow - nametag node not ready")
-
-func hide_arrow_above_cog() -> void:
-	if arrow_indicator and is_instance_valid(arrow_indicator):
-		arrow_indicator.hide()
-		_stop_bounce_animation()
-
+func rotate_body(amount: float) -> void:
+	if body and is_instance_valid(body):
+		body.rotate_y(amount)
+func unstable_animation() -> void:
+		var funni = false
+		if RandomService.randi_channel('skelecog_chance') % 100 < 31:
+			set_animation("sit")
+			funni = true
+			sitting = true
+		if RandomService.randi_channel('skelecog_chance') % 100 < 91:
+			start_unstable_rotation()
+			funni = true
+		if not funni:
+			set_animation("sit")
+			sitting = true
+			
 		
-var _bounce_amplitude := 0.25
-var _bounce_speed := 0.3
-var _base_y_position := 4.0
-var _bounce_tween: Tween = null
-
-func _start_bounce_animation() -> void:
-	if _bounce_tween and _bounce_tween.is_running():
-		return
-	
-	_bounce_tween = create_tween().set_loops()
-	_bounce_tween.tween_method(_animate_bounce, 0.0, TAU, 1.0/_bounce_speed)
-
-func _stop_bounce_animation() -> void:
-	if _bounce_tween:
-		_bounce_tween.kill()
-		_bounce_tween = null
-	if arrow_indicator and is_instance_valid(arrow_indicator):
-		arrow_indicator.position.y = _base_y_position
-
-func _animate_bounce(angle: float) -> void:
-	if arrow_indicator and is_instance_valid(arrow_indicator):
-		var offset = sin(angle) * _bounce_amplitude
-		arrow_indicator.position.y = _base_y_position + offset
-"""
 ## Global functions
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
 	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

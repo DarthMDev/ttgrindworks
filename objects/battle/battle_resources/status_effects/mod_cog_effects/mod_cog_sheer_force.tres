@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bgc51la6vfgkw"]
 
 [ext_resource type="Script" uid="uid://cyc375fmiu2ro" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_sheer_force.gd" id="1_3nbth"]
-[ext_resource type="Texture2D" uid="uid://b5msql025cie3" path="res://ui_assets/battle/statuses/pinpoint_accuracy.png" id="1_6nlav"]
+[ext_resource type="Texture2D" uid="uid://cll0vmp04ommk" path="res://ui_assets/battle/statuses/sheer_force.png" id="1_6nlav"]
 
 [resource]
 script = ExtResource("1_3nbth")

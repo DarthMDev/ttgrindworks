@@ -18,6 +18,7 @@ func apply():
 		manager.affect_target(target, -amount)
 
 func renew():
+	print("target is regenning: " ,amount)
 	if target.stats.hp == target.stats.max_hp:
 		return
 	manager.s_focus_char.emit(target)

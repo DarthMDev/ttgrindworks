@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://ekbksjycl5ox"]
 
-[ext_resource type="Texture2D" uid="uid://cgx0adqwqtcvv" path="res://ui_assets/battle/statuses/green_plus.png" id="1_6nlav"]
+[ext_resource type="Texture2D" uid="uid://c16hymxduxl36" path="res://ui_assets/battle/statuses/StatusEffectA.png" id="1_6nlav"]
 [ext_resource type="Script" uid="uid://bk80su8l4b2jx" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_alphabet.gd" id="1_y0bth"]
 
 [resource]
@@ -15,6 +15,6 @@ mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
 description = "Gags selected must be different and in Alphabetical Order"
-status_name = "Status Effect"
+status_name = "Alphabetic"
 is_foreman_effect = false
 id = 7016

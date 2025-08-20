@@ -3,19 +3,26 @@ extends StatusEffect
 
 var cog_hps : Dictionary[Cog, int] = {}
 var cog_connections : Dictionary[Cog, Callable] = {}
+const  Stat_Boost: StatusEffect = preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 func apply() -> void:
 	for cog in manager.cogs:
 		hookup_cog(cog)
 	manager.s_participant_joined.connect(func(participant): if participant is Cog: hookup_cog(participant))
 	manager.s_status_effect_added.connect(on_status_effect_added)
+	if Util.final_boss2:
+		target.stats.hp *= 0.8
+		target.stats.max_hp *= 0.8
+		print("in cohesive lowering cog hp")
+
 
 
 func get_status_name() -> String:
 	return "Cohesive"
 	
-const RANDOM_EFFECTS : Array[StatusEffect] =[
-	preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres"),
+const RANDOM_EFFECTS : Array[StatusEffect] = [
+	Stat_Boost,
 	preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_regeneration.tres"),
+	Stat_Boost,
 ]
 
 
@@ -33,13 +40,22 @@ func cog_hp_changed(hp : int, cog : Cog) -> void:
 		cog_hps[cog] = hp
 
 func apply_random_effect(cog : Cog) -> void:
+	if not target:
+		return
 	var effect : StatusEffect = RandomService.array_pick_random('true_random', RANDOM_EFFECTS).duplicate()
 	effect.target = cog
-	effect.randomize_effect()
 	if effect is StatBoost:
 		tweak_stat_boost(effect)
-	if effect is StatEffectRegeneration:
+		effect.boost = RandomService.randf_range_channel('true_random', 1.1, 1.20)
+		effect.quality = StatusEffect.EffectQuality.POSITIVE
+		effect.rounds = 2
+		print("effect boost: ",effect.boost)
+	elif effect is StatEffectRegeneration:
 		effect.instant_effect = false
+		effect.rounds = 0
+		if target:
+			effect.amount = ceili(target.stats.max_hp * 0.12)
+		print(effect.amount,effect.get_status_name())
 	await Util.s_process_frame
 	BattleService.ongoing_battle.add_status_effect(effect)
 

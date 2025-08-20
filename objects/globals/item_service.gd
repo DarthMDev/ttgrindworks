@@ -268,6 +268,8 @@ func get_gag_rate() -> float:
 	# Floor 3: 70% of all gags collected
 	# Floor 4: 90% of all gags collected
 	# Floor 5: 100% of all gags collected
+	if Util.floor_number > 5:
+		return 1.0
 	var goal_percent := minf(GagGoals[floor_num], 1.0)
 	
 	var chance := (1.0 - (gag_percent / goal_percent)) * 1.35

@@ -4,19 +4,6 @@ class_name RushJob
 
 const gag_job_effect := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_gag_job.tres')
 
-const MISS_PHRASES: Array[String] = [
-	"Sorry, I wasn't listening.",
-	"Did you say something?",
-	"Huh? What?",
-	"And?",
-	"I can only use SpeedChat.",
-	"Huh? I didn't catch that.",
-	"Yawn...",
-	"Uh-huh, right, anyways.",
-	"I don't get it.",
-	"I don't work here.",
-	"Sorry, I didn't ask."
-]
 
 func action() -> void:
 	# Get player

@@ -2,8 +2,8 @@
 extends BattleNode
 
 
-var MAX_DYNAMIC_COGS := 4
-var MIN_DYNAMIC_COGS := 1
+var MAX_DYNAMIC_COGS := 4 #4
+var MIN_DYNAMIC_COGS := 1 #1
 const COG := preload('res://objects/cog/cog.tscn')
 var justbc = 0
 
@@ -11,11 +11,7 @@ var justbc = 0
 @export var cog_range := Vector2i(2, 4):
 	set(x):
 		cog_range = x
-		if Util.floor_number == 4:
-			MAX_DYNAMIC_COGS = 3
-		if Util.floor_number == 5:
-			if not Util.survive_the_foreman:
-				MIN_DYNAMIC_COGS = 3
+		handle_cog_count()
 		cog_range.x = clamp(cog_range.x, MIN_DYNAMIC_COGS, MAX_DYNAMIC_COGS)
 		cog_range.y = clamp(cog_range.y, cog_range.x, MAX_DYNAMIC_COGS)
 		if not cog_node:
@@ -58,6 +54,7 @@ func _refresh_cogs() -> void:
 		spawn_cogs(cog_count)
 
 func spawn_cogs(cog_count := 1) -> void:
+	print("COG COUNT AAAAAHHHH: ", cog_count)
 	for i in cog_count:
 		var cog : Cog = COG.instantiate()
 		rebalance_cogs(cog, cog_count)
@@ -96,6 +93,22 @@ func rebalance_cogs(cog, cog_count) -> void:
 	if Util.floor_number <= 3:
 		if cog_count <= 2:
 			cog.level_rebalance += Util.floor_number
-			
+	#DEMO PLeaSE REMOVE IN BATTLE NODE DYNAMIc AFTER DEMONSTRATION
+	if Util.floor_number >= 7:
+		cog.foreman = true
+		cog.health_mod = 1.5
+
+func handle_cog_count() -> void:
+	if Util.floor_number == 4:
+		MAX_DYNAMIC_COGS = 3
+	if Util.floor_number == 5:
+		if not Util.survive_the_foreman:
+			MIN_DYNAMIC_COGS = 3
+	if Util.floor_number == 7:
+		MIN_DYNAMIC_COGS = 3
+		MAX_DYNAMIC_COGS = 3
+	if Util.floor_number == 8:
+		MIN_DYNAMIC_COGS = 4
+		MAX_DYNAMIC_COGS = 4
 		
 	

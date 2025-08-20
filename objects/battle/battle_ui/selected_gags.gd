@@ -41,7 +41,7 @@ func update_panels() -> void:
 			reset_panel(panel)
 			add_child(panel)
 			panels.append(panel)
-		for i in 3:
+		for i in Util.get_player().stats.turns:
 			paneleffects[i] = 1
 		battle_ui.s_damage_drifted.connect(reset_panel_effects)
 		battle_ui.s_item_effect.connect(reset_item_effects)		

@@ -3,6 +3,7 @@ class_name ElevatorScene
 
 const FLOOR_VARIANT_PATH := "res://scenes/game_floor/floor_variants/base_floors/"
 const FINAL_FLOOR_VARIANT := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor.tres")
+const FINAL_FLOOR_VARIANT2 := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor2.tres")
 const ALT_FLOOR_CHANCE := 0
 
 
@@ -78,6 +79,9 @@ func get_next_floors() -> void:
 	if Util.floor_number == 5:
 		final_boss_time_baby()
 		return
+	if Util.floor_number == 8:
+		final_boss2_time_baby()
+		return
 	var random_floor_amount = 4
 	var floor_variants := DirAccess.get_files_at(FLOOR_VARIANT_PATH)
 	if Util.floor_number >= 3:
@@ -106,6 +110,12 @@ func final_boss_time_baby() -> void:
 	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
 	final_floor.level_range = Vector2i(12, 14)
 	next_floors = [final_floor]
+	$ElevatorUI.floors = next_floors
+	$ElevatorUI.set_floor_index(0)
+func final_boss2_time_baby() -> void:
+	var final_floor2 := FINAL_FLOOR_VARIANT2.duplicate()
+	final_floor2.level_range = Vector2i(20, 24)
+	next_floors = [final_floor2]
 	$ElevatorUI.floors = next_floors
 	$ElevatorUI.set_floor_index(0)
 

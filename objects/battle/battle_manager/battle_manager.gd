@@ -6,8 +6,14 @@ const ACTION_TIMEOUT_TIME := 60.0
 const CRIT_SFX_1 := preload("res://audio/sfx/battle/gags/crit/crit_1.ogg")
 const CRIT_SFX_2 := preload("res://audio/sfx/battle/gags/crit/crit_2.ogg")
 const CRIT_SFX_3 := preload("res://audio/sfx/battle/gags/crit/crit_3.ogg")
-const CRIT_SFX_4 := preload("res://audio/sfx/battle/gags/crit/crit_4.ogg")
+const CRIT_SFX_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tf2_crit.ogg")
+const FUNNY_SFX_1 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/coconut_sound.ogg")
+const FUNNY_SFX_2 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/metal_pipe.ogg")
+const FUNNY_SFX_3 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/taco_bell.ogg")
+const FUNNY_SFX_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tf2_frying_pan.ogg")
+const FUNNY_SFX_5 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/desk_slam.ogg")
 const CRIT_SFX: Array = [CRIT_SFX_1, CRIT_SFX_2, CRIT_SFX_3, CRIT_SFX_4]
+const FUNNY_SFX: Array = [FUNNY_SFX_1, FUNNY_SFX_2, FUNNY_SFX_3, FUNNY_SFX_4, FUNNY_SFX_5]
 
 ## Child references
 @onready var scene_timer := $SceneTimer
@@ -155,14 +161,15 @@ func run_actions():
 		if current_action == null:
 			continue
 		if current_action is CogAttack:
-			if not current_action.action_name == "" :
+			if not current_action.action_name == "" and not current_action.action_name == "  " :
 				show_action_name(current_action.action_name + "!",current_action.summary)
 			if not current_action.attack_lines.is_empty():
 				current_action.user.speak(current_action.attack_lines[RandomService.randi_channel('true_random') % current_action.attack_lines.size()])
 		current_action.manager = self
 		current_action.battle_node = battle_node
 		if current_action is ActionScript:
-			has_moved.append(current_action.user)
+			if current_action.action_name != "Worker's Compensation":
+				has_moved.append(current_action.user)
 			s_action_started.emit(current_action)
 			BattleService.s_action_started.emit(current_action)
 			await current_action.action()
@@ -193,21 +200,26 @@ func someone_died(who: Node3D) -> void:
 		cogs.remove_at(cogs.find(who))
 	var reversed_cogs = cogs.duplicate()
 	reversed_cogs.reverse()
+
 	for cog in reversed_cogs:
-		if not cog.foreman or cog.stats.hp < 1:
-			continue
-		if multiple_fore_deaths:
-			force_unlure_foreman(cog)
-		else:
-			await force_unlure_foreman(cog)
-		#await sleep(0.05)
-		cog.special_attack = true
-		var attack := get_cog_attack(cog)
-		cog.special_attack = false
-		if not attack == null:
-			attack.ActionTarget.SELF
-			if round_actions.size() > 0: inject_battle_action(attack, 0)
-			else : inject_end_battle_action(attack, 0)
+		if Util.floor_number < 8:
+			if not cog.foreman or cog.stats.hp < 1:
+				continue
+			if multiple_fore_deaths:
+				force_unlure_foreman(cog)
+			else:
+				await force_unlure_foreman(cog)
+		else: await sleep(0.07)
+		if cog.foreman and cog.stats.hp > 1:
+			cog.special_attack = true
+			var attack := get_cog_attack(cog)
+			cog.special_attack = false
+			if not attack == null:
+				attack.ActionTarget.SELF
+				if round_actions.size() > 0: 
+					if round_actions[0].action_name != "  ":  inject_battle_action(attack, 0)
+					else: inject_battle_action(attack, 1) # for sponge recoil attack
+				else : inject_end_battle_action(attack, 0)
 	
 	#await Task.delay(15)
 
@@ -234,7 +246,7 @@ func someone_died(who: Node3D) -> void:
 			status_effects.erase(status)
 			status.cleanup()
 			continue
-	s_participant_will_die.emit(blu)
+	#s_participant_will_die.emit(blu)
 
 func kill_someone(who: Node3D, signal_only := false) -> void:
 	s_participant_died.emit(who)
@@ -390,7 +402,11 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 		if (not target is Player) and amount > 0:
 			should_crit = roll_for_crit(current_action)
 			if should_crit:
-				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
+				var crit_nerf = 0
+				if Util.floor_number > 6:
+					crit_nerf = (battle_stats[current_action.user].get_stat("crit_mult") - 1) * 0.2
+					
+				amount = roundi(amount * (battle_stats[current_action.user].get_stat("crit_mult") - crit_nerf))
 
 	if not ignore_current_action:
 		amount = get_damage(amount, current_action, target)
@@ -441,7 +457,9 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				string = str("%s\nCRIT!" % -roundi(amount))
 				text_color = BattleText.colors.yellow[0]
 				outline_color = BattleText.colors.yellow[1]
-				AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
+				if RandomService.randi_channel('true_random') % 100 < 2:
+					AudioManager.play_sound(RandomService.array_pick_random('true_random', FUNNY_SFX))
+				else: AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
 				BattleService.s_toon_crit.emit()
 			else:
 				string = str(-roundi(amount))
@@ -1052,11 +1070,17 @@ func extra_chest():
 func append_has_moved(cog: Cog) -> void:
 	has_moved.append(cog)
 
-func remove_debuffs(target) -> void:
+func remove_debuffs(target, ignore_lure := false) -> void:
 		for status_effect: StatusEffect in status_effects:
 			if status_effect.target == target and status_effect.quality == 1:
 				#print(status_effect.get_description())
-				await expire_status_effect(status_effect)
+				if status_effect is StatusLured:
+					if ignore_lure:
+						continue
+					status_effect.rounds = 0
+					status_effect.i_love_lure() 
+					status_effect.target = null
+				else: await expire_status_effect(status_effect)
 
 func print_round_actions() -> void:
 	for action in round_actions:

@@ -11,6 +11,7 @@ var _bounce_tween: Tween = null
 var cog: Cog
 var track_name = "Squirt"
 var job_met = false
+var defense_boost = 0.4
 @export var track: Track
 const GagIcons: Dictionary = {
 	"Trap": preload("res://ui_assets/battle/gags/inventory_tnt.png"),
@@ -23,11 +24,23 @@ const GagIcons: Dictionary = {
 func apply() -> void:
 	cog = target
 	manager.append_has_moved(cog)
-	await manager.remove_debuffs(cog)
-	#manager.remove_debuffs(cog)
+	if manager.cogs.size() > 1:
+		await manager.remove_debuffs(cog)
+	else: await manager.remove_debuffs(cog, true)
+	var track_list = Util.get_player().stats.character.gag_loadout.loadout.duplicate()
+	for i in range(track_list.size() - 1, -1, -1):
+		var track = track_list[i]
+		if target.lured and (track.track_name == "Lure" or track.track_name == "Trap"):
+			track_list.remove_at(i)
+			continue
+		# Remove if target has a trap AND track is "Trap"
+		if target.trap and track.track_name == "Trap":
+			track_list.remove_at(i)
 	track = RandomService.array_pick_random('true_random', Util.get_player().stats.character.gag_loadout.loadout)
 	track_name = track.track_name
 	description = "The foreman demands that you use %s on this cog" % track_name
+	var stats : BattleStats = manager.battle_stats[cog]
+	stats.defense += defense_boost
 	manager.s_action_started.connect(on_action_started)
 	if cog:
 		show_arrow_above_cog(cog, track.track_color)
@@ -89,12 +102,13 @@ func expire() -> void:
 	hide_arrow_above_cog()
 	if not job_met:
 		print("job not met")
-		var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres').duplicate()
+		var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/debuff_wag.tres').duplicate()
 		attack.damage = 4
 		attack.summary = "The Foreman Retaliates!"
 		attack.user = target
 		attack.targets = [Util.get_player()]
-		attack.damage += target.level / 2 * 2 # yes i just did that AGAIN
+		attack.damage += target.level
+		manager.battle_stats[target].defense -= defense_boost
 		manager.round_end_actions.append(attack) 
 func get_icon() -> Texture2D:
 	return GagIcons[track_name]
@@ -104,6 +118,7 @@ func on_action_started(action: BattleAction) -> void:
 		if check_for_match(action):
 			print("correct gag was used")
 			if cog in action.targets:
+				if not job_met: manager.battle_stats[target].defense -= defense_boost
 				job_met = true
 				print("changed job met to true")
 				hide_arrow_above_cog()

@@ -16,6 +16,7 @@ const EffectIcons: Dictionary = {
 var player: Player:
 	get: return target
 var saved_regen := 0
+var force_no_combine = false
 
 func apply() -> void:
 	if player.stats.gag_regeneration.has(track_name):
@@ -31,3 +32,20 @@ func get_description() -> String:
 
 func get_icon() -> Texture2D:
 	return EffectIcons[track_name]
+
+func combine(effect: StatusEffect) -> bool:
+	if not effect.status_name == "Budget Cuts":
+		return false
+	
+	if force_no_combine or effect.force_no_combine:
+		return false
+
+	if effect.track_name == track_name:
+			#expire()
+			effect.rounds += 1
+			print("same name regen")
+			#apply()
+			#print("new amount : %f" % boost)
+			return true
+	
+	return false

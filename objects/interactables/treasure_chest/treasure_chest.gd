@@ -56,6 +56,7 @@ var POOL_GRADIENTS : Dictionary[String, String] = {
 
 const EXTRA_TURN := preload(ExtraTurnItem.BASE_ITEM)
 const POINT_BOOST := preload(PointBoostItem.BASE_ITEM)
+#const winter_hat = preload("res://objects/items/resources/accessories/hats/winter_hat.tres")
 var LAFF_BOOST := load("res://objects/items/resources/passive/laff_boost.tres")
 var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	0: null,
@@ -64,6 +65,8 @@ var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	3: null,
 	4: EXTRA_TURN,
 	5: LAFF_BOOST,
+	7: load("res://objects/items/resources/accessories/hats/winter_hat.tres"),
+	8: EXTRA_TURN
 }
 
 var opened := false
@@ -134,6 +137,13 @@ func assign_item(world_item: WorldItem):
 			if Util.floor_number == 5:
 				world_item.item = load("res://objects/items/resources/accessories/backpacks/gag_pack.tres")
 				return	
+			if Util.floor_number == 7:
+				world_item.item = load("res://objects/items/resources/accessories/backpacks/bat_wings.tres")
+				return
+			if Util.floor_number == 8:
+				world_item.item = load("res://objects/items/resources/accessories/hats/faded_tiara.tres")
+				return
+	#if Util.floor_number > 5: scripted_progression = false
 	if scripted_progression and SCRIPTED_PROGRESSION_ITEMS[Util.floor_number] != null:
 		var scripted_item = SCRIPTED_PROGRESSION_ITEMS[Util.floor_number]
 		# 5th floor has a +8 laff boost

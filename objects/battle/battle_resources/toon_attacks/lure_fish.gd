@@ -20,7 +20,6 @@ func action():
 	dollar.rotation_degrees.y += 180.0
 	dollar.global_position = target.to_global(Vector3(0, 0.1, 3.25))
 	dollar.scale = Vector3.ONE * 0.35
-	
 	# Animate
 	user.set_animation('bait')
 	user.animator.animation_finished.connect(func(_x=null): user.set_animation("lured"), CONNECT_ONE_SHOT)

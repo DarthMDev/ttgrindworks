@@ -206,3 +206,9 @@ func get_battle_time() -> int:
 		return -1
 	else:
 		return battle_timers.min()
+func give_quests() -> void:
+		if quests.is_empty():
+			for i in 4:
+				var new_quest := QuestCog.new()
+				new_quest.setup()
+				quests.append(new_quest)
