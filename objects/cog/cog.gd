@@ -757,7 +757,7 @@ func rotate_body(amount: float) -> void:
 		body.rotate_y(amount)
 func unstable_animation() -> void:
 		var funni = false
-		if RandomService.randi_channel('skelecog_chance') % 100 < 31:
+		if RandomService.randi_channel('skelecog_chance') % 100 < 51:
 			set_animation("sit")
 			funni = true
 			sitting = true

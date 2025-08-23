@@ -311,7 +311,7 @@ func set_selected_toon(character: PlayerCharacter) -> void:
 
 var toons_created := false
 func new_game_pressed() -> void:
-	#battle_test() #for going straight to battle test instead of elevtor stuff
+	battle_test() #for going straight to battle test instead of elevtor stuff
 	middle_buttons.hide()
 	state = MenuState.TOON_SELECT
 	if not toons_created:
