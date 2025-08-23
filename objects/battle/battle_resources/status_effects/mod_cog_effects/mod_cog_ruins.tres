@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2wuujg5m4r74"]
 
 [ext_resource type="Script" uid="uid://hm66d2i7b3ko" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_ruins.gd" id="1_d0j11"]
-[ext_resource type="Texture2D" uid="uid://cojeoyknhl7vv" path="res://ui_assets/battle/statuses/leverage.png" id="1_qn452"]
+[ext_resource type="Texture2D" uid="uid://fr47ryg0na15" path="res://ui_assets/battle/statuses/realloc.png" id="1_qn452"]
 
 [resource]
 script = ExtResource("1_d0j11")
@@ -9,7 +9,7 @@ quality = 0
 rounds = -1
 rounds_offset = 0
 icon = ExtResource("1_qn452")
-icon_color = Color(0.6, 0, 0, 1)
+icon_color = Color(1, 1, 1, 1)
 icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0

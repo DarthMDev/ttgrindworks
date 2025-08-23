@@ -140,7 +140,8 @@ func get_anomalies() -> Array[Script]:
 			if not loaded_mod in modifiers:
 				mods.append(loaded_mod)
 			mod_array.remove_at(mod_array.find(new_mod))
-
+	if Util.floor_number >= 6:
+		mods = add_unstable_core(mods)
 	return mods
 
 func randomize_details() -> void:
@@ -277,6 +278,12 @@ func get_annoying_anomaly() -> Array[Script]:
 	if gag_immunity_mods.size() > 0:
 		mods.append(gag_immunity_mods[0])	
 	return mods
+func get_highly_unstable_anomaly() -> Array[Script]:
+	var mods: Array[Script] = []
+	var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_highly_unstable_core.gd" 
+	var loaded_mod: Script = Util.universal_load(new_mod)
+	mods.append(loaded_mod)
+	return mods
 func get_no_anomaly() -> Array[Script]:
 	var mods: Array[Script] = []
 	return mods
@@ -325,3 +332,12 @@ func scripted_details(anomaly_array) -> void:
 	# Get the default Cog Pool if none specified
 	if not cog_pool:
 		cog_pool = FALLBACK_COG_POOL.load()
+func add_unstable_core(anom_array) -> Array:
+	if Util.floor_number >= 6:
+		print("yuh")
+		var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_unstable_core.gd" 
+		var loaded_mod: Script = Util.universal_load(new_mod)
+		anom_array.append(loaded_mod)
+	return anom_array
+		
+	

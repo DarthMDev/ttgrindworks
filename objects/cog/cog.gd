@@ -120,7 +120,8 @@ func _ready():
 	if is_instance_valid(Util.floor_manager):
 		Util.floor_manager.s_cog_spawned.emit(self)
 	print("running randomize cog")
-	if foreman or dna.custom_nametag_suffix == "Director" :
+	#if foreman or dna.custom_nametag_suffix == "Director" :
+	if foreman:
 		has_forced_dna = true
 	# Create a Cog based on the game's current parameters
 	randomize_cog()

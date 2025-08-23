@@ -32,7 +32,7 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 var unlock_toon := false
 
 ## For battle tracking
-const COG_LEVEL_RANGE := Vector2i(12, 14)
+const COG_LEVEL_RANGE := Vector2i(13, 15)
 var boss_one_choice: CogDNA
 var boss_two_choice: CogDNA
 

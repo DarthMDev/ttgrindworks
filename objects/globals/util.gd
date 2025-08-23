@@ -47,6 +47,7 @@ var survive_the_foreman = false
 var oftfdebug = true
 var monolitic = false
 var force_foreman = null
+var unstable_chance = 20
 var floor_number := -1:
 	set(x):
 		floor_number = x

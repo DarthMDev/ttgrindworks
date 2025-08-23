@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_jkabf")
-quality = 1
+quality = 2
 rounds = -1
 rounds_offset = 0
 icon = ExtResource("3_kooav")

@@ -30,6 +30,7 @@ const MOD_EFFECTS : Array[StatusEffect] = [ #res://objects/battle/battle_resourc
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_bookkeeper_fan.tres"), #24 s
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_hp_guy.tres"), #25 s
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_confused.tres"), #26 s
+	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_relentless.tres") # 27
 	
 	
 	
@@ -43,7 +44,7 @@ var overcharged = preload("res://objects/battle/battle_resources/status_effects/
 const RESTRICTED_EFFECT_INDEXES := [0, 3, 5, 6, 9]  # techbot, drop_immunity, lure_immunity, troll, beneficiary for chartist pool in future
 const PENTHOUSE_FOREMAN_INDEXES := [2, 7, 8, 9]  # proxy+,damage_drift, larynx, beneficiary for boss pool
 const PENTHOUSE2_FOREMAN_INDEXES := [13,15,16,17,22]  # sheer+,alphabet,tape , laborious, cohesive for boss pool
-var force = false
+var force = true
 var cheat_index = -1
 var use_strong_cheat = false
 var weak_cheat_end_index = 12
@@ -67,9 +68,9 @@ func apply() -> void:
 func force_cheats() -> int:
 			var index
 			if Globals.fore_cog_index == 0:
-				index = 26
+				index = 27
 			elif Globals.fore_cog_index == 1:
-				index = 26 #11
+				index = 27 #11
 			elif Globals.fore_cog_index == 2:
 				index = 23 #6
 			else:
