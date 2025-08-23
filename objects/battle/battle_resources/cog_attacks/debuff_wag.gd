@@ -3,8 +3,13 @@ class_name DebuffWag
 
 const STAT_BOOST := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres')
 var type = 1
+var mark = false # not needed but meh more oftf bloat 🐱‍🏍
+var marks = 0
+var debuff_msg = "MARK X"
 func action():
 	# Begin
+	if mark:
+		debuff_msg = debuff_msg + str(marks)
 	user.set_animation('finger-wag')
 	manager.s_focus_char.emit(user)
 	var target = targets[0]
@@ -32,7 +37,8 @@ func action():
 	
 	# Stop particles after pause
 	await manager.sleep(0.5)
-	manager.battle_text(target, "Hurry Sickness", BattleText.colors.orange[0], BattleText.colors.orange[1])
+	if mark: manager.battle_text(target, debuff_msg, BattleText.colors.orange[0], BattleText.colors.orange[1])
+	else: manager.battle_text(target, "Hurry Sickness", BattleText.colors.orange[0], BattleText.colors.orange[1])
 	particles.emitting = false
 	
 	# Cleanup
@@ -43,10 +49,26 @@ func action():
 	particles.queue_free()
 
 func create_debuff(player : Player) -> StatBoost:
+	if not mark:
+		var effect := STAT_BOOST.duplicate()
+		effect.quality = StatusEffect.EffectQuality.NEGATIVE
+		effect.boost = 0.6
+		effect.stat = 'damage'
+		effect.target = player
+		effect.rounds = 1
+		effect.status_name = "Hurry Sickness"
+		effect.force_no_combine = true
+		return effect
 	var effect := STAT_BOOST.duplicate()
 	effect.quality = StatusEffect.EffectQuality.NEGATIVE
-	effect.boost = 0.6
-	effect.stat = 'damage'
+	effect.icon_color = Color.RED
+	effect.boost = 1
+	effect.stat = 'defense'
 	effect.target = player
-	effect.rounds = 1
+	effect.rounds = 0
+	effect.special_description = "The next mark will result in minus %d%% max laff" % ((marks+1) * 10)
+	#description = "At the end of round will attack and mark dealing %d%% of max laff in damage" % (mark_amount * 10)
+	effect.status_name = debuff_msg
+	effect.force_no_combine = true
 	return effect
+	

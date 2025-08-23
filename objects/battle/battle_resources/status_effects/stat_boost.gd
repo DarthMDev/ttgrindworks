@@ -13,6 +13,8 @@ var ICONS := {
 @export var boost: float = 1.0
 
 var force_no_combine := false
+var special_description = ""
+
 
 func apply():
 	var battle_stats: BattleStats = manager.battle_stats[target]
@@ -25,6 +27,8 @@ func expire():
 		battle_stats.set(stat, battle_stats.get(stat) * 1.0 / boost) 
 
 func get_description() -> String:
+	if special_description != "":
+		return special_description
 	return "%s%s%% %s" % ["+" if boost > 1.0 else "-", roundi(abs(boost - 1.0) * 100), stat[0].to_upper() + stat.substr(1)]
 
 func get_icon() -> Texture2D:
