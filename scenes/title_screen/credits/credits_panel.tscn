@@ -44,6 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://bk67why3saua1" path="res://scenes/title_screen/credits/icons/icon_evh.png" id="30_k0n1y"]
 [ext_resource type="Texture2D" uid="uid://cxgdaa2ob5wme" path="res://scenes/title_screen/credits/icons/icon_blu_toon.png" id="32_yfxw4"]
 [ext_resource type="Texture2D" uid="uid://ctm0g411jlmlq" path="res://scenes/title_screen/credits/icons/icon_erin.png" id="35_edme2"]
+[ext_resource type="Texture2D" uid="uid://du387xittkha1" path="res://scenes/title_screen/credits/icons/Cat_.png" id="36_3nme2"]
+[ext_resource type="Texture2D" uid="uid://cadc68baxf28e" path="res://scenes/title_screen/credits/icons/clash logo.png" id="37_3nme2"]
+[ext_resource type="Texture2D" uid="uid://bi6k4goiirs1a" path="res://scenes/title_screen/credits/icons/thht.png" id="38_3nme2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yadbj"]
 font = ExtResource("3_8rgp0")
@@ -417,6 +420,24 @@ icon = ExtResource("30_k0n1y")
 name = "Toontown: Event Horizon"
 role = "Cog Rigs"
 
+[sub_resource type="Resource" id="Resource_3naur"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("36_3nme2")
+name = "3n"
+role = "Mod creator"
+
+[sub_resource type="Resource" id="Resource_3nbur"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("37_3nme2")
+name = "Toontown: Corporate Clash"
+role = "Overclocked Find the Foremen + Scapegoat original creators"
+
+[sub_resource type="Resource" id="Resource_3ncur"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("38_3nme2")
+name = "Toontown: Hostile Takeover"
+role = "Mint Battle Theme and being awesome"
+
 [sub_resource type="Resource" id="Resource_e66o5"]
 script = ExtResource("3_ksngi")
 icon = ExtResource("35_edme2")
@@ -470,6 +491,12 @@ font = ExtResource("3_8rgp0")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3ntjq"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+
 [sub_resource type="LabelSettings" id="LabelSettings_fwgh3"]
 font = ExtResource("3_8rgp0")
 font_size = 24
@@ -486,8 +513,9 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur"), SubResource("Resource_3naur"), SubResource("Resource_3nbur"), SubResource("Resource_3ncur")])
 special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_e66o5"), SubResource("Resource_daahu"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
+mod_credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_3naur"), SubResource("Resource_3nbur"), SubResource("Resource_3ncur")])
 title = "Credits"
 body = ""
 
@@ -580,6 +608,17 @@ offset_right = 446.0
 offset_bottom = 103.0
 text = "Special Thanks"
 label_settings = SubResource("LabelSettings_mbtjq")
+horizontal_alignment = 1
+
+[node name="ThanksLabel2" type="Label" parent="." index="5"]
+visible = false
+layout_mode = 2
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 466.0
+offset_bottom = 103.0
+text = "Mod Special Thanks"
+label_settings = SubResource("LabelSettings_3ntjq")
 horizontal_alignment = 1
 
 [node name="FakeoutCredit" type="HBoxContainer" parent="." index="4"]
