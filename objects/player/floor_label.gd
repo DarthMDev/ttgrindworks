@@ -10,6 +10,10 @@ func _ready() -> void:
 	Util.s_floor_ended.connect(func(_x=null): hide())
 	BattleService.s_battle_started.connect(func(_x=null): hide())
 	BattleService.s_battle_ended.connect(func(_x=null): if Util.floor_number != -1: show())
+	BattleService.s_round_started.connect(func(_x=null): show())
+	BattleService.s_round_ended.connect(func(_x=null): hide())
+	#signal s_round_started(turn_array: Array[BattleAction])
+	#signal s_round_ended(manager: BattleManager)
 
 func update_text() -> void:
 	if Util.floor_number == 0:

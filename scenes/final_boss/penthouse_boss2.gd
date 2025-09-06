@@ -50,6 +50,7 @@ func _ready() -> void:
 	Globals.s_entered_barrel_room.emit()
 	Util.final_boss = false
 	Util.final_boss2 = true
+	Util.floor_number += 1
 	set_caged_toon_dna(get_caged_toon_dna())
 	AudioManager.set_music(MUSIC_TRACK)
 	# Pick the first boss
@@ -81,15 +82,15 @@ func _ready() -> void:
 
 	# Nerf their damage got damn!!!
 	
-	boss_cog.stats.damage = 2.4
+	boss_cog.stats.damage = 2.8
 	boss_cog_2.stats.damage = 2.4
 	boss_cog_3.stats.damage = 3.5
-	boss_cog.stats.max_hp = 7000
-	boss_cog.stats.hp = 7000
-	boss_cog_2.stats.max_hp = 7000
-	boss_cog_2.stats.hp = 7000
-	boss_cog_3.stats.max_hp = 9000
-	boss_cog_3.stats.hp = 9000
+	boss_cog.stats.max_hp = 8500
+	boss_cog.stats.hp = 8500
+	boss_cog_2.stats.max_hp = 8500
+	boss_cog_2.stats.hp = 8500
+	boss_cog_3.stats.max_hp = 11000
+	boss_cog_3.stats.hp = 11000
 	#battle.cogs.append(boss_cog_3)
 	# Start the battle
 	Util.get_player().state = Player.PlayerState.WALK
@@ -126,6 +127,7 @@ func try_add_cogs(_actions: Array[BattleAction]) -> void:
 			new_reinforcements.user = self
 			BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
 			elevator_cooldown = 1
+			Globals.elevator_cooldown = elevator_cooldown
 
 func participant_died(who: Node3D) -> void:
 	if who == boss_cog:
@@ -220,7 +222,7 @@ func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
 		cog.foreman = true
 		cog.custom_level_range = COG_LEVEL_RANGE
 		if dna: cog.dna = dna
-		if roll_for_proxies and RandomService.randf_channel('mod_cog_chance') > 0.45: 
+		if roll_for_proxies and RandomService.randf_channel('mod_cog_chance') > 0.25: 
 			#cog.use_mod_cogs_pool = true
 			cog.unstable = true
 		battle.add_child(cog)
@@ -246,9 +248,11 @@ func should_spawn_foreman() -> bool:
 	#never when 4+ cogs huh? plus? 4 plus?
 	if battle.cogs.size() >= 4:
 		elevator_cooldown = 1
+		Globals.elevator_cooldown = elevator_cooldown
 		return false
 	if elevator_cooldown > 0:
 		elevator_cooldown -= 1
+		Globals.elevator_cooldown = elevator_cooldown
 		return false
 	else:
 		return true
@@ -310,7 +314,7 @@ func win_game() -> void:
 	AudioManager.stop_music()
 	AudioManager.set_music_volume(0.0)
 	scene.kill()
-	end_game_editted()
+	end_game()
 
 func do_move_player_seq() -> void:
 	var player: Player = Util.get_player()

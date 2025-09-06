@@ -31,7 +31,7 @@ func on_battle_ending() -> void:
 func on_action_finished(action: BattleAction) -> void:
 	if action is ToonAttack:
 		toon_actions += 1
-		if(dmg_sum < 0.16):
+		if(dmg_sum < 0.12):
 			BattleService.ongoing_battle.battle_stats[Util.get_player()].damage += DMG_BONUS
 			dmg_sum += DMG_BONUS
 

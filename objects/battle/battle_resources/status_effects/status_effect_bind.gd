@@ -5,11 +5,14 @@ extends StatusEffect
 
 
 func apply() -> void:
+	print("$$$$$$$$$$$$$$$$$$$$$$$$")
 	manager.s_battle_ending.connect(expire_status)
+	print("BIND LINE 9 IN APPLY WHAT IS HAPPEDN?!")
 	disable_items()
 	if manager.current_round < 1:
 		manager.s_ui_initialized.connect(disable_items)
 	else: manager.s_round_ended.connect(disable_items)
+	print("HHHHHEEEEEELLLLLLOOOOOOO WHAT IS GOING ONNNNN")
 
 func expire() -> void:
 	cleanup()

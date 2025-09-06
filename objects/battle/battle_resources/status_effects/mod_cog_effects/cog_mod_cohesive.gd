@@ -9,10 +9,7 @@ func apply() -> void:
 		hookup_cog(cog)
 	manager.s_participant_joined.connect(func(participant): if participant is Cog: hookup_cog(participant))
 	manager.s_status_effect_added.connect(on_status_effect_added)
-	if Util.final_boss2:
-		target.stats.hp *= 0.8
-		target.stats.max_hp *= 0.8
-		print("in cohesive lowering cog hp")
+
 
 
 
@@ -46,7 +43,7 @@ func apply_random_effect(cog : Cog) -> void:
 	effect.target = cog
 	if effect is StatBoost:
 		tweak_stat_boost(effect)
-		effect.boost = RandomService.randf_range_channel('true_random', 1.1, 1.20)
+		effect.boost = RandomService.randf_range_channel('true_random', 1.12, 1.20)
 		effect.quality = StatusEffect.EffectQuality.POSITIVE
 		effect.rounds = 2
 		print("effect boost: ",effect.boost)
@@ -54,7 +51,7 @@ func apply_random_effect(cog : Cog) -> void:
 		effect.instant_effect = false
 		effect.rounds = 0
 		if target:
-			effect.amount = ceili(target.stats.max_hp * 0.12)
+			effect.amount = ceili(target.stats.max_hp * 0.14)
 		print(effect.amount,effect.get_status_name())
 	await Util.s_process_frame
 	BattleService.ongoing_battle.add_status_effect(effect)

@@ -2,13 +2,15 @@ extends FloorModifier
 
 ## Gives all cogs on the floor 20 percent more health
 func modify_floor() -> void:
+	Util.unstable_chance = 30
 	game_floor.s_cog_spawned.connect(
 		func(cog: Cog):
 			cog.health_mod *= 1.11
 	)
 	print(Util.floor_number)
 	
-
+func clean_up() -> void:
+	Util.unstable_chance = 20
 func get_mod_quality() -> ModType:
 	return ModType.NEGATIVE
 

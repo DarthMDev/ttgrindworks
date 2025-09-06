@@ -15,6 +15,7 @@ const EffectIcons: Dictionary = {
 var player: Player:
 	get: return target
 var saved_regen := 0
+var force_no_combine = false
 
 func apply() -> void:
 	manager.s_battle_ending.connect(expire_status)
@@ -32,3 +33,21 @@ func expire_status() -> void:
 	manager.expire_status_effect(self)
 func get_icon() -> Texture2D:
 	return EffectIcons[track_name]
+
+func combine(effect: StatusEffect) -> bool:
+	if not effect.status_name == "Curse":
+		return false
+	
+	if force_no_combine or effect.force_no_combine:
+		return false
+
+	if effect.track_name == track_name:
+			#expire()
+			player.stats.gag_balance[track_name] -= 12
+			effect.rounds += 1
+			print("same name regen")
+			#apply()
+			#print("new amount : %f" % boost)
+			return true
+	
+	return false

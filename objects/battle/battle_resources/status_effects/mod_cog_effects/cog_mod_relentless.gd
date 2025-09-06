@@ -24,7 +24,6 @@ func apply() -> void:
 	
 	
 func renew() -> void:
-	print("IS THIS EVEN LOADING?")
 	var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/debuff_wag.tres').duplicate()
 	attack.damage = Util.get_player().stats.max_hp * (mark_amount * 0.1)
 	attack.summary = "Foreman's Mark"

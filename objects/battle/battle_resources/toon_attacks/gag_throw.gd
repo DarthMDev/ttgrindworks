@@ -38,7 +38,8 @@ func action():
 	
 	# Roll for accuracy
 	var hit: bool = manager.roll_for_accuracy(self) or cog.lured
-	
+	if get_immunity(cog):
+		hit = false
 	if hit:
 		await throw_tween.finished
 		throw_tween.kill()
@@ -51,11 +52,7 @@ func action():
 			var throw_damage: int = manager.affect_target(cog, damage)
 			if user.throw_heals:
 				if not sheer_force:
-					print("throw gag line 54 before throw heal added:")
-					print(Globals.healed_from_throw)
 					user.quick_heal(roundi(throw_damage * user.stats.get_stat("throw_heal_boost")))
-					print(" base healing from throw: ", roundi(throw_damage * user.stats.get_stat("throw_heal_boost")))
-					print(Globals.debug_heal_func(throw_damage * user.stats.get_stat("throw_heal_boost")))
 					Globals.healed_from_throw += Globals.debug_heal_func(throw_damage * user.stats.get_stat("throw_heal_boost"))
 		else:
 			manager.battle_text(cog, "IMMUNE")

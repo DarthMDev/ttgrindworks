@@ -22,14 +22,18 @@
 [ext_resource type="Resource" uid="uid://dyl7r5ve67tbs" path="res://objects/items/resources/accessories/backpacks/pixie_wings.tres" id="29_yjdyf"]
 [ext_resource type="Resource" uid="uid://hqfvncal8xvq" path="res://objects/items/resources/accessories/hats/fez.tres" id="30_a5mu0"]
 [ext_resource type="Resource" uid="uid://bye8a25d8np3f" path="res://objects/items/resources/accessories/backpacks/angel_wings.tres" id="31_66m13"]
+[ext_resource type="Resource" uid="uid://crvenqtyote8y" path="res://objects/items/resources/accessories/hats/party_hat.tres" id="31_cgk14"]
 [ext_resource type="Resource" uid="uid://dkbg3o5aa81j8" path="res://objects/items/resources/active/white_out.tres" id="32_cgk14"]
 [ext_resource type="Resource" uid="uid://bgw6nin360tg5" path="res://objects/items/resources/accessories/backpacks/wood_sword.tres" id="35_lviim"]
 [ext_resource type="Resource" uid="uid://dpbjr75nuswfn" path="res://objects/items/resources/accessories/hats/jester_hat.tres" id="37_a272n"]
 [ext_resource type="Resource" uid="uid://c8wjy8fdkxarx" path="res://objects/items/resources/active/gag_button.tres" id="39_v6ptv"]
-[ext_resource type="Resource" uid="uid://mjt03er8fskn" path="res://objects/items/resources/accessories/hats/dino_hat.tres" id="52_3nl6l"]
+[ext_resource type="Resource" uid="uid://cs5v54jdptmge" path="res://objects/items/resources/accessories/glasses/square_frames.tres" id="40_9d57v"]
+[ext_resource type="Resource" uid="uid://mjt03er8fskn" path="res://objects/items/resources/accessories/hats/dino_hat.tres" id="82_3nl6l"]
+[ext_resource type="Resource" uid="uid://c1ityxde5xlmm" path="res://objects/items/resources/accessories/glasses/celebrity_shades.tres" id="9_bpdna"]
+[ext_resource type="Resource" uid="uid://bw4hfnjy11e63" path="res://objects/items/resources/accessories/backpacks/plane_wings.tres" id="33_6rl6l"]
 
 [resource]
 script = ExtResource("18_5jvy5")
-items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("5_wersp"), ExtResource("6_w52d4"), ExtResource("7_x61t0"), ExtResource("8_vk3ji"), ExtResource("9_athb6"), ExtResource("12_ebao6"), ExtResource("14_a5mu0"), ExtResource("20_eqgxa"), ExtResource("22_x61t0"), ExtResource("23_x61t0"), ExtResource("24_vk3ji"), ExtResource("25_athb6"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13"), ExtResource("32_cgk14"), ExtResource("35_lviim"), ExtResource("37_a272n"), ExtResource("39_v6ptv"), ExtResource("52_3nl6l")])
+items = Array[ExtResource("1_oxrd8")]([ExtResource("2_n4ktm"), ExtResource("3_e731w"), ExtResource("4_eqgxa"), ExtResource("6_w52d4"), ExtResource("7_x61t0"), ExtResource("8_vk3ji"), ExtResource("9_athb6"), ExtResource("12_ebao6"), ExtResource("14_a5mu0"), ExtResource("20_eqgxa"), ExtResource("22_x61t0"), ExtResource("24_vk3ji"), ExtResource("27_3s3yo"), ExtResource("28_ebao6"), ExtResource("29_yjdyf"), ExtResource("30_a5mu0"), ExtResource("31_66m13"), ExtResource("31_cgk14"), ExtResource("35_lviim"), ExtResource("37_a272n"), ExtResource("39_v6ptv"),ExtResource("40_9d57v"), ExtResource("82_3nl6l"),ExtResource("9_bpdna"), ExtResource("33_6rl6l")])
 low_roll_override = 7
 metadata/_custom_type_script = "uid://wiibpvvki8vs"

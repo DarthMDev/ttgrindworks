@@ -23,7 +23,9 @@ func action():
 	
 	await manager.sleep(2.3)
 	var hit := manager.roll_for_accuracy(self)
-	if hit or target.lured:
+	if get_immunity(target):
+		hit = false 
+	if hit:
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_flowersquirt.ogg"))
 	else:
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_flowersquirt_miss.ogg"))

@@ -51,6 +51,7 @@ var start_cog_size = 0
 var multiple_fore_deaths = false
 var cogs_destroyed_this_turn = 0
 var testval = 0
+var sniper_cringe = false # so end of round actions will run when snipe does its nonsense
 
 ## Signals
 signal s_focus_char(character: Node3D)
@@ -128,6 +129,7 @@ func revert_battle_speed() -> void:
 
 func begin_turn():
 	bellow = false
+	sniper_cringe = false 
 	current_round_combo_data = {}
 	combo_damage_actions = []
 	# Hide Battle UI
@@ -141,7 +143,9 @@ func begin_turn():
 			var attack := get_cog_attack(cog)
 			if not attack == null:
 				if cog.techbot:
-					inject_battle_action(attack, 0)
+					if round_actions.size() > 0 and round_actions[0].action_name == "Sound Immunity":
+						inject_battle_action(attack, 1)
+					else: inject_battle_action(attack, 0)
 				else: append_action(attack)	
 
 	# Inject partner moves before player's  # and after techbots
@@ -265,7 +269,7 @@ func kill_someone(who: Node3D, signal_only := false) -> void:
 
 func round_over():
 	s_actions_ended.emit()
-	
+	sniper_cringe = true
 	# Run status effects
 	await renew_status_effects()
 	
@@ -302,7 +306,7 @@ func end_battle() -> void:
 		await battle_win_movie.action()
 	s_battle_ending.emit()
 	s_focus_char.emit(player)
-	player.set_animation('victory_dance')
+	player.set_animation('happy') #change back to victory dance
 	player.game_timer_tick = false
 	await player.animator.animation_finished
 	player.game_timer_tick = true
@@ -457,7 +461,7 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				string = str("%s\nCRIT!" % -roundi(amount))
 				text_color = BattleText.colors.yellow[0]
 				outline_color = BattleText.colors.yellow[1]
-				if RandomService.randi_channel('true_random') % 100 < 2:
+				if RandomService.randi_channel('true_random') % 100 < get_crit_threshold(Util.get_player().stats.luck):
 					AudioManager.play_sound(RandomService.array_pick_random('true_random', FUNNY_SFX))
 				else: AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
 				BattleService.s_toon_crit.emit()
@@ -679,12 +683,12 @@ func add_status_effect(status_effect: StatusEffect) -> void:
 			#print("v1_5 is immune")
 			return
 	if attempt_to_combine(status_effect, get_repeat_status_effects(status_effect)):
-		return
+		if status_effect.get_status_name() != "Bind": # I have no idea at 12am but we need this
+			return
 	status_effect.manager = self
 	status_effects.append(status_effect)
 	if status_effect is GagJob:  
 		await status_effect.apply()
-		print("gag job")
 	else: status_effect.apply()
 		
 	s_status_effect_added.emit(status_effect)
@@ -1085,3 +1089,12 @@ func remove_debuffs(target, ignore_lure := false) -> void:
 func print_round_actions() -> void:
 	for action in round_actions:
 		print(action.action_name)
+
+func get_crit_threshold(luck: float) -> float:
+	# Clamp luck between 1 and 2 just in case
+	luck = clamp(luck, 1.01, 2.0)
+	
+	# Map luck=1 → 20, luck=2 → 5
+	var threshold = lerp(25.0, 5.0, (luck - 1.0) / 1.0)
+	print("chance of funny sound happening is: ", threshold)
+	return threshold

@@ -38,6 +38,7 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_osf2s")
 
 [node name="Directed" type="GPUParticles3D"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.068943, -0.413838, -0.836456)
 amount = 12
 lifetime = 2.85
 process_material = SubResource("ParticleProcessMaterial_qo5lp")

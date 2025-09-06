@@ -56,9 +56,9 @@ func _ready() -> void:
 	unloaded_rooms = Node3D.new()
 	Util.floor_manager = self
 	# Room count must be an odd number
-	if room_count % 2 == 0:
-		room_count += 1
+	print("room count was : ", room_count)
 	Util.floor_number += 1
+	print(" now room count is : ", room_count)
 	if floor_variant.floor_name == "Survive The Foremen":
 		Util.survive_the_foreman = true
 	else:
@@ -78,6 +78,7 @@ func generate_floor() -> void:
 	# Setting value to anything else will let you debug custom sizes
 	if room_count == -1:
 		room_count = floor_variant.room_count
+		print(room_count, " is  room count right after floor_variant is calced")
 		level_range = floor_variant.level_range
 		cog_pool = floor_variant.cog_pool
 	
@@ -105,10 +106,19 @@ func generate_floor() -> void:
 	# Get the floor room values
 	floor_rooms = floor_variant.floor_type
 	Util.floor_type = floor_rooms
-	# Randomly decide 40% - 60% battle rooms 
-	battle_ratio = 0.4 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 3))
+	
+	# Randomly decide 40% - 60% battle rooms
+	if Util.floor_number < 4:
+		battle_ratio = 0.4 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 3))
+	else: battle_ratio = 0.5 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 2))
+	increase_floor_rooms()
+	if room_count % 2 == 0:
+		room_count += 1
 	var total_rooms = int((room_count - 2) / 2)
 	var total_battles := int(total_rooms * battle_ratio)
+	print("total rooms: ", total_rooms)
+	print("battle rooms ", total_battles)
+	print("battle ratio: ", battle_ratio)
 	rooms_remaining = [total_battles, total_rooms - total_battles]
 
 	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') < get_special_room_chance():
@@ -135,6 +145,7 @@ func generate_floor() -> void:
 		SceneLoader.add_persistent_node(player)
 	player.s_fell_out_of_world.connect(player_out_of_bounds)
 	player.stats.quest_rerolls = 4
+	Globals.last_fore_abilities = ["Toontown", "Event", "Horizon", "Tomorrow"]
 	player.stats.give_quests()
 	
 	# Setup debug anomalies
@@ -168,6 +179,7 @@ func generate_floor() -> void:
 		AudioManager.set_default_music(floor_rooms.background_music[RandomService.randi_channel('true_random') % floor_rooms.background_music.size()])
 		if floor_variant.floor_name == "The Factory":
 			if Util.floor_number < 4: AudioManager.set_default_music(load('res://audio/music/installer.ogg'))
+		elif Util.floor_number > 6 : AudioManager.set_default_music(load('res://audio/music/Corporate_Clash_oftf_interior.ogg'))
 
 func spawn_player(player: Player) -> void:
 	var entrance = room_node.get_child(0)
@@ -364,6 +376,8 @@ func get_special_room_chance() -> float:
 	if is_instance_valid(Util.get_player()):
 		luck = Util.get_player().stats.luck
 	luck -= 1.0
+	if Util.floor_number > 6:
+		luck+= 0.5
 	return base_chance + luck
 
 func _capture_debug_message(message: String, data: Array) -> bool:
@@ -391,8 +405,13 @@ func technical_debt_music() -> void:
 			#reverse later, just want demos to be quieter
 			floor_rooms.battle_music = [floor_rooms.battle_music[2], floor_rooms.battle_music[1]]
 		else:
-			floor_rooms.battle_music = [floor_rooms.battle_music[2], floor_rooms.battle_music[3]]
+			floor_rooms.battle_music = [floor_rooms.battle_music[3],floor_rooms.battle_music[2],floor_rooms.battle_music[3]]
 
+func increase_floor_rooms() -> void:
+	if Util.floor_number == 4:
+		room_count *= 1.1
+	elif Util.floor_number == 5:
+		room_count *= 1.15
 #region GAME TRACKING
 ## Game Signals
 signal s_cog_spawned(cog: Cog)

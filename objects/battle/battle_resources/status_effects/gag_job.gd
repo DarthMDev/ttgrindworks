@@ -11,7 +11,7 @@ var _bounce_tween: Tween = null
 var cog: Cog
 var track_name = "Squirt"
 var job_met = false
-var defense_boost = 0.4
+var defense_boost = 0.6
 @export var track: Track
 const GagIcons: Dictionary = {
 	"Trap": preload("res://ui_assets/battle/gags/inventory_tnt.png"),
@@ -39,6 +39,7 @@ func apply() -> void:
 	track = RandomService.array_pick_random('true_random', Util.get_player().stats.character.gag_loadout.loadout)
 	track_name = track.track_name
 	description = "The foreman demands that you use %s on this cog" % track_name
+	status_name = "%s rush job" % track_name
 	var stats : BattleStats = manager.battle_stats[cog]
 	stats.defense += defense_boost
 	manager.s_action_started.connect(on_action_started)

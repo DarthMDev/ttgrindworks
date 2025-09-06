@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://c6rlm3fyr8xlp"]
 
-[ext_resource type="Texture2D" uid="uid://dkom5depgpqb0" path="res://ui_assets/battle/statuses/cog_sad.png" id="1_kooav"]
+[ext_resource type="Texture2D" uid="uid://b1wabgp3ncty" path="res://ui_assets/battle/statuses/red_tape.png" id="1_kooav"]
 [ext_resource type="Script" uid="uid://drq5b6liaa4kt" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_red_tape.gd" id="1_snbth"]
 
 [resource]

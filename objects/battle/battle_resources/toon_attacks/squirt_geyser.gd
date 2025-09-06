@@ -31,7 +31,9 @@ func action() -> void:
 	movie.tween_callback(battle_node.focus_character.bind(cog))
 	movie.tween_callback(geyser.get_node('AnimationPlayer').play.bind('squirt'))
 	
-	var hit: bool = manager.roll_for_accuracy(self) or cog.lured 
+	var hit: bool = manager.roll_for_accuracy(self) or cog.lured
+	if get_immunity(cog):
+		hit = false 
 	if hit:
 		if not get_immunity(cog):
 			movie.tween_callback(s_hit.emit)

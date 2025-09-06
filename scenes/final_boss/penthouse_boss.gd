@@ -43,6 +43,7 @@ var darkened_sky := false
 
 func _ready() -> void:
 	Globals.s_entered_barrel_room.emit()
+	Util.floor_number += 1
 	
 	set_caged_toon_dna(get_caged_toon_dna())
 	AudioManager.set_music(MUSIC_TRACK)
@@ -60,6 +61,7 @@ func _ready() -> void:
 		boss_two_choice = DEBUG_FORCE_BOSS_TWO
 	else:
 		boss_two_choice = RandomService.array_pick_random('base_seed', boss_choices)
+	boss_cog_2.foreman = false
 	boss_cog_2.set_dna(boss_two_choice)
 
 	# Nerf their damage got damn!!!
@@ -115,9 +117,9 @@ func participant_died(who: Node3D) -> void:
 		#print("stuff")
 
 func battle_ending() -> void:
-	Util.get_player().game_timer_tick = false
-	Util.get_player().lock_game_timer = true
-	Util.get_player().game_timer.become_full_visible()
+	#Util.get_player().game_timer_tick = false
+	#Util.get_player().lock_game_timer = true
+	#Util.get_player().game_timer.become_full_visible()
 	var win_time : float = Util.get_player().game_timer.time
 	if win_time < 3600.0:
 		Globals.s_one_hour_win.emit()
@@ -305,7 +307,7 @@ func do_move_caged_toon_seq() -> void:
 	await caged_toon.turn_to_position(Vector3.ZERO, 1.5)
 	s_caged_toon_finished_walking.emit()
 func end_game_editted() -> void:
-	Util.floor_number += 1
+	Util.final_boss = false
 	if not Util.get_player().stats.character.random_character_stored_name == "":
 		if not SaveFileService.progress_file.mystery_toon_win:
 			Globals.s_mystery_win.emit()

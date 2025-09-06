@@ -527,7 +527,7 @@ var FALLING_SCENE: PackedScene
 var lawbot_puzzles := {
 	avoid_skulls = PuzzleAvoidSkulls.new(),
 	matching = PuzzleMatching.new(),
-	skull_finder = PuzzleSkullFinder.new(),
+	#skull_finder = PuzzleSkullFinder.new(),
 	drag_three = PuzzleDragThree.new(),
 	run = PuzzleRun.new(),
 }
@@ -568,6 +568,7 @@ var battles_done = 0
 var last_round_number = 0
 var current_round_damage = 0
 var prev_round_damage = 0
+var elevator_cooldown = 0
 
 
 #region Global Signals

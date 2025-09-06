@@ -618,6 +618,7 @@ boss_battle = true
 [node name="Cog" parent="BossDirectory/BattleNode" index="3" instance=ExtResource("3_uyfsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.52055)
 skelecog_chance = 0
+chartist_rebalance = 6
 
 [node name="SalesDirector" parent="BossDirectory/BattleNode" index="4" instance=ExtResource("3_uyfsw")]
 unique_name_in_owner = true
@@ -629,10 +630,12 @@ skelecog_chance = 0
 [node name="Cog3" parent="BossDirectory/BattleNode" index="5" instance=ExtResource("3_uyfsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.52055)
 skelecog_chance = 0
+chartist_rebalance = 5
 
 [node name="Cog4" parent="BossDirectory/BattleNode" index="6" instance=ExtResource("3_uyfsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.52055)
 skelecog_chance = 0
+chartist_rebalance = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BossDirectory/BattleNode" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70773, 4.56771, -1.7244)

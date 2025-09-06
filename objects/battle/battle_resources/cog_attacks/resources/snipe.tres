@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FingerWag" load_steps=2 format=3 uid="uid://b2cn4w0011aoo"]
+[gd_resource type="Resource" script_class="Snipe" load_steps=2 format=3 uid="uid://b2cn4w0011aoo"]
 
 [ext_resource type="Script" uid="uid://cv271mkfe6owb" path="res://objects/battle/battle_resources/cog_attacks/snipe.gd" id="1_n5atw"]
 
@@ -9,7 +9,7 @@ damage = 2
 ignore_stats = false
 foreman_user = false
 summary = ""
-attack_lines = Array[String](["I have told you a thousand times.", "Now see here Toon.", "Don't make me laugh.", "Don't make me come over there.", "I am not your friend.", "Too vulnerable", "Not looking so good."])
+attack_lines = Array[String](["Prepare for Pain.", "I am not your friend."])
 target_type = 0
 action_name = "Snipe"
 one_time_use = false

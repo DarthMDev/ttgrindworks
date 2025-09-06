@@ -320,12 +320,6 @@ override_replacement_rolls = true
 override_item = ExtResource("10_ewobj")
 item_pool = ExtResource("11_4girh")
 
-[node name="treasure_chest5" parent="." index="9" instance=ExtResource("9_lh0jt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57514, 0.106156, 9.51709)
-override_replacement_rolls = true
-override_item = ExtResource("14_awobj")
-item_pool = ExtResource("11_4girh")
-
 [node name="treasure_chest3" parent="." index="10" instance=ExtResource("9_lh0jt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.117662)
 override_replacement_rolls = true

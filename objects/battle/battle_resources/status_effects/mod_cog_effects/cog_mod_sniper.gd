@@ -25,6 +25,9 @@ func renew() -> void:
 
 
 func on_status_added(status : StatusEffect) -> void:
+	if unstable:
+		if manager.sniper_cringe:
+			return
 	if status.target == player and status.quality == 1:
 		var attack = Snipe_Attack.duplicate()
 		attack.damage = (6 * target.stats.damage) / player.stats.defense # change later to account for battle stats
@@ -32,6 +35,11 @@ func on_status_added(status : StatusEffect) -> void:
 		attack.targets = [player]
 		attack.custom_player_death_source = "The Sniper"
 		manager.inject_battle_action(attack, 0)
+		#if not manager.sniper_cringe:
+		#	manager.inject_battle_action(attack, 0)
+		#else:
+		#	manager.inject_battle_action(attack, 0)
+			#manager.round_end_actions.append(attack)
 
 
 func cleanup() -> void:

@@ -16,7 +16,7 @@ func apply() -> void:
 		if not user == cog:
 			apply_to_participant(cog)
 	var player: Player = Util.get_player()
-	player_attack = player.stats.damage * 0.25
+	player_attack = player.stats.damage * 0.25 * 1.1
 	apply_to_participant(player)
 
 func cleanup() -> void:

@@ -41,11 +41,12 @@ func _refresh_cogs() -> void:
 		cog_count = cog_range.y
 	else:
 		if  Util.floor_number == 4 and Util.battlesonfloor == 0:
-			#cog_count = 2
 			#Make  first battle in FTF always 2 cogs
 			cog_count = 2
 			
 		else: cog_count = RandomService.randi_range_channel("cog_counts", cog_range.x, cog_range.y)
+	if Util.floor_number == 5:
+		cog_count = cog_boost(cog_count)
 	Util.battlesonfloor += 1
 	clear_cogs()
 	if Engine.is_editor_hint():
@@ -54,7 +55,6 @@ func _refresh_cogs() -> void:
 		spawn_cogs(cog_count)
 
 func spawn_cogs(cog_count := 1) -> void:
-	print("COG COUNT AAAAAHHHH: ", cog_count)
 	for i in cog_count:
 		var cog : Cog = COG.instantiate()
 		rebalance_cogs(cog, cog_count)
@@ -89,7 +89,6 @@ func rebalance_cogs(cog, cog_count) -> void:
 		cog.foreman = true
 		if cog_count == 2:
 			if Util.battlesonfloor > 1:  cog.level_rebalance += 3
-			#print("Rebalancing group of 2 cogs +3 levels to cog")
 	if Util.floor_number <= 3:
 		if cog_count <= 2:
 			cog.level_rebalance += Util.floor_number
@@ -102,6 +101,7 @@ func handle_cog_count() -> void:
 	if Util.floor_number == 4:
 		MAX_DYNAMIC_COGS = 3
 	if Util.floor_number == 5:
+		MAX_DYNAMIC_COGS = 4
 		if not Util.survive_the_foreman:
 			MIN_DYNAMIC_COGS = 3
 	if Util.floor_number == 7:
@@ -111,4 +111,12 @@ func handle_cog_count() -> void:
 		MIN_DYNAMIC_COGS = 4
 		MAX_DYNAMIC_COGS = 4
 		
-	
+func cog_boost(cog_count) -> int:
+	print("floor 5 so rebalancing cog count")
+	if cog_count == 3:
+		if RandomService.randi_channel('fusion_chance') % 100 < 50:
+			print("triggered increasing cogs")
+			cog_count = 4
+	return cog_count
+
+		

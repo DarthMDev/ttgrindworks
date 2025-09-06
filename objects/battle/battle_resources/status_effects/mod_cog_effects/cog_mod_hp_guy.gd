@@ -15,7 +15,7 @@ var unstable = false
 func apply() -> void:
 	cog = target
 	hp_requirement = cog.stats.max_hp
-	above = false
+	above = true
 	description = "This foreman's health must be above %d" % hp_requirement
 	
 	
@@ -60,9 +60,12 @@ func get_status_name() -> String:
 
 func get_requirement() -> void:
 	var mult
+	lower_hp = false
 	if manager.cogs.size() <= 1:
+		print("there is only 1 cog so forcing above to be false")
 		above = false
-		mult = RandomService.randf_range_channel('true_random', 0.5, 0.8)
+		lower_hp = true
+		mult = RandomService.randf_range_channel('true_random', 0.3, 0.65)
 		hp_requirement = target.stats.hp * mult
 	else:
 		var roll: float = RandomService.randf_channel('true_random')

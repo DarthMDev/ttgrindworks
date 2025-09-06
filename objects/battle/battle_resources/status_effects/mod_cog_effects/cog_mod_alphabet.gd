@@ -13,21 +13,17 @@ func apply() -> void:
 
 
 func on_gags_chosen(actions: Array[ToonAttack]) -> void:
-	print(actions)
 	var bactions = actions.duplicate()
 	for baction in bactions:
 		baction.action_name = format_dollar_bill(baction.action_name)
-	print("checking gags")
 	var flag = false
 	if ascending:
 		for i in range(bactions.size() - 1):
-			if bactions[i].action_name.to_lower() > bactions[i + 1].action_name.to_lower():
-				print("not ascending: " + bactions[i].action_name + " then ", bactions[i + 1].action_name)
+			if bactions[i].action_name.to_lower() >= bactions[i + 1].action_name.to_lower():
 				flag = true
 	else:
 		for i in range(bactions.size() - 1):
-			if bactions[i].action_name.to_lower() < bactions[i + 1].action_name.to_lower():
-				print("not descending: " + bactions[i].action_name + " then ", bactions[i + 1].action_name)
+			if bactions[i].action_name.to_lower() <= bactions[i + 1].action_name.to_lower():
 				flag = true
 	if flag: retaliate()
 
@@ -54,13 +50,14 @@ func cleanup() -> void:
 	manager.s_gags_chosen.disconnect(on_gags_chosen)
 
 func get_status_name() -> String:
-	return "Alphabet"
+	return "Alphabetical"
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/statuses/StatusEffectA.png")
-	
+	if ascending: return load("res://ui_assets/battle/statuses/StatusEffectA.png")
+	else: return load("res://ui_assets/battle/statuses/descending.png")
+
 func retaliate() -> void:
-				var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres').duplicate()
+				var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/debuff_wag_two.tres').duplicate()
 				attack.damage = 3
 				attack.summary = "The Foreman Retaliates!"
 				attack.user = target

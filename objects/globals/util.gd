@@ -40,11 +40,11 @@ var floor_type : DepartmentFloor
 var window_focused := true
 var stop_camera_shake := false
 var battlesonfloor = 0
-var final_boss = false  # NOT BEST PRACTICES BUT IM RELEASING THIS TODAY, ON THIS DAY, TODAY
+var final_boss = false  # NOT BEST PRACTICES BUT IM RELEASING THIS TODAY, ON THIS DAY, TODAY #this whole mod is not best practices lol
 var final_boss2 = false
 var battles_encountered = 0
 var survive_the_foreman = false
-var oftfdebug = true
+var oftfdebug = false
 var monolitic = false
 var force_foreman = null
 var unstable_chance = 20
@@ -313,8 +313,11 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	var chest_scene: PackedScene = load('res://objects/interactables/treasure_chest/treasure_chest.tscn')
 	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
 	var num
-	if Util.floor_number > 1:
-		num = 5
+	
+	if Util.floor_number > 1 and Util.floor_manager:
+		if Util.floor_manager.floor_variant.floor_name != "D.A. Office"  and Util.floor_manager.floor_variant.floor_name != "Cog Golf Course":
+			num = 5
+		else: num = 4
 	else: num = 4
 	for i in range(num):
 		var chest: TreasureChest = chest_scene.instantiate()
@@ -331,7 +334,7 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				# Give a random super candy
 				if Util.floor_number == 0:
 					chest.override_item = load("res://objects/items/resources/passive/candies/candy_super_luck.tres")
-				elif Util.floor_number == 3:
+				elif Util.floor_number == 3 and force_damage_candy():
 					chest.override_item = load("res://objects/items/resources/passive/candies/candy_super_damage.tres")
 				else: 
 					chest.override_item = RandomService.array_pick_random('boss_drops', load("res://objects/items/pools/super_candies.tres").items)
@@ -361,7 +364,17 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				if Util.floor_number == 5:
 					if not Util.get_player().stats.has_item("Pilot Hat"):
 						chest.override_item = load("res://objects/items/resources/accessories/hats/pilot_hat.tres")
+					elif not Util.get_player().stats.has_item("Toonosaur Hat"):
+						chest.override_item = load("res://objects/items/resources/accessories/hats/dino_hat.tres")
 		chest.update_texture(chest.BOSS_TEXTURE)
 		chest.set_ray_gradient(light_beam)
+func force_damage_candy() -> bool:
+	var player : Player = Util.get_player()
+	var difference = player.stats.damage - player.character.base_stats.damage
+	if difference < 0.25:
+		print("underpowered forcing damage")
+		return true
+	print("good enough damage stat: of + ", difference)	
+	return false
 
 #endregion

@@ -15,15 +15,36 @@ func action() -> void:
 	user.set_animation('effort')
 	battle_node.focus_character(user)
 	var iterator = 0
+	var particles = load('res://objects/battle/effects/soundwave/directed.tscn').instantiate()
+	user.add_child(particles)
+	#particles.global_position = user.body.head_node.global_position
+	#var particle_dir = particles.global_position.direction_to(Util.get_player().head_node.global_position)
+	#var particle_dir = particles.global_position.direction_to(target.head_node.global_position)
+	#particles.process_material.gravity = particle_dir*9.8
+	particles.global_position = user.body.head_node.global_position + Vector3(0, -0.4, 0)
 
+
+
+	var player_pos = Util.get_player().head_node.global_position
+	var particle_dir = particles.global_position.direction_to(player_pos)
+
+	# Set the initial velocity in the particle material
+	#var particle_material = particles.process_material.duplicate()  # Duplicate to avoid affecting other instances
+	#particle_material.initial_velocity_min = 8.81
+	#particle_material.initial_velocity_max = 8.81
+	#particle_material.direction = Vector3(particle_dir.x, particle_dir.y, particle_dir.z)
+	#particles.process_material = particle_material
 	
-	
-	await manager.sleep(3.0)
+	await manager.sleep(4.0)
 	var status_effects = manager.status_effects.duplicate()
 	for status_effect: StatusEffect in status_effects:
 		if status_effect.target is Cog and status_effect.quality == 1:
 			#print(status_effect.get_description())
 			await manager.expire_status_effect(status_effect)
 			await manager.sleep(0.7)
-	#await manager.sleep(3.0)
+	particles.emitting = false		
+	await manager.sleep(0.5)
+	
+	
+	particles.queue_free()
 	manager.bellow = false

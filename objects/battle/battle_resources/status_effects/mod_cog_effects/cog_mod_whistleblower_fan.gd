@@ -28,7 +28,7 @@ func on_toon_heal(health : int) -> void:
 	
 func on_action_started(action: BattleAction) -> void:
 	#holy yap
-	if action is CogAttack and action.target_type != BattleAction.ActionTarget.SELF and action.action_name != "Overtime" and action.action_name != "Compensation":
+	if action is CogAttack and action.target_type != BattleAction.ActionTarget.SELF and action.action_name != "Overtime" and action.action_name != "Compensation" and action.action_name != "Snipe":
 		if action.user == target:
 			#action.custom_player_death_source = "Whistleblower Fan"
 			player.last_damage_source = "Whistleblower Fan"
@@ -78,7 +78,7 @@ func get_status_name() -> String:
 	return "Whistleblower Fan"
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/gags/inventory_whistle.png")
+	return load("res://ui_assets/battle/statuses/whistleblower_fan.png")
 var prev_banned_track := ""
 func apply_status_effect() -> void:
 	var effect := STATUS_EFFECT.duplicate()

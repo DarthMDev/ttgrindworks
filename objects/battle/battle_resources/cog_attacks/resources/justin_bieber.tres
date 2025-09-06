@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://chropsyqr2ecj"]
+
+[ext_resource type="Script" uid="uid://ctn56b6e655xu" path="res://objects/battle/battle_resources/cog_attacks/justin_bieber.gd" id="1_bdyvm"]
+
+[resource]
+script = ExtResource("1_bdyvm")
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = ""
+attack_lines = Array[String](["Sorry, but I'd rather listen to the new Bieber album."])
+target_type = 4
+action_name = "Sound Immunity"
+one_time_use = false

@@ -17,7 +17,7 @@ The Settings menu has lots of options for customization.
 Compensation Compensation Compensation Compensation Compensation.
 Grindworks too slow? Check out the Pacelover2000 mod.
 Not every battle is required, but some give great rewards.
-Have you seen the Operation Dessert Storm BAT file?
+Have you seen the Hostile Takeover BAT file?
 Stuck? In the settings, the "I'm stuck!" button will help you out! 
 Squirt can make Cogs more vulnerable to damage.
 Single lures stun the Cog, group lures lower the damage of up to 3.
@@ -35,3 +35,4 @@ Rare rooms contain special chests!
 Pocket Pranks can be recharged by defeating battles.
 Group Lures decrease the damage of their main target more harshly.
 Treasures you pick up will become consumables in battle.
+Toontown Event Horizon tomorrow.

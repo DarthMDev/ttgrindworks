@@ -148,6 +148,6 @@ func get_splash_damage_str() -> String:
 		return get_true_damage()
 	return get_true_damage(0.5)
 func replace_sfx_effect() -> void:
-	print("replacing sound")
-	if 2 > 1:
+	var phunny_chance = 4
+	if RandomService.randi_channel('true_random') % 100 < phunny_chance:
 		sfx_blast = RandomService.array_pick_random('true_random', FUNNY_SOUND)

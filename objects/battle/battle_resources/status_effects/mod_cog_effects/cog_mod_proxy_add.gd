@@ -32,7 +32,7 @@ func renew() -> void:
 	
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/statuses/proxy_add.png") #change the icon color red
+	return load("res://ui_assets/achievements/icon_achievement_boss_gear4.png") #change the icon color red
 
 func get_status_name() -> String:
 	return "Annoying Foreman"

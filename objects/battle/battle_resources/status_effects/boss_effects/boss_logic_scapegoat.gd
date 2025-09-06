@@ -53,21 +53,16 @@ func renew() -> void:
 		get_enraged()
 	elif enraged:
 		if rage_turns == 0:
-			print("0 rage turns")
 			reapply_boost()
 			sheild_up()
 		rage_turns -= 1
-	print(rage)
-	print("rage turns: ", rage_turns) 
 	change_status_name()
 	
 func on_toon_damage(_action: BattleAction, cog: Node3D, amount: int) -> void:
-	print(_action.targets)
 	if not sheilds_up:
 		return
 	if target in _action.targets:
-		rage += amount * 0.05
-		print("adding rage from attack, ", amount * 0.05)
+		rage += amount * 0.07
 
 
 
@@ -211,7 +206,6 @@ func change_status_name() -> void:
 func guydied(who: Node3D) -> void:
 	if who is Cog and who != target:
 		if who.dna.cog_name == "Scapegoat":
-			print("why...")
 			return
 		if who.dna.custom_nametag_suffix == "Director":
 			desperation = true

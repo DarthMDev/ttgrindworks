@@ -14,20 +14,20 @@ func apply() -> void:
 	battle_ui = manager.battle_ui
 	if playerturns >= 2:
 		skip_index = RandomService.randi_channel('true_random') % playerturns
+		if skip_index == 0:
+			skip_index+= 1
 		if unstable:
-			print("running unstable sheer force")
 			var skip_index2 = skip_index
 			while skip_index != skip_index2:
 				skip_index2 = RandomService.randi_channel('true_random') % playerturns
-				for i in range(playerturns):
-					if i != skip_index and i != skip_index2:
-						effectdict[i] = {
-							"effect": 1,
-							"desc": "Gag secondary effects disabled",
-							"value": true
-						}
+			for i in range(playerturns):
+				if i != skip_index and i != skip_index2:
+					effectdict[i] = {
+						"effect": 1,
+						"desc": "Gag secondary effects disabled",
+						"value": true
+					}
 		else:
-			print("Stable sheer force")
 			for i in range(playerturns):
 				if i != skip_index:
 					effectdict[i] = {
@@ -76,7 +76,7 @@ func cleanup() -> void:
 	manager.s_gags_chosen.disconnect(on_gags_chosen)
 
 func get_status_name() -> String:
-	return "Sheer Force"
+	return "Suppressive"
 
 func get_icon() -> Texture2D:
 	return load("res://ui_assets/battle/statuses/sheer_force.png")

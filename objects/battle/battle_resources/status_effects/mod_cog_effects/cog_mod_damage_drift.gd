@@ -2,7 +2,7 @@
 extends StatusEffect
 var debuff_turn_index = 0
 var buff_turn_index = 0
-var buff_amount = 1.2
+var buff_amount = 1.15
 var nerf_amount = 0.5
 signal s_gag_modified(indexes: Dictionary)  # New signal
 var effectdict = {}
@@ -61,4 +61,4 @@ func get_status_name() -> String:
 	return "Damage Drift"
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/battle/statuses/pinpoint_accuracy.png")
+	return load("res://ui_assets/battle/statuses/damage_drift.png")

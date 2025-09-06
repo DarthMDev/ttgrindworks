@@ -64,7 +64,7 @@ func assign_gag_immunities(cogs: Array[Cog]) -> Array[StatusEffectGagImmunity]:
 		var new_status := GAG_IMMUNITY_EFFECT.duplicate()
 		new_status.target = cog
 		new_status.rounds = -1
-		new_status.set_track(loadout[RandomService.randi_channel('true_random') % loadout.size()])
+		new_status.set_track(loadout[RandomService.randi_channel('fusion_chance') % loadout.size()])
 		cog.dna.status_effects.append(new_status)
 		cog.body.set_color(Color(new_status.track.track_color, 0.8))
 	

@@ -85,7 +85,7 @@ func get_description() -> String:
 			desc += required_tracks[i].track_name
 		else: 
 			desc += ", " + required_tracks[i].track_name
-	desc += "will result -12% laff"
+	desc += "will result in -12% laff"
 	return desc
 
 func make_banned_effect(gags: Array[ToonAttack]) -> StatusEffect:

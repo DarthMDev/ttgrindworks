@@ -1,6 +1,6 @@
 extends Label3D
 
-const BOOST_RANGE := Vector2i(2, 6)
+var BOOST_RANGE := Vector2i(2, 6)
 const BASE_RESOURCE := "res://objects/items/resources/passive/laff_boost.tres"
 
 @onready var behind: Label3D = %Behind
@@ -11,6 +11,8 @@ var item: Item
 func setup(resource: Item):
 	item = resource
 	if resource.stats_add['max_hp'] == 0:
+		if Util.floor_number > 5:
+			BOOST_RANGE = Vector2i(3, 6)
 		var boost := RandomService.randi_range_channel('laff_boosts', BOOST_RANGE.x, BOOST_RANGE.y)
 		resource.stats_add['max_hp'] = boost
 		resource.stats_add['hp'] = boost

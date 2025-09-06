@@ -34,14 +34,21 @@ static var ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_double_trouble.gd",
 ]
+static var ANOMALIES_NEGATIVE_TRUE: Array[String] = [
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_bull_market.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_cog_damage_up.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_time_crunch.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_double_trouble.gd",
+]
 
 static var LEVEL_RANGES: Dictionary[int, Array] = {
 	0: [1, 2],
 	1: [4, 5],
 	2: [6, 7],
 	3: [8, 9],
-	4: [10, 12],
-	5: [12, 15],
+	4: [11, 12],
+	5: [13, 15],
 	6: [21, 22], #shouldn't happen but just incase / testing
 	7: [20, 21],
 	8: [21, 22],
@@ -105,23 +112,31 @@ func get_anomalies() -> Array[Script]:
 		mod_count += Util.get_player().stats.anomaly_boost
 	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
 	var anomaly_files_neutral: Array[String] = ANOMALIES_NEUTRAL.duplicate()
-	var anomaly_files_neg: Array[String] = ANOMALIES_NEGATIVE.duplicate()
+	var anomaly_files_neg: Array[String] = ANOMALIES_NEGATIVE_TRUE.duplicate()
+	var pos_chance = 0.3333
+	var neut_chance = 0.6666
 
 	var no_negative_anomalies := false
 	if Util.get_player() and Util.get_player().no_negative_anomalies:
 		no_negative_anomalies = true
 		anomaly_files_neg = []
-
+	if floor_name == "Cog Golf Course" or floor_name == "D.A. Office":
+		if mod_count < 3:
+			mod_count+= 1
+		pos_chance = 0.25
+		neut_chance = 0.60
 	for i in mod_count:
 		var rng_val := RandomService.randf_channel('floor_mods')
 		var mod_array: Array[String]
+		if i == 0 and floor_name == "Cog Golf Course":
+			rng_val = 0.9
 		# Positive anomalies
-		if rng_val <= 0.3333:
+		if rng_val <= pos_chance:
 			mod_array = anomaly_files_pos
 			if mod_array.size() == 0:
 				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_neutral, anomaly_files_neg])
 		# Neutral anomalies
-		elif rng_val <= 0.6666:
+		elif rng_val <= neut_chance:
 			mod_array = anomaly_files_neutral
 			if mod_array.size() == 0:
 				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_pos, anomaly_files_neg])
@@ -143,13 +158,24 @@ func get_anomalies() -> Array[Script]:
 	if Util.floor_number >= 6:
 		mods = add_unstable_core(mods)
 	return mods
-
+func add_true_neg_anomalies(anom_count) -> Array[Script]:
+	var mod_array: Array[String] = ANOMALIES_NEGATIVE.duplicate()
+	var mods: Array[Script] = []
+	for i in anom_count:
+		var rng_val := RandomService.randf_channel('floor_mods')
+		var new_mod: String = RandomService.array_pick_random('floor_mods', mod_array)
+		var loaded_mod: Script = Util.universal_load(new_mod)
+		if not loaded_mod in modifiers:
+			mods.append(loaded_mod)
+		mod_array.remove_at(mod_array.find(new_mod))
+	return mods
 func randomize_details() -> void:
 	clear()
 	
 	anomalies = get_anomalies()
 	anomaly_count = anomalies.size()
 
+	
 	for anomaly: Script in anomalies:
 		modifiers.append(anomaly)
 	
@@ -166,7 +192,36 @@ func randomize_details() -> void:
 	# Get the default Cog Pool if none specified
 	if not cog_pool:
 		cog_pool = FALLBACK_COG_POOL
+func anomaly_rebalance(qualitoon, floor_name) -> void:
+	#this is pure slop but whatever
+	var anom_add = 0
+	if qualitoon >=3:
+		print("rebalancing anomalies with qualitoon item of: ", qualitoon)
+		clear()
+		if floor_name == "Cog Golf Course":
+			anom_add+= 1
+			print("adding anom in cgc for rebalanced dgc")
+		anom_add += qualitoon - 2
+		anomalies = add_true_neg_anomalies(anom_add)
+		for anomaly: Script in anomalies:
+			modifiers.append(anomaly)
+	anomaly_count = anomalies.size()
 
+func anomaly_rebalance_on_set_anoms(qualitoon, floor_name) -> void:
+	#this is pure slop but whatever
+	var anom_add = 0
+	if qualitoon >=3:
+		print("rebalancing anomalies with qualitoon item of: ", qualitoon)
+		if floor_name == "Cog Golf Course":
+			anom_add+= 1
+			print("adding anom in cgc for rebalanced dgc")
+		anom_add += qualitoon - 2
+		anomalies.append_array(add_true_neg_anomalies(anom_add))
+	if anomalies.size() > 1:
+		for i in range(1, anomalies.size()):
+			var anomaly: Script = anomalies[i]
+			modifiers.append(anomaly)
+	anomaly_count = anomalies.size()	
 ## Simple failsafe backend for mods or if we're ever testing on floors > 5
 ## I will not be testing how well balanced this is
 ## You modders can do that one yourselves I believe in you
@@ -187,7 +242,55 @@ func randomize_item() -> void:
 	# Handle rerolls
 	if not reward.s_reroll.is_connected(reward_rerolled):
 		reward.s_reroll.connect(reward_rerolled)
+	var model := reward.model.instantiate()
+	model.hide()
+	Util.add_child(model)
+	if model.has_method("setup"):
+		model.setup(reward)
+	model.queue_free()
+func randomize_good_item() -> void:
+	if not reward_pool:
+		reward_pool = FALLBACK_REWARD_POOL
+	reward = ItemService.get_random_good_item()
+	if not reward.evergreen:
+		discard_item = reward
+	else:
+		reward = reward.duplicate()
 	
+	# Handle rerolls
+	if not reward.s_reroll.is_connected(reward_rerolled):
+		reward.s_reroll.connect(reward_rerolled)
+	var model := reward.model.instantiate()
+	model.hide()
+	Util.add_child(model)
+	if model.has_method("setup"):
+		model.setup(reward)
+	model.queue_free()
+
+func get_snowflake() -> void:
+	reward = load('res://objects/items/resources/passive/snowflake_treasure.tres').duplicate()
+	var model := reward.model.instantiate()
+	model.hide()
+	Util.add_child(model)
+	if model.has_method("setup"):
+		model.setup(reward)
+	model.queue_free()
+#return load('res://objects/items/resources/passive/laff_boost.tres').duplicate()
+func get_floor_item(floor_name) -> void:
+	if not reward_pool:
+		reward_pool = FALLBACK_REWARD_POOL
+	reward = ItemService.get_random_item(reward_pool,true)
+	if not reward.evergreen:
+		discard_item = reward
+	else:
+		reward = reward.duplicate()
+	
+	# Handle rerolls
+	if not reward.s_reroll.is_connected(reward_rerolled):
+		reward.s_reroll.connect(reward_rerolled)
+	print("qualitoon of reward ",reward.qualitoon)
+	if reward.qualitoon >= 3:
+		print("making floor harder")
 	var model := reward.model.instantiate()
 	model.hide()
 	Util.add_child(model)
@@ -294,9 +397,10 @@ func all_negative_anomalies() -> Array[Script]:
 		var anomaly = ANOMALIES_NEGATIVE[i]
 		var loaded_mod: Script = Util.universal_load(anomaly)
 		mods.append(loaded_mod)
-	var green_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_green_light.gd" 
-	var loaded_green_mod: Script = Util.universal_load(green_mod)
-	mods.append(loaded_green_mod)
+	if Util.floor_number != 2:
+		var green_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_green_light.gd" 
+		var loaded_green_mod: Script = Util.universal_load(green_mod)
+		mods.append(loaded_green_mod)
 	var immunity_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_gag_immunities.gd" 
 	var loaded_immunity_mod: Script = Util.universal_load(immunity_mod)
 	mods.append(loaded_immunity_mod)
@@ -319,22 +423,22 @@ func scripted_details(anomaly_array) -> void:
 		modifiers.append(anomaly)
 	
 	floor_difficulty = Util.floor_number + 1
+	print(floor_difficulty, "is the floor difficulty")
 	level_range.x = LEVEL_RANGES[floor_difficulty][0]
 	level_range.y = LEVEL_RANGES[floor_difficulty][1]
 	
 	# Add onto the room count for the difficulty
 	room_count += DIFFICULTY_ROOM_ADDITION * floor_difficulty
-	if floor_difficulty == 3: room_count = room_count * 1.2
+	
+	#if floor_difficulty == 3: room_count = room_count * 1.2
 	if room_count % 2 == 0:
 		room_count += 1
-	#print("FLOOR 3 MMMARAAAARTON")
 	
 	# Get the default Cog Pool if none specified
 	if not cog_pool:
 		cog_pool = FALLBACK_COG_POOL.load()
 func add_unstable_core(anom_array) -> Array:
 	if Util.floor_number >= 6:
-		print("yuh")
 		var new_mod: String = "res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_unstable_core.gd" 
 		var loaded_mod: Script = Util.universal_load(new_mod)
 		anom_array.append(loaded_mod)

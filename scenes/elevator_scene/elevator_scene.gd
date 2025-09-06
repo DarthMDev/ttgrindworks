@@ -82,24 +82,29 @@ func get_next_floors() -> void:
 	if Util.floor_number == 8:
 		final_boss2_time_baby()
 		return
-	var random_floor_amount = 4
+	var random_floor_amount = 3
 	var floor_variants = Globals.FLOOR_VARIANTS
 	floor_variants = DirAccess.get_files_at(FLOOR_VARIANT_PATH)
 	if Util.floor_number >= 3:
 		floor_variants = [floor_variants[floor_variants.size() - 1]] #3 but it looks better than just 3
+	elif Util.floor_number == 2:
+		floor_variants.remove_at(floor_variants.size() - 1)
 	var taken_items: Array[String] = []
 	if Util.floor_number >= 3:
 		add_normal_floor(floor_variants)
 		add_positive_floor(floor_variants)
 		random_floor_amount = 2
 	for i in random_floor_amount:
-		var random_floor = floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]  
-		#floor_variants.erase(new_floor)
+		var random_floor = floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
+		if Util.floor_number < 2:
+			floor_variants.remove_at(floor_variants.find(random_floor))
 		var new_floor = Util.universal_load(FLOOR_VARIANT_PATH + random_floor).duplicate()
 		
 		new_floor.randomize_details()
 		while not new_floor.reward or new_floor.reward.item_name in taken_items:
 			new_floor.randomize_item()
+		if Util.floor_number < 3:
+			new_floor.anomaly_rebalance(new_floor.reward.qualitoon,new_floor.floor_name)
 		if Util.floor_number >= 3: new_floor.floor_name = "Overclocked Fight The Foremen"
 		next_floors.append(new_floor)
 		taken_items.append(new_floor.reward.item_name)
@@ -125,21 +130,10 @@ func _exit_tree() -> void:
 		Util.get_player().game_timer_tick = true
 func add_more_floors(floor_variants) -> void:
 	if Util.floor_number >= 2:
-		var random_floor = floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
-		var new_floor: = Globals.FLOOR_VARIANTS[RandomService.randi_channel('floors') % floor_variants.size()]
-		var anom_array = new_floor.get_green_light_anomaly()
-		new_floor.scripted_details(anom_array)
-		if Util.floor_number >= 3: new_floor.floor_name = "Overclocked Fight The Foremen"
-		while not new_floor.reward:
-			new_floor.randomize_item()
-		next_floors.append(new_floor)
-		add_reorg_floor(floor_variants)
-		add_mixed_bag_floor(floor_variants)
+		add_chaos_floor(floor_variants)
 		add_gag_immune_floor(floor_variants)
 		if Util.floor_number >= 3:
-			add_larynx_floor(floor_variants)
-			add_annoying_floor(floor_variants)
-		add_chaos_floor(floor_variants)
+			add_mixed_bag_floor(floor_variants)
 		if Util.floor_number >= 7:  #make 7
 			add_huoftf_floor(floor_variants)
 
@@ -153,17 +147,22 @@ func add_gag_immune_floor(floor_variants) -> void:
 		if Util.floor_number >= 3: new_floor.floor_name = "Overclocked Fight The Foremen"
 		while not new_floor.reward:
 			new_floor.randomize_item()
+		if Util.floor_number == 2: new_floor.anomaly_rebalance_on_set_anoms(new_floor.reward.qualitoon,new_floor.floor_name)
 		next_floors.append(new_floor)
 			
 func add_chaos_floor(floor_variants) -> void:
 		var random_floor = floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
+		if Util.floor_number == 2:
+			random_floor = floor_variants[1] # da office maybe
 		var new_floor: FloorVariant = Util.universal_load(FLOOR_VARIANT_PATH + random_floor).duplicate()
 		var anom_array = new_floor.all_negative_anomalies()
-		anom_array = try_add_unstable_core_anom(new_floor, anom_array)
+		if Util.floor_number >= 6:
+			#anom_array = try_add_unstable_core_anom(new_floor, anom_array)
+			print("bruh what?")
 		new_floor.scripted_details(anom_array)
 		if Util.floor_number >= 3: new_floor.floor_name = "Survive The Foremen"
 		while not new_floor.reward:
-			new_floor.randomize_item()
+			new_floor.randomize_good_item()
 		next_floors.append(new_floor)
 func add_normal_floor(floor_variants) -> void:
 		var random_floor = floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
@@ -235,11 +234,10 @@ func add_positive_floor(floor_variants) -> void:
 		new_floor.scripted_details(anom_array)
 		if Util.floor_number >= 3: new_floor.floor_name = "Overclocked Fight The Foremen"
 		while not new_floor.reward:
-			new_floor.randomize_item()
+			new_floor.get_snowflake()
 		next_floors.append(new_floor)
 
 func try_add_unstable_core_anom(new_floor: FloorVariant,anom_array) -> Array:
 	if Util.floor_number >= 6:
-		print("trying to add unstable core")
 		anom_array = new_floor.add_unstable_core(anom_array)
 	return anom_array

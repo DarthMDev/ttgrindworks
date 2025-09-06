@@ -87,14 +87,12 @@ func randomize_objective() -> void:
 	
 	# Reduce quotas for more specific quest types
 	if not department == CogDNA.CogDept.NULL:
-		quotaf /= 3.0
+		quotaf /= 2.0
 	elif specific_cog:
 		quotaf /= 4.0
-	else:
-		quotaf /= 1.15
 	# reduce if gamemode is survive the foremen
 	if Util.survive_the_foreman:
-		quotaf /= 2
+		quotaf /= 1.75
 	quotaf =  rebalance_quotaf(quotaf)
 	
 	# Level minimum objectives
@@ -172,10 +170,13 @@ func reset() -> void:
 	department = CogDNA.CogDept.NULL
 	min_level = 1
 func rebalance_quotaf(quotaf) -> int:
+	if Util.floor_number == 5:
+		if quotaf < 7:
+			quotaf = 7
 	if Util.floor_number >= 6:
 		print("quota stuff")
 		if quotaf < 4:
-			quotaf = 4
+			quotaf = 7
 	if Util.floor_number >= 8:
 		if quotaf < 5:
 			quotaf = 5

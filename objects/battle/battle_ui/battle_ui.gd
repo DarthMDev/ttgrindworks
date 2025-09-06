@@ -4,6 +4,7 @@ class_name BattleUI
 # Child References
 @onready var gag_tracks := %Tracks
 @onready var attack_label := %AttackLabel
+@onready var attack_label2 := %AttackLabel2
 @onready var right_panel := %RightPanel
 @onready var cog_panels := %CogPanels
 @onready var main_container := %BattleMenuContainer
@@ -12,6 +13,7 @@ class_name BattleUI
 # Bottom-right buttons
 @onready var fire_button := %Fire
 @onready var item_button := $BattleMenuContainer/BottomRight/SOS
+var attack_tween: Tween = null
 
 @onready var status_container: HBoxContainer = %StatusContainer
 
@@ -273,3 +275,32 @@ func sort_tracks_to_loadout() -> void:
 			if track_fame.to_upper() == track_name.to_upper():
 				gag_tracks.move_child(track, i)
 				break	
+
+
+func justin_bieber() -> void:
+	attack_label2.add_theme_color_override("font_color", Color.RED)
+	attack_label2.show()
+	attack_label2.scale = Vector2.ONE
+	
+	# Kill old tween if it’s still running
+	if attack_tween and attack_tween.is_running():
+		attack_tween.kill()
+	
+	# Create looping tween
+	attack_tween = create_tween().set_loops()  # infinite loop
+	
+	# Pulse sequence
+	attack_tween.tween_property(attack_label2, "scale", Vector2(1.01, 1.01), 0.7) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	attack_tween.tween_property(attack_label2, "scale", Vector2(0.85, 0.85), 0.7) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func hide_attack_label() -> void:
+	if attack_tween and attack_tween.is_running():
+		attack_tween.kill()
+	attack_label2.hide()
+	attack_label2.scale = Vector2.ONE  # reset
+
+
+
+	

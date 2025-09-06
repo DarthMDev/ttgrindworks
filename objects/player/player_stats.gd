@@ -28,7 +28,7 @@ var debug_gag_points := false
 @export var gag_vouchers: Dictionary[String, int] = {}
 @export var gag_battle_start_point_boost: Dictionary[String, int] = {}
 @export var global_battle_start_point_boost := 0
-@export var toonups: Dictionary[int, int] = {0: 2, 1: 1, 2: 1, 3: 2, 4: 1, 5: 2, 6: 0}
+@export var toonups: Dictionary[int, int] = {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 0}
 @export var treasures: Dictionary[int, int] = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
 @export var gag_cap := 10

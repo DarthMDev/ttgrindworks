@@ -138,7 +138,10 @@ func assign_item(world_item: WorldItem):
 				world_item.item = load("res://objects/items/resources/accessories/backpacks/gag_pack.tres")
 				return	
 			if Util.floor_number == 7:
-				world_item.item = load("res://objects/items/resources/accessories/backpacks/bat_wings.tres")
+				if not Util.get_player().stats.has_item("Bat Wings"):
+					world_item.item = load("res://objects/items/resources/accessories/backpacks/bat_wings.tres")
+				elif not Util.get_player().stats.has_item("Pixie Wings"):
+					world_item.item = load("res://objects/items/resources/accessories/backpacks/pixie_wings.tres")
 				return
 			if Util.floor_number == 8:
 				world_item.item = load("res://objects/items/resources/accessories/hats/faded_tiara.tres")

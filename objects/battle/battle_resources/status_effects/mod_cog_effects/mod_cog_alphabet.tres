@@ -15,6 +15,6 @@ mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
 description = "Gags selected must be different and in Alphabetical Order"
-status_name = "Alphabetic"
+status_name = "Alphabetical"
 is_foreman_effect = false
 id = 7016

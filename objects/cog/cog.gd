@@ -6,7 +6,7 @@ signal s_dna_set
 ## Constants
 const VIRTUAL_COG_COLOR := Color('ff0000cc')
 const COMMON_LEVEL_RANGE := Vector2i(1, 12)
-const QUEST_HELP_CHANCE := 45 # can change back to 45
+const QUEST_HELP_CHANCE := 25 # vanilla is 20, oftf was 45, making it 25
 
 ## For flying in and out
 const PROP_PROPELLER := preload('res://objects/props/etc/cog_propeller.tscn')
@@ -27,6 +27,7 @@ enum CogState {
 @export var custom_level_range := Vector2i(1, 12)
 @export var level_range_offset := 0
 @export var level_rebalance := 0
+@export var chartist_rebalance := 0
 @export var stats: BattleStats
 @export var pool: CogPool
 @export var use_floor_pool := true
@@ -169,6 +170,7 @@ func set_dna(cog_dna: CogDNA, full_reset := true) -> void:
 	if full_reset:
 		level = 0
 		roll_for_attributes()
+		"FUULLLLLL RRRREEESSSSEEETTTTTTT"
 		roll_for_level()
 		if dna.cog_name == "Scapegoat":
 			grunt = SGRUNT
@@ -192,14 +194,14 @@ func set_new_level(new_level: int):
 
 func roll_for_attributes() -> void:
 	# Skelecog perchance?
-
+	balance_chartist()
 	if RandomService.randi_channel('skelecog_chance') % 100 < skelecog_chance:
 		skelecog = true
 	# Mayhaps even... fusion?
 	if not skelecog and RandomService.randi_channel('fusion_chance') % 100 < fusion_chance:
 		fusion = true
 	if Util.floor_number >= 8 and not Util.final_boss2:
-		if foreman and RandomService.randi_channel('skelecog_chance') % 100 < 20:
+		if foreman and RandomService.randi_channel('skelecog_chance') % 100 < Util.unstable_chance:
 			unstable = true
 			
 
@@ -297,8 +299,6 @@ func set_up_stats() -> void:
 	stats.evasiveness = 0.5 + (level * 0.05)
 	stats.damage = 0.4 + (level * 0.1)
 	stats.accuracy = 0.75 + (level * 0.05)
-	print(health_mod, " ", dna.health_mod,  dna.cog_name)
-	print(stats.max_hp, " is hp of " ,dna.cog_name)
 	var new_text: String = dna.cog_name + '\n'
 	if foreman: new_text = 'Factory Foreman' + '\n'
 	new_text += 'Level ' + str(level)
@@ -308,6 +308,8 @@ func set_up_stats() -> void:
 	if dna.is_mod_cog: new_text += '\nProxy'
 	if dna.is_admin: new_text += '\nAdministrator'
 	if foreman and Util.floor_number > 5:
+		new_text = dna.status_effects[0].get_status_name() + '\n' + new_text
+	if dna.is_mod_cog:
 		new_text += '\n' + dna.status_effects[0].get_status_name()
 	if unstable:
 		new_text += '\n🔅Unstable🔅'
@@ -315,8 +317,9 @@ func set_up_stats() -> void:
 		
 	#this runs afer initial dna but it can cause funny flunky / v1.5 foremen
 	dna.scale *= randf_range(1, 1.6)
-
-	if foreman: body.set_color(Color(0.867, 0.627, 0.867))
+	if foreman: 
+		body.set_color(Color(0.867, 0.627, 0.867))
+		stats.is_foreman = true
 	if dna.cog_name != "Scapegoat" and  dna.custom_nametag_suffix: new_text += '\n%s' % dna.custom_nametag_suffix
 	body.nametag.text = new_text
 	body.nametag_node.update_position(new_text)
@@ -354,9 +357,19 @@ func construct_cog():
 		dna.combine_attributes(second_dna)
 		dna.cog_name = dna.combine_names(second_dna)
 	if foreman:
-		var overcharged : StatusEffect = dna.status_effects[0].overcharged
-		dna.status_effects.append(overcharged) 
-		dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
+		if dna.status_effects[0].get_status_name() == "Foreman abilities": #name of fore_cog status bosses were apparently foreman / random cogs?
+			var overcharged : StatusEffect = dna.status_effects[0].overcharged
+			dna.status_effects.append(overcharged)  
+			if Util.floor_number > 6 and not Util.final_boss2:
+				var tenure = dna.status_effects[0].tenure
+				dna.status_effects.append(tenure)
+			dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
+		else:
+			if dna.cog_name != "The Factory Foreman":
+				foreman = false
+	if dna.is_mod_cog:
+		if dna.status_effects[0].get_status_name() == "Status Effect":
+			dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
 	if unstable:
 		var unstable_effect = load("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_unstable.tres")
 		dna.status_effects.append(unstable_effect)
@@ -473,7 +486,7 @@ func animator_seek(pos: float) -> void:
 func move_to(new_pos: Vector3, speed: float = walk_speed) -> Tween:
 	
 	var time = new_pos.distance_to(global_position) / speed
-	set_animation('walk')
+	if not sitting: set_animation('walk')
 	if global_position.distance_to(new_pos) > 0.5:
 		face_position(new_pos)
 	var move_tween = create_tween()
@@ -504,12 +517,9 @@ func get_attack() -> CogAttack:
 		if attacks.size() == 0:
 			return get_debug_attack()
 		var special_attack_gate = 1 if special_attack else 0
-		#var smash
 		var bruh
 		if foreman: bruh = RandomService.randi_channel('true_random') % (attacks.size() - 1 - special_attack_gate)
 		else: bruh = RandomService.randi_channel('true_random') % (attacks.size())
-		#var attack: CogAttack = attacks[RandomService.randi_channel('true_random') % (attacks.size() - special_attack_gate)].duplicate()
-		#if special_attack: attack = attacks[attacks.size() - 1]
 		var attack: CogAttack
 		if special_attack: attack = attacks[attacks.size() - 1].duplicate()
 		else: attack = attacks[bruh].duplicate()
@@ -530,11 +540,7 @@ func get_attack() -> CogAttack:
 			attack.summary = "Foreman recieves and damage and health bonus"
 			if not unstable: attack.attack_lines = ["Do you have any idea how much paperwork I will have to file after this?"]
 			else: attack.attack_lines = ["Free heals gg", "Rip Bozo"]
-			attack.target_type = BattleAction.ActionTarget.SELF
-			attack.damage = stats.max_hp * -0.8333
-			attack.accuracy = 100
 			
-			#attack.manager.add_status_effect(new_boost)
 		special_attack = false
 		attack.targets = get_targets(attack.target_type)
 		
@@ -761,14 +767,22 @@ func unstable_animation() -> void:
 			set_animation("sit")
 			funni = true
 			sitting = true
-		if RandomService.randi_channel('skelecog_chance') % 100 < 91:
+		if RandomService.randi_channel('skelecog_chance') % 100 < 61:
 			start_unstable_rotation()
 			funni = true
 		if not funni:
 			set_animation("sit")
 			sitting = true
-			
-		
+func show_proxy_name() -> bool:
+	if Util.floor_number > 0:
+		return Util.get_player().see_descriptions
+	return true		
+func balance_chartist() -> void:
+	if chartist_rebalance <= Util.floor_number and chartist_rebalance > 0:
+		print("Looks like we got a cog turning into foreman for chartist")
+		print(chartist_rebalance, " is charst rebalance")
+		foreman = true
+		has_forced_dna = true
 ## Global functions
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
 	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

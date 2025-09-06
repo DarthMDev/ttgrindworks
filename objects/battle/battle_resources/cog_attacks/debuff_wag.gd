@@ -32,9 +32,8 @@ func action():
 	# Perfect accuracy
 	manager.affect_target(target, damage)
 	target.set_animation('slip_backward')
-	manager.add_status_effect(create_debuff(Util.get_player()))
 
-	
+
 	# Stop particles after pause
 	await manager.sleep(0.5)
 	if mark: manager.battle_text(target, debuff_msg, BattleText.colors.orange[0], BattleText.colors.orange[1])
@@ -44,6 +43,7 @@ func action():
 	# Cleanup
 	await manager.barrier(target.animator.animation_finished, 4.0)
 	
+	manager.add_status_effect(create_debuff(Util.get_player()))
 	await manager.check_pulses(targets)
 	
 	particles.queue_free()

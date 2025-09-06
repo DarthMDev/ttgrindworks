@@ -26,22 +26,18 @@ func on_toon_heal(health : int) -> void:
 	if(health < last_player_hp and health != last_player_hp):
 		if player.last_damage_source == "Bookkeeper Fan":
 			await manager.sleep(0.26)
-			#manager.battle_text(Util.get_player(),"Budget Cuts!")
 			manager.battle_text(player, "%s Down!" % (debuff_stat), BattleText.colors.orange[0], BattleText.colors.orange[1])
 			print(Util.get_player().last_damage_source)
 		var hp_ratio = float(health - last_player_hp) / player.stats.max_hp
 		
-	else:
-		print("got damaged oof: ", health - last_player_hp)
 	last_player_hp = health
 	
 func on_action_started(action: BattleAction) -> void:
 	if action is CogAttack and action.target_type != BattleAction.ActionTarget.SELF:
-		if action.user == target and action.action_name != "" and action.action_name != "Mental Math":
+		if action.user == target and action.action_name != "" and action.action_name != "Mental Math" and action.action_name != "Snipe":
 			#action.custom_player_death_source = "Whistleblower Fan"
 			player.last_damage_source = "Bookkeeper Fan"
 			apply_status_effect()
-			print("action started and Bookkeeper attack")
 func renew() -> void:
 	if target.stats.hp > target.stats.max_hp * 1.5:
 		cook_the_books()
@@ -59,7 +55,7 @@ func get_status_name() -> String:
 	return "Bookkeeper Fan"
 
 func get_icon() -> Texture2D:
-	return load("res://ui_assets/misc/BookIcon_OPEN_old.png")
+	return load("res://ui_assets/battle/statuses/bookkeeper_fan.png")
 
 func apply_status_effect() -> void:
 	var new_debuff := STAT_BOOST.duplicate()

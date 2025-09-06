@@ -4,6 +4,7 @@ extends StatusEffect
 var player: Player
 var last_player_hp
 var heal_multiplier = 2.5
+var max_hp_boosted = 0
 func apply() -> void:
 	var cog: Cog = target
 	player  = Util.get_player()
@@ -32,5 +33,7 @@ func get_icon() -> Texture2D:
 	return load("res://ui_assets/battle/statuses/green_plus.png")
 
 func boss_rebalance() -> void:
-	if target.stats.max_hp * 2.4 < target.stats.hp:
-		target.stats.max_hp = ceili(target.stats.max_hp * 1.33)
+	if target.stats.max_hp * 2.5 < target.stats.hp:
+		if max_hp_boosted < 4:
+			target.stats.max_hp = ceili(target.stats.max_hp * 1.33)
+			max_hp_boosted+= 1

@@ -66,6 +66,7 @@ func get_description() -> String:
 		else: 
 			desc += ", " + required_tracks[i].track_name
 	desc += "will result in retaliation"
+	desc+= '\nWanted to greenlight Altis on Steam 😭'
 	return desc
 
 func make_banned_effect(gags: Array[ToonAttack]) -> StatusEffect:

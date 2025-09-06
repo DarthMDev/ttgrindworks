@@ -4,6 +4,7 @@ extends StatusEffect
 class_name StatusEffectGagImmunity1 #I added a 1 just incase the names of this class matter in any way
 
 const immune_icon = preload("res://ui_assets/battle/statuses/drop_immunity.png")
+const gag_status = preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_gag_immunity.tres")
 
 
 @export var track: Track = preload("res://objects/battle/battle_resources/gag_loadouts/gag_tracks/drop.tres")
@@ -12,12 +13,21 @@ var cog: Cog
 
 func apply() -> void:
 	cog = target
-	description = "Immune to %s gags" % track.track_name
-	manager.s_action_started.connect(on_action_started)
+	#description = "Immune to %s gags" % track.track_name
+	#manager.s_action_started.connect(on_action_started)
+	visible = false
+	var gag_immunity = gag_status.duplicate()
+	gag_immunity.rounds = -1
+	gag_immunity.target = cog
+	gag_immunity.set_track(track)
+	gag_immunity.status_name = "Prethinking"
+	gag_immunity.oftf_cheat = true # for returning prethingk status name instead of default
+	manager.add_status_effect(gag_immunity)
 
 func cleanup() -> void:
-	if manager.s_action_started.is_connected(on_action_started):
-		manager.s_action_started.disconnect(on_action_started)
+	pass
+	#if manager.s_action_started.is_connected(on_action_started):
+		#manager.s_action_started.disconnect(on_action_started)
 
 func on_action_started(action: BattleAction) -> void:
 	if action is ToonAttack:

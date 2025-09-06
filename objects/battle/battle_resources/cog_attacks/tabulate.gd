@@ -28,13 +28,15 @@ func action():
 		
 		await manager.sleep(2.0)
 		# Start particles
+		
 		var particles = PARTICLES.instantiate()
-		calculator.add_child(particles)
-		particles.position.y = 3.0
-		particles.global_position = calculator.global_position
-		var particle_dir = particles.global_position.direction_to(target.head_node.global_position)
-		particles.gravity = particle_dir*9.8
-		particles.lifetime = sqrt(2.0*particles.global_position.distance_to(target.head_node.global_position)/9.8)
+		if self.action_name != "Worker's Compensation":
+			calculator.add_child(particles)
+			particles.position.y = 3.0
+			particles.global_position = calculator.global_position
+			var particle_dir = particles.global_position.direction_to(target.head_node.global_position)
+			particles.gravity = particle_dir*9.8
+			particles.lifetime = sqrt(2.0*particles.global_position.distance_to(target.head_node.global_position)/9.8)
 		#	tween.tween_callback(manager.battle_text.bind(cog, "Damage Up!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
 		#tween.tween_interval(3.0)
 		#
