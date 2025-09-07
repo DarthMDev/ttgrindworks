@@ -47,6 +47,7 @@ New Penthouse Cutscene
 Unstable Core
 Highly Unstable Core
 Removed status report from Anomaly pool
+Double Trouble v2 cog chance 15% → 20%
 [TITLE]Floor Bosses
 Virtual cogs will be less likely to spawn with 2 of the same immunity 
 Starting on floor 4 Foremen can spawn with the chartist
@@ -60,6 +61,7 @@ Monocole will now display the first Proxy ability of proxies
 Goon foot duration 8 seconds → 15 and boost amount 0.5 → 0.6
 Sandwich charge count reverted back to 3
 Gag button charge count 5 → 4
+
 [TITLE]Rebalancing
 Cog Level Ranges:
    Floor 4: [10, 12] → [11, 12]

@@ -20,5 +20,4 @@ func apply() -> void:
 		mod_effect.target = target
 		mod_effect.rounds = 0
 		mod_effect.unstable = true
-		print("adding another mod cog effect under unstable")
 		manager.add_status_effect(mod_effect)

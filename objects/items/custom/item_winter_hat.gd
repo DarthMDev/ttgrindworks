@@ -28,7 +28,6 @@ func on_round_ended(manager: BattleManager) -> void:
 	var estimated_gain = round(Util.get_player().stats.max_hp * percent_heal * Util.get_player().stats.get_stat("healing_effectiveness"))
 	total_regened+= estimated_gain
 	Globals.healed_from_winter_hat+= estimated_gain
-	print("From winter hat the player healed: " + str(total_regened) + " laff")
 
 
 

@@ -28,7 +28,6 @@ func cleanup() -> void:
 func assess_lure_targets(targets: Array) -> void:
 	for cog: Cog in targets:
 		if is_instance_valid(cog.trap):
-			print("in assessment lure")
 			cog.trap.damage = 0
 			description = "Foreman's shield has been broken and is vulnerable to attacks!"
 			disguise = false

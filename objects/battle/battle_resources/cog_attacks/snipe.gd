@@ -16,8 +16,6 @@ func action():
 	var backpack_pos = target.toon.backpack_bone.global_position
 	var forward_vector = target.toon.backpack_bone.global_transform.basis.z.normalized()
 	explosion.global_position = backpack_pos + forward_vector * 0.2
-	#explosion.global_position = target.global_position
-	print(target.toon.backpack_bone.global_position)
 	
 	explosion.scale = Vector3(5, 5, 5)
 	AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))

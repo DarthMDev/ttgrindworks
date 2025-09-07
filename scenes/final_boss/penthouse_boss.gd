@@ -211,7 +211,7 @@ func both_bosses_alive() -> bool:
 	return boss_one_alive and boss_two_alive
 
 func should_spawn_foreman() -> bool:
-	#print("in penthouse, line 189 curr round: ", BattleService.ongoing_battle.current_round)
+	#("in penthouse, line 189 curr round: ", BattleService.ongoing_battle.current_round)
 	#always on round 2
 	if BattleService.ongoing_battle.current_round == 1:
 		return true

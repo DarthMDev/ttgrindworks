@@ -14,7 +14,6 @@ var mint_attack_boost = 1.1
 @export var textarr = ["Damage up boy", "OVERCHARGED"]
 
 func action():
-	print("running insurance attack")
 	self.accuracy = Globals.ACCURACY_GUARANTEE_HIT
 	var hit := manager.roll_for_accuracy(self)
 	apply()

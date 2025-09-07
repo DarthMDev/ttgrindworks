@@ -46,13 +46,11 @@ func apply_random_effect(cog : Cog) -> void:
 		effect.boost = RandomService.randf_range_channel('true_random', 1.12, 1.20)
 		effect.quality = StatusEffect.EffectQuality.POSITIVE
 		effect.rounds = 2
-		print("effect boost: ",effect.boost)
 	elif effect is StatEffectRegeneration:
 		effect.instant_effect = false
 		effect.rounds = 0
 		if target:
 			effect.amount = ceili(target.stats.max_hp * 0.14)
-		print(effect.amount,effect.get_status_name())
 	await Util.s_process_frame
 	BattleService.ongoing_battle.add_status_effect(effect)
 

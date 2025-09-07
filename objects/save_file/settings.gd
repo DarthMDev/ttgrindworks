@@ -4,7 +4,7 @@ class_name SettingsFile
 
 ## VIDEO SETTINGS
 const FPSOptions = [60, 90, 120, 144, 165, 240, 360, 0]
-var SpeedOptions = [1.0, 20, 4, 1.75, 2.0]
+var SpeedOptions = [1.0, 1.25, 1.5, 1.75, 2.0]
 
 @export var fullscreen := false
 @export var fps_idx := 0:

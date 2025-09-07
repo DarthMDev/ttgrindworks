@@ -43,9 +43,7 @@ func combine(effect: StatusEffect) -> bool:
 	if effect.track_name == track_name:
 			#expire()
 			effect.rounds += 1
-			print("same name regen")
 			#apply()
-			#print("new amount : %f" % boost)
 			return true
 	
 	return false

@@ -34,6 +34,8 @@ func action():
 	
 	# Roll for accuracy
 	var hit: bool = manager.roll_for_accuracy(self)
+	if get_immunity(target):
+		hit = false
 	
 	# Play incoming whistle
 	AudioManager.play_snippet(load('res://audio/sfx/battle/gags/drop/incoming_whistleALT.ogg'), 0.0, 2.0)

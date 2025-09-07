@@ -1,7 +1,7 @@
 extends FloorModifier
 
 const BATTLE_TIME := 20
-const V2_CHANCE := 0.15
+const V2_CHANCE := 0.20
 
 func modify_floor() -> void:
 	game_floor.s_cog_spawned.connect(on_cog_spawned)

@@ -37,7 +37,7 @@ func on_battle_ending(manager: BattleManager) -> void:
 func refresh_multiscale() -> void:
 	last_player_hp = Util.get_player().stats.hp
 	not_hit = true
-	#print("reseting multi,", not_hit)
+
 	
 
 func on_toon_hp_change(health : int) -> void:

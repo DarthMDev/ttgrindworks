@@ -26,9 +26,9 @@ func renew() -> void:
 	red_tape.user = target
 	red_tape.damage = 2
 	red_tape.targets = [Util.get_player()]
-	print(red_tape.targets[0])
+	#print(red_tape.targets[0])
 	manager.round_end_actions.append(red_tape) 
-	print("ISS THIS EVEN RUNNING WTF")
+	
 	
 
 	

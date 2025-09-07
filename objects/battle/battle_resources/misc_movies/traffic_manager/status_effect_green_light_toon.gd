@@ -46,7 +46,6 @@ func expire_status() -> void:
 func require_random_track() -> void:
 	for ban_effect in ban_effects:
 		if ban_effect and is_instance_valid(ban_effect):
-			#print("yarrgh")
 			manager.expire_status_effect(ban_effect)
 	if expires_this_round:
 		return
@@ -54,7 +53,7 @@ func require_random_track() -> void:
 	var new_track : Track = trimmed_list[0]
 	var k = 1
 	while all_cogs_lured() and (new_track.track_name == "Lure" or new_track.track_name == "Trap"):
-		#print("in green light toon, when all ured")
+		#("in green light toon, when all ured")
 		new_track = trimmed_list[k]
 		k+= 1
 		if k >= trimmed_list.size() - 1:
@@ -62,14 +61,11 @@ func require_random_track() -> void:
 	required_tracks[0] = new_track
 	if Util.floor_number > 3 and new_track.track_name == "Sound":
 		if RandomService.randi_channel('true_random') % 100 < 50:
-			#print("IN GREEN LIGHT TOON: TRUE RANDOM STUFF")
-			#print(RandomService.randi_channel('true_random') % 100)
 			required_tracks[0] = trimmed_list[1]
 			
 	var new_effect := make_banned_effect(new_track.gags)
 	manager.add_status_effect(new_effect)
 	ban_effects[0] = new_effect
-	#print(ban_effects)
 	manager.sleep(0.1)
 	manager.battle_ui.refresh_turns()
 
@@ -115,7 +111,6 @@ func on_round_started(actions: Array[BattleAction]) -> void:
 	if rounds == 0:
 		expires_this_round = true
 	for effect in ban_effects:
-		#print(effect)
 		if typeof(effect) != TYPE_STRING:
 			if not effect.is_banned_gag_used(actions):
 				gag_not_used = true

@@ -16,7 +16,6 @@ func expire() -> void:
 		return
 	# Restore previous loadout
 	var player := Util.get_player()
-	print("reseting loadout")
 	player.stats.character.gag_loadout = loadout
 
 func get_icon() -> Texture2D:

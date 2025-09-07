@@ -65,13 +65,13 @@ func apply() -> void:
 func force_cheats() -> int:
 			var index
 			if Globals.fore_cog_index == 0:
-				index = 0
+				index = 22
 			elif Globals.fore_cog_index == 1:
-				index = 18 #11
+				index = 25 #11
 			elif Globals.fore_cog_index == 2:
-				index = 25 #6
+				index = 18 #6
 			else:
-				index = 26
+				index = 17
 			return index
 func choose_random_cheat() -> StatusEffect:
 	#This function is awful and pure slop sorryreader
@@ -115,7 +115,7 @@ func choose_random_cheat() -> StatusEffect:
 				mod_effect = MOD_EFFECTS[RandomService.randi_range_channel('mod_cog_effects', weak_cheat_end_index + 1, strong_cheat_end_index)]
 			while mod_effect.get_status_name() in Globals.last_fore_abilities:
 				mod_effect = MOD_EFFECTS[RandomService.randi_range_channel('mod_cog_effects', weak_cheat_end_index + 1, strong_cheat_end_index)]
-				print(Util.floor_number, " is the floor number")
+				#print(Util.floor_number, " is the floor number")
 				if Util.floor_number == 7:
 					if mod_effect.get_status_name() == "Confused":
 						#dont want that weak cheat on floor 7

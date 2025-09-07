@@ -13,7 +13,6 @@ const Bind_Status_Reference := preload("res://objects/battle/battle_resources/st
 
 func action():
 	hit = true
-	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 	user.face_position(targets[0].global_position)
 	# Hold the prop
 	if prop: 
@@ -71,6 +70,7 @@ func pink_slip():
 func eviction_notice() -> void:
 	held_prop.position = Vector3(1.477, -0.442, -0.83)
 	held_prop.rotation_degrees = Vector3(-27.2, 176.1, -36.3)
+	held_prop.scale*=6.5
 	
 	var player : Player = targets[0]
 	battle_node.focus_character(user)
@@ -105,7 +105,6 @@ func eviction_notice() -> void:
 			if hit:
 				player.set_animation("cringe")
 				manager.add_status_effect(create_debuff(Util.get_player()))
-				print("line 107 after add status in red tape attack")
 				manager.battle_text(Util.get_player(), "Binded", BattleText.colors.orange[0], BattleText.colors.orange[1])
 				#manager.affect_target(player, damage)
 	)
@@ -120,7 +119,6 @@ func eviction_notice() -> void:
 	await manager.check_pulses(targets)
 	
 func create_debuff(player : Player) -> StatBoost:
-		print("creating debuff this is happening!")
 		var effect := Bind_Status_Reference.duplicate()
 		effect.target = player
 		effect.rounds = 0

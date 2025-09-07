@@ -45,9 +45,7 @@ func combine(effect: StatusEffect) -> bool:
 			#expire()
 			player.stats.gag_balance[track_name] -= 12
 			effect.rounds += 1
-			print("same name regen")
 			#apply()
-			#print("new amount : %f" % boost)
 			return true
 	
 	return false

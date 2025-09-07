@@ -18,7 +18,6 @@ func apply():
 		manager.affect_target(target, -amount)
 
 func renew():
-	print("target is regenning: " ,amount)
 	if target.stats.hp == target.stats.max_hp:
 		if target is Cog:
 			if not target.foreman:

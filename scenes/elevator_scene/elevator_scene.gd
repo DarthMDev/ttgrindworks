@@ -130,7 +130,7 @@ func _exit_tree() -> void:
 		Util.get_player().game_timer_tick = true
 func add_more_floors(floor_variants) -> void:
 	if Util.floor_number >= 2:
-		add_chaos_floor(floor_variants)
+		if Util.floor_number < 6: add_chaos_floor(floor_variants)
 		add_gag_immune_floor(floor_variants)
 		if Util.floor_number >= 3:
 			add_mixed_bag_floor(floor_variants)

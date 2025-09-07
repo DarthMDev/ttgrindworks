@@ -30,7 +30,7 @@ func on_status_added(status : StatusEffect) -> void:
 			return
 	if status.target == player and status.quality == 1:
 		var attack = Snipe_Attack.duplicate()
-		attack.damage = (6 * target.stats.damage) / player.stats.defense # change later to account for battle stats
+		attack.damage = target.level * 0.5  # change later to account for battle stats
 		attack.user = target
 		attack.targets = [player]
 		attack.custom_player_death_source = "A devious Quick scope"

@@ -52,7 +52,6 @@ func _ready():
 			cog.dna = null
 			var level_add = rebalance + Util.floor_number - 1
 			cog.level_rebalance += rebalance + Util.floor_number - 1
-			#print("line 57 bm TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMOTS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO TS PMO")
 			cog.randomize_cog()
 			if old_effects0.size() >= 1:
 				cog.dna.status_effects.append_array(old_effects0)

@@ -56,9 +56,7 @@ func _ready() -> void:
 	unloaded_rooms = Node3D.new()
 	Util.floor_manager = self
 	# Room count must be an odd number
-	print("room count was : ", room_count)
 	Util.floor_number += 1
-	print(" now room count is : ", room_count)
 	if floor_variant.floor_name == "Survive The Foremen":
 		Util.survive_the_foreman = true
 	else:
@@ -78,7 +76,6 @@ func generate_floor() -> void:
 	# Setting value to anything else will let you debug custom sizes
 	if room_count == -1:
 		room_count = floor_variant.room_count
-		print(room_count, " is  room count right after floor_variant is calced")
 		level_range = floor_variant.level_range
 		cog_pool = floor_variant.cog_pool
 	
@@ -116,9 +113,6 @@ func generate_floor() -> void:
 		room_count += 1
 	var total_rooms = int((room_count - 2) / 2)
 	var total_battles := int(total_rooms * battle_ratio)
-	print("total rooms: ", total_rooms)
-	print("battle rooms ", total_battles)
-	print("battle ratio: ", battle_ratio)
 	rooms_remaining = [total_battles, total_rooms - total_battles]
 
 	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') < get_special_room_chance():

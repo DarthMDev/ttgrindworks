@@ -67,7 +67,6 @@ func _ready() -> void:
 	if DEBUG_FORCE_BOSS_TWO != null and WANT_DEBUG_BOSSES:
 		boss_two_choice = DEBUG_FORCE_BOSS_TWO
 		boss_cog_2.set_dna(boss_two_choice)
-		print(boss_cog_2.dna.health_mod, " is health mod")
 	else:
 		boss_two_choice = RandomService.array_pick_random('base_seed', boss_choices)
 		boss_cog_2.set_dna(boss_two_choice)

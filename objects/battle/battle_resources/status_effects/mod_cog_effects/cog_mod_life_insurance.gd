@@ -8,7 +8,6 @@ var cog: Cog
 
 func apply() -> void:
 	cog = target
-	print("insurance applied")
 	
 func renew() -> void:
 	var cog = target
@@ -17,7 +16,6 @@ func renew() -> void:
 		proxy_attack.user = cog
 		proxy_attack.targets = [cog]
 		manager.round_end_actions.append(proxy_attack)
-		print("insurance attack added")
 	
 
 func get_icon() -> Texture2D:

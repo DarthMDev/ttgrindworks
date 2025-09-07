@@ -10,7 +10,6 @@ var unstable = false
 func apply() -> void:
 	var cog: Cog = target
 	var playerturns = Util.get_player().stats.turns
-	#print(playerturns)
 	battle_ui = manager.battle_ui
 	if playerturns >= 2:
 		skip_index = RandomService.randi_channel('true_random') % playerturns
@@ -55,7 +54,6 @@ func renew() -> void:
 		return
 	var playerturns = Util.get_player().stats.turns
 	effectdict.clear()
-	#print(playerturns)
 	battle_ui = manager.battle_ui
 	if playerturns >= 2:
 		skip_index = RandomService.randi_channel('true_random') % playerturns 

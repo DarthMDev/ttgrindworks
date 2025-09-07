@@ -112,10 +112,8 @@ func handle_cog_count() -> void:
 		MAX_DYNAMIC_COGS = 4
 		
 func cog_boost(cog_count) -> int:
-	print("floor 5 so rebalancing cog count")
 	if cog_count == 3:
 		if RandomService.randi_channel('fusion_chance') % 100 < 50:
-			print("triggered increasing cogs")
 			cog_count = 4
 	return cog_count
 

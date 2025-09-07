@@ -42,7 +42,6 @@ func renew() -> void:
 			summon_cooldown = 0
 			return
 		var lawyer_summon = reinfocement_attack
-		print("bruh what? in litigant")
 		reinfocement_attack.cog_amount = 1
 		#reinfocement_attack.attack_lines = ["This is Outrageous I am going to sue"]
 		reinfocement_attack.user = cog
@@ -56,7 +55,6 @@ func participant_joined(who: Node3D) -> void:
 				fodder = who
 				summoned = true
 				busted = false
-			print(who.dna.cog_name)
 		#apply_to_cog(who)	
 func cleanup() -> void:
 	if manager.s_participant_joined.is_connected(participant_joined):

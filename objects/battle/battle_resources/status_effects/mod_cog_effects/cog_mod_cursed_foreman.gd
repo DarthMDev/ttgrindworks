@@ -6,7 +6,7 @@ const Curse_Status_Reference := preload("res://objects/battle/battle_resources/s
 
 func apply() -> void:
 	var cog: Cog = target
-	#print("Appied Cursed Foreman")
+	#("Appied Cursed Foreman")
 
 	
 

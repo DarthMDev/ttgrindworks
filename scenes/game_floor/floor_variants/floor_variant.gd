@@ -200,7 +200,6 @@ func anomaly_rebalance(qualitoon, floor_name) -> void:
 		clear()
 		if floor_name == "Cog Golf Course":
 			anom_add+= 1
-			print("adding anom in cgc for rebalanced dgc")
 		anom_add += qualitoon - 2
 		anomalies = add_true_neg_anomalies(anom_add)
 		for anomaly: Script in anomalies:
@@ -214,7 +213,6 @@ func anomaly_rebalance_on_set_anoms(qualitoon, floor_name) -> void:
 		print("rebalancing anomalies with qualitoon item of: ", qualitoon)
 		if floor_name == "Cog Golf Course":
 			anom_add+= 1
-			print("adding anom in cgc for rebalanced dgc")
 		anom_add += qualitoon - 2
 		anomalies.append_array(add_true_neg_anomalies(anom_add))
 	if anomalies.size() > 1:
@@ -423,7 +421,6 @@ func scripted_details(anomaly_array) -> void:
 		modifiers.append(anomaly)
 	
 	floor_difficulty = Util.floor_number + 1
-	print(floor_difficulty, "is the floor difficulty")
 	level_range.x = LEVEL_RANGES[floor_difficulty][0]
 	level_range.y = LEVEL_RANGES[floor_difficulty][1]
 	

@@ -34,13 +34,9 @@ func on_gags_chosen(actions: Array[ToonAttack]) -> void:
 	if charges > 0 and skipped_turns > 0:
 		var cogs = manager.cogs.size()
 		var heal_amount = heal_amounts.get(cogs, 0.16) * skipped_turns * target.stats.max_hp
-		print("tiara heal: ", roundi(heal_amount), ",  ",  heal_amounts.get(cogs, 0.16))
 		manager.affect_target(target, heal_amount * -1)
 		total_healed += roundi(heal_amount * target.stats.get_stat("healing_effectiveness"))
 		Globals.healed_from_faded_tiara += (heal_amount *  target.stats.get_stat("healing_effectiveness"))
-		print("what we addeding to tiara heal: ", roundi(heal_amount * target.stats.get_stat("healing_effectiveness")))
-		print(Globals.healed_from_faded_tiara)
-		print("using charge")
 		charges-= 1
 func participant_died(who: Node3D) -> void:
 	if who is Cog:

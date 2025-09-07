@@ -47,8 +47,7 @@ func on_round_ended(manager: BattleManager) -> void:
 		var dict = {}
 		dict[activation_turn_next_round] = 1 + DMG_BONUS
 		manager.battle_ui.s_damage_drifted.emit(dict)
-		print(activation_turn_next_round)
-	print(activation_turn_next_round)
+	#print(activation_turn_next_round)
 	
 func on_battle_ending() -> void:
 	turns_used = 0

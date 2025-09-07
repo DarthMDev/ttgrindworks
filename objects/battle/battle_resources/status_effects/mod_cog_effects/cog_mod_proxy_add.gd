@@ -17,11 +17,7 @@ func apply() -> void:
 		proxy_attack.user = cog
 		proxy_attack.targets = [cog]
 		manager.append_action(proxy_attack)
-	#var proxy_attack: = Add_Proxy_Attack.duplicate()
-	#print(proxy_attack)
-	#proxy_attack.user = cog
-	#print(proxy_attack.user)
-	#manager.round_end_actions.append(proxy_attack) 
+
 	
 func renew() -> void:
 	var cog = target

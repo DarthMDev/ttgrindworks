@@ -72,9 +72,6 @@ func compare_pairing(pairing1: Array[String], pairing2: Array[String]) -> bool:
 
 func get_cog(cog_name: String) -> Cog:
 	for cog in boss_cogs:
-		print("in finatboss intro 2 get_cog")
-		print(cog)
-		print(cog.dna.cog_name)
 		if cog.dna.cog_name == cog_name:
 			return cog
 	return

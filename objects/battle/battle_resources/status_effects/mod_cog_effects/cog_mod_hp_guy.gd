@@ -21,14 +21,13 @@ func apply() -> void:
 	
 func renew() -> void:
 	if(!(check_requirements())):
-		print("bleh")
-		print("okay so requirement failed: ")
-		if above:
-			print("checking requiremint is ", target.stats.hp, "  wasnt greater than: ", hp_requirement )
-			print(target.stats.hp > hp_requirement)
-		else:
-			print("checking requiremint is ", target.stats.hp, " wasnt less than: ", hp_requirement )
-			print(target.stats.hp < hp_requirement)
+		#print("okay so requirement failed: ")
+		#if above:
+			#print("checking requiremint is ", target.stats.hp, "  wasnt greater than: ", hp_requirement )
+			#print(target.stats.hp > hp_requirement)
+		#else:
+			#print("checking requiremint is ", target.stats.hp, " wasnt less than: ", hp_requirement )
+			#print(target.stats.hp < hp_requirement)
 		var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/heckle.tres').duplicate()
 		attack.summary = "The Foreman is Disappointed"
 		attack.action_name = "Disappointment"
@@ -44,12 +43,12 @@ func renew() -> void:
 	
 func check_requirements() -> bool:
 	if above:
-		print("checking requiremint is ", target.stats.hp, " greater than: ", hp_requirement )
-		print(target.stats.hp > hp_requirement)
+		#print("checking requiremint is ", target.stats.hp, " greater than: ", hp_requirement )
+		#print(target.stats.hp > hp_requirement)
 		return target.stats.hp > hp_requirement
 	else:
-		print("checking requiremint is ", target.stats.hp, " less than: ", hp_requirement )
-		print(target.stats.hp < hp_requirement)
+		#print("checking requiremint is ", target.stats.hp, " less than: ", hp_requirement )
+		#print(target.stats.hp < hp_requirement)
 		return target.stats.hp < hp_requirement
 		
 func get_icon() -> Texture2D:
@@ -62,7 +61,7 @@ func get_requirement() -> void:
 	var mult
 	lower_hp = false
 	if manager.cogs.size() <= 1:
-		print("there is only 1 cog so forcing above to be false")
+		#print("there is only 1 cog so forcing above to be false")
 		above = false
 		lower_hp = true
 		mult = RandomService.randf_range_channel('true_random', 0.3, 0.65)

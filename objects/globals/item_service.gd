@@ -386,7 +386,7 @@ func create_centralized_pool(path: String) -> ItemPool:
 	return new_pool
 
 func get_random_good_item() -> Item:
-	print("good item forcing")
+	#print("good item forcing")
 	
 	# Get the good items pool
 	var good_pool: ItemPool = load('res://objects/items/pools/good_items.tres')

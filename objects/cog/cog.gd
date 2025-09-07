@@ -215,9 +215,7 @@ func roll_for_level() -> void:
 		elif dna: 
 			custom_level_range = Vector2i(dna.level_low, dna.level_high)
 		level = RandomService.randi_range_channel('cog_levels', custom_level_range.x, custom_level_range.y)
-		#print("level rebalance: ",level_rebalance)
 		level += level_rebalance
-	#if level <= 9: level = level + 3 I added this crap, removing it
 	# Allow for Cogs to be higher level than the floor intends
 	if sign(level_range_offset) == 1:
 		level = custom_level_range.y + level_range_offset
@@ -343,7 +341,6 @@ func construct_cog():
 	# Allow Cog DNA to be refreshed and reset
 	if body:
 		body.queue_free()
-	#print("IN construct cog god.gs linke 303")
 	# Some Cog shaders want to change aspects of a Cog's DNA before building
 	if dna.head_shader:
 		dna.head_shader = dna.head_shader.duplicate()
@@ -531,8 +528,6 @@ func get_attack() -> CogAttack:
 				attack.damage = -attack.damage
 		# Get the target
 		
-		if foreman and attack.action_name == "Tabulate": 
-			print("tabulate and foreman")
 		if foreman and special_attack:
 			# There is a better way to do but rn idc
 			stats.is_foreman = true
@@ -779,8 +774,6 @@ func show_proxy_name() -> bool:
 	return true		
 func balance_chartist() -> void:
 	if chartist_rebalance <= Util.floor_number and chartist_rebalance > 0:
-		print("Looks like we got a cog turning into foreman for chartist")
-		print(chartist_rebalance, " is charst rebalance")
 		foreman = true
 		has_forced_dna = true
 ## Global functions

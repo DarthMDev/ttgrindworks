@@ -12,7 +12,6 @@ func apply() -> void:
 
 func renew() -> void:
 	if rounds_alive == 0:
-		print("foreman is going to bieber")
 		manager.battle_ui.justin_bieber()
 		showing = true
 	elif rounds_alive == 1:

@@ -18,8 +18,7 @@ func on_toon_heal(health : int) -> void:
 		if target.stats.hp > 0:
 			if Util.final_boss: boss_rebalance()
 			target.stats.hp = target.stats.hp + (max(target.stats.max_hp, target.stats.hp) * (hp_ratio * heal_multiplier))
-	else:
-		print("got damaged oof: ", health - last_player_hp)
+
 	last_player_hp = health
 	
 

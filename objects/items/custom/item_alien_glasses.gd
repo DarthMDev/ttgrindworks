@@ -10,7 +10,6 @@ func on_load(_item: Item) -> void:
 
 func setup() -> void:
 	BattleService.s_round_started.connect(on_round_start)
-	print("AAAAAAAAHHHHHHHHH")
 
 func on_round_start(actions: Array[BattleAction]) -> void:
 	# Keep track of how many duplicates we've added so far

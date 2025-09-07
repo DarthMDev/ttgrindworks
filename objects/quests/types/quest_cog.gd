@@ -174,7 +174,7 @@ func rebalance_quotaf(quotaf) -> int:
 		if quotaf < 7:
 			quotaf = 7
 	if Util.floor_number >= 6:
-		print("quota stuff")
+		#print("quota stuff")
 		if quotaf < 4:
 			quotaf = 7
 	if Util.floor_number >= 8:

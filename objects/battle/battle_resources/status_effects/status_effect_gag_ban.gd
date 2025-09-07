@@ -73,7 +73,7 @@ func expire() -> void:
 
 func cleanup() -> void:
 	clear_tweens()
-	#print("running cleaning up on ban normal / foreman")
+	#("running cleaning up on ban normal / foreman")
 	for element in track_elements:
 		if element.s_refreshing.is_connected(track_refreshed):
 			element.s_refreshing.disconnect(track_refreshed)

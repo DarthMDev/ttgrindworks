@@ -6,7 +6,6 @@ extends StatusEffect
 
 func apply() -> void:
 	var cog: Cog = target
-	#print("Appied v15 Foreman")
 	
 
 func on_death() -> void:

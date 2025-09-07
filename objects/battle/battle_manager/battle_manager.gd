@@ -842,7 +842,6 @@ func get_cog_attack(cog: Cog) -> CogAttack:
 	# Illegalize one_time_use attacks
 	if cog_attack and cog_attack.one_time_use:
 		illegal_moves.append(cog_attack.get_script())
-	#print("line 680 bm,the cog:", cog, cog.stats.max_hp) %5  print not needed
 	return cog_attack
 
 func knockback_cog(cog : Cog) -> void:
@@ -1100,5 +1099,4 @@ func get_crit_threshold(luck: float) -> float:
 	
 	# Map luck=1 → 20, luck=2 → 5
 	var threshold = lerp(25.0, 5.0, (luck - 1.0) / 1.0)
-	print("chance of funny sound happening is: ", threshold)
 	return threshold

@@ -27,7 +27,6 @@ func on_toon_heal(health : int) -> void:
 		if player.last_damage_source == "Bookkeeper Fan":
 			await manager.sleep(0.26)
 			manager.battle_text(player, "%s Down!" % (debuff_stat), BattleText.colors.orange[0], BattleText.colors.orange[1])
-			print(Util.get_player().last_damage_source)
 		var hp_ratio = float(health - last_player_hp) / player.stats.max_hp
 		
 	last_player_hp = health

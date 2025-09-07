@@ -102,7 +102,6 @@ func expire() -> void:
 		return
 	hide_arrow_above_cog()
 	if not job_met:
-		print("job not met")
 		var attack = load('res://objects/battle/battle_resources/cog_attacks/resources/debuff_wag.tres').duplicate()
 		attack.damage = 4
 		attack.summary = "The Foreman Retaliates!"
@@ -117,17 +116,14 @@ func get_icon() -> Texture2D:
 func on_action_started(action: BattleAction) -> void:
 	if action is ToonAttack:
 		if check_for_match(action):
-			print("correct gag was used")
 			if cog in action.targets:
 				if not job_met: manager.battle_stats[target].defense -= defense_boost
 				job_met = true
-				print("changed job met to true")
 				hide_arrow_above_cog()
 
 
 func check_for_match(action: ToonAttack) -> bool:
 	for gag in track.gags:
-		print(gag.action_name ,action.action_name)
 		if gag.action_name == action.action_name:
 			return true
 	return false

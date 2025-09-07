@@ -29,15 +29,10 @@ func apply() -> void:
 
 
 func on_gags_chosen(actions: Array[ToonAttack]) -> void:
-	#print("line 20 on damage drift")
 	if(actions.size() -1 >= debuff_turn_index):
-		#print("pre nerf: ", actions[debuff_turn_index].damage,"damage on", actions[debuff_turn_index].action_name)
 		actions[debuff_turn_index].damage *= nerf_amount
-		#print("After, ", actions[debuff_turn_index].damage)
 	if(actions.size() -1 >= buff_turn_index):
-		#print("pre buff: ", actions[buff_turn_index].damage,"damage on", actions[buff_turn_index].action_name)
 		actions[buff_turn_index].damage *= buff_amount
-		#print("After, ", actions[buff_turn_index].damage)
 	s_gag_modified.emit([debuff_turn_index, buff_turn_index])
 
 func renew() -> void:
