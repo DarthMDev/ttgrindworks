@@ -365,7 +365,7 @@ func construct_cog():
 				dna.status_effects.append(tenure)
 			dna.status_effects[0] = dna.status_effects[0].choose_random_cheat()
 		else:
-			if dna.cog_name != "The Factory Foreman":
+			if dna.cog_name != "Factory Foreman":
 				foreman = false
 	if dna.is_mod_cog:
 		if dna.status_effects[0].get_status_name() == "Status Effect":

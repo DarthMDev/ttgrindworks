@@ -452,6 +452,10 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				# If target is the player, and this guy is a cog,
 				# mark it as the player's last damage source for the death screen
 				target.last_damage_source = current_action.user.dna.cog_name
+				if current_action.user.foreman:
+					if current_action.user.dna.status_effects.size() > 0:
+						target.last_damage_source = "The " + current_action.user.dna.status_effects[0].get_status_name() + " " + current_action.user.dna.cog_name 
+				
 			# Also apply a custom death source message if we have one
 			if current_action and current_action.custom_player_death_source:
 				target.last_damage_source = current_action.custom_player_death_source

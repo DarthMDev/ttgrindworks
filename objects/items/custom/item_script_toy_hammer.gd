@@ -101,8 +101,7 @@ func lower_cog_level(cog: Cog) -> void:
 		cog.health_mod /= Util.get_mod_cog_health_mod()
 	var cog_is_fusion := cog.fusion
 	cog.fusion = false
-	if cog.dna.cog_name == "The Factory Foreman":
-		print("become foreman")
+	if cog.dna.cog_name == "Factory Foreman":
 		cog.foreman = true
 	cog.level = maxi(1, cog.level - 3)
 	cog.set_dna(cog.dna, false)

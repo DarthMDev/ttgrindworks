@@ -13,7 +13,13 @@ const responses = [
 	"Your hubris will be your downfall, Toon.",
 	"Wrong choice, Toon."
 ]
-
+const boss_responses = {
+	"Whistleblower": "You've just signed your own arrest warrant, Toon.",
+	"Traffic Manager": "Things will be going my way from here on.",
+	"Bookkeeper": "This is one investment you'll regret.",
+	"Union Buster": "Sharing? Now you've done it...",
+	"Scapegoat": "Goat ready for a fight!"
+}
 var targetCogs : Array[Cog]
 var beans_per_cog = 7.0
 
@@ -27,13 +33,16 @@ func use() -> void:
 	targetCogs = BattleService.ongoing_battle.cogs
 	
 	var hp_boost = 1.0 / len(targetCogs)
-	var damage_boost = 0.5 / len(targetCogs)
+	var damage_boost = 0.6 / len(targetCogs)
 	
 	for cog in targetCogs:
 		@warning_ignore("narrowing_conversion")
 		cog.stats.max_hp *= 1.0 + hp_boost
 		@warning_ignore("narrowing_conversion")
 		cog.stats.hp *= 1.0 + hp_boost
+		if cog.dna.cog_name == "Scapegoat":
+			cog.stats.max_hp += 1
+			cog.stats.hp += 1
 		
 		var bean_return := BEAN_STAT.duplicate()
 		bean_return.quality = StatusEffect.EffectQuality.POSITIVE
@@ -72,7 +81,9 @@ func cutscene() -> void:
 	
 	for cog in targetCogs:
 		cog.set_animation(RandomService.array_pick_random('true_random', ['clap', 'buffed']))
-		cog.speak(RandomService.array_pick_random('true_random', responses))
+		if cog.dna.custom_nametag_suffix == "Director":
+			cog.speak(boss_responses[cog.dna.cog_name])
+		else: cog.speak(RandomService.array_pick_random('true_random', responses))
 	
 	var txt = Util.do_3d_text(BattleService.ongoing_battle.battle_node, "Damage Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 	

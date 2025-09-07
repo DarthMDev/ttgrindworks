@@ -92,7 +92,7 @@ func randomize_objective() -> void:
 		quotaf /= 4.0
 	# reduce if gamemode is survive the foremen
 	if Util.survive_the_foreman:
-		quotaf /= 1.75
+		quotaf /= 1.5
 	quotaf =  rebalance_quotaf(quotaf)
 	
 	# Level minimum objectives

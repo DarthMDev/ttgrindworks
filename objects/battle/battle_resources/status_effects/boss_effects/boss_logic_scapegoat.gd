@@ -150,7 +150,7 @@ func create_boost(who: Cog) -> StatBoost:
 	status_effect.target = who
 	status_effect.boost = 1.515
 	status_effect.stat = 'defense'
-	status_effect.visible = true
+	status_effect.visible = false
 	status_effect.rounds = -1
 	status_effect.quality = StatusEffect.EffectQuality.NEUTRAL
 	status_effect.force_no_combine = true

@@ -14,7 +14,7 @@
 script = ExtResource("2_x60dn")
 department = 0
 suit = 0
-cog_name = "The Factory Foreman"
+cog_name = "Factory Foreman"
 name_plural = ""
 name_prefix = ""
 name_suffix = ""

@@ -33,7 +33,7 @@ func on_status_added(status : StatusEffect) -> void:
 		attack.damage = (6 * target.stats.damage) / player.stats.defense # change later to account for battle stats
 		attack.user = target
 		attack.targets = [player]
-		attack.custom_player_death_source = "The Sniper"
+		attack.custom_player_death_source = "A devious Quick scope"
 		manager.inject_battle_action(attack, 0)
 		#if not manager.sniper_cringe:
 		#	manager.inject_battle_action(attack, 0)

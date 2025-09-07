@@ -15,6 +15,8 @@ var loadout = GagLoadout
 var visible_by_setting = false  # Track the original setting-based visibility
 
 func _ready() -> void:
+	hide()
+	return
 	if SaveFileService.settings_file.show_timer:
 		show()
 		visible_by_setting = true
@@ -22,13 +24,13 @@ func _ready() -> void:
 		hide()
 		visible_by_setting = false
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_H:
-			# Toggle visibility
-			#Util.get_player().quick_heal(100)
-			#Util.get_player().stats.gag_effectiveness["Sound"] += 5
-			visible = not visible
+#func _input(event: InputEvent) -> void:
+#	if event is InputEventKey and event.pressed and not event.echo:
+#		if event.keycode == KEY_H:
+#			# Toggle visibility
+#			#Util.get_player().quick_heal(100)
+#			#Util.get_player().stats.gag_effectiveness["Sound"] += 5
+#			visible = not visible
 
 func _process(delta: float) -> void:
 	# Only process and update text if visible
