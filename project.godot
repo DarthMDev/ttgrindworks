@@ -38,6 +38,7 @@ Globals="*res://objects/globals/globals.gd"
 BattleService="*res://objects/globals/battle_service.gd"
 RandomService="*res://objects/globals/random_service.gd"
 HoverManager="*res://objects/globals/hover_manager.tscn"
+Twitch="*res://addons/twitcher/twitch_service.tscn"
 
 [debug]
 
@@ -53,7 +54,7 @@ mouse_cursor/custom_image="res://ui_assets/cursor.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg", "res://addons/twitcher/plugin.cfg")
 
 [file_customization]
 
@@ -196,3 +197,9 @@ anti_aliasing/quality/msaa_3d=2
 environment/glow/upscale_mode=0
 mesh_lod/lod_change/threshold_pixels=0.0
 environment/defaults/default_environment="res://scenes/game_floor/default_environment.tres"
+
+[twitcher]
+
+editor/game_oauth_token="res://addons/twitcher/default_oauth_token.tres"
+editor/game_oauth_setting="res://addons/twitcher/twitch_oauth_setting.tres"
+editor/project_preset=&"Game"

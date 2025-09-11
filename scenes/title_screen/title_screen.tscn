@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqxrerk1d75to"]
+[gd_scene load_steps=47 format=3 uid="uid://cqxrerk1d75to"]
 
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="1_6oj83"]
 [ext_resource type="Script" uid="uid://bg0as47hsfrlg" path="res://scenes/title_screen/title_screen.gd" id="1_pgrta"]
@@ -36,6 +36,16 @@ resource_local_to_scene = true
 font = ExtResource("9_ikkwa")
 font_size = 36
 font_color = Color(0.999911, 0.640551, 0.225015, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hdew4"]
+resource_local_to_scene = true
+font = ExtResource("14_ndcfx")
+font_size = 30
+font_color = Color(0.947933, 0.890059, 1, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
@@ -87,6 +97,16 @@ resource_local_to_scene = true
 shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.585
 shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmj2m"]
+resource_local_to_scene = true
+font = ExtResource("14_ndcfx")
+font_size = 30
+font_color = Color(0.947933, 0.890059, 1, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_md63d"]
 font = ExtResource("10_dmagf")
@@ -179,6 +199,26 @@ grow_vertical = 0
 text = "Click to begin..."
 label_settings = SubResource("LabelSettings_v8joy")
 horizontal_alignment = 1
+
+[node name="StreamerLabel" type="Label" parent="GUI/Logo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -183.0
+offset_top = -126.0
+offset_right = 184.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Chat vs. Streamer"
+label_settings = SubResource("LabelSettings_hdew4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameLogo" type="TextureRect" parent="GUI/Logo"]
 layout_mode = 1
@@ -327,6 +367,22 @@ text = "Extras"
 text = "Extras"
 label_settings = SubResource("LabelSettings_5vlir")
 
+[node name="TwitchButton2" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gltlf")
+custom_minimum_size = Vector2(164, 64)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("11_iexge")
+texture_pressed = ExtResource("12_nwwc5")
+texture_hover = ExtResource("13_glcqf")
+texture_disabled = null
+text = "Twitch Setup"
+
+[node name="Label" parent="GUI/NewGameMenu/ButtonContainer/TwitchButton2" index="0"]
+text = "Twitch Setup"
+label_settings = SubResource("LabelSettings_5vlir")
+
 [node name="SettingsButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_iewbm")
@@ -405,6 +461,58 @@ text = "Continue"
 [node name="Label" parent="GUI/NewGameMenu/MiddleButtons/ContinueButton" index="0"]
 text = "Continue"
 label_settings = SubResource("LabelSettings_5vlir")
+
+[node name="StreamerUser" type="Control" parent="GUI/NewGameMenu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -248.0
+offset_right = 101.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MenuStreamerLabel" type="Label" parent="GUI/NewGameMenu/StreamerUser"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.5
+offset_top = -42.0
+offset_right = 185.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hello, Streamer!"
+label_settings = SubResource("LabelSettings_wmj2m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuStreamerImage" type="TextureRect" parent="GUI/NewGameMenu/StreamerUser"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.5
+offset_top = -186.0
+offset_right = 73.5
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+expand_mode = 2
 
 [node name="ToonSummary" type="Control" parent="GUI"]
 unique_name_in_owner = true
@@ -1025,6 +1133,7 @@ use_threads = true
 [connection signal="pressed" from="GUI/Logo/ReleaseNotesButton" to="." method="open_releases"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/BackButton" to="." method="back_pressed"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/ExtrasButton" to="." method="open_extras"]
+[connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/TwitchButton2" to="." method="setup_twitch"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/SettingsButton" to="." method="open_settings"]
 [connection signal="pressed" from="GUI/NewGameMenu/MiddleButtons/NewGameButton" to="." method="new_game_pressed"]
 [connection signal="pressed" from="GUI/NewGameMenu/MiddleButtons/ContinueButton" to="." method="load_game"]
@@ -1034,6 +1143,7 @@ use_threads = true
 [editable path="GUI/Logo/ReleaseNotesButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/BackButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/ExtrasButton"]
+[editable path="GUI/NewGameMenu/ButtonContainer/TwitchButton2"]
 [editable path="GUI/NewGameMenu/ButtonContainer/SettingsButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/QuitButton"]
 [editable path="GUI/NewGameMenu/MiddleButtons/NewGameButton"]

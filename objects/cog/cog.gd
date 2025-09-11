@@ -102,6 +102,8 @@ func _ready():
 	print("running randomize cog")
 	# Create a Cog based on the game's current parameters
 	randomize_cog()
+	## Cog ready - Twitch Time!!
+	twitch_setup()
 
 func face_position(pos: Vector3):
 	var face_pos := Vector3(pos.x, global_position.y, pos.z)
@@ -610,3 +612,20 @@ static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
 
 static func get_department_name(dept: CogDNA.CogDept) -> String:
 	return CogDNA.CogDept.keys()[int(dept)].to_lower()
+	
+## TWITCH
+var chatter: TwitchChatter
+
+func twitch_setup():
+	Twitch.twitch_chat.message_received.connect(relay_chat)
+	#temp: i am chat
+
+func become_chatter():
+	if !is_instance_valid(chatter):
+		return
+	body.nametag = chatter.user_name + "\n" + body.nametag
+	
+func relay_chat(chat_message: TwitchChatMessage):
+	print("Cog " + name + " received chat from " + chat_message.chatter_user_name)
+	#if chat_message.chatter_user_id == chatter.user_id:
+	speak(chat_message.message.text)

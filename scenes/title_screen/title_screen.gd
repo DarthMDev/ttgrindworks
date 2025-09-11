@@ -305,6 +305,7 @@ func set_selected_toon(character: PlayerCharacter) -> void:
 
 var toons_created := false
 func new_game_pressed() -> void:
+	%StreamerUser.hide()
 	middle_buttons.hide()
 	state = MenuState.TOON_SELECT
 	if not toons_created:
@@ -313,6 +314,7 @@ func new_game_pressed() -> void:
 
 func back_pressed() -> void:
 	if not middle_buttons.visible:
+		%StreamerUser.show()
 		middle_buttons.show()
 		state = MenuState.NEW_GAME
 		toon_summary.hide()
@@ -373,3 +375,46 @@ func _on_request_completed(result, response_code, headers, body) -> void:
 	else:
 		print("new version is available. what is wrong with you??")
 		%NewVersionLabel.show()
+
+## TWITCH ##
+
+func setup_twitch():
+	# Start the setup process (handles authentication)
+	# Returns true on success, false on failure (e.g., login run in timeout)
+	var setup_successful: bool = await Twitch.setup()
+
+	if setup_successful:
+		print("Twitch Service successfully set up and authenticated!")
+			# Now you can proceed with other Twitch interactions
+		await get_self_info()
+		await show_streamer_details()
+		#await send_hello_message()
+	else:
+		printerr("Twitch Service setup failed. Check authentication.")
+
+# Example function called after successful setup
+func get_self_info():
+	var current_user: TwitchUser = await Twitch.get_current_user()
+	if current_user:
+		print("Authenticated as: %s (ID: %s)" % [current_user.display_name, current_user.id])
+	else:
+		printerr("Could not get current user info.")
+
+func show_streamer_details():
+	var user: TwitchUser = await Twitch.get_current_user()
+	if user:
+		print("User found: %s, ID: %s, Profile Image URL: %s" % [user.display_name, user.id, user.profile_image_url])
+		%MenuStreamerLabel.visible = true
+		%StreamerLabel.visible = true
+		%MenuStreamerLabel.text = "Hello, " + user.display_name + "!"
+		%StreamerLabel.text = "Chat vs. " + user.display_name
+
+# You can then load the profile image (requires TwitchMediaLoader child)
+	var profile_texture: ImageTexture = await Twitch.load_profile_image(user)
+	if profile_texture:
+		%MenuStreamerImage.visible = true
+		%MenuStreamerImage.texture = profile_texture # Assign to a Sprite2D, TextureRect etc.
+
+func send_hello_message():
+	var user = await Twitch.get_current_user()
+	Twitch.chat("Hello from Godot!")
