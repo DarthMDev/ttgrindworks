@@ -402,3 +402,7 @@ func get_cheermotes(definition: TwitchCheermoteDefinition) -> Dictionary:
 	return await media_loader.get_cheermotes(definition)
 
 #endregion
+
+## GRINDWORK
+
+var cog_chatter_ids: Array[String]

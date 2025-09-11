@@ -615,17 +615,28 @@ static func get_department_name(dept: CogDNA.CogDept) -> String:
 	
 ## TWITCH
 var chatter: TwitchChatter
+var chatters: TwitchGetChatters.Response
 
 func twitch_setup():
 	Twitch.twitch_chat.message_received.connect(relay_chat)
-	#temp: i am chat
+	chatters = await Twitch.api.get_chatters(null, Twitch._current_user.id, Twitch._current_user.id)
+	assign_chatter()
 
-func become_chatter():
-	if !is_instance_valid(chatter):
-		return
-	body.nametag = chatter.user_name + "\n" + body.nametag
+func assign_chatter():
+	var check_cog_chatter = func(data: TwitchChatter):
+		return data.user_id not in Twitch.cog_chatter_ids
+	var filtered_data = chatters.data.filter(check_cog_chatter)
+	if filtered_data.size < 1:
+		Twitch.cog_chatter_ids.clear()
+		filtered_data = check_cog_chatter
+	chatter = filtered_data.pick_random()
+	if chatter is TwitchChatter:
+		print("Assigning chatter " + chatter.user_name)
+		Twitch.cog_chatter_ids.append(chatter.user_id)
+		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
 	
 func relay_chat(chat_message: TwitchChatMessage):
 	print("Cog " + name + " received chat from " + chat_message.chatter_user_name)
-	#if chat_message.chatter_user_id == chatter.user_id:
-	speak(chat_message.message.text)
+	if chatter is TwitchChatter:
+		if chat_message.chatter_user_id == chatter.user_id:
+			speak(chat_message.message.text)
