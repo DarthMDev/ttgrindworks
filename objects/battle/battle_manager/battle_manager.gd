@@ -767,6 +767,7 @@ func create_v2_cog(cog: Cog) -> Cog:
 	new_cog.dna = cog.dna
 	battle_node.add_child(new_cog)
 	new_cog.global_transform = cog.global_transform
+	new_cog.set_chatter(cog.chatter)
 	new_cog.battle_start()
 	new_cog.hide()
 	add_cog(new_cog, cogs.find(cog))

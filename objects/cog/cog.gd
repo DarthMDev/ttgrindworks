@@ -505,16 +505,20 @@ func do_knockback():
 	await animator.animation_finished
 
 # Make the cog say stuff
-func speak(phrase: String, want_sfx := true):
+func speak(phrase: String, want_sfx := true, twitch := false):
 	if not dna.can_speak: return
 	
 	# Check for existing speech bubble and remove it
 	for child in body.nametag_node.get_children():
-		if child is SpeechBubble and not child.is_queued_for_deletion():
-			child.finished.emit()
+		if child is SpeechBubble:
+			## Twitch: normal barks do not interrupt twitch chat
+			if !twitch and child.twitch:
+				return
+			if not child.is_queued_for_deletion():
+				child.finished.emit()
 	
 	# If phrase is '.', it's just meant to clear any speech bubble
-	if phrase == ".":
+	if phrase == "." and !twitch:
 		return
 	
 	# Create a speech bubble with the cog font
@@ -522,6 +526,8 @@ func speak(phrase: String, want_sfx := true):
 	bubble.target = body.nametag_node.cog_nametag.chat_node
 	body.nametag_node.add_child(bubble)
 	bubble.set_font(load('res://fonts/vtRemingtonPortable.ttf'))
+	## twitch
+	bubble.twitch = twitch
 	
 	# Hide the nametag temporarily
 	body.nametag.hide()
@@ -618,6 +624,8 @@ var chatter: TwitchChatter
 var chatters: TwitchGetChatters.Response
 
 func twitch_setup():
+	if !Twitch.is_configured():
+		return
 	Twitch.twitch_chat.message_received.connect(relay_chat)
 	if chatter is not TwitchChatter:
 		assign_chatter()
@@ -641,8 +649,8 @@ func set_chatter(_chatter: TwitchChatter = null):
 		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
 	
 func relay_chat(chat_message: TwitchChatMessage):
-	print("Cog " + name + " received chat from " + chat_message.chatter_user_name)
 	#speak(chat_message.message.text)
 	if chatter is TwitchChatter:
 		if chat_message.chatter_user_id == chatter.user_id:
-			speak(chat_message.message.text)
+			print("Cog " + name + " relaying chat from " + chat_message.chatter_user_name)
+			speak(chat_message.message.text, true, true)

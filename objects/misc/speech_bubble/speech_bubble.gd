@@ -11,6 +11,7 @@ class_name SpeechBubble
 		return label.text
 
 @export var auto_expire := true
+@export var twitch := false
 
 # Child references
 @onready var label: RichTextLabel = $Text
@@ -29,6 +30,7 @@ var plain_text: String:
 signal finished
 
 func set_text(string: String):
+	if not label: return
 	if string == '':
 		label.set_text(string)
 		return
@@ -59,12 +61,13 @@ func set_text(string: String):
 		return
 
 	# Create a local timer to wait out before freeing
-	await Task.delay(2.0 + (string.length() * 0.1))
+	await Task.delay(2.0 + (string.length() * 0.1) + (3 * int(twitch)))
 	finished.emit()
 
 func set_font(font: Font):
 	if not label:
-		await Util.s_process_frame
+		#await Util.s_process_frame
+		return
 	label.add_theme_font_override('normal_font', font)
 	set_text(text)
 
