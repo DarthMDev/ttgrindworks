@@ -23,11 +23,12 @@ script = ExtResource("1_8sgxc")
 item_pool = ExtResource("2_5be2w")
 
 [node name="BirdsEye" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.48481, 0.87462, 0, -0.87462, 0.48481, 0, 6.75, 4)
+transform = Transform3D(1, 0, 0, 0, 0.97237, 0.233446, 0, -0.233445, 0.972371, 0, 2.746, 6.732)
 
 [node name="BattleCamera" type="Camera3D" parent="BirdsEye"]
 physics_interpolation_mode = 2
-fov = 48.8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+fov = 40.0
 
 [node name="Area3D" type="Area3D" parent="BirdsEye/BattleCamera"]
 
@@ -52,8 +53,6 @@ offset_right = -7.0
 offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Skip"
 
 [node name="Label" parent="SkipButton" index="0"]
