@@ -203,3 +203,4 @@ environment/defaults/default_environment="res://scenes/game_floor/default_enviro
 editor/game_oauth_token="res://addons/twitcher/default_oauth_token.tres"
 editor/game_oauth_setting="res://addons/twitcher/twitch_oauth_setting.tres"
 editor/project_preset=&"Game"
+editor/default_scopes="res://addons/twitcher/auth/preset_game_scopes.tres"

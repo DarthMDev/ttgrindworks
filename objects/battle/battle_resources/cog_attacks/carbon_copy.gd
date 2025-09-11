@@ -26,6 +26,8 @@ func action() -> void:
 	copy.stats.hp = user.stats.hp
 	copy.update_health_light()
 	copy.global_transform = user.global_transform
+	## twitch
+	copy.chatter = user.chatter
 	
 	# Add the copy to the battle
 	copy.battle_start()
