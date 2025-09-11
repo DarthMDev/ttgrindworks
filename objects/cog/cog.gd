@@ -630,7 +630,11 @@ func assign_chatter():
 	if filtered_data.size() < 1:
 		Twitch.cog_chatter_ids.clear()
 		filtered_data = chatters.data
-	chatter = filtered_data.pick_random()
+	set_chatter(filtered_data.pick_random())
+
+func set_chatter(_chatter: TwitchChatter = null):
+	if _chatter is TwitchChatter:
+		chatter = _chatter
 	if chatter is TwitchChatter:
 		print("Assigning chatter " + chatter.user_name)
 		Twitch.cog_chatter_ids.append(chatter.user_id)

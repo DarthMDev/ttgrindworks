@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="21_bn64l"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="22_jkjqs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81ncq"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -29,7 +29,7 @@ roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
 uv1_offset = Vector3(0, -0.894446, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pshe4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5cei"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
@@ -256,7 +256,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -3.57613)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_huelx")
+platform_mat = SubResource("StandardMaterial3D_81ncq")
 speed = 0.0
 
 [node name="CB2" parent="." index="9" instance=ExtResource("4_dm27t")]
@@ -264,7 +264,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1.65557)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_pshe4")
+platform_mat = SubResource("StandardMaterial3D_h5cei")
 speed = 0.0
 
 [node name="BeginColl" type="Area3D" parent="." index="10"]
@@ -1039,6 +1039,85 @@ visible = false
 dna = ExtResource("10_obb3n")
 skelecog_chance = 0
 
+[node name="Skeleton3D" parent="DeadGoose/ReferenceCog/rig_deform" index="0"]
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/1/rotation = Quaternion(-0.0014582, -4.95836e-09, -4.95836e-09, 0.999999)
+bones/2/rotation = Quaternion(0.00120152, 4.09647e-09, 4.09647e-09, 0.999999)
+bones/3/rotation = Quaternion(-0.779101, 7.9855e-17, 7.9855e-17, 0.626899)
+bones/5/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/6/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/7/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/8/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/9/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/10/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/11/rotation = Quaternion(-0.00878771, -0.0858863, 0.996265, -0.00125169)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.00887419, 0.0753138, 0.99712, 0.000176548)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(3.05775e-08, 0.707107, -0.707107, -7.61927e-08)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.72577, 0.000628993, 0.000628993, 0.687937)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.000985087, -0.0858713, 0.996305, 0.00104658)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.00079993, 0.07531, 0.997159, 0.00118954)
+bones/17/rotation = Quaternion(3.05774e-08, 0.707107, -0.707107, -7.61927e-08)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.72577, -0.000628993, -0.000628993, 0.687937)
+bones/19/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/21/rotation = Quaternion(0.0127837, 0.706991, 0.706991, -0.0127837)
+bones/22/rotation = Quaternion(0.539415, -0.481968, -0.481968, -0.494414)
+bones/23/rotation = Quaternion(-0.702831, 0.709382, -0.00302852, -0.0528806)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(-0.704817, 0.707107, -0.0568592, 0.000614147)
+bones/25/rotation = Quaternion(-0.629125, 0.776259, -0.0261302, -0.0306874)
+bones/26/rotation = Quaternion(-0.520372, 0.446344, 0.446344, 0.575124)
+bones/27/rotation = Quaternion(-0.488168, 0.509707, 0.509707, 0.492026)
+bones/28/rotation = Quaternion(-0.483425, 0.504504, 0.504504, 0.5072)
+bones/29/rotation = Quaternion(-0.472317, 0.524496, 0.524496, 0.476156)
+bones/30/rotation = Quaternion(-0.468951, 0.514609, 0.514609, 0.50044)
+bones/31/rotation = Quaternion(-0.668173, 0.226476, 0.226265, 0.671609)
+bones/32/rotation = Quaternion(-0.68638, 0.207161, 0.207211, 0.665606)
+bones/33/rotation = Quaternion(-0.50828, 0.494835, 0.494835, 0.501925)
+bones/34/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/36/rotation = Quaternion(-0.0127837, 0.706991, 0.706991, 0.0127837)
+bones/37/rotation = Quaternion(0.543961, 0.479718, 0.479718, -0.49381)
+bones/38/rotation = Quaternion(0.706984, 0.706984, 0.0131917, 0.0131917)
+bones/38/scale = Vector3(1, 1, 1)
+bones/39/rotation = Quaternion(0.706865, 0.706865, -0.0184854, -0.0184855)
+bones/39/scale = Vector3(1, 1, 1)
+bones/40/rotation = Quaternion(0.613816, 0.789424, -0.00265173, -0.00574458)
+bones/41/rotation = Quaternion(-0.481667, -0.487344, -0.488203, 0.54051)
+bones/42/rotation = Quaternion(-0.496662, -0.501433, -0.501433, 0.500458)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/rotation = Quaternion(-0.49069, -0.497439, -0.497439, 0.514132)
+bones/44/rotation = Quaternion(0.494387, 0.503738, 0.503738, -0.498074)
+bones/44/scale = Vector3(1, 1, 1)
+bones/45/rotation = Quaternion(-0.481468, -0.502891, -0.502891, 0.51224)
+bones/46/rotation = Quaternion(-0.668173, -0.226476, -0.226265, 0.671609)
+bones/47/rotation = Quaternion(-0.686379, -0.207161, -0.207211, 0.665606)
+bones/48/rotation = Quaternion(-0.509, -0.494379, -0.494379, 0.502094)
+bones/49/rotation = Quaternion(-0.711381, -7.31815e-09, -7.31815e-09, 0.702807)
+bones/49/scale = Vector3(1, 1, 1)
+
+[node name="HeadBone" parent="DeadGoose/ReferenceCog/rig_deform/Skeleton3D" index="5"]
+transform = Transform3D(1, 2.06985e-08, 1.25489e-10, 1.25493e-10, -0.0121253, 0.999927, 2.06985e-08, -0.999927, -0.0121253, 3.1263e-10, 7.42113, 0)
+
+[node name="HealthBone" parent="DeadGoose/ReferenceCog/rig_deform/Skeleton3D" index="6"]
+transform = Transform3D(1, -2.24552e-16, -2.43082e-17, -2.43082e-17, -0.213996, 0.976834, -2.24552e-16, -0.976835, -0.213996, 9.67026e-10, 5.92545, -1.04716)
+
+[node name="LeftHandBone" parent="DeadGoose/ReferenceCog/rig_deform/Skeleton3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -4.73904, 6.60079, 0.081083)
+
+[node name="RightHandBone" parent="DeadGoose/ReferenceCog/rig_deform/Skeleton3D" index="8"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 5.66344, 6.53305, 0.157637)
+
+[node name="RightIndexBone" parent="DeadGoose/ReferenceCog/rig_deform/Skeleton3D" index="9"]
+transform = Transform3D(0.0102173, 0.999676, -0.023322, -0.023322, 0.023555, 0.99945, 0.999676, -0.00966775, 0.023555, 6.00586, 6.67896, -0.071448)
+
+[node name="NameTag" parent="DeadGoose/ReferenceCog" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+
 [node name="SkipButton" parent="." index="35" instance=ExtResource("21_bn64l")]
 unique_name_in_owner = true
 visible = false
@@ -1073,4 +1152,6 @@ label_settings = SubResource("LabelSettings_jsk7n")
 [editable path="GameStompersDown/GameStomper3/stomper"]
 [editable path="GameStompersDown/GameStomper4/stomper"]
 [editable path="GameStompersDown/GameStomper5/stomper"]
+[editable path="DeadGoose"]
+[editable path="DeadGoose/ReferenceCog"]
 [editable path="SkipButton"]

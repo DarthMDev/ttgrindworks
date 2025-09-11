@@ -254,6 +254,7 @@ func win_game() -> void:
 
 	make_explosion(%Goose.global_position)
 	%Goose.hide()
+	%Goose.dna.can_speak = false
 	# Move it physically so that the collision doesn't stick around
 	%CrushCrate.position.y -= 50
 	%Fallers.position.y -= 50
@@ -273,6 +274,8 @@ func win_game() -> void:
 	%DeadGoose.body.head_bone.override_pose = true
 	%DeadGoose.body.head_bone.position = Vector3(0, 0, -5.6)
 	%DeadGoose.show()
+	## twitch
+	%DeadGoose.chatter = %Goose.chatter
 
 func spawn_random_obj() -> void:
 	var is_button := false

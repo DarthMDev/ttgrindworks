@@ -27,7 +27,7 @@ func action() -> void:
 	copy.update_health_light()
 	copy.global_transform = user.global_transform
 	## twitch
-	copy.chatter = user.chatter
+	copy.set_chatter(user.chatter)
 	
 	# Add the copy to the battle
 	copy.battle_start()
