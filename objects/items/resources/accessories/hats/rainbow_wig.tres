@@ -294,7 +294,7 @@ want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Rainbow Wig"
 item_description = "Sunshine and rainbows!"
-big_description = "- No negative anomalies on new floors
+big_description = "- No negative anomalies on new floors, NOT AFTER FLOOR 3 LOL
 + 5 max Laff"
 model = ExtResource("4_hns7g")
 stats_add = {
@@ -303,7 +303,7 @@ stats_add = {
 }
 stats_multiply = {}
 player_values = {
-"no_negative_anomalies": true
+"no_negative_anomalies": false
 }
 arbitrary_data = {}
 item_script = ExtResource("4_pnf75")

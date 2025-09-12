@@ -173,7 +173,7 @@ func lose_game() -> void:
 		var player := Util.get_player()
 		AudioManager.play_sound(player.toon.yelp)
 		player.last_damage_source = "the Head of Security"
-		player.quick_heal(Util.get_hazard_damage() + explosion_damage)
+		player.quick_heal((Util.get_hazard_damage() + explosion_damage) * 0.66)
 		# Only do the animation if the player is alive
 		if player.stats.hp > 0:
 			player.state = Player.PlayerState.STOPPED

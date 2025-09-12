@@ -481,6 +481,7 @@ transform = Transform3D(0.592821, 0, -1.04334, 0, 1.2, 0, 1.04334, 0, 0.592821, 
 [node name="BattleNode" parent="." index="11" node_paths=PackedStringArray("cogs") instance=ExtResource("13_yef6v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.396508, 3.08701, -19.8702)
 cogs = [NodePath("Cog"), NodePath("Cog2")]
+rebalance = 1
 
 [node name="Cog" parent="BattleNode" index="3" instance=ExtResource("14_h35r2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)

@@ -23,7 +23,9 @@ func action():
 	
 	await manager.sleep(2.3)
 	var hit := manager.roll_for_accuracy(self)
-	if hit or target.lured:
+	if get_immunity(target):
+		hit = false 
+	if hit:
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_flowersquirt.ogg"))
 	else:
 		AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/AA_squirt_flowersquirt_miss.ogg"))
@@ -58,7 +60,7 @@ func action():
 			apply_debuff(target)
 			s_hit.emit()
 			await Task.delay(0.5 * (2 if was_lured else 1))
-			manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+			if not sheer_force: manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 		else:
 			manager.battle_text(target, "IMMUNE")
 		await manager.barrier(target.animator.animation_finished, 5.0)

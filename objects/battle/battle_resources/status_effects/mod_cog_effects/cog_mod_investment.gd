@@ -24,7 +24,7 @@ func renew() -> void:
 		return
 	
 	# Don't play if at full health
-	if cog.stats.hp == cog.stats.max_hp:
+	if cog.stats.hp == cog.stats.max_hp and not cog.foreman:
 		return
 	
 	# Don't play if on off-turn

@@ -9,8 +9,9 @@
 script = ExtResource("1_1xod0")
 sfx = Array[AudioStream]([])
 active_type = 1
-charge_count = 4
-current_charge = 4
+charge_count = 2
+current_charge = 2
+custom_discharge_time = 1.0
 item_tags = null
 qualitoon = 2
 rarity = 0

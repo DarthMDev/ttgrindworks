@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CogAttackLawyerCall" load_steps=2 format=3 uid="uid://cxtnskxfjweqm"]
+
+[ext_resource type="Script" uid="uid://dpyjngn8f73us" path="res://objects/battle/battle_resources/cog_attacks/lawyer_call.gd" id="1_bam4t"]
+
+[resource]
+script = ExtResource("1_bam4t")
+cog_amount = 1
+accuracy = 100
+damage = 1
+ignore_stats = false
+foreman_user = false
+summary = ""
+attack_lines = Array[String](["I need a lawyer", "Outrageous, I am sueing"])
+target_type = 0
+action_name = "Lawyer Call"
+one_time_use = false

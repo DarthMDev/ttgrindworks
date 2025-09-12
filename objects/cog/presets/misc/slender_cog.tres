@@ -17,6 +17,7 @@ additional_attacks = Array[ExtResource("1_rm1bc")]([])
 accuracy = 75
 damage = 10
 ignore_stats = false
+foreman_user = false
 summary = "It's hard to think straight..."
 attack_lines = Array[String]([])
 target_type = 0
@@ -51,6 +52,7 @@ status_effects = Array[ExtResource("9_ndiyl")]([ExtResource("10_oknvn")])
 is_mod_cog = false
 is_admin = false
 health_mod = 2.0
+is_v2 = false
 battle_phrases = Array[String](["..."])
 external_assets = {
 &"head_model": "",

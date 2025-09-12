@@ -15,4 +15,4 @@ class_name DepartmentFloor
 
 ## Music Defaults
 @export var background_music : Array[AudioStream]
-@export var battle_music : AudioStream
+@export var battle_music : Array[AudioStream]

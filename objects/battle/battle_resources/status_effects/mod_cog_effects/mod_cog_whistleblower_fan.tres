@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b85euv6h3pv7p"]
+
+[ext_resource type="Texture2D" uid="uid://dlpwdg5qa3cuo" path="res://ui_assets/battle/gags/inventory_whistle.png" id="1_4t3nv"]
+[ext_resource type="Script" uid="uid://drmqcnkwnq22e" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_whistleblower_fan.gd" id="1_vh3nh"]
+
+[resource]
+script = ExtResource("1_vh3nh")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_4t3nv")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "A Fan of the Whistleblower"
+status_name = "Whistleblower Fan"
+is_foreman_effect = false
+id = 7021

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bhxp2ed250o85"]
+
+[ext_resource type="Script" uid="uid://btymq6qx7ba3d" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_proxy_add.gd" id="1_besxi"]
+
+[resource]
+script = ExtResource("1_besxi")
+quality = 0
+rounds = -1
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Gains a proxy ability after every turn"
+status_name = "Annoying Foreman"
+is_foreman_effect = false
+id = 7003
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

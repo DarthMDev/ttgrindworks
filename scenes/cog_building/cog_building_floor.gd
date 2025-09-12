@@ -11,7 +11,7 @@ func _ready() -> void:
 	Util.get_player().lock_game_timer = true
 	Util.get_player().global_position = elevator_in.player_pos.global_position
 	Util.get_player().face_position(battle.global_position)
-	await Task.delay(5.0)
+	await Task.delay(0.70) # %5 was 5
 	elevator_in.open()
 	await elevator_in.animator.animation_finished
 	Util.get_player().state = Player.PlayerState.WALK

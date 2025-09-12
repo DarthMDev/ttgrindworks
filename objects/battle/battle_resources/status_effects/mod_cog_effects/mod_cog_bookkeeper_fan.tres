@@ -1,0 +1,20 @@
+[gd_resource type="Resource" format=3 uid="uid://5rnbmcn1oo57"]
+
+[ext_resource type="Texture2D" uid="uid://c3ibnqgwvrh03" path="res://ui_assets/misc/BookIcon_OPEN_old.png" id="1_3t3nv"]
+[ext_resource type="Script" uid="uid://bhjqihp0sqmce" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_bookkeeper_fan.gd" id="1_ql3nh"]
+
+[resource]
+script = ExtResource("1_ql3nh")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_3t3nv")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "A Fan of the Bookkeeper"
+status_name = "Bookkeeper Fan"
+is_foreman_effect = false
+id = 7024

@@ -82,6 +82,7 @@ transform = Transform3D(0.121122, 0, 0.937206, 0, 0.945, 0, -0.937206, 0, 0.1211
 [node name="BattleNode" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("3_74480")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.83813, 0, 11.3195)
 cogs = [NodePath("Cog"), NodePath("Cog2")]
+rebalance = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNode" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58144, 1.82958, 0.397548)

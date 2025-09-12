@@ -10,7 +10,6 @@ func action():
 	if target.lured:
 		return
 	user.face_position(target.global_position)
-	
 	var rod = load("res://models/props/gags/fishing_rod/fishing_rod.tscn").instantiate()
 	var dollar = load("res://models/props/gags/fishing_rod/dollar_bill.tscn").instantiate()
 	if override_mat:
@@ -21,7 +20,6 @@ func action():
 	dollar.rotation_degrees.y += 180.0
 	dollar.global_position = target.to_global(Vector3(0, 0.1, 3.25))
 	dollar.scale = Vector3.ONE * 0.35
-	
 	# Animate
 	user.set_animation('bait')
 	user.animator.animation_finished.connect(func(_x=null): user.set_animation("lured"), CONNECT_ONE_SHOT)
@@ -45,9 +43,9 @@ func action():
 	var hit := manager.roll_for_accuracy(self) and not get_immunity(target)
 	
 	# If hit, make cog reach for dollar
-	if hit:
+	if hit and not target.v1_5:
 		target.set_animation('walknreach')
-		manager.battle_text(target, "Stunned!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+		if not sheer_force: manager.battle_text(target, "Stunned!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 		await target.animator.animation_finished
 		if target.trap:
 			trap_gags.append(target.trap)
@@ -56,6 +54,7 @@ func action():
 		else:
 			apply_lure(target)
 	else:
+		target.speak("Bruh")
 		manager.battle_text(target,"IMMUNE")
 		await user.animator.animation_finished
 

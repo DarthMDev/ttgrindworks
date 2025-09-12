@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ekbksjycl5ox"]
+
+[ext_resource type="Texture2D" uid="uid://c16hymxduxl36" path="res://ui_assets/battle/statuses/StatusEffectA.png" id="1_6nlav"]
+[ext_resource type="Script" uid="uid://bk80su8l4b2jx" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_alphabet.gd" id="1_y0bth"]
+
+[resource]
+script = ExtResource("1_y0bth")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_6nlav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Gags selected must be different and in Alphabetical Order"
+status_name = "Alphabetical"
+is_foreman_effect = false
+id = 7016

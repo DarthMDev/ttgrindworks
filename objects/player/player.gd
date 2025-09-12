@@ -144,7 +144,11 @@ func _init() -> void:
 func _ready() -> void:
 	# Make player globally accessible
 	Util.player = self
-	
+	if Util.oftfdebug:
+		run_speed *= 2
+		immune_to_light_damage = true
+		immune_to_crush_damage = true
+		print("immune to to hazards")
 	# Construct the toon from the character DNA
 	toon.construct_toon(character.dna)
 	print('toon constructed')
@@ -384,7 +388,7 @@ func lose():
 		# Thog don't care if we're already in the sad state
 		return
 	
-	SaveFileService.on_game_over()
+	#SaveFileService.on_game_over()
 	state = PlayerState.SAD
 	Util.stuck_lock = false
 	set_animation('lose')
@@ -479,6 +483,8 @@ func check_hp(hp: int) -> void:
 	
 	if hp == 0 and not BattleService.ongoing_battle:
 		lose()
+	if prev_hp > hp:
+		Globals.damage_taken += prev_hp - hp
 	prev_hp = stats.hp
 
 func quick_heal(amount: int) -> void:

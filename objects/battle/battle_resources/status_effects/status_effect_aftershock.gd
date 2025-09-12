@@ -12,6 +12,7 @@ func renew() -> void:
 	if target is Player:
 		target.set_animation('cringe')
 	else:
+		target.last_damage_source = "Drop"
 		target.set_animation('pie-small')
 	await manager.sleep(3.0)
 	await manager.check_pulses([target])

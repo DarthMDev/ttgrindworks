@@ -70,10 +70,11 @@ func action():
 			# Do not lure cogs an additional time
 			if target.lured:
 				continue
-			elif get_immunity(target):
+			elif get_immunity(target) or target.v1_5:
 				manager.battle_text(target, "IMMUNE")
+				target.speak("Nah")
 				continue
-			manager.battle_text(target, "Damage Down!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+			if not sheer_force: manager.battle_text(target, "Damage Down!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 			if cog_anim == 'landing':
 				animate_magnet_pull(target)
 			else:

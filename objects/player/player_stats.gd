@@ -28,7 +28,7 @@ var debug_gag_points := false
 @export var gag_vouchers: Dictionary[String, int] = {}
 @export var gag_battle_start_point_boost: Dictionary[String, int] = {}
 @export var global_battle_start_point_boost := 0
-@export var toonups: Dictionary[int, int] = {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 0}
+@export var toonups: Dictionary[int, int] = {0: 2, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 0}
 @export var treasures: Dictionary[int, int] = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
 @export var gag_cap := 10
@@ -103,6 +103,7 @@ func set_loadout(loadout: GagLoadout) -> void:
 			_: value = 1
 		for track in loadout.loadout:
 			dict[track.track_name] = value
+		gag_vouchers["Squirt"] = 2
 
 func first_time_setup() -> void:
 	if character:
@@ -206,3 +207,9 @@ func get_battle_time() -> int:
 		return -1
 	else:
 		return battle_timers.min()
+func give_quests() -> void:
+		if quests.is_empty():
+			for i in 4:
+				var new_quest := QuestCog.new()
+				new_quest.setup()
+				quests.append(new_quest)

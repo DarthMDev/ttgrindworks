@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GagJob" load_steps=2 format=3 uid="uid://cxkj3010xy5g8"]
+
+[ext_resource type="Script" uid="uid://dp6u0e34bwai4" path="res://objects/battle/battle_resources/status_effects/gag_job.gd" id="1_v54hh"]
+
+[resource]
+script = ExtResource("1_v54hh")
+quality = 0
+rounds = 1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Status Effect"
+is_foreman_effect = false
+id = 5

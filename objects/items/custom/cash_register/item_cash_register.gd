@@ -5,13 +5,13 @@ const SFX := preload("res://audio/sfx/items/cash_register.ogg")
 
 func use() -> void:
 	var player := Util.get_player()
-	if player.stats.money < 5:
+	if player.stats.money < 15:
 		cancel_use()
 		return
 	
 	AudioManager.play_sound(SFX)
 	player.bean_jar.scale_shrink()
-	player.stats.money -= 5
+	player.stats.money -= 15
 	var stat_boost := STAT_BOOST_REFERENCE.duplicate()
 	stat_boost.quality = StatusEffect.EffectQuality.POSITIVE
 	stat_boost.stat = 'damage'

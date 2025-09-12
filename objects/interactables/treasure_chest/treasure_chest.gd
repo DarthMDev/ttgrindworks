@@ -9,6 +9,7 @@ var SFX_OPEN: AudioStreamOggVorbis
 @export var override_replacement_rolls := false
 @export var override_item: Item
 @export var unopenable := false
+@export var scripted_rebalance := false
 
 @export var item_pool: ItemPool:
 	set(x):
@@ -55,6 +56,7 @@ var POOL_GRADIENTS : Dictionary[String, String] = {
 
 const EXTRA_TURN := preload(ExtraTurnItem.BASE_ITEM)
 const POINT_BOOST := preload(PointBoostItem.BASE_ITEM)
+#const winter_hat = preload("res://objects/items/resources/accessories/hats/winter_hat.tres")
 var LAFF_BOOST := load("res://objects/items/resources/passive/laff_boost.tres")
 var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	0: null,
@@ -63,6 +65,8 @@ var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	3: null,
 	4: EXTRA_TURN,
 	5: LAFF_BOOST,
+	7: load("res://objects/items/resources/accessories/hats/winter_hat.tres"),
+	8: EXTRA_TURN
 }
 
 var opened := false
@@ -112,6 +116,37 @@ func set_light_level(level : float, shader : ShaderMaterial) -> void:
 	shader.set_shader_parameter('strength', level)
 
 func assign_item(world_item: WorldItem):
+	if scripted_rebalance:
+			if Util.floor_number == 0:
+				world_item.item = load("res://objects/items/resources/accessories/glasses/monocle.tres")
+				return
+			if Util.floor_number == 1:
+				world_item.item = load("res://objects/items/resources/accessories/hats/heart_headband.tres")
+				return
+			if Util.floor_number == 2:
+				world_item.item = load("res://objects/items/resources/passive/blue_jellybean.tres")
+				return
+			if Util.floor_number == 3:
+				#world_item.item = load("res://objects/items/resources/accessories/hats/rainbow_wig.tres")
+				world_item.item = load("res://objects/items/resources/accessories/hats/rainbow_wig.tres")
+				#res://objects/items/resources/accessories/hats/pilot_hat.tres
+				return
+			if Util.floor_number == 4:
+				world_item.item = load("res://objects/items/resources/accessories/backpacks/small_pouch.tres")
+				return
+			if Util.floor_number == 5:
+				world_item.item = load("res://objects/items/resources/accessories/backpacks/gag_pack.tres")
+				return	
+			if Util.floor_number == 7:
+				if not Util.get_player().stats.has_item("Bat Wings"):
+					world_item.item = load("res://objects/items/resources/accessories/backpacks/bat_wings.tres")
+				elif not Util.get_player().stats.has_item("Pixie Wings"):
+					world_item.item = load("res://objects/items/resources/accessories/backpacks/pixie_wings.tres")
+				return
+			if Util.floor_number == 8:
+				world_item.item = load("res://objects/items/resources/accessories/hats/faded_tiara.tres")
+				return
+	#if Util.floor_number > 5: scripted_progression = false
 	if scripted_progression and SCRIPTED_PROGRESSION_ITEMS[Util.floor_number] != null:
 		var scripted_item = SCRIPTED_PROGRESSION_ITEMS[Util.floor_number]
 		# 5th floor has a +8 laff boost

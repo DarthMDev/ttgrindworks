@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://l8kcwpdbmtpe"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_q8eld"]
+
+[resource]
+script = ExtResource("1_q8eld")
+release_version = "OFTF Extended"
+notes = "[TITLE]Foremen Floors 4 + 5
+New cheats:
+Compensation
+Seismic
+Archaic Techbot:
+Gains a phunny power move
+Prethinker(Drop Immunity)
+Uses a new big drop animation
+Beneficiary
+Can increase max hp maximum of 4 times in Penthouse 1
+Damage Drift:
+Positive base damage modifier 1.2x → 1.15x
+[TITLE]Foremen Floors 7 + 8
+New cheats:
+Alphabetical
+Allocator
+Bookkeeper Fan
+Cohesive
+Confused
+Laborious
+Ohmmeter
+Red tape
+Relentless
+Retributive
+Sniper
+Spongy
+Suehappy
+Supressive
+Whistleblower fan
+[TITLE]Penthouse
+The penthouse now will appear in the elevator scene after completing floors 5 and 8
+Penthouse 1:
+Penthouse 1 level range [12,15] -> [13,15]
+Completion will now send player to elevator scene going to floor 7
+Penthouse 2:
+A familiar face can be seen in Penthouse 2
+New Penthouse Cutscene
+[TITLE]Anomalies
+2 new anomalies:
+Unstable Core
+Highly Unstable Core
+Removed status report from Anomaly pool
+Double Trouble v2 cog chance 15% → 20%
+[TITLE]Floor Bosses
+Virtual cogs will be less likely to spawn with 2 of the same immunity 
+Starting on floor 4 Foremen can spawn with the chartist
+[TITLE]Items
+Added Winter Hat (4 stars)
+Added Faded tiara (4 stars)
+Pilot Wings max damage bonus 16% -> 12%
+Pilot Cap will no longer multiply base damage and will now increase the player damage stat by + 50%
+Bee wings crit multiplier will now cap at +12%
+Monocole will now display the first Proxy ability of proxies
+Goon foot duration 8 seconds → 15 and boost amount 0.5 → 0.6
+Sandwich charge count reverted back to 3
+Gag button charge count 5 → 4
+
+[TITLE]Rebalancing
+Cog Level Ranges:
+   Floor 4: [10, 12] → [11, 12]
+   Floor 5: [12, 14] → [13, 15]
+   Floor 7: [20,21]
+   Floor 8: [21,22]
+Gag goal rate reverted to vanilla goals
+Toontask-specific cogs force spawn rate (45%) -> 25% (20% in vanilla)
+Winning cog battles that start with 4 cogs before Floor in the mint & factory will no longer grant an extra chest
+[TITLE]Elevator Scene
+The cog golf course is guaranteed to have atleast one negative anomaly
+Floor choices with 4 or 5 star rewards are more likely to have negative anomalies
+Temporarily removed Decibel Disaster and Annoying foremen as preset floor choices
+Survive the Foremen is now always the third option for floor 4 and 5
+Survive the Foremen will now always have a 4 or 5 star accessory floor reward
+[TITLE]Toontasks
+Undid lowered quotas change for pre floor 4 toontasks
+Adjusted toontask quotas
+Survive the foreman floors will have a lower quota division
+Added Yellow + Green Jellybeans into toontask quest pool
+[TITLE]Tweaks
+Added more toontips
+Certain sound effects have a chance to play under certain conditions
+Throw and squirt gags will now miss on cogs that are immune to them
+Added a big drop miss cog animation"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

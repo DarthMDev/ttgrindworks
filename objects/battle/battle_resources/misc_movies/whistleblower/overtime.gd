@@ -5,7 +5,9 @@ const STATUS_EFFECT := preload('res://objects/battle/battle_resources/status_eff
 func action() -> void:
 	var cog : Cog = user
 	var target : Cog = targets[0]
-	
+	var phrase = "Yes, ma'am..."
+	if user.foreman:
+		phrase = "Are you serious right now?"
 	# MOVIE START
 	var movie := manager.create_tween()
 	
@@ -17,7 +19,7 @@ func action() -> void:
 	
 	# Focus target
 	movie.tween_callback(battle_node.focus_character.bind(target))
-	movie.tween_callback(target.speak.bind("Yes, ma'am..."))
+	movie.tween_callback(target.speak.bind(phrase))
 	movie.tween_callback(apply_effect)
 	movie.tween_callback(manager.battle_text.bind(target, "+1 Turn!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
 	movie.tween_interval(3.0)

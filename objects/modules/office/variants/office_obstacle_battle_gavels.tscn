@@ -346,6 +346,7 @@ shape = SubResource("BoxShape3D_w6m5t")
 [node name="BattleNode2" parent="." index="19" node_paths=PackedStringArray("cogs") instance=ExtResource("19_j3dxh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66267, 3.26965, -22.937)
 cogs = [NodePath("Cog"), NodePath("Cog2")]
+rebalance = 1
 
 [node name="Cog" parent="BattleNode2" index="3" instance=ExtResource("20_dd6rs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)

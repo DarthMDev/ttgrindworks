@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dg8ak1ibssu2u"]
+
+[ext_resource type="Texture2D" uid="uid://c7jwpq2sc2nmn" path="res://ui_assets/battle/statuses/techbot.png" id="1_ok7g7"]
+[ext_resource type="Script" uid="uid://m0p6q7smjis2" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_techbot.gd" id="2_ebkb1"]
+
+[resource]
+script = ExtResource("2_ebkb1")
+quality = 0
+rounds = -1
+icon = ExtResource("1_ok7g7")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "The first department to push the cog combat system
+And the first cog to attack you"
+status_name = "Archaic Techbot"
+is_foreman_effect = false
+id = 0

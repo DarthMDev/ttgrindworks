@@ -25,6 +25,7 @@ win_sfx = SubResource("Resource_45yrp")
 accuracy = 75
 damage = 10
 ignore_stats = false
+foreman_user = false
 summary = "Get ready!"
 attack_lines = Array[String](["Let's see who the real comedic genius is.", "Think fast!"])
 target_type = 0

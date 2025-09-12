@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://2eit1yq1n6yp"]
+
+[ext_resource type="Texture2D" uid="uid://wkfjh7j3e8vb" path="res://ui_assets/battle/statuses/absorbing_shield.png" id="1_9nlav"]
+[ext_resource type="Script" uid="uid://dlwar6vmoqhly" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_rebalance.gd" id="1_wmeth"]
+
+[resource]
+script = ExtResource("1_wmeth")
+quality = 0
+rounds = -1
+icon = ExtResource("1_9nlav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Rebalance description"
+status_name = "Rebalance"
+is_foreman_effect = false
+id = 7013

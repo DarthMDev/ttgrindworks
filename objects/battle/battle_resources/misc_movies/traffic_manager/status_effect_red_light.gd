@@ -19,7 +19,11 @@ var traffic_man: Cog
 func apply() -> void:
 	traffic_man = logic_effect.traffic_man
 	trimmed_list = track_list.duplicate()
-	
+	for i in range(trimmed_list.size() - 1, -1, -1):
+		#remove throw from list for banning
+		if trimmed_list[i].track_name == "Throw":
+			trimmed_list.remove_at(i)
+	#new_track.track_name == "Throw"
 	# Create the gag ban effect
 	banned_effect = GAG_BAN_EFFECT.duplicate()
 	banned_effect.rounds = rounds

@@ -1,19 +1,20 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://d3j6v3o7y5d0w"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=10 format=3 uid="uid://d3j6v3o7y5d0w"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_20sb0"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_8503x"]
 [ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_x60dn"]
-[ext_resource type="PackedScene" uid="uid://irtn2e1gj41k" path="res://models/cogs/heads/mingler.glb" id="3_csmlo"]
+[ext_resource type="PackedScene" uid="uid://i1fin2hufkp3" path="res://models/cogs/heads/png_head.glb" id="3_csmlo"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_q1ull"]
-[ext_resource type="Texture2D" uid="uid://c3u0bajfdyjqt" path="res://models/cogs/heads/mingler_mingler.png" id="4_1xi63"]
-[ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="4_5ouac"]
+[ext_resource type="Texture2D" uid="uid://bbjslt288yubb" path="res://models/cogs/heads/foreman_head.png" id="4_1xi63"]
+[ext_resource type="Resource" uid="uid://bi7cik2kcg2ye" path="res://objects/battle/battle_resources/cog_attacks/resources/foreman_compensation.tres" id="4_3nag5"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_pmbwt"]
+[ext_resource type="Resource" uid="uid://du8hik1tgqvrc" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/status_effect_fore_cog.tres" id="12_zw7c8"]
 
 [resource]
 script = ExtResource("2_x60dn")
 department = 0
 suit = 0
-cog_name = "The Mingler"
+cog_name = "Factory Foreman"
 name_plural = ""
 name_prefix = ""
 name_suffix = ""
@@ -27,14 +28,15 @@ head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 0.0
 custom_nametag_suffix = ""
 can_speak = true
-attacks = Array[ExtResource("1_20sb0")]([ExtResource("2_8503x"), ExtResource("3_q1ull"), ExtResource("4_5ouac")])
+attacks = Array[ExtResource("1_20sb0")]([ExtResource("3_q1ull"), ExtResource("2_8503x"), ExtResource("4_3nag5")])
 level_low = 7
 level_high = 14
-status_effects = Array[ExtResource("5_pmbwt")]([])
+status_effects = Array[ExtResource("5_pmbwt")]([ExtResource("12_zw7c8")])
 is_mod_cog = false
 is_admin = false
 health_mod = 1.0
-battle_phrases = Array[String](["Are you sure you're ready to mingle?", "You don't know who you're mingling with.", "I'm going to mingle in your business.", "Ever mingle with the likes of me?", "You're mingling with defeat.", "Let's mingle.", "Well, isn't this cozy?", "Good, it takes two to mingle."])
+is_v2 = false
+battle_phrases = Array[String](["Are you sure?", "Go ahead, make my day.", "Toon.", "@_@", "Had a great conversation with a lamp yesterday", "🤖", "The reason why the sprint button is bad is because Toontown has existed for 18 years without it. It just makes the game easier and more casual. Why would that be a good thing? Why is casualization of video games seen as an automatic plus in your eyes? If they added a button to allow people to reach 137 Laff Points and maxed gags instantly because some people have less time to play the game, would that be reasonable in your eyes?."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

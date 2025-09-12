@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ThrowTape" load_steps=3 format=3 uid="uid://dnruuday28ni0"]
+
+[ext_resource type="PackedScene" uid="uid://cxj4gdkxgwknm" path="res://models/props/cog_props/pink_slip/pink_slip.glb" id="1_mhdfy"]
+[ext_resource type="Script" uid="uid://jmgytm3n1u1m" path="res://objects/battle/battle_resources/cog_attacks/red_tape_attack.gd" id="1_n6atw"]
+
+[resource]
+script = ExtResource("1_n6atw")
+prop = ExtResource("1_mhdfy")
+wait_time = 3.2
+custom_method = "eviction_notice"
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = "Fires and Items disabled."
+attack_lines = Array[String](["Unforgiveable.", "Red Tape?"])
+target_type = 0
+action_name = "Red tape"
+one_time_use = false

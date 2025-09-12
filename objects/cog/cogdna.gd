@@ -47,6 +47,7 @@ enum SuitType {
 @export var is_mod_cog := false
 @export var is_admin := false
 @export var health_mod := 1.0
+@export var is_v2 = false # please remove after demonstration
 
 @export_multiline var battle_phrases: Array[String] = ["We are gonna fight now."]
 @export var battle_start_movie: BattleStartMovie
@@ -65,7 +66,9 @@ enum SuitType {
 const DEFAULT_HEAD := "res://models/cogs/heads/flunky.glb"
 
 
-func get_head() -> Node3D:
+func get_head(skele: Node3D = null) -> Node3D:
+	if skele:
+		return skele
 	var head_mod: Node3D
 	if head:
 		head_mod = head.instantiate()

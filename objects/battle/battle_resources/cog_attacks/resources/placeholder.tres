@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Bellow" load_steps=2 format=3 uid="uid://bqxe06wlv6isu"]
+
+[ext_resource type="Script" uid="uid://sxfa70hfrqt6" path="res://objects/battle/battle_resources/cog_attacks/placeholder.gd" id="1_nuxhc"]
+
+[resource]
+script = ExtResource("1_nuxhc")
+play_sound = true
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = "Something will happen"
+attack_lines = Array[String](["Enjoying yourself?", "Is this what you wanted?", "Still having fun?"])
+target_type = 4
+action_name = "Placeholder for cheat effects"
+one_time_use = false
+metadata/_custom_type_script = "uid://sxfa70hfrqt6"

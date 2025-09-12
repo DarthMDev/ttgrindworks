@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dawcp4my1mdca"]
+
+[ext_resource type="Texture2D" uid="uid://dgltuiyhtm25j" path="res://ui_assets/battle/statuses/green_light.png" id="1_3lt11"]
+[ext_resource type="Script" uid="uid://dwbp3n7ivdmjx" path="res://objects/battle/battle_resources/misc_movies/traffic_manager/status_effect_green_light_toon.gd" id="2_kvnit"]
+
+[resource]
+script = ExtResource("2_kvnit")
+quality = 2
+rounds = -1
+icon = ExtResource("1_3lt11")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Gag Requirement"
+is_foreman_effect = false
+id = 7014

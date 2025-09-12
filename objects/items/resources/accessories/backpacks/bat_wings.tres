@@ -42,10 +42,10 @@ want_ui_spin = true
 ui_cam_offset = 0.45
 item_name = "Bat Wings"
 item_description = "Siphon your enemies"
-big_description = "Adds an extra 10% to Throw's self heal bonus."
+big_description = "Adds an extra 5% to Throw's self heal bonus."
 model = ExtResource("2_lkame")
 stats_add = {
-"throw_heal_boost": 0.1
+"throw_heal_boost": 0.05
 }
 stats_multiply = {}
 player_values = {}

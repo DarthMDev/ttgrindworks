@@ -13,6 +13,6 @@ func setup() -> void:
 	BattleService.s_battle_participant_died.connect(_participant_died)
 
 func _participant_died(participant: Node3D) -> void:
-	if participant is Cog and participant.dna and participant.dna.is_mod_cog:
+	if participant is Cog and participant.dna and (participant.dna.is_mod_cog or participant.foreman):
 		Util.get_player().stats.add_money(BEAN_AWARD)
 		AudioManager.play_sound(EARN_SFX)

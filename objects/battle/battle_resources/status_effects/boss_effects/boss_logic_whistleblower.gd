@@ -60,6 +60,7 @@ func queue_budget_cuts() -> void:
 	# Roll for new track
 	var tracks := Util.get_player().stats.gag_regeneration.keys()
 	tracks.erase(prev_banned_track)
+	tracks.erase("Throw")
 	new_action.track = RandomService.array_pick_random('true_random', tracks)
 	prev_banned_track = new_action.track
 	

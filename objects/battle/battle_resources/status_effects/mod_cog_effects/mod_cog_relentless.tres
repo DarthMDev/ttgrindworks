@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b435adna2qmro"]
+
+[ext_resource type="Script" uid="uid://b2b0xg78nq0g1" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_relentless.gd" id="1_3nbth"]
+[ext_resource type="Texture2D" uid="uid://ckvf1qgd0pn2x" path="res://ui_assets/battle/statuses/Relentless.png" id="1_6nlav"]
+
+[resource]
+script = ExtResource("1_3nbth")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_6nlav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Will attack and mark at the end of the turn dealing 10% of max laff"
+status_name = "Relentless"
+is_foreman_effect = false
+id = 7015
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

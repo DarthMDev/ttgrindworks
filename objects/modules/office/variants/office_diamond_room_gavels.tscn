@@ -23,6 +23,7 @@ point_count = 4
 [node name="BattleNode" parent="." index="10" node_paths=PackedStringArray("cogs") instance=ExtResource("2_xh2h4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.6224, 0, 0)
 cogs = [NodePath("Cog"), NodePath("Cog2")]
+rebalance = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449707, 2.77739, 2.39709)

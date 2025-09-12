@@ -17,6 +17,7 @@ mini_icon_scale = 1.0
 visible = true
 description = "This is a Status Effect"
 status_name = "Status Effect"
+is_foreman_effect = false
 id = 2
 
 [resource]
@@ -25,6 +26,7 @@ status_effect = SubResource("Resource_g5qp3")
 accuracy = 60
 damage = 0
 ignore_stats = false
+foreman_user = false
 summary = "Defense Down!"
 attack_lines = Array[String](["Your low-brow humor isn't true comedy.", "Your material lacks structure.", "Don't you ever get tired of that pie-in-the-face bit?", "No one laughs with you, only at you.", "I'd give your show a one-star review."])
 target_type = 0

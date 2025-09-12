@@ -56,11 +56,14 @@ const UNCAPPED_STAT_VAL := -999.0
 	set(x):
 		if debug_invulnerable:
 			hp = max_hp
+		if is_foreman: 
+			hp = clamp(x, 0, max_hp * 3)
 		else:
 			hp = clamp(x, 0, max_hp)
 		hp_changed.emit(hp)
 @export var turns := 1
 var debug_invulnerable := false
+@export var is_foreman := false
 
 var multipliers: Array[StatMultiplier] = []
 

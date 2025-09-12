@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Bellow" load_steps=2 format=3 uid="uid://bf42ubqtlsr5v"]
+
+[ext_resource type="Script" uid="uid://c8ncyuhxgtnc3" path="res://objects/battle/battle_resources/cog_attacks/bellow.gd" id="1_cochc"]
+
+[resource]
+script = ExtResource("1_cochc")
+play_sound = true
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = "All cog debuffs terminated"
+attack_lines = Array[String]([])
+target_type = 4
+action_name = "Bayou Bellow?"
+one_time_use = false
+metadata/_custom_type_script = "uid://b6b887750vlst"

@@ -16,7 +16,7 @@ const FALLBACK_TRACK := preload('res://objects/battle/battle_resources/gag_loado
 @export var track: Track
 
 var cog: Cog
-
+var oftf_cheat = false
 func apply() -> void:
 	cog = target
 	
@@ -58,6 +58,7 @@ func get_icon() -> Texture2D:
 	return ImmunityIcons[track.track_name]
 
 func get_status_name() -> String:
+	if oftf_cheat: return status_name 
 	return "%s Immunity" % track.track_name
 
 func get_description() -> String:

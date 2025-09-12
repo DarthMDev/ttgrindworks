@@ -1,7 +1,7 @@
 extends CogAttack
 class_name CogAttackWorkout
 
-const BOOST_AMT := 1.2
+const BOOST_AMT := 1.66
 
 const STAT_BOOST_REFERENCE := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 

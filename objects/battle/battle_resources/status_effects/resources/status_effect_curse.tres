@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ct6u0bmqjb2up"]
+
+[ext_resource type="Script" uid="uid://d4jtafhojjjq" path="res://objects/battle/battle_resources/status_effects/status_effect_curse.gd" id="1_jkabf"]
+
+[resource]
+script = ExtResource("1_jkabf")
+track_name = "Squirt"
+quality = 1
+rounds = 2
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Curse"
+is_foreman_effect = false
+id = 7015

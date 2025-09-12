@@ -1,40 +1,38 @@
 Boss Cogs will unlure after one round.
 Treasure chests may be hidden, keep a sharp eye out!
 Use your Gag Points wisely!
-Anomalies can have good, bad or neutral effects.
 Check your ToonTasks on the pause menu!
 Some items are exclusive to certain item pools.
-Not all items are good.
+Not all items are good(Fedora).
+The Fedora was DELETED from the game.
 Gag Vouchers are saved for use in-battle.
 Toon-Up items can save you in a pinch!
-Shops come before big challenges. Stock up!
+Quest rerolls restock to 4 on every floor, Use em!
 You can maintain the momentum from moving platforms with a jump.
 Jumping while on conveyor belts can give you more control.
-Check your stats on the pause menu!
-Accessories you pick up won't override the effects of others.
-Drink motor oil...?
+Strange anomalies will appear after floor 2.
 You can walk diagonally on laser grids if you're careful.
 Battle speed can be adjusted in the Settings menu.
 The Settings menu has lots of options for customization.
-Different jellybean colors give different quantities of beans.
-Items range in quality from 1 to 5 stars.
-Items with more stars are more powerful.
-Every floor will end with a challenging encounter...
-There are hidden facilities. Keep your eyes peeled...
+Compensation Compensation Compensation Compensation Compensation.
+Grindworks too slow? Check out the Pacelover2000 mod.
 Not every battle is required, but some give great rewards.
-Have a Doodle? Keep an eye on its mood.
+Have you seen the Hostile Takeover BAT file?
 Stuck? In the settings, the "I'm stuck!" button will help you out! 
 Squirt can make Cogs more vulnerable to damage.
-Trap deals the most damage, but requires a setup turn.
 Single lures stun the Cog, group lures lower the damage of up to 3.
-Lures deal knockback damage with Squirt and Throw.
-Sound hits 3 Cogs, with the pink arrows indicating which take splash damage.
+Drop has the highest combo damage multiplier.
+Attacking a cog multiple times with the same gag track will result in combo damage.
+Want more characters and pocket pranks? Check out the Green Folio mod.
 Throw's self heal is the best way to maintain your laff!
+The Scapegoat's name is Kilo Kidd.
 Drop's aftershock is affected by crits.
+Nah, no tip for you.
+Final damage dealt is divided by the target's defense stat.
 Hitting a Cog with multiple drop gags can stack aftershock!
-Falling behind? Chests may provide more progression-based items to help catch you up!
 Chest types indicate the type of items they spawn.
 Rare rooms contain special chests!
 Pocket Pranks can be recharged by defeating battles.
 Group Lures decrease the damage of their main target more harshly.
 Treasures you pick up will become consumables in battle.
+Toontown Event Horizon tomorrow.

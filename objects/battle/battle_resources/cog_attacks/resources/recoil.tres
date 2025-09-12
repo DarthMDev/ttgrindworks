@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recoil" load_steps=2 format=3 uid="uid://ln6n1iloxlgo"]
+
+[ext_resource type="Script" uid="uid://bjosbdpc2m2vs" path="res://objects/battle/battle_resources/cog_attacks/recoil.gd" id="1_nmphc"]
+
+[resource]
+script = ExtResource("1_nmphc")
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = ""
+attack_lines = Array[String](["."])
+target_type = 4
+action_name = ""
+one_time_use = false
+metadata/_custom_type_script = "uid://bjosbdpc2m2vs"

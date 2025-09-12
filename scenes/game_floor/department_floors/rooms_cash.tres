@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwth04hxrxf4" path="res://objects/modules/mint/base_rooms/mint_conveyor_room.tscn" id="19_ocw5o"]
 [ext_resource type="PackedScene" uid="uid://bgmijmxyy2ydt" path="res://objects/modules/mint/base_rooms/mint_conveyer_lava_jump.tscn" id="20_vma8a"]
 [ext_resource type="PackedScene" uid="uid://b8xrlx4lbhy1q" path="res://objects/modules/mint/variants/mint_special_pipe_room.tscn" id="20_w6bvv"]
+[ext_resource type="AudioStream" uid="uid://drd0pjrfqd86b" path="res://audio/music/Toontown-ODS-Cashbot-Mint-Battle-Music.ogg" id="2_3natr"]
 
 [sub_resource type="Resource" id="Resource_6f1he"]
 script = ExtResource("3_puix8")
@@ -122,4 +123,4 @@ final_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_kcq8j"), SubR
 one_time_rooms = Array[PackedScene]([])
 special_rooms = Array[ExtResource("3_puix8")]([SubResource("Resource_w1gik"), SubResource("Resource_0826d")])
 background_music = Array[AudioStream]([ExtResource("1_wellv")])
-battle_music = ExtResource("2_lxatr")
+battle_music = Array[AudioStream]([ExtResource("2_lxatr"),ExtResource("2_3natr")])

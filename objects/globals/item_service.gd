@@ -35,6 +35,7 @@ const POOL_PATHS: Array[String] = [
 	"res://objects/items/pools/super_candies.tres",
 	"res://objects/items/pools/toontasks.tres",
 	"res://objects/items/pools/treasures.tres",
+	"res://objects/items/pools/good_items.tres",
 ]
 
 var POOLS: Dictionary[String, ItemPool] = {}
@@ -255,10 +256,10 @@ func apply_inventory() -> void:
 
 const GagGoals: Dictionary = {
 	1: 0.2,
-	2: 0.375,
-	3: 0.55,
-	4: 0.725,
-	5: 0.9,
+	2: 0.35,
+	3: 0.55, # was 0.5 in v1.04 vanilla oftf 0.66 			making it 0.66
+	4: 0.725, # was 0.7 in v1.04 vanilla oftf 0.85
+	5: 0.90, # was 0.9 so not big diff
 	6: 1.0,
 }
 
@@ -266,7 +267,7 @@ func get_gag_rate() -> float:
 	if not Util.get_player():
 		return 0
 	
-	var floor_num := maxi(Util.floor_number + 1, 1)
+	var floor_num := Util.floor_number + 1
 	
 	var stats := Util.get_player().stats
 	var total_gags := 0
@@ -293,9 +294,11 @@ func get_gag_rate() -> float:
 	# Floor 0: 20% of all gags collected
 	# Floor 1: 35% of all gags collected
 	# Floor 2: 50% of all gags collected
-	# Floor 3: 70% of all gags collected
+	# Floor 3: 70% of all gags collectedS
 	# Floor 4: 90% of all gags collected
 	# Floor 5: 100% of all gags collected
+	if Util.floor_number > 5:
+		return 1.0
 	var goal_percent := minf(GagGoals[floor_num], 1.0)
 	
 	var chance := (1.0 - (gag_percent / goal_percent)) * 1.35
@@ -303,7 +306,7 @@ func get_gag_rate() -> float:
 	return chance
 
 const STARTING_LAFF := 30
-const FLOOR_LAFF_INCREMENT := 14
+const FLOOR_LAFF_INCREMENT := 17 # was 14
 const LIKELIHOOD_PER_POINT := 0.1
 func get_laff_rate() -> float:
 	if not is_instance_valid(Util.get_player()):
@@ -410,6 +413,25 @@ func create_centralized_pool(path: String) -> ItemPool:
 	POOLS[path] = new_pool
 	return new_pool
 
+func get_random_good_item() -> Item:
+	#print("good item forcing")
+	
+	# Get the good items pool
+	var good_pool: ItemPool = load('res://objects/items/pools/good_items.tres')
+	
+	# Trim out all seen items from pool
+	var trimmed_pool: Array[Item] = []
+	for item in good_pool.items:
+		if not item in seen_items:
+			trimmed_pool.append(item)
+	
+	# If no unseen good items are available, return a random item from the full good pool
+	if trimmed_pool.is_empty():
+		print("No unseen good items available, using full good pool")
+		return RandomService.array_pick_random("special_items", good_pool.items)
+	
+	# Return a random item from the trimmed pool
+	return RandomService.array_pick_random("special_items", trimmed_pool)
 
 #region Pool Pointers
 var BEAN_POOL: ItemPool:

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c62p1fgsl52r6"]
+
+[ext_resource type="Script" uid="uid://dbqcfi4n0rpkh" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_litigant.gd" id="1_gcsxi"]
+
+[resource]
+script = ExtResource("1_gcsxi")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Gonna wanna call saul"
+status_name = "Suehappy"
+is_foreman_effect = false
+id = 7003
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

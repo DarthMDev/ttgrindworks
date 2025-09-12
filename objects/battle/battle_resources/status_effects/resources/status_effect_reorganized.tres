@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cb2abjwtcl41n"]
+
+[ext_resource type="Script" uid="uid://dqckamf3t2jad" path="res://objects/battle/battle_resources/status_effects/status_effect_reorganized.gd" id="1_jkabf"]
+[ext_resource type="Texture2D" uid="uid://b3vogay1ltdx4" path="res://ui_assets/player_ui/pause/Reorganization.png" id="3_kooav"]
+
+[resource]
+script = ExtResource("1_jkabf")
+quality = 2
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("3_kooav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = false
+description = "Gags shuffled"
+status_name = "Reorganized"
+is_foreman_effect = false
+id = 7015

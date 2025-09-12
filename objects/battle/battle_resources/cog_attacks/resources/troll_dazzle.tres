@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrollDazzle" load_steps=2 format=3 uid="uid://dtj36eusp4q15"]
+
+[ext_resource type="Script" uid="uid://csjuwdmnp0y81" path="res://objects/battle/battle_resources/cog_attacks/troll_dazzle.gd" id="1_bmvw8"]
+
+[resource]
+script = ExtResource("1_bmvw8")
+accuracy = 100
+damage = 9999
+ignore_stats = false
+foreman_user = false
+summary = "The Ultimate Attack!!111"
+attack_lines = Array[String](["Bye Bye", "This is your final hour", "I'm going to wow you.", "You're not ready for this."])
+target_type = 0
+action_name = "Destruction"
+one_time_use = false

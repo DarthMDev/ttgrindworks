@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://mqc6wbqu5m7t"]
+
+[ext_resource type="Texture2D" uid="uid://cgx0adqwqtcvv" path="res://ui_assets/battle/statuses/green_plus.png" id="1_4tvav"]
+[ext_resource type="Script" uid="uid://kfb7g3rbn7jo" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_beneficiary.gd" id="1_vhkth"]
+
+[resource]
+script = ExtResource("1_vhkth")
+quality = 0
+rounds = -1
+icon = ExtResource("1_4tvav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "If you gain laff, this cog will gain health "
+status_name = "Beneficiary"
+is_foreman_effect = false
+id = 7014

@@ -67,6 +67,7 @@ func eviction_notice() -> void:
 	held_prop.position = Vector3(1.477, -0.442, -0.83)
 	held_prop.rotation_degrees = Vector3(-27.2, 176.1, -36.3)
 	
+	
 	var player : Player = targets[0]
 	battle_node.focus_character(user)
 	

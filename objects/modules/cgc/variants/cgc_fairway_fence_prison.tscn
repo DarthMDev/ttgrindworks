@@ -362,7 +362,7 @@ curve = SubResource("Curve3D_qiapn")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5698, 0, -14.3526)
 cog_range = Vector2i(2, 3)
 cog_dist = 1.59
-cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+cogs = [null, null, null]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102386, 8.48587, -2.41779)

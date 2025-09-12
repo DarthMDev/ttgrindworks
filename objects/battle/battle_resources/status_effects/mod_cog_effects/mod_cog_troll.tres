@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://82w5gs7q08lm"]
+
+[ext_resource type="Script" uid="uid://irfk01outv1n" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_troll.gd" id="1_nxsxi"]
+
+[resource]
+script = ExtResource("1_nxsxi")
+quality = 0
+rounds = -1
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "The Strongest Foreman"
+status_name = "Troll Foreman"
+is_foreman_effect = false
+id = 7009
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

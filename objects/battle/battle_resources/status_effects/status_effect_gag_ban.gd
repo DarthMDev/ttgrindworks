@@ -67,10 +67,13 @@ func start_track_tweens(track_element: TrackElement) -> void:
 			tween_storage[button] = create_tween(button)
 
 func expire() -> void:
+	#added clear tweens
+	clear_tweens()
 	return
 
 func cleanup() -> void:
 	clear_tweens()
+	#("running cleaning up on ban normal / foreman")
 	for element in track_elements:
 		if element.s_refreshing.is_connected(track_refreshed):
 			element.s_refreshing.disconnect(track_refreshed)

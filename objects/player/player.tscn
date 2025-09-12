@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://5hvtmu8sf5ub" path="res://objects/player/ui/timer/game_timer.tscn" id="22_0c65h"]
 [ext_resource type="Script" uid="uid://bnmo4cxoda23r" path="res://objects/player/boost_text_queue.gd" id="23_468de"]
 [ext_resource type="PackedScene" uid="uid://6se4ghde6e11" path="res://objects/player/ui/active_item_ui/active_item_ui.tscn" id="25_r5k7d"]
+[ext_resource type="Script" path="res://objects/player/stats_debug.gd" id="26_bhnup"]
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("2_mf0eg")
@@ -317,3 +318,13 @@ offset_right = 116.0
 offset_bottom = -234.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="debug" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.737255)
+offset_left = 4.0
+offset_top = 142.0
+offset_right = 146.0
+offset_bottom = 171.0
+text = "debug"
+label_settings = SubResource("LabelSettings_530nt")
+script = ExtResource("26_bhnup")

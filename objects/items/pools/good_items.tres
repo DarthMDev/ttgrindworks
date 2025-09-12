@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemPool" load_steps=27 format=3 uid="uid://dhjgsnbxkni8e"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_kclre"]
+[ext_resource type="Resource" uid="uid://b8woaed8cv7go" path="res://objects/items/resources/accessories/backpacks/bee_wings.tres" id="18_uue80"]
+[ext_resource type="Resource" uid="uid://bye8a25d8np3f" path="res://objects/items/resources/accessories/backpacks/angel_wings.tres" id="21_g1ket"]
+[ext_resource type="Resource" uid="uid://bgw6nin360tg5" path="res://objects/items/resources/accessories/backpacks/wood_sword.tres" id="22_qcejs"]
+[ext_resource type="Resource" uid="uid://dpbjr75nuswfn" path="res://objects/items/resources/accessories/hats/jester_hat.tres" id="23_48fxl"]
+[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="26_hp0fn"]
+[ext_resource type="Resource" uid="uid://cs5v54jdptmge" path="res://objects/items/resources/accessories/glasses/square_frames.tres" id="40_ko57v"]
+[ext_resource type="Resource" uid="uid://divycml3lyvqr" path="res://objects/items/resources/accessories/hats/detective_hat.tres" id="49_vsn6c"]
+[ext_resource type="Resource" uid="uid://crvenqtyote8y" path="res://objects/items/resources/accessories/hats/party_hat.tres" id="31_bjk14"]
+[ext_resource type="Resource" uid="uid://cgh32lk3oq0o8" path="res://objects/items/resources/accessories/hats/safari_hat.tres" id="57_9qfdv"]
+[ext_resource type="Resource" uid="uid://dlhap5enouu26" path="res://objects/items/resources/accessories/backpacks/scuba_tank.tres" id="47_7gwts"]
+[ext_resource type="Resource" uid="uid://by0wxmbegn1fb" path="res://objects/items/resources/accessories/hats/roman_helmet.tres" id="52_o8j88"]
+[ext_resource type="Resource" uid="uid://c1ityxde5xlmm" path="res://objects/items/resources/accessories/glasses/celebrity_shades.tres" id="9_ladna"]
+[ext_resource type="Resource" uid="uid://62skk8psjx2a" path="res://objects/items/resources/accessories/glasses/dorky_glasses.tres" id="10_8rnde"]
+[ext_resource type="Resource" uid="uid://bw4hfnjy11e63" path="res://objects/items/resources/accessories/backpacks/plane_wings.tres" id="33_9nl6l"]
+
+[resource]
+script = ExtResource("26_hp0fn")
+items = Array[ExtResource("1_kclre")]([ExtResource("52_o8j88"), ExtResource("9_ladna"), ExtResource("10_8rnde"), ExtResource("33_9nl6l"), ExtResource("18_uue80"), ExtResource("21_g1ket"), ExtResource("22_qcejs"), ExtResource("23_48fxl"), ExtResource("40_ko57v"), ExtResource("49_vsn6c"), ExtResource("31_bjk14"), ExtResource("57_9qfdv"), ExtResource("47_7gwts")])
+low_roll_override = 7
+metadata/_custom_type_script = "uid://wiibpvvki8vs"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ph5nb1602lia"]
+
+[ext_resource type="Texture2D" uid="uid://e3nyom6aqvi" path="res://ui_assets/battle/statuses/spongebob.png" id="1_0bcwm"]
+[ext_resource type="Script" uid="uid://dmfejp2ngp5g4" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_spongy.gd" id="1_b0doo"]
+
+[resource]
+script = ExtResource("1_b0doo")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_0bcwm")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Will absorb the 30% of the damage dealt to other cogs"
+status_name = "Spongy"
+is_foreman_effect = false
+id = 7018

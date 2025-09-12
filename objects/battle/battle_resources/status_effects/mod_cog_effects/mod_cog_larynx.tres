@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cryeaaa4bvtmk"]
+
+[ext_resource type="Texture2D" uid="uid://dep6wjeduplh7" path="res://ui_assets/battle/statuses/larynx.png" id="1_7tcav"]
+[ext_resource type="Script" uid="uid://d0gu2x83iksjw" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_larynx.gd" id="1_doith"]
+
+[resource]
+script = ExtResource("1_doith")
+quality = 0
+rounds = -1
+icon = ExtResource("1_7tcav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Bayou Bellow"
+status_name = "Larynx"
+is_foreman_effect = false
+id = 8

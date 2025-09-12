@@ -31,7 +31,9 @@ func action() -> void:
 	movie.tween_callback(battle_node.focus_character.bind(cog))
 	movie.tween_callback(geyser.get_node('AnimationPlayer').play.bind('squirt'))
 	
-	var hit: bool = manager.roll_for_accuracy(self) or cog.lured 
+	var hit: bool = manager.roll_for_accuracy(self) or cog.lured
+	if get_immunity(cog):
+		hit = false 
 	if hit:
 		if not get_immunity(cog):
 			movie.tween_callback(s_hit.emit)
@@ -49,7 +51,7 @@ func action() -> void:
 				movie.tween_callback(func(): cog.stats.hp -= kb_dmg)
 			movie.tween_callback(apply_debuff.bind(cog))
 			movie.tween_interval(1.75)
-			movie.tween_callback(manager.battle_text.bind(cog, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
+			if not sheer_force: movie.tween_callback(manager.battle_text.bind(cog, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
 			movie.tween_callback(cog_slip.bind(cog))
 			movie.tween_callback(cog.body_root.reparent.bind(cog))
 			movie.tween_callback(func(): cog.body_root.position.y = 0.0)

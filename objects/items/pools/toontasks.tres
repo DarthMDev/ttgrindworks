@@ -1,9 +1,7 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=18 format=3 uid="uid://7tn6to82356s"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=17 format=3 uid="uid://7tn6to82356s"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_o8p4s"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="2_g673f"]
-[ext_resource type="Resource" uid="uid://bhdofnj74gv0f" path="res://objects/items/resources/passive/red_jellybean.tres" id="3_ofwmq"]
-[ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="4_5m0og"]
 [ext_resource type="Resource" uid="uid://b77qp325baypa" path="res://objects/items/resources/passive/pink_slip.tres" id="7_cs7sn"]
 [ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="7_dju7n"]
 [ext_resource type="Resource" uid="uid://bd5d562nvcvr2" path="res://objects/items/resources/passive/light_blue_jellybean.tres" id="8_iadk3"]
@@ -16,9 +14,10 @@
 [ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="14_82jbt"]
 [ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="14_b0d2e"]
 [ext_resource type="Resource" uid="uid://c8yh80vqngv1b" path="res://objects/items/resources/passive/music_treasure.tres" id="15_bu400"]
-[ext_resource type="Resource" uid="uid://wsx4jasny47f" path="res://objects/items/resources/passive/candies/candy_battery.tres" id="16_82jbt"]
+[ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="17_8m0og"]
+[ext_resource type="Resource" uid="uid://8o81eupsmxm4" path="res://objects/items/resources/passive/green_jellybean.tres" id="18_bndk3"]
 
 [resource]
 script = ExtResource("7_dju7n")
-items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0"), ExtResource("14_82jbt"), ExtResource("15_bu400"), ExtResource("16_82jbt")])
+items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("17_8m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0"), ExtResource("14_82jbt"), ExtResource("15_bu400"), ExtResource("17_8m0og"), ExtResource("18_bndk3")])
 low_roll_override = 0

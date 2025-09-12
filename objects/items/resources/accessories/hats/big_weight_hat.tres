@@ -293,9 +293,11 @@ want_ui_spin = true
 ui_cam_offset = 0.45
 item_name = "Big Weight Hat"
 item_description = "Crush Immunity"
-big_description = "Immune from crush-based damage, such as stompers and gavel squishes"
+big_description = "Immune from crush-based damage, such as stompers and gavel squishes +5% defense"
 model = ExtResource("4_diuin")
-stats_add = {}
+stats_add = {
+"defense": 0.05
+}
 stats_multiply = {}
 player_values = {
 "immune_to_crush_damage": true

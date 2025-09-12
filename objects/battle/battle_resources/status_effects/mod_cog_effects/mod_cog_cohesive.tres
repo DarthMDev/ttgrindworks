@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bha86lsfc2m0g"]
+
+[ext_resource type="Texture2D" uid="uid://cfn21mnxl6tpm" path="res://ui_assets/battle/statuses/RaisingTheAnte.png" id="1_2nlav"]
+[ext_resource type="Script" uid="uid://cm7kausbetfg0" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_cohesive.gd" id="1_fmeth"]
+
+[resource]
+script = ExtResource("1_fmeth")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon = ExtResource("1_2nlav")
+icon_color = Color(1, 0.66, 0.8, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Gags will apply regeneration or stat boosts to cogs"
+status_name = "Cohesive"
+is_foreman_effect = false
+id = 7022

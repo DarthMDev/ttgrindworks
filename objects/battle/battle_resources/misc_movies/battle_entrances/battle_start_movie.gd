@@ -56,8 +56,9 @@ func start_music(music : AudioStream = null) -> bool:
 		return true
 	# If all else fails, try the default battle track for the game floor
 	elif Util.floor_manager and Util.floor_manager.floor_rooms.battle_music:
-		AudioManager.set_music(Util.floor_manager.floor_rooms.battle_music)
+		AudioManager.set_music(Util.floor_manager.floor_rooms.battle_music[Util.battles_encountered % Util.floor_manager.floor_rooms.battle_music.size()])
 		return true
+
 	# If no track can be specified, use the fallback track
 	AudioManager.set_music(load(FALLBACK_MUSIC))
 	return false

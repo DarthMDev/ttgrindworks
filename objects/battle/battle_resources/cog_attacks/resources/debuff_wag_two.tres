@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DebuffWagTwo" load_steps=2 format=3 uid="uid://cc5jabbyjvv61"]
+
+[ext_resource type="Script" uid="uid://bmgxyng0uhf1c" path="res://objects/battle/battle_resources/cog_attacks/debuff_wag_two.gd" id="1_n5atw"]
+
+[resource]
+script = ExtResource("1_n5atw")
+accuracy = 100
+damage = 2
+ignore_stats = false
+foreman_user = false
+summary = "You did not follow the order."
+attack_lines = Array[String](["Unforgiveable.", "Seriously?", "You messed up the order!.", "I can't believe you've done this."])
+target_type = 0
+action_name = "Penalty"
+one_time_use = false

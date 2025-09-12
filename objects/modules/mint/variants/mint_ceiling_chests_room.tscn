@@ -292,6 +292,7 @@ curve = SubResource("Curve3D_nyxif")
 [node name="BattleNode" parent="." index="10" node_paths=PackedStringArray("cogs") instance=ExtResource("12_xmy6r")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.6516, 0, 6.7796)
 cogs = [NodePath("Cog"), NodePath("Cog2")]
+rebalance = 1
 
 [node name="Cog" parent="BattleNode" index="3" instance=ExtResource("13_0c0ny")]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -1.68465, 0, 0)

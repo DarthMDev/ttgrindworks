@@ -61,6 +61,12 @@ func randomize_objective() -> void:
 	
 	var minimum_level := maxi(1, min(4, Util.floor_number + 1))
 	var maximum_level := maxi(2, min(7, Util.floor_number + 3))
+	if Util.floor_number > 3:
+		if quest_type == 1:
+			quest_type = 2
+		if quest_type == 0:
+			goal_dept = CogDNA.CogDept.SELL
+			
 	
 	# 33% chance of department specific
 	if quest_type == 0:
@@ -84,6 +90,10 @@ func randomize_objective() -> void:
 		quotaf /= 2.0
 	elif specific_cog:
 		quotaf /= 4.0
+	# reduce if gamemode is survive the foremen
+	if Util.survive_the_foreman:
+		quotaf /= 1.5
+	quotaf =  rebalance_quotaf(quotaf)
 	
 	# Level minimum objectives
 	if RandomService.randi_channel('cog_quest_types') % 3 == 0:
@@ -159,3 +169,15 @@ func reset() -> void:
 	specific_cog = null
 	department = CogDNA.CogDept.NULL
 	min_level = 1
+func rebalance_quotaf(quotaf) -> int:
+	if Util.floor_number == 5:
+		if quotaf < 7:
+			quotaf = 7
+	if Util.floor_number >= 6:
+		#print("quota stuff")
+		if quotaf < 4:
+			quotaf = 7
+	if Util.floor_number >= 8:
+		if quotaf < 5:
+			quotaf = 5
+	return quotaf

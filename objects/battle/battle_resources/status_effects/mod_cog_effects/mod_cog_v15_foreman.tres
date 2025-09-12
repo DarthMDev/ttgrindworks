@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3ta71bwwn4bi"]
+
+[ext_resource type="Texture2D" uid="uid://uhsnow2yqax" path="res://ui_assets/battle/statuses/virtual_cog.png" id="1_bonav"]
+[ext_resource type="Script" uid="uid://ciftpp18toqva" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_v15_foreman.gd" id="1_btwth"]
+
+[resource]
+script = ExtResource("1_btwth")
+quality = 0
+rounds = -1
+icon = ExtResource("1_bonav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Upon defeat will spawn a debuff immune virtual cog"
+status_name = "Version 1.5"
+is_foreman_effect = false
+id = 7014

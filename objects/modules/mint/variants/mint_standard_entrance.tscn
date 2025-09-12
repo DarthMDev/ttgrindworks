@@ -32,6 +32,11 @@ scripted_progression = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0124, 0, -5.10519)
 item_pool = ExtResource("3_tko3j")
 
+[node name="treasure_chest3" parent="Chests" index="1" instance=ExtResource("2_bm6ip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124, 0, -5.10519)
+item_pool = ExtResource("3_tko3j")
+scripted_rebalance = true 
+
 [node name="Props" type="Node3D" parent="." index="8"]
 
 [node name="money_bag" parent="Props" index="0" instance=ExtResource("5_wyet8")]

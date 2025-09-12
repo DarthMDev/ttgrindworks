@@ -13,7 +13,9 @@ signal s_dna_set
 @export var nametag_node: Node3D
 @export var nametag: Node3D
 @export var head_node: Node3D
+@export var skele_head: Node3D
 @export var head_bone: BoneAttachment3D
+@export var head_cone: BoneAttachment3D
 @export var left_hand_bone: BoneAttachment3D
 @export var right_hand_bone: BoneAttachment3D
 @export var right_index_bone: BoneAttachment3D
@@ -76,3 +78,22 @@ func flash_instant(color: Color, time: float = 0.2, strength: float = 0.7) -> vo
 func flash(color: Color, time: float = 0.2, strength: float = 0.7) -> void:
 	if color_overlay_mat:
 		color_overlay_mat.flash(self, color, time, strength)
+		
+func print_head_node_info(dna) -> void:
+	if head_node:
+		print("Head Node Info:")
+		print("Name: ", head_node.name)
+		print("Type: ", head_node.get_class())
+		head_node.get_path_to(head_node)
+		head_node.print_tree_pretty()
+		print("head's parent node:")
+		print(head_node.get_parent_node_3d())
+		#if head_node.get_parent_node_3d():
+		#	dna.head = head_node.get_parent_node_3d()
+		print("head_node path: ")
+		print(head_node.get_path())
+		if head_node.has_method("get_scene_file_path"):
+			var scene_path = head_node.get_scene_file_path()
+
+	else:
+		print("No head_node assigned")

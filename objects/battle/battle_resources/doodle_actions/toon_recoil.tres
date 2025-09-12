@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ct4vnuts3b0xp"]
+
+[ext_resource type="Script" uid="uid://bjv5vbsbxam7b" path="res://objects/battle/battle_resources/doodle_actions/toon_recoil.gd" id="1_kmphc"]
+
+[resource]
+script = ExtResource("1_kmphc")
+target_type = 4
+action_name = "Retribution"
+one_time_use = false

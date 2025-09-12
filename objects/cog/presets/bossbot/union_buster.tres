@@ -30,12 +30,13 @@ custom_nametag_height = 9.7
 custom_nametag_suffix = "Director"
 can_speak = true
 attacks = Array[ExtResource("1_4pu63")]([ExtResource("2_nb47t"), ExtResource("3_cnhv6"), ExtResource("4_f8d0e")])
-level_low = 20
-level_high = 20
+level_low = 28
+level_high = 28
 status_effects = Array[ExtResource("8_mvwwv")]([ExtResource("8_t203t"), ExtResource("9_fy7td"), ExtResource("10_0qqr8")])
 is_mod_cog = false
 is_admin = false
-health_mod = 5.952
+health_mod = 6.034
+is_v2 = false
 battle_phrases = Array[String](["I am going to bust some unions."])
 external_assets = {
 &"head_model": "",

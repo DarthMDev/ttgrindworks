@@ -80,14 +80,22 @@ func get_char_position(pos : String) -> Vector3:
 func assign_gag_immunities(cogs : Array[Cog]) -> Array[StatusEffectGagImmunity]:
 	var effects : Array[StatusEffectGagImmunity] = []
 	var loadout : Array[Track] = Util.get_player().stats.character.gag_loadout.loadout
-	
+	var i = 0
 	# Assign a random gag immunity to each Cog
 	for cog in cogs:
+		if i % 2 == 0:
+					var new_status1 := GAG_IMMUNITY_EFFECT.duplicate()
+					new_status1.target = cog
+					new_status1.rounds = -1
+					new_status1.set_track(loadout[RandomService.randi_channel('true_random') % loadout.size()])
+					cog.dna.status_effects.append(new_status1)
+			
 		var new_status := GAG_IMMUNITY_EFFECT.duplicate()
 		new_status.target = cog
 		new_status.rounds = -1
 		new_status.set_track(loadout[RandomService.randi_channel('true_random') % loadout.size()])
 		cog.dna.status_effects.append(new_status)
 		cog.body.set_color(Color(new_status.track.track_color, 0.8))
+		i += 1
 	
 	return effects

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c73i2b4ifxcib"]
+
+[ext_resource type="Texture2D" uid="uid://dkom5depgpqb0" path="res://ui_assets/battle/statuses/cog_sad.png" id="1_kooav"]
+[ext_resource type="Script" uid="uid://cm7o35aikkc8" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_cursed_foreman.gd" id="1_snbth"]
+
+[resource]
+script = ExtResource("1_snbth")
+quality = 2
+rounds = -1
+icon = ExtResource("1_kooav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This Foreman will curse the gag track it perished from"
+status_name = "Cursed Foreman"
+is_foreman_effect = false
+id = 7011

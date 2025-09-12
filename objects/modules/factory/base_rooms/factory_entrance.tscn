@@ -996,6 +996,11 @@ scripted_progression = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5229, 0, -0.220811)
 item_pool = ExtResource("14_f8w8w")
 
+[node name="treasure_chest3" parent="Chests" instance=ExtResource("13_36mm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5229, 0, -0.220811)
+item_pool = ExtResource("14_f8w8w")
+scripted_rebalance = true
+
 [node name="Navigation" type="NavigationRegion3D" parent="."]
 visible = false
 navigation_mesh = SubResource("NavigationMesh_nkcii")

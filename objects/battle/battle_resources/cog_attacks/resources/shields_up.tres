@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Shieldup" load_steps=2 format=3 uid="uid://6lqbxxfnfisj"]
+
+[ext_resource type="Script" uid="uid://bh50k7yl5uuy8" path="res://objects/battle/battle_resources/cog_attacks/shields_up.gd" id="1_buxhc"]
+
+[resource]
+script = ExtResource("1_buxhc")
+play_sound = true
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = "Something will happen"
+attack_lines = Array[String](["Shields up?", "Shields up2?", "Still having fun?"])
+target_type = 4
+action_name = "Shields Up"
+one_time_use = false
+metadata/_custom_type_script = "uid://sxfa70hfrqt6"

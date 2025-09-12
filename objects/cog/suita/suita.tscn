@@ -568,12 +568,12 @@ bones/49/rotation = Quaternion(-0.711381, -7.31815e-09, -7.31815e-09, 0.702807)
 bones/49/scale = Vector3(1, 1, 1)
 
 [node name="HeadBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="5"]
-transform = Transform3D(1, 2.06985e-08, 1.25492e-10, 1.25492e-10, -0.0121253, 0.999927, 2.06985e-08, -0.999927, -0.0121253, 3.1263e-10, 7.42113, 0)
+transform = Transform3D(1, 2.06985e-08, 1.25489e-10, 1.25493e-10, -0.0121253, 0.999927, 2.06985e-08, -0.999927, -0.0121253, 3.1263e-10, 7.42113, 0)
 bone_name = "ATTACH-head"
 bone_idx = 49
 
 [node name="HealthBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="6"]
-transform = Transform3D(1, -2.24552e-16, -2.43082e-17, -2.43082e-17, -0.213996, 0.976835, -2.24552e-16, -0.976835, -0.213996, 9.67026e-10, 5.92545, -1.04716)
+transform = Transform3D(1, -2.24552e-16, -2.43082e-17, -2.43082e-17, -0.213996, 0.976834, -2.24552e-16, -0.976835, -0.213996, 9.67026e-10, 5.92545, -1.04716)
 bone_name = "ATTACH-meter"
 bone_idx = 3
 

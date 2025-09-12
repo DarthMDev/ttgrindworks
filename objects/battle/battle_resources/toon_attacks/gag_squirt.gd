@@ -15,6 +15,8 @@ func soak_opponent(who: Node3D, from: Node3D, time: float) -> void:
 	splash.queue_free()
 
 func apply_debuff(target: Cog) -> void:
+	if sheer_force == true:
+		return
 	var new_effect: StatBoost = DEBUFF.duplicate()
 	new_effect.target = target
 	new_effect.boost = get_player_stats().get_stat('squirt_defense_boost')

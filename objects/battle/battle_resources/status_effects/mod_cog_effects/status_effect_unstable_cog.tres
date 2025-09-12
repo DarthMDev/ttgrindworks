@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://f8veqgrd47v"]
+
+[ext_resource type="Script" uid="uid://chthvcjujrjlu" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/status_effect_unstable_cog.gd" id="1_cemg5"]
+
+[resource]
+script = ExtResource("1_cemg5")
+quality = 2
+rounds = 1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = false
+description = "Will cycle certain abilities"
+status_name = "Unstable"
+is_foreman_effect = false
+id = 0

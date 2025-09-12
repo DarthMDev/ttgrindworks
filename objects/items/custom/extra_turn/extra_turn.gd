@@ -10,6 +10,8 @@ func setup(item: Item) -> void:
 	if not Util.get_player():
 		await Util.s_player_assigned
 	# Ensure you can't go higher than the max turns
+	if Util.floor_number == 8:
+		Util.get_player().stats.max_turns += 1
 	if get_player_turns() > get_max_turns():
 		item.reroll()
 

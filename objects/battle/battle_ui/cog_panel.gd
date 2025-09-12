@@ -16,6 +16,7 @@ const BASE_MASK_SIZE := 184.0
 var current_cog: Cog
 var expand_tween : Tween
 var status_effects: Array[StatusEffect] = []
+var head = ""
 
 func set_cog(cog: Cog):
 	# Match HP light
@@ -35,6 +36,7 @@ func set_cog(cog: Cog):
 	hp_label.text = str(cog.stats.hp) + '/' + str(cog.stats.max_hp)
 
 	var head: Node3D = cog.dna.get_head()
+	if cog.foreman: cog.dna.head_scale = cog.dna.head_scale * 0.9
 	if not cog.dna.head_scale.is_equal_approx(Vector3.ONE * cog.dna.head_scale.x):
 		head.scale = cog.dna.head_scale
 	face.node = head

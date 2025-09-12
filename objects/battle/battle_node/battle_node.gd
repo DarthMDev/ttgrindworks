@@ -21,6 +21,7 @@ var state := BattleState.INACTIVE
 @export var override_intro: BattleStartMovie
 @export var item_pool: ItemPool
 @export var boss_battle := false
+@export var rebalance := 0
 @export var override_camera_angles : Dictionary[String, Transform3D] = {}
 
 # Child References
@@ -45,13 +46,27 @@ func _ready():
 	$ArrowReference.queue_free()
 	
 	for cog: Cog in cogs:
+		if rebalance != 0:
+			var old_effects0 = cog.dna.status_effects
+			cog.ts_pmo = true
+			cog.dna = null
+			var level_add = rebalance + Util.floor_number - 1
+			cog.level_rebalance += rebalance + Util.floor_number - 1
+			cog.randomize_cog()
+			if old_effects0.size() >= 1:
+				cog.dna.status_effects.append_array(old_effects0)
 		if RandomService.randf_channel('mod_cog_chance') < get_mod_cog_chance() and not cog.has_forced_dna and not cog.virtual_cog:
+			var old_effects = cog.dna.status_effects
 			cog.dna = null
 			mod_cogs += 1
 			cog.use_mod_cogs_pool = true
 			cog.skelecog_chance = 0
 			cog.skelecog = false
+			cog.level_rebalance -= 1
 			cog.randomize_cog()
+			if old_effects.size() >= 1:
+				cog.dna.status_effects.append_array(old_effects)
+
 	
 	BattleService.s_battle_spawned.emit(self)
 
@@ -300,14 +315,16 @@ func get_mod_cog_chance() -> float:
 	var test : CogPool = Globals.GRUNT_COG_POOL
 
 	var floor_num := Util.floor_number
-	var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
+	#var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
+	var max_mod_cogs :=  2
 	if mod_cogs >= max_mod_cogs:
 		return 0.0
 	
-	var chance := (floor_num * 0.075)
+	var chance := (floor_num * 0.075 * 1.3)
 	if Util.get_player() and not is_equal_approx(Util.get_player().stats.proxy_chance_boost, 0.0):
 		chance += Util.get_player().stats.proxy_chance_boost
-	return minf(chance, Globals.PROXY_CHANCE_MAXIMUM)
+	return chance
+
 
 func get_cog_orgin_point() -> Vector3:
 	var cog_center := get_local_position(global_position - (global_transform.basis.z * cog_toon_distance * 0.33))

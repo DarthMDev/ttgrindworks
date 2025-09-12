@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DebuffWag" load_steps=2 format=3 uid="uid://bvvod2601xmse"]
+
+[ext_resource type="Script" uid="uid://0slqm210ibi8" path="res://objects/battle/battle_resources/cog_attacks/debuff_wag.gd" id="1_n5atw"]
+
+[resource]
+script = ExtResource("1_n5atw")
+accuracy = 100
+damage = 2
+ignore_stats = false
+foreman_user = false
+summary = ""
+attack_lines = Array[String](["I have told you a thousand times.", "Seriously?", "Don't make me laugh.", "Don't make me come over there.", "I'm tired of repeating myself.", "You have no respect for us Cogs.", "I think it's time you pay attention."])
+target_type = 0
+action_name = "Hurry Sickness"
+one_time_use = false

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cc6bj47ebwv6o"]
+
+[ext_resource type="Texture2D" uid="uid://6nj3dyqfuxwn" path="res://ui_assets/battle/statuses/track_immunity.png" id="1_njx3f"]
+[ext_resource type="Script" uid="uid://bo33j7aemqrp3" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_disguise.gd" id="2_04b63"]
+
+[resource]
+script = ExtResource("2_04b63")
+quality = 0
+rounds = -1
+icon = ExtResource("1_njx3f")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Foreman is shielded from first attack"
+status_name = "Fore Shield (imao)"
+is_foreman_effect = false
+id = 0

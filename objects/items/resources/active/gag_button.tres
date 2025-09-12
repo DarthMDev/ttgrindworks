@@ -10,8 +10,8 @@
 script = ExtResource("4_m73g3")
 sfx = Array[AudioStream]([])
 active_type = 1
-charge_count = 3
-current_charge = 3
+charge_count = 4
+current_charge = 1
 qualitoon = 2
 rarity = 0
 evergreen = false

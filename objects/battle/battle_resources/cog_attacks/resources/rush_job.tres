@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RushJob" load_steps=2 format=3 uid="uid://4ln188eqci1e"]
+
+[ext_resource type="Script" uid="uid://dlx8x7vsh770r" path="res://objects/battle/battle_resources/cog_attacks/rush_job.gd" id="1_nuphc"]
+
+[resource]
+script = ExtResource("1_nuphc")
+accuracy = 100
+damage = 0
+ignore_stats = false
+foreman_user = false
+summary = "Foreman demands you use a gag track"
+attack_lines = Array[String](["Think fast? Not really.", "Green Lighter Foreman but better"])
+target_type = 4
+action_name = "Rush Job"
+one_time_use = false
+metadata/_custom_type_script = "uid://dlx8x7vsh770r"

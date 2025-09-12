@@ -4,6 +4,7 @@ class_name BattleUI
 # Child References
 @onready var gag_tracks := %Tracks
 @onready var attack_label := %AttackLabel
+@onready var attack_label2 := %AttackLabel2
 @onready var right_panel := %RightPanel
 @onready var cog_panels := %CogPanels
 @onready var main_container := %BattleMenuContainer
@@ -11,6 +12,8 @@ class_name BattleUI
 
 # Bottom-right buttons
 @onready var fire_button := %Fire
+@onready var item_button := $BattleMenuContainer/BottomRight/SOS
+var attack_tween: Tween = null
 
 @onready var status_container: HBoxContainer = %StatusContainer
 
@@ -23,6 +26,8 @@ signal s_turn_complete(gag_order: Array[ToonAttack])
 signal s_gag_canceled(gag: BattleAction)
 signal s_gags_updated(gags: Array[ToonAttack])
 signal s_update_toonups
+signal s_damage_drifted(dict: Dictionary)
+signal s_item_effect(dict: Dictionary)
 
 # Locals
 var turn := 0:
@@ -39,6 +44,8 @@ var remaining_turns: int:
 var selected_gags: Array[ToonAttack] = []
 var fire_action: ToonAttackFire
 var timer : GameTimer
+var binded = false
+var drift_effect_dict = {}
 
 func _ready():
 	refresh_turns()
@@ -52,6 +59,7 @@ func _ready():
 	check_pink_slips()
 
 	status_container.target = Util.get_player()
+	%SelectedGags.s_gag_canceled.connect(cancel_gag)
 
 func gag_selected(gag: BattleAction) -> void:
 	if remaining_turns <= 0:
@@ -140,7 +148,9 @@ func complete_turn():
 func sort_gags(gags: Array[ToonAttack]) -> Array[ToonAttack]:
 	if Util.get_player().custom_gag_order:
 		return gags
-	
+	if(gag_order_menu.panels):
+		var panel1 = gag_order_menu.panels[0]
+		var children = panel1.get_children()
 	var gag_order : Array[ToonAttack] = []
 	var loadout: Array[Track] = Util.get_player().character.gag_loadout.loadout
 	for track in loadout:
@@ -160,6 +170,7 @@ func reset():
 	for track in gag_tracks.get_children():
 		track.refresh()
 	status_container.refresh()
+	sort_tracks_to_loadout()
 
 	if %TargetSelect.visible:
 		# Force reset target select, and also potentially
@@ -208,7 +219,7 @@ func fire_pressed() -> void:
 	gag_selected(fire_action.duplicate())
 
 func check_pink_slips() -> void:
-	if Util.get_player().stats.pink_slips <= 0:
+	if Util.get_player().stats.pink_slips <= 0 or binded:
 		fire_button.disable()
 	else:
 		fire_button.enable()
@@ -241,3 +252,54 @@ func refresh_tracks() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('end_turn') and visible:
 		complete_turn()
+
+func disable_items() -> void:
+	item_button.disable()
+	fire_button.disable()
+	binded = true
+
+func enable_items() -> void:
+		item_button.enable()
+		binded = false
+		check_pink_slips()
+func sort_tracks_to_loadout() -> void:
+	var loadout = Util.get_player().character.gag_loadout.loadout
+	var tracks = gag_tracks.get_children()
+	
+
+	for i in range(loadout.size()):
+		var track_name = loadout[i].track_name  # Assuming Track has a 'name' property
+		for track in tracks:
+			var track_fame = track.get_node("Labels/TrackName").text
+			if track_fame.to_upper() == track_name.to_upper():
+				gag_tracks.move_child(track, i)
+				break	
+
+
+func justin_bieber() -> void:
+	attack_label2.add_theme_color_override("font_color", Color.RED)
+	attack_label2.show()
+	attack_label2.scale = Vector2.ONE
+	
+	# Kill old tween if it’s still running
+	if attack_tween and attack_tween.is_running():
+		attack_tween.kill()
+	
+	# Create looping tween
+	attack_tween = create_tween().set_loops()  # infinite loop
+	
+	# Pulse sequence
+	attack_tween.tween_property(attack_label2, "scale", Vector2(1.01, 1.01), 0.7) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	attack_tween.tween_property(attack_label2, "scale", Vector2(0.85, 0.85), 0.7) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func hide_attack_label() -> void:
+	if attack_tween and attack_tween.is_running():
+		attack_tween.kill()
+	attack_label2.hide()
+	attack_label2.scale = Vector2.ONE  # reset
+
+
+
+	

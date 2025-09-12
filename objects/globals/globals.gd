@@ -133,6 +133,7 @@ func get_unlocked_toons() -> Array[PlayerCharacter]:
 ## Global Cog Pools
 var GRUNT_COG_POOL: CogPool
 var MOD_COG_POOL: CogPool
+var foreman_dna := load("res://objects/cog/presets/sellbot/the_mingler.tres")
 
 func add_standard_cog(cog_dna: CogDNA) -> void:
 	GRUNT_COG_POOL.cogs.append(cog_dna)
@@ -526,7 +527,7 @@ var FALLING_SCENE: PackedScene
 var lawbot_puzzles := {
 	avoid_skulls = PuzzleAvoidSkulls.new(),
 	matching = PuzzleMatching.new(),
-	skull_finder = PuzzleSkullFinder.new(),
+	#skull_finder = PuzzleSkullFinder.new(),
 	drag_three = PuzzleDragThree.new(),
 	run = PuzzleRun.new(),
 }
@@ -549,8 +550,25 @@ func on_floor_start(game_floor: GameFloor) -> void:
 	var floor_name := game_floor.floor_variant.floor_name.to_lower()
 	if floor_name.contains('haunted') or floor_name.contains('faulty'):
 		s_secret_floor.emit()
-
+func debug_heal_func(raw_amount) -> float:
+	raw_amount *= Util.get_player().stats.get_stat("heal_effectiveness")
+	return minf(raw_amount, (Util.get_player().stats.max_hp - Util.get_player().stats.hp))
+	
 const MaxToonupConsumables := 3
+var fore_cog_index = 0
+var last_fore_ability = "ods back in action update"
+var last_fore_abilities = ["Disguise", "Disguise", "Disguise", "Disguise"]
+var healed_from_winter_hat = 0
+var healed_from_faded_tiara = 0
+var healed_from_treasure = 0
+var healed_from_throw = 0
+var healed = 0
+var damage_taken = 0
+var battles_done = 0
+var last_round_number = 0
+var current_round_damage = 0
+var prev_round_damage = 0
+var elevator_cooldown = 0
 
 
 #region Global Signals

@@ -6,20 +6,27 @@ const ACTION_TIMEOUT_TIME := 60.0
 const CRIT_SFX_1 := preload("res://audio/sfx/battle/gags/crit/crit_1.ogg")
 const CRIT_SFX_2 := preload("res://audio/sfx/battle/gags/crit/crit_2.ogg")
 const CRIT_SFX_3 := preload("res://audio/sfx/battle/gags/crit/crit_3.ogg")
-const CRIT_SFX_4 := preload("res://audio/sfx/battle/gags/crit/crit_4.ogg")
+const CRIT_SFX_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tf2_crit.ogg")
+const FUNNY_SFX_1 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/coconut_sound.ogg")
+const FUNNY_SFX_2 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/metal_pipe.ogg")
+const FUNNY_SFX_3 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/taco_bell.ogg")
+const FUNNY_SFX_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tf2_frying_pan.ogg")
+const FUNNY_SFX_5 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/desk_slam.ogg")
 const CRIT_SFX: Array = [CRIT_SFX_1, CRIT_SFX_2, CRIT_SFX_3, CRIT_SFX_4]
+const FUNNY_SFX: Array = [FUNNY_SFX_1, FUNNY_SFX_2, FUNNY_SFX_3, FUNNY_SFX_5]
 
 ## Child references
 @onready var scene_timer := $SceneTimer
 @onready var attack_label := $AttackLabel
 @onready var summary_label := $SummaryLabel
-
+@onready var selected_panels := %SelectedGags
 ## Locals
 var player = Util.get_player()
 var cogs: Array[Cog]
 var battle_node: BattleNode
 var battle_ui: BattleUI
 var round_actions: Array[BattleAction] = []
+var round_mid_actions: Array[BattleAction] = []
 var round_end_actions : Array[BattleAction] = []
 var current_action: BattleAction
 var battle_stats: Dictionary = {}
@@ -36,12 +43,22 @@ var has_moved : Array[Node3D] = []
 var is_round_ongoing := false
 var force_watch_death: Array[Cog] = []
 var overkill_amounts: Dictionary[Variant, int] = {}
+var current_round_combo_data := {} # Dictionary to track gag types and targets per round
+var combo_damage_actions := [] # Stores combo damage actions to process
+var have_combo_damage = false
+var bellow = false
+var start_cog_size = 0
+var multiple_fore_deaths = false
+var cogs_destroyed_this_turn = 0
+var testval = 0
+var sniper_cringe = false # so end of round actions will run when snipe does its nonsense
 
 ## Signals
 signal s_focus_char(character: Node3D)
 signal s_battle_ended
 signal s_battle_ending
 signal s_round_started(actions: Array[BattleAction])
+signal s_gags_chosen(actions: Array[ToonAttack])
 signal s_round_ended
 signal s_actions_ended
 signal s_participant_will_die(participant: Node3D)
@@ -52,10 +69,13 @@ signal s_status_effect_added(effect: StatusEffect)
 signal s_action_added(action: BattleAction)
 signal s_action_finished(action: BattleAction)
 signal s_ui_initialized
+signal s_gag_modified(indexes: Array) # idk man %5
 
 func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 	cogs = cog_array
+	start_cog_size = cogs.size()
 	battle_node = battlenode
+	Util.battles_encountered += 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	battle_ui.s_turn_complete.connect(gags_selected)
 	
@@ -75,6 +95,8 @@ func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 			var add_eff := effect.duplicate()
 			add_eff.target = cog
 			add_status_effect(add_eff)
+			if add_eff.has_signal("s_gag_modified"): #idk man #5%
+				add_eff.s_gag_modified.connect(_on_gag_modified)
 	
 	BattleService.battle_started(self)
 	
@@ -82,11 +104,18 @@ func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 	add_child(battle_ui)
 	s_ui_initialized.emit()
 
+func _on_gag_modified(indexes: Array) -> void:
+	#print("Gag modified by Damage Drift:", indexes)
+	s_gag_modified.emit(indexes) 
+
 func append_action(action: BattleAction):
 	round_actions.append(action)
 	s_action_added.emit(action)
 
+
 func gags_selected(gags: Array[ToonAttack]):
+	s_gags_chosen.emit(gags)
+	battle_ui.gag_order_menu.clear_panel_effects()
 	for gag in gags:
 		append_action(gag)
 	begin_turn()
@@ -99,26 +128,36 @@ func revert_battle_speed() -> void:
 	Engine.time_scale = 1.0
 
 func begin_turn():
+	bellow = false
+	sniper_cringe = false 
+	current_round_combo_data = {}
+	combo_damage_actions = []
 	# Hide Battle UI
 	battle_ui.hide()
 	apply_battle_speed()
 	current_round += 1
 	is_round_ongoing = true
-	# Inject partner moves before player's
-	for partner in Util.get_player().partners:
-		inject_battle_action(partner.get_attack(), 0)
 	# Get actions from every Cog
 	for cog in cogs:
 		for i in cog.stats.turns:
 			var attack := get_cog_attack(cog)
 			if not attack == null:
-				append_action(attack)
+				if cog.techbot:
+					if round_actions.size() > 0 and round_actions[0].action_name == "Sound Immunity":
+						inject_battle_action(attack, 1)
+					else: inject_battle_action(attack, 0)
+				else: append_action(attack)	
+
+	# Inject partner moves before player's  # and after techbots
+	for partner in Util.get_player().partners:
+		inject_battle_action(partner.get_attack(), 0)
 	s_round_started.emit(round_actions)
 	await run_actions()
 	round_over()
 
 ## Runs the currently queuedbattle actions
 func run_actions():
+
 	# Iterate through batte actions
 	while not round_actions.is_empty():
 		await Task.delay(0.05)
@@ -126,14 +165,15 @@ func run_actions():
 		if current_action == null:
 			continue
 		if current_action is CogAttack:
-			if not current_action.action_name == "" :
+			if not current_action.action_name == "" and not current_action.action_name == "  " :
 				show_action_name(current_action.action_name + "!",current_action.summary)
 			if not current_action.attack_lines.is_empty():
 				current_action.user.speak(current_action.attack_lines[RandomService.randi_channel('true_random') % current_action.attack_lines.size()])
 		current_action.manager = self
 		current_action.battle_node = battle_node
 		if current_action is ActionScript:
-			has_moved.append(current_action.user)
+			if current_action.action_name != "Worker's Compensation":
+				has_moved.append(current_action.user)
 			s_action_started.emit(current_action)
 			BattleService.s_action_started.emit(current_action)
 			await current_action.action()
@@ -150,16 +190,43 @@ func someone_died(who: Node3D) -> void:
 	s_participant_will_die.emit(who)
 	
 	# Allow for revives to take place
+	var blu = who
 	if 'stats' in who:
 		var stats: BattleStats = who.stats
 		if stats.hp > 0:
 			return
 	
 	# Remove from cog array if is cog
+	#testval
 	if who is Cog and who in cogs:
 		if who.v2:
 			create_v2_cog(who)
 		cogs.remove_at(cogs.find(who))
+	var reversed_cogs = cogs.duplicate()
+	reversed_cogs.reverse()
+
+	for cog in reversed_cogs:
+		if Util.floor_number < 8:
+			if not cog.foreman or cog.stats.hp < 1:
+				continue
+			if multiple_fore_deaths:
+				force_unlure_foreman(cog)
+			else:
+				await force_unlure_foreman(cog)
+		else: await sleep(0.07)
+		if cog.foreman and cog.stats.hp > 1:
+			cog.special_attack = true
+			var attack := get_cog_attack(cog)
+			cog.special_attack = false
+			if not attack == null:
+				attack.ActionTarget.SELF
+				if round_actions.size() > 0: 
+					if round_actions[0].action_name != "  ":  inject_battle_action(attack, 0)
+					else: inject_battle_action(attack, 1) # for sponge recoil attack
+				else : inject_end_battle_action(attack, 0)
+	
+	#await Task.delay(15)
+
 	
 	var check_arrays := [round_actions, round_end_actions]
 	
@@ -174,14 +241,16 @@ func someone_died(who: Node3D) -> void:
 				action.targets.remove_at(action.targets.find(who))
 			if action.targets.is_empty():
 				arr.remove_at(i)
-
 	# Scrub status effects for the Someone in question
 	for status: StatusEffect in get_statuses_for_target(who):
+		if status.on_death:
+			status.on_death()
 		scrub_status_effect(status)
 		if not status.target:
 			status_effects.erase(status)
 			status.cleanup()
 			continue
+	#s_participant_will_die.emit(blu)
 
 func kill_someone(who: Node3D, signal_only := false) -> void:
 	s_participant_died.emit(who)
@@ -200,18 +269,21 @@ func kill_someone(who: Node3D, signal_only := false) -> void:
 
 func round_over():
 	s_actions_ended.emit()
-	
+	sniper_cringe = true
 	# Run status effects
 	await renew_status_effects()
 	
 	if not round_end_actions.is_empty():
-		round_actions.assign(round_end_actions)
+		if not round_actions.is_empty(): #round_actions.assign(round_end_actions)
+			round_actions.append(round_end_actions)
+		else: 
+			round_actions.assign(round_end_actions)
 		round_end_actions.clear()
 		await run_actions()
 
 	# Final check for all cog hp
 	await check_pulses(cogs)
-
+	#await run_actions()
 	revert_battle_speed()
 
 	if cogs.size() == 0:
@@ -234,7 +306,7 @@ func end_battle() -> void:
 		await battle_win_movie.action()
 	s_battle_ending.emit()
 	s_focus_char.emit(player)
-	player.set_animation('victory_dance')
+	player.set_animation('happy') #change back to victory dance
 	player.game_timer_tick = false
 	await player.animator.animation_finished
 	player.game_timer_tick = true
@@ -256,16 +328,27 @@ func spawn_reward() -> void:
 	else:
 		if battle_node.item_pool:
 			var chest = load('res://objects/interactables/treasure_chest/treasure_chest.tscn').instantiate()
+			#var chest2 = load('res://objects/interactables/treasure_chest/treasure_chest.tscn').instantiate()
 			battle_node.get_parent().add_child(chest)
+			#battle_node.get_parent().add_child(chest2)
 			chest.global_position = battle_node.global_position
+			#chest2.global_position = battle_node.global_position
+			#chest2.global_position += Vector3(0, 0, 1.5)
 			chest.global_rotation = battle_node.global_rotation
+			#chest2.global_rotation = battle_node.global_rotation
+			#chest2.item_pool = load(ITEM_POOL_PROGRESSIVES)
+			#player.boost_queue.queue_text("Foreman Bounty!", Color.GREEN)
 			if player.better_battle_rewards == true and current_round <= 2:
 				chest.item_pool = ItemService.PROGRESSIVE_POOL
 				player.boost_queue.queue_text("Bounty!", Color.GREEN)
 			else:
 				chest.item_pool = battle_node.item_pool
-			chest.override_replacement_rolls = RandomService.randi_channel('true_random') % 2 == 0
-
+			chest.override_replacement_rolls = RandomService.randi_channel('true_random') % 2 == 0		
+			if start_cog_size >= 4 and Util.floor_number < 4:
+				if Util.floor_manager:
+					if Util.floor_manager.floor_variant.floor_name == "The Factory"  or Util.floor_manager.floor_variant.floor_name == "The Mint":
+						extra_chest()
+			#chest2.override_replacement_rolls = RandomService.randi_channel('true_random') % 2 == 0
 func is_target_dead(target: Node3D) -> bool:
 	var health_ratio: float = float(target.stats.hp) / float(target.stats.max_hp)
 
@@ -280,9 +363,12 @@ func is_target_dead(target: Node3D) -> bool:
 # If you need to check for multiple potentially dead targets
 func check_pulses(targets):
 	var dead_guys := []
+	#print("line 350 bm instance of check targets")
 	for target in targets:
 		if is_target_dead(target):
 			dead_guys.append(target)
+	if dead_guys.size() >= 2:
+		multiple_fore_deaths = true
 	# Move a 2.0 to the back of the line if any exist in dead guys
 	for guy in dead_guys:
 		if guy is Cog:
@@ -292,11 +378,12 @@ func check_pulses(targets):
 				break
 	
 	for i in dead_guys.size():
-		someone_died(dead_guys[i])
+		await someone_died(dead_guys[i])
 		if i < dead_guys.size()-1:
-			kill_someone(dead_guys[i])
+			kill_someone(dead_guys[i]) 
 		else:
 			await kill_someone(dead_guys[i])
+	multiple_fore_deaths = false # setting it back to false after foreman check lol i don't even think this runs
 
 func sleep(seconds: float):
 	await get_tree().create_timer(seconds).timeout
@@ -312,6 +399,18 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 		ignore_current_action = true
 
 	var stat: String = 'hp'
+	var should_crit := false
+	# Is player action
+	if (current_action and current_action.user and current_action.user is Player):
+		# Check for crit on non-player target
+		if (not target is Player) and amount > 0:
+			should_crit = roll_for_crit(current_action)
+			if should_crit:
+				var crit_nerf = 0
+				if Util.floor_number > 6:
+					crit_nerf = (battle_stats[current_action.user].get_stat("crit_mult") - 1) * 0.2
+					
+				amount = roundi(amount * (battle_stats[current_action.user].get_stat("crit_mult") - crit_nerf))
 
 	if not ignore_current_action:
 		amount = get_damage(amount, current_action, target)
@@ -330,19 +429,19 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	# Get the stat's current value
 	var pre_stat = target.stats.get(stat)
 
-	var should_crit := false
+	#var should_crit := false
 	# Is player action
-	if (current_action and current_action.user and current_action.user is Player):
-		# Check for crit on non-player target
-		if (not target is Player) and amount > 0:
-			should_crit = roll_for_crit(current_action)
-			if should_crit:
-				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
+	#if (current_action and current_action.user and current_action.user is Player):
+	#	# Check for crit on non-player target
+	#	if (not target is Player) and amount > 0:
+	#		should_crit = roll_for_crit(current_action)
+	#		if should_crit:
+	#			amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
 
 	# Check for healing effectiveness on player target
 	if target is Player and amount < 0:
 		amount = roundi(amount * battle_stats[target].get_stat("healing_effectiveness"))
-
+		
 	target.stats.set(stat, pre_stat - amount)
 
 	# Damaging action
@@ -353,6 +452,10 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				# If target is the player, and this guy is a cog,
 				# mark it as the player's last damage source for the death screen
 				target.last_damage_source = current_action.user.dna.cog_name
+				if current_action.user.foreman:
+					if current_action.user.dna.status_effects.size() > 0:
+						target.last_damage_source = "The " + current_action.user.dna.status_effects[0].get_status_name() + " " + current_action.user.dna.cog_name 
+				
 			# Also apply a custom death source message if we have one
 			if current_action and current_action.custom_player_death_source:
 				target.last_damage_source = current_action.custom_player_death_source
@@ -362,7 +465,9 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				string = str("%s\nCRIT!" % -roundi(amount))
 				text_color = BattleText.colors.yellow[0]
 				outline_color = BattleText.colors.yellow[1]
-				AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
+				if RandomService.randi_channel('true_random') % 100 < get_crit_threshold(Util.get_player().stats.luck) and current_action is not GagSound:
+					AudioManager.play_sound(RandomService.array_pick_random('true_random', FUNNY_SFX))
+				else: AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
 				BattleService.s_toon_crit.emit()
 			else:
 				string = str(-roundi(amount))
@@ -380,6 +485,7 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 		battle_text(target, string, text_color, outline_color, raise_height)
 	else:
 		battle_text(target, string, Color('ff0000'), Color('7a0000'), raise_height)
+
 
 	# Play boost text if we have any stored on this action
 	if current_action and current_action.stored_boost_text:
@@ -403,6 +509,7 @@ func battle_text(target, string, text_color: Color = Color('ff0000'), outline_co
 
 func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 	# If the action is a heal, just return the base number
+	var gag_type := ""
 	if sign(damage) == -1 or not action:
 		return roundi(damage)
 	
@@ -431,14 +538,23 @@ func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 				boosted_damage *= user_stats.gag_effectiveness['Lure']
 			else:
 				boosted_damage *= user_stats.gag_effectiveness['Trap']
+			target.last_damage_source = 'Trap'
 		elif action is GagSound:
 			boosted_damage *= user_stats.gag_effectiveness['Sound']
+			target.last_damage_source = 'Sound'
+			gag_type = "Sound"
 		elif action is GagThrow:
 			boosted_damage *= user_stats.gag_effectiveness['Throw']
+			target.last_damage_source = 'Throw'
+			gag_type = "Throw"
 		elif action is GagSquirt:
 			boosted_damage *= user_stats.gag_effectiveness['Squirt']
+			target.last_damage_source = 'Squirt'
+			gag_type = "Squirt"
 		elif action is DropBig or action is DropSmall:
 			boosted_damage *= user_stats.gag_effectiveness['Drop']
+			target.last_damage_source = 'Drop'
+			gag_type = "Drop"
 
 		if target is Cog:
 			# Mod cog dmg boost
@@ -459,7 +575,25 @@ func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 			# Bossbot dmg boost
 			elif target.dna.department == CogDNA.CogDept.BOSS and not is_equal_approx(user_stats.bossbot_boost, 1.0):
 				boosted_damage *= user_stats.bossbot_boost
-
+			
+			
+	if gag_type != "":
+		# Initialize tracking if needed
+		if not target in current_round_combo_data:
+			current_round_combo_data[target] = {}
+			if not gag_type in current_round_combo_data[target]:
+				current_round_combo_data[target][gag_type] = boosted_damage
+				#print("FIRST TIME HIT WITH ANYTHING ", gag_type)
+		else:
+				if not gag_type in current_round_combo_data[target]:
+					current_round_combo_data[target][gag_type] = boosted_damage
+					#print("WAS ATTACKED BEFORE BUT WITH A DIFFERENT GAG THEN ", gag_type)
+				else:
+					current_round_combo_data[target][gag_type] += boosted_damage
+					#print("THERE WOULD HAVE BEEN COMBO DAMAGE OF: ", current_round_combo_data[target][gag_type] * 0.2)
+					do_combo_damage(target,current_round_combo_data[target][gag_type], gag_type )
+					
+					
 	return roundi(boosted_damage / defense)
 
 func roll_for_accuracy(action: BattleAction) -> bool:
@@ -548,11 +682,19 @@ func get_statuses_of_id_for_target(target: Node3D, id: int) -> Array[StatusEffec
 
 # Add the status effect to the given target and run the apply script
 func add_status_effect(status_effect: StatusEffect) -> void:
+	if status_effect.target is Cog:
+		if status_effect.target.v1_5 and status_effect.quality == 1:
+			#print("v1_5 is immune")
+			return
 	if attempt_to_combine(status_effect, get_repeat_status_effects(status_effect)):
-		return
+		if status_effect.get_status_name() != "Bind": # I have no idea at 12am but we need this
+			return
 	status_effect.manager = self
 	status_effects.append(status_effect)
-	status_effect.apply()
+	if status_effect is GagJob:  
+		await status_effect.apply()
+	else: status_effect.apply()
+		
 	s_status_effect_added.emit(status_effect)
 
 func attempt_to_combine(effect: StatusEffect, repeat_effects: Array[StatusEffect]) -> bool:
@@ -637,25 +779,39 @@ func force_unlure(target: Cog) -> void:
 	target.lured = false
 	target.stunned = false
 	var lure_effect: StatusLured
+	var foundlurestatus
 	for i in range(status_effects.size() - 1, -1, -1):
 		var effect = status_effects[i]
 		if effect is StatusLured and target == effect.target:
-			effect.target = null
+			#effect.target = null
+			#expire_status_effect(e)
 			lure_effect = effect
+			lure_effect.rounds = 0
+			lure_effect.target = null
 	if not lure_effect:
 		return
-	if lure_effect.lure_type == StatusLured.LureType.DAMAGE_DOWN:
-		battle_stats[target].damage *= (1/ lure_effect.damage_nerf)
 	if target.stats.hp > 0 and lure_effect.lure_type == StatusLured.LureType.STUN and not target in has_moved:
 		unskip_turn(target)
-
+	if lure_effect:
+		if lure_effect.lure_type == lure_effect.LureType.DAMAGE_DOWN:
+			battle_stats[target].damage *= (1 / lure_effect.damage_nerf)
+			lure_effect.target = null
+			
+		
 func unskip_turn(who: Actor) -> void:
+	if who in has_moved:
+		return
 	if who is Cog:
 		var cog_index := cogs.find(who)
+		if bellow:
+			for i in who.stats.turns:
+				append_action(get_cog_attack(who))
+			return
 		var action_index : int
 		for i in round_actions.size():
 			if cog_index > 0 and round_actions[i].user == cogs[cog_index - 1]:
 				action_index = i + 1
+				#print("route 1 in unskip target")
 				break
 			# NOTE: This may need to change later(?)
 			# All current battle participants extend the Actor class
@@ -663,14 +819,19 @@ func unskip_turn(who: Actor) -> void:
 			# Meaning it's currently ok to assume that non-actor moves should come last
 			elif (cog_index < cogs.size() -1 and round_actions[i].user == cogs[cog_index + 1]) or not round_actions[i].user is Actor:
 				action_index = i
+				#print("route 2 in unskip target")
 				break
 		if action_index:
 			for i in who.stats.turns:
 				inject_battle_action(get_cog_attack(who), action_index)
+				has_moved.append(who)
+				#print("route 3 in unskip target")
 		else:
 			# Failsafe
 			for i in who.stats.turns:
 				append_action(get_cog_attack(who))
+				has_moved.append(who)
+				#print("route 4 in unskip target")
 
 func get_cog_attack(cog: Cog) -> CogAttack:
 	var cog_attack : CogAttack
@@ -700,6 +861,17 @@ func do_standalone_knockback_damage(cog: Cog, damage: int) -> void:
 	await Task.delay(0.5)
 	cog.stats.hp -= damage
 	battle_text(cog, "-" + str(damage), Color('ff4d00'), Color('802200'))
+func do_combo_damage(cog: Cog, damage: int, gag_type:String ) -> void:
+	var combo_multiplier = 0.2
+	if gag_type == "Sound":
+		combo_multiplier = 0.1
+	elif  gag_type == "Drop":
+		combo_multiplier = 0.3
+	
+	#Delay damage:
+	await Task.delay(0.92)
+	cog.stats.hp -= round(damage * combo_multiplier)
+	battle_text(cog, "-" + str(round(damage * combo_multiplier)), Color('#ffff00'), Color("806600"))
 
 func get_knockback_damage(cog: Cog) -> int:
 	var fake_action := GagLure.new()
@@ -767,11 +939,14 @@ func create_v2_cog(cog: Cog) -> Cog:
 	new_cog.skelecog_chance = 0
 	new_cog.level = cog.level
 	new_cog.skelecog = true
+	#cog.dna.is_v2 = false
 	new_cog.dna = cog.dna
+	#new_cog.v2 = false
 	battle_node.add_child(new_cog)
 	new_cog.global_transform = cog.global_transform
 	new_cog.battle_start()
 	new_cog.hide()
+	new_cog.v2 = false
 	add_cog(new_cog, cogs.find(cog))
 	boost_v2_stats(cog, new_cog)
 	transfer_cog_attributes(cog, new_cog)
@@ -821,3 +996,119 @@ func boost_v2_stats(old_cog: Cog, cog: Cog) -> void:
 	for boost: StatBoost in [def_nerf, dmg_boost]:
 		boost.target = cog
 		add_status_effect(boost)
+	
+func create_v1_5_skele_cog(cog: Cog) -> Cog:
+	var new_cog: Cog = load('res://objects/cog/cog.tscn').instantiate()
+	new_cog.skelecog_chance = 0
+	new_cog.level = cog.level - ceil(cog.level * 0.2)
+	new_cog.virtual_cog = true
+	#cog.dna.is_v2 = false
+	new_cog.foreman = true
+	new_cog.dna = Globals.foreman_dna
+	battle_node.add_child(new_cog)
+	new_cog.global_transform = cog.global_transform
+	new_cog.body.set_color(Color("00a2ff"))
+	new_cog.battle_start()
+	new_cog.hide()
+	new_cog.v1_5 = true
+	new_cog.v2 = false
+	new_cog.foreman = false
+	add_cog(new_cog)
+	Task.delay(6.0).connect(new_cog.show)
+	return new_cog
+	
+func inject_end_battle_action(battle_action : BattleAction,position : int):
+		#print("Action injected in end rounds")
+		round_end_actions.insert(position,battle_action)
+		s_action_added.emit(battle_action)
+
+func append_end_action(action: BattleAction):
+	round_end_actions.append(action)
+	s_action_added.emit(action)
+
+
+func force_unlure_foreman (target: Cog) -> void:
+	target.lured = false
+	target.stunned = false
+	var lure_effect: StatusLured
+	var foundlurestatus
+	for i in range(status_effects.size() - 1, -1, -1):
+		var effect = status_effects[i]
+		if effect is StatusLured and target == effect.target:
+			#effect.target = null
+			#expire_status_effect(e)
+			lure_effect = effect
+			lure_effect.rounds = 0
+	if not lure_effect:
+		return
+	await lure_effect.ts_pmo()
+	if target.stats.hp > 0 and lure_effect.lure_type == StatusLured.LureType.STUN and not target in has_moved:
+		unskip_turn(target)
+		lure_effect.target = null
+	if lure_effect:
+		if lure_effect.lure_type == lure_effect.LureType.DAMAGE_DOWN:
+			if lure_effect.target != null: 
+				if battle_stats.has(lure_effect.target): battle_stats[lure_effect.target].damage *= (1 / lure_effect.damage_nerf)
+			lure_effect.target = null
+
+func crowd_control(cog: Cog) -> void:
+	#print("doing sound crowd control")
+	#print(cog.foreman)
+	
+	#await sleep(0.05)
+	cog.special_attack = true
+	var attack := get_cog_attack(cog)
+	cog.special_attack = false
+	if not attack == null:
+		attack.attack_lines = ["Do you have any idea how much health I have left"]
+		attack.action_name = "Basic Math"
+	
+	if not attack == null:
+		if round_actions.size() > 0: 
+			inject_battle_action(attack, 0)
+		else: 
+			inject_end_battle_action(attack, 0)
+
+func extra_chest():
+		if battle_node.item_pool:
+			var chest3 = load('res://objects/interactables/treasure_chest/treasure_chest.tscn').instantiate()
+			battle_node.get_parent().add_child(chest3)
+			#battle_node.get_parent().add_child(chest2)
+			chest3.global_position = battle_node.global_position
+			#chest2.global_position = battle_node.global_position
+			chest3.global_position += Vector3(0, 0, 1.5)
+			chest3.global_rotation = battle_node.global_rotation
+			player.boost_queue.queue_text("4 Cog Bounty!", Color.GREEN)
+			if player.better_battle_rewards == true and current_round <= 2:
+				chest3.item_pool = ItemService.PROGRESSIVE_POOL
+				player.boost_queue.queue_text("Bounty!", Color.GREEN)
+			else:
+				chest3.item_pool = battle_node.item_pool
+			chest3.override_replacement_rolls = RandomService.randi_channel('true_random') % 2 == 0
+	
+func append_has_moved(cog: Cog) -> void:
+	has_moved.append(cog)
+
+func remove_debuffs(target, ignore_lure := false) -> void:
+		for status_effect: StatusEffect in status_effects:
+			if status_effect.target == target and status_effect.quality == 1:
+				#print(status_effect.get_description())
+				if status_effect is StatusLured:
+					if ignore_lure:
+						continue
+					status_effect.rounds = 0
+					status_effect.i_love_lure() 
+					status_effect.target = null
+				else: await expire_status_effect(status_effect)
+
+func print_round_actions() -> void:
+	for action in round_actions:
+		print(action.action_name)
+
+func get_crit_threshold(luck: float) -> float:
+	# Clamp luck between 1 and 2 just in case
+	luck = clamp(luck, 1.01, 2.0)
+	
+	# Map luck=1 → 20, luck=2 → 5
+	var threshold = lerp(25.0, 5.0, (luck - 1.0) / 1.0)
+	return threshold

@@ -67,7 +67,7 @@ func renew() -> void:
 	var boost_amount = cog_health_difference * DMG_MULT
 	
 	# Union Buster gets big!!
-	# he gets sooo big
+	# he gets sooo big . ayoo?
 	var scale_amount = boost_amount * SCALE_MULT
 	var scale_vector = union_buster.body.scale + Vector3(scale_amount, scale_amount, scale_amount)
 	

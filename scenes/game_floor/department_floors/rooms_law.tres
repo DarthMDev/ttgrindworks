@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c7jpg878lyye3" path="res://objects/modules/office/variants/office_l_room_stomper.tscn" id="24_epcxj"]
 [ext_resource type="PackedScene" uid="uid://yu15nnc5gm1r" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.tscn" id="25_epcxj"]
 [ext_resource type="PackedScene" uid="uid://c3jefjvjikh4q" path="res://objects/modules/office/variants/office_skull_finder_room.tscn" id="26_5lpgc"]
+[ext_resource type="AudioStream" uid="uid://cxqtmkqetgk3g" path="res://audio/music/Toontown-Infinite_-Soundtrack-Lawbot-HQ-Battle.ogg" id="2_29ffd"]
 
 [sub_resource type="Resource" id="Resource_d10vb"]
 script = ExtResource("3_75e7d")
@@ -139,3 +140,4 @@ one_time_rooms = Array[PackedScene]([])
 special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew"), SubResource("Resource_87wki"), SubResource("Resource_0qre3")])
 background_music = Array[AudioStream]([ExtResource("1_ojny5")])
 battle_music = ExtResource("2_18ffd")
+battle_music = Array[AudioStream]([ExtResource("2_18ffd"),ExtResource("2_29ffd")])

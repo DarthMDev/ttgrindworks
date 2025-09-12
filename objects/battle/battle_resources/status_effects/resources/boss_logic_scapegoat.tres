@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ScapegoatLogic" load_steps=2 format=3 uid="uid://dciw860bprsl7"]
+
+[ext_resource type="Script" uid="uid://bluim8yh8ua7s" path="res://objects/battle/battle_resources/status_effects/boss_effects/boss_logic_scapegoat.gd" id="1_g4xy0"]
+
+[resource]
+script = ExtResource("1_g4xy0")
+quality = 0
+rounds = -1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Scapegoat logic"
+status_name = "Rage Building"
+is_foreman_effect = false
+id = 83

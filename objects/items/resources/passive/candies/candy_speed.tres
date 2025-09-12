@@ -6,21 +6,23 @@
 
 [resource]
 script = ExtResource("2_u7ct4")
+item_tags = null
 qualitoon = 1
 rarity = 0
 evergreen = true
 realtime = false
 slot = 0
 world_scale = 0.11
+world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
 item_name = "Zippy Zap"
 item_description = "Speed up!"
-big_description = "+ 3% speed"
+big_description = "+ 5% speed"
 model = ExtResource("1_jgdk7")
 pickup_sfx = ExtResource("2_s3040")
 stats_add = {
-"speed": 0.03
+"speed": 0.05
 }
 stats_multiply = {}
 player_values = {}

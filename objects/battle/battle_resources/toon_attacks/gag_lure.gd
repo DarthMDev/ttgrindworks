@@ -45,6 +45,7 @@ func get_lure_effect() -> StatusLured:
 		new_effect.quality = StatusEffect.EffectQuality.NEGATIVE
 		new_effect.icon = icon
 		new_effect.lure_type = lure_effect.lure_type
+		if sheer_force: new_effect.lure_type = lure_effect.LureType.DAMAGE_DOWN
 		new_effect.knockback_effect = lure_effect.knockback_effect
 		new_effect.damage_nerf = lure_effect.damage_nerf
 	
@@ -55,4 +56,5 @@ func apply_lure(who: Cog) -> void:
 	effect.target = who
 	if not who == main_target:
 		effect.damage_nerf += effect.damage_nerf / 2.0
+	if sheer_force: effect.damage_nerf = 1
 	manager.add_status_effect(effect)

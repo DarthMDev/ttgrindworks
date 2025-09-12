@@ -36,9 +36,15 @@ func expire() -> void:
 	if lure_type == LureType.DAMAGE_DOWN:
 		manager.battle_stats[target].damage *= (1 / damage_nerf)
 	else:
-		target.stunned = false
-		manager.unskip_turn(target)
-		await manager.run_actions()
+		if manager.bellow and target.stunned:
+			target.stunned = false
+			var attack = manager.get_cog_attack(target)
+			manager.append_action(attack)
+			return
+		if target.stunned:
+			target.stunned = false
+			manager.unskip_turn(target)
+			await manager.run_actions()
 
 func get_true_knockback() -> int:
 	var stats := Util.get_player().stats
@@ -63,3 +69,16 @@ func get_effect_string() -> String:
 
 func get_status_name() -> String:
 	return "Lured"
+
+func ts_pmo() -> void:
+	var walk_tween := create_walk_tween()
+	await walk_tween.finished
+	walk_tween.kill()
+
+func i_love_lure() -> void:
+	target.lured = false
+	if lure_type == LureType.DAMAGE_DOWN:
+		manager.battle_stats[target].damage *= (1 / damage_nerf)
+	var walk_tween := create_walk_tween()
+	await walk_tween.finished
+	walk_tween.kill()

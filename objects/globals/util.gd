@@ -39,10 +39,19 @@ signal s_floor_number_changed
 var floor_type : DepartmentFloor
 var window_focused := true
 var stop_camera_shake := false
-
+var battlesonfloor = 0
+var final_boss = false  # NOT BEST PRACTICES BUT IM RELEASING THIS TODAY, ON THIS DAY, TODAY #this whole mod is not best practices lol
+var final_boss2 = false
+var battles_encountered = 0
+var survive_the_foreman = false
+var oftfdebug = false
+var monolitic = false
+var force_foreman = null
+var unstable_chance = 20
 var floor_number := -1:
 	set(x):
 		floor_number = x
+		battlesonfloor = 0
 		s_floor_number_changed.emit()
 
 func get_player() -> Player:
@@ -300,20 +309,35 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	# 4. A jellybean consumable, if they have less than 20 beans. If they have 20 or more, give a progressive instead
 	if not player:
 		await s_player_assigned
-	var x_points: Array = [-3.75, -1.25, 1.25, 3.75]
+	var x_points: Array = [-3.75, -1.25, 1.25, 3.75,0]
 	var chest_scene: PackedScene = load('res://objects/interactables/treasure_chest/treasure_chest.tscn')
 	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
-	for i in range(4):
+	var num
+	
+	if Util.floor_number > 1 and Util.floor_manager:
+		if Util.floor_manager.floor_variant.floor_name != "D.A. Office"  and Util.floor_manager.floor_variant.floor_name != "Cog Golf Course":
+			num = 5
+		else: num = 4
+	else: num = 4
+	for i in range(num):
 		var chest: TreasureChest = chest_scene.instantiate()
 		chest.item_pool = ItemService.PROGRESSIVE_POOL
 		holder_node.add_child(chest)
-		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
+		if not i == 4: 
+			chest.item_pool = load("res://objects/items/pools/progressives.tres")
+			chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
+		else: chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 2))
 		chest.global_rotation = pos_node.global_rotation
 		chest.override_replacement_rolls = true
 		match i:
 			0:
 				# Give a random super candy
-				chest.item_pool = load("res://objects/items/pools/super_candies.tres")
+				if Util.floor_number == 0:
+					chest.override_item = load("res://objects/items/resources/passive/candies/candy_super_luck.tres")
+				elif Util.floor_number == 3 and force_damage_candy():
+					chest.override_item = load("res://objects/items/resources/passive/candies/candy_super_damage.tres")
+				else: 
+					chest.override_item = RandomService.array_pick_random('boss_drops', load("res://objects/items/pools/super_candies.tres").items)
 			1:
 				# Give a random track frame
 				chest.override_item = load("res://objects/items/resources/passive/track_frame.tres")
@@ -336,7 +360,21 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				# Chance to give Player some money, guaranteed if they're < 20
 				if player.stats.money < 20 or RandomService.randi_channel('true_random') % 2 == 0:
 					chest.item_pool = load("res://objects/items/pools/jellybeans.tres")
+			4:
+				if Util.floor_number == 5:
+					if not Util.get_player().stats.has_item("Pilot Hat"):
+						chest.override_item = load("res://objects/items/resources/accessories/hats/pilot_hat.tres")
+					elif not Util.get_player().stats.has_item("Toonosaur Hat"):
+						chest.override_item = load("res://objects/items/resources/accessories/hats/dino_hat.tres")
 		chest.update_texture(chest.BOSS_TEXTURE)
 		chest.set_ray_gradient(light_beam)
+func force_damage_candy() -> bool:
+	var player : Player = Util.get_player()
+	var difference = player.stats.damage - player.character.base_stats.damage
+	if difference < 0.25:
+		print("underpowered forcing damage")
+		return true
+	print("good enough damage stat: of + ", difference)	
+	return false
 
 #endregion

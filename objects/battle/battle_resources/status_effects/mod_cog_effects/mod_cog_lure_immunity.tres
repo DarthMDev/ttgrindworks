@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="StatusEffectGagImmunity2" load_steps=4 format=3 uid="uid://dwhffjpaut7h"]
+
+[ext_resource type="Texture2D" uid="uid://v4ekg78q6bcs" path="res://ui_assets/battle/statuses/lure_immunity.png" id="1_9hmav"]
+[ext_resource type="Script" uid="uid://dlb8jjvdjkvsi" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_lure_immunity.gd" id="1_bonxi"]
+[ext_resource type="Resource" uid="uid://dqldfsmn7g606" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/lure.tres" id="3_8pjix"]
+
+[resource]
+script = ExtResource("1_bonxi")
+track = ExtResource("3_8pjix")
+quality = 0
+rounds = -1
+icon = ExtResource("1_9hmav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "Immune to Lure Gags"
+status_name = "Status Effect"
+is_foreman_effect = false
+id = 7012
+metadata/_custom_type_script = "uid://bmeqdprvveelt"

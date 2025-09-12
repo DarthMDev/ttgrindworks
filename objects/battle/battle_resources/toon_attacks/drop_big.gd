@@ -27,7 +27,12 @@ func action():
 	
 	# Roll for accuracy
 	var hit: bool = manager.roll_for_accuracy(self)
-	
+	if get_immunity(target):
+		hit = false
+	if not hit:
+		var walk_forward_tween = create_walk_forward_tween(target)
+		await walk_forward_tween.finished
+		await manager.sleep(0.2) # so viewer can take in
 	# Play incoming whistle
 	AudioManager.play_snippet(load('res://audio/sfx/battle/gags/drop/incoming_whistleALT.ogg'), 0.0, 2.0)
 	
@@ -64,7 +69,7 @@ func action():
 			var damage_dealt: int = manager.affect_target(target, damage)
 			apply_debuff(target, damage_dealt)
 			await Task.delay(0.5)
-			manager.battle_text(target, "Aftershock!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+			if not sheer_force: manager.battle_text(target, "Aftershock!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 		else:
 			manager.battle_text(target, "IMMUNE")
 			await manager.sleep(0.5)
@@ -73,10 +78,14 @@ func action():
 		await target.animator.animation_finished
 		await manager.check_pulses(targets)
 	else:
+		#walk forward
 		AudioManager.play_sound(sfx_miss)
 		manager.battle_text(target, "MISSED")
 		await manager.sleep(1.0)
 		await shrink_gag(gag)
+		var walk_back_tween = create_walk_back_tween(target)
+		await walk_back_tween.finished
+		#walk back
 	
 	# Cleanup
 	if button:
@@ -88,3 +97,27 @@ func shrink_gag(gag : Node3D):
 	await shrink_tween.finished
 	shrink_tween.kill()
 	gag.queue_free()
+
+func create_walk_forward_tween(target: Node) -> Tween:
+	var cog: Cog = target
+	var battle_node := manager.battle_node
+	
+	var walk_tween := manager.create_tween()
+	walk_tween.tween_callback(cog.set_animation.bind('walk'))
+	walk_tween.tween_callback(battle_node.focus_character.bind(cog))
+	walk_tween.tween_property(cog.get_node('Body'), 'position:z', 2.0, 0.5)  # Walk forward to z=4
+	walk_tween.tween_callback(cog.set_animation.bind('neutral'))
+	
+	return walk_tween
+
+func create_walk_back_tween(target: Node) -> Tween:
+	var cog: Cog = target
+	var battle_node := manager.battle_node
+	
+	var walk_tween := manager.create_tween()
+	walk_tween.tween_callback(cog.set_animation.bind('walk'))
+	walk_tween.tween_callback(battle_node.focus_character.bind(cog))
+	walk_tween.tween_property(cog.get_node('Body'), 'position:z', 0.0, 0.5)  # Walk back to original position (z=0)
+	walk_tween.tween_callback(cog.set_animation.bind('neutral'))
+	
+	return walk_tween

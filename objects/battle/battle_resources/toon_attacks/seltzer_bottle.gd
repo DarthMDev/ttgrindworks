@@ -43,7 +43,7 @@ func action():
 			apply_debuff(target)
 			s_hit.emit()
 			await Task.delay(0.5 * (2 if was_lured else 1))
-			manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+			if not sheer_force: manager.battle_text(target, "Drenched!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 		else:
 			manager.battle_text(target, "IMMUNE")
 		await manager.barrier(target.animator.animation_finished, 5.0)

@@ -12,9 +12,16 @@ class_name GagSound
 @export var sfx_blast: AudioStream
 
 var do_knockback := false
-
+const FUNNY_SOUND_1 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/android.ogg")
+const FUNNY_SOUND_2 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/break_from_ads.ogg")
+const FUNNY_SOUND_3 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/regular_show.ogg")
+const FUNNY_SOUND_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/snore.ogg")
+const FUNNY_SOUND_5 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tuco_get_out.ogg")
+# ad windows
+const FUNNY_SOUND: Array = [FUNNY_SOUND_1, FUNNY_SOUND_2, FUNNY_SOUND_3, FUNNY_SOUND_4, FUNNY_SOUND_5]
 func action():
 	# Play the movie's sfx
+	replace_sfx_effect()
 	sfx_track()
 	
 	# Begin
@@ -61,12 +68,17 @@ func action():
 			var real_damage = damage
 			if (not target == main_target and not user.inverted_sound_damage) or (user.inverted_sound_damage and target == main_target):
 				real_damage *= 0.5
+			if target.foreman:
+				if Util.floor_number < 6:
+					manager.crowd_control(target)                                     
 			if get_immunity(target):
 				manager.battle_text(target, 'IMMUNE')
+				target.set_animation('laugh')
 			else:
 				manager.affect_target(target, real_damage)
 			if not target.lured or not do_knockback:
-				target.set_animation('squirt-small')
+				if not get_immunity(target):
+					target.set_animation('squirt-small')
 				do_dizzy_stars(target)
 			elif not get_immunity(target):
 				manager.knockback_cog(target)
@@ -135,3 +147,7 @@ func get_splash_damage_str() -> String:
 	if Util.get_player().inverted_sound_damage:
 		return get_true_damage()
 	return get_true_damage(0.5)
+func replace_sfx_effect() -> void:
+	var phunny_chance = 4
+	if RandomService.randi_channel('true_random') % 100 < phunny_chance:
+		sfx_blast = RandomService.array_pick_random('true_random', FUNNY_SOUND)

@@ -293,10 +293,8 @@ world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.2
 item_name = "Alien Glasses"
-item_description = "Out of this world!"
-big_description = "+10% Luck
-+5% Damage
-15% chance for Gags to target a random Cog."
+item_description = "Dr Megaboom's 5 star alien glasses idea 👽"
+big_description = "Dr Megaboom's 5 star alien glasses idea 👽."
 model = ExtResource("4_4dai8")
 stats_add = {
 "damage": 0.05,

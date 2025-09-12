@@ -2,6 +2,7 @@ extends Node3D
 class_name FinalBossScene
 
 const TITLE_SCREEN_SCENE := "res://scenes/title_screen/title_screen.tscn"
+const ELEVATOR_SCENE = "res://scenes/elevator_scene/elevator_scene.tscn"
 const SKY_SPEED := 3.0
 const COG_SCENE := preload("res://objects/cog/cog.tscn")
 
@@ -31,17 +32,18 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 var unlock_toon := false
 
 ## For battle tracking
-const COG_LEVEL_RANGE := Vector2i(9, 14)
+const COG_LEVEL_RANGE := Vector2i(13, 15)
 var boss_one_choice: CogDNA
 var boss_two_choice: CogDNA
 
 var boss_one_alive := true
 var boss_two_alive := true
-
+var elevator_cooldown = 1
 var darkened_sky := false
 
 func _ready() -> void:
 	Globals.s_entered_barrel_room.emit()
+	Util.floor_number += 1
 	
 	set_caged_toon_dna(get_caged_toon_dna())
 	AudioManager.set_music(MUSIC_TRACK)
@@ -59,6 +61,7 @@ func _ready() -> void:
 		boss_two_choice = DEBUG_FORCE_BOSS_TWO
 	else:
 		boss_two_choice = RandomService.array_pick_random('base_seed', boss_choices)
+	boss_cog_2.foreman = false
 	boss_cog_2.set_dna(boss_two_choice)
 
 	# Nerf their damage got damn!!!
@@ -82,17 +85,23 @@ func _ready() -> void:
 
 
 func try_add_cogs(_actions: Array[BattleAction]) -> void:
-	var cooldown := 2
-
-	# HE NEEDS THE COGS GIVE HIM THE COGS GIVE HIM THE COGS NOW!!!!
+	var has_union_buster := false
 	for cog: Cog in battle.cogs:
 		if cog.dna.cog_name == "Union Buster":
-			cooldown = 1
-		
-	if BattleService.ongoing_battle.current_round % cooldown == 0 and (boss_one_alive or boss_two_alive):
-		var new_reinforcements := ElevatorReinforcements.new()
-		new_reinforcements.user = self
-		BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
+			has_union_buster = true
+			break
+	if has_union_buster:
+		if BattleService.ongoing_battle.current_round % 1 == 0 and (boss_one_alive or boss_two_alive):
+			var new_reinforcements := ElevatorReinforcements.new()
+			new_reinforcements.user = self
+			BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
+	else:
+		#print("in penthouse line 90, ELEVATOR COOLDOWN: ", elevator_cooldown)
+		if should_spawn_foreman():
+			var new_reinforcements := ElevatorReinforcements.new()
+			new_reinforcements.user = self
+			BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)
+			elevator_cooldown = 1
 
 func participant_died(who: Node3D) -> void:
 	if who == boss_cog:
@@ -101,11 +110,16 @@ func participant_died(who: Node3D) -> void:
 	elif who == boss_cog_2:
 		boss_two_alive = false
 		a_boss_died()
+	elif who is Cog: #foreman
+		if not both_bosses_alive():
+			if elevator_cooldown < 2:
+				elevator_cooldown += 1
+		#print("stuff")
 
 func battle_ending() -> void:
-	Util.get_player().game_timer_tick = false
-	Util.get_player().lock_game_timer = true
-	Util.get_player().game_timer.become_full_visible()
+	#Util.get_player().game_timer_tick = false
+	#Util.get_player().lock_game_timer = true
+	#Util.get_player().game_timer.become_full_visible()
 	var win_time : float = Util.get_player().game_timer.time
 	if win_time < 3600.0:
 		Globals.s_one_hour_win.emit()
@@ -172,14 +186,19 @@ func end_game() -> void:
 	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
 
 func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
-	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and darkened_sky
+	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and not darkened_sky
+	roll_for_proxies = false # do something interesting with this later
 	var new_cogs: Array[Cog]
+	#not best practice BUT IM RELEASING THIS TODAY, ON THIS DAY 4/20/25, On THIS DAY!
+	Util.final_boss = true
 	for i in cog_count:
 		var cog := COG_SCENE.instantiate()
+		cog.foreman = true
 		cog.custom_level_range = COG_LEVEL_RANGE
 		if dna: cog.dna = dna
-		elif roll_for_proxies and RandomService.randf_channel('mod_cog_chance') < 0.25:
-			cog.use_mod_cogs_pool = true
+		elif roll_for_proxies and RandomService.randf_channel('mod_cog_chance') > 9.25: #aka not happening
+			#cog.use_mod_cogs_pool = true
+			print("bruh")
 		battle.add_child(cog)
 		cog.global_position = get_char_position("CogPos%d" % (i + 1))
 		new_cogs.append(cog)
@@ -190,6 +209,25 @@ func get_char_position(pos: String) -> Vector3:
 
 func both_bosses_alive() -> bool:
 	return boss_one_alive and boss_two_alive
+
+func should_spawn_foreman() -> bool:
+	#("in penthouse, line 189 curr round: ", BattleService.ongoing_battle.current_round)
+	#always on round 2
+	if BattleService.ongoing_battle.current_round == 1:
+		return true
+	#never when no bosses
+	if not (boss_one_alive or boss_two_alive):
+		return false
+	#never when 4+ cogs huh? plus? 4 plus?
+	if battle.cogs.size() >= 4:
+		elevator_cooldown = 1
+		return false
+	if elevator_cooldown > 0:
+		elevator_cooldown -= 1
+		return false
+	else:
+		return true
+	return false
 
 #region Final sequence
 
@@ -247,7 +285,7 @@ func win_game() -> void:
 	AudioManager.stop_music()
 	AudioManager.set_music_volume(0.0)
 	scene.kill()
-	end_game()
+	end_game_editted()
 
 func do_move_player_seq() -> void:
 	var player: Player = Util.get_player()
@@ -268,5 +306,13 @@ func do_move_caged_toon_seq() -> void:
 	await caged_toon.move_to(%ElevatorRightPos.global_position, FinalSpd).finished
 	await caged_toon.turn_to_position(Vector3.ZERO, 1.5)
 	s_caged_toon_finished_walking.emit()
-
+func end_game_editted() -> void:
+	Util.final_boss = false
+	if not Util.get_player().stats.character.random_character_stored_name == "":
+		if not SaveFileService.progress_file.mystery_toon_win:
+			Globals.s_mystery_win.emit()
+			SaveFileService.make_progress('mystert_toon_win', true)
+	SaveFileService._save_run()
+	SaveFileService._save_progress()
+	SceneLoader.load_into_scene(ELEVATOR_SCENE)
 #endregion

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ForemanContractLimitBomb" load_steps=3 format=3 uid="uid://c7btsoonbp7ds"]
+
+[ext_resource type="Texture2D" uid="uid://dpk1byqv1qdrv" path="res://ui_assets/battle/statuses/contract_limit.png" id="1_a2yav"]
+[ext_resource type="Script" uid="uid://jatcjg1ua5tb" path="res://objects/battle/battle_resources/status_effects/boss_effects/foreman_contract_limit_bomb.gd" id="2_ataew"]
+
+[resource]
+script = ExtResource("2_ataew")
+quality = 0
+rounds = 1
+rounds_offset = 0
+icon = ExtResource("1_a2yav")
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "I guess u killed that foremen, or there is a 3n moment "
+status_name = "Contract Limit"
+is_foreman_effect = false
+id = 20

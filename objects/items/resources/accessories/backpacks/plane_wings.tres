@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bw4hfnjy11e63"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_18pv6"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_l3ixw"]
+[ext_resource type="Texture2D" uid="uid://cadcrqfo1shqo" path="res://models/accessories/backpacks/airplane_backpack/plane_wings.png" id="3_enav2"]
+[ext_resource type="Script" uid="uid://duqv46454fjpk" path="res://objects/items/custom/item_plane_wings.gd" id="4_6q2ys"]
+[ext_resource type="PackedScene" uid="uid://dl42o87fbyffw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb" id="5_u5ssk"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="6_eb3d5"]
+
+[sub_resource type="Resource" id="Resource_j7yfl"]
+script = ExtResource("2_l3ixw")
+body_type = 0
+position = Vector3(0, 0.23, -0.48)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="Resource" id="Resource_7erd4"]
+script = ExtResource("2_l3ixw")
+body_type = 1
+position = Vector3(0.01, 0.34, -0.48)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="Resource" id="Resource_hkqv2"]
+script = ExtResource("2_l3ixw")
+body_type = 2
+position = Vector3(0.01, 0.58, -0.48)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[resource]
+script = ExtResource("6_eb3d5")
+accessory_placements = Array[ExtResource("1_18pv6")]([SubResource("Resource_j7yfl"), SubResource("Resource_7erd4"), SubResource("Resource_hkqv2")])
+item_tags = null
+qualitoon = 3
+rarity = 0
+evergreen = false
+realtime = false
+slot = 3
+world_scale = 0.075
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.25
+item_name = "Plane Wings"
+item_description = "Soar"
+big_description = "Gain +2% damage per action performed until at +12%"
+model = ExtResource("5_u5ssk")
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("4_6q2ys")
+remember_item = true
+icon = ExtResource("3_enav2")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

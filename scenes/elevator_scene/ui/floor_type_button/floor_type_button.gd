@@ -62,6 +62,8 @@ func set_danger(danger_index: int) -> void:
 	for i in stars.size():
 		if i < danger_index:
 			stars[i].texture = STAR_FILLED
+			edit_stars(stars[i])
+		
 		else:
 			stars[i].texture = STAR_EMPTY
 
@@ -85,3 +87,13 @@ func set_reward(item: Item) -> void:
 	# Let item set itself up
 	if reward_model.has_method('setup'):
 		reward_model.setup(item)
+
+func edit_stars(star) -> void:
+	#if floor_variant.floor_name == "Overclocked Fight The Foremen":
+		#star.modulate = Color(0.45, 0.0, 0.45)
+	if floor_variant.floor_name == "Survive The Foremen":
+		star.modulate = Color.CRIMSON
+	else:
+		star.modulate = Color.WHITE
+		
+	

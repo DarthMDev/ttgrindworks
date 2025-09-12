@@ -310,9 +310,15 @@ func load_game() -> void:
 	if CrowdControl.is_connected_to_crowd_control() and not CrowdControl.is_session_active():
 		CrowdControl.start_session()
 	SceneLoader.load_into_scene(
+		#"res://scenes/test/battle_test.tscn",
 		"res://scenes/elevator_scene/elevator_scene.tscn",
 		GameLoader.Phase.GAMEPLAY
 	)
+	#SceneLoader.load_into_scene(
+	#	"res://scenes/elevator_scene/elevator_scene.tscn",
+	#	GameLoader.Phase.GAMEPLAY
+	#)
+	
 
 func set_selected_toon(character: PlayerCharacter) -> void:
 	%ToonName.label_settings.font_color = character.dna.head_color
@@ -327,6 +333,7 @@ func set_selected_toon(character: PlayerCharacter) -> void:
 
 var toons_created := false
 func new_game_pressed() -> void:
+	#battle_test() #for going straight to battle test instead of elevtor stuff
 	middle_buttons.hide()
 	state = MenuState.TOON_SELECT
 	if not toons_created:
@@ -421,5 +428,13 @@ func _on_request_completed(result, response_code, headers, body) -> void:
 	if version == Globals.VERSION_NUMBER:
 		print("you are on the newest version. hooray!!!")
 	else:
-		print("new version is available. what is wrong with you??")
+		print("new version is available. and i aint updating")
 		%NewVersionLabel.show()
+
+func battle_test() -> void:
+		SceneLoader.load_into_scene(
+		"res://scenes/test/battle_test.tscn",
+		#"res://scenes/elevator_scene/elevator_scene.tscn",
+		GameLoader.Phase.GAMEPLAY
+	)
+		return

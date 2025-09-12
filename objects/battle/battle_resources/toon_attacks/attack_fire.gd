@@ -45,6 +45,7 @@ func action() -> void:
 	set_camera_angle('SIDE_RIGHT')
 	manager.battle_text(cog,str(-cog.stats.hp))
 	cog.stats.hp = 0
+	cog.last_damage_source = "Trap"
 	battle_node.add_child(cannon)
 	cannon.global_position = cog.global_position
 	cannon.global_rotation = cog.global_rotation
@@ -82,7 +83,7 @@ func action() -> void:
 	await cannon_tween.finished
 	
 	# Remove cog from battle
-	manager.someone_died(cog)
+	await manager.someone_died(cog)
 
 func miss(cog : Cog) -> void:
 	var miss_tween := manager.create_tween()

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://du8hik1tgqvrc"]
+
+[ext_resource type="Script" uid="uid://ck5lhd1wryqi0" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/status_effect_fore_cog.gd" id="2_jh8hc"]
+
+[resource]
+script = ExtResource("2_jh8hc")
+quality = 2
+rounds = 1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = false
+description = "This is a Status Effect"
+status_name = "Foreman abilities"
+is_foreman_effect = false
+id = 0

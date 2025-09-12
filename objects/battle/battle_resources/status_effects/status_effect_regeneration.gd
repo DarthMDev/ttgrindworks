@@ -19,7 +19,9 @@ func apply():
 
 func renew():
 	if target.stats.hp == target.stats.max_hp:
-		return
+		if target is Cog:
+			if not target.foreman:
+				return
 	manager.s_focus_char.emit(target)
 	manager.affect_target(target, -amount)
 	if target is Player:
