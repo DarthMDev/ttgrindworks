@@ -40,7 +40,7 @@ func use() -> void:
 		cog.stats.max_hp *= 1.0 + hp_boost
 		@warning_ignore("narrowing_conversion")
 		cog.stats.hp *= 1.0 + hp_boost
-		if cog.dna.cog_name == "Scapegoat":
+		if cog.dna.custom_nametag_suffix == "Director":
 			cog.stats.max_hp += 1
 			cog.stats.hp += 1
 		

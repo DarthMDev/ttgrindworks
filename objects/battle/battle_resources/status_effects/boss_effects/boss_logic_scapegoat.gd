@@ -77,7 +77,7 @@ func on_gags_chosen(actions: Array[ToonAttack]) -> void:
 		if target in action.targets:
 			ignored = false
 	if ignored:
-		rage += 10
+		rage += 15
 
 func get_enraged() -> void:
 	enraged = true

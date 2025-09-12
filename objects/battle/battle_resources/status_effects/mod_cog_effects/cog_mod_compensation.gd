@@ -14,7 +14,8 @@ func apply() -> void:
 	if Util.final_boss:
 		var comp_attack: = Add_Comp_Attack.duplicate()
 		comp_attack.user = cog
-		comp_attack.heal_multiplier * 0.5
+		comp_attack.heal_multiplier *= 0.5
+		comp_attack.foreman_attack_boost = 1.18
 		comp_attack.targets = [cog]
 		manager.append_action(comp_attack)
 
@@ -23,7 +24,8 @@ func renew() -> void:
 	var cog = target
 	var comp_attack: = Add_Comp_Attack.duplicate()
 	comp_attack.user = cog
-	comp_attack.heal_multiplier * 0.5
+	comp_attack.heal_multiplier *= 0.5
+	comp_attack.foreman_attack_boost = 1.18
 	comp_attack.targets = [cog]
 	manager.round_end_actions.append(comp_attack) 
 	

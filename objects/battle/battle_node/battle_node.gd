@@ -316,11 +316,11 @@ func get_mod_cog_chance() -> float:
 
 	var floor_num := Util.floor_number
 	#var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
-	var max_mod_cogs :=  2 * (floor_num + 1)
+	var max_mod_cogs :=  2
 	if mod_cogs >= max_mod_cogs:
 		return 0.0
 	
-	var chance := (floor_num * 0.075 * 1.5)
+	var chance := (floor_num * 0.075 * 1.3)
 	if Util.get_player() and not is_equal_approx(Util.get_player().stats.proxy_chance_boost, 0.0):
 		chance += Util.get_player().stats.proxy_chance_boost
 	return chance

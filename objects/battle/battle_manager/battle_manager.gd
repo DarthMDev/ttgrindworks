@@ -13,7 +13,7 @@ const FUNNY_SFX_3 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tac
 const FUNNY_SFX_4 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/tf2_frying_pan.ogg")
 const FUNNY_SFX_5 := preload("res://audio/sfx/battle/gags/sound/funny_sounds/desk_slam.ogg")
 const CRIT_SFX: Array = [CRIT_SFX_1, CRIT_SFX_2, CRIT_SFX_3, CRIT_SFX_4]
-const FUNNY_SFX: Array = [FUNNY_SFX_1, FUNNY_SFX_2, FUNNY_SFX_3, FUNNY_SFX_4, FUNNY_SFX_5]
+const FUNNY_SFX: Array = [FUNNY_SFX_1, FUNNY_SFX_2, FUNNY_SFX_3, FUNNY_SFX_5]
 
 ## Child references
 @onready var scene_timer := $SceneTimer
@@ -465,7 +465,7 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				string = str("%s\nCRIT!" % -roundi(amount))
 				text_color = BattleText.colors.yellow[0]
 				outline_color = BattleText.colors.yellow[1]
-				if RandomService.randi_channel('true_random') % 100 < get_crit_threshold(Util.get_player().stats.luck):
+				if RandomService.randi_channel('true_random') % 100 < get_crit_threshold(Util.get_player().stats.luck) and current_action is not GagSound:
 					AudioManager.play_sound(RandomService.array_pick_random('true_random', FUNNY_SFX))
 				else: AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
 				BattleService.s_toon_crit.emit()

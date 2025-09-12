@@ -4,6 +4,8 @@ extends StatusEffect
 
 
 var reinfocement_attack = preload("res://objects/battle/battle_resources/cog_attacks/resources/lawyer_call.tres")
+#var reinfocement_attack = preload("res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres")
+#var bust = preload("res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres")
 var bust = preload("res://objects/battle/battle_resources/misc_movies/union_buster/contract_limit2.tres")
 var summoned = false
 var cog: Cog
@@ -37,16 +39,20 @@ func on_round_start(actions : Array[BattleAction]) -> void:
 
 	
 func renew() -> void:
+	print(summon_cooldown, " is clooldown for summon", summoned)
 	if not summoned:
 		if summon_cooldown > 0:
-			summon_cooldown = 0
+			summon_cooldown-= 1
+			print("returning")
 			return
-		var lawyer_summon = reinfocement_attack
-		reinfocement_attack.cog_amount = 1
-		#reinfocement_attack.attack_lines = ["This is Outrageous I am going to sue"]
-		reinfocement_attack.user = cog
-		reinfocement_attack.targets = [cog]
-		manager.round_end_actions.append(reinfocement_attack) 
+		else:
+			var lawyer_summon = reinfocement_attack
+			print("bruh what? in litigant")
+			reinfocement_attack.cog_amount = 1
+			#reinfocement_attack.attack_lines = ["This is Outrageous I am going to sue"]
+			reinfocement_attack.user = cog
+			reinfocement_attack.targets = [cog]
+			manager.round_end_actions.append(reinfocement_attack) 
 
 func participant_joined(who: Node3D) -> void:
 	if not summoned:
@@ -55,6 +61,7 @@ func participant_joined(who: Node3D) -> void:
 				fodder = who
 				summoned = true
 				busted = false
+			print(who.dna.cog_name)
 		#apply_to_cog(who)	
 func cleanup() -> void:
 	if manager.s_participant_joined.is_connected(participant_joined):

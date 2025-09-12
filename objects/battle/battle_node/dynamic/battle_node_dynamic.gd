@@ -90,7 +90,7 @@ func rebalance_cogs(cog, cog_count) -> void:
 		if cog_count == 2:
 			if Util.battlesonfloor > 1:  cog.level_rebalance += 3
 	if Util.floor_number <= 3:
-		if cog_count <= 2:
+		if cog_count <= 2 and Util.battlesonfloor > 2:
 			cog.level_rebalance += Util.floor_number
 	#DEMO PLeaSE REMOVE IN BATTLE NODE DYNAMIc AFTER DEMONSTRATION
 	if Util.floor_number >= 7:

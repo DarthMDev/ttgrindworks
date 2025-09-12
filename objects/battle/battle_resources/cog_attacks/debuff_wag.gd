@@ -55,7 +55,7 @@ func create_debuff(player : Player) -> StatBoost:
 		effect.boost = 0.6
 		effect.stat = 'damage'
 		effect.target = player
-		effect.rounds = 1
+		effect.rounds = 0
 		effect.status_name = "Hurry Sickness"
 		effect.force_no_combine = true
 		return effect

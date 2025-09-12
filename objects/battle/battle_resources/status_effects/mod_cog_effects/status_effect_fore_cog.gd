@@ -33,6 +33,8 @@ const MOD_EFFECTS : Array[StatusEffect] = [ #res://objects/battle/battle_resourc
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_hp_guy.tres"), #27 s
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_confused.tres"), #28 s
 	preload("res://objects/battle/battle_resources/status_effects/mod_cog_effects/mod_cog_relentless.tres") # 29
+
+
 	
 	
 ]
@@ -65,13 +67,13 @@ func apply() -> void:
 func force_cheats() -> int:
 			var index
 			if Globals.fore_cog_index == 0:
-				index = 22
+				index = 14
 			elif Globals.fore_cog_index == 1:
-				index = 25 #11
+				index = 14 #11
 			elif Globals.fore_cog_index == 2:
-				index = 18 #6
+				index = 23 #6
 			else:
-				index = 17
+				index = 19
 			return index
 func choose_random_cheat() -> StatusEffect:
 	#This function is awful and pure slop sorryreader

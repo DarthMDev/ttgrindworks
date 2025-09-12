@@ -80,16 +80,18 @@ func _ready() -> void:
 		boss_cog_3.set_dna(boss_three_choice)
 
 	# Nerf their damage got damn!!!
-	
+	boss_cog.level = 30
+	boss_cog_2.level = 30
+	boss_cog_3.level = 30
 	boss_cog.stats.damage = 2.8
 	boss_cog_2.stats.damage = 2.4
 	boss_cog_3.stats.damage = 3.5
-	boss_cog.stats.max_hp = 8500
-	boss_cog.stats.hp = 8500
-	boss_cog_2.stats.max_hp = 8500
-	boss_cog_2.stats.hp = 8500
-	boss_cog_3.stats.max_hp = 11000
-	boss_cog_3.stats.hp = 11000
+	boss_cog.stats.max_hp = 8000
+	boss_cog.stats.hp = 8000
+	boss_cog_2.stats.max_hp = 8000
+	boss_cog_2.stats.hp = 8000
+	boss_cog_3.stats.max_hp = 10500
+	boss_cog_3.stats.hp = 10500
 	#battle.cogs.append(boss_cog_3)
 	# Start the battle
 	Util.get_player().state = Player.PlayerState.WALK
