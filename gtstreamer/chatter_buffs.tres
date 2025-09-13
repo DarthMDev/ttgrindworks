@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=20 format=3 uid="uid://cay4srik4wu8g"]
+[gd_resource type="Resource" load_steps=23 format=3 uid="uid://cay4srik4wu8g"]
 
 [ext_resource type="Script" uid="uid://cjsti3daijvcx" path="res://gtstreamer/chatter_buffs.gd" id="1_6f7bf"]
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="1_xv0ys"]
 [ext_resource type="Script" uid="uid://cp0l2m4s3ao36" path="res://objects/battle/battle_resources/status_effects/gag_immunity.gd" id="2_ih7vj"]
 [ext_resource type="Script" uid="uid://csl6saufv84ri" path="res://objects/battle/battle_resources/status_effects/stat_boost.gd" id="3_5gguv"]
+[ext_resource type="Texture2D" uid="uid://dhn5kflsrx35n" path="res://ui_assets/battle/positive_icon.png" id="3_usrm4"]
 [ext_resource type="Resource" uid="uid://3qbdaody8qao" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_agile.tres" id="4_usrm4"]
 [ext_resource type="Resource" uid="uid://ca8r6vx480qsx" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_banker.tres" id="5_g3fji"]
 [ext_resource type="Resource" uid="uid://8ewinuqmkhs" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_diverse_portfolio.tres" id="6_4l7ra"]
@@ -16,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://ba4q7epwmww5j" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_tax_collector.tres" id="13_lswp5"]
 [ext_resource type="Texture2D" uid="uid://dn7q51prj7qyu" path="res://ui_assets/battle/statuses/diminishing_returns.png" id="14_gvtty"]
 [ext_resource type="Script" uid="uid://60nmr4qkqnov" path="res://objects/battle/battle_resources/status_effects/status_effect_diminishing_returns.gd" id="15_l65q7"]
+[ext_resource type="Script" uid="uid://dhmdr2mhqoo50" path="res://objects/battle/battle_resources/status_effects/status_effect_regeneration.gd" id="16_5gguv"]
 
 [sub_resource type="Resource" id="Resource_maavq"]
 script = ExtResource("2_ih7vj")
@@ -39,6 +41,7 @@ boost = 1.5
 quality = 0
 rounds = -1
 rounds_offset = 0
+icon = ExtResource("3_usrm4")
 icon_color = Color(1, 1, 1, 1)
 icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)
@@ -67,6 +70,23 @@ status_name = "Embezzled"
 id = 37
 metadata/_custom_type_script = "uid://df7irk63ikx4k"
 
+[sub_resource type="Resource" id="Resource_usrm4"]
+script = ExtResource("16_5gguv")
+amount = 0
+instant_effect = true
+quality = 2
+rounds = 1
+rounds_offset = 0
+icon_color = Color(1, 1, 1, 1)
+icon_scale = 1.0
+mini_icon_color = Color(1, 1, 1, 1)
+mini_icon_scale = 1.0
+visible = true
+description = "This is a Status Effect"
+status_name = "Status Effect"
+id = 0
+metadata/_custom_type_script = "uid://dhmdr2mhqoo50"
+
 [resource]
 script = ExtResource("1_6f7bf")
-buffs = Array[ExtResource("1_xv0ys")]([SubResource("Resource_maavq"), SubResource("Resource_t2gdn"), ExtResource("4_usrm4"), ExtResource("5_g3fji"), ExtResource("6_4l7ra"), ExtResource("7_sm7vf"), ExtResource("8_4x2eq"), ExtResource("9_urxm1"), ExtResource("10_x4dhu"), ExtResource("11_3eiba"), ExtResource("12_uhx43"), ExtResource("13_lswp5"), SubResource("Resource_hiwxs")])
+buffs = Array[ExtResource("1_xv0ys")]([SubResource("Resource_maavq"), SubResource("Resource_t2gdn"), ExtResource("4_usrm4"), ExtResource("5_g3fji"), ExtResource("6_4l7ra"), ExtResource("7_sm7vf"), ExtResource("8_4x2eq"), ExtResource("9_urxm1"), ExtResource("10_x4dhu"), ExtResource("11_3eiba"), ExtResource("12_uhx43"), ExtResource("13_lswp5"), SubResource("Resource_hiwxs"), SubResource("Resource_usrm4")])

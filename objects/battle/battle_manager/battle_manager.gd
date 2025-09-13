@@ -818,8 +818,8 @@ func boost_v2_stats(old_cog: Cog, cog: Cog) -> void:
 
 # Possible buffs: 1 Gag Track Immunity for 3 Rounds, x1.5 HP, Proxy Ability
 var chatter_buff_choices: Dictionary[Cog, Array]
-var CHATTER_BUFFS = load("res://gtstreamer/chatter_buffs.tres").instantiate()
 var chatter_buff_choice_amount = 3
+var chatter_buff_list = Util.get_chatter_buff_list()
 
 func generate_chatter_buff_choices():
 	# first pass: ensure all cogs get their buff choices
@@ -827,9 +827,12 @@ func generate_chatter_buff_choices():
 		if cog.chatter is not TwitchChatter:
 			pass
 		if cog not in chatter_buff_choices.keys():
+			chatter_buff_choices[cog] = []
 			for i in chatter_buff_choice_amount:
 				cog.show_chatter_buffs = true
-				chatter_buff_choices[cog].append(RandomService.array_pick_random('true_random', CHATTER_BUFFS.buffs).duplicate())
+				var effect: StatusEffect = RandomService.array_pick_random('true_random', chatter_buff_list).duplicate()
+				effect.randomize_effect()
+				chatter_buff_choices[cog].append(effect)
 		if chatter_buff_choices[cog].size() > 0:
 			pass
 	# second pass: tell the ui to take the pause if new buff choices have appeared for chatters
@@ -840,4 +843,23 @@ func generate_chatter_buff_choices():
 			cogs_to_show.append(cog)
 	
 	if cogs_to_show.size() > 0:
-		battle_ui.show_chatter_buffs(chatter_buff_choices, cogs_to_show)
+		battle_ui.show_chatter_buffs(cogs_to_show)
+
+func chatter_take_buff(cog: Cog, id: int):
+	if cog.chatter is not TwitchChatter or cog not in chatter_buff_choices.keys():
+		printerr("Buff Your Cog: Cog " + cog.name + " does not have chatter buffs available")
+		return
+	if chatter_buff_choices[cog].size() < 1 or id > chatter_buff_choices[cog].size():
+		printerr("Buff Your Cog: Chatter " + cog.chatter.user_name + " attempted to take effect #" + str(id) + " which does not exist")
+		return
+	var effect: StatusEffect = chatter_buff_choices[cog][id].duplicate()
+	effect.target = cog
+	if effect is StatEffectRegeneration:
+		effect.instant_effect = false
+	await Util.s_process_frame
+	add_status_effect(effect)
+	chatter_buff_choices[cog] = []
+	Util.get_player().boost_queue.queue_text(cog.chatter.user_name + " gained " + effect.status_name + "!", Color(0.937, 0.278, 0.278))
+	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
+	BattleService.ongoing_battle.battle_ui.cog_panels.refresh()
+	# BattleService.s_refresh_statuses.emit()

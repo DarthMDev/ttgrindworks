@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://cabx6b2hjdr32"]
+
+[ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="1_1u3r7"]
+[ext_resource type="Script" uid="uid://bivc755kkbyfi" path="res://gtstreamer/byc_chatter_panel.gd" id="1_4p6cg"]
+[ext_resource type="Texture2D" uid="uid://d0xkjitqvcnb3" path="res://ui_assets/battle/statuses/squirt_immunity.png" id="2_4p6cg"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_ik6mp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8l4h"]
+resource_local_to_scene = true
+font = ExtResource("1_1u3r7")
+font_size = 36
+font_color = Color(0.999911, 0.640551, 0.225015, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pvi3"]
+resource_local_to_scene = true
+font = ExtResource("1_1u3r7")
+font_size = 24
+font_color = Color(0.999911, 0.640551, 0.225015, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_38lnm"]
+resource_local_to_scene = true
+font = ExtResource("3_ik6mp")
+font_size = 40
+font_color = Color(0.947933, 0.890059, 1, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="ChatterPanelHBox" type="HBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+alignment = 2
+script = ExtResource("1_4p6cg")
+
+[node name="ChatterNamesVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ChatterTwitchNameLabel" type="Label" parent="ChatterNamesVBox"]
+layout_mode = 2
+text = "NameOfChatter25"
+label_settings = SubResource("LabelSettings_j8l4h")
+horizontal_alignment = 2
+
+[node name="ChatterCogNameLabel" type="Label" parent="ChatterNamesVBox"]
+layout_mode = 2
+text = "Level 3 Flunky"
+label_settings = SubResource("LabelSettings_1pvi3")
+horizontal_alignment = 2
+
+[node name="BuffListHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Buff1" type="TextureRect" parent="BuffListHBox"]
+layout_mode = 2
+texture = ExtResource("2_4p6cg")
+stretch_mode = 2
+
+[node name="BuffLabel1" type="Label" parent="BuffListHBox/Buff1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -63.0
+offset_right = 3.5
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "!1"
+label_settings = SubResource("LabelSettings_38lnm")
+
+[node name="Buff2" type="TextureRect" parent="BuffListHBox"]
+layout_mode = 2
+texture = ExtResource("2_4p6cg")
+stretch_mode = 2
+
+[node name="BuffLabel2" type="Label" parent="BuffListHBox/Buff2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.5
+offset_top = -63.0
+offset_right = 3.5
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "!2"
+label_settings = SubResource("LabelSettings_38lnm")
+
+[node name="Buff3" type="TextureRect" parent="BuffListHBox"]
+layout_mode = 2
+texture = ExtResource("2_4p6cg")
+stretch_mode = 2
+
+[node name="BuffLabel3" type="Label" parent="BuffListHBox/Buff3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.5
+offset_top = -63.0
+offset_right = 3.5
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "!3"
+label_settings = SubResource("LabelSettings_38lnm")

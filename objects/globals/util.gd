@@ -2,6 +2,7 @@ extends Node
 
 var CIRCLE_TRANSITION: PackedScene
 var LOSE_MENU: PackedScene
+var CHATTER_BUFFS: Resource
 
 # Global Refs
 var player : Player:
@@ -89,6 +90,8 @@ func _init():
 	GameLoader.queue_into(
 		GameLoader.Phase.GAMEPLAY, self, {
 			'LOSE_MENU': 'res://objects/player/ui/lose_menu.tscn',
+			## Twitch
+			'CHATTER_BUFFS': 'res://gtstreamer/chatter_buffs.tres'
 		}
 	)
 
@@ -340,3 +343,8 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 		chest.set_ray_gradient(light_beam)
 
 #endregion
+
+## Twitch
+
+func get_chatter_buff_list():
+	return CHATTER_BUFFS.buffs

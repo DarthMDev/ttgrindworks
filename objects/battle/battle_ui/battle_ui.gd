@@ -237,8 +237,18 @@ func _process(_delta: float) -> void:
 ## Twitch
 var chatter_prompt_time = 7.0
 
-func show_chatter_buffs(choices: Dictionary[Cog, Array], cogs: Array[Cog]):
+func show_chatter_buffs(cogs: Array[Cog]):
 	%BuffYourCogContainer.show()
+	for cog in cogs:
+		var byc_panel = load("res://gtstreamer/byc_chatter_panel.tscn").instantiate()
+		byc_panel.name_chatter = cog.chatter.user_name
+		byc_panel.name_cog = cog.dna.cog_name + " Level " + str(cog.level)
+		if cog.v2: byc_panel.name_cog += " v2.0"
+		byc_panel.buffs.assign(manager.chatter_buff_choices[cog].duplicate())
+		%ChatterListVBox.add_child(byc_panel)
 	timer = Util.run_timer(chatter_prompt_time, Control.PRESET_BOTTOM_LEFT)
-	timer.timer.timeout.connect(on_timer_timeout)
+	timer.timer.timeout.connect(hide_byc)
 	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
+
+func hide_byc():
+	%BuffYourCogContainer.hide()

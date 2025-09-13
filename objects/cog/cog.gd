@@ -650,18 +650,21 @@ func set_chatter(_chatter: TwitchChatter = null):
 		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
 		
 func parse_chat(chat_message: TwitchChatMessage):
+	if chatter is not TwitchChatter:
+		return
+	if chat_message.chatter_user_id != chatter.user_id:
+		return
 	var txt: String = chat_message.message.text
-	if txt[0] == '!':
+	if txt[0] == '!' and txt.length() > 1:
 		do_chatter_command(txt)
 	else:
 		relay_chat(chat_message)
 
 func do_chatter_command(command: String):
-	return
+	if int(command[1]) is int:
+		BattleService.ongoing_battle.chatter_take_buff(self, int(command[1]) - 1)
 
 func relay_chat(chat_message: TwitchChatMessage):
 	#speak(chat_message.message.text)
-	if chatter is TwitchChatter:
-		if chat_message.chatter_user_id == chatter.user_id:
-			print("Cog " + name + " relaying chat from " + chat_message.chatter_user_name)
-			speak(chat_message.message.text, true, true)
+	print("Cog " + name + " relaying chat from " + chat_message.chatter_user_name)
+	speak(chat_message.message.text, true, true)
