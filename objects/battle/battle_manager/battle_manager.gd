@@ -845,7 +845,10 @@ func generate_chatter_buff_choices():
 	if cogs_to_show.size() > 0:
 		battle_ui.show_chatter_buffs(cogs_to_show)
 
-func chatter_take_buff(cog: Cog, id: int):
+func chatter_take_buff(cog: Cog, id_str: String):
+	var id = int(id_str)
+	if id is int:
+		id -= 1
 	if cog.chatter is not TwitchChatter or cog not in chatter_buff_choices.keys():
 		printerr("Buff Your Cog: Cog " + cog.name + " does not have chatter buffs available")
 		return

@@ -661,8 +661,7 @@ func parse_chat(chat_message: TwitchChatMessage):
 		relay_chat(chat_message)
 
 func do_chatter_command(command: String):
-	if int(command[1]) is int:
-		BattleService.ongoing_battle.chatter_take_buff(self, int(command[1]) - 1)
+	BattleService.ongoing_battle.chatter_take_buff(self, command)
 
 func relay_chat(chat_message: TwitchChatMessage):
 	#speak(chat_message.message.text)
