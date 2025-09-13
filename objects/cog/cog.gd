@@ -622,11 +622,12 @@ static func get_department_name(dept: CogDNA.CogDept) -> String:
 ## TWITCH
 var chatter: TwitchChatter
 var chatters: TwitchGetChatters.Response
+var show_chatter_buffs := false
 
 func twitch_setup():
 	if !Twitch.is_configured():
 		return
-	Twitch.twitch_chat.message_received.connect(relay_chat)
+	Twitch.twitch_chat.message_received.connect(parse_chat)
 	if chatter is not TwitchChatter:
 		assign_chatter()
 
@@ -647,7 +648,17 @@ func set_chatter(_chatter: TwitchChatter = null):
 		print("Assigning chatter " + chatter.user_name)
 		Twitch.cog_chatter_ids.append(chatter.user_id)
 		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
-	
+		
+func parse_chat(chat_message: TwitchChatMessage):
+	var txt: String = chat_message.message.text
+	if txt[0] == '!':
+		do_chatter_command(txt)
+	else:
+		relay_chat(chat_message)
+
+func do_chatter_command(command: String):
+	return
+
 func relay_chat(chat_message: TwitchChatMessage):
 	#speak(chat_message.message.text)
 	if chatter is TwitchChatter:

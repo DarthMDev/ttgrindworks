@@ -233,3 +233,12 @@ func refresh_tracks() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('end_turn') and visible:
 		complete_turn()
+
+## Twitch
+var chatter_prompt_time = 7.0
+
+func show_chatter_buffs(choices: Dictionary[Cog, Array], cogs: Array[Cog]):
+	%BuffYourCogContainer.show()
+	timer = Util.run_timer(chatter_prompt_time, Control.PRESET_BOTTOM_LEFT)
+	timer.timer.timeout.connect(on_timer_timeout)
+	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))

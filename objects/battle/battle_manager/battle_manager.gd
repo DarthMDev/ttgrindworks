@@ -81,6 +81,9 @@ func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 	# UI must be added last
 	add_child(battle_ui)
 	s_ui_initialized.emit()
+	
+	## Twitch
+	generate_chatter_buff_choices()
 
 func append_action(action: BattleAction):
 	round_actions.append(action)
@@ -810,3 +813,31 @@ func boost_v2_stats(old_cog: Cog, cog: Cog) -> void:
 	for boost: StatBoost in [def_nerf, dmg_boost]:
 		boost.target = cog
 		add_status_effect(boost)
+
+## Twitch
+
+# Possible buffs: 1 Gag Track Immunity for 3 Rounds, x1.5 HP, Proxy Ability
+var chatter_buff_choices: Dictionary[Cog, Array]
+var CHATTER_BUFFS = load("res://gtstreamer/chatter_buffs.tres").instantiate()
+var chatter_buff_choice_amount = 3
+
+func generate_chatter_buff_choices():
+	# first pass: ensure all cogs get their buff choices
+	for cog in cogs:
+		if cog.chatter is not TwitchChatter:
+			pass
+		if cog not in chatter_buff_choices.keys():
+			for i in chatter_buff_choice_amount:
+				cog.show_chatter_buffs = true
+				chatter_buff_choices[cog].append(RandomService.array_pick_random('true_random', CHATTER_BUFFS.buffs).duplicate())
+		if chatter_buff_choices[cog].size() > 0:
+			pass
+	# second pass: tell the ui to take the pause if new buff choices have appeared for chatters
+	var cogs_to_show: Array[Cog] = []
+	for cog in cogs:
+		if cog.show_chatter_buffs == true:
+			cog.show_chatter_buffs = false
+			cogs_to_show.append(cog)
+	
+	if cogs_to_show.size() > 0:
+		battle_ui.show_chatter_buffs(chatter_buff_choices, cogs_to_show)
