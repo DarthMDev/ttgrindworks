@@ -76,6 +76,20 @@ signal s_luck_changed(new_luck: float)
 # How low do cogs HP need to be to die?
 @export var cog_hp_death_threshold := 0.0
 
+# Disable specific cog tasks
+@export var can_get_specific_cog_quests := true:
+	set(x):
+		var do_rerolls := false
+		if !x and can_get_specific_cog_quests:
+			do_rerolls = true
+		can_get_specific_cog_quests = x
+		if do_rerolls:
+			for quest in quests:
+				if quest is QuestCog:
+					if quest.specific_cog:
+						print("Auto-rerolling specific cog task")
+						quest.setup()
+
 ## Currently held active item
 @export var current_active_item : ItemActive:
 	set(x):

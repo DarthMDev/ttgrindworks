@@ -22,6 +22,8 @@ signal s_refresh_statuses
 signal s_toon_crit
 signal s_toon_didnt_crit
 signal s_toon_dealt_damage(action: BattleAction, target: Node3D, amount: int)
+signal s_cog_dealt_damage(action: BattleAction, amount: int)
+signal s_cog_missed(action: BattleAction)
 signal s_action_started(action: BattleAction)
 signal s_action_finished(action: BattleAction)
 

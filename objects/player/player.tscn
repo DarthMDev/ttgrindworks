@@ -169,6 +169,7 @@ lawbot_boost = 1.0
 bossbot_boost = 1.0
 proxy_chance_boost = 0.0
 cog_hp_death_threshold = 0.0
+can_get_specific_cog_quests = true
 battle_timers = Array[int]([])
 damage = 2.0
 defense = 1.2

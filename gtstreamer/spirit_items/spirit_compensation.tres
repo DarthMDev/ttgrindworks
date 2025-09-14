@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://d2nech0sd7rwo"]
+
+[ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="1_yitbr"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_vpewq"]
+[ext_resource type="Script" uid="uid://do2hx086ryelg" path="res://gtstreamer/spirit_items/item_spirit_compensation.gd" id="4_wrrwg"]
+
+[resource]
+script = ExtResource("2_vpewq")
+item_tags = null
+qualitoon = 4
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = false
+ui_cam_offset = 0.0
+item_name = "Spirit of Compensation"
+item_description = "Your money is your pain"
+big_description = "Gain 1 Jellybean for every 3 laff lost
+[Every 5 jellybeans held gives -1% Defense]"
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("4_wrrwg")
+remember_item = true
+icon = ExtResource("1_yitbr")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cxl6gxdbrlwrn"]
+
+[ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="1_mkfns"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_5y38y"]
+[ext_resource type="Script" uid="uid://fkhreddrh8wn" path="res://gtstreamer/spirit_items/item_spirit_intention.gd" id="4_apyxb"]
+
+[resource]
+script = ExtResource("3_5y38y")
+item_tags = null
+qualitoon = 4
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Spirit of Intention"
+item_description = "Totally meant to do that!"
+big_description = "+25% Luck
++15% Evasiveness
+Gain 3% Luck after dodging an attack
+[When facing multiple Cogs, your gags will ALWAYS switch targets to a random different Cog.]"
+stats_add = {
+"evasiveness": 0.15,
+"luck": 0.25
+}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("4_apyxb")
+remember_item = true
+icon = ExtResource("1_mkfns")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

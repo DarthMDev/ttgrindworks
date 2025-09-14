@@ -54,11 +54,16 @@ const UNCAPPED_STAT_VAL := -999.0
 		max_hp_changed.emit(x)
 @export var hp := 25:
 	set(x):
+		var old_hp = hp
 		if debug_invulnerable:
 			hp = max_hp
 		else:
 			hp = clamp(x, 0, max_hp)
 		hp_changed.emit(hp)
+		if hp < old_hp:
+			s_hp_lost.emit(hp - old_hp)
+		if hp > old_hp:
+			s_hp_gained.emit(hp - old_hp)
 @export var turns := 1
 var debug_invulnerable := false
 
@@ -72,7 +77,8 @@ signal s_accuracy_changed(new_accuracy: float)
 signal s_defense_changed(new_defense: float)
 signal s_evasiveness_changed(new_evasiveness: float)
 signal s_speed_changed(new_speed: float)
-
+signal s_hp_lost(amount: int)
+signal s_hp_gained(amount: int)
 
 
 func _to_string():

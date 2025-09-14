@@ -356,6 +356,8 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				# If target is the player, and this guy is a cog,
 				# mark it as the player's last damage source for the death screen
 				target.last_damage_source = current_action.user.dna.cog_name
+				# new signal
+				BattleService.s_cog_dealt_damage.emit(current_action, amount)
 			# Also apply a custom death source message if we have one
 			if current_action and current_action.custom_player_death_source:
 				target.last_damage_source = current_action.custom_player_death_source
@@ -495,6 +497,9 @@ func roll_for_accuracy(action: BattleAction) -> bool:
 	var roll := RandomService.randi_channel('true_random') % 100
 	
 	print(action.action_name + " rolled " + str(roll) + " for accuracy, and needed lower than " + str(true_acc) + ".")
+	
+	if !(roll < true_acc) and action.user is Cog:
+		BattleService.s_cog_missed.emit(action)
 	
 	return roll < true_acc
 
