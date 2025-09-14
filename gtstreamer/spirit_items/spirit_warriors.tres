@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c4f0qfr1t18bx"]
 
 [ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="1_u2nxd"]
+[ext_resource type="Script" uid="uid://pxho2yauk0dd" path="res://gtstreamer/spirit_items/item_spirit_infinity.gd" id="2_6hnm3"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_vfpih"]
-[ext_resource type="Script" uid="uid://dexirp2wkijtm" path="res://gtstreamer/spirit_items/item_spirit_warriors.gd" id="4_yxbbc"]
 
 [resource]
 script = ExtResource("2_vfpih")
@@ -16,16 +16,15 @@ world_scale = 1.0
 world_y_offset = 0.0
 want_ui_spin = true
 ui_cam_offset = 0.0
-item_name = "Spirit of Warriors"
-item_description = "Strength for the ages!"
-big_description = "x2.0 Damage
-All Proxies receive an additional ability
-[ALL regular Cogs transform into Proxies]"
+item_name = "Spirit of Infinity"
+item_description = "We've peaked..."
+big_description = "Max Laff increased to 999
+[Defense / 3, all healing inversely decreases Max Laff]"
 stats_add = {}
 stats_multiply = {}
 player_values = {}
 arbitrary_data = {}
-item_script = ExtResource("4_yxbbc")
+item_script = ExtResource("2_6hnm3")
 remember_item = true
 icon = ExtResource("1_u2nxd")
 shop_category_title = "Boost Item"

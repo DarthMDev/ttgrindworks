@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://crhep1o4ksktf"]
+
+[ext_resource type="Texture2D" uid="uid://cirwmv4jg6xt4" path="res://ui_assets/battle/gags/inventory_pixiedust.png" id="1_8mrte"]
+[ext_resource type="Script" uid="uid://dexirp2wkijtm" path="res://gtstreamer/spirit_items/item_spirit_warriors.gd" id="2_241b8"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_4i8e8"]
+
+[resource]
+script = ExtResource("3_4i8e8")
+item_tags = null
+qualitoon = 4
+rarity = 0
+evergreen = false
+realtime = false
+slot = 0
+world_scale = 1.0
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Spirit of Warriors"
+item_description = "Strength for the ages!"
+big_description = "x2.0 Damage
+All Proxies receive an additional ability
+[ALL regular Cogs transform into Proxies]"
+stats_add = {}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+item_script = ExtResource("2_241b8")
+remember_item = true
+icon = ExtResource("1_8mrte")
+shop_category_title = "Boost Item"
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+force_show_shop_category = false
+custom_shop_price = 0

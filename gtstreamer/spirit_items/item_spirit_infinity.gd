@@ -1,48 +1,38 @@
 extends ItemSpirit
 
-@export var scaling_stat := 'defense'
-@export var scaling_factor := -0.01
-@export var scaling_jellybean_threshold := 5
-@export var jellybean_gain := 1
-@export var damage_threshold := 3
+@export var mult_stat := 'defense'
+@export var mult_factor := -(2.0/3.0)
+@export var mult_additive = false
 
-var current_damage := 0
 var multiplier : StatMultiplier
 
 func on_collect(_item: Item, _object: Node3D) -> void:
+	maximize_laff()
 	setup()
 
 func on_load(_item: Item) -> void:
 	setup()
 
 func setup() -> void:
-	if not Util.get_player():
-		await Util.s_player_assigned
-	var player = Util.get_player()
-	player.stats.hp_lost.connect(give_payout)
-	connect_impure_function(apply_penalty, player.stats.s_money_changed)
+	connect_impure_function(apply_healing_penalty, Util.get_player().stats.s_hp_gained)
 	if !spirit_purified:
 		create_multiplier()
-		apply_penalty(player.stats.money)
 
-func give_payout(hploss: int):
-	current_damage += hploss
-	if current_damage > damage_threshold:
-		Util.get_player().stats.add_money(current_damage % damage_threshold)
-		current_damage /= damage_threshold
-		Util.get_player().boost_queue.queue_text("Compensated!", Color(0.0, 0.602, 0.186))
-		AudioManager.play_sound(load("res://audio/sfx/ui/tick_counter.ogg"))
+func purify() -> void:
+	super()
+	Util.get_player().stats.multiplier.erase(multiplier)
+
+func maximize_laff() -> void:
+	var stats = Util.get_player().stats
+	stats.max_hp = 999 + stats.laff_boost_boost
+	stats.hp = stats.max_hp
 
 func create_multiplier() -> void:
 	multiplier = StatMultiplier.new()
-	multiplier.stat = scaling_stat
-	multiplier.amount = 0.0
-	multiplier.additive = true
+	multiplier.stat = mult_stat
+	multiplier.amount = mult_factor
+	multiplier.additive = mult_additive
 	Util.get_player().stats.multipliers.append(multiplier)
-	
-func apply_penalty(money: int):
-	multiplier.amount = floori(money / scaling_jellybean_threshold) * scaling_factor
-	
-func purify():
-	super()
-	Util.get_player().stats.multipliers.erase(multiplier)
+
+func apply_healing_penalty(hp: int) -> void:
+	Util.get_player().stats.max_hp -= hp
