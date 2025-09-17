@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://balc52bcsmal1"]
+[gd_scene load_steps=59 format=4 uid="uid://balc52bcsmal1"]
 
 [ext_resource type="Script" uid="uid://bfgdfp2aa06ym" path="res://objects/battle/battle_ui/battle_ui.gd" id="1_8x8hy"]
 [ext_resource type="Texture2D" uid="uid://dysxmakm72jwy" path="res://ui_assets/battle/BATTLE_Menu.png" id="1_ahgpo"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dvch4ydlcxhu6" path="res://objects/battle/battle_ui/item_panel.tscn" id="25_tdt4q"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="27_k5f0o"]
 [ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="28_5hdm6"]
+[ext_resource type="PackedScene" uid="uid://iprh7uid48eg" path="res://objects/battle/misc_battle_objects/timer/battle_timer.tscn" id="29_k5f0o"]
 [ext_resource type="Script" uid="uid://0y6hs6nosotk" path="res://objects/player/status_container.gd" id="29_rfk4w"]
 [ext_resource type="Script" uid="uid://d2457oaer5pr1" path="res://objects/battle/battle_ui/right_panel.gd" id="36_1a4qv"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="131_8fhg1"]
@@ -2845,6 +2846,51 @@ shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="Animation" id="Animation_5hdm6"]
+resource_name = "byc_on"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleTimer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.766667),
+"transitions": PackedFloat32Array(0.287175, 1.8025, 1),
+"update": 0,
+"values": [Vector2(0.001, 0.001), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BattleTimer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.532039),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 512), Vector2(30, 512)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BattleTimer:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.766667),
+"transitions": PackedFloat32Array(0.450625, 1.10957, 1),
+"update": 0,
+"values": [-4.71239, 0.785398, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uu5u"]
+_data = {
+&"byc_on": SubResource("Animation_5hdm6")
+}
+
 [node name="BattleUI" type="CanvasLayer"]
 script = ExtResource("1_8x8hy")
 
@@ -3356,6 +3402,23 @@ layout_mode = 2
 
 [node name="ChatterPanelHBox4" parent="BuffYourCogContainer/ColorRect/ChatterListVBox" instance_placeholder="res://gtstreamer/byc_chatter_panel.tscn"]
 layout_mode = 2
+
+[node name="BattleTimer" parent="." instance=ExtResource("29_k5f0o")]
+anchors_preset = 2
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 30.0
+offset_top = -136.0
+offset_right = 153.0
+offset_bottom = -15.0
+grow_horizontal = 1
+rotation = -4.71239
+scale = Vector2(0.001, 0.001)
+
+[node name="AnimationPlayer_BYC" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0uu5u")
+}
 
 [connection signal="s_gag_canceled" from="." to="." method="gag_canceled"]
 [connection signal="s_gag_pressed" from="." to="." method="gag_selected"]

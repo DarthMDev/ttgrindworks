@@ -239,18 +239,24 @@ var chatter_prompt_time = 11.0
 
 func show_chatter_buffs(cogs: Array[Cog]):
 	%BuffYourCogContainer.show()
+	var i := 0
 	for cog in cogs:
 		if cog.chatter is not TwitchChatter:
 			continue
-		var byc_panel = load("res://gtstreamer/byc_chatter_panel.tscn").instantiate()
+		var byc_panel : BYCChatterPanel = load("res://gtstreamer/byc_chatter_panel.tscn").instantiate()
 		byc_panel.name_chatter = cog.chatter.user_name
 		byc_panel.name_cog = cog.dna.cog_name + " Level " + str(cog.level)
 		if cog.v2: byc_panel.name_cog += " v2.0"
 		byc_panel.buffs.assign(manager.chatter_buff_choices[cog].duplicate())
 		%ChatterListVBox.add_child(byc_panel)
-	timer = Util.run_timer(chatter_prompt_time, Control.PRESET_BOTTOM_LEFT)
-	timer.z_index = 100
-	timer.timer.timeout.connect(hide_byc)
+		var anim: Animation = $AnimationPlayer_BYC.get_animation("byc_on")
+		var track_index: int = anim.add_track(Animation.TYPE_ANIMATION)
+		anim.track_set_path(track_index, byc_panel.animationplayer.get_path())
+		anim.animation_track_insert_key(track_index, 0.1 * i, "byc_panel_on")
+		i += 1
+	$BattleTimer.start(chatter_prompt_time)
+	$BattleTimer.s_timeout.connect(hide_byc)
+	$AnimationPlayer_BYC.play("byc_on")
 	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
 
 func hide_byc():

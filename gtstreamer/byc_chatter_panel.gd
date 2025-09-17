@@ -4,6 +4,7 @@ class_name BYCChatterPanel
 @onready var label_chatter: Label = $ChatterNamesVBox/ChatterTwitchNameLabel
 @onready var label_cog: Label = $ChatterNamesVBox/ChatterCogNameLabel
 @onready var display_buff: Control = $BuffListHBox
+@onready var animationplayer : AnimationPlayer = $AnimationPlayer
 
 var name_chatter: String
 var name_cog: String

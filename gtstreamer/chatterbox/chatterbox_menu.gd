@@ -29,6 +29,7 @@ var votes : Array[int] = [0, 0, 0]
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
+	$AnimationPlayer.play("chatterbox_on")
 	
 	timer.start(voting_time)
 	timer.s_timeout.connect(collect)

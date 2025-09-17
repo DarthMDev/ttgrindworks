@@ -231,6 +231,18 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Blur:color")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.854902, 0.854902, 0.854902, 0), Color(0.856067, 0.856067, 0.856067, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_almky"]
 length = 0.001
@@ -414,6 +426,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Blur:color")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.856067, 0.856067, 0.856067, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ocncq"]
 _data = {
@@ -452,9 +476,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -224.0
-offset_top = -47.9971
+offset_top = 8.0
 offset_right = 215.0
-offset_bottom = -14.9966
+offset_bottom = 41.0005
 grow_horizontal = 2
 grow_vertical = 0
 text = "Vote For The Next Item!"
@@ -467,9 +491,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -368.0
-offset_top = 32.0
+offset_top = -56.0
 offset_right = 369.0
-offset_bottom = 81.0
+offset_bottom = -7.0
 grow_horizontal = 2
 text = "Choose the WORST option"
 label_settings = SubResource("LabelSettings_q3um3")
@@ -488,23 +512,23 @@ grow_vertical = 2
 
 [node name="ChatterboxChoice3" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
 layout_mode = 1
-offset_left = 170.001
+offset_left = 576.0
 offset_top = -172.0
-offset_right = 519.001
+offset_right = 925.0
 offset_bottom = 252.0
 
 [node name="ChatterboxChoice2" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
 layout_mode = 1
-offset_left = -174.999
+offset_left = 576.0
 offset_top = -172.0
-offset_right = 174.001
+offset_right = 925.0
 offset_bottom = 252.0
 
 [node name="ChatterboxChoice1" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
 layout_mode = 0
-offset_left = -520.999
+offset_left = 576.0
 offset_top = -172.0
-offset_right = -171.999
+offset_right = 925.0
 offset_bottom = 252.0
 
 [node name="BattleTimer" parent="." instance=ExtResource("5_vgtrx")]
