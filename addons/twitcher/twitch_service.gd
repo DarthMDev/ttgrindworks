@@ -406,3 +406,5 @@ func get_cheermotes(definition: TwitchCheermoteDefinition) -> Dictionary:
 ## GRINDWORK
 
 var cog_chatter_ids: Array[String]
+var chatter_cogs: Array[Cog] = []
+@export var cog_chatter_blacklist: Array[String]

@@ -60,7 +60,7 @@ func randomize_objective() -> void:
 		quest_type += 1 * RandomService.array_pick_random('cog_quest_types', [-1, 1])
 	
 	# no specific!!
-	if Util.get_player().stats.can_get_specific_cog_quests and quest_type == 1:
+	if !Util.get_player().stats.can_get_specific_cog_quests and quest_type == 1:
 		quest_type = 0
 	
 	var minimum_level := maxi(1, min(4, Util.floor_number + 1))

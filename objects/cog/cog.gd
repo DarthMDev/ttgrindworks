@@ -621,6 +621,7 @@ static func get_department_name(dept: CogDNA.CogDept) -> String:
 	
 ## TWITCH
 var chatter: TwitchChatter
+var chatter_double: TwitchChatter
 var chatters: TwitchGetChatters.Response
 var show_chatter_buffs := false
 
@@ -635,25 +636,40 @@ func twitch_setup():
 func assign_chatter():
 	chatters = await Twitch.api.get_chatters(null, Twitch._current_user.id, Twitch._current_user.id)
 	var check_cog_chatter = func(data: TwitchChatter):
-		return data.user_id not in Twitch.cog_chatter_ids
+		return data.user_id not in Twitch.cog_chatter_ids && data.user_name.to_lower() not in Twitch.cog_chatter_blacklist && data.user_id != Twitch._current_user.id
 	var filtered_data = chatters.data.filter(check_cog_chatter)
 	if filtered_data.size() < 1:
 		Twitch.cog_chatter_ids.clear()
-		filtered_data = chatters.data
+		for chatcog in Twitch.chatter_cogs:
+			if chatcog.chatter is TwitchChatter:
+				Twitch.cog_chatter_ids.append(chatcog.chatter.user_id)
+		filtered_data = chatters.data.filter(check_cog_chatter)
+	#fusion!!
+	if fusion:
+		set_chatter(filtered_data.pop_at(randi() % filtered_data.size()), true)
 	set_chatter(filtered_data.pick_random())
 
-func set_chatter(_chatter: TwitchChatter = null):
-	if _chatter is TwitchChatter:
+func set_chatter(_chatter: TwitchChatter = null, double := false):
+	if _chatter is not TwitchChatter:
+		return
+	if double:
+		chatter_double = _chatter
+		print("Assigning chatter double " + chatter.user_name)
+		Twitch.cog_chatter_ids.append(chatter.user_id)
+		body.nametag.text = "+\n" + chatter_double.user_name + "\n" + body.nametag.text
+	else:
 		chatter = _chatter
-	if chatter is TwitchChatter:
 		print("Assigning chatter " + chatter.user_name)
 		Twitch.cog_chatter_ids.append(chatter.user_id)
+		Twitch.chatter_cogs.append(self)
 		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
 		
 func parse_chat(chat_message: TwitchChatMessage):
 	if chatter is not TwitchChatter:
 		return
-	if chat_message.chatter_user_id != chatter.user_id:
+	if chat_message.chatter_user_id != chatter.user_id && chatter_double is not TwitchChatter:
+		return
+	if chat_message.chatter_user_id != chatter_double.user_id:
 		return
 	var txt: String = chat_message.message.text
 	if txt[0] == '!' and txt.length() > 1:

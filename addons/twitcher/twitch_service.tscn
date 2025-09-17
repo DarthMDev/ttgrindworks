@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://djt5lvmwxbq4a"]
+[gd_scene load_steps=27 format=3 uid="uid://djt5lvmwxbq4a"]
 
 [ext_resource type="Script" uid="uid://i8st3lv0lidh" path="res://addons/twitcher/twitch_service.gd" id="1_6jm7q"]
 [ext_resource type="Script" uid="uid://cw30cwveway65" path="res://addons/twitcher/generated/twitch_api.gd" id="1_yq54x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b3n3et8mebjcc" path="res://addons/twitcher/auth/twitch_oauth_scopes.gd" id="4_vxgdn"]
 [ext_resource type="Resource" uid="uid://c4scwuk8q0r40" path="res://addons/twitcher/lib/oOuch/default_key_provider.tres" id="5_d0wii"]
 [ext_resource type="Script" uid="uid://b52xp7c23ucfk" path="res://addons/twitcher/lib/oOuch/oauth_token.gd" id="6_xauxa"]
+[ext_resource type="Script" uid="uid://d0och515dnpht" path="res://addons/twitcher/generated/twitch_chatter.gd" id="7_e4oo5"]
 [ext_resource type="Script" uid="uid://bf0wi70haua35" path="res://addons/twitcher/lib/oOuch/oauth.gd" id="8_v2pwk"]
 [ext_resource type="Script" uid="uid://blnbogtrshw4r" path="res://addons/twitcher/auth/twitch_token_handler.gd" id="9_n5rs1"]
 [ext_resource type="Script" uid="uid://iv0mgv0lu8b0" path="res://addons/twitcher/auth/twitch_auth.gd" id="10_bqnqx"]
@@ -44,6 +45,20 @@ script = ExtResource("6_xauxa")
 _crypto_key_provider = ExtResource("5_d0wii")
 _identifier = "EditorToken"
 _cache_path = "user://auth.conf"
+
+[sub_resource type="Resource" id="Resource_d0wii"]
+script = ExtResource("7_e4oo5")
+user_id = "19264788"
+user_login = "Nightbot"
+user_name = "nightbot"
+metadata/_custom_type_script = "uid://d0och515dnpht"
+
+[sub_resource type="Resource" id="Resource_xauxa"]
+script = ExtResource("7_e4oo5")
+user_id = "100135110"
+user_login = "StreamElements"
+user_name = "streamelements"
+metadata/_custom_type_script = "uid://d0och515dnpht"
 
 [sub_resource type="Resource" id="Resource_nmcm3"]
 script = ExtResource("12_uvps8")
@@ -83,6 +98,7 @@ script = ExtResource("1_6jm7q")
 oauth_setting = SubResource("Resource_jxof5")
 scopes = SubResource("Resource_f6sg1")
 token = SubResource("Resource_muokf")
+cog_chatter_blacklist = Array[ExtResource("7_e4oo5")]([SubResource("Resource_d0wii"), SubResource("Resource_xauxa")])
 
 [node name="EventSub" type="Node" parent="." node_paths=PackedStringArray("api")]
 script = ExtResource("3_x3t7l")
@@ -120,7 +136,7 @@ image_transformer = SubResource("Resource_nmcm3")
 script = ExtResource("13_j0p3d")
 broadcaster_user = SubResource("Resource_e4oo5")
 sender_user = SubResource("Resource_vxgdn")
-media_loader = NodePath("")
-eventsub = NodePath("")
-api = NodePath("")
+media_loader = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/MediaLoader")
+eventsub = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/EventSub")
+api = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/API")
 metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
