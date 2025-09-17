@@ -78,6 +78,7 @@ email = ""
 created_at = "2015-06-30T23:37:33Z"
 
 [node name="TwitchService" type="Node"]
+process_mode = 3
 script = ExtResource("1_6jm7q")
 oauth_setting = SubResource("Resource_jxof5")
 scopes = SubResource("Resource_f6sg1")

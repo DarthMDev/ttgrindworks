@@ -2,7 +2,10 @@ extends Node
 
 var CIRCLE_TRANSITION: PackedScene
 var LOSE_MENU: PackedScene
+var CHATBOX_VOTE_MENU : PackedScene
 var CHATTER_BUFFS: Resource
+
+var twitch_active := false
 
 # Global Refs
 var player : Player:
@@ -91,7 +94,8 @@ func _init():
 		GameLoader.Phase.GAMEPLAY, self, {
 			'LOSE_MENU': 'res://objects/player/ui/lose_menu.tscn',
 			## Twitch
-			'CHATTER_BUFFS': 'res://gtstreamer/chatter_buffs.tres'
+			'CHATTER_BUFFS': 'res://gtstreamer/chatter_buffs.tres',
+			'CHATBOX_VOTE_MENU': "res://gtstreamer/chatterbox/chatterbox_menu.tscn",
 		}
 	)
 
@@ -348,3 +352,26 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 
 func get_chatter_buff_list():
 	return CHATTER_BUFFS.buffs
+
+static func get_item_description(_item : Item) -> String:
+	var string := ""
+	
+	# Start with the item name
+	# Color it to the item's shop color
+	# Make it 1.2x the font size
+	string += "[color=%s]%s\n[/color]" % [_item.shop_category_color.to_html(), _item.item_name]
+	
+	# Now: Append the star rating
+	var qualitoon_as_int : int = (_item.qualitoon as int) + 1
+	for i in 5:
+		if qualitoon_as_int > i:
+			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star.png[/img]"
+		else:
+			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star_unfilled.png[/img]"
+	
+	# Now simply append the description
+	string += "\n%s" % _item.big_description
+	
+	
+	
+	return string

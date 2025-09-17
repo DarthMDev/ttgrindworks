@@ -77,33 +77,11 @@ func spawn_item() -> void:
 		model.setup(item)
 	
 	# Set up the description bubble
-	description_bubble.set_text(get_item_description(item))
+	description_bubble.set_text(Util.get_item_description(item))
 
 
 const QUALITY_STAR := "res://ui_assets/misc/quality_star.png"
 const QUALITY_STAR_UNFILLED := "res://ui_assets/misc/quality_star_unfilled.png"
-static func get_item_description(_item : Item) -> String:
-	var string := ""
-	
-	# Start with the item name
-	# Color it to the item's shop color
-	# Make it 1.2x the font size
-	string += "[color=%s]%s\n[/color]" % [_item.shop_category_color.to_html(), _item.item_name]
-	
-	# Now: Append the star rating
-	var qualitoon_as_int : int = (_item.qualitoon as int) + 1
-	for i in 5:
-		if qualitoon_as_int > i:
-			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star.png[/img]"
-		else:
-			string += "[img=center,center,width=2,height=2]res://ui_assets/misc/quality_star_unfilled.png[/img]"
-	
-	# Now simply append the description
-	string += "\n%s" % _item.big_description
-	
-	
-	
-	return string
 
 func reroll() -> void:
 	if model:
@@ -235,7 +213,7 @@ func swap_item(swapped_item : Item) -> void:
 		func():
 			set_monitoring.call_deferred(true)
 			$ReactionArea.set_monitoring.call_deferred(true)
-			description_bubble.set_text(get_item_description(item))
+			description_bubble.set_text(Util.get_item_description(item))
 	)
 
 func apply_item() -> void:

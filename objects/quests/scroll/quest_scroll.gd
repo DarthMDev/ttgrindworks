@@ -51,7 +51,7 @@ func update_quest() -> void:
 	#goal_icon.texture = Cog.get_department_emblem(quest.goal_dept)
 	
 	if quest.item_reward:
-		set_item(quest.item_reward)
+		%NodeViewer.set_item(quest.item_reward)
 	
 	if quest.current_amount >= quest.quota:
 		$QuestBG.self_modulate = Color("cfffca")
@@ -66,14 +66,6 @@ func update_quest() -> void:
 		icon_viewer.node = quest.get_3d_model()
 	else:
 		icon.texture = await quest.get_icon()
-
-func set_item(item: Item) -> void:
-	var item_model = item.model.instantiate()
-	%NodeViewer.camera_position_offset = item.ui_cam_offset
-	%NodeViewer.node = item_model
-	%NodeViewer.want_spin_tween = item.want_ui_spin
-	if item_model.has_method('setup'):
-		item_model.setup(item)
 
 func hover_item() -> void:
 	Util.do_item_hover(quest.item_reward)

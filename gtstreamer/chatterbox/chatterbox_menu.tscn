@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://evipmk7hafpi"]
+
+[ext_resource type="Script" uid="uid://scn15d83pb0y" path="res://gtstreamer/chatterbox/chatterbox_menu.gd" id="1_2gesg"]
+[ext_resource type="Shader" uid="uid://dri3mi0a32658" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="1_c8kw7"]
+[ext_resource type="Resource" uid="uid://dwajf7qf15eas" path="res://objects/items/pools/accessories.tres" id="2_2gesg"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_q3um3"]
+[ext_resource type="PackedScene" uid="uid://tbpfrswp304p" path="res://gtstreamer/chatterbox/chatterbox_choice.tscn" id="4_q3um3"]
+[ext_resource type="PackedScene" uid="uid://iprh7uid48eg" path="res://objects/battle/misc_battle_objects/timer/battle_timer.tscn" id="5_vgtrx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e42yw"]
+shader = ExtResource("1_c8kw7")
+shader_parameter/strength = 10.0
+shader_parameter/sample_power = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_almky"]
+font = ExtResource("2_q3um3")
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3um3"]
+font = ExtResource("2_q3um3")
+font_size = 48
+font_color = Color(1, 0.866667, 0.878431, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="ChatterboxMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2gesg")
+item_pool = ExtResource("2_2gesg")
+offline = true
+
+[node name="Blur" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_e42yw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.856067, 0.856067, 0.856067, 1)
+
+[node name="VoteTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -48.0
+offset_right = 215.0
+offset_bottom = -14.9995
+grow_horizontal = 2
+grow_vertical = 0
+text = "Vote For The Next Item!"
+label_settings = SubResource("LabelSettings_almky")
+horizontal_alignment = 1
+
+[node name="VoteTitle2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -368.0
+offset_top = 32.0
+offset_right = 369.0
+offset_bottom = 81.0
+grow_horizontal = 2
+text = "Choose the WORST option"
+label_settings = SubResource("LabelSettings_q3um3")
+horizontal_alignment = 1
+
+[node name="ChatterboxChoices" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChatterboxChoice1" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
+layout_mode = 0
+offset_left = -521.0
+offset_top = -172.0
+offset_right = -172.0
+offset_bottom = 252.0
+
+[node name="ChatterboxChoice2" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
+layout_mode = 1
+offset_left = -175.0
+offset_top = -172.0
+offset_right = 174.0
+offset_bottom = 252.0
+
+[node name="ChatterboxChoice3" parent="ChatterboxChoices" instance=ExtResource("4_q3um3")]
+layout_mode = 1
+offset_left = 170.0
+offset_top = -172.0
+offset_right = 519.0
+offset_bottom = 252.0
+
+[node name="BattleTimer" parent="." instance=ExtResource("5_vgtrx")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 30.0
+offset_top = -136.0
+offset_right = 153.0
+offset_bottom = -15.0
+grow_horizontal = 1

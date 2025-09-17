@@ -333,8 +333,6 @@ texture_normal = ExtResource("8_v5yml")
 texture_pressed = ExtResource("9_2kyfp")
 texture_hover = ExtResource("10_5vx2a")
 texture_disabled = null
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Collect"
 
 [node name="Label" parent="QuestBG/CollectButton" index="0"]
@@ -353,8 +351,6 @@ texture_normal = ExtResource("11_y86ue")
 texture_pressed = ExtResource("12_4jfhj")
 texture_hover = ExtResource("13_qsmcp")
 texture_disabled = null
-hover_db_offset = 6.0
-press_db_offset = 0.0
 
 [node name="RerollLabel" type="Label" parent="QuestBG"]
 unique_name_in_owner = true

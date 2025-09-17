@@ -868,6 +868,6 @@ func chatter_take_buff(cog: Cog, id_str: String):
 	add_status_effect(effect)
 	chatter_buff_choices[cog] = []
 	Util.get_player().boost_queue.queue_text(cog.chatter.user_name + " gained " + effect.status_name + "!", Color(0.937, 0.278, 0.278))
-	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
+	AudioManager.play_sound(load("res://audio/sfx/objects/spotlight/LB_laser_beam_on_2.ogg"))
 	BattleService.ongoing_battle.battle_ui.cog_panels.refresh()
 	# BattleService.s_refresh_statuses.emit()

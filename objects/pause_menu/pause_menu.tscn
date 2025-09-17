@@ -541,7 +541,6 @@ color = Color(0.856067, 0.856067, 0.856067, 1)
 
 [node name="Pages" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -942,7 +941,6 @@ hide_close_button = true
 
 [node name="TopLevelElements" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

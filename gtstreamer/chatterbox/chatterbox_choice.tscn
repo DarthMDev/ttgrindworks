@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3 uid="uid://tbpfrswp304p"]
+
+[ext_resource type="Texture2D" uid="uid://6jo5d4qtcd44" path="res://ui_assets/general/panel.png" id="1_ahrin"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_ahrin"]
+[ext_resource type="Script" uid="uid://glooaxmhp0yq" path="res://gtstreamer/chatterbox/chatterbox_choice.gd" id="2_mb6ne"]
+[ext_resource type="Texture2D" uid="uid://8vj8pdavmefi" path="res://models/accessories/hats/fedora/fedora.glb-pix-1.png" id="3_mb6ne"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="4_ifuft"]
+[ext_resource type="Texture2D" uid="uid://b2o24v215dtbn" path="res://ui_assets/misc/chatbox2.png" id="4_jk2nr"]
+[ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="6_mb6ne"]
+[ext_resource type="Script" uid="uid://jeqjlal3icik" path="res://gtstreamer/speech_bubble_2d.gd" id="6_reoar"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbjx2"]
+font = ExtResource("2_ahrin")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.211765)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ifuft"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifuft"]
+font = ExtResource("4_ifuft")
+font_size = 48
+font_color = Color(0.317647, 0.737255, 0.337255, 1)
+outline_size = 8
+outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 0.866667)
+
+[node name="ChatterboxChoice" type="NinePatchRect"]
+texture_filter = 4
+offset_right = 349.0
+offset_bottom = 424.0
+texture = ExtResource("1_ahrin")
+region_rect = Rect2(0, 0, 512, 512)
+patch_margin_left = 52
+patch_margin_top = 52
+patch_margin_right = 52
+patch_margin_bottom = 52
+script = ExtResource("2_mb6ne")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.5
+offset_top = -384.0
+offset_right = 129.5
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_mb6ne")
+
+[node name="VoteLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.5
+offset_top = -160.0
+offset_right = 129.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "!1: Fedora
+Votes: 0 (0%)"
+label_settings = SubResource("LabelSettings_tbjx2")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NodeViewer" parent="." instance=ExtResource("6_mb6ne")]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 565.0
+offset_bottom = 576.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_ifuft")
+
+[node name="SpeechBubble" type="Control" parent="."]
+process_priority = 1000
+z_index = 100
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 96.0
+offset_right = 56.0
+offset_bottom = 96.0
+mouse_filter = 2
+script = ExtResource("6_reoar")
+auto_expire = false
+
+[node name="Bubble" type="TextureRect" parent="SpeechBubble"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = -242.0
+offset_right = 512.0
+scale = Vector2(0.1, 0.2)
+pivot_offset = Vector2(0, 242)
+mouse_filter = 2
+texture = ExtResource("4_jk2nr")
+
+[node name="TextPos" type="Control" parent="SpeechBubble/Bubble"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 30.0
+offset_bottom = 20.0
+
+[node name="Text" type="RichTextLabel" parent="SpeechBubble"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = -41.9
+offset_right = 302.001
+offset_bottom = 214.1
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("2_ahrin")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = true
+
+[node name="ExtraVoteLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -212.0
+offset_right = 204.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "!1"
+label_settings = SubResource("LabelSettings_ifuft")
+horizontal_alignment = 1
+vertical_alignment = 1

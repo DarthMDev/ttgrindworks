@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://d0xkjitqvcnb3" path="res://ui_assets/battle/statuses/squirt_immunity.png" id="2_4p6cg"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_ik6mp"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_j8l4h"]
+[sub_resource type="LabelSettings" id="LabelSettings_4p6cg"]
 resource_local_to_scene = true
 font = ExtResource("1_1u3r7")
 font_size = 36
-font_color = Color(0.999911, 0.640551, 0.225015, 1)
+font_color = Color(0.861073, 0.891202, 0.872777, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
@@ -35,6 +35,8 @@ shadow_offset = Vector2(2, 2)
 
 [node name="ChatterPanelHBox" type="HBoxContainer"]
 custom_minimum_size = Vector2(1000, 0)
+offset_right = 1000.0
+offset_bottom = 128.0
 alignment = 2
 script = ExtResource("1_4p6cg")
 
@@ -45,7 +47,7 @@ alignment = 1
 [node name="ChatterTwitchNameLabel" type="Label" parent="ChatterNamesVBox"]
 layout_mode = 2
 text = "NameOfChatter25"
-label_settings = SubResource("LabelSettings_j8l4h")
+label_settings = SubResource("LabelSettings_4p6cg")
 horizontal_alignment = 2
 
 [node name="ChatterCogNameLabel" type="Label" parent="ChatterNamesVBox"]

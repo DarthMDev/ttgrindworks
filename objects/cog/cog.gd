@@ -625,7 +625,8 @@ var chatters: TwitchGetChatters.Response
 var show_chatter_buffs := false
 
 func twitch_setup():
-	if !Twitch.is_configured():
+	#if !Twitch.is_configured():
+	if !Util.twitch_active:
 		return
 	Twitch.twitch_chat.message_received.connect(parse_chat)
 	if chatter is not TwitchChatter:
@@ -661,6 +662,8 @@ func parse_chat(chat_message: TwitchChatMessage):
 		relay_chat(chat_message)
 
 func do_chatter_command(command: String):
+	if BattleService.ongoing_battle is not BattleManager:
+		return
 	BattleService.ongoing_battle.chatter_take_buff(self, command)
 
 func relay_chat(chat_message: TwitchChatMessage):

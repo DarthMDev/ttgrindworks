@@ -385,6 +385,7 @@ func setup_twitch():
 
 	if setup_successful:
 		print("Twitch Service successfully set up and authenticated!")
+		Util.twitch_active = true
 			# Now you can proceed with other Twitch interactions
 		await get_self_info()
 		await show_streamer_details()

@@ -28,7 +28,7 @@ extends TextureRect
 			adjust_cam()
 		test = false
 
-@onready var sub_viewport: SubViewport = %SubViewport
+@onready var sub_viewport: SubViewport = $SubViewport
 
 var spin_tween: Tween:
 	set(x):
@@ -60,3 +60,11 @@ func setup_tween() -> void:
 		spin_tween.tween_property(node, 'rotation_degrees:y', 360.0, 4.0)
 		spin_tween.tween_property(node, 'rotation_degrees:y', 0, 0.0)
 		spin_tween.set_loops()
+
+func set_item(item: Item) -> void:
+	var item_model = item.model.instantiate()
+	camera_position_offset = item.ui_cam_offset
+	node = item_model
+	want_spin_tween = item.want_ui_spin
+	if item_model.has_method('setup'):
+		item_model.setup(item)

@@ -235,7 +235,7 @@ func _process(_delta: float) -> void:
 		complete_turn()
 
 ## Twitch
-var chatter_prompt_time = 7.0
+var chatter_prompt_time = 11.0
 
 func show_chatter_buffs(cogs: Array[Cog]):
 	%BuffYourCogContainer.show()
@@ -247,6 +247,7 @@ func show_chatter_buffs(cogs: Array[Cog]):
 		byc_panel.buffs.assign(manager.chatter_buff_choices[cog].duplicate())
 		%ChatterListVBox.add_child(byc_panel)
 	timer = Util.run_timer(chatter_prompt_time, Control.PRESET_BOTTOM_LEFT)
+	timer.z_index = 100
 	timer.timer.timeout.connect(hide_byc)
 	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
 

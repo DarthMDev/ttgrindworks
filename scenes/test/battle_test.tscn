@@ -188,6 +188,7 @@ lawbot_boost = 1.0
 bossbot_boost = 1.0
 proxy_chance_boost = 0.0
 cog_hp_death_threshold = 0.0
+can_get_specific_cog_quests = true
 battle_timers = Array[int]([])
 damage = 2.0
 defense = 1.25
@@ -259,4 +260,64 @@ override_item = ExtResource("27_4p2an")
 
 [node name="treasure_chest5" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65817, 0, -5.41882)
+override_item = ExtResource("28_qncha")
+
+[node name="treasure_chest6" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7759, 0, -5.41882)
+override_item = ExtResource("24_16xtn")
+
+[node name="treasure_chest7" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6577, 0, -5.41882)
+override_item = ExtResource("25_1xuw6")
+
+[node name="treasure_chest8" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2183, 0, -5.41882)
+override_item = ExtResource("26_16xtn")
+
+[node name="treasure_chest9" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7468, 0, -5.41882)
+override_item = ExtResource("27_4p2an")
+
+[node name="treasure_chest10" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3464, 0, -5.41882)
+override_item = ExtResource("28_qncha")
+
+[node name="treasure_chest11" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7759, 0, -2.39646)
+override_item = ExtResource("24_16xtn")
+
+[node name="treasure_chest12" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6577, 0, -2.39646)
+override_item = ExtResource("25_1xuw6")
+
+[node name="treasure_chest13" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2183, 0, -2.39646)
+override_item = ExtResource("26_16xtn")
+
+[node name="treasure_chest14" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7468, 0, -2.39646)
+override_item = ExtResource("27_4p2an")
+
+[node name="treasure_chest15" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3464, 0, -2.39646)
+override_item = ExtResource("28_qncha")
+
+[node name="treasure_chest16" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7759, 0, 0.548257)
+override_item = ExtResource("24_16xtn")
+
+[node name="treasure_chest17" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6577, 0, 0.548257)
+override_item = ExtResource("25_1xuw6")
+
+[node name="treasure_chest18" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2183, 0, 0.548257)
+override_item = ExtResource("26_16xtn")
+
+[node name="treasure_chest19" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7468, 0, 0.548257)
+override_item = ExtResource("27_4p2an")
+
+[node name="treasure_chest20" parent="." instance=ExtResource("23_16xtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3464, 0, 0.548257)
 override_item = ExtResource("28_qncha")

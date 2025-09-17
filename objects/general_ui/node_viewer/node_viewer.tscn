@@ -13,7 +13,6 @@ script = ExtResource("1_iqgby")
 camera = NodePath("SubViewport/Camera3D")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-unique_name_in_owner = true
 physics_interpolation_mode = 2
 own_world_3d = true
 transparent_bg = true

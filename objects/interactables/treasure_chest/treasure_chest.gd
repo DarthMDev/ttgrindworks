@@ -27,6 +27,21 @@ var SFX_OPEN: AudioStreamOggVorbis
 @onready var chest : Node3D = %Chest
 @onready var light_ray : MeshInstance3D = $Chest/Lightray
 
+## Twitch
+@export var is_chatbox := false:
+	set(x):
+		if x == is_chatbox:
+			return
+		else:
+			is_chatbox = x
+			if not is_node_ready():
+				await ready
+			if texture_lock: return
+			update_texture(get_chest_tex())
+			set_ray_gradient(get_ray_gradient())
+		
+var chatbox_chance := 0.4 # 0.25
+
 
 ## For texture swap
 const SPECIAL_TEXTURE := preload("res://models/props/treasure_chest/RewardChest.png")
@@ -35,6 +50,7 @@ const DOODLE_TEXTURE := preload("res://models/props/treasure_chest/TreasureChest
 const GOLD_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestGold.png")
 const SILVER_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestSilver.png")
 const BRONZE_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestBronze.png")
+const PURPLE_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestPurple.png")
 var POOL_TEXTURES : Dictionary[String, Texture2D] = {
 	"res://objects/items/pools/special_items.tres" : SPECIAL_TEXTURE,
 	"res://objects/items/pools/rewards.tres" : GOLD_TEXTURE,
@@ -93,14 +109,24 @@ func body_entered(body: Node3D) -> void:
 func open():
 	AudioManager.play_sound(SFX_OPEN)
 	$AnimationPlayer.play('open')
-	var item: WorldItem = WORLD_ITEM.instantiate()
-	item.override_replacement_rolls = override_replacement_rolls
-	assign_item(item)
-	$Item.add_child(item)
-	s_opened.emit()
-	light_ray.show()
-	item.s_collected.connect(kill_the_lights, CONNECT_ONE_SHOT)
-	item.s_destroyed.connect(kill_the_lights)
+	
+	if is_chatbox:
+		print("I am a chatbox!")
+		var chatbox_menu = Util.CHATBOX_VOTE_MENU.instantiate()
+		chatbox_menu.item_pool = item_pool
+		get_tree().get_root().add_child(chatbox_menu)
+		s_opened.emit()
+		kill_the_lights()
+	else:
+		var item: WorldItem
+		item = WORLD_ITEM.instantiate()
+		item.override_replacement_rolls = override_replacement_rolls
+		assign_item(item)
+		$Item.add_child(item)
+		s_opened.emit()
+		light_ray.show()
+		item.s_collected.connect(kill_the_lights, CONNECT_ONE_SHOT)
+		item.s_destroyed.connect(kill_the_lights)
 
 func kill_the_lights() -> void:
 	var shader : ShaderMaterial = light_ray.get_surface_override_material(0)
@@ -135,7 +161,14 @@ func _ready() -> void:
 	elif item_pool.resource_path == "res://objects/items/pools/special_items.tres":
 		override_replacement_rolls = true
 	
+	if item_pool.resource_path != "res://objects/items/pools/special_items.tres":
+		roll_chatbox_chance()
+	
 	Globals.s_chest_spawned.emit(self)
+	
+
+func roll_chatbox_chance() -> void:
+	is_chatbox = (RandomService.randf_channel('twitch') < chatbox_chance) && !scripted_progression
 
 func do_reroll_chance() -> void:
 	var reward_chest_roll := RandomService.randf_channel('chest_rolls')
@@ -149,6 +182,8 @@ func do_reroll_chance() -> void:
 		item_pool = ItemService.PROGRESSIVE_POOL
 
 func get_chest_tex() -> Texture2D:
+	if is_chatbox:
+		return PURPLE_TEXTURE
 	var texture : Texture2D
 	if item_pool:
 		if item_pool.resource_path in POOL_TEXTURES.keys():
