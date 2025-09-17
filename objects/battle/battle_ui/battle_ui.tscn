@@ -2829,21 +2829,21 @@ font_color = Color(0, 0, 1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_38lnm"]
 resource_local_to_scene = true
 font = ExtResource("27_k5f0o")
-font_size = 40
+font_size = 32
 font_color = Color(0.947933, 0.890059, 1, 1)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="LabelSettings" id="LabelSettings_j8l4h"]
+[sub_resource type="LabelSettings" id="LabelSettings_iqdos"]
 resource_local_to_scene = true
 font = ExtResource("28_5hdm6")
 font_size = 36
-font_color = Color(0.999911, 0.640551, 0.225015, 1)
+font_color = Color(0.984314, 0.501961, 0.388235, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
+shadow_offset = Vector2(4, 4)
 
 [node name="BattleUI" type="CanvasLayer"]
 script = ExtResource("1_8x8hy")
@@ -3295,21 +3295,22 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.768627)
 
 [node name="WaitingLabel" type="Label" parent="BuffYourCogContainer/ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -478.0
-offset_top = -72.0
-offset_right = -25.0
-offset_bottom = -11.0
+offset_left = -800.0
+offset_top = -64.0
+offset_right = -347.0
+offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Waiting for Chatters..."
 label_settings = SubResource("LabelSettings_38lnm")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="PromptChattersLabel" type="Label" parent="BuffYourCogContainer/ColorRect"]
@@ -3323,7 +3324,7 @@ offset_right = 150.0
 offset_bottom = 60.0
 grow_horizontal = 2
 text = "Buff Your Cog!"
-label_settings = SubResource("LabelSettings_j8l4h")
+label_settings = SubResource("LabelSettings_iqdos")
 horizontal_alignment = 1
 
 [node name="ChatterListVBox" type="VBoxContainer" parent="BuffYourCogContainer/ColorRect"]
@@ -3334,13 +3335,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -222.0
-offset_right = 520.0
-offset_bottom = 302.0
+offset_left = -416.0
+offset_top = -268.0
+offset_right = 584.0
+offset_bottom = 388.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 96
+alignment = 1
 
 [node name="ChatterPanelHBox" parent="BuffYourCogContainer/ColorRect/ChatterListVBox" instance_placeholder="res://gtstreamer/byc_chatter_panel.tscn"]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cabx6b2hjdr32"]
+[gd_scene load_steps=9 format=3 uid="uid://cabx6b2hjdr32"]
 
 [ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="1_1u3r7"]
 [ext_resource type="Script" uid="uid://bivc755kkbyfi" path="res://gtstreamer/byc_chatter_panel.gd" id="1_4p6cg"]
@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_4p6cg"]
 resource_local_to_scene = true
 font = ExtResource("1_1u3r7")
-font_size = 36
+font_size = 44
 font_color = Color(0.861073, 0.891202, 0.872777, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
@@ -33,10 +33,23 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dcn33"]
+resource_local_to_scene = true
+line_spacing = -2.0
+font = ExtResource("3_ik6mp")
+font_size = 20
+font_color = Color(0.947933, 0.890059, 1, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 0.756863)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
 [node name="ChatterPanelHBox" type="HBoxContainer"]
 custom_minimum_size = Vector2(1000, 0)
 offset_right = 1000.0
 offset_bottom = 128.0
+theme_override_constants/separation = 64
 alignment = 2
 script = ExtResource("1_4p6cg")
 
@@ -58,66 +71,88 @@ horizontal_alignment = 2
 
 [node name="BuffListHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 96
 
 [node name="Buff1" type="TextureRect" parent="BuffListHBox"]
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 texture = ExtResource("2_4p6cg")
-stretch_mode = 2
+expand_mode = 1
+stretch_mode = 4
 
 [node name="BuffLabel1" type="Label" parent="BuffListHBox/Buff1"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -39.5
-offset_top = -63.0
-offset_right = 3.5
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 107.0
+offset_bottom = 101.0
 text = "!1"
 label_settings = SubResource("LabelSettings_38lnm")
 
+[node name="BuffDesciptionLabel1" type="Label" parent="BuffListHBox/Buff1"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 88.0
+offset_right = 132.0
+offset_bottom = 191.0
+text = "Squirt
+Immunity
+(3 Rds)"
+label_settings = SubResource("LabelSettings_dcn33")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Buff2" type="TextureRect" parent="BuffListHBox"]
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 texture = ExtResource("2_4p6cg")
-stretch_mode = 2
+expand_mode = 1
+stretch_mode = 4
 
 [node name="BuffLabel2" type="Label" parent="BuffListHBox/Buff2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.5
-offset_top = -63.0
-offset_right = 3.5
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 109.0
+offset_bottom = 101.0
 text = "!2"
 label_settings = SubResource("LabelSettings_38lnm")
 
+[node name="BuffDesciptionLabel2" type="Label" parent="BuffListHBox/Buff2"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 88.0
+offset_right = 132.0
+offset_bottom = 191.0
+text = "Yoink!:
+Steal Another Cog's HP and Buffs"
+label_settings = SubResource("LabelSettings_dcn33")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Buff3" type="TextureRect" parent="BuffListHBox"]
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 texture = ExtResource("2_4p6cg")
-stretch_mode = 2
+expand_mode = 1
+stretch_mode = 4
 
 [node name="BuffLabel3" type="Label" parent="BuffListHBox/Buff3"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -42.5
-offset_top = -63.0
-offset_right = 3.5
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 110.0
+offset_bottom = 101.0
 text = "!3"
 label_settings = SubResource("LabelSettings_38lnm")
+
+[node name="BuffDesciptionLabel3" type="Label" parent="BuffListHBox/Buff3"]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 88.0
+offset_right = 132.0
+offset_bottom = 191.0
+text = "Inventory Mix-Up: Scramble Gag Points"
+label_settings = SubResource("LabelSettings_dcn33")
+horizontal_alignment = 1
+autowrap_mode = 2

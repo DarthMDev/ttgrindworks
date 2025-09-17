@@ -18,7 +18,9 @@ func _ready():
 	
 	var buff_texturerects: Array = display_buff.get_children()
 	var i = 0
-	for buff in buffs:
+	for buff: StatusEffect in buffs:
 		var tx: Texture2D = buff.get_icon()
 		buff_texturerects[i].texture = tx
+		var desc: Label = get_node("BuffListHBox/Buff" + str(i + 1) + "/BuffDesciptionLabel" + str(i + 1))
+		desc.text = buff.description
 		i += 1
