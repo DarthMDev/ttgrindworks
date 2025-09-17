@@ -240,6 +240,8 @@ var chatter_prompt_time = 11.0
 func show_chatter_buffs(cogs: Array[Cog]):
 	%BuffYourCogContainer.show()
 	for cog in cogs:
+		if cog.chatter is not TwitchChatter:
+			continue
 		var byc_panel = load("res://gtstreamer/byc_chatter_panel.tscn").instantiate()
 		byc_panel.name_chatter = cog.chatter.user_name
 		byc_panel.name_cog = cog.dna.cog_name + " Level " + str(cog.level)

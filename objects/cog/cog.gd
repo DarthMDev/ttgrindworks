@@ -669,8 +669,9 @@ func parse_chat(chat_message: TwitchChatMessage):
 		return
 	if chat_message.chatter_user_id != chatter.user_id && chatter_double is not TwitchChatter:
 		return
-	if chat_message.chatter_user_id != chatter_double.user_id:
-		return
+	if chatter_double is TwitchChatter:
+		if chat_message.chatter_user_id != chatter_double.user_id:
+			return
 	var txt: String = chat_message.message.text
 	if txt[0] == '!' and txt.length() > 1:
 		do_chatter_command(txt)
