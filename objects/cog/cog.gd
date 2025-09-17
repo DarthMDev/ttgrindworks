@@ -486,6 +486,8 @@ func lose():
 	await Util.barrier(explosion.animation_finished, 0.5)
 	explosion.hide()
 	gear_part.emitting = false
+	if chatter is TwitchChatter:
+		Twitch.chatter_cogs.erase(self)
 	queue_free()
 
 func do_knockback():

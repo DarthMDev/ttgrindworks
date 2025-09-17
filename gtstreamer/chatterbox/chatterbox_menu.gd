@@ -68,6 +68,7 @@ func set_vote(from_username: String, info: TwitchCommandInfo, args: PackedString
 			votes[twitch_voters[from_username]] -= 1
 		twitch_voters[from_username] = voted
 	print("Chatterbox: Setting vote for " + from_username + " to " + str(voted + 1))
+	AudioManager.play_sound(load("res://audio/sfx/ui/sfx_pop.ogg"))
 	votes[voted] += 1
 	update_vote_labels()
 
@@ -90,6 +91,18 @@ func choose_item() -> Item:
 	
 func collect() -> void:
 	var item = choose_item()
+	
+	# Check if the item is evergreen
+	if not item.evergreen and not item is ItemActive:
+		ItemService.seen_item(item)
+	elif item is ItemActive:
+		if not item.evergreen:
+			ItemService.seen_item(item)
+		item = item.duplicate()
+	else:
+		item = item.duplicate()
+	# Mark the item as in play
+	ItemService.item_created(item)
 	
 	item.apply_item(Util.get_player())
 	# Show UI
