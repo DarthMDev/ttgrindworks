@@ -22,6 +22,9 @@ var twitch_voters : Dictionary[String, int] = {}
 var total_votes := 0
 var votes : Array[int] = [0, 0, 0]
 
+var sweetener_range := 7
+var final_sweeteners : Dictionary[String, int] = {}
+
 #func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed('pause'):
 	#	resume()
@@ -40,6 +43,11 @@ func _ready() -> void:
 		panel.item_rect.texture = items[i].icon
 		panel.bubble.set_text(Util.get_item_description(items[i]))
 		panel.node_viewer.set_item(items[i])
+		var first_swt: String = RandomService.array_pick_random("chatterbox", Util.stat_strings)
+		panel.sweeteners = [
+			[first_swt, RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
+			[RandomService.array_pick_random("chatterbox", Util.stat_strings.filter(func(x): return x != first_swt)), -RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
+		]
 		i += 1
 	update_vote_labels()
 	if !Util.twitch_active and !offline:
@@ -76,7 +84,7 @@ func update_vote_labels() -> void:
 	var i := 0
 	for panel in panels:
 		panel.extra_vote_label.text = "!" + str(i + 1)
-		panel.vote_label.text = "!" + str(i + 1) + ": " + items[i].item_name + "\nVotes: " + str(votes[i])
+		panel.vote_label.text = "\nVotes: " + str(votes[i])
 		i += 1
 
 func choose_item() -> Item:
@@ -87,10 +95,14 @@ func choose_item() -> Item:
 			candidate[0] = i
 			candidate[1] = tally
 		i += 1
+	final_sweeteners[panels[candidate[0]].sweeteners[0][0]] = panels[candidate[0]].sweeteners[0][1]
+	final_sweeteners[panels[candidate[0]].sweeteners[1][0]] = panels[candidate[0]].sweeteners[1][1]
 	return items[candidate[0]]
 	
 func collect() -> void:
 	var item = choose_item()
+	for key in final_sweeteners.keys():
+		Util.get_player().stats[key] += (float(final_sweeteners[key]) * 0.01)
 	
 	# Check if the item is evergreen
 	if not item.evergreen and not item is ItemActive:

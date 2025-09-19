@@ -350,6 +350,14 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 
 ## Twitch
 
+var stat_strings = [
+	'damage',
+	'defense',
+	'evasiveness',
+	'luck',
+	'speed'
+]
+
 func get_chatter_buff_list():
 	return CHATTER_BUFFS.buffs
 

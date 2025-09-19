@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://tbpfrswp304p"]
+[gd_scene load_steps=14 format=3 uid="uid://tbpfrswp304p"]
 
 [ext_resource type="Texture2D" uid="uid://6jo5d4qtcd44" path="res://ui_assets/general/panel.png" id="1_ahrin"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_ahrin"]
@@ -21,12 +21,25 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ifuft"]
 font = ExtResource("4_ifuft")
-font_size = 48
+font_size = 64
 font_color = Color(0.317647, 0.737255, 0.337255, 1)
-outline_size = 8
+outline_size = 24
 outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
-shadow_size = 12
+shadow_size = 17
 shadow_color = Color(0, 0, 0, 0.866667)
+shadow_offset = Vector2(8.64, 1.925)
+
+[sub_resource type="LabelSettings" id="LabelSettings_reoar"]
+font = ExtResource("4_ifuft")
+font_size = 20
+font_color = Color(0.3, 0.9, 0.3, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jk2nr"]
+font = ExtResource("4_ifuft")
+font_size = 20
+font_color = Color(0.9, 0.3, 0.3, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="ChatterboxChoice" type="NinePatchRect"]
 texture_filter = 4
@@ -64,9 +77,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -129.5
-offset_top = -128.0
+offset_top = -80.0
 offset_right = 129.5
-offset_bottom = -96.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Votes: 0 (0%)"
@@ -76,9 +89,9 @@ horizontal_alignment = 1
 [node name="NodeViewer" parent="." instance=ExtResource("6_mb6ne")]
 layout_mode = 0
 offset_left = 53.0
-offset_top = 64.0
+offset_top = 40.0
 offset_right = 565.0
-offset_bottom = 576.0
+offset_bottom = 552.0
 scale = Vector2(0.5, 0.5)
 texture = SubResource("ViewportTexture_ifuft")
 
@@ -97,8 +110,9 @@ auto_expire = false
 [node name="Bubble" type="TextureRect" parent="SpeechBubble"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_top = -242.0
+offset_top = -224.0
 offset_right = 512.0
+offset_bottom = 18.0
 scale = Vector2(0.1, 0.2)
 pivot_offset = Vector2(0, 242)
 mouse_filter = 2
@@ -134,13 +148,51 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -54.5
-offset_top = -212.0
-offset_right = 204.5
-offset_bottom = -107.0
+offset_left = -46.5
+offset_top = -216.0
+offset_right = 212.5
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "!1"
 label_settings = SubResource("LabelSettings_ifuft")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChangeStat" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+5% Evasiveness"
+label_settings = SubResource("LabelSettings_reoar")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChangeStat2" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = 108.0
+offset_right = 99.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-3% Damage"
+label_settings = SubResource("LabelSettings_jk2nr")
 horizontal_alignment = 1
 vertical_alignment = 1
