@@ -671,11 +671,9 @@ func set_chatter(_chatter: TwitchChatter, _chatter2: TwitchChatter = null):
 	body.nametag.text = chatter.user_name + "\n" + final_name
 
 func remove_curr_chatters():
-	var i = 0
-	for chatter_id in Twitch.cog_chatter_ids:
-		if (chatter_double and chatter_id == chatter_double.user_id) or chatter_id == chatter.user_id:
-			Twitch.cog_chatter_ids.remove_at(i)
-		i += 1
+	Twitch.cog_chatter_ids.erase(chatter)
+	if fusion:
+		Twitch.cog_chatter_ids.erase(chatter_double)
 		
 func parse_chat(chat_message: TwitchChatMessage):
 	if chatter is not TwitchChatter:
