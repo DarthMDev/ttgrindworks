@@ -131,6 +131,9 @@ func collect() -> void:
 	
 	# Play the item collection sound
 	item.play_collection_sound()
+	
+	if item.model.has_method('modify'):
+		item.model.modify(ui.model)
 	resume()
 
 func resume() -> void:
