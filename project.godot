@@ -15,8 +15,8 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 [application]
 
-config/name="Toontown: The Grindworks"
-config/version="1.1.3"
+config/name="Grindwork The Streamer"
+config/version="1.1.3.001"
 run/main_scene="res://scenes/title_screen/title_screen.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cgljrd8dis8an"

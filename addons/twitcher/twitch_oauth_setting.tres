@@ -18,4 +18,4 @@ cache_file = "user://auth.conf"
 client_id = "8ejycxah1sd4v23dvn55ai57otd3zh"
 authorization_flow = 0
 _encryption_key_provider = SubResource("Resource_54bgt")
-client_secret = "PVJBtwEU44pm851IIXzuly/i7F7a9v+lO6sy8PE1ZCE="
+client_secret = "92ROz8gMCZvZvMIvfFHKWn3ZArBhe1s0S6Qf9nhpb/8="
