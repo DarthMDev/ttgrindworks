@@ -836,7 +836,7 @@ func generate_chatter_buff_choices():
 			for i in chatter_buff_choice_amount:
 				cog.show_chatter_buffs = true
 				var effect: StatusEffect = RandomService.array_pick_random('true_random', chatter_buff_list).duplicate()
-				effect.randomize_effect()
+				#effect.randomize_effect()
 				chatter_buff_choices[cog].append(effect)
 		if chatter_buff_choices[cog].size() > 0:
 			pass
