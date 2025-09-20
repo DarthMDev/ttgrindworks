@@ -510,7 +510,8 @@ func do_knockback():
 
 # Make the cog say stuff
 func speak(phrase: String, want_sfx := true, twitch := false):
-	if not dna.can_speak: return
+	if not dna.can_speak and !twitch:
+		return
 	
 	# Check for existing speech bubble and remove it
 	for child in body.nametag_node.get_children():
@@ -645,7 +646,7 @@ func assign_chatter():
 	if filtered_data.size() < 1:
 		Twitch.cog_chatter_ids.clear()
 		for chatcog in Twitch.chatter_cogs:
-			if chatcog.chatter is TwitchChatter:
+			if chatcog.chatter is TwitchChatter and not chatcog.chatter.user_id in Twitch.cog_chatter_ids:
 				Twitch.cog_chatter_ids.append(chatcog.chatter.user_id)
 		filtered_data = chatters.data.filter(check_cog_chatter)
 	if fusion:
@@ -662,7 +663,7 @@ func set_chatter(_chatter: TwitchChatter, _chatter2: TwitchChatter = null):
 		chatter_double = _chatter2
 		print("Assigning chatter double " + chatter_double.user_name)
 		Twitch.cog_chatter_ids.append(chatter_double.user_id)
-		final_name = chatter_double.user_name + "\n" + base_name
+		final_name = chatter_double.user_name + "\n" + final_name
 	chatter = _chatter
 	print("Assigning chatter " + chatter.user_name)
 	Twitch.cog_chatter_ids.append(chatter.user_id)
