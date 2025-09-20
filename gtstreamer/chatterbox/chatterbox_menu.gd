@@ -22,7 +22,7 @@ var twitch_voters : Dictionary[String, int] = {}
 var total_votes := 0
 var votes : Array[int] = [0, 0, 0]
 
-var sweetener_range := 7
+var sweetener_range := 5
 var final_sweeteners : Dictionary[String, int] = {}
 
 #func _process(delta: float) -> void:
@@ -48,6 +48,8 @@ func _ready() -> void:
 			[first_swt, RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
 			[RandomService.array_pick_random("chatterbox", Util.stat_strings.filter(func(x): return x != first_swt)), -RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
 		]
+		if panel.sweeteners[1][0] == 'damage':
+			panel.sweeteners[1][1] = clamp(panel.sweeteners[1][1], 0, -3)
 		i += 1
 	update_vote_labels()
 	if !Util.twitch_active and !offline:
