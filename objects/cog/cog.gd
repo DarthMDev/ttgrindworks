@@ -54,6 +54,7 @@ var walk_speed := 4.0
 @onready var body_root := $Body
 @onready var drop_shadow: RayCast3D = %DropShadow
 var body: Node3D
+var base_name: String
 
 # Locals
 var animator: AnimationPlayer
@@ -236,6 +237,7 @@ func set_up_stats() -> void:
 	if dna.is_admin: new_text += '\nAdministrator'
 	if dna.custom_nametag_suffix: new_text += '\n%s' % dna.custom_nametag_suffix
 	body.nametag.text = new_text
+	base_name = new_text
 	body.nametag_node.update_position(new_text)
 	if not stats.hp_changed.is_connected(update_health_light):
 		stats.hp_changed.connect(update_health_light.unbind(1))
@@ -646,25 +648,33 @@ func assign_chatter():
 			if chatcog.chatter is TwitchChatter:
 				Twitch.cog_chatter_ids.append(chatcog.chatter.user_id)
 		filtered_data = chatters.data.filter(check_cog_chatter)
-	#fusion!!
 	if fusion:
-		set_chatter(filtered_data.pop_at(randi() % filtered_data.size()), true)
-	set_chatter(filtered_data.pick_random())
-
-func set_chatter(_chatter: TwitchChatter = null, double := false):
-	if _chatter is not TwitchChatter:
-		return
-	if double:
-		chatter_double = _chatter
-		print("Assigning chatter double " + chatter.user_name)
-		Twitch.cog_chatter_ids.append(chatter.user_id)
-		body.nametag.text = "+\n" + chatter_double.user_name + "\n" + body.nametag.text
+		set_chatter(filtered_data.pick_random(), filtered_data.pick_random())
 	else:
-		chatter = _chatter
-		print("Assigning chatter " + chatter.user_name)
-		Twitch.cog_chatter_ids.append(chatter.user_id)
-		Twitch.chatter_cogs.append(self)
-		body.nametag.text = chatter.user_name + "\n" + body.nametag.text
+		set_chatter(filtered_data.pick_random())
+
+func set_chatter(_chatter: TwitchChatter, _chatter2: TwitchChatter = null):
+	if chatter is TwitchChatter:
+		remove_curr_chatters()
+	var final_name = base_name
+	# fusion means double the chatter!!
+	if fusion and _chatter2 is TwitchChatter:
+		chatter_double = _chatter2
+		print("Assigning chatter double " + chatter_double.user_name)
+		Twitch.cog_chatter_ids.append(chatter_double.user_id)
+		final_name = chatter_double.user_name + "\n" + base_name
+	chatter = _chatter
+	print("Assigning chatter " + chatter.user_name)
+	Twitch.cog_chatter_ids.append(chatter.user_id)
+	Twitch.chatter_cogs.append(self)
+	body.nametag.text = chatter.user_name + "\n" + final_name
+
+func remove_curr_chatters():
+	var i = 0
+	for chatter_id in Twitch.cog_chatter_ids:
+		if (chatter_double and chatter_id == chatter_double.user_id) or chatter_id == chatter.user_id:
+			Twitch.cog_chatter_ids.remove_at(i)
+		i += 1
 		
 func parse_chat(chat_message: TwitchChatMessage):
 	if chatter is not TwitchChatter:
