@@ -32,7 +32,7 @@ cache_file = "user://auth.conf"
 client_id = "8ejycxah1sd4v23dvn55ai57otd3zh"
 authorization_flow = 0
 _encryption_key_provider = SubResource("Resource_54bgt")
-client_secret = "fYWklkOO+1Go3O4+ItX0GeG6pHmcaBSFQNlt+lqY0ec="
+client_secret = "l87Fzqdd74D9+6qgABDezPprH27dm7ZBZoxWVW93JoQ="
 
 [sub_resource type="Resource" id="Resource_f6sg1"]
 script = ExtResource("4_vxgdn")
@@ -121,7 +121,7 @@ image_transformer = SubResource("Resource_nmcm3")
 script = ExtResource("13_j0p3d")
 broadcaster_user = SubResource("Resource_e4oo5")
 sender_user = SubResource("Resource_vxgdn")
-media_loader = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/MediaLoader")
-eventsub = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/EventSub")
-api = NodePath("../../../../../../../../../../../../../../../../../../../../../Twitch/API")
+media_loader = NodePath("")
+eventsub = NodePath("")
+api = NodePath("")
 metadata/_custom_type_script = "uid://dcq1bvfrqimqq"

@@ -40,7 +40,14 @@ var SFX_OPEN: AudioStreamOggVorbis
 			update_texture(get_chest_tex())
 			set_ray_gradient(get_ray_gradient())
 		
-var chatbox_chance := 0.4 # 0.25
+var chatbox_chances : Dictionary = {
+	0: 0.05,
+	1: 0.05,
+	2: 0.05,
+	3: 0.05,
+	4: 0.2,
+	5: 0.2,
+}
 
 
 ## For texture swap
@@ -168,7 +175,7 @@ func _ready() -> void:
 	
 
 func roll_chatbox_chance() -> void:
-	is_chatbox = (RandomService.randf_channel('twitch') < chatbox_chance) && !scripted_progression
+	is_chatbox = (RandomService.randf_channel('twitch') < chatbox_chances[Util.floor_number]) && !scripted_progression
 
 func do_reroll_chance() -> void:
 	var reward_chest_roll := RandomService.randf_channel('chest_rolls')

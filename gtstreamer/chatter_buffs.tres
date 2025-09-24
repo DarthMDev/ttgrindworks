@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://d2c43ie3d1ax" path="res://ui_assets/battle/statuses/sound_immunity.png" id="2_4x2eq"]
 [ext_resource type="Script" uid="uid://cp0l2m4s3ao36" path="res://objects/battle/battle_resources/status_effects/gag_immunity.gd" id="2_ih7vj"]
 [ext_resource type="Script" uid="uid://csl6saufv84ri" path="res://objects/battle/battle_resources/status_effects/stat_boost.gd" id="3_5gguv"]
-[ext_resource type="Texture2D" uid="uid://dhn5kflsrx35n" path="res://ui_assets/battle/positive_icon.png" id="3_usrm4"]
 [ext_resource type="Resource" uid="uid://cvaos6ucteefy" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/sound.tres" id="4_urxm1"]
 [ext_resource type="Resource" uid="uid://3qbdaody8qao" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_agile.tres" id="4_usrm4"]
+[ext_resource type="Texture2D" uid="uid://ca70trnfykg5p" path="res://ui_assets/battle/statuses/defense.png" id="5_4x2eq"]
 [ext_resource type="Resource" uid="uid://ca8r6vx480qsx" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_banker.tres" id="5_g3fji"]
 [ext_resource type="Resource" uid="uid://8ewinuqmkhs" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_diverse_portfolio.tres" id="6_4l7ra"]
 [ext_resource type="Resource" uid="uid://cbqxiwx86xuq" path="res://objects/battle/battle_resources/status_effects/resources/mod_cog_fire_sale.tres" id="8_4x2eq"]
@@ -42,19 +42,19 @@ metadata/_custom_type_script = "uid://cp0l2m4s3ao36"
 
 [sub_resource type="Resource" id="Resource_t2gdn"]
 script = ExtResource("3_5gguv")
-stat = "hp"
+stat = "Defense Up"
 boost = 1.5
 quality = 0
-rounds = -1
+rounds = 4
 rounds_offset = 0
-icon = ExtResource("3_usrm4")
+icon = ExtResource("5_4x2eq")
 icon_color = Color(1, 1, 1, 1)
 icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
-description = "Gain +50% Max HP"
-status_name = "HP Up"
+description = "Gain +50% Defense for 3 Rounds"
+status_name = "Defense Up"
 id = 0
 metadata/_custom_type_script = "uid://csl6saufv84ri"
 

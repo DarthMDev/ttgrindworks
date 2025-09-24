@@ -3,6 +3,8 @@ class_name ChatterboxMenu
 
 var choice_amount := 3
 @export var item_pool : ItemPool
+@export var chatterbox_pool : ItemPool
+@export var chest_item_pool_chance := 0.75
 
 @onready var items : Array[Item] = []
 
@@ -15,14 +17,15 @@ var choice_amount := 3
 ]
 
 @onready var timer: GameTimer = $BattleTimer
-var voting_time := 20
+var voting_time := 25
+var bonus_time := 20
 
 var twitch_voters : Dictionary[String, int] = {}
 
 var total_votes := 0
 var votes : Array[int] = [0, 0, 0]
 
-var sweetener_range := 5
+var sweetener_range := 10
 var final_sweeteners : Dictionary[String, int] = {}
 
 #func _process(delta: float) -> void:
@@ -33,23 +36,37 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	$AnimationPlayer.play("chatterbox_on")
-	
+	var use_chest_item_pool = RandomService.randf_channel("chatterbox") < chest_item_pool_chance
+	if !use_chest_item_pool:
+		print("Special pool time!")
+		voting_time += bonus_time
 	timer.start(voting_time)
 	timer.s_timeout.connect(collect)
+	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
 	
 	var i = 0
 	for panel in panels:
-		items.insert(i, ItemService.get_random_item(item_pool, false))
+		if use_chest_item_pool:
+			items.insert(i, ItemService.get_random_item(item_pool, false))
+		else:
+			items.insert(i, ItemService.get_random_item(load("res://gtstreamer/chatterbox/chatterbox_pool.tres"), false))
 		panel.item_rect.texture = items[i].icon
 		panel.bubble.set_text(Util.get_item_description(items[i]))
 		panel.node_viewer.set_item(items[i])
 		var first_swt: String = RandomService.array_pick_random("chatterbox", Util.stat_strings)
-		panel.sweeteners = [
-			[first_swt, RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
-			[RandomService.array_pick_random("chatterbox", Util.stat_strings.filter(func(x): return x != first_swt)), -RandomService.randi_range_channel("chatterbox", 2, sweetener_range)],
+		var sweeteners: Array[Array] = [
+			[
+				first_swt,
+				RandomService.randi_range_channel("chatterbox", 2, sweetener_range)
+			],
+			[
+				RandomService.array_pick_random("chatterbox", Util.stat_strings.filter(func(x): return x != first_swt)),
+				-RandomService.randi_range_channel("chatterbox", 2, sweetener_range)
+			],
 		]
-		if panel.sweeteners[1][0] == 'damage':
-			panel.sweeteners[1][1] = clamp(panel.sweeteners[1][1], 0, -3)
+		if sweeteners[1][0] == 'damage':
+			sweeteners[1][1] = clamp(sweeteners[1][1], -sweetener_range / 2, -2)
+		panel.sweeteners = sweeteners
 		i += 1
 	update_vote_labels()
 	if !Util.twitch_active and !offline:

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemPool" load_steps=10 format=3 uid="uid://brndetsfatjgh"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_ksu1q"]
+[ext_resource type="Resource" uid="uid://br7mqvrmqkmt3" path="res://gtstreamer/chatterbox/laff_loss/laff_loss.tres" id="2_oqxve"]
+[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="3_ui8sl"]
+[ext_resource type="Resource" uid="uid://cwcpyc43ichsa" path="res://objects/items/resources/passive/oil_can.tres" id="4_eqc4h"]
+[ext_resource type="Resource" uid="uid://bed0hxns3is4g" path="res://objects/items/resources/accessories/hats/fedora.tres" id="5_lgdu7"]
+[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="5_oqxve"]
+[ext_resource type="Resource" uid="uid://c2s4julwd7fyq" path="res://objects/items/resources/accessories/glasses/alien_glasses.tres" id="6_qt0s6"]
+[ext_resource type="Resource" uid="uid://ccj32j1fjkra7" path="res://objects/items/resources/accessories/hats/pompadour_hairdo.tres" id="7_k7nip"]
+[ext_resource type="Resource" uid="uid://cmjhh4fc3c231" path="res://objects/items/resources/passive/balancing_scale.tres" id="8_fed6g"]
+
+[resource]
+script = ExtResource("5_oqxve")
+items = Array[ExtResource("1_ksu1q")]([ExtResource("2_oqxve"), ExtResource("2_oqxve"), ExtResource("2_oqxve"), ExtResource("2_oqxve"), ExtResource("3_ui8sl"), ExtResource("4_eqc4h"), ExtResource("5_lgdu7"), ExtResource("6_qt0s6"), ExtResource("7_k7nip"), ExtResource("8_fed6g")])
+low_roll_override = 0

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://br7mqvrmqkmt3"]
+
+[ext_resource type="PackedScene" uid="uid://v1vdem0s6mqt" path="res://gtstreamer/chatterbox/laff_loss/laff_loss.tscn" id="1_xxbub"]
+[ext_resource type="AudioStream" uid="uid://dc4qgwbo4acd6" path="res://audio/sfx/misc/Golf_Crowd_Miss.ogg" id="2_rqxm6"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_ev85d"]
+
+[resource]
+script = ExtResource("3_ev85d")
+item_tags = null
+qualitoon = 1
+rarity = 0
+evergreen = true
+realtime = false
+slot = 0
+world_scale = 1.85
+world_y_offset = 0.0
+want_ui_spin = true
+ui_cam_offset = 0.0
+item_name = "Laff Loss"
+item_description = "You feel sadder..."
+big_description = "Decreases your maximum laff"
+model = ExtResource("1_xxbub")
+pickup_sfx = ExtResource("2_rqxm6")
+stats_add = {
+"max_hp": 0
+}
+stats_multiply = {}
+player_values = {}
+arbitrary_data = {}
+remember_item = false
+shop_category_title = "Boost Item"
+shop_category_color = Color(1, 0.54902, 0, 1)
+force_show_shop_category = false
+custom_shop_price = 0

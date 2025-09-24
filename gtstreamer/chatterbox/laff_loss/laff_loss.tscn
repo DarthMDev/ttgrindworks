@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://v1vdem0s6mqt"]
+
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="1_fmlng"]
+[ext_resource type="Script" uid="uid://n5im5t7rvp4e" path="res://gtstreamer/chatterbox/laff_loss/laff_loss.gd" id="2_od61c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_04gb0"]
+size = Vector3(0.285, 0.21, 0.06)
+
+[node name="LaffLoss" type="Label3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+double_sided = false
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(1, 0.133333, 0, 1)
+outline_modulate = Color(0.529206, 0.0194479, 9.62615e-08, 1)
+text = "-1"
+font = ExtResource("1_fmlng")
+script = ExtResource("2_od61c")
+
+[node name="CamHelper" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_04gb0")
+
+[node name="Behind" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+double_sided = false
+render_priority = 1
+outline_render_priority = 0
+modulate = Color(1, 0.133333, 0, 1)
+outline_modulate = Color(0.529206, 0.0194479, 9.62615e-08, 1)
+text = "-1"
+font = ExtResource("1_fmlng")
