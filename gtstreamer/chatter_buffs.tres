@@ -42,7 +42,7 @@ metadata/_custom_type_script = "uid://cp0l2m4s3ao36"
 
 [sub_resource type="Resource" id="Resource_t2gdn"]
 script = ExtResource("3_5gguv")
-stat = "Defense Up"
+stat = "defense"
 boost = 1.5
 quality = 0
 rounds = 4

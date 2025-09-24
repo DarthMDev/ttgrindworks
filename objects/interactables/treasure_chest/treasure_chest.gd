@@ -47,6 +47,7 @@ var chatbox_chances : Dictionary = {
 	3: 0.05,
 	4: 0.2,
 	5: 0.2,
+	6: 1.0
 }
 
 

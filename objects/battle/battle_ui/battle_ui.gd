@@ -175,8 +175,8 @@ func reset():
 func try_start_timer() -> void:
 	var player := Util.get_player()
 	if player.stats.get_battle_time() > 0:
-		timer = Util.run_timer(player.stats.get_battle_time(), Control.PRESET_TOP_RIGHT)
-		
+		timer = Util.run_timer(
+			player.stats.get_battle_time(), Control.PRESET_TOP_RIGHT)
 		timer.timer.timeout.connect(on_timer_timeout)
 		AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
 		s_turn_complete.connect(
@@ -256,8 +256,12 @@ func show_chatter_buffs(cogs: Array[Cog]):
 		i += 1
 	$BattleTimer.start(chatter_prompt_time)
 	$BattleTimer.s_timeout.connect(hide_byc)
+	if timer is GameTimer:
+		timer.timer.paused = true
 	$AnimationPlayer_BYC.play("byc_on")
 	AudioManager.play_sound(load("res://audio/sfx/objects/moles/MG_sfx_travel_game_bell_for_trolley.ogg"))
 
 func hide_byc():
 	%BuffYourCogContainer.hide()
+	if timer is GameTimer:
+		timer.timer.paused = false
