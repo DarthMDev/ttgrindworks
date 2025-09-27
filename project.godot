@@ -63,6 +63,7 @@ folder_colors={
 "res://audio/": "green",
 "res://fonts/": "gray",
 "res://general_resources/": "yellow",
+"res://gtstreamer/": "purple",
 "res://models/": "orange",
 "res://objects/": "blue",
 "res://scenes/": "red",

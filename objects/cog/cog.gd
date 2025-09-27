@@ -644,10 +644,11 @@ func assign_chatter():
 		return data.user_id not in Twitch.cog_chatter_ids && data.user_name.to_lower() not in Twitch.cog_chatter_blacklist && data.user_id != Twitch._current_user.id
 	var filtered_data = chatters.data.filter(check_cog_chatter)
 	if filtered_data.size() < 1:
-		Twitch.cog_chatter_ids.clear()
+		var new_chatter_ids : Array[String]
 		for chatcog in Twitch.chatter_cogs:
 			if chatcog.chatter is TwitchChatter and not chatcog.chatter.user_id in Twitch.cog_chatter_ids:
-				Twitch.cog_chatter_ids.append(chatcog.chatter.user_id)
+				new_chatter_ids.append(chatcog.chatter.user_id)
+		Twitch.cog_chatter_ids = new_chatter_ids.duplicate()
 		filtered_data = chatters.data.filter(check_cog_chatter)
 	if fusion:
 		set_chatter(filtered_data.pick_random(), filtered_data.pick_random())
