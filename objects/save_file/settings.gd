@@ -41,7 +41,6 @@ enum CameraShakeSetting {Standard, Reduced, None}
 @export var show_timer := false
 @export var skip_intro := false
 @export var discord_rpc := false
-@export var dev_tools := false
 	get:
 		return dev_tools or OS.has_feature("debug")
 @export var use_custom_cogs := true
