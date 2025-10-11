@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/cgc_mole_room.fbx-b50d935b0453887a2ce4ec070af
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,18 +34,24 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "CogHedgeFar2": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/tree_mat.tres",
 "use_external/path": "uid://b45hb25eo5q6v"
 },
 "CogThinTree": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
 "use_external/path": "uid://do7bpsdy2nk"
 },
 "mazedirt_golf": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/floor_mat.tres",
 "use_external/path": "uid://dlodnyf0k6y17"
 }
 }
@@ -51,3 +59,4 @@ _subresources={
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

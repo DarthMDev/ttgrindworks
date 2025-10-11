@@ -6,7 +6,7 @@ func on_collect(_item : Item, _node : Node3D) -> void:
 	if not is_instance_valid(game_floor):
 		return
 	
-	for anomaly in game_floor.anomalies.duplicate():
+	for anomaly in game_floor.anomalies.duplicate(true):
 		if anomaly.get_mod_quality() == FloorModifier.ModType.NEGATIVE:
 			game_floor.remove_anomaly(anomaly)
 			Util.get_player().boost_queue.queue_text("Removed %s" % anomaly.get_mod_name(), anomaly.text_color)

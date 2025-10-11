@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr4u8hd2fikpj"]
+
+[ext_resource type="PackedScene" uid="uid://cbnbvi6jwk3x" path="res://objects/misc/speech_bubble/speech_bubble.tscn" id="1_sn0fh"]
+[ext_resource type="Script" uid="uid://4l6frai5nehl" path="res://objects/misc/speech_bubble/speech_bubble_interactive/speech_bubble_interactive.gd" id="2_7rtgp"]
+[ext_resource type="Texture2D" uid="uid://bsi8r137f8dn5" path="res://ui_assets/general/Horiz_Arrow_UP.png" id="4_ssjbl"]
+
+[node name="SpeechBubble" instance=ExtResource("1_sn0fh")]
+script = ExtResource("2_7rtgp")
+dialogue = Array[String]([])
+write_out_text = false
+auto_expire = false
+
+[node name="Bubble" parent="." index="0"]
+mouse_filter = 1
+
+[node name="ArrowPos" type="Control" parent="Bubble" index="1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -55.0001
+offset_right = -12.0
+offset_bottom = -55.0001
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Arrow" type="TextureRect" parent="." index="2"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.4
+offset_top = -20.6
+offset_right = 48.4
+offset_bottom = -12.6
+texture = ExtResource("4_ssjbl")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="Bubble" to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="Bubble" to="." method="on_mouse_exited"]

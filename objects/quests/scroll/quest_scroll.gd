@@ -68,7 +68,7 @@ func update_quest() -> void:
 		icon.texture = await quest.get_icon()
 
 func set_item(item: Item) -> void:
-	var item_model = item.model.instantiate()
+	var item_model = item.get_model().instantiate()
 	%NodeViewer.camera_position_offset = item.ui_cam_offset
 	%NodeViewer.node = item_model
 	%NodeViewer.want_spin_tween = item.want_ui_spin

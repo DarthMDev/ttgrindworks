@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/pipes_D1.fbx-7f4e46bba36eba6498cf642822a640fa
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,30 +34,39 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "Default_Material": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/Default_Material.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/Default_Material.tres",
+"use_external/path": "uid://dpuhp3d757ah6"
 },
 "pipes_C:DuctModules_PipeCapTop1SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_DuctModules_PipeCapTop1SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_DuctModules_PipeCapTop1SHD.tres",
+"use_external/path": "uid://dnd7tvt48u4c"
 },
 "pipes_C:Pipes1Plate1SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_Pipes1Plate1SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_Pipes1Plate1SHD.tres",
+"use_external/path": "uid://rcqimumx25c4"
 },
 "pipes_C:pasted__CircleShadow_SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_pasted__CircleShadow_SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_pasted__CircleShadow_SHD.tres",
+"use_external/path": "uid://dvnbguyilonkm"
 },
 "pipes_C:textures:textures1:textures:CashBotTankCar_v2_s3:CashBotTankCar_v2_s1_CashBotTankCar_v1_s6_LocomotiveDetail1_SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_textures_textures1_textures_CashBotTankCar_v2_s3_CashBotTankCar_v2_s1_CashBotTankCar_v1_s6_LocomotiveDetail1_SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/pipes_C_textures_textures1_textures_CashBotTankCar_v2_s3_CashBotTankCar_v2_s1_CashBotTankCar_v1_s6_LocomotiveDetail1_SHD.tres",
+"use_external/path": "uid://bsl1ltwkd4g2e"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg6yq0cgwb3ce"]
+[gd_scene load_steps=12 format=3 uid="uid://dg6yq0cgwb3ce"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_mgr4m"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_a0dcy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dhqxwi6busihb" path="res://objects/general_ui/settings_menu/slider_theme.tres" id="3_7ndhd"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="3_ufk8j"]
 [ext_resource type="Texture2D" uid="uid://1bb3mssq7ac5" path="res://ui_assets/achievements/icon_achievement_lock.png" id="6_2b0he"]
+[ext_resource type="Texture2D" uid="uid://qfltts6duk0u" path="res://ui_assets/achievements/achievement_bg.png" id="7_o3rua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dvay8"]
 font = ExtResource("3_ufk8j")
@@ -13,14 +14,20 @@ font_size = 42
 font_color = Color(0.941176, 0.572549, 0.184314, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_hwofu"]
-line_spacing = 1.0
+[sub_resource type="LabelSettings" id="LabelSettings_cslpm"]
+font = ExtResource("3_ufk8j")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2b8pd"]
+line_spacing = -4.0
 font = ExtResource("2_a0dcy")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_6otms"]
+[sub_resource type="LabelSettings" id="LabelSettings_o3rua"]
+line_spacing = -2.0
 font = ExtResource("2_a0dcy")
 font_size = 12
 font_color = Color(0.0430392, 0.0430391, 0.0430392, 1)
@@ -55,7 +62,24 @@ label_settings = SubResource("LabelSettings_dvay8")
 [node name="Body" parent="Panel" index="1"]
 visible = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" index="3"]
+[node name="CancelButton" parent="Panel" index="2"]
+font_size = 36.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 794.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" index="4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,10 +97,24 @@ layout_mode = 2
 theme = ExtResource("3_7ndhd")
 horizontal_scroll_mode = 0
 
-[node name="AchievementContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer" index="0"]
+[node name="SectionContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
+
+[node name="AchievementContainer" type="GridContainer" parent="Panel/MarginContainer/ScrollContainer/SectionContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 columns = 4
+
+[node name="SectionHeader" type="Label" parent="Panel/MarginContainer/ScrollContainer/SectionContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+label_settings = SubResource("LabelSettings_cslpm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AchievementTemplate" type="Control" parent="." index="2"]
 visible = false
@@ -114,12 +152,13 @@ offset_right = 90.0
 offset_bottom = 47.0
 grow_horizontal = 2
 text = "???"
-label_settings = SubResource("LabelSettings_hwofu")
+label_settings = SubResource("LabelSettings_2b8pd")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
-[node name="Icon" type="TextureRect" parent="AchievementTemplate/Elements" index="1"]
+[node name="Background" type="TextureRect" parent="AchievementTemplate/Elements" index="1"]
+visible = false
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 8
@@ -134,11 +173,31 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+texture = ExtResource("7_o3rua")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Icon" type="TextureRect" parent="AchievementTemplate/Elements" index="2"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
 texture = ExtResource("6_2b0he")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Summary" type="Label" parent="AchievementTemplate/Elements" index="2"]
+[node name="Summary" type="Label" parent="AchievementTemplate/Elements" index="3"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -152,6 +211,6 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Locked"
-label_settings = SubResource("LabelSettings_6otms")
+label_settings = SubResource("LabelSettings_o3rua")
 horizontal_alignment = 1
 autowrap_mode = 2

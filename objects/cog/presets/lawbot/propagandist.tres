@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://b7vilbdjl61gg"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tvlpp"]
+[ext_resource type="Resource" uid="uid://cfwymrymjx7s5" path="res://objects/battle/battle_resources/cog_attacks/resources/write_off.tres" id="2_55yg7"]
+[ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="3_b24yt"]
+[ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="4_lwcfq"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_k5247"]
+
+[resource]
+script = ExtResource("5_k5247")
+department = 2
+suit = 1
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
+cog_name = "Propagandist"
+head = "res://models/cogs/heads/propagandist.glb"
+scale = 5.25
+head_textures = PackedStringArray("res://models/cogs/heads/propagandist_propagandist_tex.png")
+hand_color = Color(1, 0.835294, 0.709804, 1)
+attacks = Array[ExtResource("1_tvlpp")]([ExtResource("2_55yg7"), ExtResource("3_b24yt"), ExtResource("4_lwcfq")])
+level_low = 6
+level_high = 20
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
+is_mod_cog = true
+battle_phrases = Array[String](["The house always wins.", "Toons are an impediment to our future! They must go!", "Nobody gerrymanders like me.", "Go green? No no, my friend, that’s YOUR job!", "There’s no HOPE for you here, Toon!", "I want YOU to get out of our facility!", "I’ve been hard at work lobbying for your defeat."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

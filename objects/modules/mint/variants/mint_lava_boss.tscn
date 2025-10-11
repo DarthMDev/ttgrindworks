@@ -1,6 +1,6 @@
-[gd_scene load_steps=131 format=4 uid="uid://b2ia8h86cdjo2"]
+[gd_scene load_steps=135 format=4 uid="uid://b2ia8h86cdjo2"]
 
-[ext_resource type="Texture2D" uid="uid://brg7tsqoenlxv" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
+[ext_resource type="Texture2D" uid="uid://cl747gxnyssir" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
 [ext_resource type="Texture2D" uid="uid://c72xdn0nwkaug" path="res://models/facilities/mint/textures/CFOCeiling2.png" id="2_xdjiy"]
 [ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="4_e4xhb"]
 [ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="5_lxubv"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://7q6wova01fov" path="res://objects/props/mint/pipes/kit/elbow_pipe.tscn" id="19_j1tso"]
 [ext_resource type="PackedScene" uid="uid://csdrrw6xiokuy" path="res://objects/props/mint/pipes/kit/pipe_shadow.tscn" id="20_ndv07"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="28_mtimn"]
+[ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="29_bu42o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m36j5"]
 resource_name = "WallCementLightEdgeSHD_WallCementLightEdgeSHD"
@@ -858,6 +859,10 @@ uv1_scale = Vector3(1, 0.805, 1)
 material = SubResource("StandardMaterial3D_wtmuy")
 size = Vector2(4.6, 6.2)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mtimn"]
+data = PackedVector3Array(2.3, -3.1, 0, -2.3, -3.1, 0, 2.3, 3.1, 0, -2.3, -3.1, 0, -2.3, 3.1, 0, 2.3, 3.1, 0)
+backface_collision = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnwpv"]
 resource_name = "textures:textures1:StuccoWall_SHD"
 vertex_color_use_as_albedo = true
@@ -873,6 +878,10 @@ size = Vector2(4.6, 1.82)
 [sub_resource type="QuadMesh" id="QuadMesh_140pj"]
 material = SubResource("StandardMaterial3D_6isp1")
 size = Vector2(4.6, 7.355)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bu42o"]
+data = PackedVector3Array(2.3, -3.6775, 0, -2.3, -3.6775, 0, 2.3, 3.6775, 0, -2.3, -3.6775, 0, -2.3, 3.6775, 0, 2.3, 3.6775, 0)
+backface_collision = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8n0y"]
 resource_name = "Entrance_3_CollsionSHD"
@@ -1353,6 +1362,7 @@ var sink_unit: float:
 var current_unit := 0
 var battle : BattleNode:
 	get: return get_parent()
+var reinforcement_count := 0
 const INCREMENT_COUNT := 5
 const IN_LAVA_POS := 8.8
 
@@ -1379,11 +1389,13 @@ func on_round_begin(_round_actions : Array[BattleAction]):
 		burn_all.damage = Util.get_player().stats.max_hp / 6
 		BattleService.ongoing_battle.inject_battle_action(burn_all, 0)
 	elif is_instance_valid(battle.focus_cog) and BattleService.ongoing_battle.current_round % 2 == 1:
-		var reinforcements_movie : CogAttack = GameLoader.load(REINFORCEMENTS_MOVIE).duplicate()
+		var reinforcements_movie : CogAttack = GameLoader.load(REINFORCEMENTS_MOVIE).duplicate(true)
 		reinforcements_movie.user = battle.focus_cog
 		reinforcements_movie.targets = [self]
 		if not Util.on_easy_floor():
 			reinforcements_movie.cog_amount = min(2, 4 - battle.cogs.size())
+		reinforcement_count += reinforcements_movie.cog_amount
+		reinforcements_movie.spawn_proxies = reinforcement_count >= Globals.REINFORCEMENT_ABUSE_QUOTA
 		BattleService.ongoing_battle.round_end_actions.append(reinforcements_movie)
 	
 	var sink_movie := BossLavaSink.new()
@@ -1416,6 +1428,10 @@ func on_battle_started(manager : BattleManager) -> void:
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nkma"]
 size = Vector3(12.3098, 9.54663, 12.3215)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1qan8"]
+data = PackedVector3Array(-20.4145, -19.3009, 293.678, -174.402, -19.3009, 1.1156, -174.402, -19.3009, 293.678, -20.4145, -19.3009, 293.678, -20.4145, -19.3009, 1.1156, -174.402, -19.3009, 1.1156, -20.4145, 22.7382, 0.7759, -174.402, 22.7489, 293.678, -174.402, 22.7489, 0.7759, -20.4145, 22.7382, 0.7759, -20.4145, 22.7382, 293.678, -174.402, 22.7489, 293.678, -174.402, 22.7489, 293.678, -174.402, -19.3009, 1.1156, -174.402, 22.7489, 0.7759, -174.402, 22.7489, 293.678, -174.402, -19.3009, 293.678, -174.402, -19.3009, 1.1156, 21.6035, -19.3009, 293.678, 175.623, -19.3009, 1.1156, 21.6035, -19.3009, 1.1156, 21.6035, -19.3009, 293.678, 175.623, -19.3009, 293.678, 175.623, -19.3009, 1.1156, 21.6035, 22.7382, 0.7759, 175.623, 22.7489, 293.683, 21.6035, 22.7382, 293.678, 21.6035, 22.7382, 0.7759, 175.623, 22.7489, 0.7759, 175.623, 22.7489, 293.683, 175.623, 22.7489, 293.683, 175.623, -19.3009, 1.1156, 175.623, -19.3009, 293.678, 175.623, 22.7489, 293.683, 175.623, 22.7489, 0.7759, 175.623, -19.3009, 1.1156, 21.6035, -19.3009, 293.678, 21.6035, -173.318, 1.567, 21.6035, -173.318, 293.678, 21.6035, -19.3009, 293.678, 21.6035, -19.3009, 1.1156, 21.6035, -173.318, 1.567, -20.4145, -19.3009, 1.1156, -20.4465, -173.318, 293.678, -20.4465, -173.318, 1.567, -20.4145, -19.3009, 1.1156, -20.4145, -19.3009, 293.678, -20.4465, -173.318, 293.678, -20.4465, -173.318, 293.678, 21.6035, -173.318, 1.567, -20.4465, -173.318, 1.567, -20.4465, -173.318, 293.678, 21.6035, -173.318, 293.678, 21.6035, -173.318, 1.567, 21.6035, 22.7382, 293.678, 21.6035, 176.75, 0.7759, 21.6035, 22.7382, 0.7759, 21.6035, 22.7382, 293.678, 21.6035, 176.75, 293.678, 21.6035, 176.75, 0.7759, -20.4145, 22.7382, 0.7759, -20.4465, 176.75, 293.683, -20.4145, 22.7382, 293.678, -20.4145, 22.7382, 0.7759, -20.4465, 176.75, 0.7759, -20.4465, 176.75, 293.683, -20.4465, 176.75, 293.683, 21.6035, 176.75, 0.7759, 21.6035, 176.75, 293.678, -20.4465, 176.75, 293.683, -20.4465, 176.75, 0.7759, 21.6035, 176.75, 0.7759)
+backface_collision = true
 
 [node name="Root Scene" type="Node3D"]
 
@@ -1547,6 +1563,11 @@ skeleton = NodePath("")
 transform = Transform3D(-4.37114e-08, 0, -1, 8.74228e-08, -1, -3.82137e-15, -1, -8.74228e-08, 4.37114e-08, -13.717, 5.69541, -75.4389)
 mesh = SubResource("QuadMesh_rhrvu")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room/ElevatorWall1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room/ElevatorWall1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mtimn")
+
 [node name="ElevatorWall3" type="MeshInstance3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room"]
 transform = Transform3D(-1, 0, 8.74228e-08, -7.10543e-15, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, -34.2917, 9.8308, -100.572)
 mesh = SubResource("QuadMesh_pcufp")
@@ -1554,6 +1575,11 @@ mesh = SubResource("QuadMesh_pcufp")
 [node name="ElevatorWall2" type="MeshInstance3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.717, -1.085, -75.439)
 mesh = SubResource("QuadMesh_140pj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room/ElevatorWall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room/geometry_boiler_room/ElevatorWall2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bu42o")
 
 [node name="collsion_boiler_room" type="Node3D" parent="RootNode/Z08_ALL/Z08/boiler_room/room"]
 visible = false
@@ -1699,10 +1725,6 @@ transform = Transform3D(-0.0106075, 0, 4.02499, 0, 62.713, 0, -4.02499, 0, -0.01
 [node name="platform" parent="BossObjects/BossFight/BattlePlatform" index="0"]
 surface_material_override/0 = ExtResource("14_m2r8c")
 surface_material_override/1 = ExtResource("15_4n8fl")
-surface_material_override/2 = ExtResource("15_4n8fl")
-
-[node name="platformcollision" parent="BossObjects/BossFight/BattlePlatform/group1" index="0"]
-visible = false
 
 [node name="BattleNode" parent="BossObjects/BossFight" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("10_4xj8y")]
 transform = Transform3D(-1, 0, -8.49832e-08, 0, 0.999996, 0, 8.49832e-08, 0, -1, 1.76951e-08, 3.05829, -3.18976)
@@ -1943,5 +1965,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05341, 3.0113, -26.4602)
 
 [node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("28_mtimn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03144, -16.744)
+
+[node name="PipeConnector" parent="." instance=ExtResource("17_ht7gh")]
+transform = Transform3D(-5.59506e-08, -1.28, 0, 1.28, -5.59506e-08, 0, 0, 0, 1.28, 14.334, -11.5016, -11.1405)
+
+[node name="PaintPlatform" parent="PipeConnector" instance=ExtResource("29_bu42o")]
+transform = Transform3D(-2.49155e-08, 0.57, 0, -0.569457, -2.48918e-08, -0.024863, -0.024863, -1.0868e-09, 0.569457, 1.164, -0.054, 0.014)
+texture_type = 1
+shaft_length = 7.0
+points = Array[Vector3]([Vector3(1.164, -0.054, 0.014), Vector3(11.4587, -0.053998, 0.013999)])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PipeConnector/PaintPlatform"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.07, 0, 0.01, -3.0598e-09, 4.88281e-06, -1.07324, 0)
+shape = SubResource("ConcavePolygonShape3D_1qan8")
+
+[node name="PipeConnector2" parent="." instance=ExtResource("17_ht7gh")]
+transform = Transform3D(-5.59506e-08, -1.28, 0, 1.28, -5.59506e-08, 0, 0, 0, 1.28, -12.9688, -11.5016, -11.1405)
+
+[node name="PaintPlatform" parent="PipeConnector2" instance=ExtResource("29_bu42o")]
+transform = Transform3D(-2.49155e-08, 0.57, 0, -0.569457, -2.48918e-08, -0.024863, -0.024863, -1.0868e-09, 0.569457, 1.164, -0.054, 0.014)
+texture_type = 1
+shaft_length = 7.0
+points = Array[Vector3]([Vector3(1.164, -0.054, 0.014), Vector3(11.4587, -0.053998, 0.013999)])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PipeConnector2/PaintPlatform"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.07, 0, 0.01, -3.0598e-09, 4.88281e-06, -1.07324, 0)
+shape = SubResource("ConcavePolygonShape3D_1qan8")
 
 [editable path="BossObjects/BossFight/BattlePlatform"]

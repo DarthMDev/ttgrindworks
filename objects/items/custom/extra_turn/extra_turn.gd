@@ -27,14 +27,14 @@ func fix_viewport(node: Label3D) -> void:
 func force_reset_text(node: Label3D) -> void:
 	node.text = ''
 	node.behind.text = ''
-	node.text = '+1\nTurn'
-	node.behind.text = '+1\nTurn'
+	node.text = '+1\nMove'
+	node.behind.text = '+1\nMove'
 
 func get_player_turns() -> int:
 	if not Util.get_player():
 		return -1
 	var turns := Util.get_player().stats.turns
-	turns += ItemService.get_items_in_play("Extra Turn").size()
+	turns += ItemService.get_items_in_play("Extra Move").size()
 	return turns
 
 func get_max_turns() -> int:

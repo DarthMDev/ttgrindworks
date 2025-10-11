@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/stomper.fbx-241033d123ed83b689a6ec068b2686f4.
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,43 +34,55 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "SqStomperTopLight": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/SqStomperTopLight.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/SqStomperTopLight.tres",
+"use_external/path": "uid://crqpt5hs8ef3k"
 },
 "collisions": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/collisions.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/collisions.tres",
+"use_external/path": "uid://yrv8b5rgquod"
 },
 "sQstomperSidedark": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/sQstomperSidedark.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/sQstomperSidedark.tres",
+"use_external/path": "uid://br44ytd6b2xsr"
 },
 "square_stomper_v2s1_SqStomperTopDark": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_SqStomperTopDark.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_SqStomperTopDark.tres",
+"use_external/path": "uid://rucm7aq2lw51"
 },
 "square_stomper_v2s1_SqStomperTopLight": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_SqStomperTopLight.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_SqStomperTopLight.tres",
+"use_external/path": "uid://c4obgouv731ul"
 },
 "square_stomper_v2s1_sQstomperSideLight": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_sQstomperSideLight.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_sQstomperSideLight.tres",
+"use_external/path": "uid://bo1o4ej5oalke"
 },
 "square_stomper_v2s1_sQstomperSidedark": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_sQstomperSidedark.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/square_stomper_v2s1_sQstomperSidedark.tres",
+"use_external/path": "uid://e6qeq65c4rok"
 },
 "stomperShaft": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/stomperShaft.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/stomperShaft.tres",
+"use_external/path": "uid://mfnn2i5i6yka"
 },
 "stomperShaftDark": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/stomper/materials/stomperShaftDark.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/stomper/materials/stomperShaftDark.tres",
+"use_external/path": "uid://b20k40t05g8f0"
 }
 },
 "nodes": {
@@ -83,3 +97,4 @@ _subresources={
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

@@ -1,5 +1,4 @@
 extends BattleStartMovie
-class_name FinalBossIntro
 
 const DEBUG_SKIP := false
 const TM := preload('res://objects/cog/presets/sellbot/traffic_manager.tres')

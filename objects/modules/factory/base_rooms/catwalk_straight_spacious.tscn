@@ -6,17 +6,17 @@
 size = Vector3(26.2886, 22.6811, 9.96655)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqdo8"]
-size = Vector3(27.3444, 21.4647, 5.37411)
+size = Vector3(10.547464, 21.4647, 2.7804065)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtaoo"]
-size = Vector3(9.32721, 21.4647, 2.58627)
+size = Vector3(9.32721, 21.4647, 7.367842)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l7jbq"]
 vertices = PackedVector3Array(-6.36431, -1.18213, -1.896, -6.36431, -1.18213, 2.104, -4.36431, -1.18213, 2.104, -4.11431, -1.18213, -2.146, -4.11431, -1.18213, 4.354, 4.38569, -1.18213, 4.354, 4.38569, -1.18213, 2.354, 6.63569, -1.18213, 2.104, 6.63569, -1.18213, -1.896, 4.38569, -1.18213, -2.146, 4.38569, -1.18213, -4.396, -4.11431, -1.18213, -4.396, -13.1143, -1.18213, -1.896, -13.1143, -1.18213, 2.104, 13.3857, -1.18213, 2.104, 13.3857, -1.18213, -1.896)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(3, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 6), PackedInt32Array(6, 3, 9), PackedInt32Array(13, 12, 1), PackedInt32Array(1, 12, 0), PackedInt32Array(8, 15, 7), PackedInt32Array(7, 15, 14)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2v3b1"]
-size = Vector3(9.22087, 0.649902, 9.62866)
+size = Vector3(9.22087, 0.649902, 13.305756)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bmae"]
 size = Vector3(9.22087, 0.649902, 4.71063)
@@ -46,27 +46,27 @@ shape = SubResource("BoxShape3D_005mk")
 [node name="Blockers" type="StaticBody3D" parent="." index="5"]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Blockers" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198395, 8.5502, -7.20218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1573689, 8.5502, -8.041502)
 shape = SubResource("BoxShape3D_pqdo8")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Blockers" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198395, 8.5502, 7.19006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198395, 8.5502, 7.6475906)
 shape = SubResource("BoxShape3D_pqdo8")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Blockers" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25092, 8.5502, 3.43465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25092, 8.5502, 5.92626)
 shape = SubResource("BoxShape3D_vtaoo")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Blockers" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27137, 8.5502, -3.45046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27137, 8.5502, -5.930649)
 shape = SubResource("BoxShape3D_vtaoo")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Blockers" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00198, 8.5502, 3.4379)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00198, 8.5502, 5.963272)
 shape = SubResource("BoxShape3D_vtaoo")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Blockers" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95806, 8.5502, -3.49375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95806, 8.5502, -6.0022364)
 shape = SubResource("BoxShape3D_vtaoo")
 
 [node name="Navigation" type="NavigationRegion3D" parent="." index="6"]
@@ -76,7 +76,7 @@ use_edge_connections = false
 [node name="StaticBody3D" type="StaticBody3D" parent="Navigation" index="0"]
 
 [node name="Floor" type="CollisionShape3D" parent="Navigation/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14167, -1.85718, -0.081665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14167, -1.85718, -0.08268732)
 shape = SubResource("BoxShape3D_2v3b1")
 
 [node name="Floor2" type="CollisionShape3D" parent="Navigation/StaticBody3D" index="1"]

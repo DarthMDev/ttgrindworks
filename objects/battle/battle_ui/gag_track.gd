@@ -41,10 +41,16 @@ func _ready():
 	
 	# Add track to the bar
 	refresh()
+	
+	if Util.get_player().gags_cost_beans:
+		point_label.hide()
 
 func emit_gag(gag: ToonAttack, price: int):
-	var newgag := gag.duplicate()
-	Util.get_player().stats.gag_balance[track.track_name] -= price
+	var newgag := gag.duplicate(true)
+	if not Util.get_player().gags_cost_beans:
+		Util.get_player().stats.gag_balance[track.track_name] -= price
+	else:
+		Util.get_player().stats.money -= price
 	refresh()
 	ui_root.s_gag_pressed.emit(newgag)
 	newgag.price = price
@@ -59,7 +65,7 @@ func refresh():
 	
 	# Allow scripts to alter the gag track by signaling out
 	# Duplicate the base track so that the effects are not permanent
-	gags = track.gags.duplicate()
+	gags = track.gags.duplicate(true)
 	s_refreshing.emit(self)
 	
 	for i in gag_buttons.size():
@@ -84,6 +90,10 @@ func refresh():
 				if not is_gag_free(gag):
 					price = i
 					price -= stats.gag_discount
+					if Util.get_player().gags_cost_beans:
+						# Basically just for budget cuts on Pete
+						if i == 0: price = 0
+						else: price = ((price - 1) *  2) * Util.get_player().stats.gag_regeneration[track.track_name]
 					price = maxi(price, 0)
 				button.set_count(price)
 				if ui_root:
@@ -110,11 +120,14 @@ func refund_gag(gag: ToonAttack):
 	var player := Util.get_player()
 	for i in track.gags.size():
 		if track.gags[i].action_name == gag.action_name:
+			if player.gags_cost_beans:
+				player.stats.add_money(gag.price)
+				refresh()
+				return
 			var new_balance: int = player.stats.gag_balance[track.track_name]
 			new_balance = clamp(new_balance + gag.price, 0, player.stats.gag_cap)
 			player.stats.gag_balance[track.track_name] = new_balance
 			refresh()
-			return
 
 # Gag checks
 func all_cogs_lured() -> bool:
@@ -158,7 +171,9 @@ func show_track() -> void:
 	self_modulate = track.track_color
 
 func should_disable(gag : ToonAttack, price : int) -> bool:
-	if Util.get_player().stats.gag_balance[track.track_name] < price:
+	if Util.get_player().gags_cost_beans and Util.get_player().stats.money < price:
+		return true
+	elif not Util.get_player().gags_cost_beans and Util.get_player().stats.gag_balance[track.track_name] < price:
 		return true
 	
 	if (gag is GagLure) and all_cogs_lured():

@@ -5,15 +5,9 @@
 
 [resource]
 script = ExtResource("1_dryc3")
-wants_targeted = false
 quality = 0
 rounds = 0
 icon = ExtResource("1_lurjh")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
 description = "The Bookkeeper is focusing! Do not target her."
 status_name = "Mental Math"
 id = 21

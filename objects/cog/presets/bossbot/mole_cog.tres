@@ -1,40 +1,23 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://b2numr2pojy1o"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://b2numr2pojy1o"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_hpxo2"]
-[ext_resource type="PackedScene" uid="uid://c83iwrx6mdta7" path="res://models/cogs/heads/mole_cog.tscn" id="2_40nyl"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="3_i8akj"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="3_jkdgo"]
 [ext_resource type="Resource" uid="uid://b6smgrhefhpdk" path="res://objects/battle/battle_resources/cog_attacks/resources/sink_hole.tres" id="4_0itus"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="4_ova5f"]
 [ext_resource type="Resource" uid="uid://cl6jho6mr8gam" path="res://objects/battle/battle_resources/misc_movies/mole_cog_boss/mole_cog_launch.tres" id="4_w6nbe"]
-[ext_resource type="Resource" uid="uid://c8rs8upqmscoh" path="res://objects/battle/battle_resources/status_effects/resources/attentive.tres" id="8_kf10e"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_u8ghl"]
 
 [resource]
-script = ExtResource("3_jkdgo")
+script = ExtResource("5_u8ghl")
 department = 3
-suit = 0
 cog_name = "Mole Cog"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("2_40nyl")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/mole_cog.tscn"
 scale = 7.0
-head_textures = Array[Texture2D]([])
 hand_color = Color(0.678431, 0.0666667, 0.141176, 1)
-head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 10.0
-custom_nametag_suffix = ""
-can_speak = true
 attacks = Array[ExtResource("1_hpxo2")]([ExtResource("3_i8akj"), ExtResource("4_0itus"), ExtResource("4_w6nbe")])
-level_low = 1
-level_high = 12
-status_effects = Array[ExtResource("4_ova5f")]([ExtResource("8_kf10e")])
-is_mod_cog = false
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/attentive.tres")
 is_admin = true
 health_mod = 2.0
-battle_phrases = Array[String](["We are gonna fight now."])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

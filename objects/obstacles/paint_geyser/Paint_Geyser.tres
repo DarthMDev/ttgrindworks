@@ -42,9 +42,9 @@ fractal_gain = 0.975
 fractal_weighted_strength = 0.45
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oemid"]
+noise = SubResource("FastNoiseLite_mt226")
 seamless = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_mt226")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2rb78"]
 texture = SubResource("NoiseTexture2D_oemid")
@@ -61,7 +61,7 @@ operator = 3
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D tex_frg_2 : source_color;
 uniform sampler2D tex_frg_6 : source_color;

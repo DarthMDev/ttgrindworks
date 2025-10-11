@@ -88,8 +88,12 @@ func _update():
 		return
 	visible = (target.is_visible_in_tree() or show_through) and camera.is_position_in_frustum(target.global_position)
 	if visible:
-		var cam_dist: float = camera.global_position.distance_to(target.global_position)
+		var target_position: Vector3 = target.get_global_transform_interpolated().origin
+		var cam_dist: float = camera.global_position.distance_to(target_position)
 		var scaling_amount := clampf(lerpf(max_scale, min_scale, (cam_dist - min_dist) / scale_diffy), min_scale, max_scale)
 		var scaling_amount_so := max_screen_offset.lerp(min_screen_offset, clampf((cam_dist - screen_offset_min_dist) / screen_offset_diffy, 0, 1))
-		global_position = camera.unproject_position(target.global_position) + scaling_amount_so
+		global_position = camera.unproject_position(target_position) + scaling_amount_so
 		scale = Vector2(scaling_amount, scaling_amount)
+		
+		# z-sorting
+		z_index = clampi(-50 - roundi(cam_dist * 10), RenderingServer.CANVAS_ITEM_Z_MIN, RenderingServer.CANVAS_ITEM_Z_MAX)

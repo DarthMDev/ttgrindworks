@@ -16,6 +16,12 @@ const BASE_MASK_SIZE := 184.0
 var current_cog: Cog
 var expand_tween : Tween
 var status_effects: Array[StatusEffect] = []
+var hp_hidden := false:
+	set(x):
+		hp_hidden = x
+		await NodeGlobals.until_ready(self)
+		hp_label.set_visible(not hp_hidden)
+
 
 func set_cog(cog: Cog):
 	# Match HP light
@@ -31,8 +37,9 @@ func set_cog(cog: Cog):
 	if cog.v2:
 		level_label.text += ' v2.0'
 
-	hp_label.show()
-	hp_label.text = str(cog.stats.hp) + '/' + str(cog.stats.max_hp)
+	if not hp_hidden:
+		hp_label.show()
+		hp_label.text = str(cog.stats.hp) + '/' + str(cog.stats.max_hp)
 
 	var head: Node3D = cog.dna.get_head()
 	if not cog.dna.head_scale.is_equal_approx(Vector3.ONE * cog.dna.head_scale.x):

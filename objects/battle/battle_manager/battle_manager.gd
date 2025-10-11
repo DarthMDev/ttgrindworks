@@ -36,6 +36,7 @@ var has_moved : Array[Node3D] = []
 var is_round_ongoing := false
 var force_watch_death: Array[Cog] = []
 var overkill_amounts: Dictionary[Variant, int] = {}
+var action_hit_rolls: Dictionary[BattleAction, bool] = {}
 
 ## Signals
 signal s_focus_char(character: Node3D)
@@ -52,6 +53,8 @@ signal s_status_effect_added(effect: StatusEffect)
 signal s_action_added(action: BattleAction)
 signal s_action_finished(action: BattleAction)
 signal s_ui_initialized
+signal s_target_nullified_action(participant: Node3D, action: BattleAction)
+signal s_spawned_reward_chest(chest: TreasureChest)
 
 func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 	cogs = cog_array
@@ -65,22 +68,23 @@ func start_battle(cog_array: Array[Cog], battlenode: BattleNode):
 	# Since non-exported variables in a resource won't be copied on duplicate
 	battle_stats[Util.get_player()].multipliers = Util.get_player().stats.multipliers
 	for cog in cogs:
-		battle_stats[cog] = cog.stats.duplicate()
+		battle_stats[cog] = cog.stats.duplicate(true)
 		s_participant_joined.emit(cog)
 	
 	# Also, add in the specified starting status effects for each Cog
 	# (Separated for some status effect logic)
 	for cog in cogs:
-		for effect: StatusEffect in cog.dna.status_effects:
-			var add_eff := effect.duplicate()
-			add_eff.target = cog
-			add_status_effect(add_eff)
+		for effect in cog.status_effects:
+			effect.target = cog
+			add_status_effect(effect)
 	
 	BattleService.battle_started(self)
 	
 	# UI must be added last
 	add_child(battle_ui)
 	s_ui_initialized.emit()
+	
+	player.toon.drop_shadow.reparent(player.toon.legs.shadow_bone)
 
 func append_action(action: BattleAction):
 	round_actions.append(action)
@@ -129,7 +133,7 @@ func run_actions():
 			if not current_action.action_name == "" :
 				show_action_name(current_action.action_name + "!",current_action.summary)
 			if not current_action.attack_lines.is_empty():
-				current_action.user.speak(current_action.attack_lines[RandomService.randi_channel('true_random') % current_action.attack_lines.size()])
+				current_action.user.speak(current_action.attack_lines[RNG.channel(RNG.ChannelTrueRandom).randi() % current_action.attack_lines.size()])
 		current_action.manager = self
 		current_action.battle_node = battle_node
 		if current_action is ActionScript:
@@ -144,15 +148,14 @@ func run_actions():
 	current_action = null
 
 # Removes dead battle participant
-func someone_died(who: Node3D) -> void:
+func someone_died(who: Node3D, force := false) -> void:
 	# If anyone has any last minute objections,
 	# Make them known
 	s_participant_will_die.emit(who)
 	
 	# Allow for revives to take place
 	if 'stats' in who:
-		var stats: BattleStats = who.stats
-		if stats.hp > 0:
+		if not is_target_dead(who) and not force:
 			return
 	
 	# Remove from cog array if is cog
@@ -229,12 +232,19 @@ func round_over():
 
 func end_battle() -> void:
 	# End battle
+
+	# First call cleanup on all existing status effects
+	for _effect: StatusEffect in status_effects.duplicate():
+		status_effects.erase(_effect)
+		_effect.cleanup()
+	status_effects = []
+
 	# Play battle win movie if it exists
 	if battle_win_movie:
 		await battle_win_movie.action()
 	s_battle_ending.emit()
 	s_focus_char.emit(player)
-	player.set_animation('victory_dance')
+	player.set_animation('victory-dance')
 	player.game_timer_tick = false
 	await player.animator.animation_finished
 	player.game_timer_tick = true
@@ -248,6 +258,8 @@ func end_battle() -> void:
 		SceneLoader.add_persistent_node(partner)
 	s_round_ended.emit()
 	s_battle_ended.emit()
+	player.toon.drop_shadow.reparent(player.toon)
+	player.toon.drop_shadow.position = Vector3(0.0, 0.02, 0.0)
 
 func spawn_reward() -> void:
 	# Battle drops
@@ -256,15 +268,16 @@ func spawn_reward() -> void:
 	else:
 		if battle_node.item_pool:
 			var chest = load('res://objects/interactables/treasure_chest/treasure_chest.tscn').instantiate()
-			battle_node.get_parent().add_child(chest)
-			chest.global_position = battle_node.global_position
-			chest.global_rotation = battle_node.global_rotation
 			if player.better_battle_rewards == true and current_round <= 2:
 				chest.item_pool = ItemService.PROGRESSIVE_POOL
 				player.boost_queue.queue_text("Bounty!", Color.GREEN)
 			else:
 				chest.item_pool = battle_node.item_pool
-			chest.override_replacement_rolls = RandomService.randi_channel('true_random') % 2 == 0
+			chest.override_replacement_rolls = RNG.channel(RNG.ChannelBattleChestOverrides).randf() < 0.33
+			battle_node.get_parent().add_child(chest)
+			chest.global_position = battle_node.global_position
+			chest.global_rotation = battle_node.global_rotation
+			s_spawned_reward_chest.emit(chest)
 
 func is_target_dead(target: Node3D) -> bool:
 	var health_ratio: float = float(target.stats.hp) / float(target.stats.max_hp)
@@ -311,6 +324,11 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	if current_action and is_instance_of(current_action, CogAttack) and current_action.ignore_stats:
 		ignore_current_action = true
 
+	if current_action and current_action.nullified:
+		battle_text(target, "NULLIFIED!", Color('00ff00'), Color('007100'))
+		s_target_nullified_action.emit(target, current_action)
+		return 0
+
 	var stat: String = 'hp'
 
 	if not ignore_current_action:
@@ -330,14 +348,13 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	# Get the stat's current value
 	var pre_stat = target.stats.get(stat)
 
-	var should_crit := false
-	# Is player action
-	if (current_action and current_action.user and current_action.user is Player):
-		# Check for crit on non-player target
-		if (not target is Player) and amount > 0:
-			should_crit = roll_for_crit(current_action)
-			if should_crit:
-				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
+	var should_crit := roll_for_crit(current_action)
+	if should_crit:
+		var user = current_action.user
+		if not 'stats' in user or not 'crit_mult' in user.stats:
+			amount = roundi(amount * 1.25)
+		else:
+			amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
 
 	# Check for healing effectiveness on player target
 	if target is Player and amount < 0:
@@ -354,29 +371,33 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 				# mark it as the player's last damage source for the death screen
 				target.last_damage_source = current_action.user.dna.cog_name
 			# Also apply a custom death source message if we have one
-			if current_action and current_action.custom_player_death_source:
-				target.last_damage_source = current_action.custom_player_death_source
+			if current_action:
+				if current_action.custom_player_death_source:
+					target.last_damage_source = current_action.custom_player_death_source
+				if current_action.user is Cog:
+					BattleService.s_cog_dealt_damage.emit(current_action, target, amount)
+		if should_crit:
+			raise_height = 0.4
+			string = str("%s\nCRIT!" % -roundi(amount))
+			text_color = BattleText.colors.yellow[0]
+			outline_color = BattleText.colors.yellow[1]
+			AudioManager.play_sound(CRIT_SFX.pick_random())
+			BattleService.s_toon_crit.emit()
 		else:
-			if should_crit:
-				raise_height = 0.4
-				string = str("%s\nCRIT!" % -roundi(amount))
-				text_color = BattleText.colors.yellow[0]
-				outline_color = BattleText.colors.yellow[1]
-				AudioManager.play_sound(RandomService.array_pick_random('true_random', CRIT_SFX))
-				BattleService.s_toon_crit.emit()
-			else:
-				string = str(-roundi(amount))
-				if current_action and current_action.user is Player:
-					BattleService.s_toon_didnt_crit.emit()
-			if current_action and current_action.user is Player and target is Cog:
-				BattleService.s_toon_dealt_damage.emit(current_action, target, amount)
+			string = str(-roundi(amount))
+			if current_action and current_action.user is Player:
+				BattleService.s_toon_didnt_crit.emit()
+		if current_action and current_action.user is Player and target is Cog:
+			BattleService.s_toon_dealt_damage.emit(current_action, target, amount)
 	# Healing action
 	else:
 		text_color = Color('00ff00')
 		outline_color = Color('007100')
 		string = '+' + str(roundi(target.stats.get(stat) - pre_stat))
 
-	if text_color:
+	if string == "+0":
+		pass
+	elif text_color:
 		battle_text(target, string, text_color, outline_color, raise_height)
 	else:
 		battle_text(target, string, Color('ff0000'), Color('7a0000'), raise_height)
@@ -390,6 +411,10 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	# Record overkill amount if hp is 0
 	if target.stats.get_stat(stat) == 0:
 		overkill_amounts[target] = int(amount - pre_stat)
+	
+	if current_action:
+		if target == player and player.revives_are_hp and current_action.has_tag(BattleAction.ActionTag.DOUBLE_REVIVE_DAMAGE):
+			target.stats.set(stat, target.stats.get_stat(stat) - 1)
 
 	return roundi(amount)
 
@@ -423,22 +448,17 @@ func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 	
 	# Calculate true damage
 	var boosted_damage := float(damage) * dmg_boost
+	var dept_boost: float = 1.0
 
 	if user is Player:
 		var user_stats: PlayerStats = battle_stats[user]
 		if action is GagLure:
 			if action.action_name == "KnockbackTest":
-				boosted_damage *= user_stats.gag_effectiveness['Lure']
+				boosted_damage *= user_stats.get_track_effectiveness('Lure')
 			else:
-				boosted_damage *= user_stats.gag_effectiveness['Trap']
-		elif action is GagSound:
-			boosted_damage *= user_stats.gag_effectiveness['Sound']
-		elif action is GagThrow:
-			boosted_damage *= user_stats.gag_effectiveness['Throw']
-		elif action is GagSquirt:
-			boosted_damage *= user_stats.gag_effectiveness['Squirt']
-		elif action is DropBig or action is DropSmall:
-			boosted_damage *= user_stats.gag_effectiveness['Drop']
+				boosted_damage *= user_stats.get_track_effectiveness('Trap')
+		else:
+			boosted_damage *= user_stats.get_track_effectiveness(user_stats.character.gag_loadout.get_action_track(action).track_name)
 
 		if target is Cog:
 			# Mod cog dmg boost
@@ -447,64 +467,83 @@ func get_damage(damage: float, action: BattleAction, target: Node3D) -> int:
 				if not action.contains_boost_text("Proxy Boost!"):
 					action.store_boost_text("Proxy Boost!", Color(1, 0.431, 0))
 
-			# Sellbot dmg boost
-			if target.dna.department == CogDNA.CogDept.SELL and not is_equal_approx(user_stats.sellbot_boost, 1.0):
-				boosted_damage *= user_stats.sellbot_boost
-			# Cashbot dmg boost
-			elif target.dna.department == CogDNA.CogDept.CASH and not is_equal_approx(user_stats.cashbot_boost, 1.0):
-				boosted_damage *= user_stats.cashbot_boost
-			# Lawbot dmg boost
-			elif target.dna.department == CogDNA.CogDept.LAW and not is_equal_approx(user_stats.lawbot_boost, 1.0):
-				boosted_damage *= user_stats.lawbot_boost
-			# Bossbot dmg boost
-			elif target.dna.department == CogDNA.CogDept.BOSS and not is_equal_approx(user_stats.bossbot_boost, 1.0):
-				boosted_damage *= user_stats.bossbot_boost
+			# Department specific damage boost
+			dept_boost = user_stats.get_cog_dept_boost(target.dna.department)
+			if not is_equal_approx(dept_boost, 1.0):
+				boosted_damage *= dept_boost
+
+	elif user is Cog and target is Player:
+		var target_stats: PlayerStats = battle_stats[target]
+		# Department specific defense boost
+		dept_boost = target_stats.get_cog_dept_boost(user.dna.department)
+		if not is_equal_approx(dept_boost, 1.0):
+			defense *= dept_boost
 
 	return roundi(boosted_damage / defense)
 
 func roll_for_accuracy(action: BattleAction) -> bool:
-	if not 'accuracy' in action or action.accuracy == Globals.ACCURACY_GUARANTEE_HIT:
+	if action in action_hit_rolls.keys():
+		return action_hit_rolls[action]
+	if action is ToonAttack:
+		if not Util.get_player().use_accuracy:
+			action_hit_rolls[action] = true
+			return true
+	elif not 'accuracy' in action or action.accuracy == Globals.ACCURACY_GUARANTEE_HIT:
+		action_hit_rolls[action] = true
 		return true
 	elif action.accuracy == Globals.ACCURACY_GUARANTEE_MISS:
+		action_hit_rolls[action] = false
 		return false
 	
 	# Get reference values
 	# The base accuracy of the move
 	# The accuracy boost of the user
 	# The evasiveness of the target
-	var acc_base: int = action.accuracy
+	var acc_base: int
+	if not 'accuracy' in action: acc_base = 100
+	else: acc_base = action.accuracy
 	var acc_boost: float = battle_stats[action.user].get_stat('accuracy')
 	
 	# Find average evasiveness
 	var evasiveness := 0.0
 	for target in action.targets:
+		if action is CogAttack and action.damage > 0 and target is Player and target.cogs_always_hit:
+			action_hit_rolls[action] = true
+			return true
 		evasiveness += battle_stats[target].get_stat('evasiveness')
 	evasiveness /= float(action.targets.size())
 	
 	# Calculate the true accuracy
-	var boosted_acc := float(acc_base)*acc_boost
-	var true_acc := int(round(boosted_acc/evasiveness))
+	var boosted_acc := float(acc_base) * acc_boost
+	var true_acc := int(round(boosted_acc / evasiveness))
 	
 	# Cap accuracy at 95%
 	true_acc = clamp(true_acc, 5, 95)
 	
 	# Roll
-	var roll := RandomService.randi_channel('true_random') % 100
+	var roll := randi() % 100
 	
 	print(action.action_name + " rolled " + str(roll) + " for accuracy, and needed lower than " + str(true_acc) + ".")
 	
-	return roll < true_acc
+	var hit := roll < true_acc
+	action_hit_rolls[action] = hit
+	return hit
 
 func roll_for_crit(action: BattleAction) -> bool:
 	var crit_chance: float = get_crit_chance(action)
-	var roll: float = RandomService.randf_channel('true_random')
+	var roll: float = randf()
 	print("Crit: Needed lower than %s and rolled %s" % [crit_chance, roll])
 	return roll < crit_chance
 
 func get_crit_chance(action: BattleAction) -> float:
 	if (not action) or not action.user:
 		return 0.0
-	if not 'luck' in battle_stats[action.user]:
+	
+	# Crit guarantee override
+	if is_equal_approx(action.crit_chance_mod, Globals.CRIT_MOD_GUARANTEE):
+		return 2.0
+	
+	if not action.user in battle_stats.keys() or not 'luck' in battle_stats[action.user]:
 		return 0.0
 	if is_instance_of(action, GagLure) and action.current_activating_trap:
 		# Crit chance is saved onto the trap
@@ -645,35 +684,39 @@ func force_unlure(target: Cog) -> void:
 	if not lure_effect:
 		return
 	if lure_effect.lure_type == StatusLured.LureType.DAMAGE_DOWN:
-		battle_stats[target].damage *= (1/ lure_effect.damage_nerf)
+		battle_stats[target].damage -= lure_effect.damage_nerf
+		battle_stats[target].accuracy -= lure_effect.damage_nerf / 2.0
 	if target.stats.hp > 0 and lure_effect.lure_type == StatusLured.LureType.STUN and not target in has_moved:
 		unskip_turn(target)
 
 func unskip_turn(who: Actor) -> void:
 	if who is Cog:
 		var cog_index := cogs.find(who)
-		var action_index : int
-		for i in round_actions.size():
-			if cog_index > 0 and round_actions[i].user == cogs[cog_index - 1]:
-				action_index = i + 1
-				break
-			# NOTE: This may need to change later(?)
-			# All current battle participants extend the Actor class
-			# Boss fights inject themselves as a participant for an action at the end of a round
-			# Meaning it's currently ok to assume that non-actor moves should come last
-			elif (cog_index < cogs.size() -1 and round_actions[i].user == cogs[cog_index + 1]) or not round_actions[i].user is Actor:
-				action_index = i
-				break
-		if action_index:
-			for i in who.stats.turns:
-				inject_battle_action(get_cog_attack(who), action_index)
-		else:
-			# Failsafe
-			for i in who.stats.turns:
-				append_action(get_cog_attack(who))
+		var action_index := 0
+		# Quick check to find player's last action
+		var player_index := 0
+		var found_player := false
+		while player_index < round_actions.size():
+			if round_actions[action_index].user is Player: found_player = true
+			elif found_player: break
+			player_index += 1
+		# Start the search after the player's actions
+		if found_player:
+			action_index = player_index
+		while action_index < round_actions.size():
+			var action: BattleAction = round_actions[action_index]
+			if action.user is Cog:
+				if cogs.find(action.user) > cog_index:
+					break
+			# If action isn't player or Cog then it's probably some post round cutscene tbh
+			elif not action.user is Player:
+				break 
+			action_index += 1
+		for i in who.stats.turns:
+			inject_battle_action(get_cog_attack(who), action_index)
 
 func get_cog_attack(cog: Cog) -> CogAttack:
-	var cog_attack : CogAttack
+	var cog_attack: CogAttack
 	# Disallow illegal moves to be added to the round
 	while not cog_attack or cog_attack.get_script() in illegal_moves:
 		cog_attack = cog.get_attack()
@@ -716,8 +759,11 @@ func find_cog_lure(cog: Cog) -> StatusLured:
 				return effect
 	return null
 
-func inject_battle_action(battle_action : BattleAction,position : int):
-	print("Action injected")
+func inject_battle_action(battle_action: BattleAction,position: int):
+	if not battle_action:
+		return
+	
+	print("Action %s injected." % battle_action.action_name)
 	round_actions.insert(position,battle_action)
 	s_action_added.emit(battle_action)
 
@@ -750,12 +796,11 @@ func add_cog(cog: Cog, pos := -1) -> void:
 		cogs.append(cog)
 	else:
 		cogs.insert(pos, cog)
-	battle_stats[cog] = cog.stats.duplicate()
+	battle_stats[cog] = cog.stats.duplicate(true)
 	s_participant_joined.emit(cog)
-	for effect: StatusEffect in cog.dna.status_effects:
-		var add_eff := effect.duplicate()
-		add_eff.target = cog
-		add_status_effect(add_eff)
+	for effect in cog.status_effects:
+		effect.target = cog
+		add_status_effect(effect)
 
 ## Creates a Skelecog based on the Cog specified
 func create_v2_cog(cog: Cog) -> Cog:
@@ -794,14 +839,14 @@ func boost_v2_stats(old_cog: Cog, cog: Cog) -> void:
 	
 	var overkill := overkill_amounts[old_cog]
 	var ratio := float(overkill) / float(cog.stats.max_hp)
-	ratio = clampf(ratio, 0.1, 0.5) / 2.0
-	var def_nerf: StatBoost = statboost.duplicate()
-	def_nerf.boost = 1.0 - ratio
+	ratio = clampf(ratio, 0.1, 0.5)
+	var def_nerf: StatBoost = statboost.duplicate(true)
+	def_nerf.boost = -ratio
 	def_nerf.stat = 'defense'
 	def_nerf.rounds = -1
 	def_nerf.quality = StatusEffect.EffectQuality.NEGATIVE
-	var dmg_boost: StatBoost = statboost.duplicate()
-	dmg_boost.boost = ratio + 1.0
+	var dmg_boost: StatBoost = statboost.duplicate(true)
+	dmg_boost.boost = ratio
 	dmg_boost.stat = 'damage'
 	dmg_boost.rounds = -1
 	dmg_boost.quality = StatusEffect.EffectQuality.POSITIVE

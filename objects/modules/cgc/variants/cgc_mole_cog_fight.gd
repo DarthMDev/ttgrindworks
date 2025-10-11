@@ -14,7 +14,7 @@ func _ready() -> void:
 	bring_in_reinforcements()
 
 func bring_in_reinforcements() -> void:
-	var action := REINFORCEMENTS.duplicate()
+	var action := REINFORCEMENTS.duplicate(true)
 	action.user = mole_cog
 	action.cog_amount = 3
 	action.targets = [mole_cog]

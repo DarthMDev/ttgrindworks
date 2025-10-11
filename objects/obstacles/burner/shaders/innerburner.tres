@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://b4l5edm0sdpba"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://b4l5edm0sdpba"]
 
 [ext_resource type="Texture2D" uid="uid://hehbahi6y51q" path="res://objects/obstacles/burner/textures/flamemap.png" id="1_h4kbh"]
 
@@ -41,8 +41,6 @@ operator = 3
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_67bav"]
 default_input_values = [0, 0.0, 1, 1.0, 2, 0.2]
 
-[sub_resource type="VisualShaderNodeTransformFunc" id="VisualShaderNodeTransformFunc_h4kbh"]
-
 [sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_7laqk"]
 default_input_values = [2, true, 3, 2.0]
 
@@ -56,7 +54,7 @@ max = 2.0
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform vec2 FirePanningSpeed;
 uniform sampler2D tex_frg_14;
@@ -161,6 +159,4 @@ nodes/fragment/21/node = SubResource("VisualShaderNodeColorConstant_h4kbh")
 nodes/fragment/21/position = Vector2(500, 640)
 nodes/fragment/22/node = SubResource("VisualShaderNodeMix_67bav")
 nodes/fragment/22/position = Vector2(820, 400)
-nodes/fragment/23/node = SubResource("VisualShaderNodeTransformFunc_h4kbh")
-nodes/fragment/23/position = Vector2(-540, -60)
 nodes/fragment/connections = PackedInt32Array(12, 0, 14, 0, 11, 0, 12, 2, 13, 0, 12, 1, 10, 0, 0, 1, 14, 0, 17, 0, 18, 0, 17, 1, 17, 0, 8, 0, 8, 0, 20, 0, 20, 0, 0, 0, 2, 0, 8, 1, 21, 0, 22, 1, 3, 0, 22, 0, 22, 0, 20, 1, 9, 0, 3, 3)

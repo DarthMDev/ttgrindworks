@@ -20,7 +20,7 @@ func round_started(_actions : Array[BattleAction]) -> void:
 		queue_quiz()
 
 func queue_quiz() -> void:
-	var action := ACTION_QUIZ.duplicate()
+	var action := ACTION_QUIZ.duplicate(true)
 	action.user = target
 	action.targets = [Util.get_player()]
 	manager.round_end_actions.append(action)

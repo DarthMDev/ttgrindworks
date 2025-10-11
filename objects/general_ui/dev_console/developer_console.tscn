@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckoi0smkjdncl"]
+
+[ext_resource type="Script" uid="uid://b2gkgm1xqt5dp" path="res://objects/general_ui/dev_console/developer_console.gd" id="1_yekhd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hetaf"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_yekhd"]
+font_color = Color(1, 1, 1, 0.392157)
+
+[node name="DeveloperConsole" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_yekhd")
+
+[node name="ScreenSpace" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackingPanel" type="Panel" parent="ScreenSpace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = -212.0
+offset_right = 377.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="ScreenSpace/BackingPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ScreenSpace/BackingPanel/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Developer Console"
+label_settings = SubResource("LabelSettings_hetaf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConsoleLines" type="ScrollContainer" parent="ScreenSpace/BackingPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 22.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineContainer" type="VBoxContainer" parent="ScreenSpace/BackingPanel/ConsoleLines"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ConsoleLine" type="RichTextLabel" parent="ScreenSpace/BackingPanel/ConsoleLines"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="Input" type="LineEdit" parent="ScreenSpace/BackingPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = ">"
+max_length = 64
+
+[node name="AutofillLabel" type="Label" parent="ScreenSpace/BackingPanel/Input"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_yekhd")
+vertical_alignment = 1
+
+[connection signal="text_changed" from="ScreenSpace/BackingPanel/Input" to="." method="on_input_changed"]
+[connection signal="text_submitted" from="ScreenSpace/BackingPanel/Input" to="." method="on_input_sent"]

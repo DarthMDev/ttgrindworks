@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://mty4rn7d7fn3"]
+[gd_scene load_steps=10 format=3 uid="uid://mty4rn7d7fn3"]
 
 [ext_resource type="Script" uid="uid://bjiti2gmwln1h" path="res://scenes/loading_screen/loading_screen.gd" id="1_6lcto"]
 [ext_resource type="Texture2D" uid="uid://cu5fskcmrvr4n" path="res://ui_assets/misc/background.png" id="2_d20g6"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_5snab"]
 [ext_resource type="Texture2D" uid="uid://bfms6y76d307c" path="res://ui_assets/quests/questCard.png" id="4_iur5r"]
+[ext_resource type="Texture2D" uid="uid://dtycf03soy7uj" path="res://ui_assets/general/logo.png" id="5_u2jrd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hf6ge"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85l3m"]
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 8
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vhk3"]
 bg_color = Color(1, 0, 0, 1)
@@ -13,7 +17,8 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ydl26"]
 font = ExtResource("3_5snab")
 font_size = 36
-font_color = Color(1.44392e-06, 0, 0.588753, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.41960785)
 
 [sub_resource type="LabelSettings" id="LabelSettings_njque"]
 font = ExtResource("3_5snab")
@@ -52,10 +57,11 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_5snab")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/background = SubResource("StyleBoxFlat_hf6ge")
+theme_override_styles/background = SubResource("StyleBoxFlat_85l3m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8vhk3")
 max_value = 1.0
 value = 0.25
+show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar"]
 layout_mode = 1
@@ -66,6 +72,7 @@ text = "Loading..."
 label_settings = SubResource("LabelSettings_ydl26")
 
 [node name="TipScroll" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,3 +97,20 @@ text = "TOON TIP:
 Drink Motor Oil"
 label_settings = SubResource("LabelSettings_njque")
 autowrap_mode = 2
+
+[node name="GameLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.60852
+offset_top = -211.0
+offset_right = 275.60852
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u2jrd")
+expand_mode = 1
+stretch_mode = 4

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/opera_singer.fbx-a6d2d64943f7636173c90524bd53
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,42 +34,54 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "ears": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/ears.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/ears.tres",
+"use_external/path": "uid://bqwi8dpceoab8"
 },
 "eyesNeutral": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/eyesNeutral.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/eyesNeutral.tres",
+"use_external/path": "uid://26jhq683ikbi"
 },
 "opera_hair": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/opera_hair.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/opera_hair.tres",
+"use_external/path": "uid://q5mv1itbum58"
 },
 "opera_hat1": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/opera_hat1.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/opera_hat1.tres",
+"use_external/path": "uid://cxnilb2hma8ql"
 },
 "opera_head": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/opera_head.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/opera_head.tres",
+"use_external/path": "uid://ci6tfpxgltig6"
 },
 "opera_muzzle": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/opera_muzzle.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/opera_muzzle.tres",
+"use_external/path": "uid://crfbs0ltdlqor"
 },
 "opera_nose": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/opera_nose.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/opera_nose.tres",
+"use_external/path": "uid://coxnwg0v41rka"
 },
 "pupils": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/gags/opera_singer/textures/pupils.tres"
+"use_external/fallback_path": "res://models/props/gags/opera_singer/textures/pupils.tres",
+"use_external/path": "uid://bufjqtif7c4qq"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dccabtq3oebib"]
+
+[ext_resource type="PackedScene" uid="uid://dta7wjpl4253v" path="res://models/props/cog_props/phone_receiver/prop_phone.glb" id="1_arngf"]
+[ext_resource type="PackedScene" uid="uid://bnciyvb4a4elu" path="res://models/props/cog_props/phone_receiver/prop_receiver.glb" id="2_8xyty"]
+
+[node name="Phone" type="Node3D"]
+
+[node name="prop_phone" parent="." instance=ExtResource("1_arngf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512606, 0, -0.0134203)
+
+[node name="prop_receiver" parent="." instance=ExtResource("2_8xyty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512606, 0, -0.0134203)

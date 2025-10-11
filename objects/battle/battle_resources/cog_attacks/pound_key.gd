@@ -1,5 +1,4 @@
 extends CogAttack
-class_name PoundKey
 
 const PHONE := preload("res://models/props/cog_props/phone_receiver/prop_phone.glb")
 const RECEIVER := preload("res://models/props/cog_props/phone_receiver/prop_receiver.glb")
@@ -9,7 +8,7 @@ const PARTICLES := preload('res://objects/battle/effects/pound_key/pound_key.tsc
 
 func action():
 	var hit_anim := 'cringe'
-	var miss_anim := 'sidestep_left'
+	var miss_anim := 'sidestep-left'
 	
 	var target = targets[0]
 	user.face_position(target.global_position)

@@ -4,7 +4,7 @@ extends FloorModifier
 func modify_floor() -> void:
 	game_floor.s_cog_spawned.connect(
 		func(cog: Cog):
-			var health_mod := RandomService.randf_range_channel('tough_crowd_mod', 0.8, 1.2)
+			var health_mod := RNG.channel(RNG.ChannelToughCrowdMod).randf_range(0.8, 1.2)
 			print('Volatile Market - Applying health mod: %s' % health_mod)
 			cog.health_mod *= health_mod
 	)

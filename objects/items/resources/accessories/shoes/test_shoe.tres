@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemShoe" load_steps=3 format=3 uid="uid://cffn7uvfibyv"]
+
+[ext_resource type="Script" uid="uid://bb02y647us2n3" path="res://objects/items/classes/item_shoe.gd" id="1_vnwu0"]
+[ext_resource type="Texture2D" uid="uid://dr5bhav65aa2g" path="res://models/accessories/shoe_textures/shoes/tt_t_chr_avt_acc_sho_oxfords.png" id="2_bj0a2"]
+
+[resource]
+script = ExtResource("1_vnwu0")
+shoe_tex = ExtResource("2_bj0a2")
+item_name = "Test Shoes"
+item_description = "Shoes."
+big_description = "They are literally just shoes. There is no benefit to wearing them unless you like how they look."
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://bb02y647us2n3"

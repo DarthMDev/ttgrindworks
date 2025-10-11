@@ -25,8 +25,8 @@ func setup(_player: Player) -> void:
 func try_apply_drop(manager: BattleManager) -> void:
 	# Pick a random cog in the battle and apply the auto-drop status onto them.
 	if manager.cogs:
-		var cog: Cog = RandomService.array_pick_random('true_random', manager.cogs)
-		var new_status := AUTO_DROP.duplicate()
+		var cog: Cog = manager.cogs.pick_random()
+		var new_status := AUTO_DROP.duplicate(true)
 		new_status.drop_gag = get_random_drop_resource()
 		new_status.target = cog
 		manager.add_status_effect(new_status)
@@ -42,5 +42,5 @@ func get_random_drop_resource() -> GagDrop:
 	min_drop_level = mini(min_drop_level, 4)
 	# Prevent range errors by making sure the max drop level is at least 1 higher than the min drop level
 	var max_drop_level: int = max(min_drop_level, player.stats.get_highest_gag_level() - 1)
-	idx = RandomService.randi_range_channel('true_random', min_drop_level, max_drop_level)
-	return DROP_GAGS.gags[idx].duplicate()
+	idx = randi_range(min_drop_level, max_drop_level)
+	return DROP_GAGS.gags[idx].duplicate(true)

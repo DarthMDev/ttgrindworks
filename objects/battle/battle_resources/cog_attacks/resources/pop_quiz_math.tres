@@ -1,32 +1,23 @@
 [gd_resource type="Resource" script_class="PopQuizAttack" load_steps=7 format=3 uid="uid://bmp6wgk24lvba"]
 
 [ext_resource type="Script" uid="uid://nfv1tbmrrbwv" path="res://objects/battle/battle_resources/cog_attacks/pop_quiz.gd" id="1_giy4v"]
-[ext_resource type="Script" uid="uid://b55u2wxwx511g" path="res://general_resources/audio_snippet.gd" id="1_mc6oc"]
+[ext_resource type="Script" uid="uid://b55u2wxwx511g" path="res://general_resources/audio_snippet/audio_snippet.gd" id="1_mc6oc"]
 [ext_resource type="AudioStream" uid="uid://yfuojmpbwpbd" path="res://audio/sfx/misc/MG_lose.ogg" id="2_f5kxf"]
 [ext_resource type="AudioStream" uid="uid://dvrde21b0wn84" path="res://audio/sfx/misc/MG_pairing_match_bonus_both.ogg" id="4_xu3s2"]
 
 [sub_resource type="Resource" id="Resource_8to1i"]
 script = ExtResource("1_mc6oc")
 stream = ExtResource("2_f5kxf")
-start_time = 0.0
-end_time = -1.0
 
 [sub_resource type="Resource" id="Resource_slnuw"]
 script = ExtResource("1_mc6oc")
 stream = ExtResource("4_xu3s2")
-start_time = 0.0
-end_time = -1.0
 
 [resource]
 script = ExtResource("1_giy4v")
-question_time = 5.0
 lose_sfx = SubResource("Resource_8to1i")
 win_sfx = SubResource("Resource_slnuw")
-accuracy = 75
 damage = 3
-ignore_stats = false
 summary = "Get ready!"
 attack_lines = Array[String](["Think fast!", "Let's put your intellect to the test."])
-target_type = 0
 action_name = "Pop Quiz"
-one_time_use = false

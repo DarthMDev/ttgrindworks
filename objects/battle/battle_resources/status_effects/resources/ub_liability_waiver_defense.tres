@@ -5,16 +5,9 @@
 
 [resource]
 script = ExtResource("2_6ipeu")
-stat = "defense"
 boost = 2.0
 quality = 0
 rounds = -1
 icon = ExtResource("1_sp4gr")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
 status_name = "Liability Defense"
 id = 29

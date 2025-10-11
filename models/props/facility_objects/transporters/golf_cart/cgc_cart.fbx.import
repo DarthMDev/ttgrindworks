@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/cgc_cart.fbx-f6653d41e4578f6fe8d0d2e469ea2a67
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,54 +34,69 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "Kart1_Final_lambert25SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/Kart1_Final_lambert25SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/Kart1_Final_lambert25SGShader.tres",
+"use_external/path": "uid://rh6k54n45c02"
 },
 "Kart3_Final_Kart3_Final_lambert16SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert16SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert16SGShader.tres",
+"use_external/path": "uid://bkhvw60kbvxal"
 },
 "Kart3_Final_Kart3_Final_lambert6SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert6SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert6SGShader.tres",
+"use_external/path": "uid://cnpgnp7won1rg"
 },
 "Kart3_Final_Kart3_Final_lambert8SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert8SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Kart3_Final_lambert8SGShader.tres",
+"use_external/path": "uid://c1oy7l28wqwal"
 },
 "Kart3_Final_Wheel3_lambert9SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Wheel3_lambert9SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/Kart3_Final_Wheel3_lambert9SGShader.tres",
+"use_external/path": "uid://c81vtnoq2r030"
 },
 "lambert3SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert3SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert3SGShader.tres",
+"use_external/path": "uid://cbojgvm2fq3mb"
 },
 "lambert45SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert45SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert45SGShader.tres",
+"use_external/path": "uid://d0t300hexn4fh"
 },
 "lambert47SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert47SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert47SGShader.tres",
+"use_external/path": "uid://ckmip270dnvya"
 },
 "lambert50SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert50SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert50SGShader.tres",
+"use_external/path": "uid://d1wo7un713tlj"
 },
 "lambert55SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert55SGShader.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert55SGShader.tres",
+"use_external/path": "uid://bvnmfj6et3ned"
 },
 "lambert56": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/transporters/golf_cart/lambert56.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/transporters/golf_cart/lambert56.tres",
+"use_external/path": "uid://bbiy5nv3ipuxk"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

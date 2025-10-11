@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvub83fkavh0x"]
+
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="1_wec7j"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="2_o0oqt"]
+[ext_resource type="PackedScene" uid="uid://b0g4h0p4knron" path="res://models/facilities/molten/molten_connector_s.fbx" id="4_l5mig"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kwqb"]
+transparency = 1
+albedo_color = Color(0.72, 0.72, 0.72, 0.356863)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128479, -0.0468223, 5.27393)
+use_collision = true
+size = Vector3(15.6254, 0.355645, 28.1855)
+material = SubResource("StandardMaterial3D_2kwqb")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30573, -1.11453, 6.07997)
+use_collision = true
+size = Vector3(3.26172, 2.515, 29.16)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36914, -1.11453, 6.07997)
+use_collision = true
+size = Vector3(3.26172, 2.515, 29.16)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.83648e-09, -1.11453, -10.0878)
+use_collision = true
+size = Vector3(4, 2.515, 22)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.73672e-07, -1.11453, 22.7312)
+use_collision = true
+size = Vector3(4.15527, 2.515, 22)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.73755, 4.48034, 17.1916)
+use_collision = true
+size = Vector3(7.04834, 0.61, 7.025)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65356, 4.48034, 17.1916)
+use_collision = true
+size = Vector3(6.69287, 0.61, 7.025)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.71367e-07, 4.48034, 22.7839)
+use_collision = true
+size = Vector3(4.26074, 0.61, 22)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.11453, 6)
+use_collision = true
+size = Vector3(28.749, 2.515, 8.39355)
+
+[node name="MoltenBellows" parent="." instance=ExtResource("1_wec7j")]
+transform = Transform3D(0.43493, 0, 0, 0, 0.43493, 0, 0, 0, 0.43493, 0, 0.151665, 5.9599)
+retract_speed = 5.0
+max_push = 2.0
+
+[node name="SPAWNPOINT" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.131, -7.52778)
+
+[node name="EXIT" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.80594, 24.9117)
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("2_o0oqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-06, 0.114442, -10.2344)
+
+[node name="molten_connector_s" parent="." instance=ExtResource("4_l5mig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.62401, 6.32339, 36.3036)
+visible = false

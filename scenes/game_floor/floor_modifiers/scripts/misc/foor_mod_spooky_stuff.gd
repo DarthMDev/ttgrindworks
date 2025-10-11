@@ -24,15 +24,15 @@ func modify_floor() -> void:
 		func(cog: Cog): 
 			if cog.dna or cog.skelecog:
 				return
-			if RandomService.randf_channel('true_random') < V2_CHANCE:
+			if RNG.channel(RNG.ChannelHauntedCGCv2).randf() < V2_CHANCE:
 				cog.v2 = true
 				cog.skelecog_chance = 0
 			cog.s_dna_set.connect(cog_dna_set.bind(cog))
 	)
 
-func cog_dna_set(cog : Cog) -> void:
-	if RandomService.randf_channel('true_random'):
-		cog.dna.battle_phrases = STARTER_PHRASES.duplicate()
+func cog_dna_set(cog: Cog) -> void:
+	if randf():
+		cog.dna.battle_phrases = STARTER_PHRASES.duplicate(true)
 
 func get_mod_name() -> String:
 	return "SpookyStuff"

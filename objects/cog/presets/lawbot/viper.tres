@@ -1,42 +1,28 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://dkfcdpyuf8vj4"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=5 format=3 uid="uid://dkfcdpyuf8vj4"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_r1578"]
 [ext_resource type="Resource" uid="uid://b4kaq7rjifwfc" path="res://objects/battle/battle_resources/cog_attacks/resources/liquidate.tres" id="2_dflc4"]
 [ext_resource type="Resource" uid="uid://bddy50xh8sfc8" path="res://objects/battle/battle_resources/cog_attacks/resources/tremor.tres" id="3_wrxfr"]
-[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_gb531"]
-[ext_resource type="PackedScene" uid="uid://d2pl7oar1aevb" path="res://models/cogs/heads/movershaker.glb" id="4_mf53g"]
-[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_micxp"]
-[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_0l8n7"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="6_684hx"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="7_jwwvn"]
-[ext_resource type="Texture2D" uid="uid://c0rrpulky77a4" path="res://models/cogs/heads/bloodsucker.png" id="8_2cmrg"]
-[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="8_7utma"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="4_x8nax"]
 
 [resource]
-script = ExtResource("6_684hx")
+script = ExtResource("4_x8nax")
 department = 2
 suit = 1
-custom_blazer_tex = ExtResource("5_micxp")
-custom_arm_tex = ExtResource("4_gb531")
-custom_leg_tex = ExtResource("6_0l8n7")
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
 cog_name = "Viper"
-name_plural = ""
-head = ExtResource("4_mf53g")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/movershaker.glb"
 scale = 5.9
-head_textures = Array[Texture2D]([ExtResource("8_2cmrg")])
+head_textures = PackedStringArray("res://models/cogs/heads/viper.png")
 hand_color = Color(0.2, 0.470588, 0.278431, 1)
-head_color = Color(0.2193, 0.51, 0.301665, 1)
 custom_nametag_height = 9.4
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_r1578")]([ExtResource("2_dflc4"), ExtResource("3_wrxfr")])
 level_low = 7
 level_high = 20
-status_effects = Array[ExtResource("7_jwwvn")]([ExtResource("8_7utma")])
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
 is_mod_cog = true
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["Lookssss like you're hisssstory.", "I have no time for Toony ssssimpletonssss.", "Too bad, you rolled ssssnake eyessss.", "Lookssss like ssssupper has arrived."])
 external_assets = {
 &"head_model": "",

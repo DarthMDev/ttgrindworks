@@ -30,6 +30,8 @@ func _ready() -> void:
 	if NodeGlobals.get_ancestor_of_type(self, BattleUI):
 		%VoucherPreventer.hide()
 		%ToonupPreventer.hide()
+	elif Util.get_player().gags_cost_beans:
+		%VoucherPreventer.hide()
 	if hide_close_button:
 		%CloseButton.hide()
 
@@ -41,6 +43,9 @@ func _ready() -> void:
 @onready var voucher_container: HBoxContainer = %VoucherContainer
 
 func _ready_vouchers() -> void:
+	if is_instance_valid(Util.get_player()) and Util.get_player().gags_cost_beans:
+		_ready_bean_vouchers()
+		return
 	_refresh_vouchers()
 
 func _populate_vouchers() -> void:
@@ -145,9 +150,14 @@ func hover_toonup(level: int) -> void:
 func get_toonup_description(level: int) -> String:
 	match level:
 		4:
-			return "%s%% laff regeneration" % roundi(20.0 * Util.get_player().stats.healing_effectiveness)
+			return get_pixie_desc()
 		_:
 			return TOON_UP.gags[level].custom_description
+
+func get_pixie_desc() -> String:
+	if Util.get_player().revives_are_hp:
+		return "Cannot lose your last life"
+	return "%s%% laff regeneration" % roundi(20.0 * Util.get_player().stats.healing_effectiveness * Util.get_player().stats.toonup_boost)
 
 func _clear_toonup() -> void:
 	for child in toonup_container.get_children():
@@ -192,6 +202,8 @@ func _refresh_treasures() -> void:
 	_populate_treasures()
 
 func use_treasure(level: int) -> void:
+	if Util.get_player().revives_are_hp:
+		Util.get_player().stats.extra_lives += (level + 1)
 	var treasure : Item = get_treasure(level)
 	if Util.get_player().stats.treasures[level] > 0:
 		Util.get_player().stats.treasures[level] -= 1
@@ -224,7 +236,7 @@ func create_new_treasure(level: int, count: int) -> Control:
 	return button_copy
 
 func get_treasure(idx: int) -> Item:
-	return treasure_pool.items[idx]
+	return load(treasure_pool.items[idx])
 
 func get_treasure_icon(item : Item) -> Texture2D:
 	return item.arbitrary_data['texture']
@@ -238,6 +250,8 @@ func get_treasure_perc(item : Item) -> int:
 	return item.arbitrary_data['heal_perc']
 
 func get_treasure_description(level: int) -> String:
+	if Util.get_player().revives_are_hp:
+		return "+%d Revives" % (level + 1)
 	return "Heals: %d%% Laff (+%d)" % [get_treasure_perc(get_treasure(level)), get_treasure_heal(get_treasure(level))]
 
 #endregion
@@ -256,4 +270,79 @@ func play_fail_sfx() -> void:
 	AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
 	# Focus testing said this was stupid :(
 	#var audio_player := AudioManager.play_sound(GameLoader.load("res://audio/sfx/ui/ring_miss.ogg"))
-	#audio_player.set_pitch_scale(RandomService.randf_range_channel('true_random', 0.7, 1.8))
+	#audio_player.set_pitch_scale(randf_range(0.7, 1.8))
+
+#region BEAN VOUCHERS
+const BEAN_IMG := "res://ui_assets/battle/jellybean.png"
+
+var bean_colors: Dictionary[int, Color] = {
+	0: Color(1.0, 0.0, 0.0),
+	1: Color(0.5, 1.0, 0.5),
+	2: Color(0.5, 1.0, 1.0),
+	3: Color(1.0, 1.0, 0.4),
+	4: Color(0.4, 0.4, 1.0),
+	5: Color(1.0, 0.5, 1.0)
+}
+var bean_values: Array[int] = [
+	5,
+	7,
+	9,
+	12,
+	15,
+	20,
+]
+
+var bean_names: Array[String] = [
+	"Red",
+	"Green",
+	"Cyan",
+	"Yellow",
+	"Blue",
+	"Purple"
+]
+
+func _ready_bean_vouchers() -> void:
+	_refresh_beans()
+	%VoucherTitle.set_text("Jellybean Vouchers")
+
+func _populate_beans() -> void:
+	var vouchers := get_bean_counts()
+	
+	for entry in vouchers.keys():
+		var new_button := create_new_bean(entry, vouchers[entry])
+		voucher_container.add_child(new_button)
+
+func get_bean_counts() -> Dictionary:
+	var player := Util.get_player()
+	if not is_instance_valid(player):
+		return {}
+	return player.stats.bean_vouchers
+
+func create_new_bean(index: int, count: int) -> Control:
+	var button_copy := voucher_template.duplicate()
+	button_copy.show()
+	button_copy.get_node('GagSprite').texture_normal = load(BEAN_IMG)
+	button_copy.get_node('TrackName').set_text("%s" % bean_names[index])
+	button_copy.get_node('Quantity').set_text("x%d" % count)
+	button_copy.get_node('GagSprite').self_modulate = bean_colors[index]
+	button_copy.get_node('GagSprite').set_disabled(count == 0)
+	button_copy.get_node('GagSprite').pressed.connect(use_bean.bind(index))
+	button_copy.get_node('GagSprite').mouse_entered.connect(HoverManager.hover.bind("+%d Jellybeans" % bean_values[index]))
+	button_copy.get_node('GagSprite').mouse_exited.connect(HoverManager.stop_hover)
+	if button_copy.get_node('GagSprite').disabled: button_copy.modulate = Color.GRAY
+	return button_copy
+
+func _refresh_beans() -> void:
+	_clear_vouchers()
+	_populate_beans()
+
+func use_bean(index: int) -> void:
+	Util.get_player().stats.bean_vouchers[index] -= 1
+	Util.get_player().stats.add_money(bean_values[index])
+	_refresh_beans()
+	if NodeGlobals.get_ancestor_of_type(self, BattleUI):
+		for child in get_parent().gag_tracks.get_children():
+			child.refresh()
+	s_voucher_used.emit()
+
+#endregion

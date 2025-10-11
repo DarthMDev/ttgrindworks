@@ -33,7 +33,8 @@ enum CogState {
 # CogDNA
 @export var dna: CogDNA
 var dna_set := false
-var attacks : Array[CogAttack]
+var attacks: Array[CogAttack]
+var status_effects: Array[StatusEffect]
 @export var skelecog := false
 @export var skelecog_chance := 10
 @export var fusion := false
@@ -41,6 +42,10 @@ var attacks : Array[CogAttack]
 @export var virtual_cog := false
 @export var v2 := false
 @export var health_mod := 1.0
+
+## Marks this Cog as not to be counted for Quests/Item benefits
+@export var is_punishment_cog := false
+
 var use_mod_cogs_pool := false
 var has_forced_dna := false
 
@@ -113,7 +118,8 @@ func randomize_cog() -> void:
 	roll_for_attributes()
 	roll_for_level()
 	roll_for_dna()
-	attacks = get_attacks()
+	attacks = _get_attacks()
+	status_effects = _get_status_effects()
 	construct_cog()
 	set_animation('neutral')
 	set_up_stats()
@@ -137,16 +143,17 @@ func set_dna(cog_dna: CogDNA, full_reset := true) -> void:
 		level = 0
 		roll_for_attributes()
 		roll_for_level()
-	attacks = get_attacks()
+	attacks = _get_attacks()
+	status_effects = _get_status_effects()
 	construct_cog()
 	set_up_stats()
 
 func roll_for_attributes() -> void:
 	# Skelecog perchance?
-	if RandomService.randi_channel('skelecog_chance') % 100 < skelecog_chance:
+	if RNG.channel(RNG.ChannelSkelecogChance).randi() % 100 < skelecog_chance:
 		skelecog = true
 	# Mayhaps even... fusion?
-	if not skelecog and RandomService.randi_channel('fusion_chance') % 100 < fusion_chance:
+	if not skelecog and RNG.channel(RNG.ChannelFusionChance).randi() % 100 < fusion_chance:
 		fusion = true
 
 func roll_for_level() -> void:
@@ -156,7 +163,7 @@ func roll_for_level() -> void:
 			custom_level_range = Util.floor_manager.level_range
 		elif dna: 
 			custom_level_range = Vector2i(dna.level_low, dna.level_high)
-		level = RandomService.randi_range_channel('cog_levels', custom_level_range.x, custom_level_range.y)
+		level = RNG.channel(RNG.ChannelCogLevels).randi_range(custom_level_range.x, custom_level_range.y)
 	
 	# Allow for Cogs to be higher level than the floor intends
 	if sign(level_range_offset) == 1:
@@ -165,22 +172,21 @@ func roll_for_level() -> void:
 		level = (custom_level_range.y - level_range_offset) + 1
 
 func roll_for_dna() -> void:
+	pool = Globals.GRUNT_COG_POOL  # Default
 	if use_mod_cogs_pool:
 		pool = Globals.MOD_COG_POOL
 	# Try to get the cog pool from the floor manager
 	elif use_floor_pool:
 		if is_instance_valid(Util.floor_manager) and Util.floor_manager.cog_pool:
-			if RandomService.randi_channel('cog_pool_chance') % 4 == 0:
+			if RNG.channel(RNG.ChannelCogPoolChance).randi() % 4 == 0:
 				pool = Util.floor_manager.cog_pool
-			else:
-				pool = Globals.GRUNT_COG_POOL
 	
 	# Make it more likely for quest related Cogs to appear
-	if (not dna) and RandomService.randi_channel('true_random') % 100 < QUEST_HELP_CHANCE and is_instance_valid(Util.get_player()):
+	if (not dna) and randi() % 100 < QUEST_HELP_CHANCE and is_instance_valid(Util.get_player()):
 		print('attempting to spawn task cog')
 		var player := Util.get_player()
 		if not player.stats.quests.is_empty():
-			var quest := player.stats.quests[RandomService.randi_channel('true_random') % player.stats.quests.size()]
+			var quest := player.stats.quests[randi() % player.stats.quests.size()]
 			if quest is QuestCog:
 				if quest.specific_cog and test_dna(quest.specific_cog, level):
 					print('spawning task cog')
@@ -192,25 +198,28 @@ func roll_for_dna() -> void:
 	# Get a random dna if dna doesn't exist
 	if not dna:
 		while not test_dna(dna, level):
-			dna = pool.cogs[RandomService.randi_channel('cog_dna') % pool.cogs.size()]
+			dna = pool.cogs[RNG.channel(RNG.ChannelCogDNA).randi() % pool.cogs.size()]
 	else:
 		has_forced_dna = true
 
-	dna = dna.duplicate()
+	dna = dna.duplicate(true)
 
-func get_attacks() -> Array[CogAttack]:
+func _get_attacks() -> Array[CogAttack]:
 	var atk: Array[CogAttack] = []
 	atk = dna.attacks
 	return atk
 
-func get_debug_attack() -> PickPocket:
-	var failsafe_attack := PickPocket.new()
+func get_debug_attack() -> CogAttack:
+	var failsafe_attack: CogAttack = load("res://objects/battle/battle_resources/cog_attacks/pickpocket.gd").new()
 	failsafe_attack.action_name = "ERR: COG HAS NO ATTACKS"
 	failsafe_attack.summary = "This is actually a bug."
 	failsafe_attack.attack_lines = ["Boy, I really hope someone got fired for that blunder."]
 	failsafe_attack.user = self
 	failsafe_attack.targets = get_targets(failsafe_attack.target_type)
 	return
+
+func _get_status_effects() -> Array[StatusEffect]:
+	return dna.instantiate_status_effects()
 
 ## Scales the Cog's stats based on its level
 func set_up_stats() -> void:
@@ -219,13 +228,15 @@ func set_up_stats() -> void:
 
 	if dna.is_mod_cog:
 		health_mod *= Util.get_mod_cog_health_mod()
+		if Util.get_player() and not is_equal_approx(Util.get_player().stats.proxy_health_mod, 0.0):
+			health_mod *= Util.get_player().stats.proxy_health_mod
 	if not is_equal_approx(dna.health_mod, 1.0):
 		health_mod *= dna.health_mod
 	if not is_equal_approx(health_mod, 1.0):
 		stats.max_hp = ceili(stats.max_hp * health_mod)
 	stats.hp = stats.max_hp
 	stats.evasiveness = 0.5 + (level * 0.05)
-	stats.damage = 0.4 + (level * 0.1)
+	stats.damage = 0.4 + (level * 0.13)
 	stats.accuracy = 0.75 + (level * 0.05)
 	var new_text: String = dna.cog_name + '\n'
 	new_text += 'Level ' + str(level)
@@ -252,20 +263,24 @@ static func test_dna(cog_dna: CogDNA, cog_level: int) -> bool:
 	return cog_level in range(cog_dna.level_low, cog_dna.level_high + 1)
 
 func construct_cog():
+	# Preserve our drop shadow
+	if not drop_shadow.get_parent() == self:
+		drop_shadow.reparent(self)
+	
 	# Allow Cog DNA to be refreshed and reset
 	if body:
 		body.queue_free()
 	
 	# Some Cog shaders want to change aspects of a Cog's DNA before building
 	if dna.head_shader:
-		dna.head_shader = dna.head_shader.duplicate()
+		dna.head_shader = dna.head_shader.duplicate(true)
 		dna.head_shader.tweak_cog(self)
 	
 	if fusion:
-		dna = dna.duplicate()
+		dna = dna.duplicate(true)
 		var second_dna: CogDNA 
 		while not second_dna or second_dna.cog_name == dna.cog_name:
-			second_dna = pool.cogs[RandomService.randi_channel('cog_dna') % pool.cogs.size()].duplicate()
+			second_dna = pool.cogs[RNG.channel(RNG.ChannelCogDNA).randi() % pool.cogs.size()].duplicate(true)
 		dna.combine_attributes(second_dna)
 		dna.cog_name = dna.combine_names(second_dna)
 	
@@ -302,6 +317,8 @@ func construct_cog():
 
 	dna_set = true
 	s_dna_set.emit()
+	
+	drop_shadow.reparent(body.shadow_bone)
 
 func animation_end(_anim):
 	set_animation('neutral')
@@ -396,10 +413,11 @@ func get_attack() -> CogAttack:
 		if attacks.size() == 0:
 			return get_debug_attack()
 		
-		var attack: CogAttack = attacks[RandomService.randi_channel('true_random') % attacks.size()].duplicate()
+		var attack: CogAttack = attacks.pick_random().duplicate(true)
 		attack.user = self
-		attack.damage += get_damage_boost()
-		if Util.get_player().random_cog_heals and RandomService.randi_channel('true_random') % 100 < 5:
+		if attack.damage > 0:
+			attack.damage += get_damage_boost()
+		if Util.get_player().random_cog_heals and randf() < Util.get_player().stats.get_luck_weighted_chance(0.05, 0.15, 2.0):
 			attack.store_boost_text("Lovely Heal!", Color.HOT_PINK)
 			attack.damage = -attack.damage
 		# Get the target
@@ -412,14 +430,14 @@ func get_targets(target_type):
 		BattleAction.ActionTarget.SELF:
 			return [self]
 		BattleAction.ActionTarget.ALLY:
-			var valid_cogs = BattleService.ongoing_battle.cogs.duplicate()
+			var valid_cogs = BattleService.ongoing_battle.cogs.duplicate(true)
 			valid_cogs.erase(self)
 			if valid_cogs.size() == 0:
 				return []
 			else:
 				return [valid_cogs[randi()%valid_cogs.size()]]
 		BattleAction.ActionTarget.ALLIES:
-			var valid_cogs = BattleService.ongoing_battle.cogs.duplicate()
+			var valid_cogs = BattleService.ongoing_battle.cogs.duplicate(true)
 			valid_cogs.erase(self)
 			return valid_cogs
 		_:
@@ -434,6 +452,9 @@ func lose():
 	if losing:
 		return
 	losing = true
+	
+	if not drop_shadow.get_parent() == self:
+		drop_shadow.reparent(self)
 	
 	var lose_mod: Node3D
 	if not skelecog:
@@ -469,7 +490,7 @@ func lose():
 	var gear_part: GPUParticles3D = load("res://objects/battle/effects/cog_gears/cog_gears.tscn").instantiate()
 	lose_mod.add_child(gear_part)
 	gear_part.global_position = department_emblem.global_position
-	if RandomService.randi_channel('true_random') % 5000 == 0:
+	if should_do_gear_shower():
 		gear_part.amount = 6000
 		Globals.s_cog_volcano.emit()
 	
@@ -487,7 +508,7 @@ func lose():
 	queue_free()
 
 func do_knockback():
-	var start_time : float
+	var start_time: float
 	#A: 2.4
 	#B: 1.9s
 	#C: 2.6
@@ -603,6 +624,14 @@ func explode() -> void:
 	await Util.barrier(explosion.animation_finished, 0.5)
 	explosion.hide()
 	queue_free()
+
+func should_do_gear_shower() -> bool:
+	# No pity for you if you've already gotten it :)
+	if SaveFileService.is_achievement_unlocked(ProgressFile.GameAchievement.EASTER_EGG_GEAR):
+		return randi() % 5000 == 0
+	# Every Cog is worth 0.05 pity
+	var pity := floori(SaveFileService.progress_file.total_cogs_defeated * 0.05)
+	return randi() % maxi(5000 - pity, 1) == 0
 
 ## Global functions
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:

@@ -23,7 +23,7 @@ func get_stats() -> String:
 	return string
 
 func apply_debuff(target: Cog, damage_dealt: int) -> void:
-	var new_effect: StatEffectAftershock = DEBUFF.duplicate()
+	var new_effect: StatEffectAftershock = DEBUFF.duplicate(true)
 	new_effect.amount = roundi(damage_dealt * 0.5)
 	new_effect.target = target
 	if user.stats.get_stat("drop_aftershock_round_boost") != 0:

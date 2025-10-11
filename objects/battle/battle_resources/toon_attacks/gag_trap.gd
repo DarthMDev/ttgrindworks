@@ -16,7 +16,7 @@ func activate():
 
 ## Get a properly ID'd version of the trap effect specified
 func get_trap_effect() -> StatusTrapped:
-	var new_effect := TRAP_EFFECT.duplicate()
+	var new_effect := TRAP_EFFECT.duplicate(true)
 	new_effect.quality = StatusEffect.EffectQuality.NEGATIVE
 	new_effect.gag = self
 	new_effect.rounds = -1
@@ -31,7 +31,13 @@ func apply_trap_effect(who: Cog) -> void:
 
 func apply_extra_knockback(cog: Cog) -> void:
 	if not activating_lure:
-		return
+		# Honestly, let's just fake it.
+		var lure_effect: StatusLured = manager.find_cog_lure(targets[0])
+		if not lure_effect:
+			return
+		activating_lure = GagLure.new()
+		activating_lure.lure_effect = lure_effect
+	
 	if (not Util.get_player()) or is_equal_approx(Util.get_player().stats.trap_knockback_percent, 0.0):
 		return
 

@@ -1,7 +1,13 @@
 extends Label3D
 
-const BOOST_RANGE := Vector2i(2, 6)
+
 const BASE_RESOURCE := "res://objects/items/resources/passive/laff_boost.tres"
+const BOOST_RANGES: Dictionary[String, Vector2i]= {
+	"default": Vector2i(2, 6),
+	"res://objects/items/pools/battle_clears.tres": Vector2i(1, 3),
+	"res://objects/items/pools/progressives.tres": Vector2i(3, 5),
+	"res://objects/items/pools/rewards.tres": Vector2i(4, 7),
+}
 
 @onready var behind: Label3D = %Behind
 
@@ -11,7 +17,7 @@ var item: Item
 func setup(resource: Item):
 	item = resource
 	if resource.stats_add['max_hp'] == 0:
-		var boost := RandomService.randi_range_channel('laff_boosts', BOOST_RANGE.x, BOOST_RANGE.y)
+		var boost := RNG.channel(RNG.ChannelLaffBoosts).randi_range(get_boost_range().x, get_boost_range().y)
 		resource.stats_add['max_hp'] = boost
 		resource.stats_add['hp'] = boost
 
@@ -38,3 +44,11 @@ func modify(ui: Label3D) -> void:
 	ui.set_text(label_text)
 	ui.behind.set_text(label_text)
 	fix_viewport(ui)
+
+func get_boost_range() -> Vector2i:
+	var world_item: WorldItem = NodeGlobals.get_ancestor_of_type(self, WorldItem)
+	if not world_item:
+		return BOOST_RANGES['default']
+	if world_item.pool.resource_path in BOOST_RANGES.keys():
+		return BOOST_RANGES[world_item.pool.resource_path]
+	return BOOST_RANGES['default']

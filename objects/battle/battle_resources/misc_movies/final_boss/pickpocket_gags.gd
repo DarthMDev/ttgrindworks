@@ -1,12 +1,11 @@
 extends CogAttack
-class_name PickPocketGags
 
 func action():
 	var tracks : Array[String] = []
 	var loadout := Util.get_player().stats.character.gag_loadout.loadout
 	for gagtrack in loadout:
 		tracks.append(gagtrack.track_name)
-	var steal_track := tracks[RandomService.randi_channel('true_random') % tracks.size()]
+	var steal_track: String = tracks.pick_random()
 	manager.show_action_name(action_name + "!","%s steals your %s points!" % [user.dna.cog_name, steal_track])
 	
 	# Setup
@@ -23,7 +22,7 @@ func action():
 	if hit:
 		target.set_animation('cringe')
 	else:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		
 	
 	# Swap camera angle after 0.5 seconds

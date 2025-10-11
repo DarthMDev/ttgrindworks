@@ -18,18 +18,11 @@ script = ExtResource("1_26hj0")
 damage = 0.75
 defense = 1.1
 evasiveness = 1.05
-accuracy = 1.0
-speed = 1.0
-max_turns = 3
-max_hp = 25
-hp = 25
-turns = 1
 
 [sub_resource type="Resource" id="Resource_2bsmm"]
 script = ExtResource("1_pw78h")
 texture = ExtResource("2_0vge1")
 base_color = Color(0.545098, 0.282353, 0.74902, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_17x8t"]
 script = ExtResource("4_oph4g")
@@ -37,14 +30,13 @@ shirt_texture = ExtResource("5_gjuvs")
 sleeve_texture = ExtResource("6_bmcq1")
 base_color = Color(0.545098, 0.282353, 0.74902, 1)
 sleeve_color = Color(0.545098, 0.282353, 0.74902, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_ppw05"]
 script = ExtResource("1_5k5p5")
 body_type = 2
+leg_type = 2
 species = 3
 head_index = 2
-eyelashes = true
 skirt = true
 head_color = Color(0.54902, 0.823529, 0.321569, 1)
 torso_color = Color(0.54902, 0.823529, 0.321569, 1)
@@ -54,17 +46,25 @@ bottoms = SubResource("Resource_2bsmm")
 
 [resource]
 script = ExtResource("1_xj5vs")
+character_id = 4
 character_name = "Barnacle Bessie"
-character_summary = "- 25% less damage
-- Dropless
-- Drop will auto-target random Cogs
-  at the beginning of the round
-- Starts with Squirt and Lure"
+character_summary = "25% less damage
+Dropless
+Drop targets random Cogs each round"
+character_blurb = "The boutique specialist who loves to get the drop on Cogs. Those falling pianos are music to her ears."
 dna = SubResource("Resource_ppw05")
 gag_loadout = ExtResource("8_vetyy")
 starting_laff = 30
 starting_items = Array[ExtResource("3_2km26")]([ExtResource("11_yb4tn"), ExtResource("12_omx0v")])
 base_stats = SubResource("Resource_4mp7f")
-override_index = -1
-random_character_stored_name = ""
+starting_gags = Dictionary[String, int]({
+"Lure": 1,
+"Sound": 0,
+"Squirt": 1,
+"Throw": 0,
+"Trap": 0
+})
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.1
+})
 achievement_index = 15

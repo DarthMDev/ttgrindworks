@@ -37,16 +37,16 @@ func action() -> void:
 	movie.tween_callback(battle_node.focus_cogs)
 	for target in targets:
 		movie.tween_callback(target.set_animation.bind('buffed'))
-		movie.tween_callback(target.speak.bind(RandomService.array_pick_random('true_random', BOOST_PHRASES)))
+		movie.tween_callback(target.speak.bind(BOOST_PHRASES.pick_random()))
 		movie.tween_callback(create_status_effects.bind(target))
 	
 	movie.tween_interval(3.0)
 	
 	await movie.finished
 
-const BOOST_AMOUNT := 1.25
+const BOOST_AMOUNT := 0.25
 func create_status_effects(target: Cog) -> void:
-	var stat_boost := STAT_BOOST.duplicate()
+	var stat_boost := STAT_BOOST.duplicate(true)
 	stat_boost.boost = BOOST_AMOUNT
 	stat_boost.target = target
 	manager.add_status_effect(stat_boost)

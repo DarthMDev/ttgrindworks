@@ -5,7 +5,7 @@ const GENERAL_BUTTON := "res://objects/general_ui/general_button/general_button.
 const ALPHABET := 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const COLORS := [Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE]
 
-signal s_answer_selected(answer : String)
+signal s_answer_selected(answer: String)
 
 
 @export var question := "":
@@ -15,7 +15,7 @@ signal s_answer_selected(answer : String)
 		$QuestionLabel.set_text(x)
 	get:
 		return $QuestionLabel.text
-@export var answers : Array[String] = []:
+@export var answers: Array[String] = []:
 	set(x):
 		if not is_node_ready():
 			await ready
@@ -27,7 +27,7 @@ signal s_answer_selected(answer : String)
 @onready var answer_node := $AnswerNode
 
 
-func set_answers(answer_arr : Array[String]) -> void:
+func set_answers(answer_arr: Array[String]) -> void:
 	for child in $AnswerNode.get_children():
 		child.queue_free()
 	for answer in answer_arr:
@@ -37,12 +37,12 @@ func set_answers(answer_arr : Array[String]) -> void:
 		$AnswerNode.add_child(new_answer)
 		new_answer.get_node('GeneralButton').text = ALPHABET[answer_arr.find(answer)]
 		new_answer.get_node('GeneralButton').pressed.connect(answer_selected.bind(answer))
-		var color_index : int = answer_arr.find(answer) % 4
+		var color_index: int = answer_arr.find(answer) % 4
 		new_answer.get_node('GeneralButton').self_modulate = COLORS[color_index]
 	size.y = 160.0 + ($Answer.size.y*answer_arr.size())
 	$AnswerNode.size.y = $Answer.size.y * answer_arr.size()
 	position = (Vector2(get_viewport().get_visible_rect().size)-size)/2
 
-func answer_selected(answer : String) -> void:
+func answer_selected(answer: String) -> void:
 	s_answer_selected.emit(answer)
 	queue_free()

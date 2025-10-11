@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://ca414lmsq511k"]
+
+[ext_resource type="Texture2D" uid="uid://bqiwfkdl03fij" path="res://models/props/cog_props/rolodex/rolodex.glb-pix-1.png" id="1_gd74q"]
+[ext_resource type="Script" uid="uid://c241ja2hkkv33" path="res://objects/items/custom/item_rolodex.gd" id="2_cof3h"]
+[ext_resource type="PackedScene" uid="uid://wci2cslu6o5d" path="res://models/props/cog_props/rolodex/rolodex.glb" id="3_cof3h"]
+[ext_resource type="AudioStream" uid="uid://rnj0osnacunu" path="res://audio/sfx/battle/cogs/attacks/SA_rolodex.ogg" id="4_ewx7h"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="5_tfebx"]
+
+[resource]
+script = ExtResource("5_tfebx")
+qualitoon = 1
+rarity = 4
+world_scale = 0.4
+world_y_offset = -0.05
+ui_cam_offset = 0.4
+item_name = "Rolodex"
+item_description = "Networking is key."
+big_description = "+ 10% Proxy Cog spawn chance
+- Proxy Cogs have 25% less health
+- Battles with Proxies have a chance to spawn an additional chest when completed"
+model = ExtResource("3_cof3h")
+pickup_sfx = ExtResource("4_ewx7h")
+stats_add = {
+"proxy_chance_boost": 0.1,
+"proxy_health_mod": -0.25
+}
+item_script = ExtResource("2_cof3h")
+icon = ExtResource("1_gd74q")
+shop_category_title = "Special Item"
+shop_category_color = Color(0.6, 0.2, 1, 1)
+force_show_shop_category = true
+unlock_achievement = 37

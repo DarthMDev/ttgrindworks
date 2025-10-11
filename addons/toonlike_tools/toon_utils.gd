@@ -49,6 +49,24 @@ static func get_look_at_rotation(node: Node3D, target_global_pos: Vector3) -> Ve
 static func plural(num: int) -> String:
 	return "" if num == 1 else "s"
 
+static func get_alphabet_chars(remove_controversial := false) -> Array[String]:
+	var ret_array: Array[String] = [
+		"a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+		"k", "l", "m", "n", "o", "p",
+		"q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+	]
+	if remove_controversial:
+		ret_array.erase("g")
+		ret_array.erase("k")
+		ret_array.erase("n")
+	return ret_array
+
+static func get_numerical_chars() -> Array[String]:
+	var ret_array: Array[String] = [
+		"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
+	]
+	return ret_array
+
 static func reverse_dictionary(the_dictionary_in_question: Dictionary) -> Dictionary:
 	var new_dict: Dictionary = {}
 	for key in the_dictionary_in_question.keys():

@@ -21,19 +21,20 @@ shape = SubResource("ConcavePolygonShape3D_1bh8a")
 
 [node name="Battles" type="Node3D" parent="." index="4"]
 
-[node name="BattleNodeDynamic" parent="Battles" index="0" instance=ExtResource("4_mtmw1")]
+[node name="BattleNodeDynamic" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("4_mtmw1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, -12.7438)
 cog_range = Vector2i(2, 3)
 cog_dist = 0.5
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)
 shape = SubResource("BoxShape3D_adqon")
 
-[node name="BattleNodeDynamic2" parent="Battles" index="1" instance=ExtResource("4_mtmw1")]
+[node name="BattleNodeDynamic2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("4_mtmw1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, 13.1897)
 cog_range = Vector2i(2, 3)
-cog_dist = 0.0
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]
 transform = Transform3D(0.989437, 0, -0.144961, 0, 1, 0, 0.144961, 0, 0.989437, -1.20049, 4.25342, 0.279742)

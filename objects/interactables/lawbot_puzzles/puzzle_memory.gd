@@ -7,13 +7,14 @@ class_name PuzzleMemory
 const SFX_REVEAL_SQUARE := preload("res://audio/sfx/objects/spotlight/LB_laser_beam_on_2.ogg")
 const SFX_HIDE_SQUARE := preload("res://audio/sfx/misc/LB_capacitor_discharge_3.ogg")
 
-var correct_path : Array[Vector2i] = []
+var correct_path: Array[Vector2i] = []
 var strike_index := 0
 var title_shown := false
+var prev_dir := -1
 
-var reveal_tween : Tween
+var reveal_tween: Tween
 
-signal s_strike(index : int)
+signal s_strike(index: int)
 
 
 func _ready() -> void:
@@ -29,23 +30,28 @@ func initialize_game() -> void:
 func generate_correct_path() -> void:
 	# Generate a valid path from one end to the other
 	correct_path.clear()
-	var current_pos = Vector2i(RandomService.randi_channel("true_random") % grid_width, 0)
+	var current_pos = Vector2i(randi() % grid_width, 0)
+	var up_streak := 1
 	correct_path.append(current_pos)
 	while current_pos.y < grid_height - 1:
-		var next_dir : int
+		var next_dir: int
 		if correct_path.size() == 1:
 			next_dir = 0
 		else:
-			next_dir = randi() % 3
+			if up_streak < 2: next_dir = randi() % 3
+			else: 
+				next_dir = (randi() % 2) + 1
+				up_streak = 0
+			if next_dir == 0: up_streak += 1
 		current_pos = move_in_direction(next_dir, current_pos)
 
 ## 0 for up, 1 for left, 2 for right
 ## NO MOVING DOWN. that's mean and evil
-func move_in_direction(dir : int, current_pos : Vector2i) -> Vector2i:
+func move_in_direction(dir: int, current_pos: Vector2i) -> Vector2i:
 	var move_again := true
 	var prev_pos := current_pos
 	var moves := 0
-	var positions_to_append : Array[Vector2i] = []
+	var positions_to_append: Array[Vector2i] = []
 	while move_again:
 		moves += 1
 		
@@ -76,9 +82,13 @@ func move_in_direction(dir : int, current_pos : Vector2i) -> Vector2i:
 	
 	for pos in positions_to_append:
 		correct_path.append(pos)
+	
+	# Remember the direction we moved in
+	prev_dir = dir
+	
 	return current_pos
 
-func player_stepped_on(_panel : PuzzlePanel) -> void:
+func player_stepped_on(_panel: PuzzlePanel) -> void:
 	if _panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 		return
 	if _panel.pos in correct_path:
@@ -93,10 +103,10 @@ func player_stepped_on(_panel : PuzzlePanel) -> void:
 	if _panel.pos.y == grid_height - 1:
 		win_game()
 
-func player_stepped_off(_panel : PuzzlePanel) -> void:
+func player_stepped_off(_panel: PuzzlePanel) -> void:
 	pass
 
-func connect_button(button : CogButton) -> void:
+func connect_button(button: CogButton) -> void:
 	button.s_pressed.connect(show_correct_path)
 	button.s_retracted.connect(hide_correct_path)
 
@@ -117,7 +127,7 @@ func show_correct_path(_button) -> void:
 		title_shown = true
 		show_game_title()
 
-func panel_shape_changed(panel : PuzzlePanel, shape : PuzzlePanel.PanelShape) -> void:
+func panel_shape_changed(panel: PuzzlePanel, shape: PuzzlePanel.PanelShape) -> void:
 	match shape:
 		PuzzlePanel.PanelShape.SQUARE: panel.set_color(Color.GREEN)
 		PuzzlePanel.PanelShape.QUESTIONMARK: panel.set_color(Color("4d4dff"))
@@ -131,7 +141,7 @@ func hide_correct_path(_button) -> void:
 		panel.panel_shape = PuzzlePanel.PanelShape.QUESTIONMARK
 	AudioManager.play_sound(SFX_HIDE_SQUARE)
 
-func _reveal_panel(pos : Vector2i) -> void:
+func _reveal_panel(pos: Vector2i) -> void:
 	var panel = grid[pos.x][pos.y]
 	panel.panel_shape = PuzzlePanel.PanelShape.SQUARE
 

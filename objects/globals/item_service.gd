@@ -39,8 +39,6 @@ const POOL_PATHS: Array[String] = [
 var POOLS: Dictionary[String, ItemPool] = {}
 
 
-
-
 func _init():
 	# Assign our item pools
 	for path in POOL_PATHS:
@@ -59,18 +57,18 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	## Rolls to force progression items when they're needed:
 	if not override_rolls:
 		# Gag roll
-		var gag_roll := RandomService.randf_channel("gag_rolls")
+		var gag_roll := RNG.channel(RNG.ChannelGagRolls).randf()
 		print('Gag rate is ' + str(get_gag_rate()) + ' Gag roll is ' + str(gag_roll))
 		if gag_roll < get_gag_rate():
 			print('Forcing gag spawn')
-			return load('res://objects/items/resources/passive/track_frame.tres').duplicate()
+			return load('res://objects/items/resources/passive/track_frame.tres').duplicate(true)
 		# Laff roll
-		var laff_roll := RandomService.randf_channel("laff_rolls")
+		var laff_roll := RNG.channel(RNG.ChannelLaffRolls).randf()
 		print('Laff rate is %f, and Laff roll is %f' % [get_laff_rate(), laff_roll])
 		if laff_roll < get_laff_rate():
 			print('Forcing laff spawn')
-			return load('res://objects/items/resources/passive/laff_boost.tres').duplicate()
-		#var bean_roll := RandomService.randf_channel("bean_rolls")
+			return load('res://objects/items/resources/passive/laff_boost.tres').duplicate(true)
+		#var bean_roll := RNG.channel(RNG.ChannelBeanRolls).randf()
 		#print('Bean rate is %f and bean roll is %f' % [get_bean_rate(), bean_roll])
 		#if bean_roll < get_bean_rate():
 			#print('Forcing bean spawn')
@@ -80,7 +78,7 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	pool = get_centralized_pool(pool)
 	
 	# 50% chance to remove all active items from the pool
-	var exclude_actives := not override_rolls and RandomService.randi_channel('active_item_discard') % 2 == 0
+	var exclude_actives := not override_rolls and RNG.channel(RNG.ChannelActiveItemDiscard).randi() % 2 == 0
 	
 	# Our base rarity goal for this roll
 	var rarity_goal: int = 0
@@ -91,21 +89,22 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 		rarity_goal = pool.low_roll_override as int
 	
 	# Trim out all seen items from pool
-	var trimmed_pool: Array[Item] = []
-	for item in pool.items:
+	var discard_pool: Array[Item] = []
+	for item in pool:
 		if item is ItemActive and exclude_actives:
-			continue
+			discard_pool.append(item)
+		if not item.is_item_unlocked():
+			discard_pool.append(item)
 		if not flag_check(item):
-			continue
-		if not item in seen_items:
-			trimmed_pool.append(item)
+			discard_pool.append(item)
+		if item in seen_items:
+			discard_pool.append(item)
 	
 	# If no item can be given to the player, just give them treasure
-	if trimmed_pool.size() == 0:
+	if discard_pool.size() == pool.size():
 		return get_random_roll_fail_item()
 	
 	# Quality-scaled rarity
-	var quality_trimmed_pool: Array[Item] = []
 	# Rarity goal determines what item rarities we want to allow into the pool.
 	# Once the rarity goal is determined, any item up to and including that rarity can be drawn.
 	# Include Q1: 100%
@@ -117,31 +116,39 @@ func get_random_item(pool: ItemPool, override_rolls := false) -> Item:
 	# Include Q7: 37.7%
 	# If a low rarity is drawn that has no items available, there is a continuous 50% chance to upgrade to the next rarity.
 	# If this fails, a random treasure will be given to the player instead.
-	while RandomService.randi_channel('item_quality_roll') % 100 < 85 and rarity_goal < Item.Rarity.values().max():
+	while RNG.channel(RNG.ChannelItemQualityRoll).randi() % 100 < 85 and rarity_goal < Item.Rarity.values().max():
 		rarity_goal += 1
 
 	var is_first_roll := true
-	while quality_trimmed_pool.is_empty() and (is_first_roll or RandomService.randf_channel('item_quality_roll') < 0.5) and rarity_goal <= Item.Rarity.values().max():
+	while (is_first_roll or RNG.channel(RNG.ChannelItemQualityRoll).randf() < 0.5) and rarity_goal <= Item.Rarity.values().max():
 		if is_first_roll:
 			is_first_roll = false
 		else:
 			rarity_goal += 1
 
-		for item: Item in trimmed_pool:
+		for item: Item in pool:
 			var rarity: Item.Rarity = item.rarity
 			if rarity == Item.Rarity.NIL:
 				rarity = Item.QualityToRarity[item.qualitoon]
-			if Item.RarityToRolls[rarity] <= rarity_goal:
-				quality_trimmed_pool.append(item)
-
+			if Item.RarityToRolls[rarity] >= rarity_goal:
+				if not item in discard_pool:
+					discard_pool.append(item)
+	
 	# If STILL no item can be given to the player, just give them treasure
-	if quality_trimmed_pool.is_empty():
-		print("Empty quality-trimmed pool. Spawning fallback.")
+	if discard_pool.size() == pool.size():
 		return get_random_roll_fail_item()
 	
 	var file_name := pool.resource_path.get_file()
 	var res_name := file_name.trim_suffix(".%s" % file_name.get_extension())
-	return RandomService.array_pick_random(res_name, quality_trimmed_pool)
+	var rolled_item: Item
+	var retry_amt := 500
+	var retries := 0
+	while not rolled_item or rolled_item in discard_pool:
+		rolled_item = load(RNG.channel(res_name).pick_random(pool.items))
+		retries += 1
+		if retries >= retry_amt:
+			return get_random_roll_fail_item()
+	return rolled_item
 
 func get_random_roll_fail_item() -> Item:
 	return get_random_item(load("res://objects/items/pools/item_roll_fails.tres"), true)
@@ -177,18 +184,23 @@ func apply_inventory() -> void:
 	var hat: ItemAccessory
 	var glasses: ItemAccessory
 	var backpack: ItemAccessory
+	var shoes: ItemShoe
 	
 	# Iterate through items to find accessories
 	# As well as any special items
 	# Setting values like this ensures only the newest items are applied
 	for item in items:
-		match item.slot:
-			Item.ItemSlot.HAT:
-				hat = item
-			Item.ItemSlot.GLASSES:
-				glasses = item
-			Item.ItemSlot.BACKPACK:
-				backpack = item
+		if item is ItemShoe:
+			shoes = item
+		else:
+			match item.slot:
+				Item.ItemSlot.HAT:
+					hat = item
+				Item.ItemSlot.GLASSES:
+					glasses = item
+				Item.ItemSlot.BACKPACK:
+					backpack = item
+
 		for value in item.player_values.keys():
 			player.set(value, item.player_values[value])
 	
@@ -203,19 +215,19 @@ func apply_inventory() -> void:
 	for accessory in accessories:
 		if not accessory:
 			continue
-		var bone : BoneAttachment3D
+		var node: Node3D
 		match accessory.slot:
 			Item.ItemSlot.HAT:
-				bone = player.toon.hat_bone
+				node = player.toon.hat_node
 			Item.ItemSlot.GLASSES:
-				bone = player.toon.glasses_bone
+				node = player.toon.glasses_node
 			Item.ItemSlot.BACKPACK:
-				bone = player.toon.backpack_bone
-		if not bone:
+				node = player.toon.backpack_node
+		if not node:
 			continue
 		var model: Node3D = accessory.model.instantiate()
-		bone.add_child(model)
-		var accessory_placement : AccessoryPlacement = ItemAccessory.get_placement(accessory,Util.get_player().character.dna)
+		node.add_child(model)
+		var accessory_placement: AccessoryPlacement = ItemAccessory.get_placement(accessory,Util.get_player().character.dna)
 		if not accessory_placement:
 			model.queue_free()
 			push_warning(accessory.item_name + " has no placement specified for this Toon's DNA!")
@@ -223,6 +235,14 @@ func apply_inventory() -> void:
 		model.position = accessory_placement.position
 		model.rotation_degrees = accessory_placement.rotation
 		model.scale = accessory_placement.scale
+		player.toon.color_overlay_mat.apply_to_node(model)
+	
+	for item: ItemActive in player.stats.actives_in_reserve:
+		item.apply_item(player, true, null, true)
+
+	# Reapply our shoes
+	if shoes:
+		player.toon.legs.set_shoes(shoes.shoe_type as ToonLegs.ShoeType, shoes.get_correct_texture(player.toon.toon_dna))
 
 
 const GagGoals: Dictionary = {
@@ -275,11 +295,14 @@ func get_gag_rate() -> float:
 	return chance
 
 const STARTING_LAFF := 30
-const FLOOR_LAFF_INCREMENT := 14
+const FLOOR_LAFF_INCREMENT := 12
 const LIKELIHOOD_PER_POINT := 0.1
 func get_laff_rate() -> float:
 	if not is_instance_valid(Util.get_player()):
 		return 0.0
+	
+	if Util.get_player().revives_are_hp:
+		return get_revive_rate()
 	
 	# Get the current laff total
 	# Take player's max hp + all the other laff boost items in play
@@ -296,6 +319,18 @@ func get_laff_rate() -> float:
 	var laff_rate := clampf(goal_diff * LIKELIHOOD_PER_POINT, 0.0, 0.5)
 	
 	return laff_rate
+
+const REVIVE_GOAL := 15.0
+func get_revive_rate() -> float:
+	var revives := Util.get_player().stats.extra_lives
+	for item in items_in_play:
+		if item.stats_add.has('max_hp'):
+			revives += item.stats_add['max_hp']
+	
+	if REVIVE_GOAL <= revives:
+		return 0.0
+	
+	return 1.0 - (revives / REVIVE_GOAL)
 
 const BEAN_GOAL := 30
 const LIKELIHOOD_PER_BEAN := 0.05
@@ -350,8 +385,12 @@ func get_linked_items(item: Item) -> Array[Item]:
 
 	return final_linked_items
 
-func flag_check(item : Item) -> bool:
-	
+func flag_check(item: Item) -> bool:
+	var player: Player = Util.get_player()
+	if not is_instance_valid(player): return true
+	for tag in item.tags:
+		if tag in player.character.item_discard_tags:
+			return false
 	return true
 
 const ITEM_GET_UI := "res://objects/items/ui/item_get_ui/item_get_ui.tscn"
@@ -379,6 +418,7 @@ func pool_from_path(path: String) -> ItemPool:
 
 func create_centralized_pool(path: String) -> ItemPool:
 	var new_pool: ItemPool = load(path)
+	GameLoader.queue(GameLoader.Phase.GAMEPLAY, new_pool.items)
 	POOLS[path] = new_pool
 	return new_pool
 

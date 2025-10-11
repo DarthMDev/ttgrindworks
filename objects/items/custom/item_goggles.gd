@@ -12,6 +12,9 @@ func on_collect(_item: Item, _model: Node3D) -> void:
 	setup()
 	Util.get_player().stats.battle_timers.append(10)
 
+func on_item_removed() -> void:
+	Util.get_player().stats.battle_timers.erase(10)
+
 func on_load(_item: Item) -> void:
 	setup()
 

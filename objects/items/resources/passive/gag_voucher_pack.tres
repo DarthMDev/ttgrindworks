@@ -6,28 +6,12 @@
 
 [resource]
 script = ExtResource("1_ub0rq")
-item_tags = 1
 qualitoon = 2
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.5
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Gag Voucher Pack"
-item_description = ""
-big_description = ""
 model = ExtResource("1_88hnp")
 pickup_sfx = ExtResource("2_2srfl")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0
 metadata/_custom_type_script = "uid://combwqypom1ru"

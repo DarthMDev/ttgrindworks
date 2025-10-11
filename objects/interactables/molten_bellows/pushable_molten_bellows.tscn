@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwuqdubepcccm"]
+
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="1_p5jsw"]
+[ext_resource type="PackedScene" uid="uid://0auoy6j35ba4" path="res://objects/interactables/pushable/pushable_component.tscn" id="2_4ub53"]
+[ext_resource type="Script" uid="uid://dwneb0wdg1ccl" path="res://objects/interactables/molten_bellows/pushable_molten_bellows.gd" id="2_qidqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qidqc"]
+size = Vector3(5.5, 2.5, 5.5)
+
+[node name="MoltenBellows" instance=ExtResource("1_p5jsw")]
+script = ExtResource("2_qidqc")
+pushable = true
+is_pushable_right = false
+is_pushable_left = false
+is_pushable_forward = false
+is_pushable_backward = false
+
+[node name="PushableComponent" parent="." index="0" instance=ExtResource("2_4ub53")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PushableComponent" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21894, 0)
+shape = SubResource("BoxShape3D_qidqc")
+
+[node name="Platform" parent="." index="2"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0446, -2.94364e-07)
+
+[node name="Spring" parent="." index="3"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0.926536, 0)
+
+[connection signal="body_entered" from="Platform/PlayerDetection" to="." method="body_entered"]
+[connection signal="body_exited" from="Platform/PlayerDetection" to="." method="body_exited"]

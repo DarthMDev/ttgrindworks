@@ -9,40 +9,25 @@
 
 [sub_resource type="Resource" id="Resource_q3qk8"]
 script = ExtResource("1_j1jpo")
-damage = 1.0
-defense = 1.0
-evasiveness = 1.0
-accuracy = 1.0
-speed = 1.0
-max_turns = 3
-max_hp = 25
-hp = 25
-turns = 1
 
 [sub_resource type="Resource" id="Resource_gqohd"]
 script = ExtResource("1_t03ah")
 body_type = 1
-species = 2
-head_index = 0
-eyelashes = true
 skirt = true
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [resource]
 script = ExtResource("1_grtey")
-character_name = "RandomToon"
-character_summary = "- Stats are randomized
-- Starts with a random Accessory
-- Starts with a random Pocket Prank
-- Starts with 2 random tracks"
+character_id = 6
+character_name = "Mystery Toon"
+character_summary = "Stats are randomized
+Starts with a random Accessory
+Starts with a random Pocket Prank
+Starts with 2 random tracks"
+character_blurb = "Congratulations! You're Toontown's newest Toon! Your first ToonTask: Defeat this Cog building."
 dna = SubResource("Resource_gqohd")
 gag_loadout = ExtResource("2_w38qq")
 starting_laff = 30
 starting_items = Array[ExtResource("4_al6k5")]([ExtResource("6_qib3c")])
 base_stats = SubResource("Resource_q3qk8")
-override_index = -1
-achievement_qualities = Dictionary[int, String]({})
-random_character_stored_name = ""
+item_discard_tags = Array[int]([0])
 achievement_index = 17

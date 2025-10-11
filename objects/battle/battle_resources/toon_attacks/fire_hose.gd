@@ -10,22 +10,22 @@ func action():
 	var hose = load('res://models/props/gags/firehose/hose.tscn').instantiate()
 	user.toon.add_child(hose)
 	
-	var dna: ToonDNA = user.toon.toon_dna
-	if dna.body_type == ToonDNA.BodyType.LARGE:
-		hose.scale *= 0.3
-		hose.position = Vector3(0.075, 0.055, -0.145)
-	else:
-		hose.scale *= 0.2
+	scale_hose(hose)
 	
 	# Play hose anim
 	hose.get_node('AnimationPlayer').play('spray')
 	await Task.delay(0.05)
-	user.set_animation('fire_hose')
+	user.set_animation('firehose')
 	user.face_position(target.global_position)
 	
 	await Task.delay(1.95)
 	# Soak the Cog
 	soak_opponent(target.head_node, hose.get_node('firehose/Skeleton3D/NozzleAttach'), 1.0)
+	#user.toon.anim_pause()
+	#hose.get_node('AnimationPlayer').pause()
+	#await Task.delay(10000.0)
+	
+	
 	
 	# Play sfx
 	AudioManager.play_sound(load("res://audio/sfx/battle/gags/squirt/firehose_spray.ogg"))
@@ -67,3 +67,25 @@ func action():
 	# End
 	hose.queue_free()
 	user.face_position(manager.battle_node.global_position)
+
+func scale_hose(hose: Node3D) -> void:
+	var dna: ToonDNA = Util.get_player().toon.toon_dna
+	match {'l': dna.leg_type, 'b': dna.body_type}:
+		{'l': ToonDNA.BodyType.SMALL, 'b': ToonDNA.BodyType.MEDIUM}:
+			hose.scale *= 0.16
+		{'l': ToonDNA.BodyType.MEDIUM, 'b': ToonDNA.BodyType.SMALL}:
+			hose.scale *= 0.25
+			hose.position = Vector3(0.055, 0.0, 0.0)
+		{'l': ToonDNA.BodyType.MEDIUM, 'b': ToonDNA.BodyType.LARGE}:
+			hose.scale *= 0.24
+		{'l': ToonDNA.BodyType.LARGE, 'b': ToonDNA.BodyType.SMALL}:
+			hose.scale *= 0.33
+			hose.position = Vector3(0.135, 0.0, -0.305)
+		{'l': ToonDNA.BodyType.LARGE, 'b': ToonDNA.BodyType.MEDIUM}:
+			hose.scale *= 0.28
+			hose.position = Vector3(0.07, 0.0, -0.3)
+		{'l': ToonDNA.BodyType.LARGE, 'b': ToonDNA.BodyType.LARGE}:
+			hose.scale *= 0.315
+			hose.position = Vector3(0.105, 0.0, -0.185)
+		_:
+			hose.scale *= 0.2

@@ -45,22 +45,22 @@ func report_damaged_cogs(cogs_arr : Array[Cog]) -> void:
 	if cogs_arr.is_empty():
 		return
 	
-	var new_action := ACTION_COMPENSATION.duplicate()
+	var new_action := ACTION_COMPENSATION.duplicate(true)
 	new_action.user = target
-	new_action.targets = cogs_arr.duplicate()
+	new_action.targets = cogs_arr.duplicate(true)
 	manager.round_end_actions.append(new_action)
 
 var prev_banned_track := ""
 func queue_budget_cuts() -> void:
 	# Setup
-	var new_action := ACTION_BUDGET.duplicate()
+	var new_action := ACTION_BUDGET.duplicate(true)
 	new_action.user = target
 	new_action.targets = [Util.get_player()]
 	
 	# Roll for new track
 	var tracks := Util.get_player().stats.gag_regeneration.keys()
 	tracks.erase(prev_banned_track)
-	new_action.track = RandomService.array_pick_random('true_random', tracks)
+	new_action.track = tracks.pick_random()
 	prev_banned_track = new_action.track
 	
 	# Append action
@@ -77,7 +77,7 @@ func queue_overtime() -> void:
 		return
 	
 	# Create the action
-	var action := ACTION_OVERTIME.duplicate()
+	var action := ACTION_OVERTIME.duplicate(true)
 	action.user = target
-	action.targets = [RandomService.array_pick_random('true_random', potential_cogs)]
+	action.targets = [potential_cogs.pick_random()]
 	manager.round_end_actions.append(action)

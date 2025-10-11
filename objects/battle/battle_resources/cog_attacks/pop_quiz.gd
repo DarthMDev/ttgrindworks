@@ -71,14 +71,14 @@ func action() -> void:
 	set_camera_angle('SIDE_LEFT')
 	if answer == true_answer:
 		player.toon.set_emotion(Toon.Emotion.LAUGH)
-		player.set_animation('happy')
+		player.set_animation('jump')
 		if win_sfx:
 			win_sfx.play()
 	else:
 		player.last_damage_source = "Hubris"
 		manager.affect_target(player, damage)
 		player.toon.set_emotion(Toon.Emotion.SAD)
-		player.set_animation("slip_backward")
+		player.set_animation("slip-backward")
 		if lose_sfx:
 			lose_sfx.play()
 	
@@ -96,9 +96,9 @@ func get_question() -> Array[String]:
 	var prompt : Array[String] = []
 	
 	# Get the variable & operator
-	var x := RandomService.randi_channel('true_random') % 20
-	var y := RandomService.randi_channel('true_random') % 15
-	var op := RandomService.randi_channel('true_random') % 2
+	var x := randi() % 20
+	var y := randi() % 15
+	var op := randi() % 2
 	var answer : int 
 	
 	# Form the question
@@ -120,10 +120,10 @@ func get_question() -> Array[String]:
 	
 	# Append incorrect answers
 	# 2-4 wrong answers
-	for i in RandomService.randi_channel('true_random') % 2 + 2:
+	for i in randi() % 2 + 2:
 		var incorrect_answer := answer
 		while str(incorrect_answer) in prompt:
-			incorrect_answer = answer + RandomService.randi_range_channel('true_random', -5, 5)
+			incorrect_answer = answer + randi_range(-5, 5)
 		prompt.append(str(incorrect_answer))
 	
 	# Return the full prompt

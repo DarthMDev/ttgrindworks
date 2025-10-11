@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxdfvlc5c7qrn"]
+
+[ext_resource type="PackedScene" uid="uid://m2rpyyk4h6xo" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_left.tscn" id="1_h04j4"]
+[ext_resource type="PackedScene" uid="uid://gnesxsphxwp7" path="res://objects/obstacles/standard_platforms/molten_hall_platform_metal.tscn" id="2_vur20"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="3_1rfya"]
+[ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="4_ju4f4"]
+
+[sub_resource type="Curve3D" id="Curve3D_vur20"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -2.975, 0, 1, 0, 0, -1, 10, -1, 1, -10, 0, 6.295, -10.74, 15.675, 0, 0, -0.64, 0, 0, -20.394, 0, -24.625, 0, 0, 0, 0, 0, 0, -23.445, 0, -24.625),
+"tilts": PackedFloat32Array(0, 0, -0.416, -0.416)
+}
+point_count = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vur20"]
+
+[node name="molten_hall_left" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_h04j4")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="CameraPath" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.923, 4, 15.255)
+curve = SubResource("Curve3D_vur20")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CameraPath" index="0"]
+transform = Transform3D(-1.587776e-07, 1.5364495e-08, 0.999909, 0.0028383704, 0.999824, -1.4914889e-08, -0.999827, 0.0028383618, -1.5883298e-07, -23.445, 0, -24.625)
+progress = 44.8775
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CameraPath/PathFollow3D" index="0"]
+transform = Transform3D(0.70713, 0.00260835, -0.707079, 0.00260833, 0.999977, 0.00629734, 0.707079, -0.00629734, 0.707107, 0, 0, 0)
+visible = false
+
+[node name="LavaRef" parent="." index="5"]
+instance_shader_parameters/speed = 1.0
+
+[node name="molten_hall_platform_metal" parent="." index="6" instance=ExtResource("2_vur20")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.83248, 0.943995, 13.6964)
+
+[node name="MoltenBellows" parent="molten_hall_platform_metal" index="1" instance=ExtResource("3_1rfya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0625305)
+retract_speed = 12.0
+max_push = 2.0
+
+[node name="Wall1" type="Node3D" parent="." index="7"]
+transform = Transform3D(0.885, 0, 0, 0, 0.885, 0, 0, 0, 0.885, 6.20305, 5.97365, 5.96195)
+
+[node name="PaintPlatform" parent="Wall1" index="0" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70033, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform2" parent="Wall1" index="1" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.59946, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform3" parent="Wall1" index="2" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39296, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform4" parent="Wall1" index="3" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93297, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="Wall2" type="Node3D" parent="." index="8"]
+transform = Transform3D(0.874449, 0, 0.136247, 0, 0.885, 0, -0.136247, 0, 0.874449, 5.70604, 2.24345, 0.450081)
+
+[node name="PaintPlatform" parent="Wall2" index="0" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70033, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform2" parent="Wall2" index="1" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.59946, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform3" parent="Wall2" index="2" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39296, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="PaintPlatform4" parent="Wall2" index="3" instance=ExtResource("4_ju4f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93297, 0, 0)
+texture_type = 1
+shaft_length = 3.0
+
+[node name="molten_hall_platform_metal2" parent="." index="9" instance=ExtResource("2_vur20")]
+transform = Transform3D(0.431335, 0, 0.431335, 0, 0.61, 0, -0.431335, 0, 0.431335, 1.37834, 0.91376, -7.27502)
+
+[node name="molten_hall_platform_metal3" parent="." index="10" instance=ExtResource("2_vur20")]
+transform = Transform3D(-5.96046e-08, 0, 0.61, 0, 0.61, 0, -0.61, 0, -5.96046e-08, -11.2545, 0.91376, -9.59114)
+
+[node name="RespawnPoints" type="Node3D" parent="." index="11"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07285, 4.35948, 14.9399)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146736, -1.81818, -1.4304)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+shape = SubResource("BoxShape3D_vur20")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96707, 7.93067, 5.87245)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0472112, -1.55701, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+shape = SubResource("BoxShape3D_vur20")

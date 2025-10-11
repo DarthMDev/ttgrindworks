@@ -1,14 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://mmocb33ecqd6"]
+[gd_scene load_steps=11 format=3 uid="uid://mmocb33ecqd6"]
 
 [ext_resource type="Script" uid="uid://ccu8cjbascy0n" path="res://objects/obstacles/stomper/stomper.gd" id="1_5ymn8"]
 [ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="2_ofv0e"]
+[ext_resource type="Texture2D" uid="uid://bqt3mggfvixqf" path="res://models/facilities/mint/textures/square_drop_shadow.png" id="3_2nj4q"]
 [ext_resource type="PackedScene" uid="uid://cymudv3pxuhlj" path="res://models/props/facility_objects/da_office/stomper/law_stomper.fbx" id="3_jv448"]
+[ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="4_jv448"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7jfv"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.858824)
+albedo_texture = ExtResource("3_2nj4q")
+
+[sub_resource type="QuadMesh" id="QuadMesh_tf7oh"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_q7jfv")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2nj4q"]
 points = PackedVector3Array(-6.30843, -6.30843, 11.7799, 9.02536, 9.02536, 9.42646, 9.18218, 9.18218, 0.0191, 9.18218, -9.18218, 0.0191, -9.18218, 9.18218, 0.0191, -9.18218, -9.18218, 0.0191, 9.02649, -9.02649, 9.42577, -9.02649, 9.02649, 9.42577, 6.30843, 6.30843, 11.7799, -9.02649, -9.02649, 9.42577, -6.30843, 6.30843, 11.7799, 6.30843, -6.30843, 11.7799)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ofv0e"]
-height = 8.42603
+height = 11.138513
 radius = 1.28955
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv448"]
@@ -27,6 +39,14 @@ bus = &"Ambient"
 unique_name_in_owner = true
 one_shot = true
 
+[node name="SquareDropShadow" parent="." instance=ExtResource("4_jv448")]
+unique_name_in_owner = true
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.01, 0)
+
+[node name="Mesh" parent="SquareDropShadow" index="0"]
+transform = Transform3D(8, 0, 0, 0, -3.496911e-07, 8, 0, -8, -3.496911e-07, 0, 0.01, 0)
+mesh = SubResource("QuadMesh_tf7oh")
+
 [node name="Model" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
@@ -41,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.649)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.649)
 
 [node name="shaft" parent="Model/stomper/square__stomper/head" index="2"]
-transform = Transform3D(0.995748, 0, 0, 0, 0.995748, 1.07036e-14, 0, -1.06581e-14, 1, 0, 5.68434e-14, 9.234)
+transform = Transform3D(0.995748, 0, 0, 0, 0.995748, 1.0703612e-14, 0, -1.06581e-14, 1, 0, 5.68434e-14, 9.234)
 
 [node name="shaft_collisions" parent="Model/stomper/square__stomper/head/shaft" index="2"]
 visible = false
@@ -60,24 +80,30 @@ visible = false
 visible = false
 
 [node name="HeadCollision" type="StaticBody3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/HeadCollision"]
 transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 4.49727e-16, -4.24683e-06)
 shape = SubResource("ConvexPolygonShape3D_2nj4q")
 
 [node name="ShaftCollision" type="StaticBody3D" parent="Model"]
+unique_name_in_owner = true
 transform = Transform3D(0.137931, 0, 0, 0, 0.137931, 0, 0, 0, 0.137931, 0, 0.462, 0)
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ShaftCollision"]
 shape = SubResource("CylinderShape3D_ofv0e")
 
 [node name="PlayerDetection" type="Area3D" parent="Model"]
+unique_name_in_owner = true
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/PlayerDetection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00112915, -0.00119627, 0.000608981)
 shape = SubResource("BoxShape3D_jv448")
 
+[editable path="SquareDropShadow"]
 [editable path="Model/stomper"]
 [editable path="Model/law_stomper"]

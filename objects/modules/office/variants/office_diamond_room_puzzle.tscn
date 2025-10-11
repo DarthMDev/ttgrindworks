@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc1tsojhw6x8o"]
+[gd_scene load_steps=20 format=3 uid="uid://cc1tsojhw6x8o"]
 
 [ext_resource type="PackedScene" uid="uid://da1tvwj2tpa75" path="res://objects/modules/office/base_rooms/office_diamond_room.tscn" id="1_2c4a2"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="3_u3k56"]
-[ext_resource type="Script" path="res://objects/modules/office/variants/diamond_room_bookshelves.gd" id="3_xc7vq"]
+[ext_resource type="Script" uid="uid://cjo6ti7jr0kf8" path="res://objects/modules/office/variants/diamond_room_bookshelves.gd" id="3_xc7vq"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="5_uyseh"]
-[ext_resource type="PackedScene" uid="uid://cov8sw7eluipo" path="res://objects/obstacles/stomper/old_stomper.tscn" id="6_umbx3"]
+[ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="6_umbx3"]
 [ext_resource type="AudioStream" uid="uid://c4w0go8bufcoh" path="res://audio/sfx/objects/stomper/CHQ_FACT_stomper_large.ogg" id="7_36nhd"]
 [ext_resource type="PackedScene" uid="uid://cymudv3pxuhlj" path="res://models/props/facility_objects/da_office/stomper/law_stomper.fbx" id="8_4lhlr"]
 [ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="9_36nhd"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="10_4lhlr"]
+[ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="10_45480"]
+[ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="11_guxlt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hl3hf"]
 size = Vector3(0.597626, 0.0276184, 0.597366)
@@ -359,7 +361,28 @@ curve = SubResource("Curve3D_rrsul")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8485, 0, 0)
 
 [node name="treasure_chest" parent="Props/Chest" index="0" instance=ExtResource("10_4lhlr")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.3818, 0, 6.17785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7203, 2.38419e-07, -5.62604)
+
+[node name="treasure_chest2" parent="Props/Chest" index="1" instance=ExtResource("10_4lhlr")]
+transform = Transform3D(-0.999998, 0, 0.00221664, 0, 1, 0, -0.00221664, 0, -0.999998, -15.3798, 2.38419e-07, 6.57132)
+
+[node name="lamp_big" parent="Props" index="5" instance=ExtResource("10_45480")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9932, 0, 3.63549)
+
+[node name="lamp_big2" parent="Props" index="6" instance=ExtResource("10_45480")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5731, 0, -2.74971)
+
+[node name="da_crate" parent="Props" index="7" instance=ExtResource("11_guxlt")]
+transform = Transform3D(0.932044, 0, 0.976624, 0, 1.35, 0, -0.976624, 0, 0.932044, -31.8101, 0, 5.37854)
+
+[node name="da_crate2" parent="Props/da_crate" index="1" instance=ExtResource("11_guxlt")]
+transform = Transform3D(0.426411, 0, 0.370673, 0, 0.565, 0, -0.370673, 0, 0.426411, 0, 1.68973, 0)
+
+[node name="da_crate2" parent="Props" index="8" instance=ExtResource("11_guxlt")]
+transform = Transform3D(0.932044, 0, 0.976624, 0, 1.35, 0, -0.976624, 0, 0.932044, -31.8101, 0, -4.41138)
+
+[node name="da_crate2" parent="Props/da_crate2" index="1" instance=ExtResource("11_guxlt")]
+transform = Transform3D(-0.162197, 0, 0.332554, 0, 0.37, 0, -0.332554, 0, -0.162197, -0.0788097, 1.68973, -0.177469)
 
 [connection signal="s_pressed" from="Props/Buttons/CogButton" to="Props/Bookshelves" method="button_pressed"]
 [connection signal="s_pressed" from="Props/Buttons/CogButton2" to="Props/Bookshelves" method="button_pressed"]

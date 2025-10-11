@@ -65,7 +65,7 @@ func play() -> Tween:
 	
 	# Make Toon jump to the platform
 	movie.tween_callback(battle_node.focus_character.bind(player))
-	movie.tween_callback(player.set_animation.bind('happy'))
+	movie.tween_callback(player.set_animation.bind('jump'))
 	movie.tween_interval(0.4)
 	
 	# Create jump path

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://di51x1vfbrdq3"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_xvuim"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_0hxml"]
+[ext_resource type="PackedScene" uid="uid://dl42o87fbyffw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb" id="2_ba86b"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_mn2v5"]
+[ext_resource type="Script" uid="uid://c0w5q7icsusvn" path="res://objects/items/custom/item_airplane_wings.gd" id="3_0hxml"]
+[ext_resource type="Texture2D" uid="uid://blty0kf5sbskw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb-pix-1.png" id="3_xs6h0"]
+
+[sub_resource type="Resource" id="Resource_xs6h0"]
+script = ExtResource("2_0hxml")
+position = Vector3(0, 0.67, 0.63)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="Resource" id="Resource_ba86b"]
+script = ExtResource("2_0hxml")
+body_type = 1
+position = Vector3(0, 0.62, 0.39)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="Resource" id="Resource_0hxml"]
+script = ExtResource("2_0hxml")
+body_type = 2
+position = Vector3(0, 0.61, 0.41)
+rotation = Vector3(-10.35, 180, 0)
+scale = Vector3(0.3, 0.3, 0.3)
+
+[resource]
+script = ExtResource("2_mn2v5")
+accessory_placements = Array[ExtResource("1_xvuim")]([SubResource("Resource_xs6h0"), SubResource("Resource_ba86b"), SubResource("Resource_0hxml")])
+qualitoon = 2
+slot = 3
+world_scale = 0.1
+item_name = "Airplane Wings"
+item_description = "To infinity..."
+big_description = "+5% to a random stat every round that passes in a battle (resets on battle end)"
+model = ExtResource("2_ba86b")
+item_script = ExtResource("3_0hxml")
+icon = ExtResource("3_xs6h0")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://dvu24b3o8i3sj"

@@ -6,16 +6,9 @@
 
 [resource]
 script = ExtResource("3_rie88")
-item_tags = null
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.11
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Sour Shocker"
 item_description = "Prank charge up!"
 big_description = "Adds up to 6 charges to your current Pocket Prank"
@@ -24,11 +17,7 @@ pickup_sfx = ExtResource("2_b8h22")
 stats_add = {
 "active_charge": 6
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
 force_show_shop_category = true
-custom_shop_price = 0
+custom_shop_price = 10

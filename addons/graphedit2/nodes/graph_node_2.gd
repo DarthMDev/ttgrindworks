@@ -137,4 +137,4 @@ func get_connection_count() -> int:
 
 ## Returns the stylebox for the title bar.
 static func _get_title_bar_stylebox() -> StyleBox:
-	return preload("res://addons/graphedit2/nodes/graph_node_2_titlebar_stylebox.tres").duplicate()
+	return preload("res://addons/graphedit2/nodes/graph_node_2_titlebar_stylebox.tres").duplicate(true)

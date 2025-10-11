@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://cowmk5nu2yli0"]
+
+[ext_resource type="Shader" uid="uid://dn57gjno78ipp" path="res://models/props/gags/hypno_goggles/hypno_flipbook_effect/hypno_swirl.gdshader" id="1_j8a53"]
+[ext_resource type="Texture2D" uid="uid://bstofxn23y2wa" path="res://models/props/gags/hypno_goggles/hypno_flipbook_effect/Hypno_Effect.png" id="2_3t4gu"]
+
+[sub_resource type="Curve" id="Curve_ec1ii"]
+_data = [Vector2(0, 0.842697), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.68764, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f542o"]
+curve = SubResource("Curve_ec1ii")
+
+[sub_resource type="Gradient" id="Gradient_j8a53"]
+colors = PackedColorArray(1, 1, 1, 1, 0.0991268, 0, 0.998653, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3t4gu"]
+gradient = SubResource("Gradient_j8a53")
+
+[sub_resource type="Curve" id="Curve_3t4gu"]
+_data = [Vector2(0, 0), 0.0, 7.01124, 0, 0, Vector2(0.0528846, 1), 0.0, -1.93644, 0, 0, Vector2(1, 0), -0.20197, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ec1ii"]
+curve = SubResource("Curve_3t4gu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3u1xj"]
+gravity = Vector3(0, 0, 0.8)
+scale_min = 0.19
+scale_max = 0.19
+color_ramp = SubResource("GradientTexture1D_3t4gu")
+alpha_curve = SubResource("CurveTexture_f542o")
+emission_curve = SubResource("CurveTexture_ec1ii")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvn5n"]
+render_priority = 0
+shader = ExtResource("1_j8a53")
+shader_parameter/sprite_sheet = ExtResource("2_3t4gu")
+shader_parameter/hframes = 4
+shader_parameter/vframes = 1
+shader_parameter/anim_speed = 3.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bx4ld"]
+material = SubResource("ShaderMaterial_bvn5n")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+amount = 2
+visibility_aabb = AABB(-1, -1, -0.996667, 2, 2, 3.54667)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3u1xj")
+draw_pass_1 = SubResource("QuadMesh_bx4ld")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+amount = 2
+visibility_aabb = AABB(-1, -1, -0.996667, 2, 2, 3.54667)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_3u1xj")
+draw_pass_1 = SubResource("QuadMesh_bx4ld")

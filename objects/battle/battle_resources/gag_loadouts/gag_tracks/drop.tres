@@ -41,10 +41,7 @@ sfx_hit = ExtResource("5_848h6")
 sfx_miss = ExtResource("6_f7iyq")
 icon = ExtResource("2_nr4db")
 damage = 8
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Flower Pot"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_0vh8a"]
 script = ExtResource("4_3wka0")
@@ -54,10 +51,7 @@ sfx_hit = ExtResource("9_agee5")
 sfx_miss = ExtResource("10_slusc")
 icon = ExtResource("7_ynwgd")
 damage = 14
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Sandbag"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_ye2tp"]
 script = ExtResource("4_3wka0")
@@ -67,10 +61,7 @@ sfx_hit = ExtResource("13_ou2c6")
 sfx_miss = ExtResource("14_6a3e5")
 icon = ExtResource("11_s4omm")
 damage = 20
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Anvil"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_7r1t1"]
 script = ExtResource("17_wt3cn")
@@ -80,10 +71,7 @@ sfx_hit = ExtResource("18_38bwk")
 sfx_miss = ExtResource("19_di2oc")
 icon = ExtResource("15_07x27")
 damage = 36
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Big Weight"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_ctukw"]
 script = ExtResource("17_wt3cn")
@@ -93,23 +81,16 @@ sfx_hit = ExtResource("22_m1vk1")
 sfx_miss = ExtResource("23_cqxrb")
 icon = ExtResource("20_jhkrj")
 damage = 56
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Safe"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_xnjq8"]
 script = ExtResource("17_wt3cn")
 model = ExtResource("25_tlwck")
-shadow_scale = 4.0
 sfx_hit = ExtResource("26_btxwu")
 sfx_miss = ExtResource("27_2cpd8")
 icon = ExtResource("24_gx5cy")
 damage = 76
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Grand Piano"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_tnwe1"]
 script = ExtResource("17_wt3cn")
@@ -119,14 +100,10 @@ sfx_hit = ExtResource("30_pvtt7")
 sfx_miss = ExtResource("31_il2je")
 icon = ExtResource("28_qi3du")
 damage = 100
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Statue"
-one_time_use = false
 
 [resource]
 script = ExtResource("28_0rg6a")
-track_type = 0
 track_name = "Drop"
 track_color = Color(0.207843, 0.956863, 1, 1)
 gags = Array[ExtResource("1_tudwb")]([SubResource("Resource_bdyje"), SubResource("Resource_0vh8a"), SubResource("Resource_ye2tp"), SubResource("Resource_7r1t1"), SubResource("Resource_ctukw"), SubResource("Resource_xnjq8"), SubResource("Resource_tnwe1")])

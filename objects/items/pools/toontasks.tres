@@ -1,24 +1,7 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=18 format=3 uid="uid://7tn6to82356s"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=2 format=3 uid="uid://7tn6to82356s"]
 
-[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_o8p4s"]
-[ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="2_g673f"]
-[ext_resource type="Resource" uid="uid://bhdofnj74gv0f" path="res://objects/items/resources/passive/red_jellybean.tres" id="3_ofwmq"]
-[ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="4_5m0og"]
-[ext_resource type="Resource" uid="uid://b77qp325baypa" path="res://objects/items/resources/passive/pink_slip.tres" id="7_cs7sn"]
-[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="7_dju7n"]
-[ext_resource type="Resource" uid="uid://bd5d562nvcvr2" path="res://objects/items/resources/passive/light_blue_jellybean.tres" id="8_iadk3"]
-[ext_resource type="Resource" uid="uid://davv55htjxxtw" path="res://objects/items/resources/passive/yellow_jellybean.tres" id="9_01fia"]
-[ext_resource type="Resource" uid="uid://danb3hsfnfror" path="res://objects/items/resources/passive/candies/candy_damage.tres" id="10_exgii"]
-[ext_resource type="Resource" uid="uid://cckkv76gxoem3" path="res://objects/items/resources/passive/candies/candy_defense.tres" id="11_cse62"]
-[ext_resource type="Resource" uid="uid://y5nhq5oudm83" path="res://objects/items/resources/passive/candies/candy_evasiveness.tres" id="12_bj61c"]
-[ext_resource type="Resource" uid="uid://rytsv7bygrwl" path="res://objects/items/resources/passive/candies/candy_luck.tres" id="13_31fts"]
-[ext_resource type="Resource" uid="uid://d0n6coya2868f" path="res://objects/items/resources/passive/flower_treasure.tres" id="13_hlkw0"]
-[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="14_82jbt"]
-[ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="14_b0d2e"]
-[ext_resource type="Resource" uid="uid://c8yh80vqngv1b" path="res://objects/items/resources/passive/music_treasure.tres" id="15_bu400"]
-[ext_resource type="Resource" uid="uid://wsx4jasny47f" path="res://objects/items/resources/passive/candies/candy_battery.tres" id="16_82jbt"]
+[ext_resource type="Script" uid="uid://bllywk0dq1ug3" path="res://objects/items/classes/item_pool.gd" id="7_dju7n"]
 
 [resource]
 script = ExtResource("7_dju7n")
-items = Array[ExtResource("1_o8p4s")]([ExtResource("2_g673f"), ExtResource("3_ofwmq"), ExtResource("4_5m0og"), ExtResource("7_cs7sn"), ExtResource("8_iadk3"), ExtResource("9_01fia"), ExtResource("10_exgii"), ExtResource("11_cse62"), ExtResource("12_bj61c"), ExtResource("13_31fts"), ExtResource("14_b0d2e"), ExtResource("13_hlkw0"), ExtResource("14_82jbt"), ExtResource("15_bu400"), ExtResource("16_82jbt")])
-low_roll_override = 0
+items = PackedStringArray("res://objects/items/resources/passive/laff_boost.tres", "res://objects/items/resources/passive/red_jellybean.tres", "res://objects/items/resources/passive/gag_voucher_small.tres", "res://objects/items/resources/passive/pink_slip.tres", "res://objects/items/resources/passive/light_blue_jellybean.tres", "res://objects/items/resources/passive/yellow_jellybean.tres", "res://objects/items/resources/passive/candies/candy_damage.tres", "res://objects/items/resources/passive/candies/candy_defense.tres", "res://objects/items/resources/passive/candies/candy_evasiveness.tres", "res://objects/items/resources/passive/candies/candy_luck.tres", "res://objects/items/resources/passive/flower_treasure.tres", "res://objects/items/resources/passive/gag_voucher_pack.tres", "res://objects/items/resources/passive/candies/candy_speed.tres", "res://objects/items/resources/passive/music_treasure.tres", "res://objects/items/resources/passive/candies/candy_battery.tres", "res://objects/items/custom/jellybean_voucher/bean_voucher.tres")

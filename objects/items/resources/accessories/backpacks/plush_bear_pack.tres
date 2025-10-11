@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bvs3yf5vb63ta"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_qlm4k"]
+[ext_resource type="PackedScene" uid="uid://hnhrjvdeeqqi" path="res://models/accessories/backpacks/stuffed_bear_backpack/tt_m_chr_avt_acc_pac_stuffedAnimalBackpackA.glb" id="2_au5im"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_dnwfj"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_wnd6l"]
+[ext_resource type="Texture2D" uid="uid://dvqcj874w802a" path="res://models/accessories/backpacks/stuffed_bear_backpack/tt_m_chr_avt_acc_pac_stuffedAnimalBackpackA.glb-pix-1.png" id="3_dnwfj"]
+[ext_resource type="Script" uid="uid://oompngfv4or3" path="res://objects/items/custom/item_plush_bear_pack.gd" id="4_c0jjl"]
+
+[sub_resource type="Resource" id="Resource_c0jjl"]
+script = ExtResource("2_dnwfj")
+position = Vector3(0, -0.35, 1.49)
+rotation = Vector3(8.77, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_lfmi6"]
+script = ExtResource("2_dnwfj")
+body_type = 1
+position = Vector3(0, -0.35, 1.23)
+rotation = Vector3(8.77, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_ct0kg"]
+script = ExtResource("2_dnwfj")
+body_type = 2
+position = Vector3(0, -0.07, 0.87)
+rotation = Vector3(-7.6, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("2_wnd6l")
+accessory_placements = Array[ExtResource("1_qlm4k")]([SubResource("Resource_c0jjl"), SubResource("Resource_lfmi6"), SubResource("Resource_ct0kg")])
+qualitoon = 1
+slot = 3
+world_scale = 0.17
+world_y_offset = -0.25
+item_name = "Plush Bear Pack"
+item_description = "Hold it tight!"
+big_description = "+ 5% Luck
+Using no moves during a turn will grant a 30% Damage boost for 2 rounds"
+model = ExtResource("2_au5im")
+stats_add = {
+"luck": 0.05
+}
+item_script = ExtResource("4_c0jjl")
+icon = ExtResource("3_dnwfj")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://dvu24b3o8i3sj"

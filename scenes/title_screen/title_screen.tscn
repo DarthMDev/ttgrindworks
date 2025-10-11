@@ -1,17 +1,18 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqxrerk1d75to"]
+[gd_scene load_steps=42 format=3 uid="uid://cqxrerk1d75to"]
 
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="1_6oj83"]
 [ext_resource type="Script" uid="uid://bg0as47hsfrlg" path="res://scenes/title_screen/title_screen.gd" id="1_pgrta"]
 [ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="9_ikkwa"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="10_dmagf"]
 [ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="10_ngpco"]
+[ext_resource type="PackedScene" uid="uid://cpt2l8o1h70a7" path="res://scenes/title_screen/character_select/character_clipboard.tscn" id="11_fdkeb"]
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="11_iexge"]
-[ext_resource type="PackedScene" uid="uid://dkd6dg5s5uuef" path="res://objects/general_ui/base_panel.tscn" id="11_s4o3l"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="12_nwwc5"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="13_glcqf"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="14_ndcfx"]
 [ext_resource type="PackedScene" uid="uid://celxj5u1aay0l" path="res://objects/props/etc/wood_crate.tscn" id="15_1sq1o"]
 [ext_resource type="PackedScene" uid="uid://bqneqxfv6jbkv" path="res://objects/props/shticks/cog_building/cog_building.tscn" id="15_7ysqf"]
+[ext_resource type="PackedScene" uid="uid://dquwmshe5gxlu" path="res://scenes/title_screen/character_select/character_selection.tscn" id="15_otspg"]
 [ext_resource type="PackedScene" uid="uid://ciyyhun2e5nmf" path="res://objects/props/etc/crate/crate_general.tscn" id="16_lphp2"]
 [ext_resource type="Texture2D" uid="uid://dtycf03soy7uj" path="res://ui_assets/general/logo.png" id="16_yo3if"]
 [ext_resource type="PackedScene" uid="uid://rriejmaesd7l" path="res://objects/props/factory/gear.tscn" id="17_tctok"]
@@ -66,7 +67,7 @@ font_color = Color(1, 1, 0, 1)
 shadow_size = 8
 shadow_color = Color(0.411688, 0.411688, 3.85046e-07, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdkeb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdew4"]
 resource_local_to_scene = true
 shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.585
@@ -82,29 +83,8 @@ shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.045
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdew4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmj2m"]
 resource_local_to_scene = true
-shader = ExtResource("10_ngpco")
-shader_parameter/Shift_Hue = 0.585
-shader_parameter/alpha = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_md63d"]
-font = ExtResource("10_dmagf")
-font_size = 36
-font_color = Color(0.19651, 0.579885, 0.918822, 1)
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qrfg2"]
-font = ExtResource("14_ndcfx")
-font_size = 22
-font_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
-shadow_color = Color(0, 0, 0, 0.0941176)
-
-[sub_resource type="LabelSettings" id="LabelSettings_kkjkl"]
-font = ExtResource("14_ndcfx")
-font_size = 24
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_om0tp"]
 shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.585
 shader_parameter/alpha = 1.0
@@ -116,7 +96,7 @@ ssr_max_steps = 142
 ssr_fade_in = 0.764735
 ssr_fade_out = 1.36604
 ssr_depth_tolerance = 28.01
-ssao_power = 1e+06
+ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
@@ -180,23 +160,6 @@ text = "Click to begin..."
 label_settings = SubResource("LabelSettings_v8joy")
 horizontal_alignment = 1
 
-[node name="GameLogo" type="TextureRect" parent="GUI/Logo"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -337.0
-offset_top = -258.0
-offset_right = 337.0
-offset_bottom = 258.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("16_yo3if")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="VersionLabel" type="Label" parent="GUI/Logo"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -233,6 +196,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "Release Notes"
+font_size = 24.0
 
 [node name="Label" parent="GUI/Logo/ReleaseNotesButton" index="0"]
 text = "Release Notes"
@@ -257,6 +221,41 @@ text = "New Version Available!"
 label_settings = SubResource("LabelSettings_fdkeb")
 horizontal_alignment = 2
 
+[node name="LogoScaler" type="Control" parent="GUI/Logo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameLogo" type="TextureRect" parent="GUI/Logo/LogoScaler"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.60852
+offset_top = -211.0
+offset_right = 275.60852
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_yo3if")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CharacterClipboard" parent="GUI" instance=ExtResource("11_fdkeb")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 1410.0
+offset_bottom = 1410.0
+
 [node name="NewGameMenu" type="Control" parent="GUI"]
 unique_name_in_owner = true
 visible = false
@@ -270,6 +269,7 @@ mouse_filter = 2
 
 [node name="PickAToonLabel" type="Label" parent="GUI/NewGameMenu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -297,7 +297,7 @@ alignment = 1
 
 [node name="BackButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_fdkeb")
+material = SubResource("ShaderMaterial_hdew4")
 custom_minimum_size = Vector2(164, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -306,6 +306,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "Back"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/ButtonContainer/BackButton" index="0"]
 text = "Back"
@@ -322,6 +323,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "Extras"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/ButtonContainer/ExtrasButton" index="0"]
 text = "Extras"
@@ -338,6 +340,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "Settings"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/ButtonContainer/SettingsButton" index="0"]
 text = "Settings"
@@ -353,6 +356,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "	Quit"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/ButtonContainer/QuitButton" index="0"]
 text = "	Quit"
@@ -385,6 +389,7 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "New Game"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/MiddleButtons/NewGameButton" index="0"]
 text = "New Game"
@@ -392,7 +397,7 @@ label_settings = SubResource("LabelSettings_5vlir")
 
 [node name="ContinueButton" parent="GUI/NewGameMenu/MiddleButtons" instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_hdew4")
+material = SubResource("ShaderMaterial_wmj2m")
 custom_minimum_size = Vector2(164, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -401,12 +406,13 @@ texture_pressed = ExtResource("12_nwwc5")
 texture_hover = ExtResource("13_glcqf")
 texture_disabled = null
 text = "Continue"
+font_size = 24.0
 
 [node name="Label" parent="GUI/NewGameMenu/MiddleButtons/ContinueButton" index="0"]
 text = "Continue"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="ToonSummary" type="Control" parent="GUI"]
+[node name="FullBlock" type="Control" parent="GUI"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -415,109 +421,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-
-[node name="Panel" type="Control" parent="GUI/ToonSummary"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -268.0
-offset_right = 268.0
-offset_bottom = 320.0
-grow_horizontal = 2
-
-[node name="Panel" parent="GUI/ToonSummary/Panel" instance=ExtResource("11_s4o3l")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ToonName" type="Label" parent="GUI/ToonSummary/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -0.400024
-offset_top = 44.0
-offset_right = -0.400024
-offset_bottom = 90.0
-grow_horizontal = 2
-text = "Toon Name"
-label_settings = SubResource("LabelSettings_md63d")
-horizontal_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="GUI/ToonSummary/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/ToonSummary/Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="GUI/ToonSummary/Panel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 36)
-layout_mode = 2
-
-[node name="SummaryDesc" type="Label" parent="GUI/ToonSummary/Panel/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 32)
-layout_mode = 2
-text = "this one does stuff (real)"
-label_settings = SubResource("LabelSettings_qrfg2")
-autowrap_mode = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/ToonSummary/Panel"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 38.6
-offset_top = -91.0
-offset_right = -39.4
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="Cancel" parent="GUI/ToonSummary/Panel/HBoxContainer" instance=ExtResource("1_6oj83")]
-custom_minimum_size = Vector2(140, 60)
-layout_mode = 2
-texture_normal = ExtResource("11_iexge")
-texture_pressed = ExtResource("12_nwwc5")
-texture_hover = ExtResource("13_glcqf")
-texture_disabled = null
-text = "Cancel"
-
-[node name="Label" parent="GUI/ToonSummary/Panel/HBoxContainer/Cancel" index="0"]
-text = "Cancel"
-label_settings = SubResource("LabelSettings_kkjkl")
-
-[node name="PlayButton" parent="GUI/ToonSummary/Panel/HBoxContainer" instance=ExtResource("1_6oj83")]
-material = SubResource("ShaderMaterial_om0tp")
-custom_minimum_size = Vector2(140, 60)
-layout_mode = 2
-texture_normal = ExtResource("11_iexge")
-texture_pressed = ExtResource("12_nwwc5")
-texture_hover = ExtResource("13_glcqf")
-texture_disabled = null
-text = "Play"
-
-[node name="Label" parent="GUI/ToonSummary/Panel/HBoxContainer/PlayButton" index="0"]
-text = "Play"
-label_settings = SubResource("LabelSettings_kkjkl")
 
 [node name="World3D" type="Node3D" parent="."]
 
@@ -540,6 +443,9 @@ fov = 58.5
 
 [node name="ToonOrigin" type="Node3D" parent="World3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.99648)
+
+[node name="CharacterDisplay" parent="World3D/ToonOrigin" instance=ExtResource("15_otspg")]
+unique_name_in_owner = true
 
 [node name="Props" type="Node3D" parent="World3D"]
 
@@ -1018,18 +924,23 @@ gizmo_extents = 1.0
 [node name="MenuTerrain" parent="World3D" instance=ExtResource("21_1byba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.97, -41.5)
 
+[node name="FinalCam" type="Camera3D" parent="World3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 1.133, 3.76)
+fov = 58.5
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true
 
 [connection signal="gui_input" from="." to="." method="gui_input"]
 [connection signal="pressed" from="GUI/Logo/ReleaseNotesButton" to="." method="open_releases"]
+[connection signal="s_character_selected" from="GUI/CharacterClipboard" to="World3D/ToonOrigin/CharacterDisplay" method="character_selected"]
+[connection signal="s_play_pressed" from="GUI/CharacterClipboard" to="." method="new_game"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/BackButton" to="." method="back_pressed"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/ExtrasButton" to="." method="open_extras"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/SettingsButton" to="." method="open_settings"]
 [connection signal="pressed" from="GUI/NewGameMenu/MiddleButtons/NewGameButton" to="." method="new_game_pressed"]
 [connection signal="pressed" from="GUI/NewGameMenu/MiddleButtons/ContinueButton" to="." method="load_game"]
-[connection signal="pressed" from="GUI/ToonSummary/Panel/HBoxContainer/Cancel" to="." method="toon_canceled"]
-[connection signal="pressed" from="GUI/ToonSummary/Panel/HBoxContainer/PlayButton" to="." method="new_game"]
 
 [editable path="GUI/Logo/ReleaseNotesButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/BackButton"]
@@ -1038,7 +949,5 @@ use_threads = true
 [editable path="GUI/NewGameMenu/ButtonContainer/QuitButton"]
 [editable path="GUI/NewGameMenu/MiddleButtons/NewGameButton"]
 [editable path="GUI/NewGameMenu/MiddleButtons/ContinueButton"]
-[editable path="GUI/ToonSummary/Panel/HBoxContainer/Cancel"]
-[editable path="GUI/ToonSummary/Panel/HBoxContainer/PlayButton"]
 [editable path="World3D/CogBuilding"]
 [editable path="World3D/CogBuilding/suit_landmark_new_corp/locators/suit_landmark_new_corp_door_origin/GeometryTransformHelper11/sellbot_elevator"]

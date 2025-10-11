@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://yntqax0s856g" path="res://ui_assets/misc/PetEmoteConfused2.png" id="5_oqfta"]
 [ext_resource type="PackedScene" uid="uid://5g2d6vyx2dxl" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/mole_movement.tscn" id="6_ruvg6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ai42s"]
-size = Vector3(1, 2.36926, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ruvg6"]
+radius = 0.29052734
+height = 2.583496
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ai42s"]
 radius = 4.97707
@@ -175,10 +176,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.25, 0)
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerHitDetection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684631, 0)
-shape = SubResource("BoxShape3D_ai42s")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6789222, 0)
+shape = SubResource("CapsuleShape3D_ruvg6")
 
 [node name="PlayerChaseDetection" type="Area3D" parent="."]
+unique_name_in_owner = true
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerChaseDetection"]

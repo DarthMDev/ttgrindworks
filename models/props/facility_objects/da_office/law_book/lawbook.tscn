@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chehnymhm3svv"]
+
+[ext_resource type="PackedScene" uid="uid://ils3ro658lhb" path="res://models/props/facility_objects/da_office/law_book/lawbook.glb" id="1_11st6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_11st6"]
+size = Vector3(1.25, 0.1, 1.25)
+
+[node name="lawbook" instance=ExtResource("1_11st6")]
+
+[node name="Book_Closed" parent="." index="0"]
+transform = Transform3D(0.93197, 0.362536, 0, -0.362536, 0.93197, 0, 0, 0, 1, -0.0908909, -0.430754, 0)
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="1"]
+visible = false
+mesh = SubResource("BoxMesh_11st6")

@@ -12,33 +12,23 @@
 
 [sub_resource type="Resource" id="Resource_ds0yl"]
 script = ExtResource("3_xx7sp")
-target_type = 0
 action_name = "Jump"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_0jeuc"]
 script = ExtResource("4_0gpjk")
-target_type = 0
 action_name = "Backflip"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_as0c2"]
 script = ExtResource("6_ritgp")
-target_type = 0
 action_name = "Roll Over"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_bjy37"]
 script = ExtResource("7_eviyd")
-target_type = 0
 action_name = "Speak"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_u4wn2"]
 script = ExtResource("5_vp8wd")
-target_type = 0
 action_name = "Play Dead"
-one_time_use = false
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgjhf"]
 radius = 0.166849

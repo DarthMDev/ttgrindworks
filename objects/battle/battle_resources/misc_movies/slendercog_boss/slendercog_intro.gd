@@ -44,11 +44,13 @@ func play() -> Tween:
 	
 	# Look Around the room
 	movie.tween_callback(set_camera_angle.bind('PanShot'))
+	movie.tween_callback(player.toon.hide)
 	movie.tween_property(battle_node.battle_cam,'global_rotation_degrees:y',90.0,4.0).as_relative()
 	movie.parallel().tween_callback(directory.increment_ambience)
 	movie.tween_interval(2.0)
 	
 	# Player reacts to static
+	movie.tween_callback(player.toon.show)
 	movie.tween_callback(battle_node.focus_character.bind(player))
 	movie.tween_callback(player.set_animation.bind('cringe'))
 	movie.tween_method(tv_static.set_alpha, 0.0, 1.0, 2.0)
@@ -66,11 +68,11 @@ func play() -> Tween:
 	movie.set_trans(Tween.TRANS_LINEAR)
 	movie.tween_callback(player.toon.set_emotion.bind(Toon.Emotion.SAD))
 	movie.tween_callback(set_camera_angle.bind('AngleStart2'))
-	movie.tween_callback(player.animator.set_speed_scale.bind(-1.0))
+	movie.tween_callback(player.toon.anim_set_speed.bind(-1.0))
 	movie.tween_callback(player.set_animation.bind('walk'))
 	movie.tween_property(player,'global_position',get_character_pos('BackAwayPos'),2.0)
 	movie.tween_callback(player.set_animation.bind('neutral'))
-	movie.tween_callback(player.animator.set_speed_scale.bind(1.0))
+	movie.tween_callback(player.toon.anim_set_speed.bind(1.0))
 	
 	# Static unveils the 3 other Cogs
 	movie.tween_callback(tv_static.set_alpha.bind(1.0))
@@ -94,13 +96,13 @@ func play() -> Tween:
 	
 	return movie
 
-func get_camera_angle(angle : String) -> Transform3D:
+func get_camera_angle(angle: String) -> Transform3D:
 	return directory.get_camera_angle(angle)
 
-func set_camera_angle(angle : String) -> void:
+func set_camera_angle(angle: String) -> void:
 	battle_node.battle_cam.global_transform = get_camera_angle(angle)
 
-func get_character_pos(pos : String) -> Vector3:
+func get_character_pos(pos: String) -> Vector3:
 	return directory.get_character_pos(pos)
 
 func toggle_slender_visible() -> void:
@@ -108,8 +110,8 @@ func toggle_slender_visible() -> void:
 	toggle_static(slendercog.visible)
 
 func randomize_static_alpha() -> void:
-	tv_static.set_alpha(RandomService.randf_range_channel('true_random', STATIC_VISIBILITY_RANGE.x,STATIC_VISIBILITY_RANGE.y))
+	tv_static.set_alpha(randf_range(STATIC_VISIBILITY_RANGE.x,STATIC_VISIBILITY_RANGE.y))
 
 func toggle_static(show := true) -> void:
 	tv_static.visible = show
-	randomize_static_alpha()	
+	randomize_static_alpha()

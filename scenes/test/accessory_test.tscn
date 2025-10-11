@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://m3a6f3fr7hxl"]
+[gd_scene load_steps=93 format=3 uid="uid://m3a6f3fr7hxl"]
 
 [ext_resource type="PackedScene" uid="uid://dl42o87fbyffw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb" id="1_t3x62"]
 [ext_resource type="PackedScene" uid="uid://b0ax1vrm0l4q3" path="res://models/accessories/backpacks/angel_wings/angel_wings.tscn" id="2_w3e4r"]
@@ -56,14 +56,13 @@
 [ext_resource type="PackedScene" uid="uid://cjlbtxj20nrea" path="res://models/accessories/hats/bowler_cap/tt_m_chr_avt_acc_hat_bowler.glb" id="54_c375n"]
 [ext_resource type="PackedScene" uid="uid://1ehbnsxxt4ee" path="res://models/accessories/hats/chef_hat/tt_m_chr_avt_acc_hat_chefsHat.glb" id="55_re6vt"]
 [ext_resource type="PackedScene" uid="uid://ckykpfuwpugog" path="res://models/accessories/hats/conductor_hat/tt_m_chr_avt_acc_hat_mickeysBandConductorHat.glb" id="56_11goh"]
-[ext_resource type="PackedScene" uid="uid://4cb16nmx68kh" path="res://models/accessories/hats/conquistador_helmet/tt_m_chr_avt_acc_hat_conquistadorHelmet.glb" id="57_g6o1a"]
 [ext_resource type="PackedScene" uid="uid://dmqteutwt8akw" path="res://models/accessories/hats/cowboy_hat/tt_m_chr_avt_acc_hat_cowboyHat.glb" id="58_a0hnq"]
 [ext_resource type="PackedScene" uid="uid://cmcrvrgkphr7k" path="res://models/accessories/hats/crown/tt_m_chr_avt_acc_hat_crown.glb" id="59_hajmd"]
 [ext_resource type="PackedScene" uid="uid://c1wsad172s54o" path="res://models/accessories/hats/detective_hat/tt_m_chr_avt_acc_hat_detective.glb" id="60_nfpo6"]
 [ext_resource type="PackedScene" uid="uid://bj8vmiqxyf1ft" path="res://models/accessories/hats/fedora/fedora.glb" id="61_fvtp0"]
 [ext_resource type="PackedScene" uid="uid://keyc3wuow2q" path="res://models/accessories/hats/fez/tt_m_chr_avt_acc_hat_fez.glb" id="62_rbowi"]
 [ext_resource type="PackedScene" uid="uid://d3gh8ljh3g6d7" path="res://models/accessories/hats/firefighter_helmet/tt_m_chr_avt_acc_hat_firefighterHelmet.glb" id="63_fqrqp"]
-[ext_resource type="PackedScene" uid="uid://c61y6coulrdl7" path="res://models/accessories/hats/fishing_helmet/tt_m_chr_avt_acc_hat_fishingHat.glb" id="64_8wejc"]
+[ext_resource type="PackedScene" uid="uid://c61y6coulrdl7" path="res://models/accessories/hats/fishing_hat/tt_m_chr_avt_acc_hat_fishingHat.glb" id="64_8wejc"]
 [ext_resource type="PackedScene" uid="uid://beae6gw3f8vgw" path="res://models/accessories/hats/flowerpot_hat/tt_m_chr_avt_acc_hat_flower_pot.tscn" id="65_vq7bf"]
 [ext_resource type="PackedScene" uid="uid://cancthn8h8vtn" path="res://models/accessories/hats/foil_hat/tt_m_chr_avt_acc_hat_foilPyramid.glb" id="66_rih0n"]
 [ext_resource type="PackedScene" uid="uid://coqanngovjx3q" path="res://models/accessories/hats/fruit_hat/tt_m_chr_avt_acc_hat_carmenMirandaFruitHat.glb" id="67_sah6x"]
@@ -128,9 +127,6 @@ visible = false
 visible = false
 
 [node name="tt_m_chr_avt_acc_hat_mickeysBandConductorHat" parent="Hats" instance=ExtResource("56_11goh")]
-visible = false
-
-[node name="tt_m_chr_avt_acc_hat_conquistadorHelmet" parent="Hats" instance=ExtResource("57_g6o1a")]
 visible = false
 
 [node name="tt_m_chr_avt_acc_hat_cowboyHat" parent="Hats" instance=ExtResource("58_a0hnq")]

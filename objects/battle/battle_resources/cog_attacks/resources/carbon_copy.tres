@@ -4,11 +4,7 @@
 
 [resource]
 script = ExtResource("1_2ndfv")
-accuracy = 75
-damage = 1
-ignore_stats = false
 summary = "Cog Mitosis?!"
 attack_lines = Array[String](["Alone, we are weak."])
-target_type = 0
 action_name = "Carbon Copy"
 one_time_use = true

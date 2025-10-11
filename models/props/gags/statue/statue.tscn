@@ -7,14 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_t1jno"]
 script = ExtResource("3_phepu")
-body_type = 0
-species = 2
-head_index = 0
-eyelashes = true
-skirt = false
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [node name="statue" instance=ExtResource("1_g85dy")]
 script = ExtResource("1_8o52g")

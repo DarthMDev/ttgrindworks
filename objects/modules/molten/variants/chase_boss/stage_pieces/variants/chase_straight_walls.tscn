@@ -1,0 +1,253 @@
+[gd_scene load_steps=18 format=3 uid="uid://dalb08xsvuwrc"]
+
+[ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_cs16k"]
+[ext_resource type="PackedScene" uid="uid://gnesxsphxwp7" path="res://objects/obstacles/standard_platforms/molten_hall_platform_metal.tscn" id="2_3c8lo"]
+[ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="3_3i04f"]
+[ext_resource type="Texture2D" uid="uid://b14pa1232wtue" path="res://models/facilities/molten/textures/FINALFACTORY_101.png" id="3_06smy"]
+[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_grcsw"]
+[ext_resource type="PackedScene" uid="uid://bycg7kp5uocp" path="res://objects/props/molten/barrier.tscn" id="4_3i04f"]
+[ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="4_q1ddg"]
+[ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="5_q1ddg"]
+[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="7_3c8lo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogwo1"]
+resource_name = "FINALFACTORY_67"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.77, 0.73073, 0.7007, 1)
+albedo_texture = ExtResource("3_06smy")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(0.339, 0.245, 1)
+uv1_offset = Vector3(0.318, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06smy"]
+albedo_texture = ExtResource("3_grcsw")
+uv1_scale = Vector3(0.97, 0.05, 0.097)
+uv1_offset = Vector3(0, 0.62, 0.41)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ogwo1"]
+material = SubResource("StandardMaterial3D_06smy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1ddg"]
+resource_name = "metalgrate_rusted"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_3c8lo")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(-1.468, -0.493, -0.063)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1ddg"]
+size = Vector3(30.780334, 7.63916, 0.3864746)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cs16k"]
+
+[sub_resource type="Curve3D" id="Curve3D_cs16k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, -6, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_3mr2e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="molten_hall_straight2" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_cs16k")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="molten_hall_platform_metal" parent="." index="7" instance=ExtResource("2_3c8lo")]
+transform = Transform3D(1.4499229, 0, 0, 0, 1.5612206, 0, 0, 0, 1.5612206, 0, 1.0372179, -2.27345)
+
+[node name="platform_metal" parent="molten_hall_platform_metal" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_ogwo1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="molten_hall_platform_metal" index="1"]
+transform = Transform3D(11.827328, 0, 0, 0, 0.31385756, 0, 0, 0, 0.30756068, 0, -0.22995481, -1.8927029)
+mesh = SubResource("BoxMesh_ogwo1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="molten_hall_platform_metal" index="2"]
+transform = Transform3D(11.827328, 0, 0, 0, 0.31385756, 0, 0, 0, 0.30756068, 0, -0.22995481, 1.5990777)
+mesh = SubResource("BoxMesh_ogwo1")
+
+[node name="Walls1" type="Node3D" parent="." index="8" node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3752382, -5.252676)
+script = ExtResource("3_3i04f")
+chance_type = 1
+chance = 1.0
+targets = [NodePath("Barrier"), NodePath("BarrierLeft"), NodePath("BarrierRight")]
+
+[node name="Barrier" parent="Walls1" index="0" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, 0, -0.24393415, 0)
+
+[node name="SquareDropShadow" parent="Walls1/Barrier" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 4.5474735e-13, 0, 1, 0, -7.1054274e-15, 0, 30.47751, 0, -2.4980392, 0)
+
+[node name="BarrierLeft" parent="Walls1" index="1" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, -3, -0.24393415, 0)
+
+[node name="MeshInstance3D2" parent="Walls1/BarrierLeft" index="1"]
+transform = Transform3D(0.34593293, 0, 1.7763568e-15, 0, 7.7246394, 0, -1.7763568e-15, 0, 0.34593293, 0, -0.76119184, 18.339912)
+
+[node name="MeshInstance3D4" parent="Walls1/BarrierLeft" index="2"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 1.0587912e-21, 0, 3.9711535e-06, 0.34593287, -2.6645353e-15, -30.28313, 4.5363613e-08, 0, 2.8040767, 3.189446)
+
+[node name="MeshInstance3D5" parent="Walls1/BarrierLeft" index="3"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 0, 0, -1.3237177e-06, 0.3459329, -2.6645353e-15, -30.28313, -1.5121206e-08, 0, -2.9949105, 3.189446)
+
+[node name="MeshInstance3D3" parent="Walls1/BarrierLeft" index="4"]
+transform = Transform3D(1.3171857e-06, 0, 0.99999994, 0, -5.868916, 0, 30.133688, 0, -4.3711385e-08, 0, -0.057123184, 3.2622395)
+surface_material_override/0 = SubResource("StandardMaterial3D_q1ddg")
+
+[node name="SquareDropShadow" parent="Walls1/BarrierLeft" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 1.0231815e-12, 0, 1, 0, -2.4868996e-14, 0, 38.822582, 0, -2.4980392, 3.2840402)
+
+[node name="CollisionShape3D" parent="Walls1/BarrierLeft/StaticBody3D" index="0"]
+transform = Transform3D(1.0000001, -6.681497e-22, 0, -6.6814903e-22, 1, -4.9974944e-20, -9.2370556e-14, 0, 1, 3.149355, 0.66638374, 0)
+shape = SubResource("BoxShape3D_q1ddg")
+
+[node name="BarrierRight" parent="Walls1" index="2" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, 0.1279068, -0.24393415, 0)
+
+[node name="MeshInstance3D2" parent="Walls1/BarrierRight" index="1"]
+transform = Transform3D(0.34593293, 0, 1.7763568e-15, 0, 7.7246394, 0, -1.7763568e-15, 0, 0.34593293, 0, -0.76119184, 18.339912)
+
+[node name="MeshInstance3D4" parent="Walls1/BarrierRight" index="2"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 1.0587912e-21, 0, 3.9711535e-06, 0.34593287, -2.6645353e-15, -30.28313, 4.5363613e-08, 0, 2.8040767, 3.189446)
+
+[node name="MeshInstance3D5" parent="Walls1/BarrierRight" index="3"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 0, 0, -1.3237177e-06, 0.3459329, -2.6645353e-15, -30.28313, -1.5121206e-08, 0, -2.9949105, 3.189446)
+
+[node name="MeshInstance3D3" parent="Walls1/BarrierRight" index="4"]
+transform = Transform3D(1.3171857e-06, 0, 0.99999994, 0, -5.868916, 0, 30.133688, 0, -4.3711385e-08, 0, -0.057123184, 3.2622395)
+surface_material_override/0 = SubResource("StandardMaterial3D_q1ddg")
+
+[node name="SquareDropShadow" parent="Walls1/BarrierRight" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 1.0231815e-12, 0, 1, 0, -2.4868996e-14, 0, 38.822582, 0, -2.4980392, 3.2840395)
+
+[node name="CollisionShape3D" parent="Walls1/BarrierRight/StaticBody3D" index="0"]
+transform = Transform3D(1.0000001, -6.681497e-22, 0, -6.6814903e-22, 1, -5.759824e-20, -9.2370556e-14, 0, 1, 3.1244836, 0.66638374, 0)
+shape = SubResource("BoxShape3D_q1ddg")
+
+[node name="Walls2" type="Node3D" parent="." index="9" node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3752382, 0.3118937)
+script = ExtResource("3_3i04f")
+chance_type = 1
+chance = 1.0
+targets = [NodePath("Barrier"), NodePath("BarrierLeft"), NodePath("BarrierRight")]
+
+[node name="Barrier" parent="Walls2" index="0" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, 0, -0.24393415, 0)
+
+[node name="SquareDropShadow" parent="Walls2/Barrier" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 4.5474735e-13, 0, 1, 0, -7.1054274e-15, 0, 30.47751, 0, -2.4980392, 0)
+
+[node name="BarrierLeft" parent="Walls2" index="1" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, -3, -0.24393415, 0)
+
+[node name="MeshInstance3D2" parent="Walls2/BarrierLeft" index="1"]
+transform = Transform3D(0.34593293, 0, 1.7763568e-15, 0, 7.7246394, 0, -1.7763568e-15, 0, 0.34593293, 0, -0.76119184, 18.339912)
+
+[node name="MeshInstance3D4" parent="Walls2/BarrierLeft" index="2"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 1.0587912e-21, 0, 3.9711535e-06, 0.34593287, -2.6645353e-15, -30.28313, 4.5363613e-08, 0, 2.8040767, 3.189446)
+
+[node name="MeshInstance3D5" parent="Walls2/BarrierLeft" index="3"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 0, 0, -1.3237177e-06, 0.3459329, -2.6645353e-15, -30.28313, -1.5121206e-08, 0, -2.9949105, 3.189446)
+
+[node name="MeshInstance3D3" parent="Walls2/BarrierLeft" index="4"]
+transform = Transform3D(1.3171857e-06, 0, 0.99999994, 0, -5.868916, 0, 30.133688, 0, -4.3711385e-08, 0, -0.057123184, 3.2622395)
+surface_material_override/0 = SubResource("StandardMaterial3D_q1ddg")
+
+[node name="SquareDropShadow" parent="Walls2/BarrierLeft" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 1.0231815e-12, 0, 1, 0, -2.4868996e-14, 0, 38.822582, -4.7683716e-07, -2.4980392, 3.2840402)
+
+[node name="CollisionShape3D" parent="Walls2/BarrierLeft/StaticBody3D" index="0"]
+transform = Transform3D(1.0000001, -6.681497e-22, 0, -6.6814903e-22, 1, -4.9974944e-20, -9.2370556e-14, 0, 1, 3.149355, 0.66638374, 0)
+shape = SubResource("BoxShape3D_q1ddg")
+
+[node name="BarrierRight" parent="Walls2" index="2" instance=ExtResource("4_3i04f")]
+transform = Transform3D(-2.1071491e-08, 0, 0.48205954, 0, 0.48205954, 0, -0.48205954, 0, -2.1071491e-08, 0.1279068, -0.24393415, 0)
+
+[node name="MeshInstance3D2" parent="Walls2/BarrierRight" index="1"]
+transform = Transform3D(0.34593293, 0, 1.7763568e-15, 0, 7.7246394, 0, -1.7763568e-15, 0, 0.34593293, 0, -0.76119184, 18.339912)
+
+[node name="MeshInstance3D4" parent="Walls2/BarrierRight" index="2"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 1.0587912e-21, 0, 3.9711535e-06, 0.34593287, -2.6645353e-15, -30.28313, 4.5363613e-08, 0, 2.8040767, 3.189446)
+
+[node name="MeshInstance3D5" parent="Walls2/BarrierRight" index="3"]
+transform = Transform3D(0.24759524, -4.5474735e-13, 0, 0, -1.3237177e-06, 0.3459329, -2.6645353e-15, -30.28313, -1.5121206e-08, 0, -2.9949105, 3.189446)
+
+[node name="MeshInstance3D3" parent="Walls2/BarrierRight" index="4"]
+transform = Transform3D(1.3171857e-06, 0, 0.99999994, 0, -5.868916, 0, 30.133688, 0, -4.3711385e-08, 0, -0.057123184, 3.2622395)
+surface_material_override/0 = SubResource("StandardMaterial3D_q1ddg")
+
+[node name="SquareDropShadow" parent="Walls2/BarrierRight" index="5" instance=ExtResource("5_q1ddg")]
+transform = Transform3D(0.9999996, 0, 1.0231815e-12, 0, 1, 0, -2.4868996e-14, 0, 38.822582, 0, -2.4980392, 3.2840395)
+
+[node name="CollisionShape3D" parent="Walls2/BarrierRight/StaticBody3D" index="0"]
+transform = Transform3D(1.0000001, -6.681497e-22, 0, -6.6814903e-22, 1, -5.759824e-20, -9.2370556e-14, 0, 1, 3.1244836, 0.66638374, 0)
+shape = SubResource("BoxShape3D_q1ddg")
+
+[node name="RespawnPoints" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.07091e-06, 5.0401, 4.49296)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.911989e-07, -4.11022, 2.190096)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.692119)
+shape = SubResource("BoxShape3D_cs16k")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.07091e-06, 5.0401, -8.01479)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49809e-07, -4.11022, -0.17164)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96861e-07, 0, 4.75723)
+shape = SubResource("BoxShape3D_cs16k")
+
+[node name="hall_straight" parent="." index="11"]
+transform = Transform3D(261.58313, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.029667377, -1.4305115e-06, -0.015675545)
+
+[node name="Path3D" type="Path3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626288, 8.73343)
+curve = SubResource("Curve3D_cs16k")
+
+[node name="ElevatingPlatform" parent="Path3D" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_q1ddg")]
+transform = Transform3D(1.86, 0, 0, 0, 1.27, 0, 0, 0, 1.27, -6, 0, 0)
+path = NodePath("..")
+speed = 2.5
+
+[node name="Path3D2" type="Path3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626288, -14.2874)
+curve = SubResource("Curve3D_3mr2e")
+
+[node name="ElevatingPlatform" parent="Path3D2" index="0" node_paths=PackedStringArray("path") instance=ExtResource("4_q1ddg")]
+transform = Transform3D(1.86, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 6, 0, 0)
+path = NodePath("..")
+speed = 2.5
+
+[editable path="molten_hall_platform_metal"]
+[editable path="Walls1/BarrierLeft"]
+[editable path="Walls1/BarrierRight"]
+[editable path="Walls2/BarrierLeft"]
+[editable path="Walls2/BarrierRight"]

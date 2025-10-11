@@ -97,12 +97,12 @@ func get_branch_index() -> int:
 
 func _editor_ready(_edit: GraphEdit, _element: GraphElement):
 	super(_edit, _element)
-	old_ops = operations.duplicate()
+	old_ops = operations.duplicate(true)
 
 func _editor_process(_edit: GraphEdit, _element: GraphElement):
 	super(_edit, _element)
 	if old_ops != operations:
-		old_ops = operations.duplicate()
+		old_ops = operations.duplicate(true)
 		notify_property_list_changed()
 #endregion
 

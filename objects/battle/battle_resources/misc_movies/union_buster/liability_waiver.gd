@@ -1,6 +1,5 @@
 @tool
 extends CogAttack
-class_name UBLiabilityWaiver
 
 const LIABILITY_WAIVER: UBLiabilityWaiverEffect = preload("res://objects/battle/battle_resources/status_effects/resources/ub_liability_waiver.tres")
 const LIABILITY_WAIVER_DEFENSE: StatBoost = preload("res://objects/battle/battle_resources/status_effects/resources/ub_liability_waiver_defense.tres")
@@ -51,12 +50,12 @@ func action() -> void:
 	AudioManager.play_sound(SFX_PAPER_HIT)
 	
 	# Apply the status effect
-	var liability_waiver: UBLiabilityWaiverEffect = LIABILITY_WAIVER.duplicate()
+	var liability_waiver: UBLiabilityWaiverEffect = LIABILITY_WAIVER.duplicate(true)
 	liability_waiver.target = target_cog
 	liability_waiver.union_buster = user
 	manager.add_status_effect(liability_waiver)
 	
-	var liability_defense: UBLiabilityWaiverDefense = LIABILITY_WAIVER_DEFENSE.duplicate()
+	var liability_defense: UBLiabilityWaiverDefense = LIABILITY_WAIVER_DEFENSE.duplicate(true)
 	liability_defense.target = user
 	liability_defense.liability_holder = target_cog
 	manager.add_status_effect(liability_defense)

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dh87q08enl0bg"]
+
+[ext_resource type="Texture2D" uid="uid://brkh3dovhepi1" path="res://ui_assets/player_ui/pocket_prank_icons/glowering dagger.png" id="1_hwm4u"]
+[ext_resource type="Script" uid="uid://bmdym0smsnob0" path="res://objects/items/custom/glowering_dagger/item_dagger.gd" id="2_hwm4u"]
+[ext_resource type="PackedScene" uid="uid://ckbfm60nwrpof" path="res://objects/items/custom/glowering_dagger/glowering_dagger.tscn" id="3_hwm4u"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="4_dowui"]
+
+[resource]
+script = ExtResource("4_dowui")
+active_type = 3
+custom_charge_color = Color(0.62551516, 0.51776016, 0.982696, 1)
+custom_discharge_time = 5.0
+qualitoon = 2
+rarity = 5
+world_scale = 0.15
+item_name = "Glowering Dagger"
+item_description = "Perilous parry!"
+big_description = "- Cogs always hit while item is held
+- Use right before a cog deals damage to deflect
+- Poor timing will result in increased damage from the attack"
+model = ExtResource("3_hwm4u")
+player_values = {
+"cogs_always_hit": true
+}
+item_script = ExtResource("2_hwm4u")
+icon = ExtResource("1_hwm4u")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.92941177, 0.2627451, 0.2784314, 1)
+unlock_achievement = 32
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

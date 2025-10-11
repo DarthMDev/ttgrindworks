@@ -7,34 +7,20 @@
 
 [resource]
 script = ExtResource("1_axjl6")
-sfx = Array[AudioStream]([])
 active_type = 2
 charge_count = 3
 current_charge = 3
 custom_discharge_time = 10.0
-item_tags = null
 qualitoon = 1
 rarity = 3
-evergreen = false
 realtime = true
-slot = 0
 world_scale = 0.3
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Unstoppable Gobstopper"
 item_description = "Sugar Rush!"
 big_description = "Grants immunity to obstacle damage for 10 seconds"
 model = ExtResource("3_5562o")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("2_kr4v4")
-remember_item = true
 icon = ExtResource("1_5562o")
 shop_category_title = "Pocket Prank"
 shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
-force_show_shop_category = false
-custom_shop_price = 0
 metadata/_custom_type_script = "uid://5uwfsntxdag6"

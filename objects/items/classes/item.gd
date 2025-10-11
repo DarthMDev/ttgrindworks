@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name Item
 
@@ -38,13 +39,19 @@ const QualityToRarity: Dictionary[QualitoonRating, Rarity] = {
 	QualitoonRating.Q5: Rarity.Q5,
 }
 
-enum ItemTag {
-	GAG_POINT_RELATED,
-}
+#region Editor Stuff
 
-@export_flags(
-	"GAG_POINT_RELATED:1",
-) var item_tags
+@export_custom(PROPERTY_HINT_ARRAY_TYPE, "ItemPool", PROPERTY_USAGE_EDITOR + PROPERTY_USAGE_READ_ONLY) var item_pools: Array[ItemPool] = []:
+	get:
+		var pools: Array[ItemPool]
+		pools.assign(PathLoader.load_resources("res://objects/items/pools/", ".tres", true, ItemPool))
+		pools.assign(pools.filter(func(x: ItemPool): return resource_path in x.items))
+		return pools
+
+#endregion
+
+## Array of tags for item discard 
+@export var tags: Array[ItemTag] = []
 
 ## The in-game displayed qualitoon of an item
 @export var qualitoon: QualitoonRating
@@ -105,6 +112,7 @@ enum ItemSlot {
 @export var force_show_shop_category := false
 ## Overrides shop price. No override if set to 0.
 @export var custom_shop_price: int = 0
+@export var unlock_achievement := ProgressFile.GameAchievement.DEFEAT_COGS_1
 
 ## Should only be needed on initial setup
 var guarantee_collection := false
@@ -117,6 +125,7 @@ var is_acessory: bool:
 ## Reroll request
 signal s_reroll
 
+
 func reroll() -> void:
 	if rerollable:
 		print(item_name + ": Reroll signal sent")
@@ -125,12 +134,17 @@ func reroll() -> void:
 		print(item_name + ": Attempted to reroll, but was unable to")
 
 ## Applies item stats and script.
-func apply_item(player: Player, _apply_visuals := true, object : Node3D = null) -> void:
+func apply_item(player: Player, _apply_visuals := true, object: Node3D = null) -> void:
 	apply_item_script(player, object)
+	run_item_config()
 	apply_item_stats(player)
-	run_item_config(player)
+	
+	if remember_item and not self is ItemActive:
+		player.stats.items.append(self)
+		print('added %s to item list' % item_name)
+		ItemService.s_item_applied.emit(self)
 
-func apply_item_stats(player : Player) -> void:
+func apply_item_stats(player: Player) -> void:
 	var stats := player.stats
 	
 	for stat in stats_add:
@@ -145,14 +159,14 @@ func apply_item_stats(player : Player) -> void:
 				stats[stat] += stats_add[stat] + player.stats.laff_boost_boost
 			else:
 				stats[stat] += stats_add[stat]
+		elif stat.begins_with("gag_boost:"):
+			var track: String = stat.get_slice(":",1)
+			if track in stats.gag_effectiveness:
+				stats.gag_effectiveness[track] += stats_add[stat]
 	
 	for stat in stats_multiply:
 		if str(stat) in stats:
 			stats[stat] *= stats_multiply[stat]
-		elif stat.begins_with("gag_boost:"):
-			var track: String = stat.get_slice(":",1)
-			if track in stats.gag_effectiveness:
-				stats.gag_effectiveness[track] *= stats_multiply[stat]
 	
 	for value in player_values:
 		player.set(value, player_values[value])
@@ -165,7 +179,7 @@ func apply_item_script(player : Player, object : Node3D = null) -> void:
 				await Util.s_player_assigned
 			item_node.on_collect(self,object)
 
-func run_item_config(player : Player) -> void:
+func run_item_config() -> void:
 	# Check the model for custom item setups
 	if model:
 		rerollable = false
@@ -176,14 +190,18 @@ func run_item_config(player : Player) -> void:
 		if mod.has_method('collect'):
 			mod.collect()
 		mod.queue_free()
-	
-	if remember_item and not self is ItemActive:
-		player.stats.items.append(self)
-		print('added %s to item list' % item_name)
-		ItemService.s_item_applied.emit(self)
+
+## Determines if an item is in the "real world" or not
+## Temp copies of items are generated for logic purposes,
+## which will return false for this function.
+func item_model_in_real_world(_mod: Node3D) -> bool:
+	return _mod.get_parent() != Util
 
 const SFX_FALLBACK := 'res://audio/sfx/misc/MG_pairing_all_matched.ogg'
 func play_collection_sound() -> void:
+	if ItemTag.NO_PICKUP_SFX in tags:
+		return
+
 	if pickup_sfx:
 		AudioManager.play_sound(pickup_sfx)
 	else:
@@ -197,19 +215,26 @@ func get_shop_price() -> int:
 		base_price = 2.0 + float(qualitoon as int + 1) * 7.0
 	return roundi(base_price)
 
-func remove_item(player : Player) -> void:
+func remove_item(player: Player) -> void:
 	# If these stats are in stats_add/mult
 	# They will not be undone
-	var excluded_stats : Array[String] =[
+	var excluded_stats: Array[String] = [
 		"active_charge",
 		"money",
+		"max_hp",
+		"hp",
 	]
 	var stats := player.stats
 	
 	# Undo stat boosts
 	for stat in stats_add:
-		if not stat in excluded_stats and stat in stats:
-			stats[stat] -= stats_add[stat]
+		if not stat in excluded_stats:
+			if stat in stats:
+				stats[stat] -= stats_add[stat]
+			elif stat.begins_with("gag_boost:"):
+				var track: String = stat.get_slice(":",1)
+				if track in stats.gag_effectiveness:
+					stats.gag_effectiveness[track] -= stats_add[stat]
 	for stat in stats_multiply:
 		if not stat in excluded_stats and stat in stats:
 			stats[stat] *= 1.0 / stats_multiply[stat]
@@ -239,5 +264,19 @@ func get_true_rarity() -> Rarity:
 	else:
 		return rarity
 
-static func get_item_flag_value(item : Item, flag : ItemTag) -> bool:
-	return item.item_tags & flag
+func get_model() -> PackedScene:
+	return model
+
+func is_item_unlocked() -> bool:
+	if unlock_achievement == ProgressFile.GameAchievement.DEFEAT_COGS_1:
+		return true
+	else:
+		return SaveFileService.is_achievement_unlocked(unlock_achievement)
+
+enum ItemTag {
+	PETE_DISCARD, # Will automatically reroll for Professor Pete
+	STRANGER_NOTRADE, # Will not be shown as a trade option for The Stranger
+	OLDMAN_DISCARD, # Will automatically reroll for Lil Oldman
+	NO_PICKUP_SFX,  # Does not play any pickup sfx on pickup
+	DELAYED_FREE, # Used for one-time-use active items that need to be allowed to free themselves
+}

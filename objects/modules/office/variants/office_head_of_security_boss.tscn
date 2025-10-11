@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://be4vavros0suo"]
+[gd_scene load_steps=26 format=3 uid="uid://be4vavros0suo"]
 
 [ext_resource type="PackedScene" uid="uid://botwlahodbbmq" path="res://objects/modules/office/base_rooms/office_skull_boss_room.tscn" id="1_6t424"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_1f8b8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="10_gb0pg"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="12_lgq1c"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="13_ftyqj"]
+[ext_resource type="PackedScene" uid="uid://7tchlbvjru0d" path="res://ui_assets/misc/text_sprawl.tscn" id="14_ftyqj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d65n6"]
 render_priority = -1
@@ -193,7 +194,7 @@ grid_width = 9
 grid_height = 15
 beam_height = 5.0
 use_beam_height = false
-beam_origin = Vector3(0, 10, 0)
+beam_origin = Vector3(0, 2.9, 10.775)
 lose_type = 1
 should_heal_player = false
 metadata/_custom_type_script = "uid://wb1dvup51a1q"
@@ -264,10 +265,19 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+font_size = 36.0
 
 [node name="Label" parent="SkipButton" index="0"]
 text = "Skip"
 label_settings = SubResource("LabelSettings_qx1ei")
+
+[node name="TextSprawl" parent="." index="36" instance=ExtResource("14_ftyqj")]
+unique_name_in_owner = true
+offset_top = 142.0
+offset_bottom = 200.0
+text = "HEAD OF SECURITY"
+visible_characters = 16
+autoplay = false
 
 [connection signal="s_finder_row_reached" from="Puzzle/PuzzleBoss" to="." method="skullfinder_row_reached"]
 [connection signal="s_win" from="Puzzle/PuzzleBoss" to="." method="game_won"]

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemShoe" load_steps=7 format=3 uid="uid://c8xt0naden1hv"]
+
+[ext_resource type="Texture2D" uid="uid://bs0vvkhhcpods" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_superToonRedBootsLL.png" id="1_n0dv0"]
+[ext_resource type="Script" uid="uid://bchq5st8syado" path="res://objects/items/custom/item_super_toon_boots.gd" id="1_quo21"]
+[ext_resource type="Texture2D" uid="uid://d0dm7f23ufvl2" path="res://objects/items/resources/accessories/shoes/icons/super_toon_boots.png" id="1_tdvqm"]
+[ext_resource type="Script" uid="uid://bb02y647us2n3" path="res://objects/items/classes/item_shoe.gd" id="2_quo21"]
+[ext_resource type="Texture2D" uid="uid://ov3av214en56" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_superToonRedBoots.png" id="3_tdvqm"]
+[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="4_5un5d"]
+
+[resource]
+script = ExtResource("2_quo21")
+shoe_type = 3
+shoe_tex = ExtResource("3_tdvqm")
+long_leg_tex = ExtResource("1_n0dv0")
+qualitoon = 4
+rarity = 7
+item_name = "Super Toon Boots"
+item_description = "Hit the ground running."
+big_description = "+1 move on the first round of every battle."
+pickup_sfx = ExtResource("4_5un5d")
+item_script = ExtResource("1_quo21")
+icon = ExtResource("1_tdvqm")
+metadata/_custom_type_script = "uid://bb02y647us2n3"

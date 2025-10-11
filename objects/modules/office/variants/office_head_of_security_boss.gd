@@ -6,19 +6,19 @@ const WALL_POS := 0.791
 
 const BOSS_MUSIC := "res://audio/music/encntr_hos/encntr_hos_asi.tres"
 
-@onready var tv_static : MeshInstance3D = %Static
-@onready var camera_angles : Node3D = %CameraAngles
-@onready var char_positions : Node3D = %CharPositions
-@onready var camera : Camera3D = %CutsceneCamera
-@onready var painting : MeshInstance3D = %LB_LightPanel
-@onready var skull_origin : Node3D = %SkullActor
-@onready var puzzle : PuzzleBoss = %PuzzleBoss
-@onready var elevator : Elevator = %office_elevator
-@onready var door : CogDoor = %CogDoor
-@onready var skull_dude : Node3D = %head_of_security
-@onready var screen : MeshInstance3D = %Screen
+@onready var tv_static: MeshInstance3D = %Static
+@onready var camera_angles: Node3D = %CameraAngles
+@onready var char_positions: Node3D = %CharPositions
+@onready var camera: Camera3D = %CutsceneCamera
+@onready var painting: MeshInstance3D = %LB_LightPanel
+@onready var skull_origin: Node3D = %SkullActor
+@onready var puzzle: PuzzleBoss = %PuzzleBoss
+@onready var elevator: Elevator = %office_elevator
+@onready var door: CogDoor = %CogDoor
+@onready var skull_dude: Node3D = %head_of_security
+@onready var screen: MeshInstance3D = %Screen
 
-var static_mat : FastNoiseLite
+var static_mat: FastNoiseLite
 var boss_initialized := false
 var walls_up := false
 var watch_player := true:
@@ -29,21 +29,21 @@ var watch_player := true:
 var transition_count := 0
 var facility_music: AudioStream
 
-var TRANSITION1_DIALOGUE : Array[String] = [
+var TRANSITION1_DIALOGUE: Array[String] = [
 	"FIRST SECURITY LOCK DISENGAGED. FIREWALL INTEGRITY AT 66%.",
 	"PROBABILITY THAT SUCCESS WAS DUE TO RANDOM CHANCE: 99.6%.",
 	"INCREASING POWER OUTPUT TO 100%. DELETION OF TOON: IMMINENT.",
 ]
-var TRANSITION2_DIALOGUE : Array[String] = [
+var TRANSITION2_DIALOGUE: Array[String] = [
 	"WARNING. WARNING. SECOND SECURITY LOCK DISENGAGED.",
 	"POWER INCREASED TO 137%. OVERHEATING COMPENSATION: ACTIVATED.",
 	"RUN: FINAL_SECURITY_LOCK.GD"
 ]
-var TRANSITION_DIAL : Array = [
+var TRANSITION_DIAL: Array = [
 	TRANSITION1_DIALOGUE, TRANSITION2_DIALOGUE
 ]
 
-var phase_music_clips : Array = [
+var phase_music_clips: Array = [
 	6, 11
 ]
 
@@ -51,14 +51,14 @@ var phase_music_clips : Array = [
 func _ready() -> void:
 	static_mat = tv_static.get_surface_override_material(0).albedo_texture.noise
 
-func _process(_delta : float) -> void:
+func _process(_delta: float) -> void:
 	if static_mat:
-		static_mat.seed = RandomService.randi_channel('true_random')
-	
+		static_mat.seed = randi()
+
 	if is_instance_valid(Util.get_player()) and watch_player:
 		skull_origin.look_at(Util.get_player().global_position + Vector3(0.001, 0.001, 0.001))
 
-func body_entered_room(body : Node3D) -> void:
+func body_entered_room(body: Node3D) -> void:
 	if body is Player and not boss_initialized:
 		boss_initialized = true
 		puzzle.phase = puzzle.BossPhase.INTRO
@@ -137,6 +137,7 @@ func play_intro() -> Tween:
 	movie.tween_callback(skull_dude.speak.bind("SYSTEM BOOTING..."))
 	movie.tween_interval(3.85)
 	movie.parallel().tween_property(screen.get_surface_override_material(0), 'albedo_color', Color('ff2f2d'), 0.5).set_delay(3.5)
+	movie.parallel().tween_callback(%TextSprawl.do_sprawl)
 	movie.tween_callback(AudioManager.set_music.bind(load(BOSS_MUSIC)))
 	movie.tween_callback(skull_dude.speak.bind("UNAUTHORIZED USER DETECTED."))
 	movie.tween_interval(1.15)
@@ -168,13 +169,15 @@ func skip_cutscene(tween: Tween) -> void:
 	tween.custom_step(10000.0)
 	AudioManager.music_player.set_volume_db(0.0)
 	%CogDoor.skip_tween()
+	if %TextSprawl.sprawl_tween and %TextSprawl.sprawl_tween.is_running():
+		%TextSprawl.sprawl_tween.custom_step(1000.0)
 
 func do_transition_cutscene() -> Tween:
 	transition_count += 1
 	AudioManager.set_clip(phase_music_clips[transition_count - 1])
 	if transition_count == 2:
 		AudioManager.set_clip_autoadvance(7, 8)
-	var dialogue_set: Array[String] = TRANSITION_DIAL[mini(1, transition_count - 1)].duplicate()
+	var dialogue_set: Array[String] = TRANSITION_DIAL[mini(1, transition_count - 1)].duplicate(true)
 	
 	var transition_anim := 'angry'
 	var idle_anim := 'idle-angry'
@@ -273,7 +276,7 @@ func do_end_cutscene() -> Tween:
 	movie.tween_interval(3.0)
 	movie.tween_callback(skull_dude.speak.bind("IMPOSSIBLE OUTCOME REACHED."))
 	movie.tween_interval(3.0)
-	movie.tween_callback(skull_dude.speak.bind(RandomService.array_pick_random('true_random', death_phrases)))
+	movie.tween_callback(skull_dude.speak.bind(death_phrases.pick_random()))
 	
 	# Move them walls down
 	movie.tween_property(%Walls, 'position:y', -4.197, 2.0)
@@ -283,6 +286,8 @@ func do_end_cutscene() -> Tween:
 	movie.set_trans(Tween.TRANS_QUAD)
 	movie.set_ease(Tween.EASE_OUT)
 	movie.tween_property(painting, 'rotation_degrees:y', 0.0, 2.0)
+	movie.parallel().tween_property(screen.get_surface_override_material(0), 'albedo_color', Color.BLACK, 0.1)
+	#movie.parallel().tween_property(tv_static.get_surface_override_material(0), 'albedo_color', Color.BLACK, 0.1)
 	
 	# Cleanup
 	movie.tween_callback(CameraTransition.from_current.bind(self, player.camera.camera, 4.0))
@@ -296,21 +301,21 @@ func do_end_cutscene() -> Tween:
 
 #region MOVIE FUNCS
 ## Returns the camera at the specified angle
-func get_camera_angle(angle : String) -> Camera3D:
+func get_camera_angle(angle: String) -> Camera3D:
 	return camera_angles.find_child(angle)
 
 ## Makes the specified camera the current camera
-func set_camera_angle(angle : String) -> void:
+func set_camera_angle(angle: String) -> void:
 	camera.global_transform = get_camera_angle(angle).global_transform
 
-func get_char_position(pos : String) -> Vector3:
+func get_char_position(pos: String) -> Vector3:
 	return char_positions.get_node(pos).global_position
 
 ## Does a camera transition tween
-func do_camera_transition(angle : String, time : float) -> void:
+func do_camera_transition(angle: String, time: float) -> void:
 	CameraTransition.from_current(self, get_camera_angle(angle), time)
 
-func append_dialogue(tween : Tween, dialogue : String, time := 4.0) -> void:
+func append_dialogue(tween: Tween, dialogue: String, time := 4.0) -> void:
 	tween.tween_callback(skull_dude.speak.bind(dialogue))
 	tween.tween_interval(time)
 

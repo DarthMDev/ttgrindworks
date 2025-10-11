@@ -46,14 +46,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_0nsmt"]
 script = ExtResource("2_uw8r3")
-body_type = 0
-species = 2
-head_index = 0
 eyelashes = false
-skirt = false
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [node name="FallingScene" type="Node3D"]
 script = ExtResource("1_17q1f")

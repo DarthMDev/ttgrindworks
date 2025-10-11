@@ -18,7 +18,8 @@ func action():
 	var throwable = model.instantiate()
 	user.toon.right_hand_bone.add_child(throwable)
 	throwable.scale *= scale
-	user.set_animation('pie_throw')
+	throwable.rotation_degrees.y += 180.0
+	user.set_animation('pie-throw')
 	manager.s_focus_char.emit(user)
 	if present_sfx:
 		AudioManager.play_sound(present_sfx)

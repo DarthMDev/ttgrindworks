@@ -10,6 +10,7 @@ extends Node3D
 @onready var elevator_cam: Camera3D = %ElevatorCam
 
 var manager: BattleManager = null
+var reinforcement_count := 0
 
 func _ready() -> void:
 	await Task.delay(0.25)
@@ -27,13 +28,14 @@ func on_round_start(_actions: Array[BattleAction], _manager: BattleManager) -> v
 	var attack: CogAttack
 	if manager.current_round % 3 == 1:
 		# Insert Rebrand
-		attack = load("res://objects/battle/battle_resources/misc_movies/sales_director/sd_rebrand.tres").duplicate()
+		attack = load("res://objects/battle/battle_resources/misc_movies/sales_director/sd_rebrand.tres").duplicate(true)
 		attack.targets = [self]
 		attack.user = cog
 		manager.round_end_actions.append(attack)
+		
 	if manager.current_round % 4 == 0 and can_reboot():
 		# Insert reboot
-		attack = load("res://objects/battle/battle_resources/misc_movies/sales_director/sd_reboot.tres").duplicate()
+		attack = load("res://objects/battle/battle_resources/misc_movies/sales_director/sd_reboot.tres").duplicate(true)
 		attack.elevator = elevator
 		attack.elevator_cam = elevator_cam
 		attack.cog_amount = min(4 - manager.cogs.size(), 2)
@@ -43,6 +45,9 @@ func on_round_start(_actions: Array[BattleAction], _manager: BattleManager) -> v
 		attack.end_pos_2 = %ElevatorPos2End
 		attack.suit_walk_cam = %SuitWalkCam
 		attack.user = cog
+		if reinforcement_count >= Globals.REINFORCEMENT_ABUSE_QUOTA:
+			attack.spawn_proxies = true
+		reinforcement_count += attack.cog_amount
 		manager.round_end_actions.append(attack)
 
 func can_reboot() -> bool:

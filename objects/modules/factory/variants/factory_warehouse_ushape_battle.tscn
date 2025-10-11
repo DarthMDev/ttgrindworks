@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://leno865v10ht"]
+
+[ext_resource type="PackedScene" uid="uid://82yclxx45fat" path="res://objects/modules/factory/base_rooms/factory_warehouse_ushape.tscn" id="1_77ja2"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="15_iqrra"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="17_6gya5"]
+[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="18_3u2bl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4c0b"]
+size = Vector3(13.4281, 6.63712, 8.77271)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qfhd"]
+size = Vector3(15.7446, 7.74109, 20.3493)
+
+[node name="factory_warehouse_ushape" instance=ExtResource("1_77ja2")]
+
+[node name="FirstFight" parent="." index="25" node_paths=PackedStringArray("cogs") instance=ExtResource("15_iqrra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.2084, 7.66106, 1.18696)
+cog_range = Vector2i(2, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FirstFight" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056015, 3.19362, -1.52844)
+shape = SubResource("BoxShape3D_n4c0b")
+
+[node name="SecondFight" parent="." index="26" node_paths=PackedStringArray("cogs") instance=ExtResource("15_iqrra")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 4.06567, 7.66106, 17.9602)
+cog_range = Vector2i(3, 4)
+cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecondFight" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925642, 3.87406, -6.45189)
+shape = SubResource("BoxShape3D_2qfhd")
+
+[node name="treasure_chest" parent="." index="27" instance=ExtResource("17_6gya5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0018, 7.64499, 16.4604)
+item_pool = ExtResource("18_3u2bl")

@@ -31,13 +31,12 @@ func _ready() -> void:
 		dna = Util.get_player().toon.toon_dna
 		Util.get_player().hide()
 
-	toon.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+
 	toon.construct_toon(dna)
 	toon.set_animation('lose')
 	toon.rotation_degrees.y = 210.0
-	toon.body.animator.seek(3.73, true)
-	toon.body.animator.pause()
-	toon.reset_physics_interpolation()
+	toon.anim_seek(3.68, true)
+	get_tree().create_timer(0.05).timeout.connect(toon.anim_pause)
 	toon.set_eyes(Toon.Emotion.SAD)
 
 	Sequence.new([

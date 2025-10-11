@@ -32,12 +32,13 @@ offset_bottom = 20.0
 [node name="Text" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 3.0
-offset_top = -41.9
+offset_top = -41.899994
 offset_right = 302.001
 offset_bottom = 214.1
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = -4
+theme_override_constants/paragraph_separation = -4
 theme_override_fonts/normal_font = ExtResource("3_0hetf")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true

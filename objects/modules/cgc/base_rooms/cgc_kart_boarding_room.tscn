@@ -85,7 +85,7 @@ shape = SubResource("ConcavePolygonShape3D_1nynn")
 shape = SubResource("ConcavePolygonShape3D_8q3o6")
 
 [node name="ENTRANCE" type="Node3D" parent="." index="25"]
-transform = Transform3D(-1.4341e-09, 0, 0.0328084, 0, 0.0328084, 0, -0.0328084, 0, -1.4341e-09, -9.95344, 0, -0.467603)
+transform = Transform3D(-1.4341e-09, 0, 0.0328084, 0, 0.0328084, 0, -0.0328084, 0, -1.4341e-09, -9.95344, 0, -0.010798961)
 
 [node name="RoomArea" type="Area3D" parent="." index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

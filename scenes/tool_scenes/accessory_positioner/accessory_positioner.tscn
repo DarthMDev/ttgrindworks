@@ -290,7 +290,7 @@ text = "SAVE"
 [node name="AccessoryOpener" type="FileDialog" parent="GUI/AccessoryPlacer"]
 title = "Open a File"
 initial_position = 1
-size = Vector2i(303, 290)
+size = Vector2i(348, 290)
 ok_button_text = "Open"
 file_mode = 0
 root_subfolder = "objects/items/resources/accessories"

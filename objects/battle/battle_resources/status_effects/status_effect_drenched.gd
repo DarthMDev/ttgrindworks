@@ -28,5 +28,5 @@ func get_status_name() -> String:
 	return "Drenched"
 
 func randomize_effect() -> void:
-	rounds = RandomService.randi_range_channel('true_random', 1, 3)
-	boost = RandomService.randf_range_channel('true_random', 0.5, 0.9)
+	rounds = randi_range(1, 3)
+	boost = randf_range(-0.1, -0.5)

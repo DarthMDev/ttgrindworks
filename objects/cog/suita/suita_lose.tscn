@@ -26,13 +26,14 @@ _data = {
 &"lose": ExtResource("5_pdtgf")
 }
 
-[node name="suitA-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone") instance=ExtResource("1_41ito")]
+[node name="suitA-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone", "shadow_bone") instance=ExtResource("1_41ito")]
 script = ExtResource("1_b1c51")
 skeleton = NodePath("rig_deform/Skeleton3D")
 animator = NodePath("AnimationPlayer")
 head_scale = 5.0
 wrists_and_shoes = NodePath("rig_deform/Skeleton3D/Object")
 head_bone = NodePath("rig_deform/Skeleton3D/HeadBone")
+shadow_bone = NodePath("")
 is_lose = true
 
 [node name="Skeleton3D" parent="rig_deform" index="0"]
@@ -154,7 +155,7 @@ bones/58/scale = Vector3(1, 1, 1)
 bones/59/position = Vector3(9.5838e-09, 4.74026e-09, -4.87733e-07)
 bones/59/rotation = Quaternion(-0.0639066, 0.586772, 0.0849708, 0.802742)
 bones/60/position = Vector3(-1.6549, -1.67663, 9.72785)
-bones/60/rotation = Quaternion(0.568244, 0.530239, -0.442345, 0.447523)
+bones/60/rotation = Quaternion(0.568243, 0.530239, -0.442345, 0.447523)
 bones/60/scale = Vector3(1, 1, 1)
 bones/61/position = Vector3(9.27393, 4.83847e-07, 1.14562e-06)
 bones/61/rotation = Quaternion(0.577997, 0.493311, -0.47608, -0.442619)
@@ -204,5 +205,5 @@ bone_idx = 85
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_3j1ri")
+&"": SubResource("AnimationLibrary_3j1ri")
 }

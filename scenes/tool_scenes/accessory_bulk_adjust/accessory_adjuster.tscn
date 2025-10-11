@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1jh8r2e68u0h"]
+
+[ext_resource type="Script" uid="uid://ufirma2b81by" path="res://scenes/tool_scenes/accessory_bulk_adjust/accessory_adjuster.gd" id="1_nv6d3"]
+
+[node name="AccessoryAdjuster" type="Node"]
+script = ExtResource("1_nv6d3")

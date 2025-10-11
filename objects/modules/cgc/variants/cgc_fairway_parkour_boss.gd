@@ -117,6 +117,7 @@ func play_intro() -> Tween:
 			%FenceBlockGroup.position.y = 0.0
 			%BallAnim.play('dialogue')
 	)
+	intro_tween.parallel().tween_callback(%TextSprawl.do_sprawl).set_delay(1.0)
 	intro_tween.tween_interval(6.6)
 	
 	# Move camera to mole preview and close gate
@@ -133,12 +134,14 @@ func play_intro() -> Tween:
 	
 	return intro_tween
 
-func skip_cutscene(tween: Tween) -> void:
-	tween.custom_step(10000.0)
+func skip_cutscene(_tween: Tween) -> void:
+	_tween.custom_step(10000.0)
 	%DialogueBall.hide()
 	%DialogueNode.queue_free()
 	Util.get_player().camera.make_current()
 	AudioManager.music_player.set_volume_db(0.0)
+	if %TextSprawl and %TextSprawl.sprawl_tween.is_running():
+		%TextSprawl.sprawl_tween.custom_step(1000.0)
 
 func make_game_timer(timer_time: int = GameTimeBase) -> void:
 	game_timer = Util.run_timer(timer_time, Control.PRESET_BOTTOM_RIGHT)
@@ -157,7 +160,7 @@ func adjust_golf_speed(value: float, golf_door: Node3D) -> void:
 	golf_door.speed = value
 
 func spawn_new_mole() -> void:
-	var mole_game: MoleStompGame = RandomService.array_pick_random("mole_boss", mole_games)
+	var mole_game: MoleStompGame = RNG.channel(RNG.ChannelMoleBoss).pick_random(mole_games)
 	var mole: MoleHole = mole_game.get_random_mole()
 	mole.force_cog_mole = true
 	mole.mole_cog_boost_time = 2.75

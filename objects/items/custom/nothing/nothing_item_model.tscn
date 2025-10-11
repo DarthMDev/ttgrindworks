@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://hnkqrhuvlnn7"]
+
+[ext_resource type="Script" uid="uid://cvhhrnlddmu0y" path="res://objects/items/custom/nothing/nothing_item_model.gd" id="1_lrjn5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m5rv0"]
+
+[node name="NothingItemModel" type="Node3D"]
+script = ExtResource("1_lrjn5")
+
+[node name="UIHelper" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_m5rv0")

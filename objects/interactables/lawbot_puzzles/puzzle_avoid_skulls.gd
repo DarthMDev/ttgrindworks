@@ -25,7 +25,7 @@ func randomize_panels() -> void:
 			var panel : PuzzlePanel = grid[i][j]
 			match panel.panel_shape:
 				PuzzlePanel.PanelShape.NOTHING:
-					if RandomService.randi_channel('puzzles') % skull_chance == 0:
+					if RNG.channel(RNG.ChannelPuzzles).randi() % skull_chance == 0:
 						panel.panel_shape = PuzzlePanel.PanelShape.DOT
 				PuzzlePanel.PanelShape.DOT:
 					panel.panel_shape = PuzzlePanel.PanelShape.SKULL
@@ -33,15 +33,15 @@ func randomize_panels() -> void:
 					panel.panel_shape = PuzzlePanel.PanelShape.NOTHING
 	
 	# Check if player is standing on a skull
-	for panel : PuzzlePanel in player_cells:
+	for panel: PuzzlePanel in player_cells:
 		if panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 			lose_game()
 
-func player_stepped_on(panel : PuzzlePanel) -> void:
+func player_stepped_on(panel: PuzzlePanel) -> void:
 	if panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 		lose_game()
 
-func panel_shape_changed(panel : PuzzlePanel, _shape : PuzzlePanel.PanelShape) -> void:
+func panel_shape_changed(panel: PuzzlePanel, _shape: PuzzlePanel.PanelShape) -> void:
 	panel.set_color(Color.RED)
 
 func get_game_text() -> String:

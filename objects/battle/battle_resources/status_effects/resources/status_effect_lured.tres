@@ -4,16 +4,5 @@
 
 [resource]
 script = ExtResource("1_4nqnk")
-lure_type = 0
-knockback_effect = 10
-damage_nerf = 0.5
 quality = 1
-rounds = 1
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
 id = 9

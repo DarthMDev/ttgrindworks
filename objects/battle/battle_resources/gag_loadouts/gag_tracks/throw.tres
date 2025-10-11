@@ -28,36 +28,25 @@ splat_color = Color(0.207843, 0.196078, 0.592157, 1)
 splat_sfx = ExtResource("5_gqxes")
 icon = ExtResource("2_8lmnt")
 damage = 7
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Cupcake"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_uxcic"]
 script = ExtResource("4_d1roh")
 model = ExtResource("7_lt3v7")
-scale = 1.0
 splat_color = Color(0.207843, 0.196078, 0.592157, 1)
 splat_sfx = ExtResource("5_gqxes")
 icon = ExtResource("6_xbtyl")
 damage = 14
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Fruit Pie Slice"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_auxgd"]
 script = ExtResource("4_d1roh")
 model = ExtResource("9_7m8q7")
-scale = 1.0
 splat_color = Color(1, 1, 0, 1)
 splat_sfx = ExtResource("5_gqxes")
 icon = ExtResource("8_vd332")
 damage = 24
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Cream Pie Slice"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_7vpdx"]
 script = ExtResource("4_d1roh")
@@ -67,10 +56,7 @@ splat_color = Color(0.207843, 0.196078, 0.592157, 1)
 splat_sfx = ExtResource("5_gqxes")
 icon = ExtResource("10_ir7nk")
 damage = 40
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Whole Fruit Pie"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_f3d0w"]
 script = ExtResource("4_d1roh")
@@ -80,23 +66,16 @@ splat_color = Color(1, 1, 0, 1)
 splat_sfx = ExtResource("5_gqxes")
 icon = ExtResource("11_lg5ck")
 damage = 60
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Whole Cream Pie"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_u5wiq"]
 script = ExtResource("4_d1roh")
 model = ExtResource("13_mauup")
-scale = 1.0
 splat_color = Color(1, 0.454902, 1, 1)
 splat_sfx = ExtResource("14_t7csw")
 icon = ExtResource("12_gekow")
 damage = 85
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Birthday Cake"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_4x2ni"]
 script = ExtResource("4_d1roh")
@@ -108,14 +87,10 @@ present_sfx = ExtResource("18_k0b62")
 miss_sfx = ExtResource("16_p0ejo")
 icon = ExtResource("12_k5872")
 damage = 110
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Wedding Cake"
-one_time_use = false
 
 [resource]
 script = ExtResource("14_8sa22")
-track_type = 0
 track_name = "Throw"
 track_color = Color(0.929412, 0.541176, 0.258824, 1)
 gags = Array[ExtResource("1_rtmtp")]([SubResource("Resource_cf3iq"), SubResource("Resource_uxcic"), SubResource("Resource_auxgd"), SubResource("Resource_7vpdx"), SubResource("Resource_f3d0w"), SubResource("Resource_u5wiq"), SubResource("Resource_4x2ni")])

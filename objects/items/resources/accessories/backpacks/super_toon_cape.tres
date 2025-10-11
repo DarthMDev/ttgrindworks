@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://dbbwxcnrbpxum"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://dgmkl6skdff5v"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_fylvi"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_57qhe"]
@@ -8,53 +8,38 @@
 
 [sub_resource type="Resource" id="Resource_ryjws"]
 script = ExtResource("2_57qhe")
-body_type = 0
-position = Vector3(0.01, 0.42, -1.03)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.42, 1.08)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.4, 0.3, 0.5)
 
 [sub_resource type="Resource" id="Resource_2cphq"]
 script = ExtResource("2_57qhe")
 body_type = 1
-position = Vector3(0.01, 0.45, -0.8)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.45, 0.9)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.4, 0.3, 0.5)
 
 [sub_resource type="Resource" id="Resource_mw3is"]
 script = ExtResource("2_57qhe")
 body_type = 2
-position = Vector3(0.01, 0.85, -0.8)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.85, 0.83)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.3, 0.3, 0.4)
 
 [resource]
 script = ExtResource("2_m3eda")
 accessory_placements = Array[ExtResource("1_fylvi")]([SubResource("Resource_ryjws"), SubResource("Resource_2cphq"), SubResource("Resource_mw3is")])
-item_tags = null
 qualitoon = 1
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.1
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Super Toon Cape"
 item_description = "Quick on your feet"
 big_description = "+ 5% Speed
-+ 5% Evasiveness"
++ 10% Evasiveness"
 model = ExtResource("3_seq16")
 stats_add = {
-"evasiveness": 0.05,
+"evasiveness": 0.1,
 "speed": 0.05
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_jmb86")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

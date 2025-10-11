@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwy6nw86pgfc6"]
+[gd_scene load_steps=31 format=3 uid="uid://bwy6nw86pgfc6"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_iqppd"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="3_2cxjn"]
@@ -21,14 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="17_g4iiy"]
 [ext_resource type="PackedScene" uid="uid://dn6p7pcjhawfb" path="res://objects/props/office/chair.tscn" id="18_q4opw"]
 [ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="20_nq70y"]
+[ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="22_uwkub"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bh7n6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkub"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("4_4b5mt")
 roughness = 0.552786
 uv1_scale = Vector3(1, 9, 1)
-uv1_offset = Vector3(0, 1.04849, 0)
 grow_amount = 16.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_221y2"]
@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75429, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66932, 2.99828, -0.439946)
 constant_linear_velocity = Vector3(0, 0, -5)
 size = Vector3(1, 1, 9)
-platform_mat = SubResource("StandardMaterial3D_bh7n6")
+platform_mat = SubResource("StandardMaterial3D_uwkub")
 speed = -5.0
 
 [node name="Stomper" parent="Game/GameObstacles/ConveyerObstacle" index="1" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("7_rv7pp")]
@@ -374,6 +374,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.314
 
 [node name="ENTRANCE" parent="." index="11"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.540825, 3.33218, -27.3164)
+
+[node name="PrankCharger" type="Node" parent="." index="13" node_paths=PackedStringArray("signals")]
+script = ExtResource("22_uwkub")
+signals = {
+NodePath("../Game/CogDoor"): "s_unlocked"
+}
+metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
 
 [connection signal="s_unlocked" from="Game/CogDoor" to="Game/RoomTimer" method="game_won"]
 [connection signal="body_entered" from="Game/PlayerDetection" to="Game/RoomTimer" method="detect_player"]

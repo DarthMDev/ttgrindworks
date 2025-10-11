@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8w34qndxvrlc"]
+
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="1_tsob0"]
+
+[node name="MoltenBellows" instance=ExtResource("1_tsob0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+retract_speed = 6.0
+max_push = 2.75
+
+[node name="CollisionShape3D" parent="Spring/StaticBody3D" index="0"]
+disabled = true

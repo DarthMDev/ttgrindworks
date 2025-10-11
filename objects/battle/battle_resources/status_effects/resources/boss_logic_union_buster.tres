@@ -6,12 +6,7 @@
 script = ExtResource("1_ko6e5")
 contract_limit_cooldown = 0
 liability_waiver_cooldown = 0
-quality = 2
 rounds = -1
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
 visible = false
 description = "Union buster logic"
 status_name = "Union buster logic"

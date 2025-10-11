@@ -45,7 +45,7 @@ func _connect_to_signals() -> void:
 func _connect_to_signal(s: Signal) -> void:
 	# Looks ugly but its the only way in GDScript to zero out incoming
 	# args from other signals
-	s.connect(func(a1=null, a2=null, a3=null, a4=null, a5=null): _got_signal_emit(s))
+	s.connect(func(..._args: Array): _got_signal_emit(s))
 
 ## A signal has emitted, see if we need to emit our complete signal
 func _got_signal_emit(s: Signal) -> void:

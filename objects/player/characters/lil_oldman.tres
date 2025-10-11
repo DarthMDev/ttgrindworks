@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://xyyc4r1gb5m4"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_cedi1"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="3_iq2rv"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="4_l0iwc"]
+[ext_resource type="Texture2D" uid="uid://bc47fggqh8gbp" path="res://models/toon/textures/clothes/shorts/desat_shorts_2.png" id="5_cedi1"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="6_ykplh"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="7_evqxs"]
+[ext_resource type="Texture2D" uid="uid://l5nmqw1hw5ti" path="res://models/toon/textures/clothes/shirts/desat_shirt_2_2.png" id="8_b3hhu"]
+[ext_resource type="Texture2D" uid="uid://dp1mwoshkp6pb" path="res://models/toon/textures/clothes/shirts/desat_sleeve_2_1.png" id="9_iq2rv"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="10_pvy6g"]
+[ext_resource type="Resource" uid="uid://b8i0610w7dcxf" path="res://objects/items/resources/passive/oldman_setup.tres" id="11_0fwh0"]
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="11_3lmvo"]
+[ext_resource type="Resource" uid="uid://bkifup6k18tov" path="res://objects/items/resources/passive/oldman_logic.tres" id="12_dm5l1"]
+[ext_resource type="Resource" uid="uid://dh87q08enl0bg" path="res://objects/items/resources/active/glowering_dagger.tres" id="13_cedi1"]
+
+[sub_resource type="Resource" id="Resource_jj61k"]
+script = ExtResource("3_iq2rv")
+damage = 1.15
+speed = 1.1
+max_hp = 1
+hp = 1
+
+[sub_resource type="Resource" id="Resource_l0iwc"]
+script = ExtResource("4_l0iwc")
+texture = ExtResource("5_cedi1")
+base_color = Color(0.192157, 0.560784, 0.772549, 1)
+
+[sub_resource type="Resource" id="Resource_lt2cs"]
+script = ExtResource("7_evqxs")
+shirt_texture = ExtResource("8_b3hhu")
+sleeve_texture = ExtResource("9_iq2rv")
+base_color = Color(0.54902, 0.823529, 0.321569, 1)
+sleeve_color = Color(0.54902, 0.823529, 0.321569, 1)
+
+[sub_resource type="Resource" id="Resource_ax4gq"]
+script = ExtResource("6_ykplh")
+body_type = 2
+leg_type = 1
+species = 8
+head_index = 1
+eyelashes = false
+head_color = Color(0.458824, 0.380392, 0.823529, 1)
+torso_color = Color(0.458824, 0.380392, 0.823529, 1)
+leg_color = Color(0.458824, 0.380392, 0.823529, 1)
+shirt = SubResource("Resource_lt2cs")
+bottoms = SubResource("Resource_l0iwc")
+
+[resource]
+script = ExtResource("11_3lmvo")
+character_id = 8
+character_name = "Lil Oldman"
+character_summary = "Max Laff of 1
+Starts with 5 revives
+Laff Boosts and treasures grant extra revives
+Defense can deflect Cog damage
+Parry attacks with the dagger, but Cogs always hit"
+character_blurb = "The Blizzard Wizard means business... or was it brie? No, gorgonzola. Ah, a few more floors’ll sort this out."
+dna = SubResource("Resource_ax4gq")
+gag_loadout = ExtResource("10_pvy6g")
+starting_laff = 1
+starting_items = Array[ExtResource("1_cedi1")]([ExtResource("11_0fwh0"), ExtResource("12_dm5l1"), ExtResource("13_cedi1")])
+base_stats = SubResource("Resource_jj61k")
+starting_gags = Dictionary[String, int]({
+"Drop": 0,
+"Lure": 2,
+"Sound": 0,
+"Squirt": 2,
+"Throw": 0,
+"Trap": 0
+})
+additional_stats = Dictionary[String, Variant]({
+"extra_lives": 5,
+"luck": 1.05
+})
+override_index = 6
+item_discard_tags = Array[int]([2])
+achievement_index = 28

@@ -2,11 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dse5tf8fx2til" path="res://addons/mod_loader/options/profiles/default.tres" id="1_yg7p8"]
 [ext_resource type="Script" uid="uid://bd11kpvbvpio3" path="res://addons/mod_loader/resources/options_current.gd" id="2"]
-[ext_resource type="Resource" path="res://addons/mod_loader/options/profiles/editor.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ckvgu2qf4b8ve" path="res://addons/mod_loader/options/profiles/editor.tres" id="3"]
 
 [resource]
 script = ExtResource("2")
-current_options = ExtResource("1_yg7p8")
-feature_override_options = {
-"editor": ExtResource("3")
-}

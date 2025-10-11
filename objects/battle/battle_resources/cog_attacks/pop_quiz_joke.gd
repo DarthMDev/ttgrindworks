@@ -23,14 +23,14 @@ func get_question() -> Array[String]:
 			punchlines.append(jokes[i])
 	
 	# Choose a random joke from the setups
-	var true_joke_index := RandomService.randi_channel('true_random') % setups.size()
+	var true_joke_index := randi() % setups.size()
 	return_arr.append(setups[true_joke_index])
 	return_arr.append(punchlines[true_joke_index])
 	
 	# Append a random amount of false answers from 2-4
-	var false_answers := RandomService.randi_channel('true_random') % 3 + 2
+	var false_answers := randi() % 3 + 2
 	while return_arr.size() < false_answers + 2:
-		var false_answer := punchlines[RandomService.randi_channel('true_random') % punchlines.size()]
+		var false_answer := punchlines[randi() % punchlines.size()]
 		if not false_answer in return_arr:
 			return_arr.append(false_answer)
 	

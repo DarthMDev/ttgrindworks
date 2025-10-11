@@ -1,5 +1,4 @@
 extends CogAttack
-class_name FingerWag
 
 func action():
 	# Begin
@@ -26,10 +25,10 @@ func action():
 	var hit := manager.roll_for_accuracy(self)
 	if hit:
 		manager.affect_target(target, damage)
-		target.set_animation('slip_backward')
+		target.set_animation('slip-backward')
 	else:
 		manager.battle_text(target,"MISSED")
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 	
 	# Stop particles after pause
 	await manager.sleep(0.5)

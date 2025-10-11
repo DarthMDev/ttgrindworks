@@ -2,12 +2,12 @@ extends MeshInstance3D
 
 const BASE_ITEM := "res://objects/items/resources/passive/track_frame.tres"
 
-var track : String
+var track: String
 
-var resource : Item
+var resource: Item
 
 
-func setup(item : Item):
+func setup(item: Item):
 	resource = item
 	
 	# Standard behavior
@@ -15,15 +15,16 @@ func setup(item : Item):
 		randomize_track()
 	else:
 		track = resource.arbitrary_data['track']
-	
-	# Color the mesh
-	var mesh_mat : StandardMaterial3D = mesh.surface_get_material(0).duplicate()
-	mesh_mat.albedo_color = get_color()
-	set_surface_override_material(0,mesh_mat)
+
+	# Color the mesh if this is in-world (not generated for logic purposes i.e. on item application)
+	if item.item_model_in_real_world(self):
+		var mesh_mat: StandardMaterial3D = mesh.surface_get_material(0).duplicate(true)
+		mesh_mat.albedo_color = get_color()
+		set_surface_override_material(0, mesh_mat)
 
 
-func modify(ui : MeshInstance3D) -> void:
-	ui.set_surface_override_material(0,ui.mesh.surface_get_material(0).duplicate())
+func modify(ui: MeshInstance3D) -> void:
+	ui.set_surface_override_material(0, ui.mesh.surface_get_material(0).duplicate(true))
 	ui.get_surface_override_material(0).albedo_texture = get_gag_got().icon
 	ui.get_surface_override_material(0).transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 
@@ -35,7 +36,7 @@ func randomize_track() -> void:
 		resource.reroll()
 		return
 	
-	track = hat[RandomService.randi_channel('gag_frames') % hat.size()]
+	track = hat[RNG.channel(RNG.ChannelGagFrames).randi() % hat.size()]
 	
 	# Store the track in the item resource
 	resource.arbitrary_data['track'] = track
@@ -52,7 +53,7 @@ func collect() -> void:
 	Util.get_player().stats.gags_unlocked[track] += 1
 	resource.item_name = get_gag_got().action_name
 
-func get_track(track_name : String) -> Track:
+func get_track(track_name: String) -> Track:
 	var loadout := Util.get_player().stats.character.gag_loadout
 	
 	for gag_track in loadout.loadout:
@@ -61,18 +62,18 @@ func get_track(track_name : String) -> Track:
 	return null
 
 func get_hat() -> Array[String]:
-	var loadout : GagLoadout = Util.get_player().character.gag_loadout
+	var loadout: GagLoadout = Util.get_player().character.gag_loadout
 	
 	# Put all missing gags in a hat
-	var hat : Array[String] = []
+	var hat: Array[String] = []
 	for gag_track in loadout.loadout:
-		var unlocked : int = Util.get_player().stats.gags_unlocked[gag_track.track_name]
+		var unlocked: int = Util.get_player().stats.gags_unlocked[gag_track.track_name]
 		var remaining := gag_track.gags.size() - unlocked
 		for i in remaining:
 			hat.append(gag_track.track_name)
 	
 	# Remove the gags from the floor that have already been spawned
-	for item : Item in ItemService.items_in_play:
+	for item: Item in ItemService.items_in_play:
 		if item.arbitrary_data.has('track'):
 			hat.erase(item.arbitrary_data['track'])
 	

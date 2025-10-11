@@ -34,14 +34,14 @@ func round_started(_actions: Array[BattleAction]) -> void:
 		swap_mode()
 
 func queue_green_light() -> void:
-	var action := ACTION_GREEN_LIGHT.duplicate()
+	var action := ACTION_GREEN_LIGHT.duplicate(true)
 	action.user = target
 	action.logic_effect = self
 	action.targets = [Util.get_player()]
 	manager.round_end_actions.append(action)
 
 func queue_red_light() -> void:
-	var action := ACTION_RED_LIGHT.duplicate()
+	var action := ACTION_RED_LIGHT.duplicate(true)
 	action.user = target
 	action.logic_effect = self
 	action.targets = [Util.get_player()]
@@ -51,7 +51,7 @@ func on_banned_gag_used(_action : ToonAttack) -> void:
 	queue_retaliation()
 
 func queue_retaliation() -> void:
-	var action := ACTION_RETALIATION.duplicate()
+	var action := ACTION_RETALIATION.duplicate(true)
 	action.user = target
 	action.targets = [Util.get_player()]
 	manager.round_end_actions.append(action)

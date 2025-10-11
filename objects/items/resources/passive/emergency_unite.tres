@@ -7,16 +7,9 @@
 
 [resource]
 script = ExtResource("2_dsog6")
-item_tags = null
+tags = Array[int]([1])
 qualitoon = 4
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
-world_scale = 1.0
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Emergency Unite"
 item_description = "Life Insurance."
 big_description = "Prevents the player from going sad one time."
@@ -25,12 +18,7 @@ pickup_sfx = ExtResource("3_f2gk4")
 stats_add = {
 "extra_lives": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("1_2wls7")
 shop_category_title = "Special Item"
 shop_category_color = Color(0.6, 0.2, 1, 1)
 force_show_shop_category = true
-custom_shop_price = 0

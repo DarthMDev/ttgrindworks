@@ -30,13 +30,12 @@ func on_game_win() -> void:
 		battle.body_entered(Util.get_player())
 
 func clean_battle() -> void:
-	for cog : Cog in battle.cogs.duplicate():
+	for cog : Cog in battle.cogs.duplicate(true):
 		if not cog.visible:
 			battle.cogs.erase(cog)
 			cog.queue_free()
 
 func show_puzzle(_button) -> void:
-	var player := Util.get_player()
 	CameraTransition.from_current(self, $PanCamera, 1.5)
 
 func button_stepped_off(_button) -> void:

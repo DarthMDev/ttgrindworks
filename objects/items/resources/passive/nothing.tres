@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://baycymmn1prgr"]
+
+[ext_resource type="PackedScene" uid="uid://hnkqrhuvlnn7" path="res://objects/items/custom/nothing/nothing_item_model.tscn" id="1_lr76s"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_fs6wa"]
+
+[resource]
+script = ExtResource("3_fs6wa")
+evergreen = true
+item_name = "Nothing"
+item_description = "It's empty"
+big_description = "Still empty"
+model = ExtResource("1_lr76s")
+remember_item = false
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

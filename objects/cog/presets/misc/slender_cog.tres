@@ -1,55 +1,31 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://cfgq4sxagf8fo"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=5 format=3 uid="uid://cfgq4sxagf8fo"]
 
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="1_21e8a"]
-[ext_resource type="Texture2D" uid="uid://c3nvfyus0sjvs" path="res://models/cogs/textures/slender/sleeve.png" id="1_n1cnc"]
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_rm1bc"]
 [ext_resource type="Script" uid="uid://cgc7g6cmo0v86" path="res://objects/battle/battle_resources/misc_movies/slendercog_boss/slender_static_increase.gd" id="2_iq3wl"]
-[ext_resource type="Texture2D" uid="uid://b2niomlt7hl2b" path="res://models/cogs/textures/slender/blazer.png" id="2_lb7e6"]
-[ext_resource type="Texture2D" uid="uid://b0njt70w0o750" path="res://models/cogs/textures/slender/leg.png" id="3_gkwbl"]
-[ext_resource type="PackedScene" uid="uid://cwg7ajjhom2dw" path="res://models/cogs/heads/telemarketer.glb" id="7_baj6f"]
-[ext_resource type="Texture2D" uid="uid://d03j2xfi6q4nk" path="res://models/cogs/heads/slendercog.png" id="8_g2m0a"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="9_ndiyl"]
-[ext_resource type="Resource" uid="uid://c8rs8upqmscoh" path="res://objects/battle/battle_resources/status_effects/resources/attentive.tres" id="10_oknvn"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="3_mxbdy"]
 
 [sub_resource type="Resource" id="Resource_cgq1u"]
 script = ExtResource("2_iq3wl")
-additional_attacks = Array[ExtResource("1_rm1bc")]([])
-accuracy = 75
 damage = 10
-ignore_stats = false
 summary = "It's hard to think straight..."
 attack_lines = Array[String]([])
-target_type = 0
 action_name = "Technical Difficulties"
-one_time_use = false
 
 [resource]
-script = ExtResource("1_21e8a")
+script = ExtResource("3_mxbdy")
 department = 3
 suit = 1
-custom_blazer_tex = ExtResource("2_lb7e6")
-custom_arm_tex = ExtResource("1_n1cnc")
-custom_leg_tex = ExtResource("3_gkwbl")
+custom_blazer_tex = "res://models/cogs/textures/slender/blazer.png"
+custom_arm_tex = "res://models/cogs/textures/slender/sleeve.png"
+custom_leg_tex = "res://models/cogs/textures/slender/leg.png"
 cog_name = "Slendercog"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("7_baj6f")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/telemarketer.glb"
 scale = 5.65
-head_textures = Array[Texture2D]([ExtResource("8_g2m0a")])
-hand_color = Color(1, 1, 1, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
+head_textures = PackedStringArray("res://models/cogs/heads/slendercog.png")
 can_speak = false
 attacks = Array[ExtResource("1_rm1bc")]([SubResource("Resource_cgq1u")])
-level_low = 1
 level_high = 20
-status_effects = Array[ExtResource("9_ndiyl")]([ExtResource("10_oknvn")])
-is_mod_cog = false
-is_admin = false
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/attentive.tres")
 health_mod = 2.0
 battle_phrases = Array[String](["..."])
 external_assets = {

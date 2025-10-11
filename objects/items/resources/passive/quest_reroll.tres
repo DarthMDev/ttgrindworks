@@ -6,13 +6,8 @@
 [resource]
 script = ExtResource("2_txjhk")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.5
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Task Reroll"
 item_description = "Never settle."
 big_description = "Allows you to reroll one of your ToonTasks"
@@ -20,11 +15,6 @@ model = ExtResource("1_fp5v0")
 stats_add = {
 "quest_rerolls": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(1, 0.54902, 0, 1)
-force_show_shop_category = false
 custom_shop_price = 5

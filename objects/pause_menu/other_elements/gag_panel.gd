@@ -26,9 +26,9 @@ func display_gag(gag: ToonAttack = null) -> void:
 		gag_stats.set_text(gag.get_stats())
 		show_player_info(false)
 
-func show_player_info(show : bool) -> void:
-	%PlayerInfo.visible = show
-	%GagInfo.visible = not show
+func show_player_info(_show: bool) -> void:
+	%PlayerInfo.visible = _show
+	%GagInfo.visible = not _show
 
 func sync_player_info() -> void:
 	%PlayerInfoLabel.set_text(

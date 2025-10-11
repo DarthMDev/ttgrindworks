@@ -6,10 +6,8 @@
 [resource]
 script = ExtResource("1_hfwrt")
 progress_value = "total_cogs_defeated"
-quota = 1
 signal_source = 2
 signal_name = "s_cog_died"
 achievement_name = "First Oil"
 achievement_summary = "Defeat 1 Cog."
-achievement_index = 0
 achievement_icon = ExtResource("1_1sh4s")

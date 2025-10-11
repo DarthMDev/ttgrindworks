@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c7jpg878lyye3"]
+[gd_scene load_steps=34 format=3 uid="uid://c7jpg878lyye3"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_nh7dn"]
 [ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="2_0l3o2"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c4w0go8bufcoh" path="res://audio/sfx/objects/stomper/CHQ_FACT_stomper_large.ogg" id="19_0vghd"]
 [ext_resource type="Script" uid="uid://c8ps3hm66sk67" path="res://objects/obstacles/stomper/stomper_troll.gd" id="19_qj5ta"]
 [ext_resource type="PackedScene" uid="uid://b4kk4sdrhkn2g" path="res://objects/props/office/cardboard_box.tscn" id="20_0l3o2"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="20_qj5ta"]
 [ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="21_qcxon"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="22_mx5fp"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="22_qcxon"]
@@ -159,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_qaebi")
 
 [node name="Stomper6" parent="Props/Stompers" index="1" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("2_0l3o2")]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 2.25, 0.118, 0.489)
+transform = Transform3D(-6.5, 0, 5.68248e-07, 0, 6.5, 0, -5.68248e-07, 0, -6.5, -15.75, 0.118, 0.488999)
 model = NodePath("law_stomper")
 collisions = [NodePath("law_stomper/StaticBody3D/CollisionShape3D"), NodePath("law_stomper/ShaftCol/CollisionShape3D")]
 player_detection = NodePath("law_stomper/PlayerDetection")
@@ -201,7 +202,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_qcxon")
 
 [node name="Stomper7" parent="Props/Stompers" index="2" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("2_0l3o2")]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -2.25, 0.118, 0.489)
+transform = Transform3D(-6.5, 0, 5.68248e-07, 0, 6.5, 0, -5.68248e-07, 0, -6.5, -11.25, 0.118, 0.489)
 model = NodePath("law_stomper")
 collisions = [NodePath("law_stomper/StaticBody3D/CollisionShape3D"), NodePath("law_stomper/ShaftCol/CollisionShape3D")]
 player_detection = NodePath("law_stomper/PlayerDetection")
@@ -244,7 +245,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_qcxon")
 
 [node name="Stomper8" parent="Props/Stompers" index="3" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("2_0l3o2")]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -6.75, 0.118, 0.489)
+transform = Transform3D(-6.5, 0, 5.68248e-07, 0, 6.5, 0, -5.68248e-07, 0, -6.5, -6.75, 0.118, 0.489)
 model = NodePath("law_stomper")
 collisions = [NodePath("law_stomper/StaticBody3D/CollisionShape3D"), NodePath("law_stomper/ShaftCol/CollisionShape3D")]
 player_detection = NodePath("law_stomper/PlayerDetection")
@@ -287,7 +288,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_qcxon")
 
 [node name="Stomper9" parent="Props/Stompers" index="4" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("2_0l3o2")]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -11.25, 0.118, 0.489)
+transform = Transform3D(-6.5, 0, 5.68248e-07, 0, 6.5, 0, -5.68248e-07, 0, -6.5, -2.25, 0.118, 0.489)
 model = NodePath("law_stomper")
 collisions = [NodePath("law_stomper/StaticBody3D/CollisionShape3D"), NodePath("law_stomper/ShaftCol/CollisionShape3D")]
 player_detection = NodePath("law_stomper/PlayerDetection")
@@ -330,7 +331,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_qcxon")
 
 [node name="Stomper10" parent="Props/Stompers" index="5" node_paths=PackedStringArray("model", "collisions", "player_detection") instance=ExtResource("2_0l3o2")]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -15.75, 0.118, 0.489)
+transform = Transform3D(-6.5, 0, 5.68248e-07, 0, 6.5, 0, -5.68248e-07, 0, -6.5, 2.25, 0.118, 0.489001)
 model = NodePath("law_stomper")
 collisions = [NodePath("law_stomper/StaticBody3D/CollisionShape3D"), NodePath("law_stomper/ShaftCol/CollisionShape3D")]
 player_detection = NodePath("law_stomper/PlayerDetection")
@@ -494,6 +495,9 @@ shape = SubResource("BoxShape3D_d6b1v")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="stompertroll2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80628, 4.46591, 2.25547)
 shape = SubResource("BoxShape3D_ct5ng")
+
+[node name="DebugPlayerPositionMarker" parent="." index="10" instance=ExtResource("20_qj5ta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7194, 0, 0.523601)
 
 [connection signal="body_entered" from="stompertroll" to="Props/Stompers/Stomper1" method="initiate_kill"]
 [connection signal="body_exited" from="stompertroll" to="Props/Stompers/Stomper1" method="stop_stomper"]

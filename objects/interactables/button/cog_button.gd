@@ -4,6 +4,7 @@ class_name CogButton
 
 ## Config
 @export var connected_objects : Array[Node]
+@export var disable_press := false
 @export_group('Visuals')
 @export var up_color := Color("ff0000"):
 	set(new):
@@ -44,7 +45,7 @@ func _ready() -> void:
 			connect_to(object)
 	
 	# Create a material override for the button
-	button.set_surface_override_material(0,button.mesh.surface_get_material(0).duplicate())
+	button.set_surface_override_material(0,button.mesh.surface_get_material(0).duplicate(true))
 	set_color(up_color)
 	
 	# Setup the retract timer
@@ -52,7 +53,7 @@ func _ready() -> void:
 
 
 func body_entered(body : Node3D) -> void:
-	if body is Player and body.state == Player.PlayerState.WALK:
+	if body is Player and body.controller.current_state.accepts_interaction() and not disable_press:
 		press()
 
 ## Presses the button and marks as pressed

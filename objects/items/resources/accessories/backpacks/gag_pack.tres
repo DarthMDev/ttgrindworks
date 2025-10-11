@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://ba7mgoe7i5oq4"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://b64vcq777407k"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_gjp8m"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_ltiyy"]
@@ -9,37 +9,28 @@
 
 [sub_resource type="Resource" id="Resource_lhhvb"]
 script = ExtResource("2_tr8t1")
-body_type = 0
-position = Vector3(0, 0.34, -1.03)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0, 0.34, 1.08)
+rotation = Vector3(0, 180, 0)
 
 [sub_resource type="Resource" id="Resource_sl4s4"]
 script = ExtResource("2_tr8t1")
 body_type = 1
-position = Vector3(0, 0.23, -0.46)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0, 0.23, 0.7)
+rotation = Vector3(0, 180, 0)
 
 [sub_resource type="Resource" id="Resource_by7s7"]
 script = ExtResource("2_tr8t1")
 body_type = 2
-position = Vector3(0, 0.45, -0.69)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0.03, 0.45, 0.71)
+rotation = Vector3(0, 180, 0)
 
 [resource]
 script = ExtResource("1_ltiyy")
 accessory_placements = Array[ExtResource("1_gjp8m")]([SubResource("Resource_lhhvb"), SubResource("Resource_sl4s4"), SubResource("Resource_by7s7")])
-item_tags = null
 qualitoon = 4
 rarity = 6
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.25
-world_y_offset = 0.0
-want_ui_spin = true
 ui_cam_offset = 0.375
 item_name = "Gag Attack Pack"
 item_description = "Always come prepared!"
@@ -49,12 +40,5 @@ pickup_sfx = ExtResource("5_hor22")
 stats_add = {
 "gag_discount": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_6exoy")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://dlhap5enouu26"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://d2qop2il4nsmo"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_jlpi7"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_fdplg"]
@@ -9,37 +9,29 @@
 [sub_resource type="Resource" id="Resource_3frid"]
 script = ExtResource("2_fdplg")
 body_type = 2
-position = Vector3(0.01, 0.61, -0.71)
-rotation = Vector3(2.07, 0, 0)
+position = Vector3(0.01, 0.61, 0.81)
+rotation = Vector3(2.07, 180, 0)
 scale = Vector3(0.36, 0.36, 0.36)
 
 [sub_resource type="Resource" id="Resource_3jk26"]
 script = ExtResource("2_fdplg")
 body_type = 1
-position = Vector3(0.01, 0.72, -0.69)
-rotation = Vector3(10.34, 0, 0)
+position = Vector3(0.01, 0.72, 0.72)
+rotation = Vector3(10.34, 180, 0)
 scale = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="Resource" id="Resource_cixyy"]
 script = ExtResource("2_fdplg")
-body_type = 0
-position = Vector3(0, 0.83, -0.89)
-rotation = Vector3(12.41, 0, 0)
+position = Vector3(0, 0.83, 0.89)
+rotation = Vector3(12.41, 180, 0)
 scale = Vector3(0.3, 0.3, 0.3)
 
 [resource]
 script = ExtResource("5_jjy6s")
 accessory_placements = Array[ExtResource("1_jlpi7")]([SubResource("Resource_3frid"), SubResource("Resource_3jk26"), SubResource("Resource_cixyy")])
-item_tags = null
 qualitoon = 3
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.13
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Scuba Tank"
 item_description = "Deep diver."
 big_description = "Adds +10% to Squirt's drenched effect"
@@ -47,12 +39,5 @@ model = ExtResource("4_be6kg")
 stats_add = {
 "squirt_defense_boost": -0.1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_ubwpq")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

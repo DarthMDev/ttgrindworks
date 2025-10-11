@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/shelf_3.fbx-6aff8d0b550353caff12f3908a68e599.
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,31 +34,40 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "__WAREHOUSE_newfixes_v1s2_WareHouseT_shortShelf_v1s7_lambert3SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/shelf/materials/shelf_panel_regular_mat.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/shelf/materials/shelf_panel_regular_mat.tres",
+"use_external/path": "uid://cx217kphtc1fn"
 },
 "__WAREHOUSE_newfixes_v1s2_WareHouseT_shortShelf_v1s7_lambert4SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/shelf/materials/shelf_back_regular_mat.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/shelf/materials/shelf_back_regular_mat.tres",
+"use_external/path": "uid://8dk6vuxlwx0a"
 },
 "__WAREHOUSE_newfixes_v1s2___WAREHOUSE_finalfixesv1s2___WAREHOUSE_lowerpoly_v1s2_shortShelf_v1s7_lambert16SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://general_resources/common/drop_shadow_square.tres"
+"use_external/fallback_path": "res://general_resources/common/drop_shadow_square.tres",
+"use_external/path": "uid://il08msjlhggs"
 },
 "lambert105SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://general_resources/common/drop_shadow_circle.tres"
+"use_external/fallback_path": "res://general_resources/common/drop_shadow_circle.tres",
+"use_external/path": "uid://cxkmiwrq68gc2"
 },
 "lambert2SGShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/shelf/materials/moneybag_regular_mat.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/shelf/materials/moneybag_regular_mat.tres",
+"use_external/path": "uid://dcs8evi0rbxge"
 },
 "lambert5": {
 "use_external/enabled": true,
-"use_external/path": "res://general_resources/common/collision.tres"
+"use_external/fallback_path": "res://general_resources/common/collision.tres",
+"use_external/path": "uid://cmm5smeguixf3"
 }
 },
 "nodes": {
@@ -68,3 +79,4 @@ _subresources={
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

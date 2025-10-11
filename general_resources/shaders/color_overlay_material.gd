@@ -22,28 +22,62 @@ var _flash_tween: Tween:
 			_flash_tween.kill()
 		_flash_tween = x
 
+var strength: float:
+	get: return get_shader_parameter(&"strength")
+	set(x): set_shader_parameter(&"strength", x)
+var color: Color:
+	get: return get_shader_parameter(&"color") as Color
+	set(x): set_shader_parameter(&"color", x)
+
 func _init() -> void:
 	shader = SHADER
-	set_strength(0.0)
+	strength = 0.0
 
-func flash(owner: Node, color := Color.RED, time := 0.15, strength := 0.6) -> void:
+func flash(owner: Node, _color := Color.RED, time := 0.15, _strength := 0.6) -> void:
 	_flash_tween = Sequence.new([
-		Func.new(set_color.bind(color)),
+		Func.new(set_color.bind(_color)),
 		Func.new(set_strength.bind(0.0)),
-		LerpFunc.new(set_strength, time * 0.5, 0.0, strength).interp(Tween.EASE_IN, Tween.TRANS_LINEAR),
-		LerpFunc.new(set_strength, time * 0.5, strength, 0.0).interp(Tween.EASE_OUT, Tween.TRANS_LINEAR),
+		LerpFunc.new(set_strength, time * 0.5, 0.0, _strength).interp(Tween.EASE_IN, Tween.TRANS_LINEAR),
+		LerpFunc.new(set_strength, time * 0.5, _strength, 0.0).interp(Tween.EASE_OUT, Tween.TRANS_LINEAR),
 	]).as_tween(owner)
 
-func flash_instant(owner: Node, color := Color.RED, time := 0.15, strength := 0.6) -> void:
+func flash_instant(owner: Node, _color := Color.RED, time := 0.15, _strength := 0.6) -> void:
 	_flash_tween = Sequence.new([
-		Func.new(set_color.bind(color)),
-		Func.new(set_strength.bind(strength)),
+		Func.new(set_color.bind(_color)),
+		Func.new(set_strength.bind(_strength)),
 		Wait.new(time),
 		Func.new(set_strength.bind(0.0)),
 	]).as_tween(owner)
 
-func set_strength(value: float) -> void:
-	set_shader_parameter(&"strength", value)
+func flash_instant_fade(owner: Node, _color := Color.RED, time := 0.15, _strength := 0.6) -> void:
+	_flash_tween = Sequence.new([
+		Func.new(set_color.bind(_color)),
+		Func.new(set_strength.bind(_strength)),
+		LerpFunc.new(set_strength, time, _strength, 0.0).interp(Tween.EASE_IN, Tween.TRANS_CUBIC),
+	]).as_tween(owner)
 
-func set_color(color: Color) -> void:
-	set_shader_parameter(&"color", color)
+func fade_in(owner: Node, _color := Color.RED, time := 0.15, _strength := 0.6) -> void:
+	_flash_tween = Sequence.new([
+		Func.new(set_color.bind(_color)),
+		LerpFunc.new(set_strength, time, 0.0, _strength).interp(Tween.EASE_IN, Tween.TRANS_CUBIC),
+	]).as_tween(owner)
+
+func fade_out(owner: Node, _color := Color.RED, time := 0.15) -> void:
+	_flash_tween = Sequence.new([
+		Func.new(set_color.bind(_color)),
+		LerpFunc.new(set_strength, time, strength, 0.0).interp(Tween.EASE_IN, Tween.TRANS_CUBIC),
+	]).as_tween(owner)
+
+func clear_strength() -> void:
+	_flash_tween = null
+	set_strength(0.0)
+
+func set_strength(_strength: float) -> void:
+	strength = _strength
+
+func set_color(_color: Color) -> void:
+	color = _color
+
+func apply_to_node(node: Node) -> void:
+	for mesh: MeshInstance3D in NodeGlobals.get_children_of_type(node, MeshInstance3D, true):
+		if not mesh.material_overlay: mesh.material_overlay = self

@@ -21,7 +21,7 @@ var movie : Tween
 func play() -> Tween:
 	movie = create_tween()
 	movie.tween_callback(battle_node.focus_character.bind(focus_cog))
-	movie.tween_callback(focus_cog.speak.bind(focus_cog.dna.battle_phrases[RandomService.randi_channel('true_random') % focus_cog.dna.battle_phrases.size()]))
+	movie.tween_callback(focus_cog.speak.bind(focus_cog.dna.battle_phrases.pick_random()))
 	
 	# Start the battle music
 	movie.tween_callback(start_music)
@@ -38,7 +38,7 @@ func _skip() -> void:
 func focus_random_cog(dial := "") -> Cog:
 	if cogs.size() == 0:
 		return null
-	var cog := cogs[RandomService.randi_channel('true_random') % cogs.size()]
+	var cog: Cog = cogs.pick_random()
 	battle_node.focus_character(cog, -4.01)
 	if not dial == "":
 		cog.speak(dial)
@@ -56,7 +56,7 @@ func start_music(music : AudioStream = null) -> bool:
 		return true
 	# If all else fails, try the default battle track for the game floor
 	elif Util.floor_manager and Util.floor_manager.floor_rooms.battle_music:
-		AudioManager.set_music(Util.floor_manager.floor_rooms.battle_music)
+		AudioManager.set_music(load(Util.floor_manager.floor_rooms.battle_music))
 		return true
 	# If no track can be specified, use the fallback track
 	AudioManager.set_music(load(FALLBACK_MUSIC))
@@ -90,11 +90,11 @@ func shake_camera(cam : Camera3D, time : float, offset : float, taper := true, x
 		else:
 			new_offset = offset
 		if x:
-			cam.global_position.x = base_pos.x + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.x = base_pos.x + randf_range(-new_offset,new_offset)
 		if y:
-			cam.global_position.y = base_pos.y + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.y = base_pos.y + randf_range(-new_offset,new_offset)
 		if z:
-			cam.global_position.z = base_pos.z + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.z = base_pos.z + randf_range(-new_offset,new_offset)
 		
 		if timer.time_left <= 0 or override_shaking:
 			shaking = false

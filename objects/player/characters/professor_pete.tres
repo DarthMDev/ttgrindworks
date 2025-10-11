@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://br1jbg7nriqi6"]
+
+[ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_7qil3"]
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="1_4024h"]
+[ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_t8add"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_hvfdo"]
+[ext_resource type="Texture2D" uid="uid://bc47fggqh8gbp" path="res://models/toon/textures/clothes/shorts/desat_shorts_2.png" id="2_k07kr"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="3_t8add"]
+[ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="4_b67yf"]
+[ext_resource type="Texture2D" uid="uid://dsikqlc2iiid4" path="res://models/toon/textures/clothes/shirts/desat_shirt_1_4.png" id="5_7t0ro"]
+[ext_resource type="Texture2D" uid="uid://dh7dyokcfyw43" path="res://models/toon/textures/clothes/shirts/desat_sleeve_1.png" id="6_1n6id"]
+[ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="8_b67yf"]
+[ext_resource type="Resource" uid="uid://cgtsegmhqn4js" path="res://objects/items/resources/passive/pete_setup.tres" id="11_b67yf"]
+[ext_resource type="Resource" uid="uid://c8wjy8fdkxarx" path="res://objects/items/resources/active/gag_button.tres" id="12_7t0ro"]
+[ext_resource type="Resource" uid="uid://j2f777map5cr" path="res://objects/items/resources/passive/pete_logic.tres" id="13_1n6id"]
+
+[sub_resource type="Resource" id="Resource_7t0ro"]
+script = ExtResource("1_t8add")
+metadata/_custom_type_script = "uid://o2fe7ud1faj6"
+
+[sub_resource type="Resource" id="Resource_yqgr6"]
+script = ExtResource("1_4024h")
+texture = ExtResource("2_k07kr")
+base_color = Color(0.996078, 0.694118, 0.509804, 1)
+
+[sub_resource type="Resource" id="Resource_1di23"]
+script = ExtResource("4_b67yf")
+shirt_texture = ExtResource("5_7t0ro")
+sleeve_texture = ExtResource("6_1n6id")
+base_color = Color(0.996078, 0.898039, 0.317647, 1)
+sleeve_color = Color(0.996078, 0.898039, 0.317647, 1)
+
+[sub_resource type="Resource" id="Resource_bs6wn"]
+script = ExtResource("3_t8add")
+body_type = 1
+leg_type = 2
+species = 1
+eyelashes = false
+head_color = Color(0.192157, 0.560784, 0.772549, 1)
+torso_color = Color(0.192157, 0.560784, 0.772549, 1)
+leg_color = Color(0.192157, 0.560784, 0.772549, 1)
+shirt = SubResource("Resource_1di23")
+bottoms = SubResource("Resource_yqgr6")
+metadata/_custom_type_script = "uid://yg7gxug4rab"
+
+[resource]
+script = ExtResource("1_7qil3")
+character_id = 7
+character_name = "Professor Pete"
+character_summary = "Gags cost jellybeans, level 1 Gags are free
+Cogs drop jellybeans
+Earn bean bonuses for skilled battling
+Shop items are more enticing
+Jellybean limit of 75, excess beans earn vouchers"
+character_blurb = "Rigorous researcher of Cogology. This brave bookworm is raring to investigate the underbelly of Cogs Inc.
+"
+dna = SubResource("Resource_bs6wn")
+gag_loadout = ExtResource("8_b67yf")
+starting_laff = 30
+starting_items = Array[ExtResource("2_hvfdo")]([ExtResource("11_b67yf"), ExtResource("13_1n6id"), ExtResource("12_7t0ro")])
+base_stats = SubResource("Resource_7t0ro")
+starting_gags = Dictionary[String, int]({
+"Drop": 1,
+"Lure": 1,
+"Sound": 1,
+"Squirt": 1,
+"Throw": 1,
+"Trap": 1
+})
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.05,
+"money": 15
+})
+override_index = 5
+item_discard_tags = Array[int]([0])
+achievement_index = 27
+metadata/_custom_type_script = "uid://ts8xpgftpmty"

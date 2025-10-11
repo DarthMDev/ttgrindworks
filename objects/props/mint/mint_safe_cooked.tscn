@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://v0ki0toqb35k"]
+
+[ext_resource type="PackedScene" uid="uid://dj6hdk57qvxnq" path="res://models/props/facility_objects/mint/safe/cb_safe.fbx" id="1_wsfg1"]
+[ext_resource type="Texture2D" uid="uid://ngcq6r6rnjbn" path="res://models/props/facility_objects/mint/safe/CBSafe2.png" id="2_blgbs"]
+[ext_resource type="Texture2D" uid="uid://cys44dv1h061j" path="res://models/props/facility_objects/mint/safe/CBSafe1c.png" id="3_noycm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noycm"]
+resource_name = "CBSafeSide_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.50980395, 0.42352942, 0.36862746, 0.8)
+albedo_texture = ExtResource("2_blgbs")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjx6y"]
+resource_name = "CBSafeSide_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.50980395, 0.42352942, 0.36862746, 0.8)
+albedo_texture = ExtResource("2_blgbs")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh4og"]
+resource_name = "CBSafe1_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.50980395, 0.42352942, 0.36862746, 0.8)
+albedo_texture = ExtResource("3_noycm")
+emission_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_636jk"]
+size = Vector3(1.71588, 3.12805, 1.70746)
+
+[node name="cb_safe_cooked" instance=ExtResource("1_wsfg1")]
+
+[node name="GeometryTransformHelper4" parent="CBSafe/CBSafeBase/SafeFeet" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_noycm")
+
+[node name="GeometryTransformHelper2" parent="CBSafe/CBSafeTop" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yjx6y")
+surface_material_override/1 = SubResource("StandardMaterial3D_fh4og")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CBSafe/CBSafeTop/GeometryTransformHelper2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CBSafe/CBSafeTop/GeometryTransformHelper2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00454712, 1.56838, -0.000335693)
+shape = SubResource("BoxShape3D_636jk")

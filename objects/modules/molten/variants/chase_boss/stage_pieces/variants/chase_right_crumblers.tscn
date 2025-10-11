@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://byjy8a3m60lj2"]
+
+[ext_resource type="PackedScene" uid="uid://bvvgcey6fvwng" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_right.tscn" id="1_c4rq2"]
+[ext_resource type="PackedScene" uid="uid://y1emadjev56j" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_chase_platform_metal.tscn" id="2_nn51n"]
+[ext_resource type="PackedScene" uid="uid://djvrtjc5rtti4" path="res://objects/obstacles/crumbling_platform/crumbling_platform.tscn" id="3_yxthf"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="4_yxthf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4rq2"]
+
+[node name="molten_hall_right" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_c4rq2")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="molten_hall_platform_metal" parent="." index="6" instance=ExtResource("2_nn51n")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.62128, 1.09407, 11.7883)
+
+[node name="molten_hall_platform_metal2" parent="." index="7" instance=ExtResource("2_nn51n")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 12.4288, 1.09407, -9.31532)
+
+[node name="CrumblingPlatform" parent="." index="8" instance=ExtResource("3_yxthf")]
+transform = Transform3D(-0.16823177, 0, 0.6278519, 0, 0.65, 0, -0.6278519, 0, -0.16823177, -11.4433, 0.413159, 3.03488)
+player_crumble = true
+crumble_time = 2.0
+
+[node name="CrumblingPlatform3" parent="." index="9" instance=ExtResource("3_yxthf")]
+transform = Transform3D(0.5729601, 0, 0.30694747, 0, 0.6499999, 0, -0.30694747, 0, 0.5729601, -7.38976, 0.441593, -4.42957)
+player_crumble = true
+crumble_time = 2.0
+
+[node name="CrumblingPlatform2" parent="." index="10" instance=ExtResource("3_yxthf")]
+transform = Transform3D(0.45961937, 0, 0.45961937, 0, 0.65, 0, -0.45961937, 0, 0.45961937, -1.758018, 0.413159, 1.2957983)
+player_crumble = true
+crumble_time = 2.0
+
+[node name="CrumblingPlatform4" parent="." index="11" instance=ExtResource("3_yxthf")]
+transform = Transform3D(0.62785155, 0, 0.16823307, 0, 0.65, 0, -0.16823307, 0, 0.62785155, 2.1734715, 0.441593, -7.2657824)
+player_crumble = true
+crumble_time = 2.0
+
+[node name="RespawnPoints" type="Node3D" parent="." index="12"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.86107, 4.97449, 12.4209)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.89576, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466888, 0, 1.89425)
+shape = SubResource("BoxShape3D_c4rq2")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4754, 5.0401, -9.43199)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26411, -3.96136, -0.08393)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -8.92726, 0, 1.38336)
+shape = SubResource("BoxShape3D_c4rq2")
+
+[node name="DebugPlayerPositionMarker" parent="." index="13" instance=ExtResource("4_yxthf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6822, 1.06218, 11.4192)

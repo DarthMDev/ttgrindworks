@@ -34,3 +34,10 @@ func setup(item: Item) -> void:
 	# NOTE: This count includes the item itself, so max is ok. Its only when OVER max that it becomes a problem.
 	if pickup_count > Globals.MaxToonupConsumables:
 		item.reroll()
+	
+	if Util.get_player().revives_are_hp and movie_type == ToonUp.MovieType.PIXIE:
+		oldman_setup(item)
+
+func oldman_setup(item: Item) -> void:
+	item.item_description = "Life insurance."
+	item.big_description = "Lasts 1 round\nCannot lose last life"

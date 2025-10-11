@@ -1,5 +1,4 @@
 extends BattleStartMovie
-class_name ClownBossIntro
 
 
 const SFX_PIANO_TUNA := preload("res://audio/sfx/misc/Piano_Tuna.ogg")
@@ -17,25 +16,25 @@ func _skip() -> void:
 func play() -> Tween:
 	
 	# Get all cog actors for cutscene
-	var clown1 : Cog = battle_node.cogs[1]
-	var clown2 : Cog = battle_node.cogs[2]
-	var cog1 : Cog = battle_node.cogs[0]
-	var cog2 : Cog = battle_node.cogs[3]
+	var clown1: Cog = battle_node.cogs[1]
+	var clown2: Cog = battle_node.cogs[2]
+	var cog1: Cog = battle_node.cogs[0]
+	var cog2: Cog = battle_node.cogs[3]
 	
 	# Get the player
 	var player := Util.get_player()
 	
 	# Get the boss fight root
-	var root : Node3D = battle_node.get_parent()
+	var root: Node3D = battle_node.get_parent()
 	
 	# Get the elevator
-	var elevator : Elevator = root.get_node('Elevator')
+	var elevator: Elevator = root.get_node('Elevator')
 	
 	# Get memo
-	var memo : Node3D = root.get_node('Memo')
+	var memo: Node3D = root.get_node('Memo')
 	
 	# Get the camera angle refs
-	var cam_angles : Node3D = root.get_node('CameraAngles')
+	var cam_angles: Node3D = root.get_node('CameraAngles')
 	
 	# Get character postions
 	var char_positions := root.get_node('CharPositions')
@@ -45,7 +44,7 @@ func play() -> Tween:
 		camera.reparent(battle_node)
 	
 	# For boo shot
-	var speech_node : Node3D = char_positions.get_node('DialPos')
+	var speech_node: Node3D = char_positions.get_node('DialPos')
 	
 	# Snap player to the floor if possible
 	player.global_position.y = battle_node.global_position.y
@@ -75,9 +74,10 @@ func play() -> Tween:
 	# Toon reads note
 	movie.tween_callback(camera.make_current)
 	movie.tween_callback(memo.reparent.bind(player.toon.right_hand_bone))
-	movie.tween_callback(memo.set_position.bind(Vector3(0.6,0,0.75)))
-	movie.tween_callback(memo.set_rotation_degrees.bind(Vector3(-40.5,-22.5,-80.0)))
-	movie.tween_callback(player.set_animation.bind('book_neutral'))
+	movie.tween_callback(memo.set_position.bind(get_note_pos()))
+	movie.tween_callback(memo.set_scale.bind(Vector3(5.0, 5.0, 5.0)))
+	movie.tween_callback(memo.set_rotation_degrees.bind(get_note_rotation()))
+	movie.tween_callback(player.toon.start_anim_subloop.bind('book', 1.5, 4.85))
 	movie.tween_callback(player.toon.set_eyes.bind(Toon.Emotion.CURIOUS))
 	movie.tween_callback(set_camera_angle.bind(cam_angles.get_node('CloseupPos')))
 	movie.tween_callback(camera.global_translate.bind(Vector3(0,2,0)))
@@ -85,15 +85,17 @@ func play() -> Tween:
 	movie.tween_interval(2.0)
 	
 	# Note Shot
-	movie.tween_callback(player.animator.seek.bind(0.0))
 	movie.tween_callback(player.toon.set_eyes.bind(Toon.Emotion.NEUTRAL))
 	movie.tween_callback(player.toon.head.hide)
 	movie.tween_callback(camera.reparent.bind(player.toon.head_bone))
+	movie.tween_callback(player.toon.glasses_node.hide)
 	movie.tween_callback(camera.set_position.bind(Vector3.ZERO))
-	movie.tween_callback(camera.set_rotation_degrees.bind(Vector3(0,180,0)))
+	movie.tween_callback(camera.set_rotation_degrees.bind(Vector3(0,0.0,0)))
 	movie.tween_interval(6.0)
+	movie.tween_callback(player.toon.glasses_node.show)
 	movie.tween_callback(player.toon.head.show)
 	movie.tween_callback(camera.reparent.bind(battle_node))
+	movie.tween_callback(player.toon.stop_anim_subloop)
 	movie.tween_callback(player.set_animation.bind('neutral'))
 
 	# Toon turns around
@@ -121,7 +123,7 @@ func play() -> Tween:
 			bubble.label.position *= 2.0
 			AudioManager.play_sound(clown1.statement)
 	)
-	movie.tween_callback(player.set_animation.bind('slip_backward'))
+	movie.tween_callback(player.set_animation.bind('slip-backward'))
 	movie.tween_callback(player.toon.set_emotion.bind(Toon.Emotion.SURPRISE))
 	movie.tween_interval(0.6)
 	movie.tween_callback(AudioManager.play_sound.bind(SFX_FALL))
@@ -175,3 +177,23 @@ func play() -> Tween:
 
 func set_camera_angle(node : Node3D) -> void:
 	battle_node.battle_cam.global_transform = node.global_transform
+
+## Bodies need different note transforms for some reason :)
+func get_note_pos() -> Vector3:
+	match get_body_type():
+		ToonDNA.BodyType.LARGE:
+			return Vector3(-0.115, 0.38, -1.23)
+		ToonDNA.BodyType.SMALL:
+			return Vector3(-0.885, 0.114, -0.92)
+	return Vector3(-0.47, -0.0555, -0.825)
+
+func get_note_rotation() -> Vector3:
+	match get_body_type():
+		ToonDNA.BodyType.LARGE:
+			return Vector3(-28.0, 109.0, -58.5)
+		ToonDNA.BodyType.SMALL:
+			return Vector3(-49.0, 157.5, -90.0)
+	return Vector3(-40.5, 157.5, -80.0)
+
+func get_body_type() -> ToonDNA.BodyType:
+	return Util.get_player().toon.toon_dna.body_type

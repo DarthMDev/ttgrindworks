@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yu15nnc5gm1r"]
+[gd_scene load_steps=13 format=3 uid="uid://yu15nnc5gm1r"]
 
 [ext_resource type="PackedScene" uid="uid://blrbxv7xr3fhq" path="res://objects/modules/office/base_rooms/office_puzzle_long_room.tscn" id="1_65xoy"]
 [ext_resource type="Script" uid="uid://oh8ow6s4svm6" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.gd" id="2_h8r4s"]
@@ -8,12 +8,12 @@
 [ext_resource type="Script" uid="uid://bfds4ecmwyos7" path="res://objects/battle/battle_resources/misc_movies/battle_entrances/battle_start_movie.gd" id="7_3yg42"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="10_iclto"]
 [ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="10_meflt"]
+[ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="11_iclto"]
 [ext_resource type="PackedScene" uid="uid://sd8lfcjqv38j" path="res://objects/interactables/pressure_button/pressure_button.tscn" id="16_7qehg"]
 [ext_resource type="Script" uid="uid://bbdjshdi7ojl" path="res://objects/interactables/lawbot_puzzles/puzzle_memory.gd" id="17_lyoio"]
 
 [sub_resource type="Resource" id="Resource_meflt"]
 script = ExtResource("7_3yg42")
-skippable = false
 metadata/_custom_type_script = "uid://bfds4ecmwyos7"
 
 [node name="office_puzzle_long_room" instance=ExtResource("1_65xoy")]
@@ -38,6 +38,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 override_intro = SubResource("Resource_meflt")
 item_pool = null
+is_punishment_battle = true
 
 [node name="Cog" parent="BattleNode" index="3" instance=ExtResource("6_h8r4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49264, 0, 0)
@@ -99,6 +100,13 @@ item_pool = ExtResource("10_meflt")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.24937, 0, 33.046)
 override_replacement_rolls = true
 item_pool = ExtResource("10_meflt")
+
+[node name="PrankCharger" type="Node" parent="." index="13" node_paths=PackedStringArray("signals")]
+script = ExtResource("11_iclto")
+signals = {
+NodePath("../PuzzleMemory"): "s_win"
+}
+metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
 
 [connection signal="s_pressed" from="PressureButton" to="." method="show_puzzle"]
 [connection signal="s_pressed" from="PressureButton" to="PuzzleMemory" method="show_correct_path"]

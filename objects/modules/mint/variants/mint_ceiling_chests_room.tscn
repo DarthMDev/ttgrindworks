@@ -85,7 +85,7 @@ func button_pressed(_button : CogButton) -> void:
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_axug8"]
 data = PackedVector3Array(6, 0, 1, -6, 0, 1, 6, 0, -1, -6, 0, 1, -6, 0, -1, 6, 0, -1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfg4t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhlr1"]
 render_priority = 1
 transparency = 1
 cull_mode = 2
@@ -94,7 +94,7 @@ uv1_scale = Vector3(5, 9.745, 1)
 uv1_offset = Vector3(0, 0.23, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_js7aa"]
-material = SubResource("StandardMaterial3D_pfg4t")
+material = SubResource("StandardMaterial3D_yhlr1")
 size = Vector2(12, 21)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vxolb"]

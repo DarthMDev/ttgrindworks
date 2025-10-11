@@ -33,7 +33,7 @@ func play() -> Tween:
 	
 	# Make focus cog say a line
 	movie.tween_callback(battle_node.focus_character.bind(focus_cog))
-	movie.tween_callback(focus_cog.speak.bind(openers[RandomService.randi_channel('true_random') % openers.size()]))
+	movie.tween_callback(focus_cog.speak.bind(openers.pick_random()))
 	movie.tween_interval(3.0)
 	
 	return movie

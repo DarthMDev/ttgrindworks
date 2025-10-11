@@ -42,10 +42,10 @@ func _on_brush_off_body_entered(_body: Node3D) -> void:
 		can_interact = true
 
 func pick_phrase() -> String:
-	var phrases := PHRASES.duplicate()
+	var phrases := PHRASES.duplicate(true)
 	if last_phrase_idx != -1:
 		phrases.erase(PHRASES[last_phrase_idx])
-	var new_phrase: String = phrases[RandomService.randi_channel('true_random') % phrases.size()]
+	var new_phrase: String = phrases.pick_random()
 	last_phrase_idx = PHRASES.find(new_phrase)
 	return new_phrase
 

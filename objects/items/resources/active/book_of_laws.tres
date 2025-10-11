@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dvlis7mm2c6qn"]
+
+[ext_resource type="PackedScene" uid="uid://chehnymhm3svv" path="res://models/props/facility_objects/da_office/law_book/lawbook.tscn" id="1_14iix"]
+[ext_resource type="Texture2D" uid="uid://dojc0hrcrx15i" path="res://ui_assets/player_ui/pocket_prank_icons/book_of_laws.png" id="1_cos3f"]
+[ext_resource type="Script" uid="uid://c68gjgutk8h1e" path="res://objects/items/custom/item_law_book.gd" id="1_nvgwv"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_olj8p"]
+
+[resource]
+script = ExtResource("1_olj8p")
+active_type = 1
+charge_count = 4
+current_charge = 4
+qualitoon = 2
+world_scale = 0.5
+item_name = "Book of Laws"
+item_description = "Know your rights."
+big_description = "Skips all Cog turns for one round, but grants Cogs a 20% Damage boost"
+model = ExtResource("1_14iix")
+item_script = ExtResource("1_nvgwv")
+icon = ExtResource("1_cos3f")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+unlock_achievement = 31
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

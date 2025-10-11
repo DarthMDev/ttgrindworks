@@ -480,7 +480,7 @@ _data = {
 &"walknreach": ExtResource("55_awdup")
 }
 
-[node name="suita" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "department_emblem", "health_meter", "nametag_node", "nametag", "head_node", "head_bone", "left_hand_bone", "right_hand_bone", "right_index_bone", "health_bone", "color_overlay_meshes") instance=ExtResource("1_dqh8a")]
+[node name="suita" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "department_emblem", "health_meter", "nametag_node", "nametag", "head_node", "head_bone", "left_hand_bone", "right_hand_bone", "right_index_bone", "shadow_bone", "health_bone", "color_overlay_meshes") instance=ExtResource("1_dqh8a")]
 script = ExtResource("2_gqcip")
 skeleton = NodePath("rig_deform/Skeleton3D")
 animator = NodePath("AnimationPlayer")
@@ -494,6 +494,7 @@ head_bone = NodePath("rig_deform/Skeleton3D/HeadBone")
 left_hand_bone = NodePath("rig_deform/Skeleton3D/LeftHandBone")
 right_hand_bone = NodePath("rig_deform/Skeleton3D/RightHandBone")
 right_index_bone = NodePath("rig_deform/Skeleton3D/RightIndexBone")
+shadow_bone = NodePath("rig_deform/Skeleton3D/ShadowBone")
 health_bone = NodePath("rig_deform/Skeleton3D/HealthBone")
 color_overlay_meshes = [NodePath("rig_deform/Skeleton3D/arms"), NodePath("rig_deform/Skeleton3D/hands"), NodePath("rig_deform/Skeleton3D/legs"), NodePath("rig_deform/Skeleton3D/Object"), NodePath("rig_deform/Skeleton3D/torso")]
 
@@ -601,6 +602,11 @@ bone_idx = 34
 transform = Transform3D(0.0102173, 0.999676, -0.023322, -0.023322, 0.023555, 0.99945, 0.999676, -0.00966775, 0.023555, 6.00586, 6.67896, -0.071448)
 bone_name = "DEF-f_index.02.R"
 bone_idx = 43
+
+[node name="ShadowBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="10"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+bone_name = "ATTACH-shadow"
+bone_idx = 0
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

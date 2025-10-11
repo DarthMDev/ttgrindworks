@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://chdkp682v5kgu" path="res://objects/modules/factory/base_rooms/factory_paint_mixer.tscn" id="1_owb7g"]
 [ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="2_718mm"]
-[ext_resource type="Script" uid="uid://d0osnx7cfdtd6" path="res://objects/modules/factory/variants/factory_paint_mixer_platforms.gd" id="2_j5qgc"]
 [ext_resource type="Script" uid="uid://0v6jh8nv5lnx" path="res://objects/obstacles/lava_floor/lava_floor.gd" id="3_so2ux"]
+[ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="5_j5qgc"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="5_ldx13"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7s7ng"]
@@ -11,7 +11,6 @@ height = 2.18952
 radius = 11.2593
 
 [node name="FactoryPaintMixer" instance=ExtResource("1_owb7g")]
-script = ExtResource("2_j5qgc")
 
 [node name="faucet1" parent="Model/ZONE10/paintmixer/props6/Faucets" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9116, -32.9268, -285.397)
@@ -34,46 +33,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.28, 0, -101.269)
 
 [node name="PaintPlatform" parent="Platforms" index="0" instance=ExtResource("2_718mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82362, 4.59213, -1.87728)
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(-5.39073, 4.59213, 2.6108)])
-
-[node name="PaintMixerBase" parent="Platforms/PaintPlatform" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="ShaftCollide" parent="Platforms/PaintPlatform" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform2" parent="Platforms" index="1" instance=ExtResource("2_718mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129311, 7.20168, 2.74741)
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(-0.731133, 4.59213, 4.99598)])
-
-[node name="PaintMixerBase" parent="Platforms/PaintPlatform2" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="ShaftCollide" parent="Platforms/PaintPlatform2" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform3" parent="Platforms" index="2" instance=ExtResource("2_718mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041, 7.202, -1.572)
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(0.78405, 4.592, -5.74721)])
-
-[node name="PaintMixerBase" parent="Platforms/PaintPlatform3" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="ShaftCollide" parent="Platforms/PaintPlatform3" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform4" parent="Platforms" index="3" instance=ExtResource("2_718mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90295, 4.592, 2.70421)
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(5.0893, 4.592, -3.93958)])
-
-[node name="PaintMixerBase" parent="Platforms/PaintPlatform4" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="PaintMixerTop_001" parent="Platforms/PaintPlatform4" index="1"]
-transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, -0.140648)
-
-[node name="ShaftCollide" parent="Platforms/PaintPlatform4" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="treasure_chest" parent="." index="9" instance=ExtResource("5_ldx13")]
 unique_name_in_owner = true
@@ -86,9 +62,12 @@ transform = Transform3D(-0.114038, 0.0118555, -0.993406, -0.0850342, 0.996143, 0
 [node name="RespawnPoint" type="Node3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5366, 4.59873, -103.329)
 
-[connection signal="body_entered" from="LavaFloor" to="LavaFloor" method="body_entered"]
+[node name="NodeRandomizer" type="Node" parent="." index="12" node_paths=PackedStringArray("targets")]
+script = ExtResource("5_j5qgc")
+chance_type = 1
+chance = 1.0
+random_channel = "factory_paint_mixer_chest"
+targets = [NodePath("../treasure_chest"), NodePath("../treasure_chest2")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
 
-[editable path="Platforms/PaintPlatform"]
-[editable path="Platforms/PaintPlatform2"]
-[editable path="Platforms/PaintPlatform3"]
-[editable path="Platforms/PaintPlatform4"]
+[connection signal="body_entered" from="LavaFloor" to="LavaFloor" method="body_entered"]

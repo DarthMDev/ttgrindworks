@@ -7,12 +7,13 @@ const DROP_SHADOW := preload("res://objects/misc/drop_shadow/drop_shadow.tscn")
 const SFX_FALL := preload("res://audio/sfx/battle/gags/drop/incoming_whistleALT.ogg")
 const SFX_HIT := preload("res://audio/sfx/items/clock05.ogg")
 
+
+func validate_use() -> bool:
+	return Util.get_player().is_on_floor() and not get_all_battles().is_empty()
+
 func use() -> void:
 	var player := Util.get_player()
 	var battles := get_all_battles()
-	if not player.is_on_floor() or battles.is_empty():
-		cancel_use()
-		return
 	
 	var cogs: Array[Cog] = []
 	for battle in battles:
@@ -32,7 +33,7 @@ func make_tween(player: Player, cogs: Array[Cog]) -> Tween:
 	player.state = Player.PlayerState.STOPPED
 	
 	var tween := create_tween()
-	tween.tween_callback(player.set_animation.bind('button_press'))
+	tween.tween_callback(player.set_animation.bind('press-button'))
 	tween.tween_interval(2.3)
 	tween.tween_callback(AudioManager.play_sound.bind(SFX_PRESS))
 	

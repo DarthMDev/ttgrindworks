@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/Catwalk_Straight_Spacious.fbx-9cc1cbbed65a49e
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,26 +34,34 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "FINALFACTORY_2": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_2.tres"
+"use_external/fallback_path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_2.tres",
+"use_external/path": "uid://xgodn67fgp8l"
 },
 "FINALFACTORY_65": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_65.tres"
+"use_external/fallback_path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_65.tres",
+"use_external/path": "uid://bqc31140pw6nh"
 },
 "FINALFACTORY_66": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_66.tres"
+"use_external/fallback_path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_66.tres",
+"use_external/path": "uid://bn21eb8hlb2kt"
 },
 "FINALFACTORY_67": {
 "use_external/enabled": true,
-"use_external/path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_67.tres"
+"use_external/fallback_path": "res://models/facilities/factory/materials/catwalk/FINALFACTORY_67.tres",
+"use_external/path": "uid://bmk2tuidlpq8i"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

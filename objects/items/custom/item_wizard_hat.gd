@@ -42,11 +42,11 @@ func check_action(action: ToonAttack, cog: Cog) -> bool:
 
 func swap_target(action: ToonAttack, cog: Cog) -> bool:
 	var battle := BattleService.ongoing_battle
-	var cogs := battle.cogs.duplicate()
+	var cogs := battle.cogs.duplicate(true)
 	cogs.erase(cog)
 	if cogs.is_empty():
 		return false
-	var new_target : Cog = RandomService.array_pick_random('true_random', cogs)
+	var new_target: Cog = cogs.pick_random()
 	
 	# Splash retargeting
 	if action.target_type == BattleAction.ActionTarget.ENEMY_SPLASH:

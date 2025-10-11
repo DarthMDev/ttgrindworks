@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://0auoy6j35ba4"]
+
+[ext_resource type="Script" uid="uid://jwo6uky8aoae" path="res://objects/interactables/pushable/pushable_component.gd" id="1_x5jiu"]
+
+[node name="PushableComponent" type="Area3D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_x5jiu")
+
+[node name="DebugArrows" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="PosXArrow" type="Label3D" parent="DebugArrows"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0, 0)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "===>"
+font_size = 320
+outline_size = 120
+
+[node name="NegXArrow" type="Label3D" parent="DebugArrows"]
+unique_name_in_owner = true
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -2, 0, 0)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "===>"
+font_size = 320
+outline_size = 120
+
+[node name="PosZArrow" type="Label3D" parent="DebugArrows"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 2)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "===>"
+font_size = 320
+outline_size = 120
+
+[node name="NegZArrow" type="Label3D" parent="DebugArrows"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, -2)
+visible = false
+no_depth_test = true
+render_priority = 100
+outline_render_priority = 99
+text = "===>"
+font_size = 320
+outline_size = 120
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+update_rotation = false
+update_scale = false

@@ -21,7 +21,10 @@ var state := BattleState.INACTIVE
 @export var override_intro: BattleStartMovie
 @export var item_pool: ItemPool
 @export var boss_battle := false
-@export var override_camera_angles : Dictionary[String, Transform3D] = {}
+@export var override_camera_angles: Dictionary[String, Transform3D] = {}
+
+## Marks whether or not Cogs in this battle will be counted towards Quests/Item Benefits
+@export var is_punishment_battle := false
 
 # Child References
 @onready var battle_cam := $BirdsEye/BattleCamera
@@ -39,13 +42,13 @@ var player_pos: Vector3:
 		return global_position + (global_transform.basis.z * cog_toon_distance * .66)
 var mod_cogs := 0
 
-var hidden_objects : Dictionary[Node3D, Node3D] = {}
+var hidden_objects: Dictionary[Node3D, Node3D] = {}
 
 func _ready():
 	$ArrowReference.queue_free()
 	
 	for cog: Cog in cogs:
-		if RandomService.randf_channel('mod_cog_chance') < get_mod_cog_chance() and not cog.has_forced_dna and not cog.virtual_cog:
+		if RNG.channel(RNG.ChannelModCogChance).randf() < get_mod_cog_chance() and not cog.has_forced_dna and not cog.virtual_cog:
 			cog.dna = null
 			mod_cogs += 1
 			cog.use_mod_cogs_pool = true
@@ -56,7 +59,7 @@ func _ready():
 	BattleService.s_battle_spawned.emit(self)
 
 func body_entered(body: Node3D):
-	if body is Player:
+	if body is Player and not body.ignore_battles:
 		s_player_entered.emit(body)
 
 func player_entered(player : Player):
@@ -71,7 +74,7 @@ func player_entered(player : Player):
 	# Free the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if player.state != Player.PlayerState.WALK:
+	if not player.controller.current_state.accepts_interaction():
 		return
 	player.state = Player.PlayerState.STOPPED
 	player.set_animation('neutral')
@@ -85,7 +88,7 @@ func player_entered(player : Player):
 	
 	# Focus a cog
 	if not focus_cog:
-		focus_cog = cogs[RandomService.randi_channel('true_random') % cogs.size()]
+		focus_cog = cogs.pick_random()
 	
 	# Turn on battle cam
 	battle_cam.current = true
@@ -95,7 +98,7 @@ func player_entered(player : Player):
 	if override_intro:
 		movie = override_intro
 	elif focus_cog.dna.battle_start_movie:
-		movie = focus_cog.dna.battle_start_movie.duplicate()
+		movie = load(focus_cog.dna.battle_start_movie).duplicate(true)
 	else:
 		movie = BattleStartMovie.new()
 	
@@ -207,7 +210,7 @@ func focus_character(character: Node3D, cam_dist := 4.0, dir := -1):
 			if dir >= 0 and positions.size() > dir:
 				battle_cam.position.x += positions[dir]
 			else:
-				battle_cam.position.x += positions[RandomService.randi_channel('true_random') % 2]
+				battle_cam.position.x += positions[randi() % 2]
 			
 			battle_cam.look_at(character.head_node.global_position)
 		else:
@@ -297,8 +300,6 @@ func get_mod_cog_chance() -> float:
 	if not SaveFileService.progress_file.proxies_unlocked:
 		return 0.0
 
-	var test : CogPool = Globals.GRUNT_COG_POOL
-
 	var floor_num := Util.floor_number
 	var max_mod_cogs := mini(roundi(floor_num * 0.75), 3)
 	if mod_cogs >= max_mod_cogs:
@@ -349,7 +350,7 @@ func fade_node_and_children(node: Node3D):
 			for i in range(mesh_node.get_surface_override_material_count()):
 				var material: BaseMaterial3D = mesh_node.get_surface_override_material(i)
 				if material:
-					material = material.duplicate()
+					material = material.duplicate(true)
 					material.set_meta("original_color", material.albedo_color)
 					material.set_meta("original_transparency", material.transparency)
 					material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA

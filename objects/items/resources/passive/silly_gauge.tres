@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://bmmwqksn8dn5y"]
+
+[ext_resource type="Texture2D" uid="uid://6dh2fxdcvj16" path="res://models/props/toon_props/silly_meter_parts/gauge_part-pix-1.png" id="1_1d1gj"]
+[ext_resource type="Script" uid="uid://r5bkrv2vro45" path="res://objects/items/custom/item_silly_gauge.gd" id="2_1d1gj"]
+[ext_resource type="PackedScene" uid="uid://b6oh1w7qyispq" path="res://models/props/toon_props/silly_meter_parts/gauge_part.tscn" id="3_one0b"]
+[ext_resource type="AudioStream" uid="uid://dypcymhh4a4b" path="res://audio/sfx/items/tt_s_prp_sillyMeterPhaseOne_mono.ogg" id="4_1d1gj"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="5_mweqk"]
+
+[resource]
+script = ExtResource("5_mweqk")
+qualitoon = 4
+rarity = 6
+world_scale = 0.6
+world_y_offset = -0.1
+item_name = "Dilly Dial"
+item_description = "Silly Surge!"
+big_description = "Gain a random 2-4% stat boost on Pocket Prank use"
+model = ExtResource("3_one0b")
+pickup_sfx = ExtResource("4_1d1gj")
+item_script = ExtResource("2_1d1gj")
+icon = ExtResource("1_1d1gj")
+shop_category_title = "Special Item"
+shop_category_color = Color(0.6, 0.2, 1, 1)
+force_show_shop_category = true
+unlock_achievement = 33

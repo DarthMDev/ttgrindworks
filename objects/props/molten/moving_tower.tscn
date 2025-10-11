@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://k44r7tk128hb"]
+
+[ext_resource type="PackedScene" uid="uid://ddtouup2q1rgt" path="res://models/props/facility_objects/molten/towers/MovingTower.fbx" id="1_ohsji"]
+[ext_resource type="Texture2D" uid="uid://nmuxgdvu0rjq" path="res://models/props/facility_objects/molten/towers/CBStationStripes2.png" id="2_p1y4m"]
+[ext_resource type="Texture2D" uid="uid://b56p3ljtnxepo" path="res://models/props/facility_objects/molten/towers/FINALFACTORY_101.png" id="3_kmrrc"]
+[ext_resource type="Texture2D" uid="uid://b60st1rya7drs" path="res://models/props/facility_objects/molten/towers/FINALFACTORY_9.png" id="4_3fjtg"]
+[ext_resource type="Texture2D" uid="uid://bjiu0siucxue4" path="res://models/props/facility_objects/molten/towers/FINALFACTORY_66.png" id="5_k1lur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ep510"]
+resource_name = "CBStationStripes2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_p1y4m")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7206e"]
+resource_name = "FINALFACTORY_101"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_kmrrc")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jp8l"]
+resource_name = "FINALFACTORY_9"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("4_3fjtg")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2lp2"]
+resource_name = "FINALFACTORY_66"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_k1lur")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ohsji"]
+points = PackedVector3Array(-0.014600851, -0.01464355, -0.030067373, -0.014600851, 0.01464355, -0.030067373, 0.014600851, -0.01464355, -0.030067373, -0.014600851, -0.01464355, 0.032005, 0.014600851, 0.01464355, -0.030067373, -0.014600851, 0.01464355, 0.032005, 0.014600851, -0.01464355, 0.032005, 0.014600851, 0.01464355, 0.032005)
+
+[node name="MovingTower" instance=ExtResource("1_ohsji")]
+
+[node name="MovingPillar" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ep510")
+surface_material_override/1 = SubResource("StandardMaterial3D_7206e")
+surface_material_override/2 = SubResource("StandardMaterial3D_3jp8l")
+surface_material_override/3 = SubResource("StandardMaterial3D_i2lp2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MovingPillar" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPillar/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ohsji")

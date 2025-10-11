@@ -4,11 +4,5 @@
 
 [resource]
 script = ExtResource("1_rdyvm")
-accuracy = 75
-damage = 1
-ignore_stats = false
-summary = ""
 attack_lines = Array[String](["You've been disconnected.", "Good bye!", "It's time I end our connection.", "...and don't call back!", "Click!", "This conversation is over.", "I'm severing this link.", "I think you have a few hang ups.", "It appears you've got a weak link.", "Your time is up.", "I hope you receive this loud and clear.", "You got the wrong number."])
-target_type = 0
 action_name = "Hang Up"
-one_time_use = false

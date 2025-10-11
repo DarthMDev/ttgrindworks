@@ -43,6 +43,23 @@ extends Node
 ##     add_child(GameLoader.load('res://my_other_scene.tscn'))
 ## [/codeblock]
 
+const HINT_PREFIX := '!GL!'
+const FILE_ARRAY_HINT_PREFIX := '4/44:'
+const FILE := PROPERTY_HINT_FILE_PATH
+const FILE_ARRAY := PROPERTY_HINT_TYPE_STRING
+
+const SCENE := '*.tscn,*.glb,*.gltf'
+const SCENE_ARRAY := FILE_ARRAY_HINT_PREFIX + '*.tscn,*.glb,*.gltf'
+
+const RESOURCE := '*.tres'
+const RESOURCE_ARRAY := FILE_ARRAY_HINT_PREFIX + '*.tres'
+
+const AUDIO_STREAM := '*.ogg'
+const AUDIO_STREAM_ARRAY := FILE_ARRAY_HINT_PREFIX + '*.ogg'
+
+const TEXTURE := '*.png,*.jpg,*.jpeg'
+const TEXTURE_ARRAY := FILE_ARRAY_HINT_PREFIX + '*.png,*.jpg,*.jpeg'
+
 const NO_LOADER_ASSURANCE := 'no_loader_assurance'
 enum Phase {
 	## Game Start Phase: Anything that is worth waiting on the initial game
@@ -109,11 +126,11 @@ func load_all():
 	if current_phase != Phase.GAME_START:
 		return
 	phase_complete.connect(_load_next_phase)
-	load_phase(Phase.GAME_START + 1)
+	load_phase((Phase.GAME_START + 1) as Phase)
 	
 func _load_next_phase(last_phase: Phase):
 	if last_phase + 1 < Phase.END:
-		load_phase(last_phase + 1)
+		load_phase((last_phase + 1) as Phase)
 
 ## Starts loading the [param phase]. If [param blocking] is [code]false[/code],
 ## this load happens on a thread.

@@ -5,10 +5,10 @@ enum ToonPose {
 }
 var pose := ToonPose.VICTORY
 const POSE_ANIMS := {
-	ToonPose.VICTORY : 'victory_dance'
+	ToonPose.VICTORY : 'victory-dance'
 }
 const POSE_TIMES := {
-	ToonPose.VICTORY : 4.3667
+	ToonPose.VICTORY : 4.2667
 }
 
 const TOON_SCALE := 2.45
@@ -35,25 +35,20 @@ func _ready() -> void:
 
 func retexture_toon() -> void:
 	toon.body.shirt.get_surface_override_material(0).albedo_texture = SHIRT_TEX
-	toon.body.sleeve_left.get_surface_override_material(0).albedo_texture = SLEEVE_TEX
+	toon.body.sleeves.get_surface_override_material(0).albedo_texture = SLEEVE_TEX
 	if toon.toon_dna.skirt:
 		toon.body.bottoms.get_surface_override_material(0).albedo_texture = SKIRT_TEX
 	else:
 		toon.body.bottoms.get_surface_override_material(0).albedo_texture = SHORTS_TEX
 
 func color_toon() -> void:
-	var meshes : Array[MeshInstance3D] = []
-	for child in toon.body.skeleton.get_children():
-		if child is MeshInstance3D:
-			meshes.append(child)
-	for child in get_all_children(toon.head):
-		if child is MeshInstance3D:
-			meshes.append(child)
+	var meshes: Array[MeshInstance3D] = []
+	meshes.assign(NodeGlobals.get_children_of_type(toon.body_node, MeshInstance3D, true))
 	
 	for mesh in meshes:
 		for i in mesh.mesh.get_surface_count():
 			if not mesh.get_surface_override_material(i):
-				mesh.set_surface_override_material(i, mesh.mesh.surface_get_material(i).duplicate())
+				mesh.set_surface_override_material(i, mesh.mesh.surface_get_material(i).duplicate(true))
 			stonify(mesh.get_surface_override_material(i))
 
 func get_all_children(node : Node) -> Array[Node]:
@@ -69,14 +64,15 @@ func get_all_children(node : Node) -> Array[Node]:
 func stonify(material : StandardMaterial3D) -> void:
 	material.albedo_color = Color.WHITE
 	material.vertex_color_use_as_albedo = false
-	material.next_pass = material.duplicate()
+	material.next_pass = material.duplicate(true)
 	material.next_pass.albedo_texture = STONE_TEX
 	material.next_pass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material.next_pass.albedo_color = Color(0.5, 0.5, 0.5, 0.75)
 
 func pose_toon() -> void:
 	toon.set_animation(POSE_ANIMS[pose])
-	toon.animator.seek(POSE_TIMES[pose], true)
-	toon.animator.pause()
+	for animator in toon.animators:
+		animator.seek(POSE_TIMES[pose], true)
+		Task.delay(0.1).connect(animator.pause)
 
 @export var test : Color

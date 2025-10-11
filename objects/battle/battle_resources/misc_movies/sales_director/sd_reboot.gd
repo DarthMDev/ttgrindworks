@@ -1,5 +1,4 @@
 extends CogAttack
-class_name SalesDirectorReboot
 
 const COG_OBJECT := preload('res://objects/cog/cog.tscn')
 
@@ -12,6 +11,8 @@ var elevator_pos_2: Node3D
 var end_pos_1: Node3D
 var end_pos_2: Node3D
 var suit_walk_cam: Camera3D
+
+var spawn_proxies := false
 
 
 func action() -> void:
@@ -27,6 +28,9 @@ func action() -> void:
 	# Create our new Cog objects
 	for i in cog_amount:
 		var new_cog := COG_OBJECT.instantiate()
+		if spawn_proxies:
+			new_cog.use_mod_cogs_pool = true
+			new_cog.level_range_offset = -1
 		new_cogs.append(new_cog)
 		new_cog.hide()
 		battle_node.add_child(new_cog)

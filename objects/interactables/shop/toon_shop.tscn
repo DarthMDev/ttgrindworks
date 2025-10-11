@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciesu8xyj70oc"]
+[gd_scene load_steps=8 format=3 uid="uid://ciesu8xyj70oc"]
 
 [ext_resource type="PackedScene" uid="uid://dvslagwd6sk4r" path="res://objects/props/etc/shop_counter.tscn" id="1_qcbok"]
 [ext_resource type="Script" uid="uid://daaahmd3o4n3n" path="res://objects/interactables/shop/toon_shop.gd" id="2_vftls"]
@@ -9,9 +9,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_288hp"]
 size = Vector3(3.686, 1.3689, 0.980285)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lfevo"]
-size = Vector3(3.75098, 0.639999, 0.426056)
 
 [node name="ToonShop" instance=ExtResource("1_qcbok")]
 script = ExtResource("2_vftls")
@@ -46,13 +43,7 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129959, 0.837524, -1.31612)
 shape = SubResource("BoxShape3D_288hp")
 
-[node name="CounterCollision" type="StaticBody3D" parent="." index="3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CounterCollision" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13623, 0.299568, 0.154861)
-shape = SubResource("BoxShape3D_lfevo")
-
-[node name="CamPositions" type="Node3D" parent="." index="4"]
+[node name="CamPositions" type="Node3D" parent="." index="3"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 1.095, 1.15, -1)
 
 [node name="1" type="Camera3D" parent="CamPositions" index="0"]
@@ -71,11 +62,11 @@ fov = 52.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0, 0)
 fov = 52.0
 
-[node name="ShopUI" parent="." index="5" instance=ExtResource("5_rwm0n")]
+[node name="ShopUI" parent="." index="4" instance=ExtResource("5_rwm0n")]
 visible = false
 
 [connection signal="body_entered" from="InteractArea" to="." method="body_entered"]
 [connection signal="s_exit" from="ShopUI" to="." method="exit"]
-[connection signal="s_left_pressed" from="ShopUI" to="." method="move_selection" binds= [-1]]
+[connection signal="s_left_pressed" from="ShopUI" to="." method="move_selection"]
 [connection signal="s_purchase" from="ShopUI" to="." method="purchase"]
-[connection signal="s_right_pressed" from="ShopUI" to="." method="move_selection" binds= [1]]
+[connection signal="s_right_pressed" from="ShopUI" to="." method="move_selection"]
