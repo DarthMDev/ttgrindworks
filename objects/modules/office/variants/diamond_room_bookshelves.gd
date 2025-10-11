@@ -16,7 +16,7 @@ func move_bookshelves() -> void:
 	]).as_tween(self)
 
 
-func button_pressed(button: CogButton) -> void:
+func button_pressed(_button: CogButton) -> void:
 	buttons_pressed += 1
 	if buttons_pressed == 2:
 		move_bookshelves()

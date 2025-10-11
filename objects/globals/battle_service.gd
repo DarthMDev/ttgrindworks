@@ -15,6 +15,7 @@ signal s_battle_participant_died(participant: Node3D)
 ## A cog died above 0 HP due to an item
 signal s_cog_died_early(cog: Cog)
 signal s_cog_died(cog: Cog)
+signal s_proxy_died(cog: Cog)
 signal s_boss_died(cog: Cog)
 signal s_battle_ending
 signal s_battle_ended
@@ -22,6 +23,7 @@ signal s_refresh_statuses
 signal s_toon_crit
 signal s_toon_didnt_crit
 signal s_toon_dealt_damage(action: BattleAction, target: Node3D, amount: int)
+signal s_cog_dealt_damage(action: BattleAction, target: Node3D, amount: int)
 signal s_action_started(action: BattleAction)
 signal s_action_finished(action: BattleAction)
 
@@ -48,8 +50,19 @@ func battle_participant_died(participant : Node3D) -> void:
 		s_cog_died.emit(participant)
 		if participant.dna.cog_name in BOSS_COG_NAMES:
 			s_boss_died.emit(participant)
+		if participant.dna.is_mod_cog:
+			s_proxy_died.emit(participant)
 
 func battle_ended():
 	ongoing_battle = null
 	battle_node = null
 	s_battle_ended.emit()
+
+func cog_gives_credit(cog: Cog) -> bool:
+	# These are Cogs that do not give 
+	if cog.is_punishment_cog: return false
+	
+	var bnode: BattleNode = NodeGlobals.get_ancestor_of_type(cog, BattleNode)
+	if is_instance_valid(bnode):
+		return not bnode.is_punishment_battle
+	return true

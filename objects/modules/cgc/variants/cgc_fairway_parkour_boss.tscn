@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://bnrf8npmyldj6"]
+[gd_scene load_steps=32 format=3 uid="uid://bnrf8npmyldj6"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_85mw3"]
+[ext_resource type="PackedScene" uid="uid://7tchlbvjru0d" path="res://ui_assets/misc/text_sprawl.tscn" id="2_q2qby"]
 [ext_resource type="PackedScene" uid="uid://htqva4ris6a4" path="res://objects/props/cgc/cgc_kart_door.tscn" id="2_rrbqw"]
 [ext_resource type="PackedScene" uid="uid://dcxxijtaocc15" path="res://objects/interactables/elevators/golf_cart.tscn" id="3_l0d42"]
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="4_aafw1"]
@@ -264,6 +265,7 @@ start_opened = true
 left_pivot = NodePath("leftpivot")
 right_pivot = NodePath("rightpivot")
 fence_cam = NodePath("FenceCam")
+want_cam_cut = true
 
 [node name="rightpivot" type="Node3D" parent="Props/FenceGate" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69078, 0, 1.64899)
@@ -629,10 +631,20 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+font_size = 36.0
 
 [node name="Label" parent="SkipButton" index="0"]
 text = "Skip"
 label_settings = SubResource("LabelSettings_3e2pq")
+
+[node name="TextSprawl" parent="." index="38" instance=ExtResource("2_q2qby")]
+unique_name_in_owner = true
+visible = false
+offset_top = 189.0
+offset_bottom = 247.0
+text = "THE FAIRWAY FIEND"
+visible_characters = 17
+autoplay = false
 
 [connection signal="s_game_won" from="MoleBossManager" to="Props/FenceGate" method="open"]
 [connection signal="s_game_won" from="MoleBossManager" to="GolfDoors/GolfDoor1" method="stop_balls"]

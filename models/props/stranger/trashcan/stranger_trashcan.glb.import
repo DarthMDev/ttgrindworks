@@ -1,0 +1,109 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bp1pyx4u065a5"
+path="res://.godot/imported/stranger_trashcan.glb-d3f33ef0a21771ef90cb7284884afd21.scn"
+
+[deps]
+
+source_file="res://models/props/stranger/trashcan/stranger_trashcan.glb"
+dest_files=["res://.godot/imported/stranger_trashcan.glb-d3f33ef0a21771ef90cb7284884afd21.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Stranger_Periscope": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/props/stranger/stranger_scopes.tres",
+"use_external/path": "uid://dngakhdgfoxra"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": false
+},
+"PATH:Armature": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin1": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin1_fk": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin2": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin2_fk": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin3": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Bin3_fk": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_BinTinCover": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_Shadow": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_chest": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_hips": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_root": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_torso": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_tweak_Bin1": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_tweak_Bin2": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_tweak_Bin3": {
+"import/skip_import": true
+},
+"PATH:WGT-RIG-Armature_tweak_Bin3_001": {
+"import/skip_import": true
+},
+"PATH:prop_trashcan_metal": {
+"import/skip_import": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

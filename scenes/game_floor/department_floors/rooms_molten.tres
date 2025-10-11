@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=19 format=3 uid="uid://ct6vjovg2o0u1"]
+
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_mrym8"]
+[ext_resource type="Script" uid="uid://brjywdpat6vxg" path="res://scenes/game_floor/department_floors/department_floor.gd" id="2_f570n"]
+
+[sub_resource type="Resource" id="Resource_j2arb"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_bridge_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_u6k8j"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_diamond_battle_room.tscn"
+
+[sub_resource type="Resource" id="Resource_i57gx"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_furnace_room_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_721r4"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_lavapit_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_tyyt3"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_lshape_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_k0mqr"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_side_lava_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_m07ud"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_small_bridge_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_trdjp"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_s_battle_room.tscn"
+
+[sub_resource type="Resource" id="Resource_y4456"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/chase_boss/molten_lava_boss_chase.tscn"
+
+[sub_resource type="Resource" id="Resource_cmwc0"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_burners_trial.tscn"
+
+[sub_resource type="Resource" id="Resource_s4cnx"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_rotary_burners.tscn"
+
+[sub_resource type="Resource" id="Resource_msow3"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_bellows_pillars.tscn"
+
+[sub_resource type="Resource" id="Resource_0xg7b"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_bellows_conveyorbelt.tscn"
+
+[sub_resource type="Resource" id="Resource_f570n"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_sinking_bellows_conveyor.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
+
+[sub_resource type="Resource" id="Resource_mrym8"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_shop.tscn"
+
+[sub_resource type="Resource" id="Resource_n8i1b"]
+script = ExtResource("1_mrym8")
+room = "res://objects/modules/molten/variants/molten_spinning_platforms.tscn"
+rarity_weight = 0.7
+
+[resource]
+script = ExtResource("2_f570n")
+entrances = PackedStringArray("res://objects/modules/molten/variants/molten_entrance_standard.tscn")
+battle_rooms = Array[ExtResource("1_mrym8")]([SubResource("Resource_j2arb"), SubResource("Resource_u6k8j"), SubResource("Resource_i57gx"), SubResource("Resource_721r4"), SubResource("Resource_tyyt3"), SubResource("Resource_k0mqr"), SubResource("Resource_m07ud"), SubResource("Resource_trdjp")])
+obstacle_rooms = Array[ExtResource("1_mrym8")]([SubResource("Resource_cmwc0"), SubResource("Resource_s4cnx"), SubResource("Resource_msow3"), SubResource("Resource_0xg7b"), SubResource("Resource_f570n")])
+connectors = PackedStringArray("res://objects/modules/molten/base_rooms/connectors/molten_connector_bellows.tscn", "res://objects/modules/molten/base_rooms/connectors/molten_connector_s.tscn", "res://objects/modules/molten/base_rooms/connectors/molten_connector_spiral.tscn", "res://objects/modules/molten/base_rooms/connectors/molten_connector_straight.tscn", "res://objects/modules/molten/base_rooms/connectors/molten_connector_up.tscn")
+pre_final_rooms = Array[ExtResource("1_mrym8")]([SubResource("Resource_mrym8")])
+final_rooms = Array[ExtResource("1_mrym8")]([SubResource("Resource_y4456")])
+special_rooms = Array[ExtResource("1_mrym8")]([SubResource("Resource_n8i1b")])
+background_music = PackedStringArray("res://audio/music/molten_mint/molten_mint.ogg")
+battle_music = "res://audio/music/molten_mint/liquid_metal.ogg"

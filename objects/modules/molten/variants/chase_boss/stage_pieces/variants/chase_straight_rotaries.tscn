@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4r20vhj1ewcl"]
+
+[ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_ae2t7"]
+[ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="2_033s1"]
+[ext_resource type="PackedScene" uid="uid://dy15pco0hx21c" path="res://objects/props/molten/chase_thin_platform.tscn" id="2_a1sjy"]
+[ext_resource type="PackedScene" uid="uid://bqamcxorlapkk" path="res://objects/props/molten/rotating_cylinder.tscn" id="4_vrfkm"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="5_a1sjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ae2t7"]
+
+[node name="molten_hall_straight" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_ae2t7")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="chase_thin_platform" parent="." index="7" instance=ExtResource("2_a1sjy")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333335, 0.320591, 9.18336)
+
+[node name="chase_thin_platform2" parent="." index="8" instance=ExtResource("2_a1sjy")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333334, -0.0386024, -3.38584)
+
+[node name="chase_thin_platform3" parent="." index="9" instance=ExtResource("2_a1sjy")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333333, -0.0386024, -15.8734)
+
+[node name="GearRotation" type="Node3D" parent="." index="10"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -0.333334, -0.604768, -1.00537)
+
+[node name="SpinningGear" parent="GearRotation" index="0" instance=ExtResource("2_033s1")]
+spin_speed = 80.0
+randomize_dir = true
+
+[node name="RotatingCylinder" parent="GearRotation/SpinningGear" index="1" instance=ExtResource("4_vrfkm")]
+transform = Transform3D(-5.8622896e-07, 1.0147785, 1.6113784, 5.2948785, 1.01518296e-07, 1.8522859e-07, 3.5600166e-08, 1.6113787, -1.0147784, -3.5762787e-07, 3.9567485, 2.9802322e-07)
+
+[node name="GearRotation2" type="Node3D" parent="." index="11"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 4.66667, -0.604768, -13.6462)
+
+[node name="SpinningGear" parent="GearRotation2" index="0" instance=ExtResource("2_033s1")]
+spin_speed = 80.0
+randomize_dir = true
+
+[node name="RotatingCylinder2" parent="GearRotation2/SpinningGear" index="1" instance=ExtResource("4_vrfkm")]
+transform = Transform3D(-5.8622896e-07, 1.0147785, 1.6113784, 5.2948785, 1.01518296e-07, 1.8522859e-07, 3.5600166e-08, 1.6113787, -1.0147784, 3.33786e-06, 4.1867304, 2.9802322e-07)
+
+[node name="GearRotation3" type="Node3D" parent="." index="12"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -4.33333, -0.604768, -13.6462)
+
+[node name="SpinningGear" parent="GearRotation3" index="0" instance=ExtResource("2_033s1")]
+spin_speed = 80.0
+randomize_dir = true
+
+[node name="RotatingCylinder3" parent="GearRotation3/SpinningGear" index="1" instance=ExtResource("4_vrfkm")]
+transform = Transform3D(-5.8622896e-07, 1.0147785, 1.6113784, 5.2948785, 1.01518296e-07, 1.8522859e-07, 3.5600166e-08, 1.6113787, -1.0147784, 3.33786e-06, 4.1867313, 2.9802322e-07)
+
+[node name="RespawnPoints" type="Node3D" parent="." index="13"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 5.0401, 3.6867757)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.793389e-07, -3.254509, -5.693356)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.43105)
+shape = SubResource("BoxShape3D_ae2t7")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0401, -15.0907)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.6137, -0.8278513)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.60904)
+shape = SubResource("BoxShape3D_ae2t7")
+
+[node name="DebugPlayerPositionMarker" parent="." index="15" instance=ExtResource("5_a1sjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0713668, -3.3073268)

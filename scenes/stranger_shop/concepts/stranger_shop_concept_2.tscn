@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b17vna7ayscdj"]
+
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_hpaxo"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="2_a6mwo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_laipd"]
+albedo_color = Color(0.3901, 0.431382, 0.47, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5gwf"]
+albedo_color = Color(0.1944, 0.22404, 0.24, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.257568, 0)
+use_collision = true
+size = Vector3(13.1484, 0.484863, 28.0469)
+material = SubResource("StandardMaterial3D_laipd")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 3.95261, 0, 0, 0, 4.64387, 6.59333, 4.53703, 0)
+use_collision = true
+size = Vector3(0.130615, 2.40247, 6.21777)
+material = SubResource("StandardMaterial3D_f5gwf")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -3.05518, 0, 3.95261, 0, 1, 0, -1.33546e-07, -0.19036, 4.53703, -13.5978)
+use_collision = true
+size = Vector3(0.130615, 2.40247, 4.63074)
+material = SubResource("StandardMaterial3D_f5gwf")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -3.05518, 0, 3.95261, 0, 1, 0, -1.33546e-07, -0.0615064, 4.53703, 13.7623)
+use_collision = true
+size = Vector3(0.130615, 2.40247, 4.54639)
+material = SubResource("StandardMaterial3D_f5gwf")
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." instance=ExtResource("1_hpaxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0316948, 11.1187)
+script = ExtResource("2_a6mwo")

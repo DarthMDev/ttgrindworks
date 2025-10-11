@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dijbpg5dusgan"]
+
+[ext_resource type="PackedScene" uid="uid://brpvyxcia03vv" path="res://models/props/toon_props/watering_can/watering_can.fbx" id="1_dbae4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jnfj2"]
+size = Vector3(3, 1, 1)
+
+[node name="watering_can" instance=ExtResource("1_dbae4")]
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14639, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_jnfj2")

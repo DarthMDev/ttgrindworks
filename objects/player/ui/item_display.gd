@@ -16,6 +16,8 @@ func _ready() -> void:
 		await Util.s_player_assigned
 	if Util.get_player().stats.current_active_item:
 		add_new_item(Util.get_player().stats.current_active_item)
+	for item in Util.get_player().stats.actives_in_reserve:
+		add_new_item(item)
 	for item: Item in Util.get_player().stats.items:
 		add_new_item(item)
 
@@ -27,6 +29,7 @@ func add_new_item(item: Item) -> void:
 	new_tex.custom_minimum_size = Vector2(48, 48)
 	new_tex.pivot_offset = Vector2(24, 24)
 	new_tex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	new_tex.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	new_tex.texture = item.icon
 	new_tex.mouse_entered.connect(hover_item.bind(item, new_tex))
 	new_tex.mouse_exited.connect(stop_hover.bind(new_tex))

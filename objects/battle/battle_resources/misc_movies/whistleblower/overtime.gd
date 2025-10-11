@@ -27,6 +27,6 @@ func action() -> void:
 	movie.kill()
 
 func apply_effect() -> void:
-	var effect := STATUS_EFFECT.duplicate()
+	var effect := STATUS_EFFECT.duplicate(true)
 	effect.target = targets[0]
 	manager.add_status_effect(effect)

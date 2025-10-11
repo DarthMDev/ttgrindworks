@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://d054ke2blploi"]
+
+[ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_hp4bx"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="2_bvmko"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="3_smlqd"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="4_klolr"]
+[ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="5_bvmko"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smlqd"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("3_smlqd")
+roughness = 0.552786
+uv1_scale = Vector3(1, 3.915, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klolr"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("3_smlqd")
+roughness = 0.552786
+uv1_scale = Vector3(1, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hp4bx"]
+
+[sub_resource type="Gradient" id="Gradient_bvmko"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smlqd"]
+gradient = SubResource("Gradient_bvmko")
+fill_from = Vector2(1, 0.47435898)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scpds"]
+blend_mode = 1
+albedo_color = Color(1, 0.46869522, 0.17994922, 1)
+albedo_texture = SubResource("GradientTexture2D_smlqd")
+uv1_scale = Vector3(1, 0.65, -0.07)
+uv1_offset = Vector3(0, 0.355, 0.355)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3q6s"]
+next_pass = SubResource("StandardMaterial3D_scpds")
+albedo_texture = ExtResource("5_bvmko")
+uv1_scale = Vector3(0.16, 1, 0.18)
+uv1_offset = Vector3(-0.22, -0.53, -0.125)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ee6et"]
+material = SubResource("StandardMaterial3D_v3q6s")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bvmko"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_smlqd"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_klolr"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_scpds"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="molten_hall_straight" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_hp4bx")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="ConveyerBelt" parent="." index="7" instance=ExtResource("2_bvmko")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.08228, 0.522622, -10.5374)
+constant_linear_velocity = Vector3(-10, 0, -4.371139e-07)
+size = Vector3(4, 1.65, 3.915)
+platform_mat = SubResource("StandardMaterial3D_smlqd")
+speed = 10.0
+
+[node name="ConveyerBelt2" parent="." index="8" instance=ExtResource("2_bvmko")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 3.0435, 0.522622, 3.83546)
+constant_linear_velocity = Vector3(10, 0, 7.54979e-07)
+size = Vector3(4, 1.65, 4)
+platform_mat = SubResource("StandardMaterial3D_klolr")
+speed = 10.0
+
+[node name="BurnerFlame" parent="." index="9" instance=ExtResource("4_klolr")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.94702, 1.50973, -4.43124)
+flame_length = 1.925
+
+[node name="BurnerFlame2" parent="." index="10" instance=ExtResource("4_klolr")]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -7.94702, 2.94129, -16.54284)
+flame_length = 1.925
+
+[node name="BurnerFlame3" parent="." index="11" instance=ExtResource("4_klolr")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.90668, 1.50973, 10.010267)
+flame_length = 2.165
+
+[node name="BurnerFlame4" parent="." index="12" instance=ExtResource("4_klolr")]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 7.90668, 2.94129, -2.41716)
+flame_length = 2.165
+
+[node name="RespawnPoints" type="Node3D" parent="." index="14"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, 1.07091e-06, 5.0401, 2.79225)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7768204, -4.54413, 1.1131015)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77991e-07, 0, 5.91933)
+shape = SubResource("BoxShape3D_hp4bx")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, -1.07091e-06, 5.0401, -7.86906)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9446205, -4.54413, -2.7055354)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80686e-07, 0, 6.08611)
+shape = SubResource("BoxShape3D_hp4bx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="15"]
+transform = Transform3D(1.3632798, 0, 0, 0, 3.7464952, 0, 0, 0, 1.3632798, 7.890031, 2.1702142, 10.701622)
+mesh = SubResource("BoxMesh_ee6et")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_bvmko")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="16"]
+transform = Transform3D(1.3632798, 0, 0, 0, 3.7464952, 0, 0, 0, 1.3632798, 7.890031, 2.1702142, -3.0020714)
+mesh = SubResource("BoxMesh_ee6et")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_smlqd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." index="17"]
+transform = Transform3D(1.3632798, 0, 0, 0, 3.7464952, 0, 0, 0, 1.3632798, -7.906537, 2.1702142, -3.7300138)
+mesh = SubResource("BoxMesh_ee6et")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_klolr")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." index="18"]
+transform = Transform3D(1.3632798, 0, 0, 0, 3.7464952, 0, 0, 0, 1.3632798, -7.906537, 2.1702142, -17.272282)
+mesh = SubResource("BoxMesh_ee6et")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_scpds")

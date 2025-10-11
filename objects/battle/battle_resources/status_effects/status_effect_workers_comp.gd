@@ -11,18 +11,18 @@ func apply():
 	var battle_stats: BattleStats = manager.battle_stats[target]
 	for stat_ in AFFECTED_STATS:
 		if stat_ in battle_stats:
-			battle_stats.set(stat_,battle_stats.get(stat_) * boost)
+			battle_stats.set(stat_,battle_stats.get(stat_) + boost)
 
 func expire():
 	var battle_stats = manager.battle_stats[target]
 	for stat_ in AFFECTED_STATS:
 		if stat_ in battle_stats:
-			battle_stats.set(stat_, battle_stats.get(stat_) * 1.0 / boost)
+			battle_stats.set(stat_, battle_stats.get(stat_) - boost) 
 
 func get_description() -> String:
 	var return_string := ""
 	for stat_ in AFFECTED_STATS:
-		return_string += "%s%s%% %s" % ["+" if boost > 1.0 else "-", roundi(abs(boost - 1.0) * 100), stat_[0].to_upper() + stat_.substr(1)]
+		return_string += "+%s%% %s" % [roundi(abs(boost) * 100.0), stat_[0].to_upper() + stat_.substr(1)]
 		if not AFFECTED_STATS.find(stat_) == AFFECTED_STATS.size() -1:
 			return_string += "\n"
 	return return_string

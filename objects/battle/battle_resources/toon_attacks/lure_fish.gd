@@ -11,11 +11,12 @@ func action():
 		return
 	user.face_position(target.global_position)
 	
-	var rod = load("res://models/props/gags/fishing_rod/fishing_rod.tscn").instantiate()
+	var rod: Node3D = load("res://models/props/gags/fishing_rod/fishing_rod.tscn").instantiate()
 	var dollar = load("res://models/props/gags/fishing_rod/dollar_bill.tscn").instantiate()
 	if override_mat:
 		dollar.get_node("dollar/Skeleton3D/dollar1").set_surface_override_material(0, override_mat)
 	user.toon.right_hand_bone.add_child(rod)
+	rod.rotation_degrees.y += 180.0
 	
 	battle_node.add_child(dollar)
 	dollar.rotation_degrees.y += 180.0
@@ -23,8 +24,8 @@ func action():
 	dollar.scale = Vector3.ONE * 0.35
 	
 	# Animate
-	user.set_animation('bait')
-	user.animator.animation_finished.connect(func(_x=null): user.set_animation("lured"), CONNECT_ONE_SHOT)
+	user.set_animation('fish')
+	user.animator.animation_finished.connect(func(_x=null): user.set_animation("neutral"), CONNECT_ONE_SHOT)
 	rod.get_node('AnimationPlayer').play('cast')
 	dollar.get_node('AnimationPlayer').play('cast')
 	

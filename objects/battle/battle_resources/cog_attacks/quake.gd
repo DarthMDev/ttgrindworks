@@ -1,5 +1,4 @@
 extends CogAttack
-class_name Quake
 
 enum AnimType {
 	JUMP,
@@ -28,16 +27,17 @@ func action() -> void:
 	# Affect toon. Or don't
 	var anim := ''
 	if hit:
-		anim = 'slip_forwards'
+		anim = 'slip-forward'
 		manager.affect_target(target, damage)
 	else:
 		manager.battle_text(target,"MISSED")
-		anim = 'happy'
+		anim = 'jump'
 	
 	# Play animation (twice)
 	for i in 2:
 		Util.shake_camera(battle_node.battle_cam, 1.0, 0.2)
 		target.set_animation(anim)
+		target.toon.anim_seek(0.0)
 		await manager.barrier(target.animator.animation_finished, 5.0)
 
 	await manager.check_pulses(targets)

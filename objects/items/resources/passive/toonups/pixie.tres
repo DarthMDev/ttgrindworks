@@ -7,26 +7,15 @@
 [resource]
 script = ExtResource("2_i3qd4")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.75
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Pixie Dust"
-item_description = "20% laff regeneration"
+item_description = "Laff Regeneration!"
 big_description = "Lasts 3 rounds
 + 20% Laff Regeneration"
 model = ExtResource("1_tiwq4")
 pickup_sfx = ExtResource("2_08lmc")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
 shop_category_title = "Consumable"
 shop_category_color = Color(0.105882, 0.54902, 0.537255, 1)
 force_show_shop_category = true
-custom_shop_price = 0

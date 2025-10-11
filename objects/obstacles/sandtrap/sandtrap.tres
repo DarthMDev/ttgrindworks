@@ -8,8 +8,8 @@ operator = 9
 frequency = 0.0134
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u773v"]
-seamless = true
 noise = SubResource("FastNoiseLite_7101s")
+seamless = true
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_cxldy"]
 source = 5
@@ -84,7 +84,7 @@ texture = SubResource("GradientTexture2D_l4j0x")
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha;
 
 uniform vec4 ColorParameter : source_color;
 uniform vec2 uv_scale;
@@ -150,7 +150,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-602.841, -10.0197)
+flags/depth_prepass_alpha = true
 nodes/fragment/0/position = Vector2(780, 200)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_dgbv0")
 nodes/fragment/3/position = Vector2(-1080, 540)

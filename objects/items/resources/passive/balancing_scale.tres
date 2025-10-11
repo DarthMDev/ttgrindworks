@@ -1,21 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://cmjhh4fc3c231"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cmjhh4fc3c231"]
 
 [ext_resource type="PackedScene" uid="uid://dhg405h16fbv3" path="res://objects/items/custom/scale/lb_scale.tscn" id="1_df1fs"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_qqjau"]
 [ext_resource type="Script" uid="uid://do8xn3hnwlr8g" path="res://objects/items/custom/scale/lb_scale.gd" id="1_ssrur"]
 [ext_resource type="Texture2D" uid="uid://di30t7iyqoeca" path="res://objects/items/custom/scale/lb_scale-pix-1.png" id="1_uk4kc"]
-[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="4_kc84u"]
 
 [resource]
 script = ExtResource("1_qqjau")
-qualitoon = 4
-rarity = 0
-evergreen = false
-realtime = false
-slot = 0
+qualitoon = 2
 world_scale = 0.1
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Balancing Scale"
 item_description = "Equilibrium"
 big_description = "Averages the following stats on pickup:
@@ -24,15 +17,8 @@ big_description = "Averages the following stats on pickup:
 - Evasiveness
 - Luck"
 model = ExtResource("1_df1fs")
-pickup_sfx = ExtResource("4_kc84u")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("1_ssrur")
-remember_item = true
 icon = ExtResource("1_uk4kc")
 shop_category_title = "Special Item"
 shop_category_color = Color(0.6, 0.2, 1, 1)
 force_show_shop_category = true
-custom_shop_price = 0

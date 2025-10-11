@@ -7,7 +7,7 @@ const SFX_CLOSE = preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
 @export var left_pivot: Node3D
 @export var right_pivot: Node3D
 @export var fence_cam: Camera3D
-@export var want_cam_cut := true
+@export var want_cam_cut := false
 
 var opened := false
 
@@ -32,7 +32,7 @@ func open() -> void:
 	if want_cam_cut and is_instance_valid(Util.get_player()):
 		Util.get_player().state = Player.PlayerState.STOPPED
 		Util.get_player().set_animation('neutral')
-	fence_cam.make_current()
+		fence_cam.make_current()
 
 	tween = Parallel.new([
 		LerpProperty.new(left_pivot, "rotation_degrees:y", 3.0, 75.0).interp(Tween.EASE_IN_OUT, Tween.TRANS_QUAD),

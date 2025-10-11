@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0k8c68p74k6s"]
+
+[ext_resource type="PackedScene" uid="uid://brxfur0k0rtq8" path="res://models/props/facility_objects/valve/Valve.fbx" id="1_ppwgb"]
+[ext_resource type="Texture2D" uid="uid://3f86w3gwdkw5" path="res://models/props/facility_objects/valve/FINALFACTORY_33.png" id="2_pmvo3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0m7d4"]
+resource_name = "FINALFACTORY_33"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_pmvo3")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[node name="Valve" instance=ExtResource("1_ppwgb")]
+
+[node name="Valve" parent="ValveNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0m7d4")

@@ -13,15 +13,9 @@ func get_stats() -> String:
 	if not lure_effect:
 		return "NO LURE EFFECT SET UP"
 
-	var player_stats: PlayerStats
-	if is_instance_valid(BattleService.ongoing_battle):
-		player_stats = BattleService.ongoing_battle.battle_stats[Util.get_player()]
-	else:
-		player_stats = Util.get_player().stats
-
 	var knockback_damage: int = lure_effect.get_true_knockback()
 	var string := "Knockback Damage: " + str(knockback_damage) + "\n"\
-	+ "Rounds: " + str(lure_effect.rounds) +"\n"\
+	+ "Rounds: " + str(get_lure_rounds()) +"\n"\
 	+ "Affects: "
 	match target_type:
 		ActionTarget.SELF:
@@ -38,7 +32,7 @@ func get_stats() -> String:
 
 ## Get a properly ID'd version of the lure effect specified
 func get_lure_effect() -> StatusLured:
-	var new_effect := LURED_EFFECT.duplicate()
+	var new_effect := LURED_EFFECT.duplicate(true)
 	
 	# Copy the attributes from the reference value
 	if lure_effect:
@@ -53,6 +47,12 @@ func get_lure_effect() -> StatusLured:
 func apply_lure(who: Cog) -> void:
 	var effect := get_lure_effect()
 	effect.target = who
+	effect.rounds = get_lure_rounds()
 	if not who == main_target:
-		effect.damage_nerf += effect.damage_nerf / 2.0
+		effect.damage_nerf -= effect.damage_nerf / 2.0
 	manager.add_status_effect(effect)
+
+func get_lure_rounds() -> int:
+	var base_rounds := lure_effect.rounds
+	if self is LureFish: base_rounds += Util.get_player().stats.lure_fish_round_boost
+	return base_rounds

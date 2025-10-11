@@ -1,120 +1,102 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=42 format=3 uid="uid://c0m70b5ovs2i3"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=23 format=3 uid="uid://c0m70b5ovs2i3"]
 
-[ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_0g203"]
-[ext_resource type="AudioStream" uid="uid://c5x454f48rd1p" path="res://audio/music/BossBot_CEO_v1.ogg" id="1_01kaf"]
-[ext_resource type="AudioStream" uid="uid://jcuoj1vwt87o" path="res://audio/music/Bossbot_Factory_v1.ogg" id="2_6f5q8"]
-[ext_resource type="AudioStream" uid="uid://b7vfh3lu12ew2" path="res://audio/music/Bossbot_Factory_v2.ogg" id="2_ulnjd"]
-[ext_resource type="AudioStream" uid="uid://dnln6n0ej5ced" path="res://audio/music/Bossbot_Factory_v3.ogg" id="3_l2wr2"]
-[ext_resource type="PackedScene" uid="uid://bck84ftelia7y" path="res://objects/modules/cgc/variants/cgc_fairway_battle.tscn" id="3_vwifd"]
-[ext_resource type="PackedScene" uid="uid://dyu8ektwg1iyh" path="res://objects/modules/cgc/variants/cgc_mole_room_battle.tscn" id="4_ad3pl"]
-[ext_resource type="PackedScene" uid="uid://dpbpe64cp628v" path="res://objects/modules/cgc/base_rooms/cgc_conector1.tscn" id="4_posks"]
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="5_6sw3f"]
-[ext_resource type="PackedScene" uid="uid://vqyn38aio7i2" path="res://objects/modules/cgc/variants/cgc_mole_stomp.tscn" id="8_7dl2x"]
-[ext_resource type="PackedScene" uid="uid://bs4e6ma7thn53" path="res://objects/modules/cgc/base_rooms/cgc_connector_2.tscn" id="8_fxemb"]
-[ext_resource type="PackedScene" uid="uid://bn5ivmft0p2vy" path="res://objects/modules/cgc/variants/cgc_entrance_standard.tscn" id="8_iwjji"]
-[ext_resource type="PackedScene" uid="uid://bleykv4oqf4q6" path="res://objects/modules/cgc/variants/cgc_shop.tscn" id="8_m8lkk"]
-[ext_resource type="PackedScene" uid="uid://da0irj81d7pb8" path="res://objects/modules/cgc/variants/cgc_L_battle.tscn" id="8_vhb2k"]
-[ext_resource type="PackedScene" uid="uid://c2jegw5afysdk" path="res://objects/modules/cgc/variants/cgc_maze_room.tscn" id="9_dukbu"]
-[ext_resource type="PackedScene" uid="uid://c01shgle6r07p" path="res://objects/modules/cgc/variants/cgc_long_battle_room.tscn" id="9_iye8u"]
-[ext_resource type="PackedScene" uid="uid://rpp7hq7jajiy" path="res://objects/modules/cgc/variants/cgc_fairway_mole_battle.tscn" id="10_dvm2a"]
-[ext_resource type="PackedScene" uid="uid://pul5ihcv4jso" path="res://objects/modules/cgc/variants/cgc_mole_cog_fight.tscn" id="11_j3pwp"]
-[ext_resource type="PackedScene" uid="uid://bnrf8npmyldj6" path="res://objects/modules/cgc/variants/cgc_fairway_parkour_boss.tscn" id="13_y3i3a"]
-[ext_resource type="PackedScene" uid="uid://dqiggaoxn1c3e" path="res://objects/modules/cgc/variants/cgc_golf_ball_room.tscn" id="14_v6yl2"]
-[ext_resource type="PackedScene" uid="uid://qhmf54eh88u" path="res://objects/modules/cgc/variants/cgc_fairway_fence_prison.tscn" id="15_6qnid"]
-[ext_resource type="PackedScene" uid="uid://c2tjhect3d0o5" path="res://objects/modules/cgc/variants/cgc_fairway_golf.tscn" id="16_budsf"]
-[ext_resource type="PackedScene" uid="uid://1r5i4ax366co" path="res://objects/modules/cgc/variants/cgc_long_parkour_oil.tscn" id="19_40mq0"]
-[ext_resource type="PackedScene" uid="uid://b5be6q4r0cn2l" path="res://objects/modules/cgc/variants/cgc_quadrant_room.tscn" id="20_d261e"]
-[ext_resource type="PackedScene" uid="uid://c8317ugfvi2s7" path="res://objects/modules/cgc/variants/cgc_fairway_vertical.tscn" id="21_np8l0"]
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_d3ivm"]
+[ext_resource type="Script" uid="uid://brjywdpat6vxg" path="res://scenes/game_floor/department_floors/department_floor.gd" id="2_qoxls"]
 
-[sub_resource type="Resource" id="Resource_8twq6"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("3_vwifd")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_ci65f"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_4qiky"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("4_ad3pl")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_6xq8g"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_mole_room_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_phj0r"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("8_vhb2k")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_vg1ab"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_L_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_r78ws"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("9_iye8u")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_5bicp"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_long_battle_room.tscn"
 
-[sub_resource type="Resource" id="Resource_o775j"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("10_dvm2a")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_ckcik"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_mole_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_of3w6"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("11_j3pwp")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_qoxls"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_mole_hedge_battle.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_hp1xr"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("13_y3i3a")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_g1sud"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_walled_battle_room.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_koeql"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("9_dukbu")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_cunho"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_mole_cog_fight.tscn"
 
-[sub_resource type="Resource" id="Resource_jomqy"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("8_7dl2x")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_76ygg"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_parkour_boss.tscn"
 
-[sub_resource type="Resource" id="Resource_0iaes"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("14_v6yl2")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_ufq0t"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_maze_room.tscn"
 
-[sub_resource type="Resource" id="Resource_tcc60"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("16_budsf")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_n8yoj"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_mole_stomp.tscn"
 
-[sub_resource type="Resource" id="Resource_ny1yc"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("20_d261e")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_td0r1"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_golf_ball_room.tscn"
 
-[sub_resource type="Resource" id="Resource_vhmpe"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("8_m8lkk")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_42byl"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_golf.tscn"
 
-[sub_resource type="Resource" id="Resource_cin8e"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("15_6qnid")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_b86si"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_quadrant_room.tscn"
 
-[sub_resource type="Resource" id="Resource_km0jq"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("21_np8l0")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_d3ivm"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_long_room_moles.tscn"
+rarity_weight = 0.8
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_k18ek"]
-script = ExtResource("5_6sw3f")
-room = ExtResource("19_40mq0")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_lluls"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_treasure_room.tscn"
+rarity_weight = 0.4
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
+
+[sub_resource type="Resource" id="Resource_xiql5"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_shop.tscn"
+
+[sub_resource type="Resource" id="Resource_6pdv4"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_fence_prison.tscn"
+
+[sub_resource type="Resource" id="Resource_0wscn"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_fairway_vertical.tscn"
+
+[sub_resource type="Resource" id="Resource_14h1b"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_long_parkour_oil.tscn"
 
 [resource]
-script = ExtResource("1_0g203")
-entrances = Array[PackedScene]([ExtResource("8_iwjji")])
-battle_rooms = Array[ExtResource("5_6sw3f")]([SubResource("Resource_8twq6"), SubResource("Resource_4qiky"), SubResource("Resource_phj0r"), SubResource("Resource_r78ws"), SubResource("Resource_o775j")])
-obstacle_rooms = Array[ExtResource("5_6sw3f")]([SubResource("Resource_koeql"), SubResource("Resource_jomqy"), SubResource("Resource_0iaes"), SubResource("Resource_tcc60"), SubResource("Resource_ny1yc")])
-connectors = Array[PackedScene]([ExtResource("4_posks"), ExtResource("8_fxemb")])
-pre_final_rooms = Array[ExtResource("5_6sw3f")]([SubResource("Resource_vhmpe")])
-final_rooms = Array[ExtResource("5_6sw3f")]([SubResource("Resource_of3w6"), SubResource("Resource_hp1xr")])
-one_time_rooms = Array[PackedScene]([])
-special_rooms = Array[ExtResource("5_6sw3f")]([SubResource("Resource_cin8e"), SubResource("Resource_km0jq"), SubResource("Resource_k18ek")])
-background_music = Array[AudioStream]([ExtResource("2_6f5q8"), ExtResource("2_ulnjd"), ExtResource("3_l2wr2")])
-battle_music = ExtResource("1_01kaf")
+script = ExtResource("2_qoxls")
+entrances = PackedStringArray("res://objects/modules/cgc/variants/cgc_entrance_standard.tscn")
+battle_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_ci65f"), SubResource("Resource_6xq8g"), SubResource("Resource_vg1ab"), SubResource("Resource_5bicp"), SubResource("Resource_ckcik"), SubResource("Resource_qoxls"), SubResource("Resource_g1sud")])
+obstacle_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_ufq0t"), SubResource("Resource_n8yoj"), SubResource("Resource_td0r1"), SubResource("Resource_42byl"), SubResource("Resource_b86si"), SubResource("Resource_d3ivm"), SubResource("Resource_lluls")])
+connectors = PackedStringArray("res://objects/modules/cgc/base_rooms/cgc_conector1.tscn", "res://objects/modules/cgc/base_rooms/cgc_connector_2.tscn")
+pre_final_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_xiql5")])
+final_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_cunho"), SubResource("Resource_76ygg")])
+special_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_6pdv4"), SubResource("Resource_0wscn"), SubResource("Resource_14h1b")])
+background_music = PackedStringArray("res://audio/music/Bossbot_Factory_v1.ogg", "res://audio/music/Bossbot_Factory_v2.ogg", "res://audio/music/Bossbot_Factory_v3.ogg")
+battle_music = "res://audio/music/BossBot_CEO_v1.ogg"

@@ -1,9 +1,6 @@
 extends Node3D
 
-const REGULAR_OBJS: Array[PackedScene] = [
-	preload("res://objects/props/mint/cog_nation_crate.tscn"),
-	preload("res://objects/props/mint/mint_crate.tscn"),
-]
+@export var REGULAR_OBJS: Array[PackedScene] = []
 
 const SFX_SWAP := preload("res://audio/sfx/objects/facility_door/CHQ_FACT_door_unlock.ogg")
 const SFX_LAND := preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
@@ -24,7 +21,7 @@ func _enter_tree() -> void:
 	setup_obj_task()
 
 func get_random_object_time() -> float:
-	return RandomService.randf_range_channel('mint_conveyor', 0.6, 0.9)
+	return RNG.channel(RNG.ChannelMintConveyor).randf_range(0.6, 0.9)
 
 func setup_obj_task() -> void:
 	spawn_both_objects(false)
@@ -40,28 +37,37 @@ func spawn_random_obj(side: String) -> void:
 	var obj_arr: Array[Node3D]
 	var holder_node: Node3D
 	if side == "a":
-		spawn_point = RandomService.array_pick_random('mint_conveyor', [%SpawnPointA, %SpawnPointA2])
+		spawn_point = RNG.channel(RNG.ChannelMintConveyor).pick_random([%SpawnPointA, %SpawnPointA2])
 		obj_arr = objs_a
 		holder_node = %ObjsA
 	else:
-		spawn_point = RandomService.array_pick_random('mint_conveyor', [%SpawnPointB, %SpawnPointB2])
+		spawn_point = RNG.channel(RNG.ChannelMintConveyor).pick_random([%SpawnPointB, %SpawnPointB2])
 		obj_arr = objs_b
 		holder_node = %ObjsB
 
 	var obj_holder := Node3D.new()
 	var new_animatable_obj := AnimatableBody3D.new()
+	new_animatable_obj.set_collision_layer_value(1, false)
+	Task.delayed_call(new_animatable_obj, 0.25, new_animatable_obj.set_collision_layer_value, [1, true])
 	new_animatable_obj.sync_to_physics = false
 	obj_holder.add_child(new_animatable_obj)
-	var new_obj: Node3D = RandomService.array_pick_random('mint_conveyor', REGULAR_OBJS).instantiate()
+	var new_obj: Node3D = RNG.channel(RNG.ChannelMintConveyor).pick_random(REGULAR_OBJS).instantiate()
 	new_animatable_obj.add_child(new_obj)
 	holder_node.add_child(obj_holder)
 	for coll: CollisionShape3D in NodeGlobals.get_children_of_type(new_obj, CollisionShape3D, true):
-		coll.owner = null
-		coll.reparent(new_animatable_obj)
+		if coll.get_parent() is StaticBody3D and not coll.get_parent() is AnimatableBody3D:
+			coll.owner = null
+			coll.reparent(new_animatable_obj)
 	obj_holder.global_position = spawn_point.global_position
-	obj_holder.global_rotation_degrees.y = RandomService.randf_range_channel('mint_conveyor', 20.0, 70.0)
-	obj_holder.scale = Vector3(1.0, 1.666, 1.0)
+	obj_holder.global_rotation_degrees.y = get_random_rotation()
+	obj_holder.scale *= get_random_scale()
 	obj_arr.append(obj_holder)
+
+func get_random_rotation() -> float:
+	return RNG.channel(RNG.ChannelMintConveyor).randf_range(20.0, 70.0)
+
+func get_random_scale() -> Vector3:
+	return Vector3(1.0, 1.666, 1.0)
 
 func _physics_process(delta: float) -> void:
 	var free_objs_a: Array = []
@@ -82,6 +88,9 @@ func _physics_process(delta: float) -> void:
 	for obj: Node3D in free_objs_b:
 		obj.queue_free()
 		objs_b.erase(obj)
+
+func move_all_objects(_delta: float) -> void:
+	pass
 
 func lower_ramp(_x=null) -> void:
 	ramp_seq = Sequence.new([

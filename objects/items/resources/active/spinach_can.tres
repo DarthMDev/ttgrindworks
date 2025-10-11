@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://bn7136sot67pu"]
+
+[ext_resource type="Script" uid="uid://j4cinvsg016f" path="res://objects/items/custom/spinach_can/item_spinach_can.gd" id="1_6kkve"]
+[ext_resource type="Texture2D" uid="uid://bd7ygcftkrtdm" path="res://ui_assets/player_ui/pocket_prank_icons/spinach_can.png" id="1_06ut2"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_8n34r"]
+[ext_resource type="PackedScene" uid="uid://csmy8xqck4s1v" path="res://models/props/toon_props/spinach_can/spinach_can.tscn" id="3_06ut2"]
+
+[resource]
+script = ExtResource("1_8n34r")
+active_type = 1
+charge_count = 3
+current_charge = 3
+qualitoon = 2
+world_scale = 0.21
+item_name = "Spinach Can"
+item_description = "Eat your greens!"
+big_description = "Guaranteed crits for 1 round"
+model = ExtResource("3_06ut2")
+item_script = ExtResource("1_6kkve")
+icon = ExtResource("1_06ut2")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

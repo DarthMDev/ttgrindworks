@@ -35,6 +35,7 @@ func on_action_start(action: BattleAction) -> void:
 
 func on_participant_died(participant: Variant) -> void:
 	if participant is Cog:
+		if not BattleService.cog_gives_credit(participant): return
 		if current_cogs.keys().has(participant):
 			if current_cogs[participant] == 1:
 				Util.get_player().stats.damage += DAMAGE_BOOST

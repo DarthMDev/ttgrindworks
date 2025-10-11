@@ -39,7 +39,7 @@ func start_tween() -> void:
 
 func body_entered_head(body: Node3D) -> void:
 	if body is Player:
-		if body.state == Player.PlayerState.WALK:
+		if body.controller.current_state.accepts_interaction():
 			var player: Player = body
 			if player.immune_to_crush_damage:
 				Util.do_3d_text(player, "Immune!", BattleText.colors.orange[0], BattleText.colors.orange[1])
@@ -55,7 +55,7 @@ func body_entered_head(body: Node3D) -> void:
 
 func body_entered_handle(body: Node3D) -> void:
 	if body is Player:
-		if body.state == Player.PlayerState.WALK:
+		if body.controller.current_state.accepts_interaction():
 			var player: Player = body
 			player.quick_heal(Util.get_hazard_damage(handle_damage))
 			if player.stats.hp <= 0:
@@ -73,19 +73,19 @@ func squash_player(player: Player) -> void:
 	tween.tween_property(player.toon, 'scale:y', 0.05, 0.05)
 	tween.tween_interval(1.0)
 	tween.tween_callback(AudioManager.play_sound.bind(SFX_DECOMPRESS))
-	tween.tween_callback(player.set_animation.bind('happy'))
-	tween.tween_callback(func(): player.animator.speed_scale = 1.5)
+	tween.tween_callback(player.set_animation.bind('jump'))
+	tween.tween_callback(func(): player.toon.anim_set_speed(1.5))
 	tween.tween_property(player.toon, 'scale:y', base_scale * 1.15, 0.2)
 	tween.tween_property(player.toon, 'scale:y', base_scale, 0.05)
 	player.do_invincibility_frames()
 	await player.animator.animation_finished
 	tween.kill()
-	player.animator.speed_scale = 1.0
+	player.toon.anim_set_speed(1.0)
 	player.state = Player.PlayerState.WALK
 
 func slip_player(player: Player) -> void:
 	player.state = Player.PlayerState.STOPPED
-	player.set_animation('slip_backward')
+	player.set_animation('slip-backward')
 	await Task.delay(2.75)
 	player.state = Player.PlayerState.WALK
 	player.do_invincibility_frames()

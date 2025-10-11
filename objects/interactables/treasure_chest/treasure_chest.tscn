@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxyq5lb5oineo"]
+[gd_scene load_steps=17 format=3 uid="uid://dxyq5lb5oineo"]
 
 [ext_resource type="Script" uid="uid://sb4d8oc513sj" path="res://objects/interactables/treasure_chest/treasure_chest.gd" id="1_gn78k"]
 [ext_resource type="PackedScene" uid="uid://lducfjm02jd" path="res://models/props/treasure_chest/Chest.fbx" id="3_7b15l"]
@@ -62,6 +62,43 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_cygcb"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chest/Lid:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chest/Lid:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chest/Lid:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5708, -0.25, 0, 0.25, 0, 1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
 [sub_resource type="Animation" id="Animation_6ghwq"]
 resource_name = "open"
 length = 0.5
@@ -102,6 +139,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thjf0"]
 _data = {
 &"RESET": SubResource("Animation_krmn8"),
+&"close": SubResource("Animation_cygcb"),
 &"open": SubResource("Animation_6ghwq")
 }
 
@@ -128,7 +166,7 @@ transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 
 surface_material_override/0 = SubResource("StandardMaterial3D_cygcb")
 
 [node name="Lid" parent="Chest" index="1"]
-transform = Transform3D(100, 0, 0.000361999, -0.000361999, 1.31043e-09, 100, 0, -100, 1.31043e-09, -0.214957, 0.322778, 6.63598e-09)
+transform = Transform3D(100, 0, 0.000361999, -0.000361999, 1.3104329e-09, 100, 0, -100, 1.3104329e-09, -0.214957, 0.322778, 6.63598e-09)
 surface_material_override/0 = SubResource("StandardMaterial3D_cygcb")
 
 [node name="Lightray" parent="Chest" index="2"]

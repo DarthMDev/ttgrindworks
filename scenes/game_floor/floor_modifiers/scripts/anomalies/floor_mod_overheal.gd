@@ -8,12 +8,15 @@ var raw_boost := 0
 
 func modify_floor() -> void:
 	var player := Util.get_player()
-	raw_boost = ceili(player.stats.max_hp * BOOST_AMOUNT) - player.stats.max_hp
-	player.stats.max_hp += raw_boost
+	var pre_hp := player.stats.max_hp
+	player.stats.max_hp = ceili(player.stats.max_hp * BOOST_AMOUNT)
+	raw_boost = player.stats.max_hp - pre_hp
 
 func clean_up() -> void:
 	var player := Util.get_player()
-	player.stats.max_hp -= raw_boost
+	var potential_max_hp := player.stats.max_hp - raw_boost
+	
+	player.stats.max_hp = maxi(potential_max_hp, 1)
 	player.stats.hp = mini(player.stats.hp, player.stats.max_hp)
 
 func get_mod_quality() -> ModType:

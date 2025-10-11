@@ -9,27 +9,18 @@ script = ExtResource("2_6sofy")
 qualitoon = 3
 rarity = 3
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.11
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Super Nimbly Num"
 item_description = "Evasiveness up!"
-big_description = "+ 8% evasiveness"
+big_description = "+ 12% evasiveness"
 model = ExtResource("1_caqps")
 pickup_sfx = ExtResource("2_i3mcl")
 stats_add = {
-"evasiveness": 0.08
+"evasiveness": 0.12
 }
-stats_multiply = {}
-player_values = {}
 arbitrary_data = {
 "super": true
 }
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
 force_show_shop_category = true
-custom_shop_price = 0

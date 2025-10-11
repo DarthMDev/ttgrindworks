@@ -3,9 +3,11 @@ class_name Achievement
 
 @export var achievement_name := ""
 @export_multiline var achievement_summary := ""
-@export var achievement_index : ProgressFile.GameAchievement
-@export var achievement_icon : Texture2D
-
+@export var hint := ""
+@export var achievement_index: ProgressFile.GameAchievement
+@export var achievement_icon: Texture2D
+@export var use_achievement_background := false
+@export var custom_background_color: Color = Color.WHITE
 
 ## Run at game start
 ## Override this to hook into progress checks

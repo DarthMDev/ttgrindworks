@@ -1,6 +1,5 @@
 @tool
 extends StatEffectRegeneration
-class_name StatEffectPoison
 
 const COG_PARTICLES := preload("res://objects/battle/effects/poison/poison_cog.tscn")
 
@@ -8,17 +7,21 @@ var particles: Node3D
 
 ## Poison effects only trigger at round ends
 func apply() -> void:
-	if target is Cog:
-		place_particles(target, COG_PARTICLES)
+	place_particles(target, COG_PARTICLES)
+	if target is Player:
+		manager.s_battle_ending.connect(cleanup)
 
 func place_particles(who: Node3D, particle_scene: PackedScene) -> void:
+	var particle_root: Node
+	var particle_scale := 1.0
+	if who is Cog:
+		particle_root = who.body_root
+		particle_scale = 4.0
+	elif who is Player:
+		particle_root = who.toon
 	particles = particle_scene.instantiate()
-	if who.get_node_or_null(NodePath(particles.name)):
-		var old_particles: Node = who.get_node(NodePath(particles.name))
-		old_particles.set_name("removing")
-		old_particles.queue_free()
-	who.body_root.add_child(particles)
-	particles.scale *= 4.0
+	particle_root.add_child(particles)
+	particles.scale = Vector3.ONE * particle_scale
 	particles.position.y = 0.05
 
 func renew() -> void:
@@ -36,6 +39,11 @@ func renew() -> void:
 		particles.get_node('AnimationPlayer').play('on_apply')
 	await manager.sleep(3.0)
 	await manager.check_pulses([target])
+
+func cleanup() -> void:
+	expire()
+	if manager.s_battle_ending.is_connected(cleanup):
+		manager.s_battle_ending.disconnect(cleanup)
 
 func expire() -> void:
 	if is_instance_valid(particles):

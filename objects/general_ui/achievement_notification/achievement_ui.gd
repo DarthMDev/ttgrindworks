@@ -23,5 +23,9 @@ func play_animation(achievement: Achievement) -> void:
 	animation.get_node('CanvasLayer/Origin/PanelMask/Panel/Summary').set_text(achievement.achievement_summary)
 	if achievement.achievement_icon:
 		animation.get_node('CanvasLayer/Origin/IconOrigin/Icon').set_texture(achievement.achievement_icon)
+	if achievement.use_achievement_background:
+		animation.get_node('CanvasLayer/Origin/IconOrigin/Background').show()
+		animation.get_node('CanvasLayer/Origin/IconOrigin/Background').self_modulate = achievement.custom_background_color.lerp(Color.WHITE, 0.4)
+		animation.get_node('CanvasLayer/Origin/IconOrigin/Icon').scale *= 0.7
 	add_child(animation)
 	await animation.s_animation_finished

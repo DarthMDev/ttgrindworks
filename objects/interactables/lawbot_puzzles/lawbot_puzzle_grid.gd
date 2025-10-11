@@ -36,6 +36,7 @@ enum LoseType {
 			use_beam_height = false
 			beam_origin = Vector3(0, beam_height, 0)
 @export_storage var use_beam_height := true
+## The origin of the beam. This value will be multiplied by the puzzle's scale.
 @export var beam_origin := Vector3(0, 2.5, 0):
 	set(new):
 		beam_origin = new
@@ -94,6 +95,9 @@ func _setup() -> void:
 	fill_grid()
 	initialize_game()
 
+func get_center() -> Vector3:
+	return Vector3(float(grid_width) / 2.0, 0.0, float(grid_height) / 2.0)
+
 ## Fills the grid with panels
 func fill_grid() -> void:
 	for i in grid_width:
@@ -114,10 +118,11 @@ func fill_grid() -> void:
 			var beam := PanelBeam.new()
 			beam_node.add_child(beam)
 			beam.connect_panel(panel)
+			var grid_center := get_center()
 			beam.position = Vector3(
-				beam_origin.x + (float(grid_width) / 2.0),
+				beam_origin.x + grid_center.x,
 				beam_origin.y,
-				beam_origin.z + (float(grid_height) / 2.0),
+				beam_origin.z + grid_center.z,
 			)
 
 ## Overwrite this function to initialize your game
@@ -173,11 +178,11 @@ func lose_game() -> void:
 		var player := Util.get_player()
 		AudioManager.play_sound(player.toon.yelp)
 		player.last_damage_source = "the Head of Security"
-		player.quick_heal(Util.get_hazard_damage() + explosion_damage)
+		player.quick_heal(Util.get_hazard_damage(explosion_damage))
 		# Only do the animation if the player is alive
 		if player.stats.hp > 0:
 			player.state = Player.PlayerState.STOPPED
-			player.set_animation('slip_backward')
+			player.set_animation('slip-backward')
 		
 		# Do Kaboom
 		AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))

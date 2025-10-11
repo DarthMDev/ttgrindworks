@@ -1,0 +1,52 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c8btjoekf0vw3"
+path="res://.godot/imported/masquerade_mask.fbx-e0a77314c3598227dafb560d666c09bb.scn"
+
+[deps]
+
+source_file="res://models/accessories/glasses/masquerade/masquerade_mask.fbx"
+dest_files=["res://.godot/imported/masquerade_mask.fbx-e0a77314c3598227dafb560d666c09bb.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=4.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"tt_t_chr_avt_acc_msk_masqueradeTypeMask3Shader": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/accessories/glasses/masquerade/tt_t_chr_avt_acc_msk_masqueradeTypeMask3Shader.tres",
+"use_external/path": "uid://flaeru5lvvgl"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=true
+fbx/embedded_image_handling=1
+fbx/naming_version=1

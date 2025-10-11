@@ -71,7 +71,7 @@ func gag_selected(gag: BattleAction) -> void:
 		BattleAction.ActionTarget.ENEMY, BattleAction.ActionTarget.ENEMY_SPLASH:
 			# Skip choice UI if only one Cog
 			if get_parent().cogs.size() == 1:
-				gag.targets = get_parent().cogs.duplicate()
+				gag.targets = get_parent().cogs.duplicate(true)
 				if gag.target_type == BattleAction.ActionTarget.ENEMY_SPLASH:
 					gag.main_target = gag.targets[0]
 			else:
@@ -97,7 +97,7 @@ func gag_selected(gag: BattleAction) -> void:
 					%TargetSelect.hide()
 					main_container.show()
 		_:
-			gag.targets = get_parent().cogs.duplicate()
+			gag.targets = get_parent().cogs.duplicate(true)
 	selected_gags.append(gag)
 	selected_gags = sort_gags(selected_gags)
 	s_gag_selected.emit(gag)
@@ -107,7 +107,7 @@ func gag_selected(gag: BattleAction) -> void:
 	turn += 1
 
 func refresh_turns() -> void:
-	attack_label.set_text("Turns Remaining: " + str(manager.battle_stats[Util.get_player()].turns - turn))
+	attack_label.set_text("Moves Remaining: " + str(manager.battle_stats[Util.get_player()].turns - turn))
 	gag_order_menu.update_panels()
 	
 	if remaining_turns == 0:
@@ -195,6 +195,8 @@ func cancel_gag(index: int):
 	s_gags_updated.emit(selected_gags)
 	turn -= 1
 	s_gag_canceled.emit(gag)
+	if Util.get_player().gags_cost_beans:
+		refresh_tracks()
 
 func get_track_element(track: Track) -> TextureRect:
 	for track_elem in gag_tracks.get_children():
@@ -205,7 +207,7 @@ func get_track_element(track: Track) -> TextureRect:
 func fire_pressed() -> void:
 	Util.get_player().stats.pink_slips -= 1
 	check_pink_slips()
-	gag_selected(fire_action.duplicate())
+	gag_selected(fire_action.duplicate(true))
 
 func check_pink_slips() -> void:
 	if Util.get_player().stats.pink_slips <= 0:

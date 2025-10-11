@@ -52,9 +52,8 @@ offset_right = -7.0
 offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "Skip"
+font_size = 36.0
 
 [node name="Label" parent="SkipButton" index="0"]
 text = "Skip"

@@ -66,11 +66,11 @@ physics_interpolation_mode = 2
 transform = Transform3D(2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 0, 0, 0)
 
 [node name="geyserRise" parent="Geyser" index="0"]
-transform = Transform3D(18.59, 0, 0, 0, -8.12595e-07, 18.59, 0, -18.59, -8.12595e-07, 0, -0.444444, 0)
+transform = Transform3D(0.1652443, 0, 0, 0, -7.2230435e-09, 0.1652443, 0, -0.1652443, -7.2230435e-09, 0, -0.44444445, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_o4t1r")
 
 [node name="Particles" parent="Geyser" index="2"]
-transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0, 1.27772, 0)
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0, -0.42722282, 0)
 
 [node name="GPUParticles3D" parent="Geyser/Particles" index="0"]
 transform = Transform3D(0.902158, 0, 0, 0, -0.582039, 1.36222e-07, 0, -8.78854e-08, -0.902158, 9.6146e-05, -0.0158461, -0.00913596)
@@ -79,7 +79,7 @@ transform = Transform3D(0.902158, 0, 0, 0, -0.582039, 1.36222e-07, 0, -8.78854e-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="GeyserMover" type="RemoteTransform3D" parent="AnimationRoot"]
-transform = Transform3D(18.59, 0, 0, 0, 18.59, 0, 0, 0, 18.59, 0, 0, 0)
+transform = Transform3D(37.18, 0, 0, 0, 37.18, 0, 0, 0, 37.18, 0, 0, 0)
 remote_path = NodePath("../../Geyser/geyserRise")
 update_rotation = false
 
@@ -89,13 +89,13 @@ remote_path = NodePath("../../Geyser/Particles")
 update_scale = false
 
 [node name="CogMover" type="RemoteTransform3D" parent="AnimationRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 3.4193065, 0)
 remote_path = NodePath("../../CogRoot")
 update_rotation = false
 update_scale = false
 
 [node name="CogRoot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.96580696, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

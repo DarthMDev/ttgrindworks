@@ -65,9 +65,10 @@ var model_shaft: Node3D
 
 @onready var head_collision: StaticBody3D = %Model/HeadCollision
 @onready var shaft_collision_shape: CollisionShape3D = %Model/ShaftCollision/CollisionShape3D
-@onready var player_detection: Area3D = %Model/PlayerDetection
+@onready var player_detection: Area3D = %PlayerDetection
 
-var damage: int
+var damage: int:
+	get: return Util.get_hazard_damage(base_damage)
 var floor_position: float
 var delay_next_stomp := false
 
@@ -82,7 +83,6 @@ func _ready() -> void:
 	floor_position = model_node.position.y
 	
 	if not Engine.is_editor_hint():
-		damage = Util.get_hazard_damage() + base_damage
 		
 		# Start the model_node in the raised position
 		model_node.position.y = raise_height
@@ -129,7 +129,7 @@ func _update_model_scale():
 	model_shaft.scale.z = shaft_scale
 	shaft_collision_shape.shape.height = (SHAFT_SIZE / 4.0) * shaft_scale
 	shaft_collision_shape.position.y = ((shaft_scale - 1.0) * (SHAFT_SIZE * 0.12)) - (shaft_offset / 4.0)
-	print(curr_model.find_child('GeometryTransformHelper5').get_aabb().size)
+	%SquareDropShadow.scale = head_scale * 0.8
 
 func _update_show_collisions():
 	for path in MODEL_PATHS.values():
@@ -141,7 +141,7 @@ func body_entered(body: Node3D) -> void:
 		player_entered(body)
 
 func player_entered(player: Player) -> void:
-	if player.state == Player.PlayerState.WALK:
+	if player.controller.current_state.accepts_interaction():
 		await squash_player(player)
 
 func set_collisions_enabled(enable: bool) -> void:
@@ -192,13 +192,13 @@ func squash_player(player: Player) -> void:
 	tween.tween_property(player.toon, 'scale:y', 0.05, 0.05)
 	tween.tween_interval(0.5)
 	tween.tween_callback(AudioManager.play_sound.bind(SFX_DECOMPRESS))
-	tween.tween_callback(player.set_animation.bind('happy'))
-	tween.tween_callback(func(): player.animator.speed_scale = 1.5)
+	tween.tween_callback(player.set_animation.bind('jump'))
+	tween.tween_callback(func(): player.toon.anim_set_speed(1.5))
 	tween.tween_property(player.toon, 'scale:y', base_scale * 1.15, 0.2)
 	tween.tween_property(player.toon, 'scale:y', base_scale, 0.05)
 	await player.animator.animation_finished
 	tween.kill()
-	player.animator.speed_scale = 1.0
+	player.toon.anim_set_speed(1.0)
 	player.state = Player.PlayerState.WALK
 	player.do_invincibility_frames()
 

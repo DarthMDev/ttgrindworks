@@ -1,28 +1,31 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=10 format=3 uid="uid://brhahnbakm60"]
+[gd_resource type="Resource" script_class="FloorVariant" load_steps=11 format=3 uid="uid://brhahnbakm60"]
 
-[ext_resource type="PackedScene" uid="uid://b87j2e2rsu88h" path="res://objects/modules/cgc/variants/cgc_slendercog_boss.tscn" id="1_5myl2"]
 [ext_resource type="Resource" uid="uid://05unenh4dgjs" path="res://objects/cog/presets/pools/bossbot.tres" id="1_5r77w"]
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="1_qwy8y"]
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_qwy8y"]
 [ext_resource type="Resource" uid="uid://c0m70b5ovs2i3" path="res://scenes/game_floor/department_floors/rooms_boss.tres" id="2_3bdp3"]
 [ext_resource type="Texture2D" uid="uid://cjynqnh16rd0p" path="res://models/cogs/misc/hp_light/boss.png" id="2_pa2hh"]
 [ext_resource type="Script" uid="uid://bwci320k5lyyc" path="res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_power_out.gd" id="4_pdr5m"]
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="5_5pbfe"]
 [ext_resource type="Script" uid="uid://hlr387ie2fnm" path="res://scenes/game_floor/floor_modifiers/scripts/misc/foor_mod_spooky_stuff.gd" id="6_q5ag6"]
+[ext_resource type="Script" uid="uid://d3t1vepa4plp4" path="res://scenes/game_floor/floor_variants/room_pack.gd" id="7_5r77w"]
 
-[sub_resource type="Resource" id="Resource_oopbd"]
+[sub_resource type="Resource" id="Resource_g6eta"]
 script = ExtResource("1_qwy8y")
-room = ExtResource("1_5myl2")
-rarity_weight = 1.0
+room = "uid://b87j2e2rsu88h"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
+
+[sub_resource type="Resource" id="Resource_m4pn8"]
+script = ExtResource("7_5r77w")
+final_mode = 1
+final_rooms = Array[ExtResource("1_qwy8y")]([SubResource("Resource_g6eta")])
+metadata/_custom_type_script = "uid://d3t1vepa4plp4"
 
 [resource]
 script = ExtResource("5_5pbfe")
-floor_difficulty = 0
 floor_type = ExtResource("2_3bdp3")
 floor_name = "Haunted Cog Golf Course"
 cog_pool = ExtResource("1_5r77w")
 modifiers = Array[Script]([ExtResource("4_pdr5m"), ExtResource("6_q5ag6")])
-end_rooms = Array[ExtResource("1_qwy8y")]([SubResource("Resource_oopbd")])
-floor_icon = ExtResource("2_pa2hh")
-anomalies = Array[Script]([])
-level_range = Vector2i(1, 12)
-room_count = 13
+room_pack = SubResource("Resource_m4pn8")
+is_alt_floor = true
+floor_icons = Array[Texture2D]([ExtResource("2_pa2hh")])

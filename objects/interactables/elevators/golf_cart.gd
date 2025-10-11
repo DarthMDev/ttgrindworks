@@ -15,11 +15,10 @@ func player_entered(player: Player) -> void:
 	CameraTransition.from_current(self, elevator_cam, 1.0)
 	
 	# Setup the jump path
-	var seat_pos: Vector3 = get_seat(0).position + Vector3(-0.1, 0, 0)
+	var seat_pos: Vector3 = get_seat(0).position + Vector3(0.125, 0, 0)
 	var first_sit_pos: Vector3 = seat_pos + Vector3(0, 0, 0.2)
-	var global_seat_pos: Vector3 = to_global(seat_pos)
 	var global_first_sit_pos: Vector3 = to_global(first_sit_pos)
-	var path := get_jump_path(player.global_position, global_first_sit_pos, 1.35)
+	var path := get_jump_path(player.toon.global_position, global_first_sit_pos, 1.35)
 	var follower := PathFollow3D.new()
 	follower.rotation_mode = PathFollow3D.ROTATION_NONE
 	path.add_child(follower)
@@ -29,14 +28,14 @@ func player_entered(player: Player) -> void:
 
 	# Create the tween
 	var cart_tween := create_tween()
-	cart_tween.tween_callback(player.set_animation.bind('happy'))
+	cart_tween.tween_callback(player.set_animation.bind('jump'))
 	cart_tween.set_trans(Tween.TRANS_SINE)
 	player.toon.rotation.y = fmod(player.toon.rotation.y, 360.0)
 	cart_tween.parallel().tween_property(follower, 'progress_ratio', 1.0, 0.9).set_delay(0.43)
 	cart_tween.parallel().tween_property(player.toon, 'rotation:y', 0.0, 0.9).set_delay(0.43)
-	cart_tween.tween_callback(player.set_animation.bind('into_sit'))
-	cart_tween.tween_interval(player.animator.get_animation(&"into_sit").length)
-	cart_tween.tween_callback(func(): player.set_animation('sit'); player.global_position = global_seat_pos)
+	cart_tween.tween_callback(player.set_animation.bind('intoSit'))
+	cart_tween.tween_interval(player.toon.legs.animator.get_animation(&"intoSit").length)
+	cart_tween.tween_callback(player.set_animation.bind('sit'))
 	cart_tween.tween_interval(1.0)
 	cart_tween.tween_property(self, 'position', final_position, 5.0)
 	cart_tween.parallel().tween_method(set_wheel_speed, 0.0, 100.0, 5.0)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_4yie3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kh8ep"]
-size = Vector3(12.3935, 17.6676, 10.9199)
+size = Vector3(13.484362, 17.6676, 10.9199)
 
 [node name="CatwalkBattle" instance=ExtResource("1_erjkm")]
 
@@ -18,5 +18,5 @@ cog_dist = 1.75
 cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.546478, 8.33379, -2.45712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0067518237, 8.33379, -2.45712)
 shape = SubResource("BoxShape3D_kh8ep")

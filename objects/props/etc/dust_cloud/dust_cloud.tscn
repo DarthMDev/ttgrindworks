@@ -88,6 +88,7 @@ animations = [{
 
 [node name="DustCloud" type="AnimatedSprite3D"]
 billboard = 1
+render_priority = 2
 sprite_frames = SubResource("SpriteFrames_vjm4n")
 autoplay = "default"
 frame = 18

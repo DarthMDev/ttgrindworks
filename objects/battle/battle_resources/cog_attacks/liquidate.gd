@@ -1,5 +1,4 @@
 extends CogAttack
-class_name Liquidate
 
 @export var particles : PackedScene
 @export var sfx : AudioStream
@@ -54,7 +53,7 @@ func action():
 			puddle.position.y = .05
 			puddle.scale/=100.0
 			var puddle_mesh : MeshInstance3D = puddle.get_node('quicksand/Skeleton3D/TheQuicksand')
-			var puddle_mat : StandardMaterial3D = puddle_mesh.mesh.surface_get_material(0).duplicate()
+			var puddle_mat : StandardMaterial3D = puddle_mesh.mesh.surface_get_material(0).duplicate(true)
 			puddle_mat.albedo_color = Color(0.0,0.0,1.0)
 			puddle_mesh.set_surface_override_material(0,puddle_mat)
 			target.set_animation('melt')
@@ -64,8 +63,8 @@ func action():
 			puddle_tween.kill()
 			particle_effect.emitting = false
 			await manager.sleep(1.0)
-			target.set_animation('happy')
-			target.animator.seek(0.5)
+			target.set_animation('jump')
+			target.toon.anim_seek(0.5)
 			var jump_tween : Tween = target.create_tween()
 			var toon_y : float = target.toon.position.y
 			target.toon.position.y = -1.0
@@ -78,7 +77,7 @@ func action():
 			jump_tween.kill()
 	else:
 		manager.battle_text(target,"MISSED")
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 	await target.animator.animation_finished
 	
 	cloud.queue_free()

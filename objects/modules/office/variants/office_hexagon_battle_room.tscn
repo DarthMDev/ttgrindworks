@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://skky6yl82cmh"]
+
+[ext_resource type="PackedScene" uid="uid://deucmesgg6wq5" path="res://objects/modules/office/base_rooms/office_hexagon_room.tscn" id="1_h8v3m"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_sxl33"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxl33"]
+size = Vector3(16.9333, 9.30786, 13.2668)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8v3m"]
+size = Vector3(17.5469, 31.5276, 21.1702)
+
+[node name="office_hexagon_room" instance=ExtResource("1_h8v3m")]
+
+[node name="BattleNodeDynamic" parent="." index="18" node_paths=PackedStringArray("cogs") instance=ExtResource("2_sxl33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15315, 1.64343)
+cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5"), NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70569, -4.11514)
+shape = SubResource("BoxShape3D_sxl33")
+
+[node name="RoomArea" type="Area3D" parent="." index="19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2638, -0.0435791)
+shape = SubResource("BoxShape3D_h8v3m")

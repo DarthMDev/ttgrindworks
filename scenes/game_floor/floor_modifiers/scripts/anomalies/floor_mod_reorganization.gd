@@ -1,6 +1,6 @@
 extends FloorModifier
 
-var loadout : GagLoadout
+var gag_loadout: GagLoadout
 
 
 func modify_floor() -> void:
@@ -10,17 +10,20 @@ func modify_floor() -> void:
 		return
 	
 	# Save a copy of the base gag loadout
-	loadout = player.stats.character.gag_loadout.duplicate()
-	
+	gag_loadout = player.stats.character.gag_loadout
+
 	# Shuffle the player's current loadout
-	RandomService.array_shuffle_channel('anomaly_reorg',player.stats.character.gag_loadout.loadout)
+	var _new_loadout: GagLoadout = gag_loadout.duplicate()
+	_new_loadout.loadout = _new_loadout.loadout.duplicate()
+	RNG.channel(RNG.ChannelAnomalyReorg).shuffle(_new_loadout.loadout)
+	player.stats.character.gag_loadout = _new_loadout
 
 func clean_up() -> void:
-	if not loadout:
+	if not gag_loadout:
 		return
 	# Restore previous loadout
 	var player := Util.get_player()
-	player.stats.character.gag_loadout = loadout
+	player.stats.character.gag_loadout = gag_loadout
 
 func get_mod_name() -> String:
 	return "Reorganization"

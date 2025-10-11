@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://crdgysckbi0r"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://cqyp04twrkeg8"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_36wjr"]
 [ext_resource type="PackedScene" uid="uid://ddauh2tpm4q3t" path="res://models/accessories/backpacks/bat_wings/tt_m_chr_avt_acc_pac_batWings.glb" id="2_lkame"]
@@ -8,51 +8,38 @@
 
 [sub_resource type="Resource" id="Resource_bcdov"]
 script = ExtResource("2_x6rgu")
-body_type = 0
-position = Vector3(0.01, 0, -1.38)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0, 1.35)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.6, 0.6, 0.6)
 
 [sub_resource type="Resource" id="Resource_8f25r"]
 script = ExtResource("2_x6rgu")
 body_type = 1
-position = Vector3(0.01, 0, -1.15)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0, 1.1)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.6, 0.6, 0.6)
 
 [sub_resource type="Resource" id="Resource_hv6iv"]
 script = ExtResource("2_x6rgu")
 body_type = 2
-position = Vector3(0.01, 0.23, -1.15)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.23, 0.96)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.6, 0.6, 0.6)
 
 [resource]
 script = ExtResource("2_wrirq")
 accessory_placements = Array[ExtResource("1_36wjr")]([SubResource("Resource_bcdov"), SubResource("Resource_8f25r"), SubResource("Resource_hv6iv")])
-item_tags = null
+tags = Array[int]([2])
 qualitoon = 3
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.15
-world_y_offset = 0.0
-want_ui_spin = true
 ui_cam_offset = 0.45
 item_name = "Bat Wings"
-item_description = "Siphon your enemies"
+item_description = "Siphon your enemies."
 big_description = "Adds an extra 10% to Throw's self heal bonus."
 model = ExtResource("2_lkame")
 stats_add = {
 "throw_heal_boost": 0.1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_jpgnc")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

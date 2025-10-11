@@ -21,14 +21,7 @@ func randomize_toon() -> void:
 
 [sub_resource type="Resource" id="Resource_gl48d"]
 script = ExtResource("2_fu1g1")
-body_type = 0
-species = 2
-head_index = 0
 eyelashes = false
-skirt = false
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Environment" id="Environment_k086h"]
 ambient_light_source = 2

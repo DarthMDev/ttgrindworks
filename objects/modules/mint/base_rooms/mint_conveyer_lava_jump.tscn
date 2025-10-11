@@ -65,7 +65,7 @@ size = Vector3(17.614, 1.371, 27.187)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ducum"]
 size = Vector3(0.62734, 3.22231, 5.09287)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mqphr"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pnhuj"]
 noise_type = 3
 frequency = 0.0101
 offset = Vector3(47.62, 0, 0)
@@ -75,10 +75,10 @@ fractal_lacunarity = 1.0
 fractal_weighted_strength = 0.95
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dbi8t"]
+noise = SubResource("FastNoiseLite_pnhuj")
 seamless = true
-noise = SubResource("FastNoiseLite_mqphr")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jc25x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40jfm"]
 resource_name = "lava"
 render_priority = 0
 shader = ExtResource("3_02bkt")
@@ -92,7 +92,7 @@ shader_parameter/displacement = SubResource("NoiseTexture2D_dbi8t")
 shader_parameter/emission_color = Vector3(2, 0, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_02bkt"]
-material = SubResource("ShaderMaterial_jc25x")
+material = SubResource("ShaderMaterial_40jfm")
 size = Vector2(42, 27.345)
 subdivide_width = 32
 subdivide_depth = 32
@@ -102,20 +102,20 @@ _limits = [0.0, 1.15, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0562249, 0.835582), 0.0, 0.0, 0, 0, Vector2(0.128514, 0.451939), 0.0, 0.0, 0, 0, Vector2(0.204819, 0.802698), 0.0, 0.0, 0, 0, Vector2(0.289157, 0.440978), 0.0, 0.0, 0, 0, Vector2(0.39759, 1), 0.0, 0.0, 0, 0, Vector2(0.481928, 0.397133), 0.0, 0.0, 0, 0, Vector2(0.567901, 0.745754), 0.0, 0.0, 0, 0, Vector2(0.693827, 0.272628), 0.0, 0.0, 0, 0, Vector2(0.775309, 0.355693), 0.0, 0.0, 0, 0, Vector2(0.859259, 0.13584), 0.0, 0.0, 0, 0, Vector2(0.940741, 0.178392), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 13
 
-[sub_resource type="CurveTexture" id="CurveTexture_2nieq"]
+[sub_resource type="CurveTexture" id="CurveTexture_gkit7"]
 curve = SubResource("Curve_jc25x")
 
 [sub_resource type="Gradient" id="Gradient_1fwrh"]
 colors = PackedColorArray(0.722732, 0, 0.282983, 1, 0.898412, 0.470966, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xo60k"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k2qr6"]
 gradient = SubResource("Gradient_1fwrh")
 
 [sub_resource type="Gradient" id="Gradient_fy70c"]
 offsets = PackedFloat32Array(0, 0.122172, 0.316742, 0.452489, 0.574661, 0.656109, 0.751131, 0.832579, 0.936652)
 colors = PackedColorArray(0.915407, 0.169083, 1.92523e-07, 1, 1, 0.51495, 0.140345, 1, 0.835806, 0.18368, 0, 1, 0.781093, 0.506061, 0, 1, 0.885174, 0.395708, 0, 1, 0.862307, 0.476696, 1.15514e-06, 1, 0.945914, 0.396931, 3.85046e-07, 1, 1, 0.30303, 0.207314, 1, 0.917898, 0.444718, 1.92523e-07, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_43c24"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aoqjr"]
 gradient = SubResource("Gradient_fy70c")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s4lq6"]
@@ -127,11 +127,11 @@ spread = 90.0
 initial_velocity_min = 0.5
 initial_velocity_max = 5.0
 gravity = Vector3(0, 0.4, 0)
-color_ramp = SubResource("GradientTexture1D_43c24")
-color_initial_ramp = SubResource("GradientTexture1D_xo60k")
-alpha_curve = SubResource("CurveTexture_2nieq")
+color_ramp = SubResource("GradientTexture1D_aoqjr")
+color_initial_ramp = SubResource("GradientTexture1D_k2qr6")
+alpha_curve = SubResource("CurveTexture_gkit7")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kdnn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25n0g"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -142,8 +142,8 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_vvb12"]
-material = SubResource("StandardMaterial3D_3kdnn")
+[sub_resource type="QuadMesh" id="QuadMesh_pnhuj"]
+material = SubResource("StandardMaterial3D_25n0g")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnhuj"]
 resource_name = "ConveyerBeltV3SHD"
@@ -151,7 +151,6 @@ cull_mode = 2
 albedo_texture = ExtResource("5_k543y")
 roughness = 0.552786
 uv1_scale = Vector3(1, 7.15, 1)
-uv1_offset = Vector3(0, 0.838968, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoqjr"]
 resource_name = "ConveyerBeltV3SHD"
@@ -159,7 +158,6 @@ cull_mode = 2
 albedo_texture = ExtResource("5_k543y")
 roughness = 0.552786
 uv1_scale = Vector3(1, 7.15, 1)
-uv1_offset = Vector3(0, -0.224151, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jh04"]
 resource_name = "ConveyerBeltV3SHD"
@@ -167,7 +165,6 @@ cull_mode = 2
 albedo_texture = ExtResource("5_k543y")
 roughness = 0.552786
 uv1_scale = Vector3(1, 7.15, 1)
-uv1_offset = Vector3(0, 1.92238, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fwrh"]
 size = Vector3(35.686, 29.3397, 20.4939)
@@ -260,7 +257,7 @@ lifetime = 5.0
 randomness = 0.44
 visibility_aabb = AABB(-30.4062, -20.4292, -22.1821, 68.5996, 48.2961, 59.6166)
 process_material = SubResource("ParticleProcessMaterial_s4lq6")
-draw_pass_1 = SubResource("QuadMesh_vvb12")
+draw_pass_1 = SubResource("QuadMesh_pnhuj")
 
 [node name="treasure_chest" parent="." index="8" instance=ExtResource("10_1fwrh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.5382, 12.5893, -5.21144)
@@ -342,6 +339,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0505, 0)
 
 [node name="BurnerFlame" parent="burner_group/burner_side" index="0" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, 0.847554, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0
@@ -349,6 +347,7 @@ start_enabled = true
 
 [node name="BurnerFlame2" parent="burner_group/burner_side" index="1" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, -1.15245, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0
@@ -356,6 +355,7 @@ start_enabled = true
 
 [node name="BurnerFlame3" parent="burner_group/burner_side" index="2" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, -3.15245, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0
@@ -417,6 +417,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.0
 
 [node name="BurnerFlame" parent="burner_group2/burner_side2" index="0" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, 0.847554, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0
@@ -424,6 +425,7 @@ start_enabled = true
 
 [node name="BurnerFlame2" parent="burner_group2/burner_side2" index="1" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, -1.15245, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0
@@ -431,6 +433,7 @@ start_enabled = true
 
 [node name="BurnerFlame3" parent="burner_group2/burner_side2" index="2" instance=ExtResource("14_40jfm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.76837e-07, -3.15245, -8.33572)
+enabled = false
 flame_length = 1.39
 automatic = true
 up_time = 3.0

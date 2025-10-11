@@ -27,7 +27,8 @@ var game_started := false
 
 var mole_task: Task
 
-var damage: int
+var damage: int:
+	get: return Util.get_hazard_damage(base_damage)
 
 var tween: Tween:
 	set(x):
@@ -41,7 +42,6 @@ var ui_tween: Tween:
 		ui_tween = x
 
 func _ready() -> void:
-	damage = Util.get_hazard_damage() + base_damage
 	if door:
 		door.add_lock()
 
@@ -64,7 +64,7 @@ func make_game_timer() -> void:
 	game_timer.timer.timeout.connect(lose_game)
 
 func spawn_new_mole() -> void:
-	var mole_game: MoleStompGame = RandomService.array_pick_random("mole_quadrant", mole_games)
+	var mole_game: MoleStompGame = RNG.channel(RNG.ChannelMoleQuadrant).pick_random(mole_games)
 	var mole: MoleHole = mole_game.get_random_mole()
 	mole.force_cog_mole = true
 	mole.mole_cog_boost_time = 2.5

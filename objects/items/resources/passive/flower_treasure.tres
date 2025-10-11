@@ -8,27 +8,17 @@
 [resource]
 script = ExtResource("3_8mot8")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.5
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Flower Treasure"
 item_description = "It's so pretty!"
 big_description = "Heals %d percent of your max laff!"
 model = ExtResource("2_kado5")
 pickup_sfx = ExtResource("3_kjguh")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
 arbitrary_data = {
 "heal_perc": 30,
 "texture": ExtResource("1_neans")
 }
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(1, 0.54902, 0, 1)
-force_show_shop_category = false
 custom_shop_price = 10

@@ -1,42 +1,28 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://ch01vicvrjrve"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=5 format=3 uid="uid://ch01vicvrjrve"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_ssr7r"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_stcta"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_yx0yl"]
 [ext_resource type="Resource" uid="uid://cfwymrymjx7s5" path="res://objects/battle/battle_resources/cog_attacks/resources/write_off.tres" id="3_bsqqh"]
-[ext_resource type="PackedScene" uid="uid://dekjiyikbfa4f" path="res://models/cogs/heads/pushedpencil.glb" id="4_kujp8"]
-[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="4_pcbrl"]
-[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="5_2ud7u"]
-[ext_resource type="Texture2D" uid="uid://mxoxt5bg5t34" path="res://models/cogs/heads/pushedpencil_pushedpencil.png" id="5_jsjgc"]
-[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="6_gjxex"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="7_xckql"]
-[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="8_gb58m"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="4_8t373"]
 
 [resource]
-script = ExtResource("2_stcta")
+script = ExtResource("4_8t373")
 department = 3
 suit = 1
-custom_blazer_tex = ExtResource("5_2ud7u")
-custom_arm_tex = ExtResource("4_pcbrl")
-custom_leg_tex = ExtResource("6_gjxex")
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
 cog_name = "Pushed Pencil"
-name_plural = ""
-head = ExtResource("4_kujp8")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/pushedpencil.glb"
 scale = 3.35
-head_textures = Array[Texture2D]([ExtResource("5_jsjgc")])
+head_textures = PackedStringArray("res://models/cogs/heads/pushedpencil_pushedpencil.png")
 hand_color = Color(0.576471, 0.470588, 0.45098, 1)
-head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 11.0
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_ssr7r")]([ExtResource("2_yx0yl"), ExtResource("3_bsqqh")])
 level_low = 2
 level_high = 20
-status_effects = Array[ExtResource("7_xckql")]([ExtResource("8_gb58m")])
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
 is_mod_cog = true
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["You won't push me around.", "Don't mistake me for dull.", "I have plenty of job experience.", "Good, I could use some sharpening.", "You've pushed me too far.", "Time to push for some big changes.", "Watch out, I'm about to snap."])
 external_assets = {
 &"head_model": "",

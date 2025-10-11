@@ -10,6 +10,7 @@ const SAVE_FILE_PATH := 'user://save/'
 const RUN_FILE_NAME := 'current_save.tres'
 const GLOBALSAVE_FILE_NAME := 'progress.tres'
 const SETTINGS_FILE_NAME := 'settings.tres'
+const SCREENSHOTS_PATH := 'user://screenshots'
 var ACHIEVEMENT_UI: PackedScene
 var SAVE_GAME_TEXT: PackedScene
 
@@ -18,6 +19,15 @@ var progress_file: ProgressFile
 var settings_file: SettingsFile
 
 var achievement_ui: Control
+
+## To modders:
+## If you want to add achievements to the end of the existing lists
+## Just add the resources to the specified array
+## Otherwise, I invite you to create your own section by making your own header here
+var mod_achievements: Dictionary[String, Array] = {
+	"": [], ## Standard achievements
+	"Items": [], ## Item achievements
+}
 
 signal s_game_loaded
 signal s_reset
@@ -87,7 +97,7 @@ func _ready():
 	var run_result := load_run()
 	
 	var invalid_files : Array[String] = [progress_result, settings_result, run_result]
-	for entry in invalid_files.duplicate():
+	for entry in invalid_files.duplicate(true):
 		if entry == "" : invalid_files.erase("")
 	
 	if not invalid_files.is_empty():
@@ -127,14 +137,13 @@ func load_run() -> String:
 		if not test_file:
 			save_file_error(file_path)
 			return file_path
-		var file = ResourceLoader.load(file_path, "", ResourceLoader.CacheMode.CACHE_MODE_IGNORE).duplicate()
+		var file = ResourceLoader.load(file_path, "", ResourceLoader.CacheMode.CACHE_MODE_IGNORE).duplicate(true)
 		if file is SaveFile:
 			run_file = file
 			s_game_loaded.emit()
 	if not run_file:
 		return ""
-	RandomService.base_seed = (run_file.current_seed)
-	RandomService.channels = run_file.seed_channels
+	RNG.load_from_run_file(run_file)
 	Util.floor_number = run_file.floor_number
 	ItemService.seen_items = run_file.seen_items
 	ItemService.items_in_play = run_file.items_in_play
@@ -145,8 +154,18 @@ func on_game_over() -> void:
 	delete_run_file()
 	run_file = null
 
-func _process(delta : float) -> void:
-	progress_file.total_playtime += delta / Engine.time_scale
+func _process(delta: float) -> void:
+	# Playtime counter
+	var time_scale := Engine.time_scale
+	if is_nan(time_scale):
+		time_scale = 1.0
+	if is_nan(delta):
+		delta = 0.0
+	progress_file.total_playtime += delta / time_scale
+	
+	# Screenshots
+	if Input.is_action_just_pressed('screenshot'):
+		take_screenshot()
 	
 	#if Input.is_action_just_pressed('save'):
 	#	save()
@@ -183,9 +202,25 @@ func is_achievement_unlocked(achievement: ProgressFile.GameAchievement) -> bool:
 	if not progress_file.achievements_earned.has(achievement): return false
 	return progress_file.achievements_earned[achievement]
 
+const SCREENSHOT_SYNTAX := "ttgw-%d-%d-%d-%d-%d-%d.png"
+func take_screenshot() -> void:
+	var image := get_viewport().get_texture().get_image()
+	var time := Time.get_datetime_dict_from_system()
+	var file_name := SCREENSHOT_SYNTAX % [time['year'], time['month'], time['day'], time['hour'], time['minute'], time['second']]
+	if not DirAccess.dir_exists_absolute(SCREENSHOTS_PATH):
+		DirAccess.make_dir_absolute(SCREENSHOTS_PATH)
+	image.save_png(SCREENSHOTS_PATH + '/' + file_name)
+	
+
 const SAVE_ERROR_PANEL := "res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.tscn"
 func show_save_errors(invalid_paths : Array[String]) -> void:
 	await get_tree().process_frame
 	var error_panel : UIPanel = GameLoader.load(SAVE_ERROR_PANEL).instantiate()
 	get_tree().get_root().add_child(error_panel)
 	error_panel.sync_faulty_files(invalid_paths)
+
+func add_achievement(section: String, achievement: Achievement) -> void:
+	if section in mod_achievements.keys():
+		mod_achievements[section].append(achievement)
+	else:
+		mod_achievements[section] = [achievement]

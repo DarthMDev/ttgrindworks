@@ -1,5 +1,4 @@
 extends DoodleAction
-class_name DoodleRollover
 
 const SFX := preload('res://audio/sfx/doodle/rollover.ogg')
 
@@ -22,7 +21,7 @@ func action():
 	
 	
 	# Apply the 1 round status effect
-	var stat_effect := create_stat_boost('evasiveness', 1.5, 1)
+	var stat_effect := create_stat_boost('evasiveness', 0.5, 1)
 	manager.add_status_effect(stat_effect)
 	
 	# Focus player

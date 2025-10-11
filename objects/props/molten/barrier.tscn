@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bycg7kp5uocp"]
+
+[ext_resource type="Texture2D" uid="uid://b7w555y1lykjx" path="res://models/props/facility_objects/barrier/metalgrate_rusted.png" id="2_ulyu0"]
+[ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="3_ulyu0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w07eb"]
+albedo_texture = ExtResource("3_ulyu0")
+uv1_scale = Vector3(0.215, 1, 0.24)
+uv1_offset = Vector3(0.12, 0.47, 0.219)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_sqbi8"]
+material = SubResource("StandardMaterial3D_w07eb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqase"]
+resource_name = "metalgrate_rusted"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_ulyu0")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(-1.173, -0.493, -0.063)
+uv1_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ulyu0"]
+material = SubResource("StandardMaterial3D_hqase")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqbi8"]
+size = Vector3(24.431885, 7.63916, 0.3864746)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.34593293, 0, 0, 0, 7.7246394, 0, 0, 0, 0.34593293, 0, -0.7611921, -12.091657)
+mesh = SubResource("BoxMesh_sqbi8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.34593293, 0, 0, 0, 7.7246394, 0, 0, 0, 0.34593293, 0, -0.7611921, 12.095351)
+mesh = SubResource("BoxMesh_sqbi8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.24759518, 0, 0, 0, 3.15473e-06, 0.3459329, 0, -24.057268, 4.5363617e-08, 0, 2.804077, -0.05782795)
+mesh = SubResource("BoxMesh_sqbi8")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.24759518, 0, 0, 0, -1.0515766e-06, 0.3459329, 0, -24.057268, -1.5121206e-08, 0, -2.9949105, -0.05782795)
+mesh = SubResource("BoxMesh_sqbi8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.046387e-06, 0, 0.99999994, 0, -5.868916, 0, 23.938543, 0, -4.3711385e-08, 0, -0.057123184, 0)
+mesh = SubResource("QuadMesh_ulyu0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, 0, -0.057123184, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, -1.1368684e-13, 0, 1, -1.687539e-14, 0.66638184, 4.2351647e-22)
+shape = SubResource("BoxShape3D_sqbi8")

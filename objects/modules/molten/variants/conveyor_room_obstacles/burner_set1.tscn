@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://hvvko2vguyj0"]
+
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="1_6jr0v"]
+[ext_resource type="Shader" uid="uid://b4l5edm0sdpba" path="res://objects/obstacles/burner/shaders/innerburner.tres" id="2_42hrd"]
+[ext_resource type="Shader" uid="uid://vgg5px6wnyc" path="res://objects/obstacles/burner/shaders/outerburner.tres" id="3_7ktyk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcygh"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("2_42hrd")
+shader_parameter/FirePanningSpeed = Vector2(1, 3.34)
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/Fresnel_visibility = 2.0
+shader_parameter/Flame_Visibility = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0tlt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_boa2t"]
+noise = SubResource("FastNoiseLite_r0tlt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlb63"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("3_7ktyk")
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/fire_panning_speed = Vector2(0.5, 2)
+shader_parameter/FirePanningVisibility = 1.0
+shader_parameter/AddFresnelVisibility = 3.59
+shader_parameter/Noise_Texture = SubResource("NoiseTexture2D_boa2t")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogefg"]
+radius = 0.75
+height = 6.30004
+
+[node name="BurnerSet1" type="Node3D"]
+
+[node name="BurnerFlame2" parent="." instance=ExtResource("1_6jr0v")]
+flame_length = 0.5
+
+[node name="Flame" parent="BurnerFlame2" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.5, 0, -1, -2.1855694e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="BurnerFlame2/Flame" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_lcygh")
+
+[node name="FlameOuter" parent="BurnerFlame2/Flame" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_vlb63")
+
+[node name="CollisionShape3D" parent="BurnerFlame2/Flame/PlayerDetection" index="0"]
+shape = SubResource("CapsuleShape3D_ogefg")
+
+[editable path="BurnerFlame2"]

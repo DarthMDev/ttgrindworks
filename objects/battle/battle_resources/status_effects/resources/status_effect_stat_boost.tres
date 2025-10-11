@@ -4,15 +4,4 @@
 
 [resource]
 script = ExtResource("1_22ksl")
-stat = "defense"
-boost = 1.0
-quality = 2
-rounds = 1
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
 id = 10

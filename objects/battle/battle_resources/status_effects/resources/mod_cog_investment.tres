@@ -6,11 +6,6 @@
 script = ExtResource("1_xe128")
 quality = 0
 rounds = -1
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
 description = "Heals 33% HP every other round"
 status_name = "Investment"
 id = 7

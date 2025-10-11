@@ -1,6 +1,10 @@
 extends Node3D
 class_name Elevator
 
+const ELEVATOR_SCENE_PATH := "res://scenes/elevator_scene/elevator_scene.tscn"
+const STRANGER_SHOP_PATH := "res://scenes/stranger_shop/stranger_shop.tscn"
+
+
 ## Config
 @export var animator: AnimationPlayer
 @export var player_pos: Node3D
@@ -28,7 +32,11 @@ func _ready() -> void:
 
 func body_entered(body : Node3D) -> void:
 	if body is Player and monitoring:
+		# Don't.
+		if body.state == Player.PlayerState.STOPPED: return
+		
 		monitoring = false
+		run_stranger_check(body)
 		player_entered(body)
 
 func player_entered(player : Player) -> void:
@@ -69,3 +77,13 @@ func check_camera_status() -> void:
 	if not is_instance_valid(Util.get_player()): return
 	var player := Util.get_player()
 	player.camera.make_current()
+
+func is_in_stranger_shop() -> bool:
+	return owner and owner.name == "StrangerShop"
+
+func run_stranger_check(player: Player) -> void:
+	## Only allow this check on elevators that lead to the between-floors scene
+	if not scene_path == ELEVATOR_SCENE_PATH: return
+	
+	if (not is_in_stranger_shop()) and player.stats.run_stranger_roll():
+		scene_path = STRANGER_SHOP_PATH

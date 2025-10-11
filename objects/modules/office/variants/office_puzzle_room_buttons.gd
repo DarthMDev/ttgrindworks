@@ -11,6 +11,8 @@ const SFX_OPEN := preload("res://audio/sfx/objects/facility_door/CHQ_FACT_door_u
 var correct_order: Array[CogButton] = []
 var next_button: CogButton
 
+signal s_door_unlocked
+
 
 func _ready() -> void:
 	correct_order.assign(%Buttons.get_children())
@@ -76,6 +78,7 @@ func win() -> void:
 		puzzle.win_game()
 	if is_instance_valid(skull_bounce):
 		skull_bounce.win_game()
+	s_door_unlocked.emit()
 
 func randomize_buttons() -> void:
 	var placements := %ButtonPlacements.get_children()

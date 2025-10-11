@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://b1sjkcka65imo"]
+[gd_scene load_steps=68 format=4 uid="uid://b1sjkcka65imo"]
 
 [ext_resource type="Texture2D" uid="uid://dpsidiie17khh" path="res://models/facilities/factory/FINALFACTORY_0.png" id="1_lh6vi"]
 [ext_resource type="Texture2D" uid="uid://0fpeux22orn8" path="res://models/facilities/factory/FINALFACTORY_1.png" id="2_5hivt"]
@@ -9,12 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cyyoawk5b8aft" path="res://models/facilities/factory/FINALFACTORY_6.png" id="7_5bnp2"]
 [ext_resource type="Texture2D" uid="uid://c82dhpdhopvet" path="res://models/facilities/factory/FINALFACTORY_7.png" id="8_2vtoc"]
 [ext_resource type="Texture2D" uid="uid://d20seuoblmh5g" path="res://models/facilities/factory/FINALFACTORY_8.png" id="9_12xm6"]
-[ext_resource type="Texture2D" uid="uid://5yjyn2js3h1k" path="res://models/facilities/factory/FINALFACTORY_9.png" id="10_lt6lj"]
+[ext_resource type="Texture2D" uid="uid://c4btnd8o0b0cp" path="res://models/facilities/factory/FINALFACTORY_9.png" id="10_lt6lj"]
 [ext_resource type="Texture2D" uid="uid://ee8tuae4wipi" path="res://models/facilities/factory/FINALFACTORY_10.png" id="11_u6ujn"]
 [ext_resource type="Texture2D" uid="uid://mfewy7yscysn" path="res://models/facilities/factory/FINALFACTORY_11.png" id="12_ianqt"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="13_36mm7"]
 [ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="14_f8w8w"]
 [ext_resource type="PackedScene" uid="uid://il8lb2ksbpt7" path="res://models/facilities/factory/factory_entrance_building.fbx" id="15_3rnrk"]
+[ext_resource type="PackedScene" uid="uid://bkxc3uels12ag" path="res://models/facilities/factory/factory_baseplate.fbx" id="16_towhf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36w8k"]
 resource_name = "BoilerRoomT_WallMetalPlateSHD_WallMetalPlateV2SHD"
@@ -791,7 +792,7 @@ size = Vector3(13.4833, 8.65442, 18.3546)
 vertices = PackedVector3Array(8.99998, 0.5, -13.3948, 8.74998, 0.5, -17.8948, 4.99998, 0.5, -17.8948, 4.74998, 0.5, -13.3948, 0.499979, 0.5, -0.394764, 13.25, 0.5, -0.394764, 13.25, 0.5, -13.3948, 0.499979, 0.5, -13.3948)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(0, 6, 5), PackedInt32Array(4, 7, 3)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqeir"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udocw"]
 resource_name = "textures:CashBotStationWall1_SHD"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.821789, 0.821789, 0.821788, 1)
@@ -799,7 +800,7 @@ albedo_texture = ExtResource("1_lh6vi")
 emission_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_7ads1"]
-material = SubResource("StandardMaterial3D_jqeir")
+material = SubResource("StandardMaterial3D_udocw")
 size = Vector2(4.6, 4.6)
 
 [node name="FactoryEntrance" type="Node3D"]
@@ -1011,3 +1012,6 @@ mesh = SubResource("QuadMesh_7ads1")
 
 [node name="factory_entrance_building" parent="." instance=ExtResource("15_3rnrk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+
+[node name="factory_baseplate" parent="." instance=ExtResource("16_towhf")]
+transform = Transform3D(0.44, 0, 0, 0, 0.65, 0, 0, 0, 0.49, -14.99787, -14.077717, 29.076534)

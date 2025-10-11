@@ -13,7 +13,7 @@ func _ready() -> void:
 		return
 
 	collision.sync_to_physics = false
-	if randomize_dir and RandomService.randi_channel('true_random') % 2 == 0:
+	if randomize_dir and randi() % 2 == 0:
 		spin_speed = -spin_speed
 
 func _physics_process(delta: float) -> void:

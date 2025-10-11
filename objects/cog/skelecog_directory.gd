@@ -18,6 +18,7 @@ signal s_dna_set
 @export var right_hand_bone: BoneAttachment3D
 @export var right_index_bone: BoneAttachment3D
 @export var health_bone: BoneAttachment3D
+@export var shadow_bone: BoneAttachment3D
 @export var tie_mesh: MeshInstance3D
 @export var color_overlay_meshes: Array[GeometryInstance3D]
 
@@ -37,11 +38,11 @@ func set_dna(dna: CogDNA) -> void:
 		if child is MeshInstance3D:
 			for i in child.mesh.get_surface_count():
 				if not child.get_surface_override_material(i):
-					var new_mat : StandardMaterial3D = child.mesh.surface_get_material(i).duplicate()
+					var new_mat : StandardMaterial3D = child.mesh.surface_get_material(i).duplicate(true)
 					child.set_surface_override_material(i, new_mat)
 					override_mats.append(new_mat)
 				else:
-					child.set_surface_override_material(i, child.get_surface_override_material(i).duplicate())
+					child.set_surface_override_material(i, child.get_surface_override_material(i).duplicate(true))
 					override_mats.append(child.get_surface_override_material(i))
 	
 	if tie_mesh:

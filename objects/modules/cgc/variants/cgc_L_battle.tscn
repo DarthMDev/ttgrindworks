@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="5_jdas8"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="11_6hihm"]
 [ext_resource type="PackedScene" uid="uid://pn7r3ut085aw" path="res://objects/props/cgc/hedge_pillar.tscn" id="13_wngv4"]
-[ext_resource type="Texture2D" uid="uid://dpx8p7acm5b5l" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="14_so7bu"]
+[ext_resource type="Texture2D" uid="uid://cjd18xmoljlbm" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="14_so7bu"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="14_w536x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1gbn"]

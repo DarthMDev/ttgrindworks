@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhk8f3fvkyuhm"]
+
+[ext_resource type="PackedScene" uid="uid://ddbx8konsqieq" path="res://models/props/facility_objects/stomperpiston/StomperPiston.fbx" id="1_jw08e"]
+
+[sub_resource type="Gradient" id="Gradient_1qgt5"]
+offsets = PackedFloat32Array(0, 0.3488372, 0.875, 0.9127907, 0.9738372, 1)
+colors = PackedColorArray(0.38928655, 0.38928664, 0.38928658, 1, 0.5370113, 0.5370113, 0.5370113, 1, 0.54798967, 0.54798967, 0.5479896, 1, 0.80049086, 0.8004908, 0.8004906, 1, 0.69591445, 0.6959144, 0.69591415, 1, 0.40832967, 0.40832943, 0.40832922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6bw7"]
+gradient = SubResource("Gradient_1qgt5")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_amwuc"]
+offsets = PackedFloat32Array(0, 0.3065476, 0.5416667, 0.82738096, 1)
+colors = PackedColorArray(0.38170326, 0.38170323, 0.38170323, 1, 0.7121294, 0.7121294, 0.71212935, 1, 0.1, 0.1, 0.1, 1, 0.76, 0.76, 0.76, 1, 0.38039216, 0.38039216, 0.38039216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rsq8m"]
+gradient = SubResource("Gradient_amwuc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qs82i"]
+blend_mode = 1
+albedo_color = Color(0.42983872, 0.2568698, 0.18295124, 1)
+albedo_texture = SubResource("GradientTexture2D_rsq8m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0fga"]
+next_pass = SubResource("StandardMaterial3D_qs82i")
+albedo_color = Color(0.6439112, 0.42417145, 0.33828166, 1)
+albedo_texture = SubResource("GradientTexture2D_t6bw7")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jw08e"]
+points = PackedVector3Array(0.0026317977, 3.7252903e-09, -0.018594392, 0.0021289333, -0.0015470791, -0.018594392, 0.0026317977, 3.7252903e-09, -0.05317434, 0.0021289333, 0.0015465964, -0.018594392, 0.0019980648, 3.7252903e-09, 0.013888031, 0.0016162794, -0.0011746424, 0.013888031, 0.0008130355, -0.0025031634, -0.018594392, 0.0021289333, -0.0015470791, -0.05317434, 0.0021289333, 0.0015465964, -0.05317434, 0.0008130355, 0.0025031709, -0.05317434, 0.0008130355, 0.0025026805, -0.018594392, 0.000617248, 0.001900411, 0.013888031, 0.0016162794, 0.0011741596, 0.013888031, 0.0012174912, 3.7252903e-09, 0.04603059, 0.000984607, -0.000715957, 0.04603059, 0.000617248, -0.001900404, 0.013888031, -0.000813546, -0.0025031634, -0.018594392, 0.0008130355, -0.0025031634, -0.05317434, -0.000813546, 0.0025031709, -0.05317434, -0.000813546, 0.0025026805, -0.018594392, -0.0006177586, 0.001900411, 0.013888031, 0.00039569917, 0.0012177739, 0.04603059, 0.000984607, 0.00071547413, 0.04603059, 0.00037612044, -0.0011579806, 0.04603059, -0.00039620954, -0.0012182567, 0.04603059, -0.0006177586, -0.001900404, 0.013888031, -0.0021294437, -0.0015470791, -0.018594392, -0.000813546, -0.0025031634, -0.05317434, -0.001617305, -0.0011746424, 0.013888031, -0.0021294437, 0.0015465964, -0.05317434, -0.0021294437, 0.0015465964, -0.018594392, -0.001617305, 0.0011741596, 0.013888031, -0.00039620954, 0.0012177739, 0.04603059, -0.0010366406, -0.0007527106, 0.04603059, -0.002631793, 3.7252903e-09, -0.018594392, -0.0021294437, -0.0015470791, -0.05317434, -0.001281375, 3.7252903e-09, 0.04603059, -0.0019985752, 3.7252903e-09, 0.013888031, -0.002631793, 3.7252903e-09, -0.05317434, -0.0009851176, 0.00071547413, 0.04603059)
+
+[node name="StomperPiston" instance=ExtResource("1_jw08e")]
+
+[node name="StomperPiston" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k0fga")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StomperPiston" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StomperPiston/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_jw08e")

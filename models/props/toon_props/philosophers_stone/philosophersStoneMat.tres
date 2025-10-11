@@ -1,0 +1,77 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://kn8t8j3sb02n"]
+
+[ext_resource type="Texture2D" uid="uid://c0ovwv71nldcl" path="res://models/props/toon_props/philosophers_stone/philosophersStone.png" id="1_fbm0e"]
+
+[sub_resource type="Shader" id="Shader_tv42k"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.5.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_prepass_alpha, cull_back, unshaded;
+
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+
+uniform sampler2D Matcap : source_color;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+
+	vec3 centerNormal = vec3(0.0, 0.0, 0.0);
+
+    // Sum up normals of neighboring vertices
+    for (int i = 0; i < 8; i++) {  // Consider 8 neighboring vertices (adjust as needed)
+        centerNormal += NORMAL;  // Assuming NORMAL is the normal attribute passed to the shader
+    }
+
+    // Normalize the sum to get an average normal
+    centerNormal = normalize(centerNormal);
+
+    // Use centerNormal for further calculations or pass it to the fragment shader
+    NORMAL = centerNormal;
+}
+
+void fragment() {
+	vec3 vertex_vs = normalize(VERTEX);
+	vec3 normal_vs = NORMAL;
+	
+	vec3 coord = cross(vertex_vs, normal_vs);
+	vec2 uv_vs = vec2(coord.x, coord.y);
+	uv_vs *= 0.5;
+	uv_vs += 0.5;
+	
+	vec3 matcap = texture(Matcap, uv_vs).rgb;
+	vec3 rough_tex = texture(texture_albedo, UV).rgb;
+	float rough_contribute = 0.0;
+	if (rough_tex.r < 0.5) {
+		rough_contribute = 0.25;
+	}
+	
+	ALBEDO = mix(matcap, rough_tex.rgb, rough_contribute);
+	ALPHA = 0.95;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_fbm0e"]
+offsets = PackedFloat32Array(0.2964824, 0.57009345, 1)
+colors = PackedColorArray(0.28199974, 0, 0.94, 1, 0.13299999, 0.24193324, 0.95, 1, 5.77569e-06, 0.99772173, 0.9435515, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fbm0e"]
+noise_type = 3
+frequency = 0.0024
+offset = Vector3(86.96, 28.99, 0)
+fractal_gain = 0.535
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tv42k"]
+noise = SubResource("FastNoiseLite_fbm0e")
+color_ramp = SubResource("Gradient_fbm0e")
+
+[resource]
+resource_name = "philosophersStoneShader"
+render_priority = 0
+shader = SubResource("Shader_tv42k")
+shader_parameter/texture_albedo = ExtResource("1_fbm0e")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/Matcap = SubResource("NoiseTexture2D_tv42k")

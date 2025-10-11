@@ -1,5 +1,4 @@
 extends CogAttack
-class_name ThrowPaper
 
 # Config
 @export var prop : PackedScene
@@ -8,7 +7,7 @@ class_name ThrowPaper
 
 # Locals
 var held_prop : Node3D
-var hit : bool
+var hit: bool
 
 func action():
 	hit = manager.roll_for_accuracy(self)
@@ -35,7 +34,7 @@ func pink_slip():
 	
 	if hit:
 		await manager.sleep(wait_time-0.2)
-		target.set_animation('happy')
+		target.set_animation('jump')
 		await manager.sleep(0.2)
 	else:
 		await manager.sleep(wait_time)
@@ -50,13 +49,13 @@ func pink_slip():
 	
 	# When missed, jump late
 	if not hit:
-		target.set_animation('happy')
+		target.set_animation('jump')
 		manager.battle_text(target,'MISSED')
 	
 	await throw_tween.finished
 	if hit:
 		manager.affect_target(target, damage)
-		target.set_animation('slip_forwards')
+		target.set_animation('slip-forward')
 	
 	await manager.barrier(target.animator.animation_finished, 4.0)
 	
@@ -73,7 +72,7 @@ func eviction_notice() -> void:
 	if not hit:
 		var stagger := 0.2
 		await manager.sleep(wait_time - stagger)
-		player.set_animation('happy')
+		player.set_animation('jump')
 		await manager.sleep(stagger)
 	else:
 		await manager.sleep(wait_time)
@@ -102,11 +101,61 @@ func eviction_notice() -> void:
 				manager.affect_target(player, damage)
 	)
 	
-	
 	battle_node.focus_character(player)
 	
 	if not hit:
 		manager.battle_text(player, "MISSED")
 	
 	await manager.barrier(player.animator.animation_finished, 3.0)
+	await manager.check_pulses(targets)
+
+
+
+func restraining_order() -> void:
+	held_prop.position = Vector3(1.477, -0.442, -0.83)
+	held_prop.rotation_degrees = Vector3(-27.2, 176.1, -36.3)
+	
+	var player : Player = targets[0]
+	battle_node.focus_character(user)
+	
+	if not hit:
+		var stagger := 0.2
+		await manager.sleep(wait_time - stagger)
+		player.set_animation('jump')
+		await manager.sleep(stagger)
+	else:
+		await manager.sleep(wait_time)
+	
+	held_prop.reparent(battle_node)
+	held_prop.global_position.y = player.global_position.y + 1.5
+	held_prop.look_at(player.global_position)
+	
+	var forward_vec := held_prop.global_transform.basis.z.normalized()
+	var distance := -held_prop.global_position.distance_to(player.global_position)
+
+	if not hit:
+		distance -= 2.0
+	
+	var destination := held_prop.global_position + (forward_vec*distance)
+	
+	
+	var throw_tween : Tween = held_prop.create_tween()
+	throw_tween.tween_property(held_prop,'global_position', destination, 0.6)
+	throw_tween.finished.connect(
+		func():
+			throw_tween.kill()
+			held_prop.queue_free()
+			if hit:
+				player.set_animation("conked")
+				manager.affect_target(player, damage)
+				await manager.sleep(0.25)
+				player.set_animation("struggle")
+	)
+	
+	battle_node.focus_character(player)
+	
+	if not hit:
+		manager.battle_text(player, "MISSED")
+	
+	await manager.barrier(player.animator.animation_finished, 5.0)
 	await manager.check_pulses(targets)

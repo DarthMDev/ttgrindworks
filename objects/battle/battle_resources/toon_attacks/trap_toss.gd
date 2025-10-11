@@ -116,8 +116,8 @@ func action():
 
 	# For detective hat item
 	if not user.trap_needs_lure and target.lured:
-		manager.force_unlure(target)
 		await activate()
+		manager.force_unlure(target)
 
 func activate():
 	s_activate.emit()

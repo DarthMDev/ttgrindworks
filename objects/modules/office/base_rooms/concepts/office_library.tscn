@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://lckbkkuxflod"]
+
+[ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_e0mjy"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_b7ujw"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="3_e0mjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daxgv"]
+size = Vector3(10.7432, 7.38757, 7.60156)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50325, -0.25, -7.46411)
+use_collision = true
+size = Vector3(24.0065, 0.5, 50)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -8, -0.25, 17.8248)
+use_collision = true
+size = Vector3(7, 0.5, 5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 16.3394, -0.25, -32.5239)
+use_collision = true
+size = Vector3(7, 0.5, 5)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25038, 0, 0.0112844)
+
+[node name="law_bookshelf13" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, -4.87946, 0.0265344, 1.94385)
+
+[node name="law_bookshelf14" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, -5.02845, 0.0265344, -2.27914)
+
+[node name="law_bookshelf15" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, -4.87946, 3.76455, 1.94385)
+
+[node name="law_bookshelf16" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, -5.02845, 3.76455, -2.27914)
+
+[node name="law_bookshelf17" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, 0.597049, 0.0265344, 1.94385)
+
+[node name="law_bookshelf18" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, 0.448058, 0.0265344, -2.27914)
+
+[node name="law_bookshelf19" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, 0.597049, 3.76455, 1.94385)
+
+[node name="law_bookshelf21" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-8.72623e-08, 0, 1.99633, 0, 1.99633, 0, -1.99633, 0, -8.72623e-08, 3.45837, 0.0265344, -0.16776)
+
+[node name="law_bookshelf22" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-8.72623e-08, 0, 1.99633, 0, 1.99633, 0, -1.99633, 0, -8.72623e-08, 3.45837, 3.76455, -0.16776)
+
+[node name="law_bookshelf20" parent="Node3D" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, 0.448058, 3.76455, -2.27914)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.82531, 0, -15.242)
+
+[node name="law_bookshelf13" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, -4.87946, 0.0265344, 1.94385)
+
+[node name="law_bookshelf14" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, -5.02845, 0.0265344, -2.27914)
+
+[node name="law_bookshelf15" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, -4.87946, 3.76455, 1.94385)
+
+[node name="law_bookshelf16" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, -5.02845, 3.76455, -2.27914)
+
+[node name="law_bookshelf17" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, 0.597049, 0.0265344, 1.94385)
+
+[node name="law_bookshelf18" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, 0.448058, 0.0265344, -2.27914)
+
+[node name="law_bookshelf19" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(1.99633, 0, 0, 0, 1.99633, 0, 0, 0, 1.99633, 0.597049, 3.76455, 1.94385)
+
+[node name="law_bookshelf21" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-8.72623e-08, 0, 1.99633, 0, 1.99633, 0, -1.99633, 0, -8.72623e-08, 3.45837, 0.0265344, -0.16776)
+
+[node name="law_bookshelf22" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-8.72623e-08, 0, 1.99633, 0, 1.99633, 0, -1.99633, 0, -8.72623e-08, 3.45837, 3.76455, -0.16776)
+
+[node name="law_bookshelf20" parent="Node3D2" instance=ExtResource("2_e0mjy")]
+transform = Transform3D(-1.99633, 0, -1.74525e-07, 0, 1.99633, 0, 1.74525e-07, 0, -1.99633, 0.448058, 3.76455, -2.27914)
+
+[node name="BattleNodeDynamic" parent="." node_paths=PackedStringArray("cogs") instance=ExtResource("3_b7ujw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.897213, 0, 11.3859)
+cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5"), NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19379, -3.30078)
+shape = SubResource("BoxShape3D_daxgv")
+
+[node name="BattleNodeDynamic2" parent="." node_paths=PackedStringArray("cogs") instance=ExtResource("3_b7ujw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29505, 0, -14.4757)
+cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5"), NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19379, -3.30078)
+shape = SubResource("BoxShape3D_daxgv")
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("3_e0mjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04382, -1.90735e-06, 17.6513)

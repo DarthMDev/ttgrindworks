@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy15pco0hx21c"]
+
+[ext_resource type="PackedScene" uid="uid://7yrjvfb0b8ed" path="res://models/props/facility_objects/molten/chase_objects/chase_thin_platform.fbx" id="1_wgqm7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2f6nq"]
+points = PackedVector3Array(-0.098125, -0.010245, -0.01465, -0.098125, 0.010245, -0.01465, 0.098125, -0.010245, -0.01465, -0.098125, -0.010245, 0.01465, -0.098125, 0.010245, 0.01465, 0.098125, 0.010245, -0.01465, 0.098125, -0.010245, 0.01465, 0.098125, 0.010245, 0.01465)
+
+[node name="chase_thin_platform" instance=ExtResource("1_wgqm7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="chase_thin_platform" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chase_thin_platform/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_2f6nq")

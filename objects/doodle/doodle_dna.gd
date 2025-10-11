@@ -45,10 +45,10 @@ var texture : Texture2D:
 
 
 func randomize_dna():
-	tail = RandomService.randi_channel('doodle_dna') % DoodleTail.keys().size() as DoodleTail
-	ears = RandomService.randi_channel('doodle_dna') % DoodleEar.keys().size() as DoodleEar
-	nose = RandomService.randi_channel('doodle_dna') % DoodleNose.keys().size() as DoodleNose
+	tail = RNG.channel(RNG.ChannelDoodleDNA).randi() % DoodleTail.keys().size() as DoodleTail
+	ears = RNG.channel(RNG.ChannelDoodleDNA).randi() % DoodleEar.keys().size() as DoodleEar
+	nose = RNG.channel(RNG.ChannelDoodleDNA).randi() % DoodleNose.keys().size() as DoodleNose
 	color = Globals.random_dna_color
-	eye_lashes = RandomService.randi_channel('doodle_dna')%2 == 0
-	tex_num = RandomService.randi_channel('doodle_dna')%textures.size()
-	hair = RandomService.randi_channel('doodle_dna') % 2 == 0
+	eye_lashes = RNG.channel(RNG.ChannelDoodleDNA).randi() % 2 == 0
+	tex_num = RNG.channel(RNG.ChannelDoodleDNA).randi() % textures.size()
+	hair = RNG.channel(RNG.ChannelDoodleDNA).randi() % 2 == 0

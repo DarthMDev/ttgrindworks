@@ -91,7 +91,7 @@ func pop_a_mole() -> void:
 	if (not mole_current == Mole.NONE) or (pop_tween and pop_tween.is_running()):
 		return
 	
-	if force_cog_mole or (RandomService.randi_channel('moles') % MOLE_CHANCE == 0 and want_cog_moles):
+	if force_cog_mole or (RNG.channel(RNG.ChannelMoles).randi() % MOLE_CHANCE == 0 and want_cog_moles):
 		pop_mole(Mole.COG)
 		force_cog_mole = false
 		s_cog_mole_appear.emit()
@@ -167,26 +167,26 @@ func launch_player() -> void:
 	var launch_y: float
 	var land_y: float
 	if force_launch_node:
-		launch_y = player.to_local(force_launch_node.global_position).y + 8.0
+		launch_y = force_launch_node.global_position.y + 8.0
 		land_y = player.to_local(force_launch_node.global_position).y
 	else:
-		launch_y = player.position.y + 8.0
+		launch_y = player.global_position.y + 8.0
 		land_y = global_position.y
 
-	launch_tween.tween_property(player, 'position:y', launch_y, 1.0)
+	launch_tween.tween_property(player, 'global_position:y', launch_y, 1.0)
 	launch_tween.set_ease(Tween.EASE_IN)
 	launch_tween.tween_property(player, 'global_position:y', land_y, 1.0)
 	
 	# Do twist tween
 	var twist_tween := create_tween()
-	twist_tween.tween_property(player.toon.body_node, 'rotation_degrees', player.toon.rotation_degrees + Vector3(720, 0, 720), 2.0)
+	twist_tween.tween_property(player.toon.body_node, 'rotation_degrees', player.toon.rotation_degrees + Vector3(720, 180.0, 720), 2.0)
 	
 	# Do reposition tween
 	var newpos: Vector3
 	if force_launch_node:
 		newpos = force_launch_node.global_position
 	else:
-		newpos = player.position + Vector3(RandomService.randf_channel('true_random') * 1.0, 0.0, randf() * 1.0)
+		newpos = player.position + Vector3(randf() * 1.0, 0.0, randf() * 1.0)
 	var reposition_tween := create_tween()
 	reposition_tween.set_parallel(true)
 	reposition_tween.tween_property(player, 'position:x', newpos.x, 2.0)
@@ -197,10 +197,10 @@ func launch_player() -> void:
 	twist_tween.kill()
 	reposition_tween.kill()
 	player.position = newpos
-	player.set_animation('slip_backward')
+	player.set_animation('slip-backward')
 	AudioManager.play_sound(SFX_LAND)
 	await Task.delay(2.75)
-	player.toon.body_node.rotation_degrees = Vector3.ZERO
+	player.toon.body_node.rotation_degrees = Vector3(0.0, 180.0, 0.0)
 	player.state = Player.PlayerState.WALK
 	if Util.get_player().stats.hp <= 0:
 		Util.get_player().lose()
@@ -209,14 +209,14 @@ func slip_player() -> void:
 	var player := Util.get_player()
 	s_launched.emit()
 	player.state = Player.PlayerState.STOPPED
-	player.set_animation('slip_backward')
+	player.set_animation('slip-backward')
 	await Task.delay(2.75)
 	player.state = Player.PlayerState.WALK
 	if Util.get_player().stats.hp <= 0:
 		Util.get_player().lose()
 
 func reset_timer() -> void:
-	var new_time: float = RandomService.randf_range_channel('moles', WAKE_TIME.x, WAKE_TIME.y)
+	var new_time: float = RNG.channel(RNG.ChannelMoles).randf_range(WAKE_TIME.x, WAKE_TIME.y)
 	if mole_current == Mole.COG and mole_cog_boost_time > 0.0:
 		new_time += mole_cog_boost_time
 	timer.wait_time = new_time
@@ -232,9 +232,9 @@ func make_hit_tween() -> void:
 	return 
 	#var positions: Array[LerpProperty] = []
 	#for i in 9:
-		#var rand_value: float = RandomService.randf_range_channel('true_random', 0.23, 0.4) * RandomService.array_pick_random('true_random', [1.0, -1.0])
+		#var rand_value: float = randf_range(0.23, 0.4) * [1.0, -1.0].pick_random()
 		#var new_pos: Vector3
-		#match RandomService.array_pick_random('true_random', ["x", "y", "z"]):
+		#match ["x", "y", "z"].pick_random():
 			#"x":
 				#new_pos = Vector3(rand_value, 0, 0)
 			#"y":

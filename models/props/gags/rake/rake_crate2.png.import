@@ -2,27 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu25mnscogr2j"
-path.s3tc="res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.s3tc.ctex"
-path.etc2="res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.etc2.ctex"
+uid="uid://c0xyaa0dw4q07"
+path="res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "3eac37165fbf1bec8487fd4b0b6a42c8"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/props/gags/rake/rake_crate2.png"
-dest_files=["res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.s3tc.ctex", "res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.etc2.ctex"]
+dest_files=["res://.godot/imported/rake_crate2.png-95767a991cc7ad65c6e5a6d5ad09ce52.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=3
+compress/high_quality=true
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -30,6 +27,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

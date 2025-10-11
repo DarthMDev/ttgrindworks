@@ -8,6 +8,7 @@ var current_music: AudioStream:
 		return music_player.stream
 var default_music: AudioStream
 var music_player: AudioStreamPlayer
+var lock_music := false
 
 # For music effects
 @onready var MusicFilter: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
@@ -72,6 +73,9 @@ func player_died() -> void:
 		AudioServer.set_bus_volume_db(get_bus_index("Ambient"), linear_to_db(1.0))
 
 func set_music(music: AudioStream) -> void:
+	if lock_music: return
+	if music == current_music and music_player.playing: 
+		return
 	if current_music:
 		music_player.stop()
 	current_music = music
@@ -93,18 +97,23 @@ func set_clip_autoadvance(clip: int, destination: int) -> void:
 		current_music.set_clip_auto_advance_next_clip(clip, destination)
 
 func set_default_music(music: AudioStream) -> void:
+	if lock_music: return
 	if not music_player.playing or music_player.stream == default_music:
 		set_music(music)
 	default_music = music
 	s_music_changed.emit(music, true)
 
 func stop_music(stop_all := false) -> void:
+	if lock_music: return
 	music_player.stop()
 	if stop_all:
 		default_music = null
 	elif default_music and not stop_all:
 		set_music(default_music)
-		
+		if default_music.resource_path.ends_with('.ogg'):
+			var ogg := default_music as AudioStreamOggVorbis
+			if ogg.loop_offset: music_player.seek(ogg.loop_offset)
+
 func set_fx_music_lpfilter(duration: float = 1, value: float = MusicLPFCutoff) -> void:
 	# how can we get the ID of an effect on runtime?
 	var id = 0
@@ -134,7 +143,7 @@ func play_sound(sfx: AudioStream, volume_db: float = 0.0, bus: String = "SFX") -
 	return sfx_player
 
 func play_snippet(sfx: AudioStream, start: float = 0.0, end: float = -1.0, volume_db: float = 1.0) -> AudioStreamPlayer:
-	if is_equal_approx(end,-1.0):
+	if is_equal_approx(end, -1.0):
 		end = sfx.get_length()
 	
 	if start > end:

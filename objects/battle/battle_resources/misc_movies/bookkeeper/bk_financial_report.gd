@@ -1,5 +1,4 @@
 extends CogAttack
-class_name BKFinancialReport
 
 const CALCULATOR := preload('res://models/props/cog_props/calculator/calculator.glb')
 const PARTICLES := preload('res://objects/battle/effects/tabulate/tabulate.tscn')
@@ -7,10 +6,10 @@ const SFX := preload("res://audio/sfx/battle/cogs/attacks/SA_audit.ogg")
 const STAT_BOOST := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 
 const BoostNums := {
-	'damage': 0.7,
-	'defense': 0.8,
-	'luck': 0.7,
-	'evasiveness': 0.7,
+	'damage': -0.3,
+	'defense': -0.2,
+	'luck': -0.3,
+	'evasiveness': -0.3,
 }
 
 @export var play_sound := false
@@ -53,11 +52,11 @@ func action():
 	await manager.check_pulses(targets)
 
 func apply_debuff() -> void:
-	var new_debuff := STAT_BOOST.duplicate()
+	var new_debuff := STAT_BOOST.duplicate(true)
 	new_debuff.target = targets[0]
 	new_debuff.rounds = 1
 	new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
-	new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
+	new_debuff.stat = BoostNums.keys().pick_random()
 	new_debuff.boost = BoostNums[new_debuff.stat]
 	manager.add_status_effect(new_debuff)
 	manager.battle_text(targets[0], "%s Down!" % (new_debuff.stat[0] + new_debuff.stat.substr(1)), BattleText.colors.orange[0], BattleText.colors.orange[1])

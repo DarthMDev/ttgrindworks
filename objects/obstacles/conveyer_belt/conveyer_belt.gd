@@ -4,11 +4,11 @@ class_name ConveyerBelt
 
 const BASE_COLLISION_SIZE := Vector3(3.05, 0.15, 3.05)
 
-@export var size := Vector3(1,1,1):
+@export var size := Vector3(1, 1, 1):
 	set(x):
 		size = x
 		set_size()
-@export var platform_mat : StandardMaterial3D:
+@export var platform_mat: StandardMaterial3D:
 	set(x):
 		platform_mat = x
 		set_platform_mat(x)
@@ -20,7 +20,7 @@ const BASE_COLLISION_SIZE := Vector3(3.05, 0.15, 3.05)
 
 func _ready() -> void:
 	if platform_mat:
-		platform_mat = platform_mat.duplicate()
+		platform_mat = platform_mat.duplicate(true)
 	set_size()
 
 func set_size() -> void:
@@ -36,8 +36,8 @@ func set_size() -> void:
 func set_platform_mat(material: StandardMaterial3D) -> void:
 	if not platform:
 		return
+	platform_mesh.set_surface_override_material(0, material)
 	platform_mesh.set_surface_override_material(1, material)
-	platform_mesh.set_surface_override_material(2, material)
 
 func _process(delta: float) -> void:
 	# UV scroll
@@ -50,3 +50,7 @@ func _physics_process(_delta: float) -> void:
 	var rot := global_rotation.y
 	var base_velocity := Vector3(0.0, 0.0, speed)
 	constant_linear_velocity = base_velocity.rotated((Vector3(0, 1, 0)), rot)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EDITOR_PRE_SAVE:
+		platform_mat.uv1_offset.y = 0.0

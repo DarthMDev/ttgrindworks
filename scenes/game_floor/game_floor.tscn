@@ -1,16 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqwsksiexwsjb"]
+[gd_scene load_steps=5 format=3 uid="uid://bqwsksiexwsjb"]
 
 [ext_resource type="Script" uid="uid://cew6qsyark53w" path="res://scenes/game_floor/game_floor.gd" id="1_wq628"]
-[ext_resource type="Resource" uid="uid://civq6v4d0gyud" path="res://scenes/game_floor/floor_variants/base_floors/da_office.tres" id="2_teqar"]
 [ext_resource type="Resource" uid="uid://bnubj377geur5" path="res://objects/cog/presets/pools/grunt_cogs.tres" id="3_6rlqe"]
 [ext_resource type="Environment" uid="uid://dfbffixgqukix" path="res://scenes/game_floor/default_environment.tres" id="4_7iyfh"]
 [ext_resource type="PackedScene" uid="uid://djs6mw66dxqp3" path="res://objects/general_ui/location_text/location_text.tscn" id="5_nggj6"]
 
 [node name="GameFloor" type="Node3D"]
 script = ExtResource("1_wq628")
-floor_variant = ExtResource("2_teqar")
-level_range = Vector2i(1, 2)
 cog_pool = ExtResource("3_6rlqe")
+metadata/_locked_alt_scene = "res://scenes/test/game_floor_test.tscn"
+metadata/_locked = true
 
 [node name="Rooms" type="Node3D" parent="."]
 

@@ -1,7 +1,11 @@
 extends Object
 class_name NodeGlobals
 
-static func calculate_spatial_bounds(parent: Node3D, exclude_top_level_transform: bool) -> AABB:
+static func calculate_spatial_bounds(
+	parent: Node3D, 
+	exclude_top_level_transform: bool,
+	exclude_children: Array[Node3D] = []
+) -> AABB:
 	var bounds: AABB = AABB()
 	if parent is VisualInstance3D:
 		bounds = parent.get_aabb();
@@ -9,8 +13,8 @@ static func calculate_spatial_bounds(parent: Node3D, exclude_top_level_transform
 	for i in range(parent.get_child_count()):
 		if not parent.get_child(i) is Node3D: continue
 		var child: Node3D = parent.get_child(i)
-		if child:
-			var child_bounds: AABB = calculate_spatial_bounds(child, false)
+		if child and child not in exclude_children:
+			var child_bounds: AABB = calculate_spatial_bounds(child, false, exclude_children)
 			if bounds.size == Vector3.ZERO and parent:
 				bounds = child_bounds
 			else:

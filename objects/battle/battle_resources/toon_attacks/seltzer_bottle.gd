@@ -5,12 +5,13 @@ func action():
 	# Start
 	manager.s_focus_char.emit(user)
 	var target = targets[0]
-	user.set_animation('hold_bottle')
+	user.set_animation('hold-bottle')
 	user.face_position(target.global_position)
 	
 	# Place gun in hand
 	var bottle = load('res://models/props/gags/seltzer_bottle/seltzer_bottle.tscn').instantiate()
 	user.toon.right_hand_bone.add_child(bottle)
+	bottle.rotation_degrees.y = 180.0
 	
 	await manager.sleep(2.1)
 	

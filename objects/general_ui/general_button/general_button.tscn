@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="5_nyx2p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2uxvi"]
+resource_local_to_scene = true
 font = ExtResource("5_nyx2p")
 font_size = 36
 

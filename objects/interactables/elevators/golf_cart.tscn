@@ -36,6 +36,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ywovn")
 [node name="rightBackWheel" parent="cgc_cart/suspensionNode/main_geometry/wheelNode4" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ywovn")
 
+[node name="seat1" parent="cgc_cart" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00857676, 0.0199016, 0.0330992)
+
+[node name="seat2" parent="cgc_cart" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00785034, 0.0199016, 0.0330992)
+
 [node name="PlayerDetection" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706576, 0)
 collision_mask = 2

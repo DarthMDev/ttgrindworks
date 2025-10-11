@@ -7,7 +7,6 @@
 script = ExtResource("1_i1fqc")
 progress_value = "deaths"
 quota = 10
-signal_source = 0
 signal_name = "s_player_died"
 achievement_name = "Sorry About That"
 achievement_summary = "Go sad 10 times."

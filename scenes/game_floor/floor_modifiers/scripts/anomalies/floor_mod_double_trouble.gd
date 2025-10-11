@@ -12,7 +12,7 @@ func clean_up() -> void:
 func on_cog_spawned(cog: Cog) -> void:
 	if cog.dna or cog.skelecog:
 		return
-	if RandomService.randf_channel('true_random') < V2_CHANCE:
+	if RNG.channel(RNG.ChannelDoubleTroublev2).randf() < V2_CHANCE:
 		cog.v2 = true
 		cog.skelecog_chance = 0
 		print('v2.0 spawned')

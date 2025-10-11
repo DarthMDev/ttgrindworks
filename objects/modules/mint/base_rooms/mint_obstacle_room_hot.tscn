@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqexm84q4ob0o"]
+
+[ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_7ur5u"]
+[ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="2_m0uhm"]
+[ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="3_n68qc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8nfn"]
+resource_name = "textures:textures1:ZONE04aT:textures:CashBotLocomotive_v2_s3:LMtopFix:LMSidePanels_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("2_m0uhm")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7ey6"]
+resource_name = "textures:textures1:ZONE04aT:textures:CashBotLocomotive_v2_s3:LMtopFix:LMSidePanels_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("2_m0uhm")
+emission_enabled = true
+uv1_scale = Vector3(1, 0.99, 1)
+uv1_offset = Vector3(0, 0.01, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k2rl"]
+resource_name = "textures:textures1:StuccoWall_SHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.91, 0.7735, 0.7735, 0.8)
+albedo_texture = ExtResource("3_n68qc")
+emission_enabled = true
+
+[node name="Root Scene" instance=ExtResource("1_7ur5u")]
+
+[node name="GeometryTransformHelper8" parent="Z08_ALL/Z08/boiler_room/room/geometry_boiler_room/platform_wall" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g8nfn")
+
+[node name="walls" parent="Z08_ALL/Z08/boiler_room/room/geometry_boiler_room" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_b7ey6")
+surface_material_override/1 = SubResource("StandardMaterial3D_2k2rl")

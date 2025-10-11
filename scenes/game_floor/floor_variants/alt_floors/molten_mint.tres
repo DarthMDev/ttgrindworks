@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FloorVariant" load_steps=6 format=3 uid="uid://c1fypamyq6b03"]
+
+[ext_resource type="Resource" uid="uid://b14s6jiqdlynh" path="res://objects/cog/presets/pools/cashbot.tres" id="1_3bs8a"]
+[ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_s40hw"]
+[ext_resource type="Texture2D" uid="uid://dvq5ijbt8gvxk" path="res://models/facilities/alt_icons/molten_cash/molten_mint_icon.png" id="2_3bs8a"]
+[ext_resource type="Resource" uid="uid://ct6vjovg2o0u1" path="res://scenes/game_floor/department_floors/rooms_molten.tres" id="5_nwq8b"]
+[ext_resource type="Script" uid="uid://dd5s53eggwy7h" path="res://scenes/game_floor/floor_modifiers/scripts/misc/floor_mod_molten.gd" id="6_8sueb"]
+
+[resource]
+script = ExtResource("1_s40hw")
+floor_type = ExtResource("5_nwq8b")
+floor_name = "The Molten Mint"
+cog_pool = ExtResource("1_3bs8a")
+modifiers = Array[Script]([ExtResource("6_8sueb")])
+is_alt_floor = true
+floor_icons = Array[Texture2D]([ExtResource("2_3bs8a")])
+room_count = 11
+metadata/_custom_type_script = "uid://cxvrtrods5hgg"

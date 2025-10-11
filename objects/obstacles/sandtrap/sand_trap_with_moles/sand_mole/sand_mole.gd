@@ -1,9 +1,9 @@
 extends Node3D
 
-const DETECTION_CHANCE := 0.5
+const DETECTION_CHANCE := 0.8
 const WANDER_TEX := "res://ui_assets/misc/PetEmoteConfused2.png"
 const CHASE_TEX := "res://ui_assets/misc/PetEmoteSurprised.png"
-const CHASE_MULT := 1.2
+const CHASE_MULT := 1.4
 const SFX_SURPRISE := preload('res://audio/sfx/objects/moles/Mole_Surprise.ogg')
 const SFX_LAND = preload("res://audio/sfx/toon/MG_cannon_hit_dirt.ogg")
 
@@ -22,7 +22,8 @@ var state := MoleState.WANDER
 ## Damage to do to the player
 @export var base_damage := -5
 ## Movement speed
-@export var speed := 1.0
+@export var speed := 2.0
+@export var force_launch_node: Node3D
 
 ## The mole...
 @onready var mole : Node3D = %mole_cog
@@ -58,7 +59,7 @@ func chase(delta : float) -> void:
 	
 	move_toward_goal(delta * CHASE_MULT)
 
-func move_toward_goal(delta : float) -> void:
+func move_toward_goal(delta: float) -> void:
 	var next_step := position.move_toward(goal_pos, speed * delta)
 	position = Vector3(next_step.x, position.y, next_step.z)
 	if position.distance_to(goal_pos) < 0.1:
@@ -67,23 +68,23 @@ func move_toward_goal(delta : float) -> void:
 func get_wander_pos() -> Vector3:
 	var new_pos := Vector3.ZERO
 	
-	new_pos.x = RandomService.randf_range_channel('true_random', bounding_start.x, bounding_end.x)
-	new_pos.z = RandomService.randf_range_channel('true_random', bounding_start.y, bounding_end.y)
+	new_pos.x = randf_range(bounding_start.x, bounding_end.x)
+	new_pos.z = randf_range(bounding_start.y, bounding_end.y)
 	return new_pos
 
-func body_entered_hit(body : Node3D) -> void:
+func body_entered_hit(body: Node3D) -> void:
 	if body is Player:
 		player_hit(body)
 
-func body_entered_chase(body : Node3D) -> void:
+func body_entered_chase(body: Node3D) -> void:
 	if body is Player:
 		try_chase_player(body)
 
-func body_exited_chase(body : Node3D) -> void:
+func body_exited_chase(body: Node3D) -> void:
 	if body is Player:
 		stop_chasing()
 
-func player_hit(player : Player) -> void:
+func player_hit(player: Player) -> void:
 	if player.state == Player.PlayerState.STOPPED:
 		stop_chasing()
 		return
@@ -93,14 +94,14 @@ func player_hit(player : Player) -> void:
 	player.toon.set_emotion(Toon.Emotion.SURPRISE)
 	
 	%AnimationPlayer.play('dive')
-	await Task.delay(0.1)
+	await Task.delay(0.25)
 	await launch_player(player)
 	stop_chasing()
 	player.toon.set_emotion(Toon.Emotion.NEUTRAL)
 	player.do_invincibility_frames()
 
-func try_chase_player(player : Player) -> void:
-	if RandomService.randf_channel('true_random') > DETECTION_CHANCE:
+func try_chase_player(player: Player) -> void:
+	if randf() < DETECTION_CHANCE:
 		chase_node = player
 		state = MoleState.CHASE
 		set_display(GameLoader.load(CHASE_TEX))
@@ -117,6 +118,10 @@ func stop_chasing() -> void:
 	await %ChaseCooldown.timeout
 	%StateDisplay.hide()
 	can_chase = true
+	for body: Node3D in %PlayerChaseDetection.get_overlapping_bodies():
+		if body is Player:
+			try_chase_player(body)
+			return
 
 func is_point_valid(point : Vector3) -> bool:
 	var point_test := Vector2(point.x, point.z)
@@ -154,10 +159,14 @@ func launch_player(player : Player) -> void:
 	
 	# Do twist tween
 	var twist_tween := create_tween()
-	twist_tween.tween_property(player.toon.body_node, 'rotation_degrees', player.toon.rotation_degrees + Vector3(720, 0, 720), 2.0)
+	twist_tween.tween_property(player.toon.body_node, 'rotation_degrees', player.toon.rotation_degrees + Vector3(720, 180, 720), 2.0)
 	
 	# Do reposition tween
-	var newpos: Vector3 = get_parent().to_global(get_wander_pos())
+	var newpos: Vector3
+	if force_launch_node:
+		newpos = force_launch_node.global_position
+	else:
+		newpos = get_parent().to_global(get_wander_pos())
 	var reposition_tween := create_tween()
 	reposition_tween.set_parallel(true)
 	reposition_tween.tween_property(player, 'global_position:x', newpos.x, 2.0)
@@ -168,11 +177,11 @@ func launch_player(player : Player) -> void:
 	twist_tween.kill()
 	reposition_tween.kill()
 	player.position = newpos
-	player.set_animation('slip_backward')
+	player.set_animation('slip-backward')
 	player.quick_heal(Util.get_hazard_damage(base_damage))
 	AudioManager.play_sound(SFX_LAND)
 	await Task.delay(2.75)
-	player.toon.body_node.rotation_degrees = Vector3.ZERO
+	player.toon.body_node.rotation_degrees = Vector3(0.0, 180.0, 0.0)
 	player.state = Player.PlayerState.WALK
 	if Util.get_player().stats.hp <= 0:
 		Util.get_player().lose()

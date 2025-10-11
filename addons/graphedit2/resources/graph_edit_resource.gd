@@ -31,7 +31,7 @@ func remove_resource(resource: GraphElementResource):
 	assert(resource in resources)
 	resources.erase(resource)
 	positions.erase(resource)
-	for c in connections.duplicate():
+	for c in connections.duplicate(true):
 		if resource == c[0] or resource == c[2]:
 			connections.erase(c)
 	editor_refresh.emit()

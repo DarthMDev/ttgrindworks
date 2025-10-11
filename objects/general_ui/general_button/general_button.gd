@@ -11,6 +11,11 @@ class_name GeneralButton
 		$Label.text = x
 	get:
 		return $Label.text
+@export var font_size: float:
+	set(x):
+		$Label.label_settings.font_size = x
+	get:
+		return $Label.label_settings.font_size
 
 func on_button_down() -> void:
 	if press_sfx:

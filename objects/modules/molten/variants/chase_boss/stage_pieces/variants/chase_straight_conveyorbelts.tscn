@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct21u1gjoiesu"]
+
+[ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_8vei5"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="2_2s2sq"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="3_ej1dl"]
+[ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="4_6sxh2"]
+[ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="5_2s2sq"]
+[ext_resource type="PackedScene" uid="uid://6w7qnjyug5fe" path="res://objects/props/mint/conveyor_belt_portal.tscn" id="6_ej1dl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej1dl"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("3_ej1dl")
+roughness = 0.552786
+uv1_scale = Vector3(1, 6.21, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sxh2"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("3_ej1dl")
+roughness = 0.552786
+uv1_scale = Vector3(1, 6.21, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8p2cf"]
+
+[node name="molten_hall_straight" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_8vei5")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos"),
+NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
+}
+
+[node name="ConveyerBelt" parent="." index="7" instance=ExtResource("2_2s2sq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.71024, -8.33674)
+constant_linear_velocity = Vector3(10, 0, -4.371139e-07)
+size = Vector3(1.64, 1, 6.21)
+platform_mat = SubResource("StandardMaterial3D_ej1dl")
+speed = 10.0
+
+[node name="ConveyerBelt2" parent="." index="8" instance=ExtResource("2_2s2sq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.71024, 2.78402)
+constant_linear_velocity = Vector3(-10, 0, 4.371139e-07)
+size = Vector3(1.64, 1, 6.21)
+platform_mat = SubResource("StandardMaterial3D_6sxh2")
+speed = -10.0
+
+[node name="CrateGroup3" type="Node3D" parent="." index="9" node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181646, -1.94523, -2.91822)
+script = ExtResource("5_2s2sq")
+chance_type = 1
+chance = 1.0
+targets = [NodePath("mint_crate2"), NodePath("mint_crate3"), NodePath("mint_crate4")]
+
+[node name="mint_crate2" parent="CrateGroup3" index="0" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(1.91035, 0.133086, 0.474969, -0.129971, 1.9685, -0.0288258, -0.47583, -0.00337808, 1.91476, -6.24399, 0, 0.26079)
+
+[node name="mint_crate3" parent="CrateGroup3" index="1" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-1.00397, -0.091123, -1.69602, -0.129971, 1.9685, -0.0288257, 1.69348, 0.0970565, -1.00769, 0, 0, 0)
+
+[node name="mint_crate4" parent="CrateGroup3" index="2" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-1.78209, 0.084328, 0.842476, 0.031902, 1.96848, -0.129555, -0.84608, -0.103397, -1.77938, 5.567, 0, 0)
+
+[node name="CrateGroup1" type="Node3D" parent="." index="10" node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.1521)
+script = ExtResource("5_2s2sq")
+chance_type = 1
+chance = 1.0
+targets = [NodePath("mint_crate4"), NodePath("mint_crate9")]
+
+[node name="mint_crate4" parent="CrateGroup1" index="0" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-0.0996256, 0.022275, 1.97036, -0.129971, 1.9685, -0.0288257, -1.96619, -0.131252, -0.0979311, -2.81524, -1.94523, 0.492801)
+
+[node name="mint_crate9" parent="CrateGroup1" index="1" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-1.2659, -0.0614393, 1.5121, -0.129971, 1.9685, -0.0288257, -1.50775, -0.118104, -1.26707, 2.51944, -1.94523, 0.492801)
+
+[node name="CrateGroup2" type="Node3D" parent="." index="11" node_paths=PackedStringArray("targets")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.78525)
+script = ExtResource("5_2s2sq")
+chance_type = 1
+chance = 1.0
+targets = [NodePath("mint_crate6"), NodePath("mint_crate7")]
+
+[node name="mint_crate6" parent="CrateGroup2" index="0" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-1.80232, 0.150493, 0.788502, 0.106029, 1.96567, -0.132812, -0.795702, -0.0789489, -1.80371, -3.37318, -1.94523, 0.6057)
+
+[node name="mint_crate7" parent="CrateGroup2" index="1" instance=ExtResource("4_6sxh2")]
+transform = Transform3D(-0.917625, -0.0350149, 1.74627, -0.129971, 1.9685, -0.0288257, -1.74178, -0.128442, -0.91784, 2.56623, -1.94523, 0.6057)
+
+[node name="conveyor_belt_portal2" parent="." index="12" instance=ExtResource("6_ej1dl")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.76697, 0.717426, -8.30041)
+color = Color(0.439754, 0.980465, 1.54018e-06, 1)
+
+[node name="conveyor_belt_portal" parent="." index="13" instance=ExtResource("6_ej1dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75823, 0.717426, -8.30041)
+color = Color(0.942768, 0, 0.17384, 1)
+
+[node name="conveyor_belt_portal3" parent="." index="14" instance=ExtResource("6_ej1dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75823, 0.717426, 2.84292)
+color = Color(0.439754, 0.980465, 1.54018e-06, 1)
+
+[node name="conveyor_belt_portal4" parent="." index="15" instance=ExtResource("6_ej1dl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.76697, 0.717426, 2.84292)
+color = Color(0.942768, 0, 0.17384, 1)
+
+[node name="RespawnPoints" type="Node3D" parent="." index="17"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.07091e-06, 5.0401, 15.962922)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6456099e-06, -4.17889, 13.107283)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77991e-07, 0, 5.91933)
+shape = SubResource("BoxShape3D_8p2cf")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.07091e-06, 5.0401, -7.86906)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09061e-07, -4.17889, 0.294465)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80686e-07, 0, 6.08611)
+shape = SubResource("BoxShape3D_8p2cf")

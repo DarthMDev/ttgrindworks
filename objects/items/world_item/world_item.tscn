@@ -32,6 +32,7 @@ autostart = true
 [node name="ItemDescription" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_2cvfi")]
 unique_name_in_owner = true
 auto_expire = false
+hide_with_distance = false
 target = NodePath("..")
 force_hide = true
 

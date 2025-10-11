@@ -6,7 +6,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srwjb"]
 resource_local_to_scene = true
 transparency = 1
+blend_mode = 1
 albedo_texture = ExtResource("1_juohp")
+uv1_scale = Vector3(1, 0.945, 1)
+uv1_offset = Vector3(0, 0.048, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_i0k4m"]
 resource_local_to_scene = true

@@ -45,8 +45,8 @@ fractal_lacunarity = 1.0
 fractal_weighted_strength = 0.95
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_51x5q"]
-seamless = true
 noise = SubResource("FastNoiseLite_ywtpp")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ihasp"]
 resource_name = "lava"

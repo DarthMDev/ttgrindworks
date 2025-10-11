@@ -1419,9 +1419,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v03bg")
 
 [node name="rabbit_heads" type="Node3D"]
-transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 
 [node name="SmallHeadBigEars" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0.034428596, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadBigEars"]
@@ -1524,6 +1524,7 @@ mesh = SubResource("ArrayMesh_od1mu")
 skeleton = NodePath("")
 
 [node name="BigHeadBigEars" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0.034428596, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="BigHeadBigEars"]
@@ -1626,6 +1627,7 @@ mesh = SubResource("ArrayMesh_lwi3x")
 skeleton = NodePath("")
 
 [node name="SmallHeadSmallEars" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0.034428596, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadSmallEars"]
@@ -1728,6 +1730,7 @@ mesh = SubResource("ArrayMesh_od1mu")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallEars" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0.034428596, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="BigHeadSmallEars"]

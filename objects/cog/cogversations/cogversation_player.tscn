@@ -5,7 +5,6 @@
 
 [sub_resource type="Resource" id="Resource_vc4e4"]
 script = ExtResource("2_j15vm")
-reply_to_index = -1
 message = "I suppose not."
 
 [sub_resource type="Resource" id="Resource_e2w6y"]
@@ -16,19 +15,16 @@ follow_up = SubResource("Resource_vc4e4")
 
 [sub_resource type="Resource" id="Resource_6hk86"]
 script = ExtResource("2_j15vm")
-reply_to_index = -1
 message = "You're such a stick in the mud."
 follow_up = SubResource("Resource_e2w6y")
 
 [sub_resource type="Resource" id="Resource_wind3"]
 script = ExtResource("2_j15vm")
-reply_to_index = -1
 message = "I know of no \"game\", I was working all night, as everyone should."
 follow_up = SubResource("Resource_6hk86")
 
 [sub_resource type="Resource" id="Resource_si7jt"]
 script = ExtResource("2_j15vm")
-reply_to_index = -1
 message = "So, did you guys see the game last night?"
 follow_up = SubResource("Resource_wind3")
 

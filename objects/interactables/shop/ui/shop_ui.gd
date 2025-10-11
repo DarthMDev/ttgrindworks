@@ -64,10 +64,10 @@ func buy_pressed() -> void:
 	s_purchase.emit()
 
 func left_pressed() -> void:
-	s_left_pressed.emit()
+	s_left_pressed.emit(-1)
 
 func right_pressed() -> void:
-	s_right_pressed.emit()
+	s_right_pressed.emit(1)
 
 func get_wallet() -> int:
 	if not Util.get_player():

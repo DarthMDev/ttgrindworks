@@ -16,8 +16,8 @@ func action() -> void:
 	
 	# Create a copy of the cog in battle
 	var copy: Cog = load('res://objects/cog/cog.tscn').instantiate()
-	copy.dna = user.dna.duplicate()
-	copy.stats = manager.battle_stats[user].duplicate()
+	copy.dna = user.dna.duplicate(true)
+	copy.stats = manager.battle_stats[user].duplicate(true)
 	copy.level = user.level
 	copy.skelecog = user.skelecog
 	copy.skelecog_chance = 0
@@ -64,7 +64,7 @@ func action() -> void:
 	new_attack.battle_node = battle_node
 	
 	# Create a copy of that attack for the main user
-	var user_attack := new_attack.duplicate()
+	var user_attack := new_attack.duplicate(true)
 	user_attack.user = user
 	user_attack.battle_node = battle_node
 	user_attack.manager = manager

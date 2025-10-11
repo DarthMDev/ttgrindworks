@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3t2jabfpohqy"]
+
+[ext_resource type="PackedScene" uid="uid://bm6qaqxeuixld" path="res://models/props/cog_props/big_watercooler/Big_Watercooler.fbx" id="1_glexm"]
+[ext_resource type="Texture2D" uid="uid://bgjd5hp0j5aot" path="res://models/props/cog_props/big_watercooler/Watercooler.png" id="2_kv4fj"]
+[ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="3_kv4fj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpebl"]
+resource_name = "Watercooler"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_kv4fj")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glexm"]
+resource_name = "Watercooler_Bottle"
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.160784)
+albedo_texture = ExtResource("2_kv4fj")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glexm"]
+size = Vector3(1.41504, 4.07935, 1.30298)
+
+[node name="Big Watercooler" instance=ExtResource("1_glexm")]
+transform = Transform3D(0.640134, 0, 0, 0, 0.640134, 0, 0, 0, 0.640134, 0, 0, 0)
+
+[node name="Watercooler" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dpebl")
+surface_material_override/1 = SubResource("StandardMaterial3D_glexm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03406, 0)
+shape = SubResource("BoxShape3D_glexm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+
+[node name="SquareDropShadow" parent="." index="3" instance=ExtResource("3_kv4fj")]
+transform = Transform3D(1.73718, 0, 0, 0, 1.73718, 0, 0, 0, 1.73718, 0, 0, 0)

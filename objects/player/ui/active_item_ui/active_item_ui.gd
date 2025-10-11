@@ -1,18 +1,18 @@
 @tool
 extends Control
 
-const CATEGORY_COLORS : Dictionary[ItemActive.ActiveType, Color] = {
-	ItemActive.ActiveType.REALTIME : Color('00cc60'),
-	ItemActive.ActiveType.BATTLE : Color('38a6ff'),
-	ItemActive.ActiveType.WHENEVER : Color('cf72e9'),
-	ItemActive.ActiveType.ANY : Color("fd1975")
+const CATEGORY_COLORS: Dictionary[ItemActive.ActiveType, Color] = {
+	ItemActive.ActiveType.REALTIME: Color('00cc60'),
+	ItemActive.ActiveType.BATTLE: Color('38a6ff'),
+	ItemActive.ActiveType.WHENEVER: Color('cf72e9'),
+	ItemActive.ActiveType.ANY: Color("fd1975"),
 }
 
 const BASE_MARGIN := 0.4
 const TICK := preload("res://objects/player/ui/active_item_ui/meter_tick.tscn")
 
 
-@export var item : ItemActive:
+@export var item: ItemActive:
 	set(x):
 		if item and not Engine.is_editor_hint():
 			disconnect_current_item()
@@ -25,11 +25,14 @@ const TICK := preload("res://objects/player/ui/active_item_ui/meter_tick.tscn")
 		else:
 			clear_item()
 
-@onready var progress_circle : TextureProgressBar = %ProgressBar
-@onready var item_icon : TextureRect = %ItemIcon
-@onready var tick_origin : Control = %TickOrigin
-@onready var fail_sound_sfx : AudioStreamPlayer = %FailSoundSFX
-@onready var denycon : TextureRect = %Denycon
+@onready var progress_circle: TextureProgressBar = %ProgressBar
+@onready var item_icon: TextureRect = %ItemIcon
+@onready var tick_origin: Control = %TickOrigin
+@onready var fail_sound_sfx: AudioStreamPlayer = %FailSoundSFX
+@onready var denycon: TextureRect = %Denycon
+
+var player: Player: 
+	get: return Util.get_player()
 
 signal s_use_pressed
 
@@ -39,7 +42,7 @@ func _ready() -> void:
 	SaveFileService.s_settings_changed.connect(on_settings_changed)
 	on_settings_changed()
 
-func setup_item(new_item : ItemActive) -> void:
+func setup_item(new_item: ItemActive) -> void:
 	if new_item.icon:
 		item_icon.set_texture(new_item.icon)
 	else:
@@ -50,8 +53,9 @@ func setup_item(new_item : ItemActive) -> void:
 	set_ticks(new_item.charge_count)
 	do_charge_tween(progress_circle.value)
 	update_color()
-	if new_item.node:
-		new_item.node.s_use_failed.connect(on_use_failed)
+	if new_item.node and not new_item.node.s_use_failed.is_connected(on_use_failed):
+		new_item.node.s_use_failed.connect(on_use_failed.bind(new_item))
+	check_reserve()
 
 func clear_item() -> void:
 	hide()
@@ -59,13 +63,13 @@ func clear_item() -> void:
 	progress_circle.value = 0
 	item_icon.set_texture(null)
 
-func set_value(value : int) -> void:
+func set_value(value: int) -> void:
 	if not item or not is_instance_valid(progress_circle):
 		return
 	do_charge_tween(value)
 
-var charge_tween : Tween
-func do_charge_tween(value : float) -> void:
+var charge_tween: Tween
+func do_charge_tween(value: float) -> void:
 	if charge_tween and charge_tween.is_running():
 		charge_tween.kill()
 	
@@ -76,7 +80,7 @@ func do_charge_tween(value : float) -> void:
 	charge_tween.tween_property(progress_circle, 'value', value, time)
 	charge_tween.finished.connect(charge_tween.kill)
 
-func set_ticks(ticks : int) -> void:
+func set_ticks(ticks: int) -> void:
 	clear_ticks()
 	progress_circle.max_value = ticks
 	if ticks < 2:
@@ -96,22 +100,27 @@ func disconnect_current_item() -> void:
 	if item and item.s_current_charge_changed.is_connected(set_value):
 		item.s_current_charge_changed.disconnect(set_value)
 
-func _process(_delta : float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	
 	if Input.is_action_just_pressed('use_pocket_prank'):
 		s_use_pressed.emit()
+	if Input.is_action_just_pressed('swap_pocket_prank'):
+		try_swap_prank()
 	
 	%KeyInput.set_visible(get_button_prompt_visible())
+	%ReserveBox.visible = not player.stats.actives_in_reserve.is_empty()
 
-var fail_tween : Tween
-func on_use_failed() -> void:
+var fail_tween: Tween
+func on_use_failed(_item: ItemActive) -> void:
+	if not _item == Util.get_player().stats.current_active_item: return
+	
 	if fail_tween and fail_tween.is_running():
 		fail_tween.kill()
 	denycon.self_modulate.a = 0.0
 	
 	fail_tween = create_tween()
-	fail_tween.tween_callback(fail_sound_sfx.set_pitch_scale.bind(RandomService.randf_range_channel('true_random', 0.7, 1.8)))
+	fail_tween.tween_callback(fail_sound_sfx.set_pitch_scale.bind(randf_range(0.7, 1.8)))
 	fail_tween.tween_callback(fail_sound_sfx.play)
 	fail_tween.tween_property(denycon, 'self_modulate:a', 1.0, 0.25)
 	fail_tween.tween_property(denycon, 'self_modulate:a', 0.0, 0.25)
@@ -119,7 +128,10 @@ func on_use_failed() -> void:
 
 func update_color() -> void:
 	if item:
-		progress_circle.tint_progress = CATEGORY_COLORS[item.active_type]
+		if item.custom_charge_color:
+			progress_circle.tint_progress = item.custom_charge_color
+		else:
+			progress_circle.tint_progress = CATEGORY_COLORS[item.active_type]
 
 func on_settings_changed() -> void:
 	sync_button_prompt()
@@ -128,12 +140,11 @@ func sync_button_prompt() -> void:
 	var size_per_char := 3
 	var key_label: Label = %KeyLabel
 	var new_text := input_to_text(InputMap.action_get_events('use_pocket_prank')[1])
-	var test = InputMap.action_get_events('use_pocket_prank')
 	key_label.set_text(new_text)
 	key_label.label_settings.font_size = 24 - ((key_label.text.length() * size_per_char) - size_per_char)
 	%KeyInput.set_visible(get_button_prompt_visible())
 
-func input_to_text(input : InputEvent) -> String:
+func input_to_text(input: InputEvent) -> String:
 	if not input: 
 		return "<UNBOUND>"
 	var text := input.as_text()
@@ -149,3 +160,14 @@ func get_button_prompt_visible() -> bool:
 	if item:
 		return item.charge_count == item.current_charge and item.node.check_player_state()
 	return false
+
+func try_swap_prank() -> void:
+	if player.stats.actives_in_reserve.is_empty():
+		return
+	player.stats.current_active_item = player.stats.actives_in_reserve.pop_front()
+
+func check_reserve() -> void:
+	if player.stats.actives_in_reserve.is_empty():
+		return
+	%ReservePrank.set_texture(player.stats.actives_in_reserve[0].icon)
+	%ReserveBox.self_modulate = CATEGORY_COLORS[player.stats.actives_in_reserve[0].active_type]

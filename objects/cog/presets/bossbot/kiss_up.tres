@@ -1,46 +1,28 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=14 format=3 uid="uid://crfps8y3g8jav"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=7 format=3 uid="uid://crfps8y3g8jav"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_3xc46"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_i2f1o"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="4_5hb1l"]
 [ext_resource type="Resource" uid="uid://doowiij7lpxy1" path="res://objects/battle/battle_resources/cog_attacks/resources/rubber_stamp.tres" id="4_rn8tn"]
 [ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="5_cpgkb"]
-[ext_resource type="PackedScene" uid="uid://irtn2e1gj41k" path="res://models/cogs/heads/mingler.glb" id="5_ilthg"]
-[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="5_kga1q"]
-[ext_resource type="Texture2D" uid="uid://m6esimykv0kv" path="res://models/cogs/heads/kissup_tex.png" id="6_f6ooy"]
-[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="6_iorra"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="7_5vyas"]
-[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="7_ciwiw"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="8_orhpk"]
-[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="9_rpq43"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="6_o2nug"]
 
 [resource]
-script = ExtResource("7_5vyas")
+script = ExtResource("6_o2nug")
 department = 3
-suit = 0
-custom_blazer_tex = ExtResource("6_iorra")
-custom_arm_tex = ExtResource("5_kga1q")
-custom_leg_tex = ExtResource("7_ciwiw")
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
 cog_name = "Kiss Up"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("5_ilthg")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/mingler.glb"
 scale = 5.25
-head_textures = Array[Texture2D]([ExtResource("6_f6ooy")])
+head_textures = PackedStringArray("res://models/cogs/heads/kissup_tex.png")
 hand_color = Color(0.69473, 0.393625, 0.410963, 1)
-head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 10.95
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_3xc46")]([ExtResource("3_i2f1o"), ExtResource("4_rn8tn"), ExtResource("4_5hb1l"), ExtResource("5_cpgkb")])
 level_low = 4
-level_high = 12
-status_effects = Array[ExtResource("8_orhpk")]([ExtResource("9_rpq43")])
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
 is_mod_cog = true
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["Pucker up, Toon.", "Aren't you just darling?", "Is this a good shade on me?", "This will leave a mark.", "My superiors will love this.", "Nobody can gloss over my talents.", "Kiss your chances goodbye."])
 external_assets = {
 &"head_model": "",

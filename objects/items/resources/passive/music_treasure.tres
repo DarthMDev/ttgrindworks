@@ -8,27 +8,16 @@
 [resource]
 script = ExtResource("3_qs8ii")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.5
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Music Treasure"
 item_description = "Dance to your own tune!"
 big_description = "Heals %d percent of your max laff!"
 model = ExtResource("2_b4gat")
 pickup_sfx = ExtResource("3_jd4ha")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
 arbitrary_data = {
 "heal_perc": 40,
 "texture": ExtResource("1_h3kp7")
 }
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

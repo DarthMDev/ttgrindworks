@@ -18,4 +18,4 @@ func update_value() -> void:
 func update_texture() -> void:
 	var noise : FastNoiseLite = bar_shader.get_shader_parameter('meter_tex').noise
 	if not Engine.is_editor_hint():
-		noise.seed = RandomService.randi_channel('true_random')
+		noise.seed = randi()

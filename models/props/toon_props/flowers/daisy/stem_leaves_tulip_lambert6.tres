@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c76rqfuuwgtel"]
+
+[ext_resource type="Texture2D" uid="uid://x8fn3wl4cyk7" path="res://models/props/toon_props/flowers/daisy/daisy_0.png" id="1_3pvmm"]
+
+[resource]
+resource_name = "stem_leaves:tulip:lambert6"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_3pvmm")
+emission_enabled = true

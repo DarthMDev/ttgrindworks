@@ -9,7 +9,6 @@ resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("2_5yx4i")
 roughness = 0.552786
-uv1_offset = Vector3(0, -0.683334, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dyhen"]
 resource_local_to_scene = true
@@ -23,11 +22,11 @@ platform_mat = SubResource("StandardMaterial3D_8qram")
 [node name="platform2" parent="." instance=ExtResource("1_0hyvl")]
 
 [node name="platform" parent="platform2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8qram")
 surface_material_override/1 = SubResource("StandardMaterial3D_8qram")
-surface_material_override/2 = SubResource("StandardMaterial3D_8qram")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075973, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0763413, 0)
 shape = SubResource("BoxShape3D_dyhen")
 
 [editable path="platform2"]

@@ -38,7 +38,7 @@ func _ready() -> void:
 	AudioManager.play_sound(Globals.get_species_sfx(Globals.ToonDial.FALLING,dna))
 	toon.construct_toon(dna)
 	toon.scale *= 5.0
-	toon.set_animation('melt_nosink')
+	toon.set_animation('melt-nosink')
 	toon.body.animator.seek(1.8)
 	toon.body.animator.play()
 	toon.set_emotion(Toon.Emotion.SURPRISE)
@@ -108,21 +108,21 @@ func create_random_gag(volume := 0.0) -> void:
 	if gags.is_empty():
 		return
 	AudioManager.play_sound(load('res://audio/sfx/ui/tick_counter.ogg'),volume)
-	var model := gags[RandomService.randi_channel('true_random') % gags.size()].instantiate()
+	var model: Node3D = gags.pick_random().instantiate()
 	props.add_child(model)
 	model.scale /= 20.0
 	model.global_position = toon.global_position
-	var fall_time := RandomService.randf_channel('true_random') * 1.0 + 2.0
+	var fall_time := randf() * 1.0 + 2.0
 	var gag_tween := create_tween()
 	gag_tween.set_parallel(true)
 	gag_tween.set_trans(Tween.TRANS_QUINT)
 	gag_tween.tween_property(model, 'global_position:y', camera_final_y + 20.0, fall_time)
-	gag_tween.tween_property(model, 'global_position:x', camera.global_position.x + RandomService.randf_range_channel('true_random', -20.0, 20.0), fall_time)
-	gag_tween.tween_property(model, 'global_position:z', camera.global_position.z + RandomService.randf_range_channel('true_random', -20.0, 20.0), fall_time)
-	gag_tween.tween_property(model, 'rotation_degrees', Vector3(RandomService.randi_channel('true_random') % 360,
-		RandomService.randi_channel('true_random') % 360,
-		RandomService.randi_channel('true_random') % 360),
-		RandomService.randi_channel('true_random') * fall_time)
+	gag_tween.tween_property(model, 'global_position:x', camera.global_position.x + randf_range(-20.0, 20.0), fall_time)
+	gag_tween.tween_property(model, 'global_position:z', camera.global_position.z + randf_range(-20.0, 20.0), fall_time)
+	gag_tween.tween_property(model, 'rotation_degrees', Vector3(randi() % 360,
+		randi() % 360,
+		randi() % 360),
+		randi() * fall_time)
 	gag_tween.tween_property(model, 'scale', Vector3(1.0 ,1.0, 1.0), fall_time).as_relative()
 	gag_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	gag_tween.finished.connect(func(): 
@@ -135,6 +135,7 @@ func end_scene() -> void:
 		await GameLoader.wait_for_phase(GameLoader.Phase.GAMEPLAY)
 		Util.get_player().show()
 		Util.get_player().reset_stats()
+		Util.get_player().stats.initialize_quests()
 		Util.get_player().lock_game_timer = false
 		Globals.s_game_started.emit()
 		var gamefloor := GAME_FLOOR.instantiate()
@@ -145,8 +146,10 @@ func end_scene() -> void:
 
 # Make a custom floor variant for first floor
 func get_first_floor() -> FloorVariant:
-	var floor_var: FloorVariant = RandomService.array_pick_random('floors', Globals.FLOOR_VARIANTS).duplicate()
+	var floor_var: FloorVariant = RNG.channel(RNG.ChannelFloors).pick_random(Globals.FLOOR_VARIANTS).duplicate(true)
 	# Guarantee 0 difficulty floor to start
 	floor_var.floor_difficulty = 0
-	floor_var.level_range = Vector2i(FloorVariant.LEVEL_RANGES[0][0], FloorVariant.LEVEL_RANGES[0][1])
+	floor_var.randomize_details(false)
+	floor_var.reward = null
+	
 	return floor_var

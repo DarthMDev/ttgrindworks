@@ -103,7 +103,7 @@ func _copy_nodes_request():
 	var res_to_copy = {}
 	for node in selected_elements:
 		if node.resource.graph_can_be_copied():
-			res_to_copy[node.resource] = node.resource.duplicate()
+			res_to_copy[node.resource] = node.resource.duplicate(true)
 	
 	## Determine the connections to be copied.
 	for c in resource.connections:
@@ -131,7 +131,7 @@ func _copy_nodes_request():
 func _paste_nodes_request(top_left_paste_pos: Vector2):
 	assert(resource)
 	## Remove our selection.
-	for node in selected_elements.duplicate():
+	for node in selected_elements.duplicate(true):
 		node.set_selected(false)
 	
 	## Clone all resources.
@@ -146,7 +146,7 @@ func _paste_nodes_request(top_left_paste_pos: Vector2):
 	## Create new clipboard.
 	var new_clipboard := {}
 	for resource in element_clipboard:
-		var new_res = resource.duplicate()
+		var new_res = resource.duplicate(true)
 		new_clipboard[new_res] = element_clipboard[resource]
 		for c in connection_clipboard:
 			if c[0] == resource:
@@ -164,10 +164,10 @@ func _delete_nodes_request(nodes: Array[StringName]):
 
 func _duplicate_nodes_request():
 	assert(resource)
-	for node in selected_elements.duplicate():
+	for node in selected_elements.duplicate(true):
 		var res: Resource = node.resource
 		var idx: int = resource.resources.find(res)
-		var res_dupe := res.duplicate()
+		var res_dupe := res.duplicate(true)
 		add_resource(res_dupe, node.position_offset)
 		node.set_selected(false)
 		resource_to_element[res_dupe].set_selected(true)
@@ -221,14 +221,14 @@ func _refresh():
 	if not resource:
 		## Cleanup.
 		clear_connections()
-		for element in active_elements.duplicate():
+		for element in active_elements.duplicate(true):
 			element.queue_free()
 		resource_to_element = {}
 		active_elements = []
 	else:
 		## Delete un-accounted for nodes.
 		var existing_resources := {}
-		for element in active_elements.duplicate():
+		for element in active_elements.duplicate(true):
 			if not is_instance_valid(element) or element.resource not in resource.resources:
 				selected_elements.erase(element)
 				active_elements.erase(element)
@@ -260,7 +260,7 @@ func _validate_connections():
 		return
 	
 	## Validate the connections for each GraphNode.
-	for c: Array in resource.connections.duplicate():
+	for c: Array in resource.connections.duplicate(true):
 		var from_resource: GraphNodeResource = c[0]
 		var from_port: int = c[1]
 		var to_resource: GraphNodeResource = c[2]
@@ -273,7 +273,7 @@ func _validate_connections():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cut") and selected_elements:
 		_copy_nodes_request()
-		for node in selected_elements.duplicate():
+		for node in selected_elements.duplicate(true):
 			remove_resource(node.resource)
 		accept_event()
 	if event.is_action_pressed("ui_text_select_all") and mouse_inside:
@@ -286,7 +286,7 @@ func _input(event: InputEvent) -> void:
 			# If we've pressed somewhere not within the grid,
 			# guarantee that we deselect all of our internal nodes
 			if selected_elements and not mouse_inside:
-				for node in selected_elements.duplicate():
+				for node in selected_elements.duplicate(true):
 					node.set_selected(false)
 
 ## Recenters the GraphEdit.

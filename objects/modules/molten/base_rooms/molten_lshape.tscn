@@ -1,0 +1,238 @@
+[gd_scene load_steps=34 format=3 uid="uid://dmdqg6q7wf1ie"]
+
+[ext_resource type="PackedScene" uid="uid://cfeju7cmcun3o" path="res://models/facilities/molten/molten_Lshape.fbx" id="1_crjec"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="3_jtdxy"]
+[ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="4_jtdxy"]
+[ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="8_f2jlf"]
+[ext_resource type="PackedScene" uid="uid://bjhle6ljdlsvr" path="res://objects/interactables/chq_door/chq_door_no_wall.tscn" id="14_ssxct"]
+[ext_resource type="Texture2D" uid="uid://lpqo478g33r8" path="res://objects/props/factory/tt_t_efx_ext_smoke.png" id="17_15r6x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63gwk"]
+size = Vector3(69.316345, 1, 25.585938)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01lab"]
+size = Vector3(68.16168, 18.5598, 37.83907)
+
+[sub_resource type="Curve" id="Curve_5miln"]
+_limits = [0.0, 1.15, 0.0, 1.0]
+_data = [Vector2(0, 0.358396), 0.0, 0.195403, 0, 0, Vector2(1, 0), -0.884205, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rosae"]
+curve = SubResource("Curve_5miln")
+
+[sub_resource type="Gradient" id="Gradient_7jiol"]
+colors = PackedColorArray(0.722732, 0, 0.282983, 1, 0.898412, 0.470966, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f2jlf"]
+gradient = SubResource("Gradient_7jiol")
+
+[sub_resource type="Gradient" id="Gradient_8ipha"]
+offsets = PackedFloat32Array(0, 0.122172, 0.316742, 0.452489, 0.574661, 0.656109, 0.751131, 0.832579, 0.936652)
+colors = PackedColorArray(0.915407, 0.169083, 1.92523e-07, 1, 1, 0.51495, 0.140345, 1, 0.835806, 0.18368, 0, 1, 0.781093, 0.506061, 0, 1, 0.885174, 0.395708, 0, 1, 0.862307, 0.476696, 1.15514e-06, 1, 0.945914, 0.396931, 3.85046e-07, 1, 1, 0.30303, 0.207314, 1, 0.917898, 0.444718, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0ave0"]
+gradient = SubResource("Gradient_8ipha")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o3620"]
+emission_shape_scale = Vector3(27.23, 0.3, 6.554)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0.03, 0)
+spread = 31.974
+initial_velocity_min = 0.51
+initial_velocity_max = 1.39
+gravity = Vector3(0, 0.4, 0)
+scale_min = 5.51
+scale_max = 7.9
+color_ramp = SubResource("GradientTexture1D_0ave0")
+color_initial_ramp = SubResource("GradientTexture1D_f2jlf")
+alpha_curve = SubResource("CurveTexture_rosae")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15r6x"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("17_15r6x")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_djiyx"]
+material = SubResource("StandardMaterial3D_15r6x")
+
+[sub_resource type="Curve" id="Curve_15r6x"]
+_limits = [0.0, 1.15, 0.0, 1.0]
+_data = [Vector2(0, 0.358396), 0.0, 0.195403, 0, 0, Vector2(1, 0), -0.884205, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5miln"]
+curve = SubResource("Curve_15r6x")
+
+[sub_resource type="Gradient" id="Gradient_rosae"]
+colors = PackedColorArray(0.722732, 0, 0.282983, 1, 0.898412, 0.470966, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rosae"]
+gradient = SubResource("Gradient_rosae")
+
+[sub_resource type="Gradient" id="Gradient_f2jlf"]
+offsets = PackedFloat32Array(0, 0.122172, 0.316742, 0.452489, 0.574661, 0.656109, 0.751131, 0.832579, 0.936652)
+colors = PackedColorArray(0.915407, 0.169083, 1.92523e-07, 1, 1, 0.51495, 0.140345, 1, 0.835806, 0.18368, 0, 1, 0.781093, 0.506061, 0, 1, 0.885174, 0.395708, 0, 1, 0.862307, 0.476696, 1.15514e-06, 1, 0.945914, 0.396931, 3.85046e-07, 1, 1, 0.30303, 0.207314, 1, 0.917898, 0.444718, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7jiol"]
+gradient = SubResource("Gradient_f2jlf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ave0"]
+emission_shape_scale = Vector3(9.265, 0.3, 6.554)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0.03, 0)
+spread = 31.974
+initial_velocity_min = 0.51
+initial_velocity_max = 1.39
+gravity = Vector3(0, 0.4, 0)
+scale_min = 5.51
+scale_max = 7.9
+color_ramp = SubResource("GradientTexture1D_7jiol")
+color_initial_ramp = SubResource("GradientTexture1D_rosae")
+alpha_curve = SubResource("CurveTexture_5miln")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jtdxy"]
+frequency = 0.0268
+fractal_type = 3
+fractal_lacunarity = 1.09
+fractal_gain = -0.25
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15r6x"]
+noise = SubResource("FastNoiseLite_jtdxy")
+seamless = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5miln"]
+load_path = "res://.godot/imported/lava7.png-a846c573883fab8f70d4f7136eb110a1.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a41eb"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("3_jtdxy")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_5miln")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.0
+shader_parameter/displacement = SubResource("NoiseTexture2D_15r6x")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wobis"]
+frequency = 0.0268
+fractal_type = 3
+fractal_lacunarity = 1.09
+fractal_gain = -0.25
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sv7iq"]
+noise = SubResource("FastNoiseLite_wobis")
+seamless = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1p2c0"]
+load_path = "res://.godot/imported/lava7.png-a846c573883fab8f70d4f7136eb110a1.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jlcvh"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("3_jtdxy")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_1p2c0")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.0
+shader_parameter/displacement = SubResource("NoiseTexture2D_sv7iq")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rosae"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("3_jtdxy")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_5miln")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(0.175, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.0
+shader_parameter/displacement = SubResource("NoiseTexture2D_15r6x")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[node name="molten_connector_Lshape" instance=ExtResource("1_crjec")]
+
+[node name="PlayerSpawn" type="Node3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.27596e-12, 0, 1.11022e-16, 1, -0.0305821, -1.20721, 0.0724822)
+
+[node name="LavaFloor" parent="." index="1" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("4_jtdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6589668, 0)
+default_spawn_point = NodePath("../PlayerSpawn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4483337, 0, 0)
+shape = SubResource("BoxShape3D_63gwk")
+
+[node name="RoomArea" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.548233, 8.77991, 1.770885)
+shape = SubResource("BoxShape3D_01lab")
+
+[node name="Props" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204273, 9.53674e-07, 8.70439)
+
+[node name="shelf2" parent="." index="5" instance=ExtResource("8_f2jlf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56615, 0.283029, 15.66)
+
+[node name="CogDoor2" parent="." index="6" instance=ExtResource("14_ssxct")]
+transform = Transform3D(-0.00393245, -0.0024077, -1.50587, 0.00312499, 1.50587, -0.00241587, 1.50587, -0.0031313, -0.00392743, -17.5627, 0, 9.82711)
+monitoring = false
+add_locks = 3
+
+[node name="SmokeParticles" type="GPUParticles3D" parent="." index="7"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, -1.79111, -4.86972)
+amount = 55
+lifetime = 2.75
+randomness = 0.44
+visibility_aabb = AABB(-18.2827, -1.2802, -7.91927, 35.6684, 8.12912, 13.9212)
+process_material = SubResource("ParticleProcessMaterial_o3620")
+draw_pass_1 = SubResource("QuadMesh_djiyx")
+
+[node name="SmokeParticles2" type="GPUParticles3D" parent="." index="8"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.8479, -1.79111, 7.53107)
+amount = 23
+lifetime = 2.75
+randomness = 0.44
+visibility_aabb = AABB(-18.2827, -1.2802, -7.91927, 35.6684, 8.12912, 13.9212)
+process_material = SubResource("ParticleProcessMaterial_0ave0")
+draw_pass_1 = SubResource("QuadMesh_djiyx")
+
+[node name="shelf3" parent="." index="9" instance=ExtResource("8_f2jlf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.03886, 0.283029, 15.66)
+Type = 1
+
+[node name="Node3D" type="Node3D" parent="." index="10"]
+
+[node name="Boiler" parent="." index="13"]
+instance_shader_parameters/speed = 6.0
+surface_material_override/2 = SubResource("ShaderMaterial_a41eb")
+
+[node name="ENTRANCE" parent="." index="17"]
+transform = Transform3D(-0.99999905, 0, -8.742269e-08, 0, 0.999999, 0, 8.742269e-08, 0, -0.999999, -11.779484, 0.24890137, -17.703884)
+
+[node name="EXIT" parent="." index="18"]
+transform = Transform3D(-0.99999905, 0, -8.742269e-08, 0, 0.999999, 0, 8.742269e-08, 0, -0.999999, 2.8417206, 0.25111693, 21.707005)
+
+[node name="FallingLava" parent="." index="19"]
+instance_shader_parameters/speed = 8.0
+surface_material_override/0 = SubResource("ShaderMaterial_jlcvh")
+
+[node name="LavaPlane" parent="." index="21"]
+instance_shader_parameters/speed = 3.0
+surface_material_override/0 = SubResource("ShaderMaterial_rosae")

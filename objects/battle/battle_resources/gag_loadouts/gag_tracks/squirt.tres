@@ -21,64 +21,43 @@
 script = ExtResource("3_hv7q2")
 icon = ExtResource("2_tu7dg")
 damage = 5
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Squirting Flower"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_teoux"]
 script = ExtResource("5_wjegy")
 icon = ExtResource("4_vcmre")
 damage = 10
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Glass of Water"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_0fqpw"]
 script = ExtResource("7_t8v1q")
 icon = ExtResource("6_j2ouf")
 damage = 18
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Squirt Gun"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_we2gn"]
 script = ExtResource("9_gey65")
 icon = ExtResource("8_a6b12")
 damage = 30
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Seltzer Bottle"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_qj0t3"]
 script = ExtResource("11_q7k61")
 icon = ExtResource("10_462cx")
 damage = 45
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Fire Hose"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_mgg2q"]
 script = ExtResource("13_kyxsx")
 icon = ExtResource("12_ycp05")
 damage = 60
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Storm Cloud"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_lmjjy"]
 script = ExtResource("15_85oaq")
 icon = ExtResource("14_crcck")
 damage = 80
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Geyser"
-one_time_use = false
 
 [resource]
 script = ExtResource("14_mkclo")

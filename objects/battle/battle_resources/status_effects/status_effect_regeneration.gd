@@ -3,6 +3,7 @@ extends StatusEffect
 class_name StatEffectRegeneration
 
 const COG_REGEN_EFFECT := preload("res://objects/battle/effects/cog_healing/cog_healing.tscn")
+const TOON_REGEN_EFFECT := preload("res://objects/battle/effects/pixie_dust/pixie_dust_battle_effect.tscn")
 const COG_HEAL_PHRASES : Array[String] = [
 	"Time to exercise my right to repair.",
 	"You can't keep up with these gains.",
@@ -24,12 +25,13 @@ func renew():
 	manager.affect_target(target, -amount)
 	if target is Player:
 		target.toon.speak('Ha Ha Ha')
-		target.set_animation('happy')
+		target.set_animation('jump')
+		do_toon_regen_tween(target.toon)
 		await manager.barrier(target.animator.animation_finished, 4.0)
 		target.set_animation('neutral')
 	elif target is Cog:
 		target.set_animation('buffed')
-		target.speak(RandomService.array_pick_random('true_random', COG_HEAL_PHRASES))
+		target.speak(COG_HEAL_PHRASES.pick_random())
 		do_cog_regen_tween(target)
 		await manager.barrier(target.animator.animation_finished, 4.0)
 
@@ -44,11 +46,11 @@ func get_status_name() -> String:
 	return status_name
 
 func randomize_effect() -> void:
-	rounds = RandomService.randi_range_channel('true_random', 1, 3)
+	rounds = randi_range(1, 3)
 	if target:
-		amount = ceili(RandomService.randf_range_channel('true_random', ceili(target.stats.max_hp * 0.1), ceili(target.stats.max_hp * 0.25)))
+		amount = ceili(randf_range(ceili(target.stats.max_hp * 0.1), ceili(target.stats.max_hp * 0.25)))
 	else:
-		amount = RandomService.randi_range_channel('true_random', 1, 10)
+		amount = randi_range(1, 10)
 
 func do_cog_regen_tween(cog : Cog) -> void:
 	var particle : Node3D = COG_REGEN_EFFECT.instantiate()
@@ -61,6 +63,25 @@ func do_cog_regen_tween(cog : Cog) -> void:
 	tween.tween_property(particle, 'scale', Vector3.ONE * 0.01, 0.5)
 	tween.tween_callback(particle.queue_free)
 	tween.finished.connect(tween.kill)
+
+func do_toon_regen_tween(toon: Toon) -> void:
+	var sfx := [
+		"res://audio/sfx/battle/gags/toonup/AA_single_pixiedust_1.ogg",
+		"res://audio/sfx/battle/gags/toonup/AA_single_pixiedust_2.ogg",
+		"res://audio/sfx/battle/gags/toonup/AA_single_pixiedust_3.ogg",
+	]
+	var random_sfx: String = sfx.pick_random()
+	
+	var particles := TOON_REGEN_EFFECT.instantiate()
+	particles.scale = Vector3(0.01, 0.01, 0.01)
+	toon.add_child(particles)
+	var tween := manager.create_tween().set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_callback(AudioManager.play_sound.bind(load(random_sfx)))
+	tween.tween_property(particles, 'scale', Vector3.ONE * 2.0, 0.5)
+	tween.tween_interval(0.5)
+	tween.tween_property(particles, 'scale', Vector3.ONE * 0.01, 0.5)
+	tween.tween_callback(particles.queue_free)
+	tween.tween_callback(tween.kill)
 
 func combine(effect : StatusEffect) -> bool:
 	if effect is StatEffectRegeneration and effect.rounds == rounds:

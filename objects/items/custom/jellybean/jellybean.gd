@@ -38,8 +38,8 @@ var values := {
 }
 
 func _ready() -> void:
-	bean_mat = bean.mesh.surface_get_material(0).duplicate()
-	highlight_mat = highlight.mesh.surface_get_material(0).duplicate()
+	bean_mat = bean.mesh.surface_get_material(0).duplicate(true)
+	highlight_mat = highlight.mesh.surface_get_material(0).duplicate(true)
 	bean.set_surface_override_material(0,bean_mat)
 	highlight.set_surface_override_material(0, highlight_mat)
 
@@ -48,6 +48,8 @@ func setup(item: Item):
 		item.stats_add['money'] = values[bean_color]
 		item.big_description = "Gives +" + str(values[bean_color]) + " jellybeans."
 	set_color(colors[bean_color])
+	if NodeGlobals.get_ancestor_of_type(self, ToonShop):
+		item.reroll()
 
 func set_color(color: Color):
 	bean_mat.albedo_color = color

@@ -8,33 +8,16 @@
 
 [resource]
 script = ExtResource("1_hhhbl")
-sfx = Array[AudioStream]([])
 active_type = 1
-charge_count = 0
-current_charge = 0
 qualitoon = 3
-rarity = 0
-evergreen = false
-realtime = false
-slot = 0
 world_scale = 0.2
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Cash Register"
 item_description = "Ka-ching!"
-big_description = "Spend 5 beans for a 2 round 15% damage boost"
+big_description = "Spend 3 beans for a 1 round 10% damage boost"
 model = ExtResource("3_6vhg4")
 pickup_sfx = ExtResource("4_6vhg4")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("2_6vhg4")
-remember_item = true
 icon = ExtResource("1_6vhg4")
 shop_category_title = "Pocket Prank"
 shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
-force_show_shop_category = false
-custom_shop_price = 0
 metadata/_custom_type_script = "uid://5uwfsntxdag6"

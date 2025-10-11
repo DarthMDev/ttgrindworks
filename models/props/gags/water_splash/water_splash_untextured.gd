@@ -10,7 +10,7 @@ var base_scale := 0.46
 var spray_mat : StandardMaterial3D
 
 func _ready() -> void:
-	spray_mat = spray1.mesh.surface_get_material(0).duplicate()
+	spray_mat = spray1.mesh.surface_get_material(0).duplicate(true)
 	spray1.set_surface_override_material(0, spray_mat)
 	spray2.set_surface_override_material(0, spray_mat)
 

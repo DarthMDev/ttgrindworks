@@ -4,4 +4,4 @@ extends StatusEffect
 
 func apply() -> void:
 	target.stats.turns += 1
-	target.stats.damage *= (2.0 / 3.0)
+	manager.battle_stats[target].damage *= 0.7

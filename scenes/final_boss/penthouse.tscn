@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjcugdtkiwqwy" path="res://models/misc_zones/field_office/penthouse/penthouse_23.png" id="2_8ud3v"]
 [ext_resource type="Script" uid="uid://d0qj3lyj16xr5" path="res://scenes/final_boss/penthouse_boss.gd" id="2_bn0hh"]
 [ext_resource type="Texture2D" uid="uid://b63aa1vfsnk6" path="res://models/misc_zones/field_office/penthouse/penthouse_8.png" id="2_ge76q"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="3_pu03o"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="3_pu03o"]
 [ext_resource type="Resource" uid="uid://bkkauwbcsnukc" path="res://objects/cog/presets/sellbot/traffic_manager.tres" id="4_7haf7"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="4_p2l1n"]
 [ext_resource type="PackedScene" uid="uid://cy4iox7mj5ei0" path="res://objects/toon/toon.tscn" id="5_s3u6r"]
@@ -58,7 +58,7 @@ ssr_max_steps = 142
 ssr_fade_in = 0.764735
 ssr_fade_out = 1.36604
 ssr_depth_tolerance = 28.01
-ssao_power = 1e+06
+ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0

@@ -8,8 +8,8 @@ var contract_limit_time: int
 @export var liability_waiver_cooldown: int = 2
 var liability_waiver_time: int
 
-var contract_limit_attack: UBContractLimit = preload("res://objects/battle/battle_resources/misc_movies/union_buster/contract_limit.tres")
-var liability_waiver_attack: UBLiabilityWaiver = preload("res://objects/battle/battle_resources/misc_movies/union_buster/liability_waiver.tres")
+var contract_limit_attack: CogAttack = preload("res://objects/battle/battle_resources/misc_movies/union_buster/contract_limit.tres")
+var liability_waiver_attack: CogAttack = preload("res://objects/battle/battle_resources/misc_movies/union_buster/liability_waiver.tres")
 
 var union_buster: Cog
 
@@ -41,11 +41,11 @@ func try_contract_limit(_actions):
 		contract_limit_time -= 1
 		return
 	
-	var attack: UBContractLimit = contract_limit_attack.duplicate()
+	var attack: CogAttack = contract_limit_attack.duplicate(true)
 	
 	attack.user = union_buster
 	
-	var possible_targets: Array = union_buster.get_targets(attack.target_type).duplicate()
+	var possible_targets: Array = union_buster.get_targets(attack.target_type).duplicate(true)
 	# Filter out directors from this pool of targets
 	possible_targets = possible_targets.filter(func(x: Cog): return x.dna.custom_nametag_suffix != 'Director')
 	
@@ -62,7 +62,7 @@ func try_contract_limit(_actions):
 	
 	attack.targets = [highest_level_cog]
 	
-	manager.inject_battle_action(attack, 0)
+	manager.round_end_actions.append(attack)
 	contract_limit_time = contract_limit_cooldown
 
 func check_for_contract_limit():
@@ -84,9 +84,9 @@ func try_liability_waiver(_actions):
 		liability_waiver_time -= 1
 		return
 	
-	var attack: UBLiabilityWaiver = liability_waiver_attack.duplicate()
+	var attack: CogAttack = liability_waiver_attack.duplicate(true)
 	
-	var possible_targets: Array = union_buster.get_targets(attack.target_type).duplicate()
+	var possible_targets: Array = union_buster.get_targets(attack.target_type).duplicate(true)
 	
 	# Filter out directors from this pool of targets
 	possible_targets = possible_targets.filter(func(x: Cog): return x.dna.custom_nametag_suffix != 'Director')
@@ -106,7 +106,7 @@ func try_liability_waiver(_actions):
 	
 	attack.targets = [lowest_level_cog]
 	
-	manager.inject_battle_action(attack, 0)
+	manager.round_end_actions.append(attack)
 	liability_waiver_time = liability_waiver_cooldown
 
 	

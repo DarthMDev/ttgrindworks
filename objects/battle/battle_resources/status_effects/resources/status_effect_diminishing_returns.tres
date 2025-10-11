@@ -5,18 +5,8 @@
 
 [resource]
 script = ExtResource("2_iqut7")
-bean_count = 1
-diminish_factor = 0.8
-quality = 2
 rounds = -1
-rounds_offset = 0
 icon = ExtResource("1_iqut7")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
 status_name = "Embezzled"
 id = 37
 metadata/_custom_type_script = "uid://df7irk63ikx4k"

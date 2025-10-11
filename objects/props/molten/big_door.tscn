@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://gn43bdjs6n45"]
+
+[ext_resource type="PackedScene" uid="uid://btva4l2pppfts" path="res://models/props/facility_objects/molten/big_door/big_door.fbx" id="1_dvnbs"]
+[ext_resource type="Texture2D" uid="uid://cn1w5vkqcw23k" path="res://models/props/facility_objects/molten/big_door/FINALFACTORY_37.png" id="2_b5j7u"]
+[ext_resource type="Texture2D" uid="uid://bcxf1fi312ncb" path="res://models/props/facility_objects/molten/big_door/Molten_CompiledSet1.png" id="3_sg8r3"]
+[ext_resource type="Texture2D" uid="uid://cnny2dmrj18p5" path="res://models/props/facility_objects/molten/big_door/FINALFACTORY_101.png" id="4_pfcmb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gby6t"]
+resource_name = "FINALFACTORY_37"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_b5j7u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6xrd"]
+resource_name = "Molten_CompiledSet1"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_sg8r3")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2k3e"]
+resource_name = "FINALFACTORY_101"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("4_pfcmb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dvnbs"]
+data = PackedVector3Array(0.0033, 0.0358, -0.0251, 0.0033, 0.0358, -0.0509, 0.0033, -0.0451, -0.0509, 0.0033, -0.0451, -0.0509, 0.0033, -0.0451, -0.0251, 0.0033, 0.0358, -0.0251, 0.0033, 0.0451, -0.0509, 0.0033, 0.0451, -0.0251, -0.0033, 0.0451, -0.0251, -0.0033, 0.0451, -0.0197, -0.0033, 0.0451, -0.0251, 0.0033, 0.0451, -0.0251, -0.0033, 0.0451, -0.0251, -0.0033, 0.0451, -0.0509, 0.0033, 0.0451, -0.0509, 0.0033, 0.0451, -0.0251, 0.0033, 0.0451, -0.0197, -0.0033, 0.0451, -0.0197, -0.0033, 0.0451, 0.1157, -0.0033, 0.0451, -0.0197, 0.0033, 0.0451, -0.0197, 0.0033, 0.0451, -0.0197, 0.0033, 0.0451, 0.1157, -0.0033, 0.0451, 0.1157, 0.0033, 0.0451, -0.0562, 0.0033, 0.0451, -0.0509, -0.0033, 0.0451, -0.0509, -0.0033, 0.0451, -0.0509, -0.0033, 0.0451, -0.0562, 0.0033, 0.0451, -0.0562, 0.0033, 0.0451, -0.0562, -0.0033, 0.0451, -0.0562, -0.0033, 0.0451, -0.1157, -0.0033, 0.0451, -0.1157, 0.0033, 0.0451, -0.1157, 0.0033, 0.0451, -0.0562, 0.0033, 0.0451, -0.1157, 0.0033, 0.0358, -0.1157, 0.0033, 0.0358, -0.0562, 0.0033, 0.0358, -0.0562, 0.0033, 0.0451, -0.0562, 0.0033, 0.0451, -0.1157, 0.0033, 0.0451, -0.0251, 0.0033, 0.0451, -0.0509, 0.0033, 0.0358, -0.0509, 0.0033, 0.0358, -0.0509, 0.0033, 0.0358, -0.0251, 0.0033, 0.0451, -0.0251, 0.0033, 0.0451, -0.0509, 0.0033, 0.0451, -0.0562, 0.0033, 0.0358, -0.0562, 0.0033, 0.0358, -0.0562, 0.0033, 0.0358, -0.0509, 0.0033, 0.0451, -0.0509, 0.0033, -0.0451, -0.0251, 0.0033, -0.0451, -0.0197, 0.0033, 0.0358, -0.0197, 0.0033, 0.0358, -0.0197, 0.0033, 0.0358, -0.0251, 0.0033, -0.0451, -0.0251, 0.0033, 0.0358, -0.0251, 0.0033, 0.0358, -0.0197, 0.0033, 0.0451, -0.0197, 0.0033, 0.0451, -0.0197, 0.0033, 0.0451, -0.0251, 0.0033, 0.0358, -0.0251, 0.0033, 0.0358, -0.0509, 0.0033, 0.0358, -0.0562, 0.0033, -0.0451, -0.0562, 0.0033, -0.0451, -0.0562, 0.0033, -0.0451, -0.0509, 0.0033, 0.0358, -0.0509, 0.0033, 0.0358, 0.1157, 0.0033, 0.0451, 0.1157, 0.0033, 0.0451, -0.0197, 0.0033, 0.0451, -0.0197, 0.0033, 0.0358, -0.0197, 0.0033, 0.0358, 0.1157, 0.0033, 0.0358, -0.1157, 0.0033, -0.0451, -0.1157, 0.0033, -0.0451, -0.0562, 0.0033, -0.0451, -0.0562, 0.0033, 0.0358, -0.0562, 0.0033, 0.0358, -0.1157, 0.0033, -0.0451, -0.0197, 0.0033, -0.0451, 0.1157, 0.0033, 0.0358, 0.1157, 0.0033, 0.0358, 0.1157, 0.0033, 0.0358, -0.0197, 0.0033, -0.0451, -0.0197)
+
+[node name="big_door" instance=ExtResource("1_dvnbs")]
+
+[node name="BigDoor" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gby6t")
+surface_material_override/1 = SubResource("StandardMaterial3D_f6xrd")
+surface_material_override/2 = SubResource("StandardMaterial3D_k2k3e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BigDoor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BigDoor/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_dvnbs")

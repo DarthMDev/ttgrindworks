@@ -27,8 +27,8 @@ func change_scene_to_node(new_scene: Node):
 	for child in get_children():
 		if not child == persistent_node:
 			child.queue_free()
-	add_child(new_scene)
 	current_scene = new_scene
+	add_child(new_scene)
 
 func change_scene_to_packed(new_scene : PackedScene):
 	change_scene_to_node(new_scene.instantiate())

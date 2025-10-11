@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://snrq6nwxotg0"]
+
+[ext_resource type="Texture2D" uid="uid://bqiwfkdl03fij" path="res://models/props/cog_props/rolodex/rolodex.glb-pix-1.png" id="1_w1yt6"]
+[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_yjoot"]
+
+[resource]
+script = ExtResource("2_yjoot")
+progress_value = "proxy_cogs_defeated"
+quota = 100
+signal_source = 2
+signal_name = "s_proxy_died"
+achievement_name = "Networking is Key"
+achievement_summary = "Unlocked Rolodex."
+hint = "Defeat high-profile Cogs."
+achievement_index = 37
+achievement_icon = ExtResource("1_w1yt6")
+use_achievement_background = true
+custom_background_color = Color(0.6, 0.2, 1, 1)
+metadata/_custom_type_script = "uid://bly70o6230roo"

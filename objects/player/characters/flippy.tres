@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=17 format=3 uid="uid://cbumr2pvgy1io"]
+[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://cbumr2pvgy1io"]
 
 [ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_4idkh"]
 [ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="1_ivgnp"]
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_joak5"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="1_vg416"]
+[ext_resource type="Resource" uid="uid://wfdgusu3acxl" path="res://objects/items/resources/active/paint_bucket.tres" id="2_4xrsp"]
 [ext_resource type="Texture2D" uid="uid://v0n7tknvy2jk" path="res://models/toon/textures/clothes/shorts/desat_shorts_10_2.png" id="2_io7we"]
 [ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="2_j4ef6"]
 [ext_resource type="Resource" uid="uid://tyi7ukxtvcgc" path="res://objects/battle/battle_resources/gag_loadouts/loadouts/standard_loadout.tres" id="2_pvta8"]
@@ -15,21 +16,11 @@
 
 [sub_resource type="Resource" id="Resource_jj61k"]
 script = ExtResource("1_vg416")
-damage = 1.0
-defense = 1.0
-evasiveness = 1.0
-accuracy = 1.0
-speed = 1.0
-max_turns = 3
-max_hp = 25
-hp = 25
-turns = 1
 
 [sub_resource type="Resource" id="Resource_ugrs1"]
 script = ExtResource("1_ivgnp")
 texture = ExtResource("2_io7we")
 base_color = Color(0.71, 0.231, 0.435, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_2lryd"]
 script = ExtResource("2_j4ef6")
@@ -37,15 +28,13 @@ shirt_texture = ExtResource("3_cc2cr")
 sleeve_texture = ExtResource("4_ikk8d")
 base_color = Color(0.992157, 0.478431, 0.168627, 1)
 sleeve_color = Color(0.992157, 0.478431, 0.168627, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_ax4gq"]
 script = ExtResource("1_4idkh")
 body_type = 1
-species = 2
+leg_type = 1
 head_index = 2
 eyelashes = false
-skirt = false
 head_color = Color(0.345098, 0.819608, 0.952941, 1)
 torso_color = Color(0.345098, 0.819608, 0.952941, 1)
 leg_color = Color(0.345098, 0.819608, 0.952941, 1)
@@ -54,18 +43,26 @@ bottoms = SubResource("Resource_ugrs1")
 
 [resource]
 script = ExtResource("1_joak5")
-character_name = "Flippy"
-character_summary = "- Can revive once before going sad
-- 5% base Throw boost
-- Starts with Throw and Squirt"
+character_id = 1
+character_summary = "Can revive once before going sad
+5% base Throw boost"
+character_blurb = "President of the Toon Council and professional pie pitcher. A doggone inspiration to Toons everywhere."
 dna = SubResource("Resource_ax4gq")
 gag_loadout = ExtResource("2_pvta8")
 starting_laff = 30
 starting_items = Array[ExtResource("9_t8yrd")]([ExtResource("10_81tpj"), ExtResource("12_e8jb6")])
 base_stats = SubResource("Resource_jj61k")
-override_index = -1
-achievement_qualities = Dictionary[int, String]({
-26: "Starts with Paint Bucket"
+starting_gags = Dictionary[String, int]({
+"Drop": 0,
+"Lure": 0,
+"Sound": 0,
+"Squirt": 1,
+"Throw": 1,
+"Trap": 0
 })
-random_character_stored_name = ""
-achievement_index = 0
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.05
+})
+achievement_items = Dictionary[int, ExtResource("9_t8yrd")]({
+26: ExtResource("2_4xrsp")
+})

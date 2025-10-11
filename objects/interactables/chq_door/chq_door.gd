@@ -3,6 +3,7 @@ class_name CogDoor
 
 ## Config
 @export var monitoring := true
+@export_range(0, 3) var add_locks := 0
 
 ## Child References
 @onready var door_top := $Doorway1/doortop
@@ -12,16 +13,21 @@ class_name CogDoor
 @onready var sfx_slide := $SlideSFX
 @onready var sfx_latch := $LatchSFX
 @onready var sfx_unlock := $UnlockSFX
+@onready var lock_node := %Locks
 
 ## Locals
-var locks := 0
 var max_locks := 3
 var can_open := true
 var open_tween : Tween
+var locks := 0
 
 ## Signals
 signal s_unlocked
 
+
+func _ready() -> void:
+	for i in add_locks:
+		add_lock()
 
 func body_entered(body : Node3D) -> void:
 	if body is Player:
@@ -32,14 +38,15 @@ func player_entered() -> void:
 		open()
 
 func add_lock() -> void:
-	$Doorway1/Locks.get_child(locks).show()
+	if not is_node_ready(): await ready
+	lock_node.get_child(locks).show()
 	locks+=1
 
 func unlock() -> void:
 	locks-=1
 	if locks == 0: s_unlocked.emit()
 	sfx_unlock.play()
-	var lock := $Doorway1/Locks.get_child(locks)
+	var lock := lock_node.get_child(locks)
 	var unlock_tween := create_tween()
 	unlock_tween.set_parallel(true)
 	unlock_tween.set_trans(Tween.TRANS_QUAD)

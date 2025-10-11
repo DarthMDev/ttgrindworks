@@ -1,0 +1,318 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8er6lmtrtym6"]
+
+[ext_resource type="PackedScene" uid="uid://cm5jv55t2wnby" path="res://objects/modules/molten/base_rooms/molten_small_bridge.tscn" id="1_iitjw"]
+[ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="2_0ce18"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="3_ef58g"]
+[ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="4_8eiye"]
+[ext_resource type="PackedScene" uid="uid://k8228k6jwvf7" path="res://objects/props/mint/shelf_money_bags.tscn" id="5_yhm8a"]
+[ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="6_lyx3t"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="7_kviie"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="8_wqyj5"]
+[ext_resource type="PackedScene" uid="uid://d0o37sg2xvqe6" path="res://models/props/facility_objects/conveyor_platform/platform.glb" id="9_0ce18"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="11_8eiye"]
+[ext_resource type="PackedScene" uid="uid://bycg7kp5uocp" path="res://objects/props/molten/barrier.tscn" id="11_yhm8a"]
+[ext_resource type="PackedScene" uid="uid://6w7qnjyug5fe" path="res://objects/props/mint/conveyor_belt_portal.tscn" id="12_yhm8a"]
+[ext_resource type="PackedScene" uid="uid://eqdwvgmjbfpg" path="res://models/facilities/molten/BurnersTrial_Bearings.fbx" id="13_lyx3t"]
+
+[sub_resource type="Curve3D" id="Curve3D_4m0y6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -24, 0, 0, 0, 0, 0, 0, 0, 0, -1.35),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_w5r2x"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -1.35, 0, 0, 0, 0, 0, 0, 0, 0, -24),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_8lnv4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, -24),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_u5mv7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -24, 0, 0, 0, 0, 0, 0, 0, 0, 12),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kviie"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("8_wqyj5")
+roughness = 0.552786
+uv1_scale = Vector3(1, 11.76, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8eiye"]
+size = Vector3(3.0459, 0.152466, 3.04297)
+
+[node name="molten_small_bridge" instance=ExtResource("1_iitjw")]
+
+[node name="Bridge" parent="." index="1"]
+visible = false
+
+[node name="MovingPlatforms" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9208, -0.876449, 19.7149)
+
+[node name="Group 1" type="Node3D" parent="MovingPlatforms" index="0"]
+
+[node name="Mover 1" type="Node3D" parent="MovingPlatforms/Group 1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.361187)
+
+[node name="Path3D" type="Path3D" parent="MovingPlatforms/Group 1/Mover 1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.60899)
+visible = false
+curve = SubResource("Curve3D_4m0y6")
+
+[node name="ElevatingPlatform" parent="MovingPlatforms/Group 1/Mover 1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_0ce18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35)
+path = NodePath("../Path3D")
+speed = 4.0
+
+[node name="BurnerFlame" parent="MovingPlatforms/Group 1/Mover 1/ElevatingPlatform" index="2" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 2.586, 0.2, 0.819)
+flame_length = 3.0
+base_damage = -3
+
+[node name="Mover 2" type="Node3D" parent="MovingPlatforms/Group 1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91532, 0.361187)
+
+[node name="Path3D2" type="Path3D" parent="MovingPlatforms/Group 1/Mover 2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0.60899)
+visible = false
+curve = SubResource("Curve3D_w5r2x")
+
+[node name="ElevatingPlatform2" parent="MovingPlatforms/Group 1/Mover 2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_0ce18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+path = NodePath("../Path3D2")
+speed = 3.0
+
+[node name="BurnerFlame" parent="MovingPlatforms/Group 1/Mover 2/ElevatingPlatform2" index="2" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 2.586, 0.2, 0.819)
+flame_length = 3.0
+base_damage = -3
+
+[node name="Group 2" type="Node3D" parent="MovingPlatforms" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.166248, 0, -8.13347)
+
+[node name="Mover 1" type="Node3D" parent="MovingPlatforms/Group 2" index="0"]
+transform = Transform3D(0.637625, 0, 0, 0, 0.637625, 0, 0, 0, 0.637625, -1.14758, 6.4102, 0.745584)
+
+[node name="Path 1" type="Path3D" parent="MovingPlatforms/Group 2/Mover 1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451823, 4.5659, 0)
+curve = SubResource("Curve3D_8lnv4")
+
+[node name="ElevatingPlatform" parent="MovingPlatforms/Group 2/Mover 1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_0ce18")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -24)
+path = NodePath("../Path 1")
+speed = 2.0
+
+[node name="BurnerFlame" parent="MovingPlatforms/Group 2/Mover 1/ElevatingPlatform" index="2" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-11.5841, -1.01271e-06, 0, 1.01271e-06, -11.5841, 0, 0, 0, 11.5841, -8.47806, -0.965164, 0.455597)
+flame_length = 1.465
+
+[node name="BurnerFlame2" parent="MovingPlatforms/Group 2/Mover 1/ElevatingPlatform" index="3" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-11.5841, -1.01271e-06, 0, 1.01271e-06, -11.5841, 0, 0, 0, 11.5841, 8.77347, -0.965164, 0.455597)
+flame_length = 1.465
+
+[node name="Mover 2" type="Node3D" parent="MovingPlatforms/Group 2" index="1"]
+transform = Transform3D(0.637625, 0, 0, 0, 0.637625, 0, 0, 0, 0.637625, 1.1521, 6.4102, 0.745584)
+
+[node name="Path 2" type="Path3D" parent="MovingPlatforms/Group 2/Mover 2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965268, 4.5659, 0)
+curve = SubResource("Curve3D_u5mv7")
+
+[node name="ElevatingPlatform2" parent="MovingPlatforms/Group 2/Mover 2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_0ce18")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 12)
+path = NodePath("../Path 2")
+speed = 2.0
+
+[node name="BurnerFlame3" parent="MovingPlatforms/Group 2/Mover 2/ElevatingPlatform2" index="2" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-11.5841, -1.01271e-06, 0, 1.01271e-06, -11.5841, 0, 0, 0, 11.5841, -8.75536, 0.884087, 4.4682)
+flame_length = 1.465
+
+[node name="BurnerFlame4" parent="MovingPlatforms/Group 2/Mover 2/ElevatingPlatform2" index="3" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-11.5841, -1.01271e-06, 0, 1.01271e-06, -11.5841, 0, 0, 0, 11.5841, 8.49619, 0.884087, 4.4682)
+flame_length = 1.465
+
+[node name="SinkingPlatforms" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3993, 0, 2.21285)
+
+[node name="SinkingPlatform" parent="SinkingPlatforms" index="0" instance=ExtResource("4_8eiye")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.41921, -1.4049, 5.22426)
+texture_type = 1
+sink_level = -3.0
+
+[node name="SinkingPlatform5" parent="SinkingPlatforms" index="1" instance=ExtResource("4_8eiye")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.41921, -1.4049, -3.55927)
+texture_type = 1
+sink_level = -3.0
+
+[node name="SinkingPlatform7" parent="SinkingPlatforms" index="2" instance=ExtResource("4_8eiye")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.41921, -1.4049, 13.8975)
+texture_type = 1
+sink_level = -3.0
+
+[node name="Props" type="Node3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27469, 0.0197442, 2.38419e-07)
+
+[node name="shelf2" parent="Props" index="0" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -2.97948, 0, 13.8816)
+texture_type = 1
+
+[node name="shelf3" parent="Props" index="1" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.45844, 0, 13.8816)
+texture_type = 1
+
+[node name="shelf5" parent="Props" index="2" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, -6.13983, 0, 11.6794)
+texture_type = 1
+
+[node name="shelf6" parent="Props" index="3" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, -6.13983, 0, 7.5233)
+texture_type = 1
+
+[node name="shelf7" parent="Props" index="4" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, -6.13983, 0, 3.3573)
+texture_type = 1
+
+[node name="shelf12" parent="Props" index="5" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-4.15254e-08, 0, -0.95, 0, 0.95, 0, 0.95, 0, -4.15254e-08, 4.34404, 0, 3.3606)
+texture_type = 1
+
+[node name="shelf15" parent="Props" index="6" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-4.15254e-08, 0, -0.95, 0, 0.95, 0, 0.95, 0, -4.15254e-08, 4.34404, 0, -0.751996)
+texture_type = 1
+
+[node name="shelf13" parent="Props" index="7" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-4.15254e-08, 0, -0.95, 0, 0.95, 0, 0.95, 0, -4.15254e-08, 4.34404, 0, 7.5167)
+texture_type = 1
+
+[node name="shelf14" parent="Props" index="8" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(-4.15254e-08, 0, -0.95, 0, 0.95, 0, 0.95, 0, -4.15254e-08, 4.34404, 0, 11.6827)
+texture_type = 1
+
+[node name="shelf8" parent="Props" index="9" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, 16.5416, 0, 19.0692)
+texture_type = 1
+
+[node name="shelf11" parent="Props" index="10" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, 16.5416, 0, 23.1257)
+texture_type = 1
+
+[node name="shelf9" parent="Props" index="11" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, 16.5416, 0, 14.9131)
+texture_type = 1
+
+[node name="shelf10" parent="Props" index="12" instance=ExtResource("5_yhm8a")]
+transform = Transform3D(1.24577e-07, 0, 0.95, 0, 0.95, 0, -0.95, 0, 1.24577e-07, 16.5416, 0, 10.7471)
+texture_type = 1
+
+[node name="Gears" type="Node3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554779, -1.78959, 24.2197)
+
+[node name="SpinningGear" parent="Gears" index="0" instance=ExtResource("6_lyx3t")]
+transform = Transform3D(15.2823, 0, -1.33621, 0, 29.6487, 0, 1.33568, 0, 15.2883, -1.93966, 1.0153, -2.42543)
+spin_speed = 70.0
+randomize_dir = true
+
+[node name="BurnerFlame" parent="Gears/SpinningGear" index="1" instance=ExtResource("3_ef58g")]
+transform = Transform3D(0.0385757, 0, -0.0320546, 0, 0.025951, 0, 0.0320419, 0, 0.0385605, 0.199647, -5.73471e-05, 0.166891)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame2" parent="Gears/SpinningGear" index="2" instance=ExtResource("3_ef58g")]
+transform = Transform3D(0.0499273, 0, 0.00477931, 0, 0.025951, 0, -0.00477743, 0, 0.0499076, 0.25763, -5.73471e-05, -0.022112)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame3" parent="Gears/SpinningGear" index="3" instance=ExtResource("3_ef58g")]
+transform = Transform3D(0.0499273, 0, 0.00477931, 0, 0.025951, 0, -0.00477743, 0, 0.0499076, 0.25763, -5.73471e-05, -0.022112)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame4" parent="Gears/SpinningGear" index="4" instance=ExtResource("3_ef58g")]
+transform = Transform3D(0.0328733, 0, 0.0378804, 0, 0.025951, 0, -0.0378655, 0, 0.0328603, 0.164462, -5.73471e-05, -0.199389)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame5" parent="Gears/SpinningGear" index="5" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-0.00273945, 0, 0.0500806, 0, 0.025951, 0, -0.0500609, 0, -0.00273837, -0.0245316, 0.000397565, -0.258581)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame6" parent="Gears/SpinningGear" index="6" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-0.0389318, 0, 0.031621, 0, 0.025951, 0, -0.0316085, 0, -0.0389165, -0.201708, 0.000397565, -0.164859)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame7" parent="Gears/SpinningGear" index="7" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-0.0500532, 0, -0.00320259, 0, 0.025951, 0, 0.00320133, 0, -0.0500335, -0.255278, 0.000397565, 0.0247344)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame8" parent="Gears/SpinningGear" index="8" instance=ExtResource("3_ef58g")]
+transform = Transform3D(-0.0331284, 0, -0.0376575, 0, 0.025951, 0, 0.0376427, 0, -0.0331153, -0.164573, 0.000397565, 0.194305)
+enabled = false
+automatic = true
+
+[node name="BurnerFlame9" parent="Gears/SpinningGear" index="9" instance=ExtResource("3_ef58g")]
+transform = Transform3D(0.00320259, 0, -0.0500532, 0, 0.025951, 0, 0.0500335, 0, 0.00320132, 0.0251101, 0.000397565, 0.256373)
+enabled = false
+automatic = true
+
+[node name="ConveyorBelt" type="Node3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80953, 9.53674e-07, 14.7095)
+
+[node name="ConveyerBelt" parent="ConveyorBelt" index="0" instance=ExtResource("7_kviie")]
+transform = Transform3D(1, 0, 0, 0, 5.4219046, 0, 0, 0, 1, 0.42735338, -1.8875103, -2.8638802)
+constant_linear_velocity = Vector3(0, 0, 3)
+size = Vector3(1.58, 1, 11.76)
+platform_mat = SubResource("StandardMaterial3D_kviie")
+speed = 3.0
+
+[node name="platform2" parent="." index="14" instance=ExtResource("9_0ce18")]
+transform = Transform3D(2.42475, 0, 0, 0, 51.8661, 0, 0, 0, 2.46966, -14.5124, -8.86351, 24.4314)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="platform2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0761108, 0)
+shape = SubResource("BoxShape3D_8eiye")
+
+[node name="platform3" parent="." index="15" instance=ExtResource("9_0ce18")]
+transform = Transform3D(2.42475, 0, 0, 0, 51.8661, 0, 0, 0, 2.46966, 19.336, -8.86351, 1.35004)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="platform3" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform3/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0761108, 0)
+shape = SubResource("BoxShape3D_8eiye")
+
+[node name="treasure_chest" parent="." index="20" instance=ExtResource("11_8eiye")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18.0542, 0.11701, 23.295115)
+
+[node name="treasure_chest2" parent="." index="21" instance=ExtResource("11_8eiye")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 21.0733, 0.11701, 23.295115)
+
+[node name="Barrier" parent="." index="26" instance=ExtResource("11_yhm8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641302, 2.3030992, 8.036765)
+
+[node name="Barrier2" parent="." index="27" instance=ExtResource("11_yhm8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.791813, 2.3030992, 14.9955635)
+
+[node name="conveyor_belt_portal" parent="." index="28" instance=ExtResource("12_yhm8a")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.187972, -1.6825552, -4.7065153)
+color = Color(0.9999998, 0.48003095, 0.123851605, 1)
+
+[node name="conveyor_belt_portal2" parent="." index="29" instance=ExtResource("12_yhm8a")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.187972, -1.6825552, 27.692574)
+color = Color(0.9999998, 0.48003095, 0.123851605, 1)
+
+[node name="BurnersTrial_Bearings" parent="." index="30" instance=ExtResource("13_lyx3t")]

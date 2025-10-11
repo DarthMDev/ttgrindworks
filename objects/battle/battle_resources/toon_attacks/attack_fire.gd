@@ -22,7 +22,7 @@ func action() -> void:
 	cog.v2 = false
 	
 	# Player hits switch
-	player.set_animation('button_press')
+	player.set_animation('press-button')
 	player.face_position(cog.global_position)
 	battle_node.focus_character(player)
 	
@@ -82,7 +82,8 @@ func action() -> void:
 	await cannon_tween.finished
 	
 	# Remove cog from battle
-	manager.someone_died(cog)
+	manager.someone_died(cog, true)
+	BattleService.battle_participant_died(cog)
 
 func miss(cog : Cog) -> void:
 	var miss_tween := manager.create_tween()
@@ -95,7 +96,7 @@ func miss(cog : Cog) -> void:
 
 const TENURE_STATUS := "res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres"
 func cog_has_tenure(cog: Cog) -> bool:
-	return cog.dna.status_effects.has(load(TENURE_STATUS))
+	return cog.status_effects.has(load(TENURE_STATUS))
 
 func get_stats() -> String:
 	return "Pink Slips: " + str(Util.get_player().stats.pink_slips)

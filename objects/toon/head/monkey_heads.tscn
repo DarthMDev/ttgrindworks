@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bfnbryq55kpwr" path="res://models/toon/head/monkey/monkey_heads_5.png" id="6_vx1w8"]
 [ext_resource type="Texture2D" uid="uid://n6tl2fkhadvd" path="res://models/toon/head/monkey/monkey_heads_6.png" id="7_ly3fk"]
 [ext_resource type="Texture2D" uid="uid://dfilmafyoyw2i" path="res://models/toon/head/monkey/monkey_heads_7.png" id="8_gj3fh"]
-[ext_resource type="Texture2D" uid="uid://c6qvartjleb5w" path="res://models/toon/head/monkey/monkey_heads_8.png" id="9_v4h7v"]
+[ext_resource type="Texture2D" uid="uid://cs51oiqeo46xk" path="res://models/toon/head/monkey/monkey_heads_8.png" id="9_v4h7v"]
 [ext_resource type="Texture2D" uid="uid://bwh33nobololf" path="res://models/toon/head/monkey/monkey_heads_9.png" id="10_jh4fb"]
 [ext_resource type="Texture2D" uid="uid://p0pl4eareeto" path="res://models/toon/textures/eyes/eyelash_open.png" id="11_0xwpr"]
 [ext_resource type="Texture2D" uid="uid://dpwet8esoymsy" path="res://models/toon/textures/eyes/eyelash_closed.png" id="12_glqhw"]
@@ -1239,10 +1239,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o552w")
 
 [node name="monkey_heads" type="Node3D"]
-transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 0, 0, 0)
 
 [node name="SmallHeadSmallMuzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 0, -0.15, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadSmallMuzzle"]
@@ -1348,7 +1347,7 @@ mesh = SubResource("ArrayMesh_878xk")
 skeleton = NodePath("")
 
 [node name="BigHeadBigMuzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 0, -0.15, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadBigMuzzle"]
@@ -1454,7 +1453,7 @@ mesh = SubResource("ArrayMesh_crggk")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigMuzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 0, -0.15, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="SmallHeadBigMuzzle"]
@@ -1585,7 +1584,7 @@ mesh = SubResource("ArrayMesh_878xk")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallMuzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+transform = Transform3D(0.033, 0, 0, 0, 0.033, 0, 0, 0, 0.033, 0, -0.15, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadSmallMuzzle"]

@@ -115,7 +115,7 @@ operator = 2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D tex_frg_6;
 uniform sampler2D tex_frg_12 : source_color;
@@ -206,7 +206,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-277.786, 93.6293)
 nodes/fragment/0/position = Vector2(760, 140)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_gxg8y")
 nodes/fragment/2/position = Vector2(-220, 360)

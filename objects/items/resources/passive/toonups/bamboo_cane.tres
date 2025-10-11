@@ -1,33 +1,23 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cp2b6gwnfjlib"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cp2b6gwnfjlib"]
 
 [ext_resource type="PackedScene" uid="uid://d4d0ila1f8k7o" path="res://objects/items/custom/toonups/cane_item.tscn" id="1_atcwe"]
+[ext_resource type="Texture2D" uid="uid://cwpi1cl23exds" path="res://ui_assets/battle/gags/inventory_bamboo_cane.png" id="1_vdbye"]
 [ext_resource type="AudioStream" uid="uid://dgykvxpooevco" path="res://audio/sfx/items/toonup_pickup.ogg" id="2_h5ma3"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_syry0"]
 
 [resource]
 script = ExtResource("2_syry0")
-item_tags = null
 qualitoon = 1
 rarity = 1
 evergreen = true
-realtime = false
-slot = 0
-world_scale = 1.0
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Bamboo Cane"
-item_description = "Evasiveness Boost"
+item_description = "Evasiveness Boost!"
 big_description = "Lasts 3 rounds
-+ 20% Evasiveness"
++ 40% Evasiveness"
 model = ExtResource("1_atcwe")
 pickup_sfx = ExtResource("2_h5ma3")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
+icon = ExtResource("1_vdbye")
 shop_category_title = "Consumable"
 shop_category_color = Color(0.105882, 0.54902, 0.537255, 1)
 force_show_shop_category = true
-custom_shop_price = 0

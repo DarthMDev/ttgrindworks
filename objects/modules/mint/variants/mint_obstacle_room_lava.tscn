@@ -1,14 +1,14 @@
 [gd_scene load_steps=39 format=4 uid="uid://dw4ed1x08ulld"]
 
 [ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_qbmec"]
-[ext_resource type="Texture2D" uid="uid://brg7tsqoenlxv" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="2_eijet"]
-[ext_resource type="Texture2D" uid="uid://dcasoiu0axwxw" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="2_y511t"]
+[ext_resource type="Texture2D" uid="uid://cl747gxnyssir" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="2_eijet"]
+[ext_resource type="Texture2D" uid="uid://ofuuiundcoub" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="2_y511t"]
 [ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="3_fo8nl"]
 [ext_resource type="PackedScene" uid="uid://ingagky3itmv" path="res://objects/props/mint/shelf_money_no_bottom.tscn" id="3_k7mi2"]
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="4_xt6bn"]
 [ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="4_y365j"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="5_e4pgp"]
-[ext_resource type="Texture2D" uid="uid://du0hhwdlmawws" path="res://models/facilities/mint/textures/CementFloorx4.png" id="5_wx15j"]
+[ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="5_wx15j"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="6_05nx2"]
 [ext_resource type="Material" uid="uid://dmafgykr0wfb3" path="res://models/facilities/general/materials/lava_mat.tres" id="7_r6v00"]
 [ext_resource type="Texture2D" uid="uid://dw0ovgcnsmkqi" path="res://objects/misc/spotlight_1.png" id="8_jbmn2"]
@@ -320,71 +320,80 @@ sink_speed = 0.0
 [node name="treasure_chest" parent="Platforms/SinkingPlatform6" index="1" instance=ExtResource("5_e4pgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152235, 0)
 
-[node name="SinkingPlatform7" parent="Platforms" index="5" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform23" parent="Platforms" index="5" instance=ExtResource("4_y365j")]
+transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -17.7189, 0, 5.23549)
+texture_type = 1
+sink_level = 0.0
+sink_speed = 0.0
+
+[node name="treasure_chest" parent="Platforms/SinkingPlatform23" index="1" instance=ExtResource("5_e4pgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152235, 0)
+
+[node name="SinkingPlatform7" parent="Platforms" index="6" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 17.197, 0, 11.0386)
 texture_type = 1
 
-[node name="SinkingPlatform9" parent="Platforms" index="6" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform9" parent="Platforms" index="7" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -3.54799, 0, 11.0384)
 texture_type = 1
 
-[node name="SinkingPlatform10" parent="Platforms" index="7" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform10" parent="Platforms" index="8" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -11.8258, 0, 11.0384)
 texture_type = 1
 
-[node name="SinkingPlatform12" parent="Platforms" index="8" instance=ExtResource("4_y365j")]
-transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -18.6766, 0, 11.0272)
+[node name="SinkingPlatform12" parent="Platforms" index="9" instance=ExtResource("4_y365j")]
+transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -17.597, 0, 11.0272)
 texture_type = 1
 
-[node name="SinkingPlatform11" parent="Platforms" index="9" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform11" parent="Platforms" index="10" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 2.86956, 0, 11.0384)
 texture_type = 1
 
-[node name="SinkingPlatform13" parent="Platforms" index="10" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform13" parent="Platforms" index="11" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 2.86956, 0, 3.34252)
 texture_type = 1
 
-[node name="SinkingPlatform14" parent="Platforms" index="11" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform14" parent="Platforms" index="12" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 2.86956, 0, -3.20067)
 texture_type = 1
 
-[node name="SinkingPlatform15" parent="Platforms" index="12" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform15" parent="Platforms" index="13" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -4.66321, 0, -3.20067)
 texture_type = 1
 
-[node name="SinkingPlatform16" parent="Platforms" index="13" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform16" parent="Platforms" index="14" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -4.66321, 0, 4.05504)
 texture_type = 1
 
-[node name="SinkingPlatform17" parent="Platforms" index="14" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform17" parent="Platforms" index="15" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -11.0536, 0, 4.05504)
 texture_type = 1
 
-[node name="SinkingPlatform18" parent="Platforms" index="15" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform18" parent="Platforms" index="16" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -13.3505, 0, -0.363235)
 texture_type = 1
 
-[node name="SinkingPlatform19" parent="Platforms" index="16" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform19" parent="Platforms" index="17" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -19.0224, 0, -5.32967)
 texture_type = 1
 
-[node name="SinkingPlatform20" parent="Platforms" index="17" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform20" parent="Platforms" index="18" instance=ExtResource("4_y365j")]
 transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -19.0224, 0, -0.391119)
 texture_type = 1
 
-[node name="SinkingPlatform3" parent="Platforms" index="18" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform3" parent="Platforms" index="19" instance=ExtResource("4_y365j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.481, 0, -9.0144)
 texture_type = 1
 
-[node name="SinkingPlatform8" parent="Platforms" index="19" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform8" parent="Platforms" index="20" instance=ExtResource("4_y365j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44008, 0, -9.0144)
 texture_type = 1
 
-[node name="SinkingPlatform21" parent="Platforms" index="20" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform21" parent="Platforms" index="21" instance=ExtResource("4_y365j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80115, 0, -9.0144)
 texture_type = 1
 
-[node name="SinkingPlatform22" parent="Platforms" index="21" instance=ExtResource("4_y365j")]
+[node name="SinkingPlatform22" parent="Platforms" index="22" instance=ExtResource("4_y365j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4729, 0, -9.0144)
 texture_type = 1
 

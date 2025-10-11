@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemShoe" load_steps=6 format=3 uid="uid://cax522x8tlswm"]
+
+[ext_resource type="Texture2D" uid="uid://cpjkci3rambos" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_motorcycleBootsLL.png" id="1_1fwxi"]
+[ext_resource type="Texture2D" uid="uid://cv0ym0uawig5e" path="res://objects/items/resources/accessories/shoes/icons/motorcycle_boots.png" id="1_7c7sj"]
+[ext_resource type="Script" uid="uid://bb02y647us2n3" path="res://objects/items/classes/item_shoe.gd" id="1_8i87a"]
+[ext_resource type="Script" uid="uid://ciofnb8ue8gn2" path="res://objects/items/custom/item_motorcycle_boots.gd" id="2_lfxd7"]
+[ext_resource type="Texture2D" uid="uid://cppkmvyl0yrj5" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_motorcycleBoots.png" id="3_7c7sj"]
+
+[resource]
+script = ExtResource("1_8i87a")
+shoe_type = 3
+shoe_tex = ExtResource("3_7c7sj")
+long_leg_tex = ExtResource("1_1fwxi")
+qualitoon = 3
+item_name = "Motorcycle Boots"
+item_description = "Gas! Gas! Gas!"
+big_description = "+25% damage after defeating a Cog for the rest of the round."
+item_script = ExtResource("2_lfxd7")
+icon = ExtResource("1_7c7sj")
+metadata/_custom_type_script = "uid://bb02y647us2n3"

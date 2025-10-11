@@ -9,5 +9,6 @@ signal_source = 1
 signal_name = "s_doodle_obtained"
 achievement_name = "Toon's Best Friend"
 achievement_summary = "Adopt a Doodle from a shop."
+hint = "Find a new friend"
 achievement_index = 18
 achievement_icon = ExtResource("1_pve37")

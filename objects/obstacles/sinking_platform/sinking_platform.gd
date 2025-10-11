@@ -14,7 +14,12 @@ const TOP_HOT_MAT := preload("res://objects/obstacles/sinking_platform/top_hot_m
 		await NodeGlobals.until_ready(self)
 		update_textures()
 
-var sinking := false
+var sinking: bool:
+	get:
+		if is_instance_valid(Util.get_player()):
+			return player_on_platform and Util.get_player().state != Player.PlayerState.STOPPED
+		return false
+var player_on_platform := false
 @onready var platform := $Platform
 @export var sink_level := -1.0
 @export var sink_speed := 0.5
@@ -26,14 +31,14 @@ func body_entered(body : Node3D) -> void:
 		return
 	if not body is Player:
 		return
-	sinking = true
+	player_on_platform = true
 
 func body_exited(body : Node3D) -> void:
 	if Engine.is_editor_hint():
 		return
 	if not body is Player:
 		return
-	sinking = false
+	player_on_platform = false
 
 func _physics_process(delta : float) -> void:
 	if Engine.is_editor_hint():
@@ -46,4 +51,3 @@ func _physics_process(delta : float) -> void:
 func update_textures() -> void:
 	platform_mesh.set_surface_override_material(0, EDGE_HOT_MAT if texture_type == TextureType.HOT else EDGE_REGULAR_MAT)
 	platform_mesh.set_surface_override_material(1, TOP_HOT_MAT if texture_type == TextureType.HOT else TOP_REGULAR_MAT)
-	platform_mesh.set_surface_override_material(2, TOP_HOT_MAT if texture_type == TextureType.HOT else TOP_REGULAR_MAT)

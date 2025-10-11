@@ -66,7 +66,7 @@ func application_movie() -> void:
 	# Focus Cog
 	movie.tween_callback(battle_node.focus_character.bind(target))
 	movie.tween_callback(target.face_position.bind(player.global_position))
-	movie.tween_callback(target.speak.bind(RandomService.array_pick_random('true_random', APPLY_LINES)))
+	movie.tween_callback(target.speak.bind(APPLY_LINES.pick_random()))
 	movie.tween_callback(target.set_animation.bind('magic1'))
 	movie.tween_callback(AudioManager.play_sound.bind(SFX_FLAMES))
 	movie.tween_interval(2.5)
@@ -74,12 +74,12 @@ func application_movie() -> void:
 	# Focus Toon
 	movie.tween_callback(do_fire_burst)
 	movie.tween_callback(battle_node.focus_character.bind(player))
-	movie.tween_callback(player.set_animation.bind('slip_forwards'))
+	movie.tween_callback(player.set_animation.bind('slip-forward'))
 	movie.tween_callback(player.add_child.bind(fire))
 	movie.tween_callback(manager.affect_target.bind(player, damage))
 	movie.tween_interval(4.0)
 
-	dot_visual_status = VISUAL_DOT.duplicate()
+	dot_visual_status = VISUAL_DOT.duplicate(true)
 	dot_visual_status.description = "%d damage per round" % damage
 	dot_visual_status.target = player
 	dot_visual_status.rounds = -1

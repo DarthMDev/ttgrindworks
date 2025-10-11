@@ -1,5 +1,4 @@
 extends CogAttack
-class_name SalesDirectorRebrand
 
 const PHRASES := [
 	"The marketing team will love this.",
@@ -24,9 +23,9 @@ func action() -> void:
 		return
 
 	manager.show_action_name("Rebrand!", "Gives a Max HP buff and Lure Immunity!")
-	var cogs = manager.cogs.duplicate()
+	var cogs = manager.cogs.duplicate(true)
 	cogs.erase(user)
-	var new_target: Cog = RandomService.array_pick_random('true_random', cogs)
+	var new_target: Cog = cogs.pick_random()
 	targets = [new_target]
 	var target: Cog = targets[0]
 
@@ -36,7 +35,7 @@ func action() -> void:
 	paint_bucket.rotation_degrees = BucketRot
 
 	battle_node.focus_character(user)
-	user.speak(RandomService.array_pick_random('true_random', PHRASES))
+	user.speak(PHRASES.pick_random())
 	user.set_animation('throw-paper')
 	await Task.delay(2.4)
 	paint_bucket.reparent(battle_node)
@@ -67,7 +66,7 @@ func action() -> void:
 	target.stats.hp += max_hp_diff
 	manager.battle_text(target, "Max HP Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 	await Task.delay(0.6)
-	var lure_immunity: StatusEffectGagImmunity = load("res://objects/battle/battle_resources/status_effects/resources/status_effect_gag_immunity.tres").duplicate()
+	var lure_immunity: StatusEffectGagImmunity = load("res://objects/battle/battle_resources/status_effects/resources/status_effect_gag_immunity.tres").duplicate(true)
 	if lure_immunity.id not in manager.get_status_ids_for_target(target):
 		lure_immunity.set_track(load("res://objects/battle/battle_resources/gag_loadouts/gag_tracks/lure.tres"))
 		lure_immunity.rounds = 1

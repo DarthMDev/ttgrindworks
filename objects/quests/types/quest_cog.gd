@@ -52,15 +52,18 @@ func setup() -> void:
 	s_quest_updated.emit()
 
 func randomize_objective() -> void:
-	quota = RandomService.randi_range_channel('quests',OBJECTIVE_RANGE.x,OBJECTIVE_RANGE.y)
+	quota = RNG.channel(RNG.ChannelQuests).randi_range(OBJECTIVE_RANGE.x, OBJECTIVE_RANGE.y)
 	var quotaf := float(quota)
 	
-	var quest_type = RandomService.randi_channel('cog_quest_types') % 3
+	var quest_type = RNG.channel(RNG.ChannelCogQuestTypes).randi() % 3
 	if quest_type == 1 and prev_quest_roll == 1:
-		quest_type += 1 * RandomService.array_pick_random('cog_quest_types', [-1, 1])
+		quest_type += 1 * RNG.channel(RNG.ChannelCogQuestTypes).pick_random([-1, 1])
 	
-	var minimum_level := maxi(1, min(4, Util.floor_number + 1))
-	var maximum_level := maxi(2, min(7, Util.floor_number + 3))
+	var level_ranges := FloorVariant.LEVEL_RANGES
+	var floor_num: int = max(Util.floor_number, 0)
+	
+	var minimum_level: int = mini(0, level_ranges[floor_num][0] - 1)
+	var maximum_level: int = mini(7, level_ranges[floor_num][1] - 1)
 	
 	# 33% chance of department specific
 	if quest_type == 0:
@@ -77,7 +80,7 @@ func randomize_objective() -> void:
 			CogDNA.CogDept.BOSS:
 				cog_pool = load('res://objects/cog/presets/pools/bossbot.tres')
 				
-		specific_cog = cog_pool.cogs[RandomService.randi_range_channel("cog_quest_types", minimum_level, maximum_level)]
+		specific_cog = cog_pool.cogs[RNG.channel(RNG.ChannelCogQuestTypes).randi_range(minimum_level, maximum_level)]
 	
 	# Reduce quotas for more specific quest types
 	if not department == CogDNA.CogDept.NULL:
@@ -86,26 +89,26 @@ func randomize_objective() -> void:
 		quotaf /= 4.0
 	
 	# Level minimum objectives
-	if RandomService.randi_channel('cog_quest_types') % 3 == 0:
+	if RNG.channel(RNG.ChannelCogQuestTypes).randi() % 3 == 0:
 		if specific_cog:
-			min_level = RandomService.randi_range_channel('cog_quest_types',specific_cog.level_low + 1,specific_cog.level_low + 3)
+			min_level = RNG.channel(RNG.ChannelCogQuestTypes).randi_range(specific_cog.level_low + 1, specific_cog.level_low + 3)
 			if min_level > specific_cog.level_high or min_level > maximum_level: 
 				min_level = 1
 		else:
-			min_level = RandomService.randi_range_channel('cog_quest_types',minimum_level,maximum_level)
+			min_level = RNG.channel(RNG.ChannelCogQuestTypes).randi_range(minimum_level, maximum_level)
 	
 	if min_level > 1:
 		quotaf /= maxf(min_level/4.0,1.25)
 	
 	quota = int(round(quotaf))
 
-func participant_died(participant : Node3D) -> void:
-	var cog : Cog
+func participant_died(participant: Node3D) -> void:
+	var cog: Cog
 	if not participant is Cog or quota <= current_amount:
 		return
 	elif participant is Cog:
 		cog = participant
-		if cog.virtual_cog: return
+		if not BattleService.cog_gives_credit(cog): return
 	
 	if specific_cog:
 		if cog.fusion:

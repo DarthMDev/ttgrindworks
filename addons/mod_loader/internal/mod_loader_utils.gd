@@ -58,7 +58,7 @@ static func dict_has_fields(dict: Dictionary, required_fields: Array[String]) ->
 
 
 static func get_missing_dict_fields(dict: Dictionary, required_fields: Array[String]) -> Array[String]:
-	var missing_fields := required_fields.duplicate()
+	var missing_fields := required_fields.duplicate(true)
 
 	for key in dict.keys():
 		if(required_fields.has(key)):

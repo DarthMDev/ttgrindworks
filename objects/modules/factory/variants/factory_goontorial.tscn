@@ -64,6 +64,12 @@ surface_material_override/1 = SubResource("StandardMaterial3D_pain1")
 [node name="Lights" parent="Z15_ALL/Z15/ductroom/room/geometry_ductroom" index="3"]
 visible = false
 
+[node name="ENTRANCE" parent="." index="6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.716, 0.01, 0.096)
+
+[node name="EXIT" parent="." index="7"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.716, 0.01, 0.096)
+
 [node name="Props" type="Node3D" parent="." index="10"]
 
 [node name="JumpCrate" parent="Props" index="0" instance=ExtResource("2_wtfq4")]

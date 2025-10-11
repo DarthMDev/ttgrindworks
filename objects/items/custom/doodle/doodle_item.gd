@@ -5,23 +5,18 @@ const FAKE_EVERGREEN_ENABLED := true
 const ITEM_PATH := 'res://objects/items/resources/passive/doodle.tres'
 
 ## Doodle obj
-@onready var doodle : RoamingDoodle = $RoamingDoodle
+@onready var doodle: RoamingDoodle = $RoamingDoodle
 
-var possible_descriptions : Array[String] = [
-	"Your new best friend!"
+var possible_descriptions: Array[String] = [
+	"Your new best friend!",
 ]
 
 func _ready():
 	doodle.state = doodle.DoodleState.STOPPED
 
-func setup(item : Item):
-	var name_file := FileAccess.open(NAME_FILE,FileAccess.READ)
-	var names := name_file.get_as_text().split("\n")
-	names.remove_at(names.size() - 1)
-	var name_line := names[RandomService.randi_channel('true_random') % names.size()]
-	var new_name := name_line.split("*")[2]
-	item.item_name = new_name
-	item.item_description = possible_descriptions[RandomService.randi_channel('true_random')%possible_descriptions.size()]
+func setup(item: Item):
+	if item.item_name == 'Doodle':
+		roll_for_name(item)
 	
 	## Double check that there is definitely no other doodles available
 	#for resource in ItemService.items_in_play:
@@ -34,7 +29,16 @@ func setup(item : Item):
 	#if FAKE_EVERGREEN_ENABLED:
 		#ItemService.seen_item(load(ITEM_PATH))
 
-func modify(model : Node3D):
+func roll_for_name(item: Item) -> void:
+	var name_file := FileAccess.open(NAME_FILE,FileAccess.READ)
+	var names := name_file.get_as_text().split("\n")
+	names.remove_at(names.size() - 1)
+	var name_line := names[RNG.channel(RNG.ChannelDoodleNames).randi() % names.size()]
+	var new_name := name_line.split("*")[2]
+	item.item_name = new_name
+	item.item_description = possible_descriptions[RNG.channel(RNG.ChannelDoodleDescriptions).randi() % possible_descriptions.size()]
+
+func modify(model: Node3D):
 	model.get_child(0).state = doodle.DoodleState.STOPPED
 	model.get_child(0).doodle.dna = doodle.doodle.dna
 	model.get_child(0).doodle.apply_dna()

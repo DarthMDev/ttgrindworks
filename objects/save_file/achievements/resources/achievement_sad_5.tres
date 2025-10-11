@@ -7,7 +7,6 @@
 script = ExtResource("1_x2lcv")
 progress_value = "deaths"
 quota = 5
-signal_source = 0
 signal_name = "s_player_died"
 achievement_name = "Ouch"
 achievement_summary = "Go sad 5 times."

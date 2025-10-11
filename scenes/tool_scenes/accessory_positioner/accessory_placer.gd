@@ -41,11 +41,11 @@ func load_accessory(path : String) -> void:
 	
 	match item.slot:
 		Item.ItemSlot.HAT:
-			toon.hat_bone.add_child(model)
+			toon.hat_node.add_child(model)
 		Item.ItemSlot.GLASSES:
-			toon.glasses_bone.add_child(model)
+			toon.glasses_node.add_child(model)
 		Item.ItemSlot.BACKPACK:
-			toon.backpack_bone.add_child(model)
+			toon.backpack_node.add_child(model)
 		# Idk just quit if you try an item with no slot I guess :/
 		_:
 			printerr("no item slot. dying :(")
@@ -81,7 +81,7 @@ func apply_transform() -> void:
 	model.rotation_degrees = placement.rotation
 	model.scale = placement.scale
 
-func menu_apply_vec3(vec3 : Vector3,min_value : float = -1.0,max_value : float = 1.0) -> void:
+func menu_apply_vec3(vec3 : Vector3,min_value : float = -2.0,max_value : float = 2.0) -> void:
 	slide_x.value = vec3.x
 	slide_x.min_value = min_value
 	slide_x.max_value = max_value
@@ -134,14 +134,14 @@ func edit_text(text : String, axis : int) -> void:
 ## Resync with DNA Change
 func on_dna_change(_dna : ToonDNA) -> void:
 	if item:
-		model = item.model.instantiate()
+		model = item.get_model().instantiate()
 		match item.slot:
 			Item.ItemSlot.HAT:
-				toon.hat_bone.add_child(model)
+				toon.hat_node.add_child(model)
 			Item.ItemSlot.GLASSES:
-				toon.glasses_bone.add_child(model)
+				toon.glasses_node.add_child(model)
 			Item.ItemSlot.BACKPACK:
-				toon.backpack_bone.add_child(model)
+				toon.backpack_node.add_child(model)
 		placement = get_placement(item)
 		apply_transform()
 		change_edit_mode(edit_mode)

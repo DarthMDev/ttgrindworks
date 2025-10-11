@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://evclpp48ijxp" path="res://models/toon/head/dog/dog_heads_DogBigLaughSHD_albedo000.png" id="5_nb4ut"]
 [ext_resource type="Texture2D" uid="uid://dc5innrygdohu" path="res://models/toon/head/dog/dog_muzzles-c003bd36adf8de3e864f889f01c50fa2_DogSmallGiantSmile.png" id="6_mgy62"]
 [ext_resource type="Texture2D" uid="uid://cl3y8bd41asj" path="res://models/toon/head/mouse/mouse_heads_5.png" id="6_q2ku4"]
-[ext_resource type="Texture2D" uid="uid://db7bisesx8gqq" path="res://models/toon/head/mouse/mouse_heads_6.png" id="7_x681m"]
+[ext_resource type="Texture2D" uid="uid://cm1v885x1iq6d" path="res://models/toon/head/mouse/mouse_heads_6.png" id="7_x681m"]
 [ext_resource type="Texture2D" uid="uid://cstl5bmnke8cl" path="res://models/toon/head/mouse/mouse_heads_7.png" id="8_h54u4"]
 [ext_resource type="Texture2D" uid="uid://dpwet8esoymsy" path="res://models/toon/textures/eyes/eyelash_closed.png" id="12_5cw4r"]
 [ext_resource type="Texture2D" uid="uid://p0pl4eareeto" path="res://models/toon/textures/eyes/eyelash_open.png" id="13_yx34i"]
@@ -1194,9 +1194,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_we04e")
 
 [node name="mouse_heads" type="Node3D"]
-transform = Transform3D(4.25, 0, 0, 0, 4.25, 0, 0, 0, 4.25, 0, 0, 0)
 
 [node name="SmallHead" type="Node3D" parent="."]
+transform = Transform3D(4.25, 0, 0, 0, 4.25, 0, 0, 0, 4.25, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHead"]
@@ -1308,6 +1308,7 @@ mesh = SubResource("ArrayMesh_2h5h3")
 skeleton = NodePath("")
 
 [node name="BigHead" type="Node3D" parent="."]
+transform = Transform3D(4.25, 0, 0, 0, 4.25, 0, 0, 0, 4.25, 0, 0, 0)
 visible = false
 
 [node name="nose" type="MeshInstance3D" parent="BigHead"]

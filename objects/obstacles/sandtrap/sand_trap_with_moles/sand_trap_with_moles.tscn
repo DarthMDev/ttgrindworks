@@ -16,7 +16,7 @@ resource_local_to_scene = true
 render_priority = 1
 shader = ExtResource("2_rnw84")
 shader_parameter/ColorParameter = Color(0, 0, 0, 1)
-shader_parameter/uv_scale = Vector2(0.417537, 0.424088)
+shader_parameter/uv_scale = Vector2(0.41753653, 0.4240882)
 shader_parameter/ImageTexture = ExtResource("3_orl4v")
 shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_n5d0c")
 
@@ -29,10 +29,8 @@ size = Vector2(1, 1)
 mesh = SubResource("PlaneMesh_8wyer")
 script = ExtResource("4_rnw84")
 mole_count_range = Vector2i(3, 5)
+mole_scale = Vector3(1, 1, 1)
 size = Vector2(1, 1)
 
 [node name="Moles" type="Node3D" parent="." index="1"]
 unique_name_in_owner = true
-
-[connection signal="body_entered" from="PlayerDetection" to="." method="body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="." method="body_exited"]

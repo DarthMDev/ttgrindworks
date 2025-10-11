@@ -2,6 +2,7 @@ extends Node
 
 var CIRCLE_TRANSITION: PackedScene
 var LOSE_MENU: PackedScene
+var DEV_CONSOLE: PackedScene
 
 # Global Refs
 var player : Player:
@@ -23,10 +24,12 @@ var floor_manager : GameFloor:
 			floor_manager = null
 		)
 var lose_menu: LoseMenu = null
+var dev_console: CanvasLayer
 var stored_try_again_char_name: String = ""
 ## Set to true when player should not be allowed to click the "I'm Stuck" button
 var stuck_lock := false
 var random_stats : PlayerStats
+
 
 signal s_process_frame
 signal s_player_assigned(player: Player)
@@ -47,6 +50,9 @@ var floor_number := -1:
 
 func get_player() -> Player:
 	return player
+
+func player_exists() -> bool:
+	return is_instance_valid(get_player())
 
 func _notification(what):
 	match what:
@@ -70,6 +76,15 @@ func _process(_delta):
 	SaveFileService.settings_file.fullscreen = fullscreen
 	s_fullscreen_toggled.emit(fullscreen)
 	
+	if Input.is_action_just_pressed('dev_console') and SaveFileService.settings_file.dev_tools:
+		if dev_console:
+			dev_console = null
+		else:
+			dev_console = DEV_CONSOLE.instantiate()
+			dev_console.unpause_tree = not get_tree().paused
+			get_tree().get_root().add_child(dev_console)
+			get_tree().paused = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func do_3d_text(node: Node3D, text: String, text_color: Color = Color('ff0000'), outline_color: Color = Color('7a0000')) -> BattleText:
 	var obj: BattleText = load('res://objects/battle/3d_text/3d_text.tscn').instantiate()
@@ -84,6 +99,7 @@ func _init():
 		GameLoader.Phase.GAME_START, self, {
 			'CIRCLE_TRANSITION': 'res://objects/general_ui/circle_transition/circle_transition.tscn',
 			'CONFIRM_PANEL': 'res://objects/general_ui/ui_panel/confirm_panel.tscn',
+			'DEV_CONSOLE': "res://objects/general_ui/dev_console/developer_console.tscn",
 		}
 	)
 	GameLoader.queue_into(
@@ -177,12 +193,19 @@ func get_hazard_damage(damage := 0) -> int:
 	if is_instance_valid(floor_manager):
 		if floor_manager.floor_tags.has('extra_hazard_damage') and floor_manager.floor_tags['extra_hazard_damage'] == true:
 			true_damage = floori(1.25 * true_damage)
+	if is_instance_valid(player):
+		true_damage = floori(true_damage / player.stats.get_stat('defense'))
 	return true_damage
 
-func circle_in(time : float) -> void:
+func circle_in(time: float) -> void:
 	var circle: CircleTransition = CIRCLE_TRANSITION.instantiate()
 	get_tree().get_root().add_child(circle)
 	circle.open(time)
+
+func circle_out(time: float) -> void:
+	var circle: CircleTransition = CIRCLE_TRANSITION.instantiate()
+	get_tree().get_root().add_child(circle)
+	circle.close(time)
 
 func universal_load(file_path : String) -> Variant:
 	if '.remap' in file_path:
@@ -233,9 +256,9 @@ func on_player_died() -> void:
 
 	if menu_choice == LoseMenu.MenuChoice.PLAY_AGAIN:
 		stored_try_again_char_name = player.character.character_name
-		if stored_try_again_char_name == "RandomGags":
-			# sory
-			stored_try_again_char_name = "RandomToon"
+		if not player.character.starting_items.is_empty():
+			if player.character.starting_items[0].item_name == "Mystery Toon Setup":
+				stored_try_again_char_name = "Mystery Toon"
 
 	# Return to title screen
 	SceneLoader.load_into_scene("res://scenes/title_screen/title_screen.tscn")
@@ -259,28 +282,38 @@ func barrier(_signal: Signal, timeout: float = 10.0) -> Signal:
 	return SignalBarrier.new([_signal, Task.delay(timeout)], SignalBarrier.BarrierType.ANY).s_complete
 
 func do_item_hover(item: Item) -> void:
-	var desc: String = item.big_description if Util.get_player().see_descriptions else item.item_description
+	var big_description: bool = false
+	if is_instance_valid(player):
+		big_description = player.see_descriptions
+	var desc: String = item.big_description if big_description else item.item_description
 	HoverManager.hover(desc, 18, 0.025, item.item_name, item.shop_category_color.darkened(0.3))
 
+func float_to_perc(num: float) -> String:
+	return "%d%%" % roundi(num * 100.0)
+
 #region Camera Functions
-func shake_camera(cam : Camera3D, time : float, offset : float, taper := true, x := true, y := true, z := true) -> void:
+func shake_camera(cam: Camera3D, time: float, offset: float, taper := true, x := true, y := true, z := true) -> void:
+	match SaveFileService.settings_file.camera_shake_setting:
+		SettingsFile.CameraShakeSetting.Reduced: offset /= 2.0
+		SettingsFile.CameraShakeSetting.None: offset = 0.0
+	
 	var base_pos := cam.global_position
 	stop_camera_shake = false
 	
 	var timer := cam.get_tree().create_timer(time)
 	while timer.time_left > 0 and not stop_camera_shake:
 		await s_process_frame
-		var new_offset : float
+		var new_offset: float
 		if taper:
 			new_offset = offset * timer.time_left/time
 		else:
 			new_offset = offset
 		if x:
-			cam.global_position.x = base_pos.x + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.x = base_pos.x + randf_range(-new_offset, new_offset)
 		if y:
-			cam.global_position.y = base_pos.y + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.y = base_pos.y + randf_range(-new_offset, new_offset)
 		if z:
-			cam.global_position.z = base_pos.z + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.z = base_pos.z + randf_range(-new_offset, new_offset)
 #endregion
 
 #region Mod Cogs
@@ -306,9 +339,6 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	for i in range(4):
 		var chest: TreasureChest = chest_scene.instantiate()
 		chest.item_pool = ItemService.PROGRESSIVE_POOL
-		holder_node.add_child(chest)
-		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
-		chest.global_rotation = pos_node.global_rotation
 		chest.override_replacement_rolls = true
 		match i:
 			0:
@@ -334,9 +364,23 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 					chest.override_item = load("res://objects/items/resources/passive/toonups/megaphone.tres")
 			3:
 				# Chance to give Player some money, guaranteed if they're < 20
-				if player.stats.money < 20 or RandomService.randi_channel('true_random') % 2 == 0:
+				if player.stats.money < 20 or randi() % 2 == 0:
 					chest.item_pool = load("res://objects/items/pools/jellybeans.tres")
+		
+		holder_node.add_child(chest)
+		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
+		chest.global_rotation = pos_node.global_rotation
 		chest.update_texture(chest.BOSS_TEXTURE)
 		chest.set_ray_gradient(light_beam)
 
 #endregion
+
+## I do not understand Quaternions man :(
+## Make the engine do it for me :)
+func vec3_to_quat(vec3: Vector3, node: Node3D, use_rotation_degrees := true) -> Quaternion:
+	var pre_rotation := node.rotation
+	if use_rotation_degrees: node.rotation_degrees = vec3
+	else: node.rotation = vec3
+	var quat := node.quaternion
+	node.rotation = pre_rotation
+	return quat

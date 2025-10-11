@@ -1,4 +1,5 @@
-@icon("res://addons/toonlike_tools/logging/GuiTabMenu.png")
+@tool
+@icon("res://addons/toonlike_tools/logging/GuiTabMenu.svg")
 extends Node
 ## Global logging with debug/info/warning/error log types
 ## Instantiates a global logger instance that tracks this
@@ -24,10 +25,10 @@ const ObjectNameColor := 'ddddff'
 const GlobalLogLevel := LogLevel.INFO
 
 var _obj_logging_level: Dictionary = {}
-var global_logger := Logger.new(self, LogLevel.DEBUG, false, false)
+var global_logger := DebugLogger.new(self, LogLevel.DEBUG, false, false)
 
 
-## Is the given log level good to go on the Global Logger?
+## Is the given log level good to go on the Global DebugLogger?
 func is_loggable(obj: Variant, level: LogLevel) -> bool:
 	if obj in _obj_logging_level.keys():
 		return level >= _obj_logging_level[obj]

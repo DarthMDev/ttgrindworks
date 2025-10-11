@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b87j2e2rsu88h"]
+[gd_scene load_steps=41 format=3 uid="uid://b87j2e2rsu88h"]
 
 [ext_resource type="PackedScene" uid="uid://cu152iitwfet2" path="res://objects/modules/cgc/base_rooms/cgc_finale_room.tscn" id="1_mmshg"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_rx16n"]
@@ -8,14 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bdp0i14kr0hs4" path="res://objects/battle/misc_battle_objects/tv_static/tv_static.tscn" id="5_6dda5"]
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="7_ioibr"]
 [ext_resource type="Resource" uid="uid://doowiij7lpxy1" path="res://objects/battle/battle_resources/cog_attacks/resources/rubber_stamp.tres" id="8_xp6yb"]
-[ext_resource type="PackedScene" uid="uid://bptrv8nm0esos" path="res://models/cogs/heads/gladhander.glb" id="9_370r7"]
-[ext_resource type="Texture2D" uid="uid://in7gk76fauii" path="res://models/cogs/heads/no_more_face_man.png" id="10_smhgv"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="11_8wrdy"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="11_32hyv"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="11_8wrdy"]
 [ext_resource type="Resource" uid="uid://dy5pfjs8ivlt3" path="res://objects/cog/presets/misc/vessel.tres" id="12_g6khf"]
-[ext_resource type="Script" uid="uid://ocitcstc3bru" path="res://objects/cog/cog_pool.gd" id="12_n57ab"]
+[ext_resource type="Script" uid="uid://buc4y0vtgydo" path="res://objects/cog/cog_pool.gd" id="12_n57ab"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="12_vg7rx"]
-[ext_resource type="PackedScene" uid="uid://i3q2b1jvfc74" path="res://models/cogs/heads/yesman.glb" id="13_v2pu4"]
 [ext_resource type="Shader" uid="uid://e1qa08jjtmws" path="res://objects/battle/misc_battle_objects/tv_static/vignette.gdshader" id="17_q5l77"]
 [ext_resource type="AudioStream" uid="uid://cik845h8j6l" path="res://audio/sfx/battle/cogs/misc/staticlight.ogg" id="17_xvbh6"]
 [ext_resource type="AudioStream" uid="uid://ugb4nuwn8oce" path="res://audio/sfx/battle/cogs/misc/staticmedium.ogg" id="18_kw3o7"]
@@ -31,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://c7o75fti7mgq1" path="res://audio/music/slendercog_ambience/Slendercog P2 Shrill1.ogg" id="27_asi3l"]
 [ext_resource type="AudioStream" uid="uid://c45eb5htvmil0" path="res://audio/music/slendercog_ambience/Slendercog P2 Shrill2.ogg" id="28_cvuxo"]
 [ext_resource type="AudioStream" uid="uid://rb00cverdag" path="res://audio/music/slendercog_ambience/Slendercog P4 Gong1.ogg" id="29_56hv4"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="30_hf1ir"]
 [ext_resource type="AudioStream" uid="uid://dyqgv7hqri1jn" path="res://audio/music/slendercog_ambience/Slendercog P4 Gong2.ogg" id="30_t474u"]
 [ext_resource type="PackedScene" uid="uid://dnx5hllemtty1" path="res://objects/battle/misc_battle_objects/tv_static/tv_static_noshader.tscn" id="33_mnjf0"]
 
@@ -192,29 +189,15 @@ skippable = true
 
 [sub_resource type="Resource" id="Resource_7g6l0"]
 script = ExtResource("11_8wrdy")
-department = 0
 suit = 2
 cog_name = "???"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("9_370r7")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/gladhander.glb"
 scale = 4.75
-head_textures = Array[Texture2D]([ExtResource("10_smhgv")])
+head_textures = PackedStringArray("res://models/cogs/heads/no_more_face_man.png")
 hand_color = Color(0.94902, 0.74902, 0.94902, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
-can_speak = true
 attacks = Array[ExtResource("7_ioibr")]([ExtResource("8_xp6yb")])
 level_low = 4
 level_high = 8
-status_effects = Array[ExtResource("11_32hyv")]([])
-is_mod_cog = false
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["You'll find I'm a handful", "I'm a very hands-on kinda guy.", "Offhandedly, I'd say you're in trouble.", "Let's get right to the business at hand.", "I think the handwriting is on the wall.", "I can be quite handy.", "Would you like some hand-me-downs?", "Let me show you some of my handiwork.", "Let's seal the deal.", "Let's shake on it.", "Put it there, Toon.", "You'll notice I have a very firm grip.", "I'm going to enjoy this.", "This is going to be fun.", "I'm glad you came!"])
 external_assets = {
 &"head_model": "",
@@ -223,29 +206,13 @@ external_assets = {
 
 [sub_resource type="Resource" id="Resource_5ii2d"]
 script = ExtResource("11_8wrdy")
-department = 0
-suit = 0
 cog_name = "???"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("13_v2pu4")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/yesman.glb"
 scale = 7.0
-head_textures = Array[Texture2D]([ExtResource("10_smhgv")])
+head_textures = PackedStringArray("res://models/cogs/heads/no_more_face_man.png")
 hand_color = Color(0.94902, 0.74902, 0.94902, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
-can_speak = true
 attacks = Array[ExtResource("7_ioibr")]([ExtResource("12_vg7rx")])
 level_low = 8
-level_high = 12
-status_effects = Array[ExtResource("11_32hyv")]([])
-is_mod_cog = false
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["I'm ready to rock and roll your end credits.", "Today the role of defeated Toon will be played by - YOU!", "Lights, camera, action!", "I told you not to call me.", "Are you ready for your final scene?", "I hope you don't forget your lines.", "This scene will go on the cutting room floor.", "There's no business like it!", "Let's start rolling."])
 external_assets = {
 &"head_model": "",
@@ -259,7 +226,7 @@ cogs = Array[ExtResource("11_8wrdy")]([SubResource("Resource_7g6l0"), ExtResourc
 [sub_resource type="BoxShape3D" id="BoxShape3D_meq3u"]
 size = Vector3(8.67212, 5.26587, 11.3602)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ean6k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qs51"]
 shader = ExtResource("17_q5l77")
 shader_parameter/base_alpha = 0.0
 shader_parameter/alpha_high = 1.0
@@ -337,7 +304,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.402954, 2.66833, 5.18011)
 shape = SubResource("BoxShape3D_meq3u")
 
 [node name="TVStatic" parent="BossFight" index="1" instance=ExtResource("5_6dda5")]
-material = SubResource("ShaderMaterial_ean6k")
+material = SubResource("ShaderMaterial_8qs51")
 alpha = 0.0
 
 [node name="CharPositions" type="Node3D" parent="BossFight" index="2"]
@@ -416,6 +383,8 @@ wait_time = 4.0
 
 [node name="StaticNoShader" parent="BossFight" index="8" instance=ExtResource("33_mnjf0")]
 modulate = Color(1, 1, 1, 0)
+
+[node name="DebugPlayerPositionMarker" parent="." index="30" instance=ExtResource("30_hf1ir")]
 
 [connection signal="s_battle_end" from="BossFight/BattleNode" to="BossFight" method="on_battle_ended"]
 [connection signal="s_alpha_changed" from="BossFight/TVStatic" to="BossFight" method="static_alpha_changed"]

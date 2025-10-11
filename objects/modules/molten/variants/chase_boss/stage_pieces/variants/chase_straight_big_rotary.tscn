@@ -1,0 +1,373 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1416kkdnugce"]
+
+[ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_d3cl7"]
+[ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="2_afvtj"]
+[ext_resource type="Script" uid="uid://nayyq0osxnio" path="res://objects/obstacles/rotary/big_rotary_burners.gd" id="3_afvtj"]
+[ext_resource type="PackedScene" uid="uid://bqamcxorlapkk" path="res://objects/props/molten/rotating_cylinder.tscn" id="4_bvxxk"]
+[ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="4_xok0g"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="5_bvxxk"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="7_xok0g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufsoj"]
+
+[node name="molten_hall_straight" node_paths=PackedStringArray("respawn_points") instance=ExtResource("1_d3cl7")]
+respawn_points = {
+NodePath("RespawnPoints/Respawn1"): NodePath("RespawnPoints/Respawn1/Pos")
+}
+
+[node name="GearRotation" type="Node3D" parent="." index="8"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -0.333334, -5.12443, -6.78448)
+
+[node name="SpinningGear" parent="GearRotation" index="0" instance=ExtResource("2_afvtj")]
+script = ExtResource("3_afvtj")
+spin_speed = 30.0
+randomize_dir = true
+
+[node name="BurnerPosition1" type="Marker3D" parent="GearRotation/SpinningGear" index="1"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -5.96046e-07, 12.3965, -0.000371933)
+
+[node name="BurnerPosition2" type="Marker3D" parent="GearRotation/SpinningGear" index="2"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 8.9407e-08, 4.39653, -0.000371933)
+
+[node name="BurnerPosition3" type="Marker3D" parent="GearRotation/SpinningGear" index="3"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 7.7486e-07, -3.60347, -0.00037241)
+
+[node name="RotatingCylinder" parent="GearRotation/SpinningGear" index="4" instance=ExtResource("4_bvxxk")]
+transform = Transform3D(-4.363057e-07, 6.8313675, 2.9860863e-07, -9.98151, -2.9860857e-07, -2.9860863e-07, -4.3630573e-07, -2.9860865e-07, 6.8313675, -3.5762787e-07, 3.9260898, 3.8146973e-06)
+
+[node name="CSGCylinder3D2" type="Node3D" parent="GearRotation/SpinningGear" index="5"]
+transform = Transform3D(1, 0, 4.6586812e-21, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -3.5762787e-07, 3.93514, -0.00037956238)
+
+[node name="BurnerGroups" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.921303, -22.640398, -5.2452087e-06)
+
+[node name="BurnerFlame" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 0.00729582, -0.139259, -6.13951)
+
+[node name="BurnerFlame2" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -4.37114e-08, -8.74228e-08, -1, -1, 4.37114e-08, 4.37114e-08, 6.09627, -0.13926, -0.0505371)
+
+[node name="BurnerFlame3" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, -8.74228e-08, 1, 4.37114e-08, -0.0072954, -0.139259, 6.13951)
+
+[node name="BurnerFlame4" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, 4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, -6.09627, -0.139259, 0.0505381)
+
+[node name="BurnerFlame5" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 3.09086e-08, -9.27259e-08, -1, -0.707107, -0.707107, 4.37114e-08, 4.34645, -0.13926, -4.33613)
+
+[node name="BurnerFlame6" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, -9.27259e-08, -3.09086e-08, -1, -0.707107, 0.707107, 4.37114e-08, 4.34645, -0.139259, 4.27498)
+
+[node name="BurnerFlame7" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, -0.707107, -8.74228e-08, -3.09086e-08, 9.27259e-08, -1, 0.707107, 0.707107, 4.37114e-08, -4.34645, -0.139258, 4.33613)
+
+[node name="BurnerFlame8" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups" index="7" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, 9.27259e-08, 3.09086e-08, -1, 0.707107, -0.707107, 4.37114e-08, -4.34645, -0.13926, -4.27498)
+
+[node name="BurnerGroups2" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.9213, -12.269301, -6.198883e-06)
+
+[node name="BurnerFlame" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 0.00729582, -0.139259, -6.13951)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame2" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -4.37114e-08, -8.74228e-08, -1, -1, 4.37114e-08, 4.37114e-08, 6.09627, -0.13926, -0.0505371)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame3" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, -8.74228e-08, 1, 4.37114e-08, -0.0072954, -0.139259, 6.13951)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame4" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, 4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, -6.09627, -0.139259, 0.0505381)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame9" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, 0.382683, -8.1516e-08, 6.70194e-08, -5.12127e-08, -1, -0.382683, -0.92388, 2.16671e-08, 2.35623, -0.139259, -5.66938)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame10" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382684, 0.92388, -8.1516e-08, -5.12127e-08, -6.70194e-08, -1, -0.92388, 0.382684, 2.16671e-08, 5.65156, -0.13926, 2.28625)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame11" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.92388, -0.382683, -8.1516e-08, -6.70194e-08, 5.12126e-08, -1, 0.382683, 0.92388, 2.16671e-08, -2.35623, -0.139258, 5.66938)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame12" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="7" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, -0.92388, -8.1516e-08, 5.12126e-08, 6.70194e-08, -1, 0.92388, -0.382683, 2.16671e-08, -5.65156, -0.13926, -2.28625)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame13" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="8" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, 0.92388, -8.1516e-08, 1.1177e-08, -8.36027e-08, -1, -0.92388, -0.382683, 2.16671e-08, 5.67496, -0.13926, -2.34275)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame14" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="9" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.92388, 0.382683, -8.1516e-08, -8.36026e-08, -1.1177e-08, -1, -0.382683, 0.92388, 2.16671e-08, 2.37963, -0.13926, 5.61288)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame15" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="10" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382683, -0.92388, -8.1516e-08, -1.1177e-08, 8.36026e-08, -1, 0.92388, 0.382683, 2.16671e-08, -5.67496, -0.139259, 2.34275)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerFlame16" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups2" index="11" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, -0.382683, -8.1516e-08, 8.36026e-08, 1.1177e-08, -1, 0.382683, -0.92388, 2.16671e-08, -2.37963, -0.139259, -5.61288)
+enabled = false
+automatic = true
+start_enabled = true
+
+[node name="BurnerGroups3" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="2"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.9213, -3.5762787e-06, -7.1525574e-06)
+
+[node name="BurnerFlame" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 0.00729582, -0.139259, -6.13951)
+
+[node name="BurnerFlame3" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, -8.74228e-08, 1, 4.37114e-08, -0.0072954, -0.139259, 6.13951)
+
+[node name="BurnerFlame6" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, -9.27259e-08, -3.09086e-08, -1, -0.707107, 0.707107, 4.37114e-08, 4.34645, -0.139259, 4.27498)
+
+[node name="BurnerFlame9" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, 0.382683, -8.1516e-08, 6.70194e-08, -5.12127e-08, -1, -0.382683, -0.92388, 2.16671e-08, 2.35623, -0.139259, -5.66938)
+
+[node name="BurnerFlame12" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, -0.92388, -8.1516e-08, 5.12126e-08, 6.70194e-08, -1, 0.92388, -0.382683, 2.16671e-08, -5.65156, -0.13926, -2.28625)
+
+[node name="BurnerFlame13" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, 0.92388, -8.1516e-08, 1.1177e-08, -8.36027e-08, -1, -0.92388, -0.382683, 2.16671e-08, 5.67496, -0.13926, -2.34275)
+
+[node name="BurnerFlame15" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups3" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382683, -0.92388, -8.1516e-08, -1.1177e-08, 8.36026e-08, -1, 0.92388, 0.382683, 2.16671e-08, -5.67496, -0.139259, 2.34275)
+
+[node name="BurnerGroups4" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="3"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.9213, 5.0838394, -9.059906e-06)
+
+[node name="BurnerFlame2" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -4.37114e-08, -8.74228e-08, -1, -1, 4.37114e-08, 4.37114e-08, 6.09627, -0.13926, -0.0505371)
+
+[node name="BurnerFlame4" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, 4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, -6.09627, -0.139259, 0.0505381)
+
+[node name="BurnerFlame5" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 3.09086e-08, -9.27259e-08, -1, -0.707107, -0.707107, 4.37114e-08, 4.34645, -0.13926, -4.33613)
+
+[node name="BurnerFlame6" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, -9.27259e-08, -3.09086e-08, -1, -0.707107, 0.707107, 4.37114e-08, 4.34645, -0.139259, 4.27498)
+
+[node name="BurnerFlame7" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, -0.707107, -8.74228e-08, -3.09086e-08, 9.27259e-08, -1, 0.707107, 0.707107, 4.37114e-08, -4.34645, -0.139258, 4.33613)
+
+[node name="BurnerFlame8" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, 9.27259e-08, 3.09086e-08, -1, 0.707107, -0.707107, 4.37114e-08, -4.34645, -0.13926, -4.27498)
+
+[node name="BurnerFlame10" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382684, 0.92388, -8.1516e-08, -5.12127e-08, -6.70194e-08, -1, -0.92388, 0.382684, 2.16671e-08, 5.65156, -0.13926, 2.28625)
+
+[node name="BurnerFlame12" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="7" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, -0.92388, -8.1516e-08, 5.12126e-08, 6.70194e-08, -1, 0.92388, -0.382683, 2.16671e-08, -5.65156, -0.13926, -2.28625)
+
+[node name="BurnerFlame13" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="8" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, 0.92388, -8.1516e-08, 1.1177e-08, -8.36027e-08, -1, -0.92388, -0.382683, 2.16671e-08, 5.67496, -0.13926, -2.34275)
+
+[node name="BurnerFlame15" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups4" index="9" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382683, -0.92388, -8.1516e-08, -1.1177e-08, 8.36026e-08, -1, 0.92388, 0.382683, 2.16671e-08, -5.67496, -0.139259, 2.34275)
+
+[node name="BurnerGroups5" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="4"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.9213, 8.68576, -7.1525574e-06)
+
+[node name="BurnerFlame" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 0.00729582, -0.139259, -6.13951)
+
+[node name="BurnerFlame3" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, -8.74228e-08, 1, 4.37114e-08, -0.0072954, -0.139259, 6.13951)
+
+[node name="BurnerFlame4" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, 4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, -6.09627, -0.139259, 0.0505381)
+
+[node name="BurnerFlame5" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 3.09086e-08, -9.27259e-08, -1, -0.707107, -0.707107, 4.37114e-08, 4.34645, -0.13926, -4.33613)
+
+[node name="BurnerFlame6" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, -9.27259e-08, -3.09086e-08, -1, -0.707107, 0.707107, 4.37114e-08, 4.34645, -0.139259, 4.27498)
+
+[node name="BurnerFlame8" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, 9.27259e-08, 3.09086e-08, -1, 0.707107, -0.707107, 4.37114e-08, -4.34645, -0.13926, -4.27498)
+
+[node name="BurnerFlame12" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, -0.92388, -8.1516e-08, 5.12126e-08, 6.70194e-08, -1, 0.92388, -0.382683, 2.16671e-08, -5.65156, -0.13926, -2.28625)
+
+[node name="BurnerFlame13" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="7" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, 0.92388, -8.1516e-08, 1.1177e-08, -8.36027e-08, -1, -0.92388, -0.382683, 2.16671e-08, 5.67496, -0.13926, -2.34275)
+
+[node name="BurnerFlame14" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="8" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.92388, 0.382683, -8.1516e-08, -8.36026e-08, -1.1177e-08, -1, -0.382683, 0.92388, 2.16671e-08, 2.37963, -0.13926, 5.61288)
+
+[node name="BurnerFlame16" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups5" index="9" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, -0.382683, -8.1516e-08, 8.36026e-08, 1.1177e-08, -1, 0.382683, -0.92388, 2.16671e-08, -2.37963, -0.139259, -5.61288)
+
+[node name="BurnerGroups6" type="Node3D" parent="GearRotation/SpinningGear/CSGCylinder3D2" index="5"]
+unique_name_in_owner = true
+transform = Transform3D(0.99999994, 7.1054274e-15, 3.284048e-15, 0, 1, -3.5527137e-15, -3.552714e-15, -3.5527137e-15, 0.99999994, 33.921303, 13.8643, -9.059906e-06)
+
+[node name="BurnerFlame" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="0" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 0.00729582, -0.139259, -6.13951)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame2" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="1" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -4.37114e-08, -8.74228e-08, -1, -1, 4.37114e-08, 4.37114e-08, 6.09627, -0.13926, -0.0505371)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame3" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="2" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, -8.74228e-08, 1, 4.37114e-08, -0.0072954, -0.139259, 6.13951)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame4" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="3" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(4.37114e-08, -1, -8.74228e-08, 4.37114e-08, 8.74228e-08, -1, 1, 4.37114e-08, 4.37114e-08, -6.09627, -0.139259, 0.0505381)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame5" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="4" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 3.09086e-08, -9.27259e-08, -1, -0.707107, -0.707107, 4.37114e-08, 4.34645, -0.13926, -4.33613)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame6" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="5" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, -9.27259e-08, -3.09086e-08, -1, -0.707107, 0.707107, 4.37114e-08, 4.34645, -0.139259, 4.27498)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame7" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="6" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.707107, -0.707107, -8.74228e-08, -3.09086e-08, 9.27259e-08, -1, 0.707107, 0.707107, 4.37114e-08, -4.34645, -0.139258, 4.33613)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame8" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="7" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.707107, -0.707107, -8.74228e-08, 9.27259e-08, 3.09086e-08, -1, 0.707107, -0.707107, 4.37114e-08, -4.34645, -0.13926, -4.27498)
+enabled = false
+automatic = true
+up_time = 3.0
+start_enabled = true
+
+[node name="BurnerFlame9" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="8" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, 0.382683, -8.1516e-08, 6.70194e-08, -5.12127e-08, -1, -0.382683, -0.92388, 2.16671e-08, 2.35623, -0.139259, -5.66938)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame10" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="9" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382684, 0.92388, -8.1516e-08, -5.12127e-08, -6.70194e-08, -1, -0.92388, 0.382684, 2.16671e-08, 5.65156, -0.13926, 2.28625)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame11" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="10" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.92388, -0.382683, -8.1516e-08, -6.70194e-08, 5.12126e-08, -1, 0.382683, 0.92388, 2.16671e-08, -2.35623, -0.139258, 5.66938)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame12" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="11" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, -0.92388, -8.1516e-08, 5.12126e-08, 6.70194e-08, -1, 0.92388, -0.382683, 2.16671e-08, -5.65156, -0.13926, -2.28625)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame13" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="12" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.382683, 0.92388, -8.1516e-08, 1.1177e-08, -8.36027e-08, -1, -0.92388, -0.382683, 2.16671e-08, 5.67496, -0.13926, -2.34275)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame14" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="13" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.92388, 0.382683, -8.1516e-08, -8.36026e-08, -1.1177e-08, -1, -0.382683, 0.92388, 2.16671e-08, 2.37963, -0.13926, 5.61288)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame15" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="14" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(0.382683, -0.92388, -8.1516e-08, -1.1177e-08, 8.36026e-08, -1, 0.92388, 0.382683, 2.16671e-08, -5.67496, -0.139259, 2.34275)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="BurnerFlame16" parent="GearRotation/SpinningGear/CSGCylinder3D2/BurnerGroups6" index="15" instance=ExtResource("5_bvxxk")]
+transform = Transform3D(-0.92388, -0.382683, -8.1516e-08, 8.36026e-08, 1.1177e-08, -1, 0.382683, -0.92388, 2.16671e-08, -2.37963, -0.139259, -5.61288)
+enabled = false
+automatic = true
+up_time = 3.0
+
+[node name="mint_crate" parent="." index="9" instance=ExtResource("4_xok0g")]
+transform = Transform3D(2.47678, -0.106618, 0.146626, 0.168883, 1.57719, 0, -0.230723, 0.00993196, 1.57401, 0, -1.60398, -15.3539)
+
+[node name="mint_crate2" parent="." index="10" instance=ExtResource("4_xok0g")]
+transform = Transform3D(2.48298, 0.118474, -0.0804039, -0.170696, 1.56585, 0.18812, 0.147846, -0.181842, 1.56753, -0.605973, -1.60398, 9.61943)
+
+[node name="DebugPlayerPositionMarker" parent="." index="11" instance=ExtResource("7_xok0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928782, 8.95299)
+
+[node name="RespawnPoints" type="Node3D" parent="." index="12"]
+
+[node name="Respawn1" type="Area3D" parent="RespawnPoints" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0401, 9.40895)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.04182, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
+shape = SubResource("BoxShape3D_ufsoj")
+
+[node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0401, -7.780648)
+
+[node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.988987, -7.8508883)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
+shape = SubResource("BoxShape3D_ufsoj")

@@ -30,12 +30,13 @@ var origin_moving := false
 var light_mesh: GeneratedMesh
 var beam_mesh: GeneratedMesh
 var mesh_mat: StandardMaterial3D
-var damage: int
+var damage: int:
+	get: return Util.get_hazard_damage(base_damage)
 
 
 func _ready() -> void:
 	# Create the light material
-	mesh_mat = LIGHT_MAT.duplicate()
+	mesh_mat = LIGHT_MAT.duplicate(true)
 	
 	if light_path:
 		set_light_path(light_path)
@@ -46,10 +47,8 @@ func _ready() -> void:
 	light.mesh = light_mesh.to_mesh()
 	light.mesh.surface_set_material(0,mesh_mat)
 	
-	collision_shape.shape = collision_shape.shape.duplicate()
+	collision_shape.shape = collision_shape.shape.duplicate(true)
 	collision_shape.shape.radius = light_radius
-	
-	damage = Util.get_hazard_damage() + base_damage
 
 func _physics_process(delta: float) -> void:
 	if light_moving:
@@ -75,7 +74,7 @@ func _physics_process(delta: float) -> void:
 func light_pause() -> void:
 	light_moving = false
 	sfx_move.stop()
-	pause_timer.start(RandomService.randf_range_channel("true_random", wait_range.x, wait_range.y))
+	pause_timer.start(randf_range(wait_range.x, wait_range.y))
 	await pause_timer.timeout
 	light_moving = true
 	sfx_move.play()

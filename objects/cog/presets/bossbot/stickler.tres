@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://bk2e5qycs3c46"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_fbt17"]
+[ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="2_6mj45"]
+[ext_resource type="Resource" uid="uid://cfwymrymjx7s5" path="res://objects/battle/battle_resources/cog_attacks/resources/write_off.tres" id="3_l2b3n"]
+[ext_resource type="Resource" uid="uid://erbbarg5bxm8" path="res://objects/battle/battle_resources/cog_attacks/resources/rolodex.tres" id="4_ayg3w"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_16k2b"]
+
+[resource]
+script = ExtResource("5_16k2b")
+department = 3
+suit = 1
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
+cog_name = "Stickler"
+head = "uid://b5u0jrmhoxj03"
+head_scale = Vector3(0.82, 0.82, 0.82)
+scale = 4.5
+head_textures = PackedStringArray("uid://dafm48ro847ma")
+hand_color = Color(0.521569, 0.494118, 0.482353, 1)
+attacks = Array[ExtResource("1_fbt17")]([ExtResource("2_6mj45"), ExtResource("3_l2b3n"), ExtResource("4_ayg3w")])
+level_low = 3
+level_high = 20
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
+is_mod_cog = true
+battle_phrases = Array[String](["I do not believe you are a part of this branch.", "According to Article 14 Section 6 of the Toon Disposal Handbook, I am going to have to ask you to leave.", "We have a strict no Toon policy here.", "I will not snap as a single limb, for this company is a mighty oak.", "Hopefully this time, your defeat will stick.", "Oh, when will you Toons just leaf this company alone?", "You Toons truly cannot see the forest for the trees, can you?", "You are in violation of a truly staggering number of codes."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

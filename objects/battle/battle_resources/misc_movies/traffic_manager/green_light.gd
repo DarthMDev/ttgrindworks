@@ -23,7 +23,7 @@ func action() -> void:
 	movie.kill()
 
 func apply_effect() -> void:
-	var new_effect := EFFECT_GREEN_LIGHT.duplicate()
+	var new_effect := EFFECT_GREEN_LIGHT.duplicate(true)
 	new_effect.target = targets[0]
 	new_effect.logic_effect = logic_effect
 	manager.add_status_effect(new_effect)

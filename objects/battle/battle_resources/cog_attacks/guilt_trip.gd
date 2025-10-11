@@ -43,11 +43,11 @@ func action() -> void:
 	
 	# Set player anim to jump if dodged
 	if not hit:
-		movie.parallel().tween_callback(player.set_animation.bind('happy'))
+		movie.parallel().tween_callback(player.set_animation.bind('jump'))
 		movie.parallel().tween_callback(manager.battle_text.bind(player, "MISSED"))
 	else:
 		movie.parallel().tween_callback(manager.affect_target.bind(player, damage)).set_delay(0.5)
-		movie.parallel().tween_callback(player.set_animation.bind('slip_forwards')).set_delay(0.5)
+		movie.parallel().tween_callback(player.set_animation.bind('slip-forward')).set_delay(0.5)
 	
 	
 	movie.tween_callback(trip.queue_free)

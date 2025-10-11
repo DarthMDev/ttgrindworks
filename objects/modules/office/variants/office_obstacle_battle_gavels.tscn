@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://p377w16ialr0"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_odi4v"]
-[ext_resource type="Texture2D" uid="uid://20v2ot480e" path="res://models/facilities/office/textures/CFOCeiling2.png" id="2_crcuk"]
+[ext_resource type="Texture2D" uid="uid://ctah67pj0irrs" path="res://models/facilities/office/textures/CFOCeiling2.png" id="2_crcuk"]
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_qgg6c"]
 [ext_resource type="Texture2D" uid="uid://c2orm44yrj4uj" path="res://models/facilities/office/textures/LB_tanSurface.png" id="3_rfufk"]
 [ext_resource type="Texture2D" uid="uid://bk07kcoeavpj8" path="res://models/facilities/office/textures/CementFloor7.png" id="4_d7f3c"]

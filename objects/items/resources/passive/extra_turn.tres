@@ -6,25 +6,13 @@
 [resource]
 script = ExtResource("2_m68nj")
 qualitoon = 4
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
-world_scale = 1.0
-want_ui_spin = true
-ui_cam_offset = 0.0
-item_name = "Extra Turn"
+item_name = "Extra Move"
 item_description = "Go all out!"
 big_description = "Increases the amount of gags you can use per round by 1."
 model = ExtResource("1_7wpae")
 stats_add = {
 "turns": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(1, 0.54902, 0, 1)
-force_show_shop_category = false
-custom_shop_price = 0

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://j80phpewtwx7"]
+
+[ext_resource type="Script" uid="uid://dnkgxi68rq7by" path="res://objects/interactables/stranger/stranger.gd" id="1_3d5lw"]
+[ext_resource type="AudioStream" uid="uid://c73dirlrtih8y" path="res://audio/sfx/stranger/VO_stranger_shortgrunt.ogg" id="3_xcktj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcktj"]
+size = Vector3(1, 2.66809, 4.16324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3d5lw"]
+size = Vector3(1.78027, 3.29877, 8.67607)
+
+[node name="Stranger" type="CharacterBody3D"]
+script = ExtResource("1_3d5lw")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.369, -0.527298)
+shape = SubResource("BoxShape3D_xcktj")
+debug_color = Color(0.933333, 0, 0, 0.419608)
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6844, -7.50452)
+shape = SubResource("BoxShape3D_3d5lw")
+
+[node name="SpyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="MutterTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 15.0
+
+[node name="SpeechBubbleNode" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3046, 0)
+
+[node name="SFXDial" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_xcktj")
+bus = &"SFX"
+
+[connection signal="body_entered" from="InteractionArea" to="." method="body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="body_detected"]
+[connection signal="body_exited" from="DetectionArea" to="." method="body_undetected"]
+[connection signal="timeout" from="SpyTimer" to="." method="on_spy_timeout"]
+[connection signal="timeout" from="MutterTimer" to="." method="mutter_timer_expired"]

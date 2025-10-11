@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bnm8iugrlnl18"]
+
+[ext_resource type="Shader" uid="uid://q3a34k6eof88" path="res://objects/modules/molten/variants/chase_boss/speedlines.gdshader" id="1_ge8qt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ge8qt"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_365sm"]
+noise = SubResource("FastNoiseLite_ge8qt")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ge8qt")
+shader_parameter/noise = SubResource("NoiseTexture2D_365sm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.655
+shader_parameter/line_faloff = 0.72
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 1.0
+shader_parameter/animation_speed = 20.0

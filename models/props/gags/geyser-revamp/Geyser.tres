@@ -50,9 +50,9 @@ fractal_weighted_strength = 0.6
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oemid"]
 width = 902
 height = 626
+noise = SubResource("FastNoiseLite_mt226")
 seamless = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_mt226")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xk7om"]
 texture = SubResource("NoiseTexture2D_oemid")
@@ -76,7 +76,7 @@ operator = 3
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 
 uniform vec4 color_parameter : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform sampler2D tex_frg_2 : source_color;
@@ -150,7 +150,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(635.556, -71.3291)
 modes/cull = 2
 nodes/fragment/0/position = Vector2(1840, 620)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_mt226")

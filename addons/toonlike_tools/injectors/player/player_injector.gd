@@ -4,8 +4,7 @@ extends HBoxContainer
 const DEBUG_PLAYER_POSITION_MARKER := preload('debug_player_position_marker.tscn')
 const VALID_PLAYER_PATHS: PackedStringArray = [
 	'res://objects/modules/',
-	'res://scenes/cog_building/',
-	'res://scenes/final_boss/',
+	'res://scenes/',
 ]
 
 var main_plugin: EditorPlugin

@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 func delay_ball(wait_time := 0.0) -> void:
 	delayed = true
 	if is_equal_approx(wait_time, 0.0):
-		$Timer.wait_time = RandomService.randf_range_channel('true_random', DELAY_TIME.x, DELAY_TIME.y)
+		$Timer.wait_time = randf_range(DELAY_TIME.x, DELAY_TIME.y)
 	else:
 		$Timer.wait_time = wait_time
 	$Timer.start()
@@ -75,7 +75,7 @@ func stop_balls() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		if body.state == Player.PlayerState.WALK:
+		if body.controller.current_state.accepts_interaction():
 			hit_player(body)
 
 func hit_player(player: Player) -> void:
@@ -85,7 +85,7 @@ func hit_player(player: Player) -> void:
 	player.last_damage_source = "the Fairway Fiend" if want_evil_ball else "a Golf Ball"
 	player.quick_heal(Util.get_hazard_damage(-4))
 	AudioManager.play_sound(player.toon.yelp)
-	if RandomService.randf_channel('true_random') < 0.05:
+	if randf() < 0.05:
 		AudioManager.play_sound(SFX_HIT)
 	
 	if player.stats.hp > 0:
@@ -97,7 +97,7 @@ func hit_player(player: Player) -> void:
 		tween.tween_property(player.toon, 'scale:y', 0.05, 0.05)
 		tween.tween_interval(1.0)
 		tween.tween_callback(AudioManager.play_sound.bind(SFX_DECOMPRESS))
-		tween.tween_callback(player.set_animation.bind('happy'))
+		tween.tween_callback(player.set_animation.bind('jump'))
 		tween.tween_property(player.toon, 'scale:y', base_scale, 0.25)
 		tween.tween_interval(1.0)
 		tween.finished.connect(

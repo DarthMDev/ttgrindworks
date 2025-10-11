@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemShoe" load_steps=6 format=3 uid="uid://hm8lnevv0lbh"]
+
+[ext_resource type="Texture2D" uid="uid://gn0w6nsa8h3e" path="res://objects/items/resources/accessories/shoes/icons/toonosaur_boots.png" id="1_ytgvh"]
+[ext_resource type="Script" uid="uid://b3be2ehybgyq" path="res://objects/items/custom/item_toonosaur_boots.gd" id="2_ytgvh"]
+[ext_resource type="Texture2D" uid="uid://dlaycl7p684fq" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_dinosaurLL.png" id="3_ytgvh"]
+[ext_resource type="Script" uid="uid://bb02y647us2n3" path="res://objects/items/classes/item_shoe.gd" id="4_viyn2"]
+[ext_resource type="Texture2D" uid="uid://nbbt326k4drl" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_dinosaur.png" id="5_xultn"]
+
+[resource]
+script = ExtResource("4_viyn2")
+shoe_type = 3
+shoe_tex = ExtResource("5_xultn")
+long_leg_tex = ExtResource("3_ytgvh")
+tags = Array[int]([2])
+qualitoon = 2
+rarity = 4
+item_name = "Toonosaur Boots"
+item_description = "Reign of the dinosaurs!"
+big_description = "+ 4 max Laff at the beginning of each floor"
+item_script = ExtResource("2_ytgvh")
+icon = ExtResource("1_ytgvh")
+metadata/_custom_type_script = "uid://bb02y647us2n3"

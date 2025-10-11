@@ -1,3 +1,4 @@
+@tool
 extends Item
 class_name ItemAccessory
 
@@ -17,17 +18,17 @@ static func get_placement(item: ItemAccessory, dna: ToonDNA) -> AccessoryPlaceme
 					return placement
 	return null
 
-static func get_bone(item: ItemAccessory, player: Player) -> BoneAttachment3D:
-	if not player:
+static func get_accessory_node(item: ItemAccessory, toon: Toon) -> Node3D:
+	if not is_instance_valid(toon):
 		return null
 	
 	match item.slot:
 		ItemSlot.HAT:
-			return player.toon.hat_bone
+			return toon.hat_node
 		ItemSlot.GLASSES:
-			return player.toon.glasses_bone
+			return toon.glasses_node
 		ItemSlot.BACKPACK:
-			return player.toon.backpack_bone
+			return toon.backpack_node
 	
 	return null
 
@@ -39,22 +40,23 @@ func apply_item(player: Player, apply_visuals := true, _object : Node3D = null) 
 		await player.ready
 	
 	if apply_visuals:
-		place_accessory(player)
+		place_accessory(player.toon)
 
-func place_accessory(player : Player) -> void:
+func place_accessory(toon: Toon) -> void:
 	var mod := model.instantiate()
-	var bone := ItemAccessory.get_bone(self,player)
-	for accessory in bone.get_children():
+	var node := ItemAccessory.get_accessory_node(self, toon)
+	for accessory in node.get_children():
 		accessory.queue_free()
-	bone.add_child(mod)
-	var placement := ItemAccessory.get_placement(self,player.toon.toon_dna)
+	node.add_child(mod)
+	var placement := ItemAccessory.get_placement(self, toon.toon_dna)
 	mod.position = placement.position
 	mod.rotation_degrees = placement.rotation
 	mod.scale = placement.scale
 	if mod.has_method('setup'):
 		mod.setup(self)
+	Util.get_player().toon.color_overlay_mat.apply_to_node(mod)
 
 ## Needs to update Player look when discarded
-func remove_item(player : Player) -> void:
+func remove_item(player: Player) -> void:
 	super(player)
 	player.update_accessories()

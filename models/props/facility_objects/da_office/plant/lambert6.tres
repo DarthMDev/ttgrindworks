@@ -5,6 +5,7 @@
 [resource]
 resource_name = "lambert6"
 transparency = 4
+cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
 albedo_texture = ExtResource("1_bvl4u")

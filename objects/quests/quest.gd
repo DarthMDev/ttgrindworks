@@ -3,16 +3,17 @@ class_name Quest
 
 const FALLBACK_ITEM_POOL := preload("res://objects/items/pools/toontasks.tres")
 
-@export var icon : Texture2D
+@export var icon: Texture2D
 @export var title := ""
 @export var quota := 1
 @export var location_text := "Anywhere"
 @export var quota_text := " completed"
 @export var current_amount := 0
 @export var quest_txt := ""
-@export var goal_dept : CogDNA.CogDept
-@export var item_reward : Item
-@export var item_pool : ItemPool
+@export var goal_dept: CogDNA.CogDept
+@export var item_reward: Item
+@export var item_pool: ItemPool
+@export_storage var override_rerolls := true
 
 signal s_quest_updated
 signal s_quest_complete
@@ -28,12 +29,13 @@ func setup() -> void:
 func roll_for_item() -> Item:
 	if not item_pool:
 		item_pool = FALLBACK_ITEM_POOL
-	var item := ItemService.get_random_item(item_pool)
+	var item := ItemService.get_random_item(item_pool, override_rerolls)
+	if override_rerolls: override_rerolls = false
 	item.guarantee_collection = true
 	if not item.evergreen:
 		ItemService.seen_item(item)
 	else:
-		item = item.duplicate()
+		item = item.duplicate(true)
 	return item
 
 func reset() -> void:

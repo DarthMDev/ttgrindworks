@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1b7i2vtf1dgu"]
+
+[ext_resource type="PackedScene" uid="uid://b5ntdrn2i31gm" path="res://objects/items/custom/toonosaur_hat/meteor/Meteor.fbx" id="1_olwxq"]
+[ext_resource type="Texture2D" uid="uid://cwkbcdyskvhrv" path="res://objects/items/custom/toonosaur_hat/meteor/WesternGround.png" id="2_gfyh8"]
+[ext_resource type="Texture2D" uid="uid://denyki60086p4" path="res://objects/items/custom/toonosaur_hat/meteor/lava7.png" id="3_ku2m1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcvnx"]
+resource_name = "WesternGround"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_gfyh8")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xt3h"]
+resource_name = "Lava"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_ku2m1")
+emission_enabled = true
+emission = Color(1, 0.233333, 0, 1)
+emission_energy_multiplier = 16.0
+
+[node name="Meteor" instance=ExtResource("1_olwxq")]
+
+[node name="Meteor" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcvnx")
+surface_material_override/1 = SubResource("StandardMaterial3D_2xt3h")

@@ -5,6 +5,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_sc
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+instance uniform float speed = 1.0;
 
 uniform vec4 heat_color : source_color;
 
@@ -21,7 +22,7 @@ uniform vec3 emission_color;
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
-	UV.x += (TIME * 0.1);
+	UV.x += (TIME * 0.1 * speed);
 
 	tex_position = VERTEX.xz / 2.0 + 0.5 + (TIME * 0.02);
 	float height = texture(displacement, tex_position).x;

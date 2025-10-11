@@ -4,12 +4,7 @@
 
 [resource]
 script = ExtResource("1_h4xy0")
-quality = 2
 rounds = -1
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
 visible = false
 description = "Bookkeeper logic"
 status_name = "Bookkeeper logic"

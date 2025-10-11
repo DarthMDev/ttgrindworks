@@ -1,5 +1,4 @@
 extends CogAttack
-class_name Rolodex
 
 func action():
 	# Setup
@@ -39,7 +38,7 @@ func action():
 		await manager.sleep(1.0)
 	else:
 		manager.s_focus_char.emit(target)
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		manager.battle_text(target,"MISSED")
 		await manager.sleep(1.4)
 	particles.emitting = false

@@ -1,10 +1,10 @@
 extends FloorModifier
 
 const NERF_AMT_PLAYER := -0.25
-const NERF_AMT_COGS := 0.75
+const NERF_AMT_COGS := -0.25
 
 var status_effect: StatBoost:
-	get: return GameLoader.load("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres").duplicate()
+	get: return GameLoader.load("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres").duplicate(true)
 
 func modify_floor() -> void:
 	var player := Util.get_player()
@@ -25,7 +25,7 @@ func on_dna_set(cog: Cog) -> void:
 	effect.rounds = -1
 	effect.quality = StatusEffect.EffectQuality.NEGATIVE
 	effect.stat = 'defense'
-	cog.dna.status_effects.append(effect)
+	cog.status_effects.append(effect)
 	pass
 
 func get_mod_name() -> String:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ce2757t0r7axg"]
+[gd_scene load_steps=23 format=3 uid="uid://ce2757t0r7axg"]
 
 [ext_resource type="PackedScene" uid="uid://cyai35bfek33x" path="res://objects/modules/office/base_rooms/office_puzzle_room1.tscn" id="1_2ybtt"]
 [ext_resource type="Script" uid="uid://dlgl4o45jsu5r" path="res://objects/modules/office/variants/office_puzzle_room_buttons.gd" id="2_da5ke"]
@@ -18,10 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="15_xmp38"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="17_ai4cd"]
 [ext_resource type="Resource" uid="uid://kcxno616hkgc" path="res://objects/items/pools/special_items.tres" id="18_awjot"]
+[ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="19_2np8l"]
 
 [sub_resource type="Resource" id="Resource_5vlwh"]
 script = ExtResource("15_1dafp")
-skippable = false
 
 [sub_resource type="Curve3D" id="Curve3D_0dvft"]
 _data = {
@@ -58,18 +58,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.663, 0.01, -16.957)
 [node name="ShelfRight" parent="Props/BookShelves/ExitShelves/ShelfRight" index="2" instance=ExtResource("2_n2axc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91943, 0)
 
-[node name="shadow" parent="Props/BookShelves/ExitShelves/ShelfRight/ShelfRight/Law_bookcaseB" index="6"]
-visible = false
-
 [node name="ShelfLeft" parent="Props/BookShelves/ExitShelves" index="1" instance=ExtResource("2_n2axc")]
 unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.833, 0.01, -16.957)
 
 [node name="ShelfLeft" parent="Props/BookShelves/ExitShelves/ShelfLeft" index="2" instance=ExtResource("2_n2axc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.919, 0)
-
-[node name="shadow" parent="Props/BookShelves/ExitShelves/ShelfLeft/ShelfLeft/Law_bookcaseB" index="6"]
-visible = false
 
 [node name="law_bookshelf3" parent="Props/BookShelves/ExitShelves" index="2" instance=ExtResource("2_n2axc")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -5.067, 0.01, -20.087)
@@ -80,14 +74,8 @@ transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 4.808,
 [node name="law_bookshelf5" parent="Props/BookShelves/ExitShelves" index="4" instance=ExtResource("2_n2axc")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -5.06651, 3.903, -20.0872)
 
-[node name="shadow" parent="Props/BookShelves/ExitShelves/law_bookshelf5/Law_bookcaseB" index="6"]
-visible = false
-
 [node name="law_bookshelf6" parent="Props/BookShelves/ExitShelves" index="5" instance=ExtResource("2_n2axc")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 4.80814, 3.903, -20.0865)
-
-[node name="shadow" parent="Props/BookShelves/ExitShelves/law_bookshelf6/Law_bookcaseB" index="6"]
-visible = false
 
 [node name="law_bookshelf3" parent="Props/BookShelves" index="1" instance=ExtResource("2_n2axc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.06196, 0.00156999, 16.204)
@@ -210,6 +198,7 @@ transform = Transform3D(-1.9, 0, -1.66103e-07, 0, 1.9, 0, 1.66103e-07, 0, -1.9, 
 script = ExtResource("4_h11t0")
 grid_width = 3
 grid_height = 1
+beam_origin = Vector3(0, 4.67, 0)
 lose_type = 2
 explosion_damage = 0
 
@@ -286,6 +275,7 @@ script = ExtResource("13_6wyo6")
 skull_count = 2
 tick_rate = 2.5
 grid_height = 8
+beam_origin = Vector3(0, 5.14, 0)
 lose_battle = NodePath("../BattleNode")
 explosion_damage = 0
 
@@ -339,6 +329,13 @@ item_pool = ExtResource("18_awjot")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06481, 0, -0.291237)
 override_replacement_rolls = true
 item_pool = ExtResource("18_awjot")
+
+[node name="PrankCharger" type="Node" parent="." index="13" node_paths=PackedStringArray("signals")]
+script = ExtResource("19_2np8l")
+signals = {
+NodePath(".."): "s_door_unlocked"
+}
+metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
 
 [editable path="Props/BookShelves/ExitShelves/ShelfRight/ShelfRight"]
 [editable path="Props/BookShelves/ExitShelves/ShelfLeft/ShelfLeft"]

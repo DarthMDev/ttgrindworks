@@ -64,7 +64,9 @@ func action() -> void:
 	pad.queue_free()
 
 func apply_status_effect() -> void:
-	var effect := STATUS_EFFECT.duplicate()
+	var effect := STATUS_EFFECT.duplicate(true)
+	if targets[0].gags_cost_beans:
+		effect.penalty = 1
 	effect.target = targets[0]
 	effect.track_name = track
 	manager.add_status_effect(effect)

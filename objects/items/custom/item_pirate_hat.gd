@@ -1,6 +1,6 @@
 extends ItemScript
 
-const BEAN_AWARD := 2
+const BEAN_AWARD := Vector2i(2, 4)
 const EARN_SFX := preload("res://audio/sfx/ui/tick_counter.ogg")
 
 func on_collect(_item: Item, _model: Node3D) -> void:
@@ -14,5 +14,5 @@ func setup() -> void:
 
 func _participant_died(participant: Node3D) -> void:
 	if participant is Cog and participant.dna and participant.dna.is_mod_cog:
-		Util.get_player().stats.add_money(BEAN_AWARD)
+		Util.get_player().stats.add_money(randi_range(BEAN_AWARD.x, BEAN_AWARD.y))
 		AudioManager.play_sound(EARN_SFX)

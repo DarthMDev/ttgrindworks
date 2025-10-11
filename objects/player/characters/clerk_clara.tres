@@ -19,9 +19,7 @@ defense = 0.85
 evasiveness = 0.8
 accuracy = 0.75
 speed = 0.9
-max_turns = 3
 max_hp = 100
-hp = 25
 turns = 2
 
 [sub_resource type="Resource" id="Resource_sc6d8"]
@@ -30,14 +28,13 @@ shirt_texture = ExtResource("4_ms26j")
 sleeve_texture = ExtResource("5_1d2ea")
 base_color = Color(0.192157, 0.560784, 0.772549, 1)
 sleeve_color = Color(0.192157, 0.560784, 0.772549, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_mosn6"]
 script = ExtResource("1_wdwfq")
 body_type = 1
+leg_type = 2
 species = 8
-head_index = 3
-eyelashes = true
+head_index = 1
 skirt = true
 head_color = Color(0.933333, 0.262745, 0.278431, 1)
 torso_color = Color(0.933333, 0.262745, 0.278431, 1)
@@ -47,17 +44,26 @@ bottoms = ExtResource("1_4fnso")
 
 [resource]
 script = ExtResource("1_5uglb")
+character_id = 2
 character_name = "Clerk Clara"
-character_summary = "- Starts with 2 turns
-- Trapping Cogs grants stat boosts
-  for the floor
-- Starts with Trap and Lure"
+character_summary = "Starts with 2 moves
+Trapping Cogs grants stat boosts
+10% of stat boosts are kept after the floor"
+character_blurb = "Employee of the month [i]every[/i] month at Goofy's Gag Shop. A talented trap trickster who knows how to reel 'em in."
 dna = SubResource("Resource_mosn6")
 gag_loadout = ExtResource("2_42kpy")
 starting_laff = 30
 starting_items = Array[ExtResource("4_ci6u3")]([ExtResource("10_a7nwg"), ExtResource("11_40xv7")])
 base_stats = SubResource("Resource_338vd")
-override_index = -1
-achievement_qualities = Dictionary[int, String]({})
-random_character_stored_name = ""
+starting_gags = Dictionary[String, int]({
+"Drop": 0,
+"Lure": 2,
+"Sound": 0,
+"Squirt": 0,
+"Throw": 0,
+"Trap": 2
+})
+additional_stats = Dictionary[String, Variant]({
+"luck": 1.05
+})
 achievement_index = 14

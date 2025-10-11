@@ -17,6 +17,8 @@ var gag_track: String
 func setup(item: Item):
 	resource = item
 	
+	if Util.get_player().gags_cost_beans:
+		item.reroll()
 	
 	if not resource.arbitrary_data.has('gag_track'):
 		# Find the gag tracks that the player has access to
@@ -30,15 +32,15 @@ func setup(item: Item):
 			tracks.append(track)
 		
 		if tracks.is_empty():
-			gag_track = player.stats.gags_unlocked.keys()[RandomService.randi_channel('gag_vouchers')%player.stats.gags_unlocked.keys().size()]
+			gag_track = player.stats.gags_unlocked.keys()[RNG.channel(RNG.ChannelGagVouchers).randi() % player.stats.gags_unlocked.keys().size()]
 		else:
-			gag_track = tracks[RandomService.randi_channel('gag_vouchers') % tracks.size()]
+			gag_track = tracks[RNG.channel(RNG.ChannelGagVouchers).randi() % tracks.size()]
 		resource.arbitrary_data['gag_track'] = gag_track
 		resource.item_description = "+%d %s points!" %[VALUE, gag_track]
 		resource.big_description = resource.item_description
 	else:
 		gag_track = resource.arbitrary_data['gag_track']
-	
+
 	gag.texture = get_icon()
 
 func collect() -> void:

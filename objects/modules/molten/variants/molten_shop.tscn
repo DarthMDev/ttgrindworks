@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://draymh55180rj"]
+
+[ext_resource type="PackedScene" uid="uid://b5ag2bxnkogge" path="res://objects/modules/molten/base_rooms/molten_shop.tscn" id="1_6d760"]
+[ext_resource type="Script" uid="uid://b4uiuvnm04smj" path="res://objects/modules/molten/variants/molten_shop.gd" id="2_3wd6a"]
+[ext_resource type="PackedScene" uid="uid://4y7layju65hi" path="res://objects/interactables/big_pipe/big_pipe.tscn" id="2_d1snm"]
+[ext_resource type="PackedScene" uid="uid://cy4iox7mj5ei0" path="res://objects/toon/toon.tscn" id="3_57tae"]
+[ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="3_iytxi"]
+[ext_resource type="Texture2D" uid="uid://bqt3mggfvixqf" path="res://models/facilities/mint/textures/square_drop_shadow.png" id="6_jwf50"]
+[ext_resource type="PackedScene" uid="uid://bps6hbvitehfb" path="res://objects/props/mint/shelf_money.tscn" id="7_omjv0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwf50"]
+resource_name = "CFOCeiling2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_iytxi")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3wd6a"]
+vertices = PackedVector3Array(0.033805847, 0.5150509, 6.488206, 0.033805847, 0.5150509, 4.988206, -2.7161942, 0.5150509, 4.738206, -9.216194, 0.5150509, 6.488206, -13.216194, 0.5150509, 2.488206, -2.7161942, 0.5150509, -6.261794, -13.216194, 0.5150509, -6.261794, 2.7838058, 0.5150509, 4.738206, 4.783806, 0.5150509, 6.488206, 5.033806, 1.2650509, 8.238206, 26.283806, 1.7650509, 7.988206, 13.383806, 1.7650509, 7.0882063, 9.083805, 0.5150509, 6.788206, 9.283806, 1.0150509, 8.188206, 12.11714, 1.7650509, 8.154873, 2.7838058, 0.5150509, -6.261794, 26.283806, 1.7650509, -6.261794, 17.471306, 1.7650509, -6.261794, 13.065056, 0.5150509, -6.261794, 11.784952, 0.5150509, 3.75698, 14.779795, 1.0150509, 2.2141476, 16.264807, 1.7650509, 2.2251348, 16.264084, 1.7650509, -3.784091, 21.533806, 1.7650509, 20.238205, 26.283806, 1.7650509, 16.238205, 5.033806, 1.7650509, 20.238205, 5.033806, 1.7650509, 9.57154)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 4, 2), PackedInt32Array(2, 4, 6), PackedInt32Array(2, 6, 5), PackedInt32Array(1, 7, 0), PackedInt32Array(0, 7, 8), PackedInt32Array(8, 12, 9), PackedInt32Array(9, 12, 13), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 11), PackedInt32Array(14, 11, 10), PackedInt32Array(10, 21, 16), PackedInt32Array(16, 22, 17), PackedInt32Array(17, 22, 18), PackedInt32Array(18, 19, 15), PackedInt32Array(15, 19, 7), PackedInt32Array(7, 19, 8), PackedInt32Array(8, 19, 12), PackedInt32Array(12, 19, 11), PackedInt32Array(11, 21, 10), PackedInt32Array(21, 22, 16), PackedInt32Array(22, 20, 18), PackedInt32Array(18, 20, 19), PackedInt32Array(19, 20, 11), PackedInt32Array(11, 20, 21), PackedInt32Array(21, 20, 22), PackedInt32Array(9, 13, 26), PackedInt32Array(26, 13, 14), PackedInt32Array(26, 14, 25), PackedInt32Array(25, 14, 23), PackedInt32Array(23, 14, 24), PackedInt32Array(24, 14, 10)]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wd6a"]
+radius = 2.09
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omjv0"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.73333335)
+albedo_texture = ExtResource("6_jwf50")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mlos2"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_omjv0")
+
+[node name="molten_shop" instance=ExtResource("1_6d760")]
+script = ExtResource("2_3wd6a")
+red_chair_toon_phrases = Array[String](["No Cogs here, my friend. The coast is clear!", "If you're here for the sale on deck chairs, I just got the last one.", "Wait, don't move. You're keeping the sun outta my eyes.", "Jealous? Well, there's no room for you on here.", "Yoooo.", "Y'know, I actually know the Toon that painted that landscape.", "Zzz... HAH! I was faking it! You couldn't even tell."])
+blue_chair_toon_phrases = Array[String](["That pipe over there leads to the exit, but I really wouldn't go in there right now if I were you.", "How did we get here? Well... Wait, how DID we get here?", "My last water bottle melted and evaporated. At the same time.", "I've been stranded here for days.", "Got any Throw points? I'd green for a Birthday Cake right now...", "Be sure to stock up before heading out!"])
+
+[node name="ENTRANCE" parent="." index="9"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.716233, 0.015052974, 0.09616089)
+
+[node name="shop_counter" parent="Shop" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011110306, 1.63692)
+
+[node name="ceiling" parent="." index="23"]
+surface_material_override/1 = SubResource("StandardMaterial3D_jwf50")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." index="24"]
+visible = false
+navigation_mesh = SubResource("NavigationMesh_3wd6a")
+
+[node name="BigPipeTransport" parent="." index="25" instance=ExtResource("2_d1snm")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, 9.150896, 0.65549326, -12.2249975)
+
+[node name="BigPipe" parent="BigPipeTransport/Big_Pipe" index="0"]
+visible = false
+
+[node name="BigPipeLid" parent="BigPipeTransport/Big_Pipe" index="1"]
+transform = Transform3D(5.9604645e-06, -44.46834, -14.260109, -7.2706966, -14.086212, 43.926067, -46.129395, 2.2201996, -6.9234185, -6.1819735, -0.7740717, 2.9962654)
+visible = false
+
+[node name="RunInPos" parent="BigPipeTransport" index="2"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0.026, 0.101, 0)
+
+[node name="RunOutPos" parent="BigPipeTransport" index="3"]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -2.4299848, 0.10076594, -2.3841858e-07)
+
+[node name="ChairToon1" parent="." index="26" instance=ExtResource("3_57tae")]
+unique_name_in_owner = true
+transform = Transform3D(0.60876137, 0, -0.79335326, 0, 1, 0, 0.79335326, 0, 0.60876137, 19.218565, 1.9567039, -2.424686)
+randomize_dna = true
+auto_build = true
+initial_anim = &"sit"
+
+[node name="ChairToon2" parent="." index="27" instance=ExtResource("3_57tae")]
+unique_name_in_owner = true
+transform = Transform3D(-0.12245825, 0, -0.99247366, 0, 1, 0, 0.99247366, 0, -0.12245825, 22.298288, 1.9567037, 0.9270146)
+randomize_dna = true
+auto_build = true
+initial_anim = &"sit"
+
+[node name="TowelToon" parent="." index="28" instance=ExtResource("3_57tae")]
+unique_name_in_owner = true
+transform = Transform3D(-0.3835862, 0, -0.9235052, 0, 1, 0, 0.9235052, 0, -0.3835862, 21.105112, 1.318319, 5.7107096)
+randomize_dna = true
+auto_build = true
+
+[node name="Chair1Pos" type="Node3D" parent="." index="29"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 19.218565, 1.9567039, -2.424686)
+
+[node name="Chair2Pos" type="Node3D" parent="." index="30"]
+unique_name_in_owner = true
+transform = Transform3D(0.9682437, 0, -0.25000823, 0, 1, 0, 0.25000823, 0, 0.9682437, 22.298288, 1.9567037, 0.9270146)
+
+[node name="Interactions" type="Node3D" parent="." index="31"]
+
+[node name="RedChairToon" type="Area3D" parent="Interactions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.218565, 1.9567039, -2.424686)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactions/RedChairToon" index="0"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -0.058031082, 0, 0.109760284)
+shape = SubResource("SphereShape3D_3wd6a")
+
+[node name="BlueChairToon" type="Area3D" parent="Interactions" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.298288, 1.9567037, 0.9270146)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactions/BlueChairToon" index="0"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -0.058031082, 0, 0.109760284)
+shape = SubResource("SphereShape3D_3wd6a")
+
+[node name="Mesh" parent="SquareDropShadow" index="0"]
+mesh = SubResource("QuadMesh_mlos2")
+
+[node name="Mesh" parent="SquareDropShadow2" index="0"]
+mesh = SubResource("QuadMesh_mlos2")
+
+[node name="shelf4" parent="." index="38" instance=ExtResource("7_omjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.019069, 0, -5.6875625)
+
+[node name="shelf5" parent="." index="39" instance=ExtResource("7_omjv0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.521523, 0, 5.9097943)
+
+[connection signal="s_pipe_connected" from="BigPipeTransport" to="." method="on_boss_finished"]
+[connection signal="body_entered" from="Interactions/RedChairToon" to="." method="chair1_toon_interaction"]
+[connection signal="body_entered" from="Interactions/BlueChairToon" to="." method="chair2_toon_interaction"]
+
+[editable path="BigPipeTransport"]
+[editable path="BigPipeTransport/Big_Pipe"]
+[editable path="SquareDropShadow"]
+[editable path="SquareDropShadow2"]

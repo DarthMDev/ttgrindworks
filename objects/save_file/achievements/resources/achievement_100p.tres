@@ -5,11 +5,8 @@
 
 [resource]
 script = ExtResource("2_yjkfb")
-progress_value = "achievement_count"
-quota = 25
-signal_source = 1
-signal_name = "s_achievement_unlocked"
-achievement_name = "You ARE Toon Enough!"
+achievement_name = "Top Dog"
 achievement_summary = "Unlocked all achievements. Whew!"
+hint = "Unlock everything."
 achievement_index = 24
 achievement_icon = ExtResource("1_0qqjx")

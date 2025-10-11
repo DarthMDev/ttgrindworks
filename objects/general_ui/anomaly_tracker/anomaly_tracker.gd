@@ -9,10 +9,9 @@ const SFX_IDK := preload("res://audio/sfx/misc/MG_maze_pickup.ogg")
 const SFX_LEAVE := preload("res://audio/sfx/objects/spotlight/LB_laser_beam_off_2.ogg")
 const RANDOM_CHARS := "?ABCDEFHIJLMOPQRSTUVWXYZ123456780      "
 
-
 ## Config
-@export var anomaly_label_settings : LabelSettings
-@export var anomalies : Array[FloorModifier]
+@export var anomaly_label_settings: LabelSettings
+@export var anomalies: Array[FloorModifier]
 
 ## Child References
 @onready var title := $TitleAnchor
@@ -20,8 +19,7 @@ const RANDOM_CHARS := "?ABCDEFHIJLMOPQRSTUVWXYZ123456780      "
 @onready var anomaly_sizer := $AnomalySizer
 
 ## Locals
-var tween : Tween
-
+var tween: Tween
 
 func play() -> void:
 	if tween:
@@ -33,8 +31,8 @@ func play() -> void:
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	
 	# Show alert
-	tween.tween_callback(AudioManager.play_snippet.bind(SFX_ALERT,0.0,2.0))
-	tween.tween_property(title,'scale',Vector2(1,1),1.0)
+	tween.tween_callback(AudioManager.play_snippet.bind(SFX_ALERT, 0.0, 2.0))
+	tween.tween_property(title, 'scale', Vector2(1, 1), 1.0)
 	tween.tween_interval(1.0)
 	
 	# Show Anomalies
@@ -42,7 +40,7 @@ func play() -> void:
 		tween.tween_callback(set_control_alpha.bind(anomaly_container.get_child(i), 1.0))
 		tween.tween_callback(AudioManager.play_sound.bind(get_sfx(anomalies[i].get_mod_quality())))
 		var scaler := anomaly_container.get_child(i).get_node('AnomalyScaler')
-		tween.tween_property(scaler,'scale',Vector2(1,1),1.0)
+		tween.tween_property(scaler, 'scale', Vector2(1, 1), 1.0)
 	tween.tween_interval(1.0)
 	
 	# Shrink labels away
@@ -51,40 +49,40 @@ func play() -> void:
 	var speed := 1.0
 	for i in range(anomaly_container.get_child_count() - 1, -1, -1):
 		var scaler := anomaly_container.get_child(i).get_node('AnomalyScaler')
-		tween.tween_property(scaler,'scale',Vector2(0.01,0.01),speed)
+		tween.tween_property(scaler, 'scale', Vector2(0.01, 0.01), speed)
 		speed += 0.1
-	tween.tween_property(title,'scale',Vector2(0.01,0.01),speed)
-	
+
+	tween.tween_property(title, 'scale', Vector2(0.01, 0.01), speed)
 	tween.finished.connect(func(): queue_free())
 
 func set_control_alpha(control: Control, alpha: float) -> void:
-	control.self_modulate.a = alpha
+	control.modulate.a = alpha
 
 func populate_anomalies() -> void:
 	for anomaly in anomalies:
 		var label := Label.new()
-		var sizer := anomaly_sizer.duplicate()
+		var sizer := anomaly_sizer.duplicate(true)
 		anomaly_container.add_child(sizer)
 		sizer.get_node('AnomalyScaler').add_child(label)
-		label.label_settings = anomaly_label_settings.duplicate()
+		label.label_settings = anomaly_label_settings.duplicate(true)
 		if not is_obscured():
 			label.set_text("- " + anomaly.get_mod_name())
 		else:
 			label.set_text("- ")
-			for i in RandomService.randi_range_channel('true_random', 5, 20):
-				label.text += RANDOM_CHARS[RandomService.randi_channel('true_random') % RANDOM_CHARS.length()]
-		color_label(label,anomaly)
+			for i in randi_range(5, 20):
+				label.text += RANDOM_CHARS[randi() % RANDOM_CHARS.length()]
+		color_label(label, anomaly)
 		label.set_anchors_and_offsets_preset(Control.PRESET_CENTER,Control.PRESET_MODE_KEEP_SIZE)
 		set_control_alpha(sizer, 0.0)
 		sizer.show()
 
 func tween_finished_editor() -> void:
-	title.scale = Vector2(0.01,0.01)
+	title.scale = Vector2(0.01, 0.01)
 	
 	for child in anomaly_container.get_children():
 		child.queue_free()
 
-func get_sfx(mod_type : FloorModifier.ModType) -> AudioStream:
+func get_sfx(mod_type: FloorModifier.ModType) -> AudioStream:
 	if is_obscured():
 		return SFX_IDK
 	match mod_type:
@@ -95,7 +93,7 @@ func get_sfx(mod_type : FloorModifier.ModType) -> AudioStream:
 		_:
 			return SFX_BAD
 
-func color_label(label : Label, anomaly : FloorModifier) -> void:
+func color_label(label: Label, anomaly: FloorModifier) -> void:
 	if is_obscured():
 		label.label_settings.font_color = Color.DIM_GRAY
 		label.label_settings.shadow_color = Color.BLACK

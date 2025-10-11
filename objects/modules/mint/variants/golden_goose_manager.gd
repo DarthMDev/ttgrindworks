@@ -24,6 +24,8 @@ const HIT_DIALOGUE := [
 var BOSS_MUSIC = GameLoader.load("res://audio/music/action_cash.ogg")
 const EXPLOSION := preload("res://models/cogs/misc/explosion/cog_explosion.tscn")
 
+@export var button_respawn_stompers: Array[Node3D]
+
 @onready var drop_shadow_template: Node3D = %DropShadowTemplate
 
 var game_stompers: Array[Node3D] = []
@@ -155,6 +157,7 @@ func run_intro() -> void:
 	intro_tween.tween_callback(%Goose.set_animation.bind('effort'))
 	intro_tween.tween_callback(%Goose.animator_seek.bind(3.25))
 	intro_tween.tween_callback(%Goose.speak.bind("YOU'LL NEVER TAKE MY NEST EGG!!!!"))
+	intro_tween.tween_callback(%TextSprawl.do_sprawl)
 	intro_tween.tween_interval(3.0)
 	intro_tween.tween_callback(%SkipButton.hide)
 	intro_tween.tween_callback(begin_game)
@@ -165,12 +168,14 @@ func run_intro() -> void:
 func skip_cutscene(intro_tween: Tween) -> void:
 	intro_tween.custom_step(10000.0)
 	%Goose.set_animation('neutral')
+	if %TextSprawl.sprawl_tween and %TextSprawl.sprawl_tween.is_running():
+		%TextSprawl.sprawl_tween.custom_step(1000.0)
 
 func get_random_object_time() -> float:
-	return RandomService.randf_range_channel('golden_goose', 1.1, 1.9) - (0.35 * get_missing_health())
+	return RNG.channel(RNG.ChannelGoldenGoose).randf_range(1.1, 1.9) - (0.35 * get_missing_health())
 
 func get_random_stomp_time() -> float:
-	return RandomService.randf_range_channel('golden_goose', 1.0, 2.1) - (0.17 * get_missing_health())
+	return RNG.channel(RNG.ChannelGoldenGoose).randf_range(1.0, 2.1) - (0.17 * get_missing_health())
 
 func begin_game() -> void:
 	Util.get_player().game_timer_tick = true
@@ -190,16 +195,16 @@ func random_stomp(add_task := true) -> void:
 	if available_stompers.size() == 0:
 		return
 
-	if get_missing_health() == 2 and RandomService.randf_channel('golden_goose') < 0.2:
+	if get_missing_health() == 2 and RNG.channel(RNG.ChannelGoldenGoose).randf() < 0.2:
 		# When golden goose is on their last HP, small chance to do 2 stompers.
 		random_stomp(false)
 
-	var chosen_stomper: Node3D = RandomService.array_pick_random('golden_goose', available_stompers)
+	var chosen_stomper: Node3D = RNG.channel(RNG.ChannelGoldenGoose).pick_random(available_stompers)
 	active_stompers.append(chosen_stomper)
-	var new_shadow: Node3D = drop_shadow_template.duplicate()
+	var new_shadow: Node3D = drop_shadow_template.duplicate(true)
 	add_child(new_shadow)
 	new_shadow.global_position = Vector3(chosen_stomper.global_position.x, drop_shadow_template.global_position.y + 0.01, chosen_stomper.global_position.z)
-	var shadow_mat: StandardMaterial3D = new_shadow.get_node("Mesh").mesh.material.duplicate()
+	var shadow_mat: StandardMaterial3D = new_shadow.get_node("Mesh").mesh.material.duplicate(true)
 	new_shadow.get_node("Mesh").set_surface_override_material(0, shadow_mat)
 	shadow_mat.albedo_color.a = 0.0
 	new_shadow.show()
@@ -237,7 +242,7 @@ func deal_damage() -> void:
 			LerpProperty.new(%Goose, ^"scale", 0.7, Vector3.ONE).interp(Tween.EASE_OUT, Tween.TRANS_BOUNCE),
 		]).as_tween(self)
 		await Task.delay(2.0)
-		%Goose.speak(RandomService.array_pick_random('golden_goose', HIT_DIALOGUE))
+		%Goose.speak(RNG.channel(RNG.ChannelGoldenGoose).pick_random(HIT_DIALOGUE))
 		randomize_conveyor_speed()
 		AudioManager.play_sound(SFX_SWAP)
 	else:
@@ -270,8 +275,6 @@ func win_game() -> void:
 	%DeadGoose.drop_shadow.hide()
 	%DeadGoose.body.nametag_node.hide()
 	%DeadGoose.body.department_emblem.hide()
-	%DeadGoose.body.head_bone.override_pose = true
-	%DeadGoose.body.head_bone.position = Vector3(0, 0, -5.6)
 	%DeadGoose.show()
 
 func spawn_random_obj() -> void:
@@ -281,7 +284,7 @@ func spawn_random_obj() -> void:
 		is_button = true
 
 	obj_task = Task.delayed_call(self, get_random_object_time(), spawn_random_obj)
-	var side: String = RandomService.array_pick_random('golden_goose', ["a", "b"])
+	var side: String = RNG.channel(RNG.ChannelGoldenGoose).pick_random(["a", "b"])
 	var spawn_point: Node3D
 	var obj_arr: Array[Node3D]
 	var holder_node: Node3D
@@ -305,12 +308,18 @@ func spawn_random_obj() -> void:
 	obj_arr.append(new_obj)
 	new_obj.speed = (obj_a_speed * -1.0 if side == "a" else obj_b_speed)
 	new_obj.tree_exited.connect(func(): if new_obj in obj_arr: obj_arr.erase(new_obj))
-	new_obj.s_stomped.connect(func(): make_explosion(new_obj.global_position))
+	new_obj.s_stomped.connect(object_crushed)
 
 	button_quota -= 1
 
 func get_button_quota() -> int:
-	return 8 + (get_missing_health() * 8)
+	return 10 + (get_missing_health() * 11)
+
+func object_crushed(obj: Node3D, stomper: Node3D) -> void:
+	make_explosion(obj.global_position)
+	if obj.is_button() and not obj.is_pressed() and stomper in button_respawn_stompers:
+		# If we crushed a button with one of the very first stompers, let's just immediately spawn another one
+		button_quota = 0
 
 func _exit_tree() -> void:
 	if stomper_task:
@@ -330,6 +339,6 @@ func make_explosion(pos: Vector3) -> void:
 	new_explosion.queue_free()
 
 func get_random_object() -> PackedScene:
-	if Util.on_easy_floor() or RandomService.randi_channel('true_random') % 3 > 0:
+	if Util.on_easy_floor() or randi() % 3 > 0:
 		return REGULAR_OBJS[0]
-	return RandomService.array_pick_random('golden_goose', REGULAR_OBJS)
+	return RNG.channel(RNG.ChannelGoldenGoose).pick_random(REGULAR_OBJS)

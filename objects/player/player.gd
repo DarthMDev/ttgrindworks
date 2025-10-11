@@ -3,7 +3,6 @@ class_name Player
 
 var PAUSE_MENU : PackedScene
 const DEATH_THRESHOLD := -20.0
-const COYOTE_TIME := 0.07
 const IFRAME_TIME := 3.0
 const PAUSE_DELAY := 0.25
 
@@ -11,19 +10,27 @@ const PAUSE_DELAY := 0.25
 enum PlayerState {
 	WALK,
 	STOPPED,
-	SAD
+	SAD,
+	CHASE,
+	PUSH,
 }
 @export var state := PlayerState.STOPPED:
 	set(x):
-		if state == PlayerState.SAD:
-			# No more state transitions are allowed if you're sad.
-			return
-		state = x
+		await NodeGlobals.until_ready(self)
+		var state_name: StringName = PlayerStateToName[x]
+		if state_name != controller.current_state_name:
+			controller.request(state_name)
+		if controller.current_state_name == state_name:
+			state = x
 
-## Preloads
-const SFX_WALK := preload('res://audio/sfx/toon/AV_footstep_walkloop.ogg')
-const SFX_RUN := preload('res://audio/sfx/toon/AV_footstep_runloop.ogg')
-const DEBUG_COLLISION_PRINT := false
+static var PlayerStateToName: Dictionary[PlayerState, StringName] = {
+	PlayerState.WALK: &"Walk",
+	PlayerState.STOPPED: &"Stopped",
+	PlayerState.SAD: &"Sad",
+	PlayerState.CHASE: &"Chase",
+	PlayerState.PUSH: &"Push",
+}
+static var PlayerStateNameToState := ToonUtils.reverse_dictionary(PlayerStateToName)
 
 ## Exports
 @export var stats: PlayerStats:
@@ -34,6 +41,7 @@ const DEBUG_COLLISION_PRINT := false
 @export var partners: Array[CharacterBody3D] = []
 
 ## Child References
+@onready var controller: FiniteStateMachine3D = %Controller
 @onready var camera: PlayerCamera = %PlayerCamera
 @onready var camera_dist: float:
 	set(x):
@@ -41,7 +49,14 @@ const DEBUG_COLLISION_PRINT := false
 		cam_tween.tween_property(camera, 'spring_length', x, 0.1)
 	get:
 		return camera.spring_length
-@onready var move_sfx := $MoveSFX
+
+var control_style: bool:
+	get: return SaveFileService.settings_file.control_style
+
+var run_speed := 8.0
+var ignore_battles := false
+
+@onready var gui: Control = %GUI
 @onready var laff_meter := %LaffMeter
 @onready var bean_jar := %BeanJar
 @onready var toon: Toon = $Toon
@@ -60,30 +75,13 @@ var game_timer_tick := false:
 	set(x):
 		if not lock_game_timer:
 			game_timer_tick = x
+			if x: game_timer.set_timer_color(Color.WHITE)
+			else: game_timer.set_timer_color(Color.YELLOW)
 var lock_game_timer := false
 @onready var active_item_ui : Control = %ActiveItemUI
 
-
-
-## Misc.
-var run_speed := 8.0
-var speed = 0.0
-var can_sprint := true
-var can_jump := true
-var jump_velocity := 7.0
-var sprint: bool
-var gravity := 16.0
-var last_floor_time: float = 0.0
 var last_damage_source: String = "Something"
-const TURN_SPEED := 90.0
-var control_style: bool:
-	get: return SaveFileService.settings_file.control_style
-var moving := false:
-	set(x):
-		moving = x
-		if control_style:
-			assess_anim()
-var base_anim := 'neutral'
+
 var animator: AnimationPlayer
 var pause_delay := 0.0
 
@@ -106,8 +104,20 @@ var obscured_anomalies := false
 var immune_to_light_damage := false
 ## Damage immunity from stompers and other crush-based obstacles
 var immune_to_crush_damage := false
+## Unique for Prof. Pete
+var gags_cost_beans := false
+## Used for Oldman
+var revives_are_hp := false
 ## Used in battle to override Gag prices
 var free_gags : Array[ToonAttack] = []
+## For modders who hate their players
+var use_accuracy := false
+## Self explanatory
+var cogs_always_hit := false
+var stranger_guaranteed := false
+var obscured_laff: bool:
+	get: return laff_meter.obscured
+	set(x): laff_meter.obscured = x
 
 var laff_lock_enabled := false:
 	set(x):
@@ -121,9 +131,9 @@ var laff_lock := false:
 		if is_instance_valid(laff_meter):
 			laff_meter.locked = x
 
-
 signal s_fell_out_of_world(player: Player)
 signal s_died
+signal s_dying
 signal s_jumped
 signal s_stats_connected(stats: PlayerStats)
 
@@ -133,6 +143,8 @@ func _init() -> void:
 	})
 
 func _ready() -> void:
+	state = state
+	
 	# Make player globally accessible
 	Util.player = self
 	
@@ -153,134 +165,22 @@ func _ready() -> void:
 	# Hook up stats
 	connect_stats()
 
-func _physics_process(delta: float) -> void:
-	if state == PlayerState.WALK:
-		_physics_process_walk(delta)
-	
-	# Movement SFX
-	if get_animation() == 'walk':
-		if move_sfx.stream != SFX_WALK:
-			move_sfx.stream = SFX_WALK
-			move_sfx.play()
-	elif get_animation() == 'run':
-		if move_sfx.stream != SFX_RUN:
-			move_sfx.stream = SFX_RUN
-			move_sfx.play()
-	elif move_sfx.stream:
-		move_sfx.stop()
-		move_sfx.stream = null
-	
+func _physics_process(_delta: float) -> void:
+	# Emit signal when player is under death threshold
+	if global_position.y < DEATH_THRESHOLD:
+		s_fell_out_of_world.emit(self)
+
 	# Temp
 	if Input.is_action_just_pressed('ui_focus_next') and laff_lock_enabled:
 		laff_lock = not laff_lock
 
-func _physics_process_walk(delta: float) -> void:
-	# Ensure mouse is captured while moving
-	if Util.window_focused and not Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	# Jump/Gravity
-	var curr_time: float = Time.get_unix_time_from_system()
-	var _floored: bool = is_on_floor()
-	if _floored or (curr_time - last_floor_time) < COYOTE_TIME:
-		if _floored:
-			last_floor_time = curr_time
-		if Input.is_action_just_pressed('jump') and can_jump:
-			velocity.y = get_platform_velocity().y + jump_velocity
-			s_jumped.emit()
-			if moving: 
-				set_animation('leap')
-			else: 
-				set_animation('jump')
-	if not _floored:
-		velocity.y -= gravity * delta
-	
-	# Get current movement speed
-	var target_speed = run_speed
-	sprint = should_sprint()
-	if not sprint: target_speed /= 2.0
-	target_speed *= stats.get_stat('speed')
-	
-	if speed != target_speed:
-		speed = lerp(speed, target_speed, 0.2)
-	
-	if control_style:
-		# Get the input/direction vectors
-		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		direction = direction.rotated(Vector3(0, 1, 0), camera.rotation.y)
-		if direction:
-			moving = true
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
-		else:
-			moving = false
-			speed = 0.0
-			velocity.x = 0.0
-			velocity.z = 0.0
-	
-		# Turn to face moving direction
-		if direction:
-			toon.rotation.y = lerp_angle(toon.rotation.y, atan2(direction.x, direction.z), .3)
-	else:
-		var input_dir := Input.get_axis('move_back','move_forward')
-		if input_dir == -1 and sprint: 
-			speed = (run_speed * stats.get_stat('speed')) / 2.0
-		var direction = (toon.transform.basis * Vector3(0, 0, input_dir)).normalized()
-		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-			velocity.z = move_toward(velocity.z, 0, speed)
-		
-		var input_turn := Input.get_axis("move_left", "move_right")
-		toon.rotation.y += (deg_to_rad(TURN_SPEED * delta) * -input_turn)
-		recenter_camera()
-		
-		moving = (direction or input_turn)
-		
-		if is_on_floor() and not Input.is_action_just_pressed("jump") and can_jump:
-			if input_dir == 1 and sprint:
-				set_animation('run')
-			elif input_turn or input_dir:
-				set_animation('walk')
-			else:
-				set_animation('neutral')
-	
-	move_and_slide()
-
-	if DEBUG_COLLISION_PRINT and OS.is_debug_build():
-		var kc3d: KinematicCollision3D = get_last_slide_collision()
-		if kc3d:
-			print(get_tree().root.get_path_to(kc3d.get_collider(0)))
-
-	# Camera zoom
-	if Input.is_action_just_pressed('zoom_in'):
-		camera_dist = max(camera_dist-0.5,1.5)
-	elif Input.is_action_just_pressed('zoom_out'):
-		camera_dist = min(camera_dist+0.5,4.0)
-	
-	# Camera sprint FOV
-	if sprint:
-		if camera.fov < 60:
-			camera.fov = lerp(camera.fov,60.0,0.15)
-	elif camera.fov > 52:
-		camera.fov = lerp(camera.fov,52.0,0.15)
-	
-	# Emit signal when player is under death threshold
-	if global_position.y < DEATH_THRESHOLD:
-		s_fell_out_of_world.emit(self)
-	
-	if Input.is_action_just_pressed('toggle_freecam') and SaveFileService.settings_file.dev_tools:
-		var cam := PlayerFreeCam.new(self)
-		cam.fov = camera.fov
-		add_child(cam)
-		cam.global_transform = camera.camera.global_transform
-		set_animation('neutral')
-
 func _process(delta: float) -> void:
-	if not state == PlayerState.WALK:
+	# Hide GUI
+	if Input.is_action_just_pressed('hide_gui'):
+		%GUI.set_visible(not %GUI.visible)
+	
+	# Pause Logic
+	if not controller.current_state.accepts_interaction():
 		return
 	if pause_delay < PAUSE_DELAY:
 		pause_delay += delta
@@ -289,30 +189,15 @@ func _process(delta: float) -> void:
 		pause_delay = 0.0
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().get_root().add_child(PAUSE_MENU.instantiate())
-
-func should_sprint() -> bool:
-	if not can_sprint:
-		return false
 	
-	if SaveFileService.settings_file.auto_sprint:
-		return not Input.is_action_pressed('sprint')
-	else:
-		return Input.is_action_pressed('sprint')
+	while absf(toon.rotation_degrees.y) > 360.0:
+		toon.rotation_degrees.y -= 360.0 * signf(toon.rotation_degrees.y)
 
-func assess_anim() -> void:
-	var anim := base_anim
-	if is_on_floor() and not Input.is_action_just_pressed('jump'):
-		if moving:
-			if sprint:
-				anim = 'run'
-			else:
-				anim = 'walk'
-		if not get_animation() == anim:
-			set_animation(anim)
-
-func move_to(new_pos: Vector3, spd: float = run_speed, override_anim := "") -> Tween:
+func move_to(new_pos: Vector3, spd: float = 0.0, override_anim := "") -> Tween:
+	if spd == 0.0:
+		spd = controller.get_state(&"Walk").run_speed
 	# Stop player if not already
-	if state == PlayerState.WALK:
+	if controller.current_state.accepts_interaction():
 		state = PlayerState.STOPPED
 	# Calculate move time
 	var time = new_pos.distance_to(global_position) / spd
@@ -357,9 +242,10 @@ func toon_lerp_angle(weight: float, start_angle: float, end_angle: float, toon_s
 	toon.rotation.y = lerp_angle(start_angle, end_angle, weight)
 	toon.set_scale(toon_scale)
 
-func set_animation(anim : String):
+func set_animation(anim: String):
+	if state == PlayerState.SAD and not anim == 'lose': return
 	if not get_animation() == anim:
-		toon.body.set_animation(anim)
+		toon.set_animation(anim)
 
 func get_animation() -> String:
 	return animator.current_animation
@@ -369,7 +255,9 @@ func lose():
 		# Thog don't care if we're already in the sad state
 		return
 	
+	s_dying.emit()
 	SaveFileService.on_game_over()
+	SaveFileService.progress_file.on_player_died()
 	state = PlayerState.SAD
 	Util.stuck_lock = false
 	set_animation('lose')
@@ -382,6 +270,15 @@ func lose():
 	shrink_tween.kill()
 	SaveFileService.progress_file.deaths += 1
 	s_died.emit()
+
+func start_pushing(push_object: PushableComponent):
+	var push_state := controller.states[PlayerStateToName[PlayerState.PUSH]]
+	push_state.push_object = push_object
+	state = PlayerState.PUSH
+	
+func stop_pushing(next_state = PlayerState.WALK):
+	if state == PlayerState.PUSH:
+		state = next_state
 
 func speak(phrase: String) -> void:
 	toon.speak(phrase)
@@ -399,7 +296,7 @@ func teleport_out() -> void:
 func fall_in(set_to_walk := false) -> void:
 	state = PlayerState.STOPPED
 	toon.position.y = 50.0
-	toon.set_animation('slip_forwards')
+	toon.set_animation('slip-forward')
 	var fall_tween := create_tween()
 	fall_tween.tween_property(toon, 'position:y', 0.0, 0.5)
 	await fall_tween.finished
@@ -420,9 +317,9 @@ func reset_stats() -> void:
 			item.queue_free()
 	# Delete any accessory items
 	if toon:
-		var bones := [toon.body.hat_bone, toon.body.glasses_bone, toon.body.backpack_bone]
-		for bone in bones:
-			for child in bone.get_children():
+		var nodes := [toon.hat_node, toon.glasses_node, toon.backpack_node]
+		for node in nodes:
+			for child in node.get_children():
 				child.queue_free()
 	
 	if newstats.character:
@@ -466,7 +363,7 @@ func check_hp(hp : int) -> void:
 		lose()
 	prev_hp = stats.hp
 
-func quick_heal(amount: int) -> void:
+func quick_heal(amount: int, allow_iframes := true) -> void:
 	var pre_hp := stats.hp
 	# Apply healing effectiveness if we have it
 	if amount > 0 and not is_equal_approx(stats.healing_effectiveness, 1.0):
@@ -477,16 +374,20 @@ func quick_heal(amount: int) -> void:
 	if diff == 0:
 		return
 	if sign(diff) == -1:
-		if state == PlayerState.WALK:
+		if controller.current_state.accepts_interaction() and allow_iframes:
 			do_invincibility_frames()
 		Util.do_3d_text(self,str(diff))
 	else:
 		Util.do_3d_text(self, "+" + str(diff), Color.GREEN, Color.DARK_GREEN)
 
+
 func recenter_camera(instant := true) -> void:
 	if instant:
 		camera.rotation = Vector3.ZERO
 		camera.rotation_degrees.y = toon.rotation_degrees.y + 180.0
+	else:
+		camera.recentering = true
+
 
 func do_invincibility_frames(time := IFRAME_TIME) -> void:
 	set_collision_mask_value(Globals.HAZARD_COLLISION_LAYER, false)
@@ -495,49 +396,71 @@ func do_invincibility_frames(time := IFRAME_TIME) -> void:
 	set_collision_layer_value(Globals.HAZARD_COLLISION_LAYER, true)
 	set_collision_mask_value(Globals.HAZARD_COLLISION_LAYER, true)
 
-var iframe_tween : Tween
+var iframe_tween: Tween
+var INVINCIBLE_COLOR := Color(0.542, 0.691, 1.0, 1.0)
+
 func do_iframe_tween(time := IFRAME_TIME) -> Tween:
 	if iframe_tween:
 		iframe_tween.kill()
 	iframe_tween = create_tween()
-	var delay := 0.25
-	var delay_dec := 0.05
-	var delay_mininmum := 0.1
+
+	var delay := 0.9
+	var delay_dec := 0.15 * (IFRAME_TIME / time)
+	var delay_minimum := 0.1
 	var blink_time := 0.0
-	while delay > delay_mininmum:
-		iframe_tween.tween_interval(delay)
-		iframe_tween.tween_callback(swap_toon_visibility)
+	var fade_strength := 0.4
+
+	toon.color_overlay_mat.set_color(INVINCIBLE_COLOR)
+	while delay > delay_minimum:
+		iframe_tween.tween_callback(toon.color_overlay_mat.fade_in.bind(toon, INVINCIBLE_COLOR, delay / 2.0, fade_strength))
+		iframe_tween.tween_interval(delay / 2.0)
+		iframe_tween.tween_callback(toon.color_overlay_mat.fade_out.bind(toon, INVINCIBLE_COLOR, delay / 2.0))
+		iframe_tween.tween_interval(delay / 2.0)
 		blink_time += delay
 		delay -= delay_dec
-	delay = delay_mininmum
+
+	delay = delay_minimum
 	while blink_time < time:
-		iframe_tween.tween_interval(delay)
-		iframe_tween.tween_callback(swap_toon_visibility)
+		iframe_tween.tween_callback(toon.color_overlay_mat.fade_in.bind(toon, INVINCIBLE_COLOR, delay / 2.0, fade_strength))
+		iframe_tween.tween_interval(delay / 2.0)
+		iframe_tween.tween_callback(toon.color_overlay_mat.fade_out.bind(toon, INVINCIBLE_COLOR, delay / 2.0))
+		iframe_tween.tween_interval(delay / 2.0)
 		blink_time += delay
-	iframe_tween.tween_callback(toon.body.show)
+
+	iframe_tween.tween_callback(toon.legs.show)
 	return iframe_tween
 
 func is_invincible() -> bool:
 	return (iframe_tween and iframe_tween.is_running())
 
 func swap_toon_visibility() -> void:
-	toon.body.visible = not toon.body.visible
+	toon.legs.visible = not toon.legs.visible
 
 func update_accessories() -> void:
-	var hat : ItemAccessory
-	var glasses : ItemAccessory
-	var backpack : ItemAccessory
-	for item : Item in stats.items:
+	# Remove all current accessories
+	# Using free() even though it's scary
+	for node in [toon.hat_node, toon.glasses_node, toon.backpack_node]:
+		for child in node.get_children(): child.free()
+	toon.legs.set_shoes(ToonLegs.ShoeType.NONE)
+	
+	var hat: ItemAccessory
+	var glasses: ItemAccessory
+	var backpack: ItemAccessory
+	var shoes: ItemShoe
+	for item: Item in stats.items:
 		if item is ItemAccessory:
 			match item.slot:
 				Item.ItemSlot.HAT: hat = item
 				Item.ItemSlot.GLASSES: glasses = item
 				Item.ItemSlot.BACKPACK: backpack = item
-	if hat: hat.place_accessory(self)
-	else: Util.free_all_children(toon.hat_bone)
+		elif item is ItemShoe:
+			shoes = item
+	if hat: 
+		hat.place_accessory(toon)
 	
-	if glasses: glasses.place_accessory(self)
-	else: Util.free_all_children(toon.glasses_bone)
+	if glasses: glasses.place_accessory(toon)
 	
-	if backpack: backpack.place_accessory(self)
-	else: Util.free_all_children(toon.backpack_bone)
+	if backpack: backpack.place_accessory(toon)
+	
+	if shoes:
+		toon.legs.set_shoes(shoes.shoe_type as ToonLegs.ShoeType, shoes.get_correct_texture(toon.toon_dna))

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo5okbth0iwhm"]
+
+[ext_resource type="PackedScene" uid="uid://coyfr1rv1j81" path="res://models/accessories/hats/toonosaur_hat/tt_m_chr_avt_acc_hat_dinosaur.glb" id="1_iqhke"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h23nj"]
+size = Vector3(8, 1, 8)
+
+[node name="tt_m_chr_avt_acc_hat_dinosaur" instance=ExtResource("1_iqhke")]
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="1"]
+visible = false
+mesh = SubResource("BoxMesh_h23nj")

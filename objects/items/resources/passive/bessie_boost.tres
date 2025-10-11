@@ -6,23 +6,7 @@
 [resource]
 script = ExtResource("1_cjveb")
 qualitoon = 4
-rarity = 0
-evergreen = false
-realtime = false
-slot = 0
-world_scale = 1.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Bessie Boost"
-item_description = ""
 big_description = "Unique to Barnacle Bessie."
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("1_80khx")
-remember_item = true
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

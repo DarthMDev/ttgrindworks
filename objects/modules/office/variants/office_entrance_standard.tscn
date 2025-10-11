@@ -137,25 +137,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cqorr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7vk7"]
-resource_name = "TreasureChestGold"
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_l7vk7")
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.0
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yn8gx"]
-gradient = ExtResource("6_yn8gx")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lakxs"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("4_gku86")
-shader_parameter/tex_frg_21 = SubResource("GradientTexture2D_yn8gx")
-shader_parameter/strength = 1.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72gii"]
 resource_name = "TreasureChestGold"
 vertex_color_use_as_albedo = true
@@ -168,11 +149,30 @@ emission_energy_multiplier = 0.0
 gradient = ExtResource("6_yn8gx")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7vk7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lakxs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_gku86")
 shader_parameter/tex_frg_21 = SubResource("GradientTexture2D_ah3dg")
+shader_parameter/strength = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjum6"]
+resource_name = "TreasureChestGold"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_l7vk7")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7syhn"]
+gradient = ExtResource("6_yn8gx")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7vk7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_gku86")
+shader_parameter/tex_frg_21 = SubResource("GradientTexture2D_7syhn")
 shader_parameter/strength = 1.0
 
 [node name="OfficeEntrance" instance=ExtResource("1_oayny")]
@@ -210,10 +210,11 @@ unopenable = true
 item_pool = ExtResource("3_6la4v")
 
 [node name="Chest" parent="Chests/Fakes/FakeChest/Chest" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_l7vk7")
+surface_material_override/0 = SubResource("StandardMaterial3D_72gii")
 
 [node name="Lid" parent="Chests/Fakes/FakeChest/Chest" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_l7vk7")
+transform = Transform3D(100, 0, 0.000361999, -0.000361999, 1.3104329e-09, 100, 0, -100, 1.3104329e-09, -0.214957, 0.322778, 6.63598e-09)
+surface_material_override/0 = SubResource("StandardMaterial3D_72gii")
 
 [node name="Lightray" parent="Chests/Fakes/FakeChest/Chest" index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_lakxs")
@@ -224,10 +225,11 @@ unopenable = true
 item_pool = ExtResource("3_6la4v")
 
 [node name="Chest" parent="Chests/Fakes/FakeChest2/Chest" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_72gii")
+surface_material_override/0 = SubResource("StandardMaterial3D_qjum6")
 
 [node name="Lid" parent="Chests/Fakes/FakeChest2/Chest" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_72gii")
+transform = Transform3D(100, 0, 0.000361999, -0.000361999, 1.3104329e-09, 100, 0, -100, 1.3104329e-09, -0.214957, 0.322778, 6.63598e-09)
+surface_material_override/0 = SubResource("StandardMaterial3D_qjum6")
 
 [node name="Lightray" parent="Chests/Fakes/FakeChest2/Chest" index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_l7vk7")
@@ -263,9 +265,6 @@ transform = Transform3D(0.653766, 0, -1.35003, 0, 1.5, 0, 1.35003, 0, 0.653766, 
 
 [node name="paper_twist_stacks" parent="Props/paper_twist_stacks" index="4" instance=ExtResource("7_lyh75")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
-
-[connection signal="body_entered" from="Chests/Fakes/FakeChest/OpenArea" to="Chests/Fakes/FakeChest" method="body_entered"]
-[connection signal="body_entered" from="Chests/Fakes/FakeChest2/OpenArea" to="Chests/Fakes/FakeChest2" method="body_entered"]
 
 [editable path="Chests/Fakes/FakeChest"]
 [editable path="Chests/Fakes/FakeChest/Chest"]

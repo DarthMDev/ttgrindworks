@@ -120,7 +120,7 @@ hue_variation_max = 0.08
 sub_emitter_mode = 2
 sub_emitter_amount_at_end = 8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf7hm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16rmw"]
 render_priority = 1
 transparency = 1
 vertex_color_use_as_albedo = true
@@ -134,7 +134,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_oiko2"]
-material = SubResource("StandardMaterial3D_mf7hm")
+material = SubResource("StandardMaterial3D_16rmw")
 
 [sub_resource type="Curve" id="Curve_m5gqj"]
 _data = [Vector2(0.305556, 0.237718), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.6084, 0.0, 0, 0]
@@ -148,7 +148,7 @@ point_count = 3
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_r5l1i"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_7v3cw"]
 curve_x = SubResource("Curve_m5gqj")
 curve_y = SubResource("Curve_m425x")
 curve_z = SubResource("Curve_v0jj0")
@@ -164,11 +164,11 @@ initial_velocity_max = 3.75
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.3
-scale_curve = SubResource("CurveXYZTexture_r5l1i")
+scale_curve = SubResource("CurveXYZTexture_7v3cw")
 hue_variation_min = -0.14
 hue_variation_max = 0.04
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1ep0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5gqj"]
 transparency = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -178,13 +178,13 @@ albedo_texture = ExtResource("5_7v3cw")
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_m5l3w"]
-material = SubResource("StandardMaterial3D_y1ep0")
+material = SubResource("StandardMaterial3D_m5gqj")
 
 [sub_resource type="Curve" id="Curve_16rmw"]
 _data = [Vector2(0, 0), 0.0, 1.27829, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_7v3cw"]
+[sub_resource type="CurveTexture" id="CurveTexture_d7l4d"]
 curve = SubResource("Curve_16rmw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5gqj"]
@@ -199,7 +199,7 @@ emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 2, 0)
 scale_min = 0.08
 scale_max = 0.3
-scale_curve = SubResource("CurveTexture_7v3cw")
+scale_curve = SubResource("CurveTexture_d7l4d")
 color = Color(1, 1, 0, 1)
 hue_variation_min = -0.07
 hue_variation_max = 0.08

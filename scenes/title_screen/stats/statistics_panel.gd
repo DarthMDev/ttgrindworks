@@ -1,7 +1,18 @@
 @tool
 extends UIPanel
 
-@export var stats := {}
+const CHAR_LIMIT := 30
+
+static var stats: Dictionary[String, Dictionary] = {
+	"Gameplay": {
+		"Floors Cleared": "floors_cleared",
+		"Games Played": "new_games",
+		"Jellybeans Collected": "jellybeans_collected",
+		"Pocket Pranks Used": "pocket_pranks_used",
+		"Times Gone Sad": "deaths",
+		"Win Streak": "win_streak",
+	}
+}
 
 @onready var stat_template: HBoxContainer = $StatTemplate
 @onready var stat_container: VBoxContainer = %StatContainer
@@ -35,6 +46,8 @@ func append_stat(section: String, stat: String, value: Variant) -> void:
 	if parent_section:
 		var stat_object := stat_template.duplicate()
 		parent_section.add_child(stat_object)
+		if stat.length() > CHAR_LIMIT:
+			stat = stat.substr(0, CHAR_LIMIT) + "..."
 		stat_object.get_node('Label').set_text(stat + ":")
 		stat_object.get_node('Value').set_text(str(value))
 		stat_object.show()
@@ -47,6 +60,7 @@ func append_cogs() -> void:
 		total += SaveFileService.progress_file.cogs_defeated[cog]
 	
 	append_stat("Cogs", "Total Defeated", total)
+	append_stat("Cogs", "Total Proxies Defeated", SaveFileService.progress_file.proxy_cogs_defeated)
 	
 	for cog in SaveFileService.progress_file.cogs_defeated.keys():
 		append_stat("Cogs", cog.capitalize(), SaveFileService.progress_file.cogs_defeated[cog])
@@ -54,7 +68,7 @@ func append_cogs() -> void:
 func append_playtime() -> void:
 	var time_string := "%d hours, %d minutes"
 	
-	var seconds : int = int(round(SaveFileService.progress_file.total_playtime))
+	var seconds: int = int(round(SaveFileService.progress_file.total_playtime))
 	
 	var hours := floori(seconds / 3600)
 	var minutes := floori((seconds - (hours * 3600)) / 60)
@@ -72,7 +86,7 @@ func append_best_time() -> void:
 		time_str = RunTimer.get_time_string(time)
 	append_stat("Gameplay", "Best Time", time_str)
 
-func create_stat_section(section_title : String) -> VBoxContainer:
+func create_stat_section(section_title: String) -> VBoxContainer:
 	if find_stat_section(section_title):
 		return
 	
@@ -83,7 +97,7 @@ func create_stat_section(section_title : String) -> VBoxContainer:
 	new_template.show()
 	return new_template
 
-func find_stat_section(section_title : String) -> VBoxContainer:
+func find_stat_section(section_title: String) -> VBoxContainer:
 	for section in stat_container.get_children():
 		if section.name == section_title:
 			return section

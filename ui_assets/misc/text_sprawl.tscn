@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://7tchlbvjru0d"]
+
+[ext_resource type="FontFile" uid="uid://bjwx8qxk27v4y" path="res://fonts/vtRemingtonPortableMipmaps.ttf" id="1_osu58"]
+[ext_resource type="Script" uid="uid://dk6lih3r73g1s" path="res://ui_assets/misc/text_sprawl.gd" id="2_osu58"]
+[ext_resource type="AudioStream" uid="uid://dlk0j3rj3k8py" path="res://audio/sfx/misc/typewriter-1.ogg" id="3_arlv2"]
+[ext_resource type="AudioStream" uid="uid://dactilomfch3u" path="res://audio/sfx/misc/typewriter-2.ogg" id="4_irfmk"]
+[ext_resource type="AudioStream" uid="uid://ci5febotl6042" path="res://audio/sfx/misc/typewriter-3.ogg" id="5_tu3s7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_myusa"]
+font = ExtResource("1_osu58")
+font_size = 48
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.99607843)
+
+[node name="TextSprawl" type="Label"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE LIQUIDATOR"
+label_settings = SubResource("LabelSettings_myusa")
+horizontal_alignment = 1
+visible_characters = 14
+script = ExtResource("2_osu58")
+pause_time = 0.1
+sfx = Array[AudioStream]([ExtResource("3_arlv2"), ExtResource("4_irfmk"), ExtResource("5_tu3s7")])
+autoplay = null

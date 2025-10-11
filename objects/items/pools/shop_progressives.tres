@@ -1,28 +1,7 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=22 format=3 uid="uid://d4by7sqhd5sko"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=2 format=3 uid="uid://d4by7sqhd5sko"]
 
-[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_63l0p"]
-[ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="2_l6kf2"]
-[ext_resource type="Resource" uid="uid://be4btivsjwqhe" path="res://objects/items/resources/passive/gag_voucher_small.tres" id="5_51rbi"]
-[ext_resource type="Resource" uid="uid://b77qp325baypa" path="res://objects/items/resources/passive/pink_slip.tres" id="6_lqllk"]
-[ext_resource type="Script" uid="uid://wiibpvvki8vs" path="res://objects/items/classes/item_pool.gd" id="7_fg0s0"]
-[ext_resource type="Resource" uid="uid://23im0r4wxo0l" path="res://objects/items/resources/passive/quest_reroll.tres" id="7_igkuc"]
-[ext_resource type="Resource" uid="uid://c5cavaivrrvb" path="res://objects/items/resources/passive/toonups/feather.tres" id="8_7orw7"]
-[ext_resource type="Resource" uid="uid://dua74bqlj5ep1" path="res://objects/items/resources/passive/toonups/megaphone.tres" id="9_08yos"]
-[ext_resource type="Resource" uid="uid://ck66os8hfom1c" path="res://objects/items/resources/passive/snowflake_treasure.tres" id="9_s3ka2"]
-[ext_resource type="Resource" uid="uid://bvukmcjmx00ho" path="res://objects/items/resources/passive/toonups/lipstick.tres" id="10_rkg7b"]
-[ext_resource type="Resource" uid="uid://cp2b6gwnfjlib" path="res://objects/items/resources/passive/toonups/bamboo_cane.tres" id="11_5cdsj"]
-[ext_resource type="Resource" uid="uid://bmfbgvlyor8tw" path="res://objects/items/resources/passive/toonups/pixie.tres" id="12_x67hd"]
-[ext_resource type="Resource" uid="uid://cect5lwmu08mv" path="res://objects/items/resources/passive/toonups/juggling.tres" id="13_mrom7"]
-[ext_resource type="Resource" uid="uid://danb3hsfnfror" path="res://objects/items/resources/passive/candies/candy_damage.tres" id="14_2rhsd"]
-[ext_resource type="Resource" uid="uid://ne6tolrsnqmn" path="res://objects/items/resources/passive/toonups/high_dive.tres" id="14_tkmso"]
-[ext_resource type="Resource" uid="uid://cckkv76gxoem3" path="res://objects/items/resources/passive/candies/candy_defense.tres" id="15_ejiqj"]
-[ext_resource type="Resource" uid="uid://rytsv7bygrwl" path="res://objects/items/resources/passive/candies/candy_luck.tres" id="16_acbtx"]
-[ext_resource type="Resource" uid="uid://y5nhq5oudm83" path="res://objects/items/resources/passive/candies/candy_evasiveness.tres" id="17_7hrog"]
-[ext_resource type="Resource" uid="uid://yufkd5v70f3d" path="res://objects/items/resources/passive/candies/candy_speed.tres" id="18_xiyfc"]
-[ext_resource type="Resource" uid="uid://wsx4jasny47f" path="res://objects/items/resources/passive/candies/candy_battery.tres" id="19_t7sfb"]
-[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="20_dx67f"]
+[ext_resource type="Script" uid="uid://bllywk0dq1ug3" path="res://objects/items/classes/item_pool.gd" id="7_fg0s0"]
 
 [resource]
 script = ExtResource("7_fg0s0")
-items = Array[ExtResource("1_63l0p")]([ExtResource("2_l6kf2"), ExtResource("5_51rbi"), ExtResource("6_lqllk"), ExtResource("7_igkuc"), ExtResource("9_s3ka2"), ExtResource("8_7orw7"), ExtResource("9_08yos"), ExtResource("10_rkg7b"), ExtResource("11_5cdsj"), ExtResource("12_x67hd"), ExtResource("13_mrom7"), ExtResource("14_tkmso"), ExtResource("14_2rhsd"), ExtResource("15_ejiqj"), ExtResource("16_acbtx"), ExtResource("17_7hrog"), ExtResource("18_xiyfc"), ExtResource("19_t7sfb"), ExtResource("20_dx67f")])
-low_roll_override = 0
+items = PackedStringArray("res://objects/items/resources/passive/laff_boost.tres", "res://objects/items/resources/passive/gag_voucher_small.tres", "res://objects/items/resources/passive/pink_slip.tres", "res://objects/items/resources/passive/quest_reroll.tres", "res://objects/items/resources/passive/toonups/feather.tres", "res://objects/items/resources/passive/toonups/megaphone.tres", "res://objects/items/resources/passive/toonups/lipstick.tres", "res://objects/items/resources/passive/toonups/bamboo_cane.tres", "res://objects/items/resources/passive/toonups/pixie.tres", "res://objects/items/resources/passive/toonups/juggling.tres", "res://objects/items/resources/passive/candies/candy_damage.tres", "res://objects/items/resources/passive/toonups/high_dive.tres", "res://objects/items/resources/passive/candies/candy_defense.tres", "res://objects/items/resources/passive/candies/candy_luck.tres", "res://objects/items/resources/passive/candies/candy_evasiveness.tres", "res://objects/items/resources/passive/candies/candy_speed.tres", "res://objects/items/resources/passive/candies/candy_battery.tres", "res://objects/items/resources/passive/gag_voucher_pack.tres", "res://objects/items/custom/jellybean_voucher/bean_voucher.tres", "res://objects/items/resources/passive/flower_treasure.tres", "res://objects/items/resources/passive/music_treasure.tres", "res://objects/items/resources/passive/snowflake_treasure.tres", "res://objects/items/resources/passive/zzz_treasure.tres", "res://objects/items/resources/passive/starfish_treasure.tres")

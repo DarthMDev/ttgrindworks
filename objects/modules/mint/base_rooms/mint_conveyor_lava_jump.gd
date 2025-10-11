@@ -21,7 +21,7 @@ func _enter_tree() -> void:
 	setup_obj_task()
 
 func get_random_object_time() -> float:
-	return RandomService.randf_range_channel('mint_conveyor', 3, 5)
+	return RNG.channel(RNG.ChannelMintConveyor).randf_range(3, 5)
 
 func setup_obj_task() -> void:
 	spawn_all_objects(false)
@@ -38,15 +38,15 @@ func spawn_random_obj(side: String) -> void:
 	var obj_arr: Array[Node3D]
 	var holder_node: Node3D
 	if side == "a":
-		spawn_point = RandomService.array_pick_random('mint_conveyor_lava', [%LowerSpawnA, %LowerSpawnA2])
+		spawn_point = RNG.channel(RNG.ChannelMintConveyorLava).pick_random([%LowerSpawnA, %LowerSpawnA2])
 		obj_arr = objs_a
 		holder_node = %ObjsA
 	elif side == "b":
-		spawn_point = RandomService.array_pick_random('mint_conveyor_lava', [%MiddleSpawnA, %MiddleSpawnA2])
+		spawn_point = RNG.channel(RNG.ChannelMintConveyorLava).pick_random([%MiddleSpawnA, %MiddleSpawnA2])
 		obj_arr = objs_b
 		holder_node = %ObjsB
 	else:
-		spawn_point = RandomService.array_pick_random('mint_conveyor_lava', [%UpperSpawnA, %UpperSpawnA2])
+		spawn_point = RNG.channel(RNG.ChannelMintConveyorLava).pick_random([%UpperSpawnA, %UpperSpawnA2])
 		obj_arr = objs_c
 		holder_node = %ObjsC
 
@@ -54,14 +54,14 @@ func spawn_random_obj(side: String) -> void:
 	var new_animatable_obj := AnimatableBody3D.new()
 	new_animatable_obj.sync_to_physics = false
 	obj_holder.add_child(new_animatable_obj)
-	var new_obj: Node3D = RandomService.array_pick_random('mint_conveyor_lava', REGULAR_OBJS).instantiate()
+	var new_obj: Node3D = RNG.channel(RNG.ChannelMintConveyorLava).pick_random(REGULAR_OBJS).instantiate()
 	new_animatable_obj.add_child(new_obj)
 	holder_node.add_child(obj_holder)
 	for coll: CollisionShape3D in NodeGlobals.get_children_of_type(new_obj, CollisionShape3D, true):
 		coll.owner = null
 		coll.reparent(new_animatable_obj)
 	obj_holder.global_position = spawn_point.global_position
-	obj_holder.global_rotation_degrees.y = RandomService.randf_range_channel('mint_conveyor_lava', -70.0, 70.0)
+	obj_holder.global_rotation_degrees.y = RNG.channel(RNG.ChannelMintConveyorLava).randf_range(-70.0, 70.0)
 	obj_arr.append(obj_holder)
 
 func _physics_process(delta: float) -> void:

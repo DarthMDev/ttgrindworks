@@ -1,0 +1,52 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://kb8bqj0tpkgg"
+path="res://.godot/imported/philosophersStone.fbx-4b40c923d482dffb0fb68b6ef9c7905f.scn"
+
+[deps]
+
+source_file="res://models/props/toon_props/philosophers_stone/philosophersStone.fbx"
+dest_files=["res://.godot/imported/philosophersStone.fbx-4b40c923d482dffb0fb68b6ef9c7905f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=20.0
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"philosophersStoneShader": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/props/toon_props/philosophers_stone/philosophersStoneMat.tres",
+"use_external/path": "uid://kn8t8j3sb02n"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=true
+fbx/embedded_image_handling=1
+fbx/naming_version=2

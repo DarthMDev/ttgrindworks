@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://des2gks6nsuxn"]
+
+[ext_resource type="Texture2D" uid="uid://bs3kjucuht6gm" path="res://ui_assets/battle/gags/inventory_hypno_goggles.png" id="1_3pysm"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_t50da"]
+[ext_resource type="Script" uid="uid://bhwdra33paa84" path="res://objects/items/custom/super_hypno/item_super_hypno.gd" id="2_l8ibt"]
+[ext_resource type="PackedScene" uid="uid://dutlohe40lm4o" path="res://models/props/gags/hypno_goggles/hypno_goggles_v2.tscn" id="3_l8ibt"]
+
+[resource]
+script = ExtResource("1_t50da")
+active_type = 1
+charge_count = 5
+current_charge = 5
+qualitoon = 4
+world_scale = 0.15
+item_name = "Super Hypno Goggles"
+item_description = "You're getting verrrrry sleepy..."
+big_description = "Stuns all Cogs in battle for 2 rounds"
+model = ExtResource("3_l8ibt")
+item_script = ExtResource("2_l8ibt")
+icon = ExtResource("1_3pysm")
+shop_category_title = "Pocket Pranks"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"
