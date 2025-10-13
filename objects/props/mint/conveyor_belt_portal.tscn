@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://6w7qnjyug5fe"]
+
+[ext_resource type="PackedScene" uid="uid://cvdy66nm5xl3v" path="res://models/props/facility_objects/mint/conveyor_belt_portal/conveyor_belt_portal.fbx" id="1_umg7s"]
+[ext_resource type="Script" uid="uid://bwouq015wh5e2" path="res://objects/props/mint/conveyor_belt_portal.gd" id="2_ugxt3"]
+[ext_resource type="Texture2D" uid="uid://dmktgoh80xa74" path="res://models/props/facility_objects/mint/conveyor_belt_portal/LocomotiveLight1.png" id="3_0j6cr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jh64"]
+resource_local_to_scene = true
+resource_name = "LocomotiveLight1"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_0j6cr")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umg7s"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ugxt3"]
+material = SubResource("StandardMaterial3D_umg7s")
+
+[node name="conveyor_belt_portal" instance=ExtResource("1_umg7s")]
+script = ExtResource("2_ugxt3")
+
+[node name="conveyor_belt_portal" parent="." index="0"]
+unique_name_in_owner = true
+surface_material_override/2 = SubResource("StandardMaterial3D_6jh64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(-2.19426e-07, 0, 5.01989, 0, 5.01989, 0, -5.01989, 0, -2.19426e-07, -0.289035, 2.53583, 0)
+mesh = SubResource("QuadMesh_ugxt3")

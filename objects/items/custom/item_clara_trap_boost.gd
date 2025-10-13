@@ -2,6 +2,7 @@ extends ItemScript
 
 const BOOST_STATS = ['damage','defense','evasiveness','luck','speed','hp']
 const STAGGER_TIME := 0.5
+const BOOST_KEEP := 0.1
 
 var boosters: Array[StatMultiplier] = []
 
@@ -20,13 +21,26 @@ func setup() -> void:
 
 func on_floor_start(game_floor: GameFloor) -> void:
 	game_floor.s_floor_ended.connect(on_floor_end)
+	for stat in BOOST_STATS:
+		if not stat == 'hp':
+			initialize_booster(stat)
+
+func initialize_booster(stat: String) -> StatMultiplier:
+	var booster := StatMultiplier.new()
+	booster.stat = stat
+	booster.amount = 0.0
+	Util.get_player().stats.multipliers.append(booster)
+	boosters.append(booster)
+	return booster
 
 # Clear out boosters at end of floor
 func on_floor_end() -> void:
 	var player := Util.get_player()
 	for i in range(player.stats.multipliers.size() - 1, -1, -1):
 		if player.stats.multipliers[i] in boosters:
+			var booster: StatMultiplier = player.stats.multipliers[i]
 			player.stats.multipliers.remove_at(i)
+			player.stats.set(booster.stat, player.stats.get(booster.stat) + (booster.amount * BOOST_KEEP))
 	boosters.clear()
 
 
@@ -45,17 +59,23 @@ func scan_gags(gags: Array[ToonAttack]) -> void:
 			gag.s_activate.connect(add_booster)
 
 func add_booster() -> void:
-	var stat: String = BOOST_STATS[RandomService.randi_channel('true_random') % BOOST_STATS.size()]
+	var boost_stats = BOOST_STATS.duplicate(true)
+	if Util.get_player().stats.hp == Util.get_player().stats.max_hp:
+		boost_stats.erase('hp')
+	var stat: String = boost_stats.pick_random()
 	if stat == 'hp':
 		Util.get_player().quick_heal(int(ceil(Util.get_player().stats.max_hp * 0.25)))
 	else:
-		var booster := StatMultiplier.new()
-		booster.stat = stat
-		booster.amount = 0.05 * float(RandomService.randi_channel('true_random') % 2 + 1)
-		Util.get_player().stats.multipliers.append(booster)
-		boosters.append(booster)
+		var booster: StatMultiplier
+		for boost in boosters:
+			if boost.stat == stat:
+				booster = boost
+		if not booster:
+			booster = initialize_booster(stat)
+		# Increase the booster amount
+		booster.amount += 0.05 * float(randi() % 2 + 1)
 		queue_text(stat.to_upper() + " UP!")
-	print(stat + " boost applied.")
+		print("%.2f %s boost applied" % [booster.amount, stat])
 
 func do_battle_text(text: String) -> void:
 	var battle_manager: BattleManager = BattleService.ongoing_battle

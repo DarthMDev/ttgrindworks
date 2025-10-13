@@ -15,6 +15,12 @@ const EDGE_REGULAR_MAT := preload("res://objects/obstacles/paint_platform/edge_r
 @export var speed := 3.0
 @export var loop_wait_delay := 0.0
 @export var trans_type := Tween.TransitionType.TRANS_QUAD
+@export var shaft_length := 1.0:
+	set(x):
+		shaft_length = x
+		await NodeGlobals.until_ready(self)
+		%PaintMixerBase.scale.z = 0.01 * shaft_length
+		%ShaftCollide.scale.z = 0.01 * shaft_length
 
 @export var points: Array[Vector3] = []
 
@@ -27,8 +33,10 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		set_process(false)
 		return
+	if not points:
+		return
 
-	points = points.duplicate()
+	points = points.duplicate(true)
 	
 	points.append(position)
 	
@@ -60,7 +68,10 @@ func _process(_delta):
 		return
 	# There is a bug that causes these platforms to go wacky bonkers
 	# So this forces their rotation to not go wacky bonkers
-	global_rotation.y = 0.0
+	if points:
+		global_rotation.y = 0.0
+	else:
+		position = Vector3.ZERO
 
 func update_texture() -> void:
 	top.set_surface_override_material(0, EDGE_PAINT_MAT if texture_type == TextureType.PAINT else EDGE_REGULAR_MAT)

@@ -8,35 +8,18 @@
 
 [resource]
 script = ExtResource("1_6b7hg")
-sfx = Array[AudioStream]([])
 active_type = 1
 charge_count = 3
 current_charge = 3
-custom_discharge_time = 1.0
-item_tags = 0
 qualitoon = 2
-rarity = 0
-evergreen = false
-realtime = false
-slot = 0
 world_scale = 0.3
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Fire Hydrant"
 item_description = "Water you doing?!"
 big_description = "Causes all cogs in battle to become drenched."
 model = ExtResource("3_mipkj")
 pickup_sfx = ExtResource("4_wqnbm")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("2_wqnbm")
-remember_item = true
 icon = ExtResource("1_wqnbm")
 shop_category_title = "Pocket Prank"
 shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
-force_show_shop_category = false
-custom_shop_price = 0
 metadata/_custom_type_script = "uid://5uwfsntxdag6"

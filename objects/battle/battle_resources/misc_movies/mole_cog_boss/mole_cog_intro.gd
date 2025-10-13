@@ -1,5 +1,4 @@
 extends BattleStartMovie
-class_name MoleCogIntro
 
 
 const SFX_HIT := preload("res://audio/sfx/objects/moles/Mole_Stomp.ogg")
@@ -52,14 +51,16 @@ func play() -> Tween:
 	
 	# Mole Pops Up
 	movie.tween_callback(set_camera_angle.bind('MoleFocus'))
+	movie.tween_callback(player.toon.hide)
 	movie.tween_property(mole_hill.mole_cog, 'position:y', MoleHole.UP_Y, 1.0)
 	movie.tween_interval(2.0)
+	movie.tween_callback(player.toon.show)
 	
 	# Player tries to stomp and gets launched
 	movie.tween_callback(set_camera_angle.bind('StompCam'))
 	movie.tween_callback(player.set_animation.bind('run'))
 	movie.tween_property(player, 'global_position', get_char_position('StompPos'), 0.25)
-	movie.tween_callback(player.set_animation.bind('slip_backward'))
+	movie.tween_callback(player.set_animation.bind('slip-backward'))
 	movie.tween_callback(shake_camera.bind(camera, 1.0, 0.1, true, false))
 	movie.tween_callback(AudioManager.play_sound.bind(SFX_FLYBACK))
 	movie.tween_callback(AudioManager.play_sound.bind(SFX_HIT))
@@ -79,7 +80,7 @@ func play() -> Tween:
 	
 	# Mole Cog Speaks
 	movie.tween_callback(battle_node.focus_character.bind(mole_cog, -4.0))
-	movie.tween_callback(mole_cog.speak.bind(STARTER_PHRASES[RandomService.randi_channel('true_random') % STARTER_PHRASES.size()]))
+	movie.tween_callback(mole_cog.speak.bind(STARTER_PHRASES.pick_random()))
 	movie.tween_interval(4.0)
 	movie.tween_callback(start_music)
 	movie.tween_callback(mole_hill.hide)

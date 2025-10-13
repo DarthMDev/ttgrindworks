@@ -175,9 +175,8 @@ texture_normal = ExtResource("11_gwwfa")
 texture_pressed = ExtResource("12_56pnv")
 texture_hover = ExtResource("13_sp0y4")
 texture_disabled = ExtResource("12_56pnv")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "BUY"
+font_size = 24.0
 
 [node name="Label" parent="Panel/BuyButton" index="0"]
 text = "BUY"
@@ -196,8 +195,7 @@ grow_vertical = 2
 texture_normal = ExtResource("5_erq7r")
 texture_pressed = ExtResource("6_ott2t")
 texture_disabled = ExtResource("7_ytlpl")
-hover_db_offset = 6.0
-press_db_offset = 0.0
+font_size = 36.0
 
 [node name="ArrowRight" parent="Panel" instance=ExtResource("3_8ehwg")]
 layout_mode = 1
@@ -216,8 +214,7 @@ scale = Vector2(-1, 1)
 texture_normal = ExtResource("5_erq7r")
 texture_pressed = ExtResource("6_ott2t")
 texture_disabled = ExtResource("7_ytlpl")
-hover_db_offset = 6.0
-press_db_offset = 0.0
+font_size = 36.0
 
 [node name="DescPanel" type="Control" parent="Panel"]
 unique_name_in_owner = true
@@ -351,9 +348,8 @@ texture_normal = ExtResource("11_gwwfa")
 texture_pressed = ExtResource("12_56pnv")
 texture_hover = ExtResource("13_sp0y4")
 texture_disabled = ExtResource("12_56pnv")
-hover_db_offset = 6.0
-press_db_offset = 0.0
 text = "EXIT"
+font_size = 28.0
 
 [node name="Label" parent="ExitButton" index="0"]
 text = "EXIT"

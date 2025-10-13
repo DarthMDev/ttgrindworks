@@ -124,10 +124,10 @@ visible = false
 
 [node name="ENTRANCE" parent="." index="3"]
 transform = Transform3D(-100, 8.74228e-06, 3.82137e-13, 0, -4.37114e-06, 100, 8.74228e-06, 100, 4.37114e-06, -6.25868, 10.1414, -24.9948)
-visible = false
 
 [node name="Node3D" parent="ENTRANCE" index="0"]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+visible = false
 
 [node name="EXIT" parent="." index="4"]
 transform = Transform3D(-4.37114e-06, 100, 4.37114e-06, 0, -4.37114e-06, 100, 100, 4.37114e-06, 1.91069e-13, 29.7258, 10.1414, 1.62619)
@@ -150,7 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 2.5)
 curve = SubResource("Curve3D_lmbys")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.67229)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -161,7 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 9, 2.5)
 curve = SubResource("Curve3D_qc6ci")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.55941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 path = NodePath("../Path3D")
 speed = 3.2
 
@@ -172,7 +172,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 8.
 curve = SubResource("Curve3D_y0jop")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform6" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.7269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -183,7 +183,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 9,
 curve = SubResource("Curve3D_w62v0")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform7" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
 path = NodePath("../Path3D")
 speed = 3.2
 
@@ -194,7 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 8.5)
 curve = SubResource("Curve3D_qiag1")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform4" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9137, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 path = NodePath("../Path3D")
 speed = 4.0
 
@@ -205,7 +205,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 1
 curve = SubResource("Curve3D_1qr6a")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform8" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.864383, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 path = NodePath("../Path3D")
 speed = 4.0
 
@@ -216,7 +216,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10, 8.5)
 curve = SubResource("Curve3D_8ccya")
 
 [node name="ElevatingPlatform" parent="Platforms/Plaform5" index="1" node_paths=PackedStringArray("path") instance=ExtResource("4_edefv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.312697, 0)
 path = NodePath("../Path3D")
 speed = 0.75
 

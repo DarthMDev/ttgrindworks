@@ -9,7 +9,7 @@ const WALK_SPD := 2.0
 const GRAVITY := -9.8
 const DIG_CHANCE := 2
 const CHEST_CHANCE := 2
-const TREASURE_POOL := preload("res://objects/items/pools/doodle_treasure.tres")
+var TREASURE_POOL: ItemPool
 
 ## ANIM CONSTANTS
 const TELEPORT_HOLE := preload('res://objects/misc/teleport_hole/teleport_hole.tscn')
@@ -74,6 +74,18 @@ var item : Item: # For arbitrary value storage
 	set(x):
 		item = x
 		sync_item()
+
+func _init():
+	# GameLoader Requirement:
+	# - doodle_treasure.tres has a very large dependency chain.
+	#   Since this script extends Node and has a class_name, the editor will try
+	#   to load all dependencies of it. This causes a large lag spike if preloaded.
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'TREASURE_POOL': 'res://objects/items/pools/doodle_treasure.tres'
+	})
+
+func _ready() -> void:
+	shadow.reparent(doodle.shadow_bone)
 
 func _physics_process(delta : float) -> void:
 	match state:
@@ -160,8 +172,8 @@ func _physics_process_await(_delta) -> void:
 	
 	# Go to a random position near the player
 	global_position = player.position
-	global_position.x += RandomService.randf_range_channel('doodle_dig', -NAV_RADIUS / 2.0, NAV_RADIUS / 2.0)
-	global_position.z += RandomService.randf_range_channel('doodle_dig', -NAV_RADIUS / 2.0, NAV_RADIUS / 2.0)
+	global_position.x += RNG.channel(RNG.ChannelDoodleDig).randf_range(-NAV_RADIUS / 2.0, NAV_RADIUS / 2.0)
+	global_position.z += RNG.channel(RNG.ChannelDoodleDig).randf_range(-NAV_RADIUS / 2.0, NAV_RADIUS / 2.0)
 	
 	# If you can walk to the player from here, it's (probably) a legal space.
 	nav.target_position = player.global_position
@@ -173,8 +185,8 @@ func get_goal_pos() -> Vector3:
 		return player.global_position
 	else:
 		var new_pos := global_position
-		new_pos.x += RandomService.randf_range_channel('doodle_dig', -NAV_RADIUS, NAV_RADIUS)
-		new_pos.z += RandomService.randf_range_channel('doodle_dig', -NAV_RADIUS, NAV_RADIUS)
+		new_pos.x += RNG.channel(RNG.ChannelDoodleDig).randf_range(-NAV_RADIUS, NAV_RADIUS)
+		new_pos.z += RNG.channel(RNG.ChannelDoodleDig).randf_range(-NAV_RADIUS, NAV_RADIUS)
 		return new_pos
 
 func goal_reached(try_for_dig := true) -> void:
@@ -184,7 +196,7 @@ func goal_reached(try_for_dig := true) -> void:
 	
 	want_goal = false
 	set_animation('neutral')
-	if not following_player and try_for_dig and RandomService.randi_channel('doodle_dig') % DIG_CHANCE == 0 and mood == DoodleMood.HAPPY:
+	if not following_player and try_for_dig and RNG.channel(RNG.ChannelDoodleDig).randi() % DIG_CHANCE == 0 and mood == DoodleMood.HAPPY:
 		dig()
 	else:
 		nav_reset()
@@ -195,7 +207,7 @@ func nav_reset() -> void:
 	reset_timer()
 
 func reset_timer() -> void:
-	nav_timer.wait_time = RandomService.randf_range_channel('doodle_dig', nav_pause_range.x, nav_pause_range.y)
+	nav_timer.wait_time = RNG.channel(RNG.ChannelDoodleDig).randf_range(nav_pause_range.x, nav_pause_range.y)
 	nav_timer.start()
 
 func nav_pause_finished() -> void:
@@ -211,30 +223,30 @@ func get_player_dist() -> float:
 func is_target_reached() -> bool:
 	return global_position.distance_to(nav.target_position) < nav.target_desired_distance
 
-func set_goal_pos(pos : Vector3) -> void:
+func set_goal_pos(pos: Vector3) -> void:
 	nav.target_position = pos
 
-func set_animation(anim : String) -> void:
+func set_animation(anim: String) -> void:
 	if animator.has_animation(anim + "_" + get_mood_string(mood)):
 		doodle.set_animation(anim + "_" + get_mood_string(mood))
 	else:
 		doodle.set_animation(anim)
 
-func get_mood_string(doodle_mood : DoodleMood) -> String:
+func get_mood_string(doodle_mood: DoodleMood) -> String:
 	return str(DoodleMood.keys()[doodle_mood as int]).to_lower()
 
 func get_animation() -> String:
 	return doodle.animator.current_animation
 
-func face_position(pos : Vector3) -> void:
-	var rot : Vector3 = doodle.rotation
+func face_position(pos: Vector3) -> void:
+	var rot: Vector3 = doodle.rotation
 	doodle.look_at(pos)
 	rot.y = doodle.rotation.y
 	doodle.rotation = rot
 	doodle.rotation_degrees.y -= 180.0
 
 ## Object reacts to battle starting
-func battle_started(battle : BattleNode) -> void:
+func battle_started(battle: BattleNode) -> void:
 	if state == DoodleState.STOPPED:
 		return
 	
@@ -256,8 +268,8 @@ func battle_started(battle : BattleNode) -> void:
 
 func get_attack() -> DoodleAction:
 	if not doodle_actions.is_empty():
-		var action := doodle_actions[RandomService.randi_channel('true_random') % doodle_actions.size()]
-		action = action.duplicate()
+		var action: DoodleAction = doodle_actions.pick_random()
+		action = action.duplicate(true)
 		action.user = self
 		action.targets = [player]
 		return action
@@ -270,7 +282,7 @@ func teleport_away(new_state := DoodleState.STOPPED) -> void:
 	hole = TELEPORT_HOLE.instantiate()
 	hole_placement.add_child(hole)
 	hole.scale *= 0.4
-	var hole_animator : AnimationPlayer = hole.get_node('AnimationPlayer')
+	var hole_animator: AnimationPlayer = hole.get_node('AnimationPlayer')
 	
 	# Kill the old tween if it exists
 	if tween:
@@ -291,6 +303,7 @@ func teleport_away(new_state := DoodleState.STOPPED) -> void:
 	tween.tween_callback(hole_animator.play.bind('shrink'))
 	tween.tween_interval(0.5)
 	tween.tween_callback(shadow.hide)
+	tween.tween_callback(func(): shadow.force_hide = true)
 	tween.tween_callback(doodle.hide)
 	tween.tween_callback(hole.queue_free)
 	
@@ -304,7 +317,7 @@ func teleport_in(new_state := DoodleState.STOPPED) -> void:
 	hole = TELEPORT_HOLE.instantiate()
 	hole_placement.add_child(hole)
 	hole.scale *= 0.4
-	var hole_animator : AnimationPlayer = hole.get_node('AnimationPlayer')
+	var hole_animator: AnimationPlayer = hole.get_node('AnimationPlayer')
 	
 	# Play the sfx
 	play_sfx(SFX_TP_IN)
@@ -313,6 +326,7 @@ func teleport_in(new_state := DoodleState.STOPPED) -> void:
 	tween = create_tween()
 	tween.tween_callback(doodle.show)
 	tween.tween_callback(shadow.show)
+	tween.tween_callback(func(): shadow.force_hide = false)
 	tween.tween_callback(set_animation.bind('appear'))
 	tween.tween_callback(hole_animator.play.bind('grow'))
 	tween.tween_interval(0.5)
@@ -325,7 +339,7 @@ func dig() -> void:
 	state = DoodleState.DIG
 	
 	# Roll for chest digup
-	var success := RandomService.randi_channel('doodle_chests') % CHEST_CHANCE == 0
+	var success := RNG.channel(RNG.ChannelDoodleChests).randi() % CHEST_CHANCE == 0
 	
 	# Create the hole
 	hole = TELEPORT_HOLE.instantiate()
@@ -360,7 +374,7 @@ func dig() -> void:
 		# Create tween remainder
 		tween.tween_callback(AudioManager.play_sound.bind(SFX_TREASURE))
 		tween.tween_callback(chest.show)
-		tween.tween_property(chest,'global_position:y',4.0,0.5).as_relative()
+		tween.tween_property(chest, 'global_position:y', 4.0, 0.5).as_relative()
 		mood = DoodleMood.NEUTRAL
 	
 	# Doodle should run very excitedly to player to show them
@@ -393,12 +407,12 @@ func battle_ending() -> void:
 
 
 func battle_ended() -> void:
-	if not mood == DoodleMood.HAPPY and RandomService.randi_channel('doodle_mood') % 4 == 0:
+	if not mood == DoodleMood.HAPPY and RNG.channel(RNG.ChannelDoodleMood).randi() % 4 == 0:
 		mood = DoodleMood.HAPPY
 	state = DoodleState.NAVIGATE
 
 @warning_ignore("unused_parameter")
-func _state_change(old_state : DoodleState, new_state : DoodleState) -> void:
+func _state_change(old_state: DoodleState, new_state: DoodleState) -> void:
 	cancel_anim()
 	
 	# State-specific changes
@@ -407,6 +421,6 @@ func _state_change(old_state : DoodleState, new_state : DoodleState) -> void:
 			want_goal = true
 			following_player = true
 
-func play_sfx(stream : AudioStream) -> void:
+func play_sfx(stream: AudioStream) -> void:
 	sfx_player.set_stream(stream)
 	sfx_player.play()

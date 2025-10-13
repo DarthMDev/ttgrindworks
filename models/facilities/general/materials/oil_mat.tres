@@ -13,8 +13,8 @@ fractal_lacunarity = 1.0
 fractal_weighted_strength = 0.95
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r0pwm"]
-seamless = true
 noise = SubResource("FastNoiseLite_mqphr")
+seamless = true
 
 [resource]
 resource_name = "lava"

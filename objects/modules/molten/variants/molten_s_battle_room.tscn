@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dssh2k2ptyhgi"]
+
+[ext_resource type="PackedScene" uid="uid://jhk4wbj4x47o" path="res://objects/modules/molten/base_rooms/molten_s_room.tscn" id="1_xxjpe"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_jponw"]
+[ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="4_84alc"]
+[ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="5_yo7mb"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="6_2e88b"]
+[ext_resource type="PackedScene" uid="uid://byrmf687ynghb" path="res://objects/props/mint/pipes/pipes_d1.tscn" id="6_dqxxv"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="7_74tsh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nynd3"]
+size = Vector3(22.3186, 14.7354, 7.19757)
+
+[node name="molten_s_room" instance=ExtResource("1_xxjpe")]
+
+[node name="ENTRANCE" parent="." index="2"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.610046, 0.0502219, 11.2515)
+
+[node name="Fences" parent="." index="4"]
+visible = false
+
+[node name="BattleNodeDynamic" parent="." index="8" node_paths=PackedStringArray("cogs") instance=ExtResource("3_jponw")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.595821, 0.0254429, -1.6144)
+cog_range = Vector2i(2, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.04245, 6.86768, -0.952823)
+shape = SubResource("BoxShape3D_nynd3")
+
+[node name="BattleNodeDynamic2" parent="." index="9" node_paths=PackedStringArray("cogs") instance=ExtResource("3_jponw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1684, 0.0254429, -14.582278)
+cog_range = Vector2i(2, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BattleNodeDynamic2" index="4"]
+transform = Transform3D(1.0000004, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, 1.0000004, -2.7536125, 6.86768, -1.8836584)
+shape = SubResource("BoxShape3D_nynd3")
+
+[node name="Props" type="Node3D" parent="." index="10"]
+
+[node name="mint_crate" parent="Props" index="0" instance=ExtResource("4_84alc")]
+transform = Transform3D(1.78953, 0, 0.190709, 0, 1.79967, 0, -0.190709, 0, 1.78953, 3.61609, 0.0520161, 7.4639473)
+
+[node name="shelf2" parent="Props" index="1" instance=ExtResource("5_yo7mb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7338, 0.0812005, 9.10919)
+
+[node name="pipes_D1" parent="Props" index="2" instance=ExtResource("6_dqxxv")]
+transform = Transform3D(0.699856, 0, 0, 0, 0.699856, 0, 0, 0, 0.699856, -10.3931, -0.0169062, -8.67256)
+
+[node name="shelf3" parent="Props" index="3" instance=ExtResource("5_yo7mb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.2278, 0.0811995, 1.92028)
+
+[node name="shelf4" parent="Props" index="4" instance=ExtResource("5_yo7mb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.0204, 0.0811995, 1.92028)
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="15" instance=ExtResource("6_2e88b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.082151)
+script = ExtResource("7_74tsh")

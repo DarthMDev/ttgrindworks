@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctmdkttdjm51l"]
+
+[ext_resource type="PackedScene" uid="uid://be73enqtcrcmc" path="res://models/props/facility_objects/typewriter/Typewriter.fbx" id="1_f7bm7"]
+[ext_resource type="Texture2D" uid="uid://d0ewjw15ne5hg" path="res://models/props/facility_objects/typewriter/tt_t_ara_cmg_typewriter_upscayl_4x_ultramix_balanced.png" id="2_g0ppj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80byo"]
+resource_name = "Typewriter"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_g0ppj")
+emission_enabled = true
+
+[node name="Typewriter" instance=ExtResource("1_f7bm7")]
+
+[node name="Typewriter" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_80byo")

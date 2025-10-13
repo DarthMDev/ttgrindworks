@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://tnnppqjvfyvh"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_lobag"]
+[ext_resource type="Texture2D" uid="uid://do0kl67778w6i" path="res://models/accessories/backpacks/spider_legs/tt_m_chr_avt_acc_pac_spiderLegs.glb-pix-1.png" id="2_cvgee"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_ry73o"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_u8oxf"]
+[ext_resource type="PackedScene" uid="uid://dkcpbjgbltmwx" path="res://models/accessories/backpacks/spider_legs/tt_m_chr_avt_acc_pac_spiderLegs.glb" id="3_u8oxf"]
+
+[sub_resource type="Resource" id="Resource_6hrev"]
+script = ExtResource("2_u8oxf")
+position = Vector3(0, 0.3, 1.18)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_uadw2"]
+script = ExtResource("2_u8oxf")
+body_type = 1
+position = Vector3(0, 0.53, 1.13)
+rotation = Vector3(19.87, 180, 0)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_u8oxf"]
+script = ExtResource("2_u8oxf")
+body_type = 2
+position = Vector3(0, 0.65, 1)
+rotation = Vector3(-7.44, 180, 0)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[resource]
+script = ExtResource("2_ry73o")
+accessory_placements = Array[ExtResource("1_lobag")]([SubResource("Resource_6hrev"), SubResource("Resource_uadw2"), SubResource("Resource_u8oxf")])
+qualitoon = 4
+slot = 3
+world_scale = 0.15
+item_name = "Spider Legs"
+item_description = "Some helping hands."
+big_description = "Allows you to hold an additional Pocket Prank."
+model = ExtResource("3_u8oxf")
+stats_add = {
+"active_reserve_size": 1
+}
+icon = ExtResource("2_cvgee")
+metadata/_custom_type_script = "uid://dvu24b3o8i3sj"

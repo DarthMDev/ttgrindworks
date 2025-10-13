@@ -46,13 +46,14 @@ _data = {
 &"lose": ExtResource("1_56hdu")
 }
 
-[node name="suitC-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone") instance=ExtResource("1_k6nmn")]
+[node name="suitC-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone", "shadow_bone") instance=ExtResource("1_k6nmn")]
 script = ExtResource("1_dmjlk")
 skeleton = NodePath("rig_deform/Skeleton3D")
 animator = NodePath("AnimationPlayer")
 head_scale = 5.0
 wrists_and_shoes = NodePath("rig_deform/Skeleton3D/Object")
 head_bone = NodePath("rig_deform/Skeleton3D/HeadBone")
+shadow_bone = NodePath("")
 is_lose = true
 
 [node name="Skeleton3D" parent="rig_deform" index="0"]

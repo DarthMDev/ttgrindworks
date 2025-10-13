@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://so2mx0lelrmh"]
+
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_2mlyb"]
+[ext_resource type="PackedScene" uid="uid://c0kh641y7aoyt" path="res://objects/items/custom/calculator/calculator_mod.tscn" id="1_bejox"]
+[ext_resource type="Script" uid="uid://bf4pdwrbf3swn" path="res://objects/items/custom/calculator/item_calculator.gd" id="1_jxmup"]
+[ext_resource type="Texture2D" uid="uid://bosyg0ok4k2x0" path="res://ui_assets/player_ui/pocket_prank_icons/calculator.png" id="1_n0hxp"]
+
+[resource]
+script = ExtResource("1_2mlyb")
+active_type = 1
+charge_count = 2
+current_charge = 2
+qualitoon = 1
+world_scale = 0.5
+item_name = "Calculator"
+item_description = "Carry the 1!"
+big_description = "Multiplies the max HP of all Cogs in battle by a random amount from 0.5x - 1.5x"
+model = ExtResource("1_bejox")
+item_script = ExtResource("1_jxmup")
+icon = ExtResource("1_n0hxp")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.92941177, 0.2627451, 0.2784314, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

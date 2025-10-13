@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://c2qc3efjj1l4x"]
+
+[ext_resource type="Texture2D" uid="uid://cenqitqyhpump" path="res://ui_assets/player_ui/pocket_prank_icons/watering_can.png" id="1_40q6e"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_x7vd6"]
+[ext_resource type="Script" uid="uid://dj2pvxny4g3po" path="res://objects/items/custom/item_watering_can.gd" id="2_aqwja"]
+[ext_resource type="PackedScene" uid="uid://dijbpg5dusgan" path="res://models/props/toon_props/watering_can/watering_can.tscn" id="3_aqwja"]
+
+[resource]
+script = ExtResource("1_x7vd6")
+active_type = 1
+charge_count = 3
+current_charge = 3
+tags = Array[int]([2])
+qualitoon = 2
+world_scale = 0.25
+item_name = "Watering Can"
+item_description = "Laff leech."
+big_description = "Grows flowers on the Cogs in battle, leeching 5% of the damage you do as a self heal"
+model = ExtResource("3_aqwja")
+item_script = ExtResource("2_aqwja")
+icon = ExtResource("1_40q6e")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://5hvtmu8sf5ub"]
+[gd_scene load_steps=5 format=3 uid="uid://5hvtmu8sf5ub"]
 
 [ext_resource type="Script" uid="uid://dqxltut4qssyo" path="res://objects/player/ui/timer/game_timer.gd" id="1_iduyu"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_tu3l7"]
@@ -7,8 +7,13 @@
 resource_local_to_scene = true
 font = ExtResource("2_tu3l7")
 font_size = 28
+font_color = Color(1, 1, 0, 1)
 shadow_size = 6
 shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.615686)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sscwl"]
+font = ExtResource("2_tu3l7")
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="GameTimer" type="Control"]
 z_index = 10
@@ -25,3 +30,21 @@ offset_right = 172.0
 offset_bottom = 46.0
 text = "00:00"
 label_settings = SubResource("LabelSettings_ndimm")
+
+[node name="SeedLabel" type="Label" parent="Label"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_top = 31.0
+offset_right = 196.0
+offset_bottom = 56.0
+text = "Seed: 123456789000"
+label_settings = SubResource("LabelSettings_sscwl")
+
+[node name="SeedButton" type="Button" parent="Label/SeedLabel"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0

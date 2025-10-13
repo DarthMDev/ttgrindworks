@@ -4,11 +4,6 @@
 
 [resource]
 script = ExtResource("1_0kyyg")
-accuracy = 75
-damage = 1
-ignore_stats = false
 summary = "You shouldn't have done that..."
 attack_lines = Array[String](["Are you stupid or something??"])
-target_type = 0
 action_name = "Gag Order Violated"
-one_time_use = false

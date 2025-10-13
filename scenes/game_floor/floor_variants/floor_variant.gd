@@ -15,6 +15,7 @@ static var ANOMALIES_POSITIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inspiration.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_victory_cry.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overstock.gd",
 ]
 static var ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
@@ -22,7 +23,8 @@ static var ANOMALIES_NEUTRAL: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_mixed_bag.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_status_report.gd",
-	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd"
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_stagnant_air.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_silly_waves.gd",
 ]
 static var ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
@@ -31,6 +33,7 @@ static var ANOMALIES_NEGATIVE: Array[String] = [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_time_crunch.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_double_trouble.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_bad_luck.gd",
 ]
 
 static var LEVEL_RANGES: Dictionary[int, Array] = {
@@ -63,20 +66,22 @@ static var LEVEL_RANGES: Dictionary[int, Array] = {
 ## Floor modification scripts to run
 @export var modifiers: Array[Script]
 
-## Optional. For if a floor variant should have a different boss set than usual.
-@export var end_rooms: Array[FacilityRoom]
+## Optional, additional rooms for the floor variant
+@export var room_pack: RoomPack
 
 ## Alternative version of the floor
 @export var alt_floor: FloorVariant
+@export var is_alt_floor := false
 
-@export var floor_icon: Texture2D
+@export var floor_icons: Array[Texture2D] = []
 
 ## Saved for game loading
 @export var anomalies: Array[Script] = []
 @export var reward: Item
 @export var level_range := Vector2i(1,12)
-@export var room_count := 11
+@export var room_count := 13
 @export var discard_item: Item
+@export var dynamic_music: AudioStreamInteractive = null
 
 
 ## Local vars not saved to
@@ -93,13 +98,13 @@ func get_anomalies() -> Array[Script]:
 	var mods: Array[Script] = []
 	
 	# Append a random amount of anomalies to the array
-	var mod_count := RandomService.randi_range_channel('floor_mods', 0, 3)
+	var mod_count := RNG.channel(RNG.ChannelFloorMods).randi_range(0, 3)
 	# Apply potential item anomaly boost
 	if Util.get_player() and Util.get_player().stats and Util.get_player().stats.anomaly_boost != 0:
 		mod_count += Util.get_player().stats.anomaly_boost
-	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate()
-	var anomaly_files_neutral: Array[String] = ANOMALIES_NEUTRAL.duplicate()
-	var anomaly_files_neg: Array[String] = ANOMALIES_NEGATIVE.duplicate()
+	var anomaly_files_pos: Array[String] = ANOMALIES_POSITIVE.duplicate(true)
+	var anomaly_files_neutral: Array[String] = ANOMALIES_NEUTRAL.duplicate(true)
+	var anomaly_files_neg: Array[String] = ANOMALIES_NEGATIVE.duplicate(true)
 
 	var no_negative_anomalies := false
 	if Util.get_player() and Util.get_player().no_negative_anomalies:
@@ -107,18 +112,18 @@ func get_anomalies() -> Array[Script]:
 		anomaly_files_neg = []
 
 	for i in mod_count:
-		var rng_val := RandomService.randf_channel('floor_mods')
+		var rng_val := RNG.channel(RNG.ChannelFloorMods).randf()
 		var mod_array: Array[String]
 		# Positive anomalies
 		if rng_val <= 0.3333:
 			mod_array = anomaly_files_pos
 			if mod_array.size() == 0:
-				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_neutral, anomaly_files_neg])
+				mod_array = RNG.channel(RNG.ChannelFloorMods).pick_random([anomaly_files_neutral, anomaly_files_neg])
 		# Neutral anomalies
 		elif rng_val <= 0.6666:
 			mod_array = anomaly_files_neutral
 			if mod_array.size() == 0:
-				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_pos, anomaly_files_neg])
+				mod_array = RNG.channel(RNG.ChannelFloorMods).pick_random([anomaly_files_pos, anomaly_files_neg])
 		# Negative anomalies
 		else:
 			if no_negative_anomalies:
@@ -126,10 +131,10 @@ func get_anomalies() -> Array[Script]:
 
 			mod_array = anomaly_files_neg
 			if mod_array.size() == 0:
-				mod_array = RandomService.array_pick_random('floor_mods', [anomaly_files_pos, anomaly_files_neutral])
+				mod_array = RNG.channel(RNG.ChannelFloorMods).pick_random([anomaly_files_pos, anomaly_files_neutral])
 
 		if mod_array.size() > 0:
-			var new_mod: String = RandomService.array_pick_random('floor_mods', mod_array)
+			var new_mod: String = RNG.channel(RNG.ChannelFloorMods).pick_random(mod_array)
 			var loaded_mod: Script = Util.universal_load(new_mod)
 			if not loaded_mod in modifiers:
 				mods.append(loaded_mod)
@@ -137,10 +142,11 @@ func get_anomalies() -> Array[Script]:
 
 	return mods
 
-func randomize_details() -> void:
+func randomize_details(roll_anomalies := true) -> void:
 	clear()
 	
-	anomalies = get_anomalies()
+	if roll_anomalies:
+		anomalies = get_anomalies()
 	anomaly_count = anomalies.size()
 
 	for anomaly: Script in anomalies:
@@ -156,6 +162,11 @@ func randomize_details() -> void:
 	# Add onto the room count for the difficulty
 	room_count += DIFFICULTY_ROOM_ADDITION * floor_difficulty
 	
+	# Slightly vary the facility lengths
+	var room_diff_roll := RNG.channel(RNG.ChannelRoomDiffRolls).randi_range(-2, 2)
+	room_count += 2 * room_diff_roll
+	
+	
 	# Get the default Cog Pool if none specified
 	if not cog_pool:
 		cog_pool = FALLBACK_COG_POOL
@@ -163,7 +174,7 @@ func randomize_details() -> void:
 ## Simple failsafe backend for mods or if we're ever testing on floors > 5
 ## I will not be testing how well balanced this is
 ## You modders can do that one yourselves I believe in you
-func get_calculated_level_range(difficulty: int) -> Vector2i:
+func get_calculated_level_range(_difficulty: int) -> Vector2i:
 	var base_range := Vector2i(LEVEL_RANGES[5][0], LEVEL_RANGES[5][1])
 	base_range *= (Util.floor_number ** Globals.floor_difficulty_increase)
 	return base_range
@@ -175,18 +186,19 @@ func randomize_item() -> void:
 	if not reward.evergreen:
 		discard_item = reward
 	else:
-		reward = reward.duplicate()
+		reward = reward.duplicate(true)
 	
 	# Handle rerolls
 	if not reward.s_reroll.is_connected(reward_rerolled):
 		reward.s_reroll.connect(reward_rerolled)
 	
-	var model := reward.model.instantiate()
-	model.hide()
-	Util.add_child(model)
-	if model.has_method("setup"):
-		model.setup(reward)
-	model.queue_free()
+	if reward.model:
+		var model := reward.model.instantiate()
+		model.hide()
+		Util.add_child(model)
+		if model.has_method("setup"):
+			model.setup(reward)
+		model.queue_free()
 
 func reward_rerolled() -> void:
 	randomize_item()
@@ -204,19 +216,23 @@ func clear() -> void:
 static var NEW_ANOMALY_BLOCKLIST := [
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd",
 	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_volatile_market.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_overstock.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_up.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_level_down.gd",
+	"res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_inflation.gd",
 ]
 ## Returns a new, compatible anomaly during a game floor
 func get_new_anomaly() -> Script:
-	var new_anomaly : Script
-	var no_negative : bool = Util.get_player().no_negative_anomalies
-	var possible_anomalies : Array[String] = []
+	var new_anomaly: Script
+	var no_negative: bool = Util.get_player().no_negative_anomalies
+	var possible_anomalies: Array[String] = []
 	possible_anomalies.append_array(ANOMALIES_POSITIVE)
 	possible_anomalies.append_array(ANOMALIES_NEUTRAL)
 	if not no_negative:
 		possible_anomalies.append_array(ANOMALIES_NEGATIVE)
 	
 	while not new_anomaly and not possible_anomalies.is_empty():
-		RandomService.array_shuffle_channel('true_random', possible_anomalies)
+		possible_anomalies.shuffle()
 		new_anomaly = load(possible_anomalies.pop_back())
 		if new_anomaly.resource_path in NEW_ANOMALY_BLOCKLIST:
 			new_anomaly = null
@@ -226,3 +242,9 @@ func get_new_anomaly() -> Script:
 				new_anomaly = null
 				break
 	return new_anomaly
+
+func load_all() -> void:
+	if floor_type:
+		floor_type.load_all()
+	if room_pack:
+		room_pack.load_all()

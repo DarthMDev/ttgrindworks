@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bce5tic37ix2c"]
+
+[ext_resource type="PackedScene" uid="uid://c7w5ajbenmohl" path="res://objects/modules/factory/variants/factory_connector_snake.tscn" id="1_rewsg"]
+[ext_resource type="PackedScene" uid="uid://bqvkntyk0ljsq" path="res://objects/goon/goon.tscn" id="2_lgu6f"]
+
+[sub_resource type="Curve3D" id="Curve3D_id3fd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14.572, 0, 0, 0, 0, 0, 0, -2.437623, 0, 14.567228, 0, 0, 0, 0, 0, 0, -2.260864, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Catwalk_Snake" instance=ExtResource("1_rewsg")]
+
+[node name="ENTRANCE" parent="." index="4"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.136198, -1.529, -4.352)
+
+[node name="EXIT" parent="." index="5"]
+transform = Transform3D(-4.3711346e-08, 0, 0.999999, 0, 0.999999, 0, -0.999999, 0, -4.3711346e-08, -7.402003, -1.529, 9.275)
+
+[node name="Goon1" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62460786, -1.5299814, -5.276655)
+
+[node name="goon" parent="Goon1" index="0" node_paths=PackedStringArray("path") instance=ExtResource("2_lgu6f")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+path = NodePath("../Path3D")
+
+[node name="Path3D" type="Path3D" parent="Goon1" index="1"]
+curve = SubResource("Curve3D_id3fd")

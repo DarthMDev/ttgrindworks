@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://j1ctodg7yi55"]
+
+[ext_resource type="Texture2D" uid="uid://cdhpmims8rxip" path="res://models/props/toon_props/philosophers_stone/philosophers_stone-pix-1.png" id="1_brylt"]
+[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_qflmo"]
+
+[resource]
+script = ExtResource("2_qflmo")
+progress_value = "special_chests_opened"
+quota = 20
+signal_source = 1
+signal_name = "s_special_chest_opened"
+achievement_name = "Alchemy"
+achievement_summary = "Unlocked Philosopher's Stone."
+hint = "Obtain valuable items."
+achievement_index = 34
+achievement_icon = ExtResource("1_brylt")
+use_achievement_background = true
+custom_background_color = Color(0.6, 0.2, 1, 1)
+metadata/_custom_type_script = "uid://bly70o6230roo"

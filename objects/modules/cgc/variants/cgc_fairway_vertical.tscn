@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c8317ugfvi2s7"]
+[gd_scene load_steps=53 format=4 uid="uid://c8317ugfvi2s7"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_uwh0y"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_edifh"]
@@ -52,6 +52,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lemun")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crsqn"]
+size = Vector3(63.701, 20.66882, 50.4635)
 
 [sub_resource type="QuadMesh" id="QuadMesh_p8xyp"]
 resource_local_to_scene = true
@@ -576,7 +579,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -893.357, 195.334, 525.526)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1466.34, 466.419, -4.728)
 
 [node name="CollisionShape3D" parent="RoomArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 11.4776, 1.30658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 10.260962, 1.30658)
+shape = SubResource("BoxShape3D_crsqn")
 
 [node name="ENTRANCE" parent="." index="26"]
 transform = Transform3D(-4.37114e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37114e-10, -31.3482, 0, -0.0306853)

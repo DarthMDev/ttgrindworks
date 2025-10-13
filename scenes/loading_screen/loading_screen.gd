@@ -12,7 +12,7 @@ func _ready() -> void:
 		file_as_array.remove_at(file_as_array.size() - 1)
 		tip_label.set_text(
 		"TOON TIP:\n" + 
-		file_as_array[RandomService.randi_channel('true_random') % file_as_array.size()]
+		file_as_array[randi() % file_as_array.size()]
 		)
 
 func load_scene(scene_path: String, load_phase: GameLoader.Phase = GameLoader.Phase.GAME_START) -> void:

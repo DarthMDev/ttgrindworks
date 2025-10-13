@@ -61,7 +61,7 @@ func is_winning() -> bool:
 	return abs(goal - value) < LEEWAY_RANGE
 
 func shift_goal() -> void:
-	set_goal(goal + [GOAL_SHIFT_AMOUNT, -GOAL_SHIFT_AMOUNT][RandomService.randi_channel('true_random') % 2])
+	set_goal(goal + [GOAL_SHIFT_AMOUNT, -GOAL_SHIFT_AMOUNT][randi() % 2])
 
 func color_arrows() -> void:
 	if Input.is_action_pressed('move_left'):

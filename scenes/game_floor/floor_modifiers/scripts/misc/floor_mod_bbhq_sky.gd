@@ -12,7 +12,7 @@ func modify_floor() -> void:
 	skybox.scale *= 3.0
 
 	# Set up fog
-	var env: Environment = game_floor.environment.environment.duplicate()
+	var env: Environment = game_floor.environment.environment.duplicate(true)
 	env.background_energy_multiplier = 0.9
 	env.fog_enabled = true
 	env.fog_light_color = Color.BLACK

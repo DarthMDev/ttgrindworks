@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://dse2n0j4e6k6p"]
+
+[ext_resource type="Texture2D" uid="uid://sxghalxerr16" path="res://models/props/toon_props/silly_meter_parts/whistle_part-pix-1.png" id="1_0ykyl"]
+[ext_resource type="Script" uid="uid://dowqf2q1yc7xw" path="res://objects/items/custom/item_silly_whistle.gd" id="2_q3wbv"]
+[ext_resource type="PackedScene" uid="uid://d355gogwnfyw8" path="res://models/props/toon_props/silly_meter_parts/whistle_part.tscn" id="3_oames"]
+[ext_resource type="AudioStream" uid="uid://bo4hr3d75hgb5" path="res://audio/sfx/items/tt_s_prp_sillyMeterArrow.ogg" id="4_0ykyl"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="4_vfpsb"]
+
+[resource]
+script = ExtResource("4_vfpsb")
+qualitoon = 2
+rarity = 4
+world_scale = 0.7
+world_y_offset = -0.1
+item_name = "Wacky Whistle"
+item_description = "YEEEOOOWWCH!!!"
+big_description = "15% chance for +1 Pocket Prank charge when taking damage
+Chance scales with luck"
+model = ExtResource("3_oames")
+pickup_sfx = ExtResource("4_0ykyl")
+item_script = ExtResource("2_q3wbv")
+icon = ExtResource("1_0ykyl")
+shop_category_title = "Special Item"
+shop_category_color = Color(0.6, 0.2, 1, 1)
+force_show_shop_category = true

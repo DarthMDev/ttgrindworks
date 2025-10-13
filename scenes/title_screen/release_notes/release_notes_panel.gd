@@ -5,6 +5,7 @@ const RELEASES_PATH := "res://scenes/title_screen/release_notes/releases/"
 
 # Put new releases AT THE TOP
 static var all_releases: Array[ReleaseNote] = [
+	load(RELEASES_PATH + "v1.2.0.tres"),
 	load(RELEASES_PATH + "v1.1.3.tres"),
 	load(RELEASES_PATH + "v1.1.2.tres"),
 	load(RELEASES_PATH + "v1.1.1.tres"),
@@ -39,4 +40,4 @@ func select_entry(idx: int) -> void:
 		releases_container.add_child(selected_release.make_label_for_note(note))
 
 func open_browser() -> void:
-	OS.shell_open("https://toontowngrindworks.com") 
+	OS.shell_open("https://itsevan.itch.io/toontown-the-grindworks") 

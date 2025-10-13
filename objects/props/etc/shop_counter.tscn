@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvslagwd6sk4r"]
+[gd_scene load_steps=5 format=3 uid="uid://dvslagwd6sk4r"]
 
 [ext_resource type="PackedScene" uid="uid://bbrbj5ev7j0tl" path="res://models/props/toon_props/shop_counter/shop_counter.fbx" id="1_7jwor"]
+[ext_resource type="Texture2D" uid="uid://6ri1njtham8m" path="res://models/props/toon_props/shop_counter/shop_counter_1.png" id="2_rv87e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suv07"]
+resource_name = "CounterWood"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
+albedo_texture = ExtResource("2_rv87e")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rv87e"]
+size = Vector3(3.75098, 0.639999, 0.426056)
 
 [node name="shop_counter" instance=ExtResource("1_7jwor")]
 
-[node name="g2" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.5389, 0, 0)
+[node name="Counter" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_suv07")
+
+[node name="CounterCollision" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CounterCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13623, 0.299568, 0.154861)
+shape = SubResource("BoxShape3D_rv87e")

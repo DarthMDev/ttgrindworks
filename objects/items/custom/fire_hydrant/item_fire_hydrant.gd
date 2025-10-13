@@ -4,9 +4,6 @@ const HYDRANT := preload("res://models/props/gags/firehose/betterhydrant.tscn")
 const DRENCHED := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_drenched.tres")
 
 func use() -> void:
-	if not is_instance_valid(BattleService.ongoing_battle):
-		cancel_use()
-		return
 	
 	BattleService.ongoing_battle.battle_ui.cog_panels.reset(0)
 	await cutscene(BattleService.ongoing_battle.cogs)
@@ -59,7 +56,7 @@ func cutscene(cogs : Array[Cog]) -> void:
 		cog.set_animation('squirt-small')
 		
 		# Apply the drenched effect
-		var drenched = DRENCHED.duplicate()
+		var drenched = DRENCHED.duplicate(true)
 		drenched.target = cog
 		drenched.boost = Util.get_player().stats.get_stat('squirt_defense_boost')
 		BattleService.ongoing_battle.add_status_effect(drenched)

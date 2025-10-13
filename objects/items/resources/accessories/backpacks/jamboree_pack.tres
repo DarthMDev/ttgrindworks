@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bfiv6exev26qj"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://c7nalxfx8p1jp"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_vjyui"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="2_0yskw"]
@@ -9,50 +9,35 @@
 
 [sub_resource type="Resource" id="Resource_j7yfl"]
 script = ExtResource("2_vce8d")
-body_type = 0
-position = Vector3(0, 0.23, -1.03)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0, 0.49, 1.01)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="Resource" id="Resource_7erd4"]
 script = ExtResource("2_vce8d")
 body_type = 1
-position = Vector3(0.01, 0.34, -0.8)
-rotation = Vector3(0.01, 0, 0)
+position = Vector3(0.01, 0.34, 0.73)
+rotation = Vector3(0.01, 180, 0)
 scale = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="Resource" id="Resource_hkqv2"]
 script = ExtResource("2_vce8d")
 body_type = 2
-position = Vector3(0.01, 0.58, -0.46)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.58, 0.58)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.25, 0.25, 0.25)
 
 [resource]
 script = ExtResource("2_0yskw")
 accessory_placements = Array[ExtResource("1_vjyui")]([SubResource("Resource_j7yfl"), SubResource("Resource_7erd4"), SubResource("Resource_hkqv2")])
-item_tags = null
 qualitoon = 3
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.075
-world_y_offset = 0.0
-want_ui_spin = true
 ui_cam_offset = 0.25
 item_name = "Jamboree Pack"
 item_description = "Rude awakening!"
 big_description = "Grants Sound knockback damage."
 model = ExtResource("2_unwvj")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("3_0luck")
-remember_item = true
 icon = ExtResource("3_2je2v")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

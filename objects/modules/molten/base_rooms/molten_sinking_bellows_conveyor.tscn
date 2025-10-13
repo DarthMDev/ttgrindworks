@@ -1,0 +1,392 @@
+[gd_scene load_steps=44 format=3 uid="uid://c3wmk5472uct3"]
+
+[ext_resource type="PackedScene" uid="uid://dkd611gwy4wt3" path="res://models/facilities/molten/molten_sinking_bellows_conveyor.fbx" id="1_g0873"]
+[ext_resource type="Texture2D" uid="uid://bu8qxxy356cku" path="res://models/facilities/molten/textures/LB_CementWall_1.png" id="2_1k1vh"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_so0k5"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="2_y4vda"]
+[ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="3_xfsnw"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="4_1k1vh"]
+[ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="4_dj6h2"]
+[ext_resource type="Shader" uid="uid://463makg7epmn" path="res://general_resources/shaders/molten_lavafalls.tres" id="4_us7du"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="5_o0oxw"]
+[ext_resource type="Texture2D" uid="uid://b14pa1232wtue" path="res://models/facilities/molten/textures/FINALFACTORY_101.png" id="5_us7du"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="6_7f8tk"]
+[ext_resource type="PackedScene" uid="uid://mmocb33ecqd6" path="res://objects/obstacles/stomper/stomper.tscn" id="7_ygam3"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="9_o0oxw"]
+[ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="10_ha7se"]
+[ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="11_dj6h2"]
+[ext_resource type="Shader" uid="uid://b4l5edm0sdpba" path="res://objects/obstacles/burner/shaders/innerburner.tres" id="12_vypwm"]
+[ext_resource type="Shader" uid="uid://vgg5px6wnyc" path="res://objects/obstacles/burner/shaders/outerburner.tres" id="13_kpyan"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="14_so0k5"]
+[ext_resource type="PackedScene" uid="uid://6w7qnjyug5fe" path="res://objects/props/mint/conveyor_belt_portal.tscn" id="15_us7du"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="17_kpyan"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_us7du"]
+resource_name = "metalgrate_rusted"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_so0k5")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dj6h2"]
+points = PackedVector3Array(0.06781311, 0.001286028, 0.0051784217, -0.06781311, 0.001286028, 0.0051784217, 0.06781311, -0.0012860307, 0.0051784217, 0.06781311, 0.001286028, -0.18164033, -0.06781311, -0.0012860307, 0.0051784217, -0.06781311, 0.001286028, -0.18164033, 0.06781311, -0.0012860307, -0.18164033, -0.06781311, -0.0012860307, -0.18164033)
+
+[sub_resource type="Gradient" id="Gradient_o0oxw"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.26666665, 0, 0.31764707)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7f8tk"]
+gradient = SubResource("Gradient_o0oxw")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.32905984)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygam3"]
+transparency = 1
+blend_mode = 1
+albedo_texture = SubResource("GradientTexture2D_7f8tk")
+emission = Color(0.84274095, 0.28238738, 0, 1)
+emission_energy_multiplier = 0.08
+uv1_scale = Vector3(1, -1.555, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ty18a"]
+resource_name = "LB_CementWall_1"
+next_pass = SubResource("StandardMaterial3D_ygam3")
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_1k1vh")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dj6h2"]
+data = PackedVector3Array(-0.0131, -0.0081, 0.0138, -0.0001, -0.0058999998, 0.023899999, 0.0053, -0.0047, -0.0056999996, 0.0053, -0.0047, -0.0056999996, -0.012999999, -0.0081, -0.0162, -0.0131, -0.0081, 0.0138, -0.0007, -0.006, -0.0234, -0.012999999, -0.0081, -0.0162, 0.0053, -0.0047, -0.0056999996, 0.0053, -0.0047, -0.0056999996, 0.011399999, -0.0033999998, -0.016999999, -0.0007, -0.006, -0.0234, 0.005, -0.0047999998, 0.0072, 0.0053, -0.0047, -0.0056999996, -0.0001, -0.0058999998, 0.023899999, 0.016099999, -0.0023999999, 0.0033, 0.0053, -0.0047, -0.0056999996, 0.005, -0.0047999998, 0.0072, 0.0067999996, -0.0044, 0.015199999, 0.005, -0.0047999998, 0.0072, -0.0001, -0.0058999998, 0.023899999, 0.1514, -0.0067999996, -0.078999996, 0.1908, -0.0067999996, -0.078999996, 0.1908, -0.0067999996, -0.12789999, 0.1908, -0.0067999996, -0.12789999, 0.1514, -0.0067999996, -0.12789999, 0.1514, -0.0067999996, -0.078999996, 0.1514, -0.0023, -0.078999996, 0.1514, -0.0067999996, -0.078999996, 0.1514, -0.0067999996, -0.12789999, 0.1514, -0.0067999996, -0.12789999, 0.1514, -0.0023, -0.12789999, 0.1514, -0.0023, -0.078999996, 0.088999994, -0.0053, 0.070599996, 0.0887, -0.0053, 0.1205, 0.1302, -0.0053, 0.1205, 0.1302, -0.0053, 0.1205, 0.1305, -0.0053, 0.070599996, 0.088999994, -0.0053, 0.070599996, 0.1305, -0.0053, 0.070599996, 0.1302, -0.0053, 0.1205, 0.1302, -0.00029999999, 0.1205, 0.1302, -0.00029999999, 0.1205, 0.1305, -0.00029999999, 0.070599996, 0.1305, -0.0053, 0.070599996, 0.0016999999, 0.006, 0.0126, 0.0002, 0.0056999996, 0.0058999998, 0.005, -0.0047999998, 0.0072, 0.005, -0.0047999998, 0.0072, 0.0067999996, -0.0044, 0.015199999, 0.0016999999, 0.006, 0.0126, -0.0042, 0.0047999998, 0.02, -0.0001, -0.0058999998, 0.023899999, -0.0131, -0.0081, 0.0138, -0.0131, -0.0081, 0.0138, -0.0131, 0.0030999999, 0.0115, -0.0042, 0.0047999998, 0.02, 0.0095, 0.0077, 0.0026, 0.016099999, -0.0023999999, 0.0033, 0.005, -0.0047999998, 0.0072, 0.005, -0.0047999998, 0.0072, 0.0002, 0.0056999996, 0.0058999998, 0.0095, 0.0077, 0.0026, 0.0055, 0.0069, -0.014599999, -0.0046, 0.0047, -0.02, -0.0007, -0.006, -0.0234, -0.0007, -0.006, -0.0234, 0.011399999, -0.0033999998, -0.016999999, 0.0055, 0.0069, -0.014599999, -0.0046, 0.0047, -0.02, -0.012999999, 0.0030999999, -0.0139, -0.012999999, -0.0081, -0.0162, -0.012999999, -0.0081, -0.0162, -0.0007, -0.006, -0.0234, -0.0046, 0.0047, -0.02, 0.0055, 0.0069, -0.014599999, 0.011399999, -0.0033999998, -0.016999999, 0.0053, -0.0047, -0.0056999996, 0.0053, -0.0047, -0.0056999996, 0.0004, 0.0058, -0.005, 0.0055, 0.0069, -0.014599999, 0.0053, -0.0047, -0.0056999996, 0.016099999, -0.0023999999, 0.0033, 0.0095, 0.0077, 0.0026, 0.0095, 0.0077, 0.0026, 0.0004, 0.0058, -0.005, 0.0053, -0.0047, -0.0056999996, -0.0042, 0.0047999998, 0.02, 0.0016999999, 0.006, 0.0126, 0.0067999996, -0.0044, 0.015199999, 0.0067999996, -0.0044, 0.015199999, -0.0001, -0.0058999998, 0.023899999, -0.0042, 0.0047999998, 0.02)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwnsj"]
+render_priority = 0
+shader = ExtResource("4_us7du")
+shader_parameter/Vector2Parameter = Vector2(0.15, 0)
+shader_parameter/Vector2Parameter2 = Vector2(0.03, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rjg3h"]
+frequency = 0.0636
+fractal_type = 3
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f36bp"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_rjg3h")
+seamless = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2o4jv"]
+load_path = "res://.godot/imported/lava7.png-a846c573883fab8f70d4f7136eb110a1.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcsf5"]
+resource_name = "lava"
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_cwnsj")
+shader = ExtResource("2_y4vda")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_2o4jv")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(1.88, 2.61, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.001
+shader_parameter/displacement = SubResource("NoiseTexture2D_f36bp")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh1kf"]
+resource_name = "FINALFACTORY_101"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_us7du")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vypwm"]
+data = PackedVector3Array(-0.0202, -0.0539, -0.0379, -0.0202, -0.0539, 0.0379, -0.0202, -0.0946, 0.0379, -0.0202, -0.0946, 0.0379, -0.0202, -0.0946, -0.0379, -0.0202, -0.0539, -0.0379, -0.0202, -0.1838, 0.0115, 0.0202, -0.1838, 0.0115, 0.0202, -0.1431, 0.0115, 0.0202, -0.1431, 0.0115, -0.0202, -0.1431, 0.0115, -0.0202, -0.1838, 0.0115, 0.0202, -0.020299999, 0.0379, 0.0202, 0.020299999, 0.0379, 0.0202, 0.020299999, -0.0379, 0.0202, 0.020299999, -0.0379, 0.0202, -0.020299999, -0.0379, 0.0202, -0.020299999, 0.0379, -0.0202, 0.020299999, 0.0379, -0.0202, -0.020299999, 0.0379, -0.0202, -0.020299999, -0.0379, -0.0202, -0.020299999, -0.0379, -0.0202, 0.020299999, -0.0379, -0.0202, 0.020299999, 0.0379, 0.0202, -0.1431, 0.0115, 0.0202, -0.1431, 0.0379, -0.0202, -0.1431, 0.0379, -0.0202, -0.1431, 0.0379, -0.0202, -0.1431, 0.0115, 0.0202, -0.1431, 0.0115, -0.0202, -0.020299999, -0.0379, 0.0202, -0.020299999, -0.0379, 0.0202, 0.020299999, -0.0379, 0.0202, 0.020299999, -0.0379, -0.0202, 0.020299999, -0.0379, -0.0202, -0.020299999, -0.0379, 0.0202, -0.1838, 0.0379, 0.0202, -0.1838, 0.0115, -0.0202, -0.1838, 0.0115, -0.0202, -0.1838, 0.0115, -0.0202, -0.1838, 0.0379, 0.0202, -0.1838, 0.0379, 0.0202, -0.0946, -0.0379, 0.0202, -0.0946, 0.0379, 0.0202, -0.0539, 0.0379, 0.0202, -0.0539, 0.0379, 0.0202, -0.0539, -0.0379, 0.0202, -0.0946, -0.0379, 0.0202, -0.0539, -0.0379, -0.0202, -0.0539, -0.0379, -0.0202, -0.0946, -0.0379, -0.0202, -0.0946, -0.0379, 0.0202, -0.0946, -0.0379, 0.0202, -0.0539, -0.0379, 0.0202, -0.020299999, 0.0379, 0.0202, -0.020299999, -0.0379, -0.0202, -0.020299999, -0.0379, -0.0202, -0.020299999, -0.0379, -0.0202, -0.020299999, 0.0379, 0.0202, -0.020299999, 0.0379, 0.0202, -0.0946, -0.0379, -0.0202, -0.0946, -0.0379, -0.0202, -0.0946, 0.0379, -0.0202, -0.0946, 0.0379, 0.0202, -0.0946, 0.0379, 0.0202, -0.0946, -0.0379, 0.0202, -0.0539, 0.0379, -0.0202, -0.0539, 0.0379, -0.0202, -0.0539, -0.0379, -0.0202, -0.0539, -0.0379, 0.0202, -0.0539, -0.0379, 0.0202, -0.0539, 0.0379, -0.0202, -0.1431, 0.0379, -0.0202, -0.1838, 0.0379, -0.0202, -0.1838, 0.0115, -0.0202, -0.1838, 0.0115, -0.0202, -0.1431, 0.0115, -0.0202, -0.1431, 0.0379, 0.0202, 0.020299999, -0.0379, 0.0202, 0.020299999, 0.0379, -0.0202, 0.020299999, 0.0379, -0.0202, 0.020299999, 0.0379, -0.0202, 0.020299999, -0.0379, 0.0202, 0.020299999, -0.0379, 0.0202, -0.1838, 0.0379, 0.0202, -0.1431, 0.0379, 0.0202, -0.1431, 0.0115, 0.0202, -0.1431, 0.0115, 0.0202, -0.1838, 0.0115, 0.0202, -0.1838, 0.0379)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwnsj"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("6_7f8tk")
+roughness = 0.552786
+uv1_scale = Vector3(1, 16.44, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh1kf"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("12_vypwm")
+shader_parameter/FirePanningSpeed = Vector2(1, 3.34)
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/Fresnel_visibility = 2.0
+shader_parameter/Flame_Visibility = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cwnsj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_boa2t"]
+noise = SubResource("FastNoiseLite_cwnsj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7hhc"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("13_kpyan")
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/fire_panning_speed = Vector2(0.5, 2)
+shader_parameter/FirePanningVisibility = 1.0
+shader_parameter/AddFresnelVisibility = 3.59
+shader_parameter/Noise_Texture = SubResource("NoiseTexture2D_boa2t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1yr2"]
+size = Vector3(3.8060303, 6.1987305, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_us7du"]
+size = Vector3(39.793915, 30.200378, 48.697327)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vypwm"]
+resource_name = "CFOCeiling2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("4_dj6h2")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kpyan"]
+data = PackedVector3Array(0.120299995, -0.0033999998, 0.0515, 0.023899999, -0.0033999998, -0.0583, -0.0229, -0.0033999998, -0.0583, -0.0229, -0.0033999998, -0.0583, -0.25259998, -0.0033999998, 0.0515, 0.120299995, -0.0033999998, 0.0515, 0.023899999, -0.0033999998, -0.1021, 0.023899999, -0.0033999998, -0.0583, 0.120299995, -0.0033999998, 0.0515, 0.120299995, -0.0033999998, 0.0515, 0.120299995, -0.0033999998, -0.28689998, 0.023899999, -0.0033999998, -0.1021, -0.0229, -0.0033999998, -0.1021, -0.25259998, -0.0033999998, -0.28689998, -0.25259998, -0.0033999998, 0.0515, -0.25259998, -0.0033999998, 0.0515, -0.0229, -0.0033999998, -0.0583, -0.0229, -0.0033999998, -0.1021, -0.25259998, -0.4109, 0.0515, -0.25259998, -0.3321, 0.0515, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.4109, -0.0332, -0.25259998, -0.4109, 0.0515, -0.25259998, -0.4109, -0.0332, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.3321, -0.28689998, -0.25259998, -0.3321, -0.28689998, -0.25259998, -0.4109, -0.28689998, -0.25259998, -0.4109, -0.0332, 0.120299995, -0.0033999998, -0.28689998, -0.25259998, -0.0033999998, -0.28689998, -0.0229, -0.0033999998, -0.1021, -0.0229, -0.0033999998, -0.1021, 0.023899999, -0.0033999998, -0.1021, 0.120299995, -0.0033999998, -0.28689998, 0.120299995, -0.29029998, 0.0515, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.0033999998, 0.0515, 0.120299995, -0.0033999998, -0.28689998, 0.120299995, -0.0033999998, 0.0515, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.29029998, -0.28689998, 0.120299995, -0.0033999998, -0.28689998, 0.120299995, -0.3326, -0.0296, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.29029998, 0.0515, 0.120299995, -0.29029998, 0.0515, 0.120299995, -0.3326, 0.0515, 0.120299995, -0.3326, -0.0296, 0.1497, -0.29029998, -0.0296, 0.1497, -0.3326, -0.0296, 0.1497, -0.3326, 0.0515, 0.1497, -0.3326, 0.0515, 0.1497, -0.20729999, 0.0515, 0.1497, -0.29029998, -0.0296, 0.1497, -0.3326, -0.0296, 0.1497, -0.29029998, -0.0296, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.3326, -0.0296, 0.1497, -0.3326, -0.0296, 0.24419999, -0.20729999, 0.0515, 0.24419999, -0.20729999, -0.107599996, 0.1497, -0.20729999, -0.107599996, 0.1497, -0.20729999, -0.107599996, 0.1497, -0.20729999, 0.0515, 0.24419999, -0.20729999, 0.0515, 0.1497, -0.20729999, -0.107599996, 0.1497, -0.29029998, -0.107599996, 0.1497, -0.29029998, -0.0296, 0.1497, -0.29029998, -0.0296, 0.1497, -0.20729999, 0.0515, 0.1497, -0.20729999, -0.107599996, 0.1497, -0.29029998, -0.107599996, 0.120299995, -0.29029998, -0.28689998, 0.120299995, -0.29029998, -0.0296, 0.120299995, -0.29029998, -0.0296, 0.1497, -0.29029998, -0.0296, 0.1497, -0.29029998, -0.107599996, -0.1549, -0.4109, 0.0515, -0.25259998, -0.4109, 0.0515, -0.25259998, -0.4109, -0.0332, -0.25259998, -0.4109, -0.0332, -0.1549, -0.4109, -0.0332, -0.1549, -0.4109, 0.0515, -0.1549, -0.3321, 0.0515, -0.1549, -0.4109, 0.0515, -0.1549, -0.4109, -0.0332, -0.1549, -0.4109, -0.0332, -0.1549, -0.3321, -0.1085, -0.1549, -0.3321, 0.0515, 0.24419999, -0.3321, -0.107599996, 0.24419999, -0.3321, 0.0515, -0.1549, -0.3321, 0.0515, -0.1549, -0.3321, 0.0515, -0.1549, -0.3321, -0.1085, 0.24419999, -0.3321, -0.107599996, 0.24419999, -0.20729999, 0.0515, 0.24419999, -0.3321, 0.0515, 0.24419999, -0.3321, -0.107599996, 0.24419999, -0.3321, -0.107599996, 0.24419999, -0.20729999, -0.107599996, 0.24419999, -0.20729999, 0.0515, -0.1549, -0.4109, -0.1085, -0.1549, -0.3321, -0.1085, -0.1549, -0.4109, -0.0332, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.0033999998, 0.0515, -0.25259998, -0.0033999998, -0.28689998, -0.25259998, -0.0033999998, -0.28689998, -0.25259998, -0.3321, -0.28689998, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.3321, -0.0332, -0.25259998, -0.3321, 0.0515, -0.25259998, -0.0033999998, 0.0515, 0.24419999, -0.29029998, -0.1085, 0.24419999, -0.3326, -0.1085, -0.25259998, -0.3326, -0.1085, -0.25259998, -0.3326, -0.1085, -0.25259998, -0.29029998, -0.1085, 0.24419999, -0.29029998, -0.1085, -0.25259998, -0.29029998, -0.1085, -0.25259998, -0.29029998, -0.2868, 0.24419999, -0.29029998, -0.2868, 0.24419999, -0.29029998, -0.2868, 0.24419999, -0.29029998, -0.1085, -0.25259998, -0.29029998, -0.1085, 0.1818, -0.2395, 0.0515, 0.1818, -0.3003, 0.0515, 0.2121, -0.3001, 0.0515, 0.1818, -0.3003, 0.0515, 0.1818, -0.2395, 0.0515, 0.1497, -0.20729999, 0.0515, 0.1497, -0.20729999, 0.0515, 0.1497, -0.3326, 0.0515, 0.1818, -0.3003, 0.0515, 0.2121, -0.3001, 0.0515, 0.2121, -0.2395, 0.0515, 0.1818, -0.2395, 0.0515, 0.1497, -0.20729999, 0.0515, 0.1818, -0.2395, 0.0515, 0.2121, -0.2395, 0.0515, 0.2121, -0.2395, 0.0515, 0.2121, -0.3001, 0.0515, 0.24419999, -0.3321, 0.0515, 0.2121, -0.2395, 0.0515, 0.24419999, -0.20729999, 0.0515, 0.1497, -0.20729999, 0.0515, 0.24419999, -0.3321, 0.0515, 0.24419999, -0.20729999, 0.0515, 0.2121, -0.2395, 0.0515, -0.19489999, -0.2298, 0.0515, -0.22289999, -0.3813, 0.0515, -0.1845, -0.3813, 0.0515, -0.1549, -0.4109, 0.0515, -0.1845, -0.3813, 0.0515, -0.22289999, -0.3813, 0.0515, -0.22289999, -0.3813, 0.0515, -0.25259998, -0.4109, 0.0515, -0.1549, -0.4109, 0.0515, -0.25259998, -0.3321, 0.0515, -0.25259998, -0.4109, 0.0515, -0.22289999, -0.3813, 0.0515, -0.22289999, -0.074599996, 0.0515, -0.22289999, -0.3813, 0.0515, -0.19489999, -0.2298, 0.0515, -0.25259998, -0.3321, 0.0515, -0.22289999, -0.3813, 0.0515, -0.22289999, -0.074599996, 0.0515, -0.22289999, -0.074599996, 0.0515, -0.25259998, -0.0033999998, 0.0515, -0.25259998, -0.3321, 0.0515, -0.19489999, -0.2298, 0.0515, 0.0479, -0.23009999, 0.0515, 0.0442, -0.056599997, 0.0515, -0.22289999, -0.074599996, 0.0515, -0.19489999, -0.2298, 0.0515, 0.0442, -0.056599997, 0.0515, -0.25259998, -0.0033999998, 0.0515, -0.22289999, -0.074599996, 0.0515, 0.0442, -0.056599997, 0.0515, 0.0442, -0.056599997, 0.0515, 0.120299995, -0.0033999998, 0.0515, -0.25259998, -0.0033999998, 0.0515, -0.1549, -0.3321, 0.0515, -0.19489999, -0.2298, 0.0515, -0.1845, -0.3813, 0.0515, -0.1845, -0.3813, 0.0515, -0.1549, -0.4109, 0.0515, -0.1549, -0.3321, 0.0515, 0.120299995, -0.0033999998, 0.0515, 0.0442, -0.056599997, 0.0515, 0.0479, -0.23009999, 0.0515, 0.0479, -0.23009999, 0.0515, 0.120299995, -0.29029998, 0.0515, 0.120299995, -0.0033999998, 0.0515, 0.120299995, -0.3326, 0.0515, 0.120299995, -0.29029998, 0.0515, 0.0479, -0.23009999, 0.0515, -0.1549, -0.3321, 0.0515, 0.120299995, -0.3326, 0.0515, 0.0479, -0.23009999, 0.0515, 0.0479, -0.23009999, 0.0515, -0.19489999, -0.2298, 0.0515, -0.1549, -0.3321, 0.0515, 0.24419999, -0.3321, 0.0515, 0.2121, -0.3001, 0.0515, 0.1818, -0.3003, 0.0515, 0.1818, -0.3003, 0.0515, 0.1497, -0.3326, 0.0515, 0.24419999, -0.3321, 0.0515)
+
+[node name="molten_sinking_bellows_conveyor" instance=ExtResource("1_g0873")]
+
+[node name="Barrier" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_us7du")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrier" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_dj6h2")
+
+[node name="ENTRANCE" parent="." index="1"]
+transform = Transform3D(-4.3711346e-08, 0, 0.99999905, 0, 0.99999905, 0, -0.99999905, 0, -4.3711346e-08, 0.028456762, 9.536743e-07, 2.7903032)
+
+[node name="EXIT" parent="." index="2"]
+transform = Transform3D(-4.3711346e-08, 0, -0.99999905, 0, 0.99999905, 0, 0.99999905, 0, -4.3711346e-08, 40.777527, -0.26812363, 23.206816)
+
+[node name="Floor" parent="." index="3"]
+surface_material_override/1 = SubResource("StandardMaterial3D_ty18a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_dj6h2")
+
+[node name="Lava" parent="." index="4"]
+transform = Transform3D(4.013393e-05, -8.742285e-06, -89.97607, -1.5099581e-05, -100.000015, 7.865958e-06, -100.00001, 1.5099579e-05, -3.6110927e-05, 14.378212, -1.9626635, -1.1283922)
+surface_material_override/0 = SubResource("ShaderMaterial_bcsf5")
+
+[node name="StomperCasing" parent="." index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vh1kf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StomperCasing" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StomperCasing/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_vypwm")
+
+[node name="Node3D" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 4.8568254, 0, 0, 0, 1, 11.623677, -1.9962277, -6.540396)
+
+[node name="SinkingPlatform" parent="Node3D" index="0" instance=ExtResource("3_xfsnw")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, -5.8597155, 0, 0)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="SinkingPlatform2" parent="Node3D" index="1" instance=ExtResource("3_xfsnw")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, 0.14028454, 0, 0)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="SinkingPlatform3" parent="Node3D" index="2" instance=ExtResource("3_xfsnw")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, 6.1402845, 0, 4.7683716e-07)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="MoltenBellows" parent="Node3D/SinkingPlatform3" index="2" instance=ExtResource("4_1k1vh")]
+transform = Transform3D(0.29036576, 0, 0, 0, 0.059785113, 0, 0, 0, 0.29036576, 0.06937313, 0.15359573, -0.0027780533)
+retract_speed = 5.0
+max_push = 2.1
+
+[node name="ConveyerBelt" parent="." index="8" instance=ExtResource("5_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.824144, -0.62104106, 3.4728646)
+constant_linear_velocity = Vector3(0, 0, 10)
+size = Vector3(1.415, 1, 16.44)
+platform_mat = SubResource("StandardMaterial3D_cwnsj")
+speed = 10.0
+
+[node name="Stomper" parent="." index="9" instance=ExtResource("7_ygam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, -0.695)
+head_scale = Vector3(0.815, 0.815, 0.815)
+shaft_scale = 4.075
+show_collisions = true
+raise_height = 5.0
+raise_time = 1.6
+
+[node name="Stomper2" parent="." index="10" instance=ExtResource("7_ygam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, 6.672)
+head_scale = Vector3(0.815, 0.815, 0.815)
+shaft_scale = 4.075
+show_collisions = true
+raise_height = 5.0
+raise_time = 1.6
+raise_time_offset = 1.0
+
+[node name="Stomper6" parent="." index="11" instance=ExtResource("7_ygam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, 15.682)
+head_scale = Vector3(0.87, 1.805, 1)
+shaft_scale = 4.825
+show_collisions = true
+raise_height = 10.0
+raise_time = 4.0
+
+[node name="BurnerWalls" type="Node3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.689045, 0.33379656, -9.747333)
+
+[node name="BurnerFlame" parent="BurnerWalls" index="0" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -6.695741, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 1.0
+base_damage = -3
+
+[node name="BurnerFlame2" parent="BurnerWalls" index="1" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.1542144, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 1.0
+base_damage = -3
+
+[node name="BurnerFlame3" parent="BurnerWalls" index="2" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.69574165, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 2.0
+base_damage = -3
+
+[node name="BurnerFlame4" parent="BurnerWalls" index="3" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.84578514, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 2.0
+base_damage = -3
+
+[node name="BurnerFlame5" parent="BurnerWalls" index="4" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.3042583, 0.5991644, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 3.0
+base_damage = -3
+
+[node name="BurnerFlame6" parent="BurnerWalls" index="5" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.845785, 0.5991644, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 3.0
+base_damage = -3
+
+[node name="CogButton" parent="." index="13" node_paths=PackedStringArray("connected_objects") instance=ExtResource("10_ha7se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.965847, -0.2681236, 23.089766)
+connected_objects = [NodePath("../CogDoor")]
+
+[node name="CogDoor" parent="." index="14" instance=ExtResource("11_dj6h2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40.87119, -0.27985215, 23.228025)
+
+[node name="BurnersHiddenChest" type="Node3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, -1, -1.509958e-07, 0, 1.509958e-07, -1, 31.00372, 7.0030327, -10.564812)
+
+[node name="BurnerFlame7" parent="BurnersHiddenChest" index="0" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, -0.9010277, -0.8852501, 0)
+flame_length = 1.155
+
+[node name="Flame" parent="BurnersHiddenChest/BurnerFlame7" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1.155, 0, -1, -5.048665e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="BurnersHiddenChest/BurnerFlame7/Flame" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_vh1kf")
+
+[node name="FlameOuter" parent="BurnersHiddenChest/BurnerFlame7/Flame" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_u7hhc")
+
+[node name="BurnerFlame8" parent="BurnersHiddenChest" index="1" instance=ExtResource("9_o0oxw")]
+transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, 0.84051514, -0.8852501, 0)
+flame_length = 1.155
+
+[node name="Flame" parent="BurnersHiddenChest/BurnerFlame8" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1.155, 0, -1, -5.048665e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="BurnersHiddenChest/BurnerFlame8/Flame" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_vh1kf")
+
+[node name="FlameOuter" parent="BurnersHiddenChest/BurnerFlame8/Flame" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_u7hhc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BurnersHiddenChest/BurnerFlame8/Flame/PlayerDetection" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -5.883294e-12, 1, -0.6853657, -0.3874513, 0.6313968)
+shape = SubResource("BoxShape3D_c1yr2")
+
+[node name="treasure_chest" parent="." index="16" instance=ExtResource("14_so0k5")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, 21.571644, -0.55997103, -15.9873905)
+
+[node name="treasure_chest2" parent="." index="17" instance=ExtResource("14_so0k5")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, 21.571644, -0.55997103, -17.700361)
+
+[node name="treasure_chest3" parent="." index="18" instance=ExtResource("14_so0k5")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 39.50609, -0.2712878, 26.434917)
+
+[node name="conveyor_belt_portal" parent="." index="19" instance=ExtResource("15_us7du")]
+transform = Transform3D(-3.2073988e-08, 0, 0.7337673, 0, 0.7337673, 0, -0.7337673, 0, -3.2073988e-08, 30.70468, -0.5024595, 27.86015)
+color = Color(0.9999998, 0.48003095, 0.123851605, 1)
+
+[node name="conveyor_belt_portal2" parent="." index="20" instance=ExtResource("15_us7du")]
+transform = Transform3D(-3.207398e-08, 0, -0.7337673, 0, 0.7337673, 0, 0.7337673, 0, -3.207398e-08, 30.705, -0.502, -21.362)
+color = Color(0.9999998, 0.48003095, 0.123851605, 1)
+
+[node name="DebugPlayerPositionMarker" parent="." index="21" instance=ExtResource("17_kpyan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9514563, -0.38357672, 2.9604437)
+
+[node name="RoomArea" type="Area3D" parent="." index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.330055, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0501862, -0.5500183, 3.3403625)
+shape = SubResource("BoxShape3D_us7du")
+
+[node name="Walls" parent="." index="23"]
+surface_material_override/2 = SubResource("StandardMaterial3D_vypwm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_kpyan")
+
+[connection signal="s_pressed" from="CogButton" to="BurnersHiddenChest/BurnerFlame7" method="disable" unbinds=1]
+[connection signal="s_pressed" from="CogButton" to="BurnersHiddenChest/BurnerFlame8" method="disable" unbinds=1]
+
+[editable path="BurnersHiddenChest/BurnerFlame7"]
+[editable path="BurnersHiddenChest/BurnerFlame8"]

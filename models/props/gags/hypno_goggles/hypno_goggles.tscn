@@ -142,14 +142,14 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3229, 2.29794e-06, 3.88684e-06)
 bones/3/enabled = true
 bones/3/position = Vector3(34.3229, 2.29794e-06, 3.88684e-06)
-bones/3/rotation = Quaternion(0, 0, -0.600071, 0.799947)
+bones/3/rotation = Quaternion(0, 0, 0.630909, 0.775857)
 bones/3/scale = Vector3(1.00136e-05, 1.00136e-05, 1.00136e-05)
 bones/4/name = "right"
 bones/4/parent = 2
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6166, 2.29794e-06, 3.88684e-06)
 bones/4/enabled = true
 bones/4/position = Vector3(-30.6166, 2.29794e-06, 3.88684e-06)
-bones/4/rotation = Quaternion(0, 0, 0.302536, 0.953138)
+bones/4/rotation = Quaternion(0, 0, -0.54595, 0.837818)
 bones/4/scale = Vector3(1.00136e-05, 1.00136e-05, 1.00136e-05)
 
 [node name="left" type="MeshInstance3D" parent="hypnotize/Skeleton3D"]
@@ -162,5 +162,5 @@ skin = SubResource("Skin_66evj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_t0w1i")
+&"": SubResource("AnimationLibrary_t0w1i")
 }

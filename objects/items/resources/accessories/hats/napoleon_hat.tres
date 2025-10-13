@@ -1,0 +1,260 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://ev37su34215v"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_yafae"]
+[ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_oltjh"]
+[ext_resource type="Texture2D" uid="uid://cv3q4jb80qnqn" path="res://models/accessories/hats/napoleon_hat/tt_m_chr_avt_acc_hat_napoleonHat.glb-pix-1.png" id="3_yafae"]
+[ext_resource type="PackedScene" uid="uid://bqk7p83gowone" path="res://models/accessories/hats/napoleon_hat/tt_m_chr_avt_acc_hat_napoleonHat.glb" id="4_slfer"]
+[ext_resource type="Script" uid="uid://d1jr6tf5u4a1m" path="res://objects/items/custom/item_napoleon_hat.gd" id="4_yafae"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="6_efi5y"]
+
+[sub_resource type="Resource" id="Resource_u3u5q"]
+script = ExtResource("2_oltjh")
+species = 2
+position = Vector3(0.01, 0.78, 0.18)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_87ir5"]
+script = ExtResource("2_oltjh")
+species = 2
+head_index = 1
+position = Vector3(0, 0.82, -0.1)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_6rj5j"]
+script = ExtResource("2_oltjh")
+species = 2
+head_index = 2
+position = Vector3(0.01, 0.78, 0.18)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_rg8de"]
+script = ExtResource("2_oltjh")
+species = 2
+head_index = 3
+position = Vector3(0, 0.82, -0.1)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_53prp"]
+script = ExtResource("2_oltjh")
+position = Vector3(0, 0.94, -0.6)
+rotation = Vector3(-31.29, 0, 0)
+scale = Vector3(0.54, 0.54, 0.45)
+
+[sub_resource type="Resource" id="Resource_1s2dw"]
+script = ExtResource("2_oltjh")
+head_index = 1
+position = Vector3(0, 0.94, -0.6)
+rotation = Vector3(-31.29, 0, 0)
+scale = Vector3(0.54, 0.54, 0.45)
+
+[sub_resource type="Resource" id="Resource_aesqh"]
+script = ExtResource("2_oltjh")
+head_index = 2
+position = Vector3(0, 0.55, -0.33)
+rotation = Vector3(-31.29, 0, 0)
+scale = Vector3(0.54, 0.54, 0.45)
+
+[sub_resource type="Resource" id="Resource_apm6n"]
+script = ExtResource("2_oltjh")
+head_index = 3
+position = Vector3(0, 0.55, -0.33)
+rotation = Vector3(-31.29, 0, 0)
+scale = Vector3(0.54, 0.54, 0.45)
+
+[sub_resource type="Resource" id="Resource_h0kyn"]
+script = ExtResource("2_oltjh")
+species = 1
+head_index = 3
+position = Vector3(0.01, 0.49, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_3a31v"]
+script = ExtResource("2_oltjh")
+species = 1
+head_index = 2
+position = Vector3(0.01, 0.49, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_8s8j6"]
+script = ExtResource("2_oltjh")
+species = 1
+head_index = 1
+position = Vector3(0.01, 0.74, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_2hyfv"]
+script = ExtResource("2_oltjh")
+species = 1
+position = Vector3(0.01, 0.74, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_ikoch"]
+script = ExtResource("2_oltjh")
+species = 3
+position = Vector3(0, 0.9, -0.1)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_70ust"]
+script = ExtResource("2_oltjh")
+species = 3
+head_index = 1
+position = Vector3(0, 0.97, -0.2)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_yi2ak"]
+script = ExtResource("2_oltjh")
+species = 3
+head_index = 2
+position = Vector3(0, 0.9, -0.1)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_s6wpe"]
+script = ExtResource("2_oltjh")
+species = 3
+head_index = 3
+position = Vector3(0, 0.97, -0.2)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_mnd48"]
+script = ExtResource("2_oltjh")
+species = 4
+head_index = 3
+position = Vector3(0.01, 0.55, -0.33)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.4)
+
+[sub_resource type="Resource" id="Resource_4trgu"]
+script = ExtResource("2_oltjh")
+species = 4
+head_index = 2
+position = Vector3(0, 0.53, -0.16)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.3)
+
+[sub_resource type="Resource" id="Resource_3pemm"]
+script = ExtResource("2_oltjh")
+species = 4
+head_index = 1
+position = Vector3(0.01, 0.55, -0.33)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.4)
+
+[sub_resource type="Resource" id="Resource_h0dy6"]
+script = ExtResource("2_oltjh")
+species = 4
+position = Vector3(0, 0.53, -0.16)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.3)
+
+[sub_resource type="Resource" id="Resource_bpk3x"]
+script = ExtResource("2_oltjh")
+species = 5
+position = Vector3(0.01, 0.77, -0.03)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_gjvy4"]
+script = ExtResource("2_oltjh")
+species = 5
+head_index = 1
+position = Vector3(0.01, 0.95, -0.18)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_kfh76"]
+script = ExtResource("2_oltjh")
+species = 5
+head_index = 2
+position = Vector3(0.01, 0.77, -0.03)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_q3xc5"]
+script = ExtResource("2_oltjh")
+species = 5
+head_index = 3
+position = Vector3(0.01, 0.95, -0.18)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_8bm0d"]
+script = ExtResource("2_oltjh")
+species = 6
+head_index = 1
+position = Vector3(-0.02, 0.94, -0.13)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_bxwuv"]
+script = ExtResource("2_oltjh")
+species = 6
+position = Vector3(-0.02, 0.89, -0.23)
+scale = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="Resource" id="Resource_hye08"]
+script = ExtResource("2_oltjh")
+species = 7
+head_index = 1
+position = Vector3(0.01, 0.49, -0.25)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_uqior"]
+script = ExtResource("2_oltjh")
+species = 7
+position = Vector3(0.01, 0.46, -0.25)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.5, 0.52, 0.5)
+
+[sub_resource type="Resource" id="Resource_a8p2g"]
+script = ExtResource("2_oltjh")
+species = 7
+head_index = 2
+position = Vector3(0.01, 0.48, -0.25)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_fhcb3"]
+script = ExtResource("2_oltjh")
+species = 7
+head_index = 3
+position = Vector3(0.01, 0.49, -0.25)
+rotation = Vector3(-15, 0, 0)
+scale = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="Resource" id="Resource_n6xio"]
+script = ExtResource("2_oltjh")
+species = 8
+head_index = 2
+position = Vector3(-0.01, 0.51, -0.02)
+scale = Vector3(0.5, 0.5, 0.4)
+
+[sub_resource type="Resource" id="Resource_apii8"]
+script = ExtResource("2_oltjh")
+species = 8
+head_index = 1
+position = Vector3(-0.01, 0.51, -0.02)
+scale = Vector3(0.5, 0.5, 0.4)
+
+[sub_resource type="Resource" id="Resource_e0xns"]
+script = ExtResource("2_oltjh")
+species = 8
+position = Vector3(-0.01, 0.51, -0.02)
+scale = Vector3(0.5, 0.5, 0.4)
+
+[sub_resource type="Resource" id="Resource_f8ygx"]
+script = ExtResource("2_oltjh")
+species = 8
+head_index = 3
+position = Vector3(-0.01, 0.51, -0.02)
+scale = Vector3(0.5, 0.5, 0.4)
+
+[resource]
+script = ExtResource("6_efi5y")
+accessory_placements = Array[ExtResource("1_yafae")]([SubResource("Resource_u3u5q"), SubResource("Resource_87ir5"), SubResource("Resource_6rj5j"), SubResource("Resource_rg8de"), SubResource("Resource_53prp"), SubResource("Resource_1s2dw"), SubResource("Resource_aesqh"), SubResource("Resource_apm6n"), SubResource("Resource_h0kyn"), SubResource("Resource_3a31v"), SubResource("Resource_8s8j6"), SubResource("Resource_2hyfv"), SubResource("Resource_ikoch"), SubResource("Resource_70ust"), SubResource("Resource_yi2ak"), SubResource("Resource_s6wpe"), SubResource("Resource_mnd48"), SubResource("Resource_4trgu"), SubResource("Resource_3pemm"), SubResource("Resource_h0dy6"), SubResource("Resource_bpk3x"), SubResource("Resource_gjvy4"), SubResource("Resource_kfh76"), SubResource("Resource_q3xc5"), SubResource("Resource_8bm0d"), SubResource("Resource_bxwuv"), SubResource("Resource_hye08"), SubResource("Resource_uqior"), SubResource("Resource_a8p2g"), SubResource("Resource_fhcb3"), SubResource("Resource_n6xio"), SubResource("Resource_apii8"), SubResource("Resource_e0xns"), SubResource("Resource_f8ygx")])
+qualitoon = 3
+slot = 1
+world_scale = 0.14
+ui_cam_offset = 0.1
+item_name = "Napoleon Hat"
+item_description = "What's a complex?"
+big_description = "Gags do more damage the bigger the Cog you're fighting is."
+model = ExtResource("4_slfer")
+item_script = ExtResource("4_yafae")
+icon = ExtResource("3_yafae")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

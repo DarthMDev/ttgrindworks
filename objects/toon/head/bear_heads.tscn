@@ -1568,10 +1568,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oudt6")
 
 [node name="bear_heads" type="Node3D"]
-transform = Transform3D(-100, 0, -1.50996e-05, 0, 100, 0, 1.50996e-05, 0, -100, 0, 0, 0)
 
 [node name="BigHeadSmallMuzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, 0)
+transform = Transform3D(-100, 0, -8.74228e-06, 0, 100, 0, 8.74228e-06, 0, -100, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="BigHeadSmallMuzzle"]
@@ -1672,6 +1671,7 @@ mesh = SubResource("ArrayMesh_tyxfa")
 skeleton = NodePath("")
 
 [node name="BigHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-100, 0, -8.74228e-06, 0, 100, 0, 8.74228e-06, 0, -100, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="BigHeadBigMuzzle"]
@@ -1772,6 +1772,7 @@ mesh = SubResource("ArrayMesh_tyxfa")
 skeleton = NodePath("")
 
 [node name="SmallHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-100, 0, -8.74228e-06, 0, 100, 0, 8.74228e-06, 0, -100, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="SmallHeadSmallMuzzle"]
@@ -1871,6 +1872,7 @@ mesh = SubResource("ArrayMesh_vonp8")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-100, 0, -8.74228e-06, 0, 100, 0, 8.74228e-06, 0, -100, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="SmallHeadBigMuzzle"]

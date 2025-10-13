@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc754du4cxov"]
+
+[ext_resource type="PackedScene" uid="uid://bdly0pabmp26k" path="res://objects/modules/cgc/base_rooms/cgc_walled_room.tscn" id="1_i7656"]
+[ext_resource type="PackedScene" uid="uid://pn7r3ut085aw" path="res://objects/props/cgc/hedge_pillar.tscn" id="2_64m2h"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="3_2u2jr"]
+[ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="4_5e0e8"]
+
+[node name="CGCTreasureRoom" instance=ExtResource("1_i7656")]
+
+[node name="ENTRANCE" parent="." index="25"]
+transform = Transform3D(-1.4341e-09, 0, 0.0328084, 0, 0.0328084, 0, -0.0328084, 0, -1.4341e-09, -9.95344, 0, -0.467603)
+
+[node name="HedgePillar" parent="." index="30" instance=ExtResource("2_64m2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8671775, 0, -1.9251286)
+
+[node name="treasure_chest" parent="." index="31" instance=ExtResource("3_2u2jr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.2956443, 0, 0)
+
+[node name="fence" parent="." index="32" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, -2.8464026, 0, -8.437109)
+
+[node name="fence3" parent="." index="33" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(0.4, 0, 9.536743e-08, 0, 0.4, 0, -9.536743e-08, 0, 0.4, 1.3047287, 0, -4.6174254)
+
+[node name="fence2" parent="." index="34" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, 5.5274286, 0, -8.618624)
+
+[node name="fence4" parent="." index="35" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(0.4, 0, 9.536743e-08, 0, 0.4, 0, -9.536743e-08, 0, 0.4, 5.5035725, 0, 8.039516)
+
+[node name="fence5" parent="." index="36" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(-0.4, 0, -1.3033655e-07, 0, 0.4, 0, 1.3033655e-07, 0, -0.4, 1.3524408, 0, 4.33203)
+
+[node name="fence6" parent="." index="37" instance=ExtResource("4_5e0e8")]
+transform = Transform3D(0.4, 0, 9.536743e-08, 0, 0.4, 0, -9.536743e-08, 0, 0.4, -2.870259, 0, 8.221033)

@@ -1,18 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://62mqao2o2egv"]
+[gd_scene load_steps=4 format=3 uid="uid://62mqao2o2egv"]
 
 [ext_resource type="PackedScene" uid="uid://ch40srx60of2j" path="res://models/props/facility_objects/mint/shelf/shelf_2.fbx" id="1_054yi"]
+[ext_resource type="Script" uid="uid://b8bopskef0can" path="res://objects/props/mint/shelf_gold.gd" id="1_we7sf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gj5iy"]
-size = Vector3(4.10889, 4.44043, 1.52594)
+size = Vector3(4.10889, 4.41406, 1.51978)
 
 [node name="shelf2" type="Node3D"]
+script = ExtResource("1_we7sf")
 metadata/battle_cam_hide = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07791, -0.228497)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0241699, 0.111328, -0.0567932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0241699, 0.0981441, -0.0567932)
 shape = SubResource("BoxShape3D_gj5iy")
 
 [node name="shelf_2" parent="." instance=ExtResource("1_054yi")]

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://cfa02jl4ow8cm"]
+
+[ext_resource type="Texture2D" uid="uid://cyqy3tgdh0mqa" path="res://ui_assets/player_ui/pocket_prank_icons/recycle_bin.png" id="1_y40kr"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_ygaqc"]
+[ext_resource type="Script" uid="uid://dxwg8eauyi6cc" path="res://objects/items/custom/recycle_bin/item_recycle_bin.gd" id="2_712uf"]
+[ext_resource type="PackedScene" uid="uid://bx2dkich61dwi" path="res://models/props/toon_props/recycle_bin/recycle_bin.tscn" id="2_i2t8h"]
+
+[resource]
+script = ExtResource("1_ygaqc")
+active_type = 2
+charge_count = 3
+current_charge = 3
+qualitoon = 3
+world_scale = 0.18
+world_y_offset = 0.25
+item_name = "Recycle Bin"
+item_description = "Waste management."
+big_description = "Destroys the nearest item, converting it to random stat boosts based on the star rating."
+model = ExtResource("2_i2t8h")
+item_script = ExtResource("2_712uf")
+icon = ExtResource("1_y40kr")
+shop_category_title = "Pocket Prank"
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

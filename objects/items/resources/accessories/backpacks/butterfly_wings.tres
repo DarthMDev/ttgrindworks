@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bucxkskls3q0f"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_gh34d"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_fi620"]
+[ext_resource type="Texture2D" uid="uid://compug11vys02" path="res://models/accessories/backpacks/butterfly_wings/butterfly_wings-pix-1.png" id="3_gh34d"]
+[ext_resource type="PackedScene" uid="uid://fijwyiv0x7q4" path="res://models/accessories/backpacks/butterfly_wings/butterfly_wings.tscn" id="4_fi620"]
+[ext_resource type="Script" uid="uid://lryw8hsxo156" path="res://objects/items/custom/item_butterfly_wings.gd" id="4_rgnxp"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="5_xlv56"]
+
+[sub_resource type="Resource" id="Resource_xqi40"]
+script = ExtResource("2_fi620")
+position = Vector3(0, 0.23, 1.14)
+rotation = Vector3(17.6, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_bsqs6"]
+script = ExtResource("2_fi620")
+body_type = 1
+position = Vector3(0, 0.3, 0.98)
+rotation = Vector3(24.25, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_n1he7"]
+script = ExtResource("2_fi620")
+body_type = 2
+position = Vector3(0, 0.56, 0.9)
+rotation = Vector3(14.29, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("5_xlv56")
+accessory_placements = Array[ExtResource("1_gh34d")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+qualitoon = 3
+slot = 3
+world_scale = 0.11
+ui_cam_offset = 0.4
+item_name = "Butterfly Wings"
+item_description = "Float like a butterfly..."
+big_description = "- 8% Defense
++ 2% Evasiveness every time you are hit by a Cog attack"
+model = ExtResource("4_fi620")
+stats_add = {
+"defense": -0.08
+}
+item_script = ExtResource("4_rgnxp")
+icon = ExtResource("3_gh34d")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bxnc8400cjdt1"]
+[gd_scene load_steps=36 format=3 uid="uid://bxnc8400cjdt1"]
 
 [ext_resource type="PackedScene" uid="uid://dxa3077q0m2lo" path="res://objects/modules/mint/base_rooms/mint_shelf_room.tscn" id="1_hnu3i"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="2_soc5q"]
@@ -19,23 +19,23 @@
 [ext_resource type="PackedScene" uid="uid://b5d0mrdvwx3cp" path="res://objects/items/boss_chest_group.tscn" id="18_qqvjc"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="18_wcv2t"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="21_bn64l"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="21_jkjqs"]
+[ext_resource type="PackedScene" uid="uid://7tchlbvjru0d" path="res://ui_assets/misc/text_sprawl.tscn" id="22_bn64l"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="22_jkjqs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huelx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn64l"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
 roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
-uv1_offset = Vector3(0, -0.894446, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pshe4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkjqs"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("5_3uxyo")
 roughness = 0.552786
 uv1_scale = Vector3(1, 13.6, 1)
-uv1_offset = Vector3(0, -0.633334, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2w4hs"]
 size = Vector3(51.7407, 15.5562, 11.7138)
@@ -256,7 +256,7 @@ unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, -3.57613)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_huelx")
+platform_mat = SubResource("StandardMaterial3D_bn64l")
 speed = 0.0
 
 [node name="CB2" parent="." index="9" instance=ExtResource("4_dm27t")]
@@ -264,7 +264,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1.65557)
 constant_linear_velocity = Vector3(0, 0, 0)
 size = Vector3(1.7, 1, 13.6)
-platform_mat = SubResource("StandardMaterial3D_pshe4")
+platform_mat = SubResource("StandardMaterial3D_jkjqs")
 speed = 0.0
 
 [node name="BeginColl" type="Area3D" parent="." index="10"]
@@ -377,8 +377,9 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00112915, -0.00119627, 0.000608981)
 shape = SubResource("BoxShape3D_ewebg")
 
-[node name="GooseManager" type="Node3D" parent="." index="14"]
+[node name="GooseManager" type="Node3D" parent="." index="14" node_paths=PackedStringArray("button_respawn_stompers")]
 script = ExtResource("12_huelx")
+button_respawn_stompers = [NodePath("../GameStompersUp/GameStomper1"), NodePath("../GameStompersUp/GameStomper5"), NodePath("../GameStompersDown/GameStomper1"), NodePath("../GameStompersDown/GameStomper5")]
 
 [node name="GooseCam" type="Camera3D" parent="." index="15"]
 unique_name_in_owner = true
@@ -1039,6 +1040,9 @@ visible = false
 dna = ExtResource("10_obb3n")
 skelecog_chance = 0
 
+[node name="DropShadow" parent="DeadGoose/Body" index="0"]
+force_hide = true
+
 [node name="SkipButton" parent="." index="35" instance=ExtResource("21_bn64l")]
 unique_name_in_owner = true
 visible = false
@@ -1054,10 +1058,22 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+font_size = 36.0
 
 [node name="Label" parent="SkipButton" index="0"]
 text = "Skip"
 label_settings = SubResource("LabelSettings_jsk7n")
+
+[node name="DebugPlayerPositionMarker" parent="." index="36" instance=ExtResource("21_jkjqs")]
+
+[node name="TextSprawl" parent="." index="37" instance=ExtResource("22_bn64l")]
+unique_name_in_owner = true
+visible = false
+offset_top = 153.0
+offset_bottom = 211.0
+text = "GOLDEN GOOSE"
+visible_characters = 12
+autoplay = false
 
 [connection signal="body_entered" from="BeginColl" to="GooseManager" method="body_entered"]
 
@@ -1073,4 +1089,5 @@ label_settings = SubResource("LabelSettings_jsk7n")
 [editable path="GameStompersDown/GameStomper3/stomper"]
 [editable path="GameStompersDown/GameStomper4/stomper"]
 [editable path="GameStompersDown/GameStomper5/stomper"]
+[editable path="DeadGoose"]
 [editable path="SkipButton"]

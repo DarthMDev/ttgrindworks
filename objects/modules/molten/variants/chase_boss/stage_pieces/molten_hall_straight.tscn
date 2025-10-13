@@ -1,0 +1,183 @@
+[gd_scene load_steps=28 format=3 uid="uid://2hcmvkkhbl6x"]
+
+[ext_resource type="PackedScene" uid="uid://dby0f2lmdxn6" path="res://models/facilities/molten/boss_chase/v2/molten_hall_straight.fbx" id="1_r8gh7"]
+[ext_resource type="Script" uid="uid://q2krlo3jvtvd" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_piece.gd" id="2_65qsh"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="2_c8qht"]
+[ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="3_mtwcf"]
+[ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="4_prn05"]
+[ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="5_de536"]
+[ext_resource type="Texture2D" uid="uid://dh14xv8mgissq" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="5_t7n8q"]
+[ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="6_1adcw"]
+[ext_resource type="Texture2D" uid="uid://dd48imdhejrx8" path="res://models/facilities/molten/textures/FINALFACTORY_65.png" id="7_prn05"]
+[ext_resource type="Texture2D" uid="uid://v7y7mef5rs2i" path="res://models/facilities/molten/textures/FINALFACTORY_118.png" id="8_de536"]
+
+[sub_resource type="Curve3D" id="Curve3D_r8gh7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -28.118),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mtwcf"]
+noise_type = 0
+frequency = 0.0114
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_65qsh"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_mtwcf")
+seamless = true
+seamless_blend_skirt = 0.673
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n7sg0"]
+load_path = "res://.godot/imported/lava7.png-a846c573883fab8f70d4f7136eb110a1.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww5rk"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("2_c8qht")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_n7sg0")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(2, 2, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.345
+shader_parameter/displacement = SubResource("NoiseTexture2D_65qsh")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhac"]
+resource_name = "BoxCarSide2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("4_prn05")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkten"]
+resource_name = "FINALFACTORY_143"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("5_de536")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t7n8q"]
+data = PackedVector3Array(0.01, 0.2636, 0, 0.01, -0.01, 0, -0.01, -0.01, 0, -0.01, -0.01, 0, -0.01, 0.2636, 0, 0.01, 0.2636, 0, 0.01, -0.01, -0.0018, 0.01, -0.01, 0, 0.01, 0.2636, 0, 0.01, 0.2636, 0, 0.01, 0.2636, -0.0018, 0.01, -0.01, -0.0018, -0.01, 0.2636, -0.0018, -0.01, 0.2636, 0, -0.01, -0.01, 0, -0.01, -0.01, 0, -0.01, -0.01, -0.0018, -0.01, 0.2636, -0.0018, -0.1823, 0.2636, 0, -0.1823, -0.01, 0, -0.2023, -0.01, 0, -0.2023, -0.01, 0, -0.2023, 0.2636, 0, -0.1823, 0.2636, 0, -0.1823, -0.01, -0.0018, -0.1823, -0.01, 0, -0.1823, 0.2636, 0, -0.1823, 0.2636, 0, -0.1823, 0.2636, -0.0018, -0.1823, -0.01, -0.0018, -0.2023, 0.2636, -0.0018, -0.2023, 0.2636, 0, -0.2023, -0.01, 0, -0.2023, -0.01, 0, -0.2023, -0.01, -0.0018, -0.2023, 0.2636, -0.0018, -0.3945, -0.0069, 0.0017, 0.01, -0.0069, 0.0017, 0.01, -0.0176, 0.0017, 0.01, -0.0176, 0.0017, -0.3945, -0.0176, 0.0017, -0.3945, -0.0069, 0.0017, 0.01, -0.0069, -0.0018, 0.01, -0.0069, 0.0017, -0.3945, -0.0069, 0.0017, -0.3945, -0.0069, 0.0017, -0.3945, -0.0069, -0.0018, 0.01, -0.0069, -0.0018, -0.3945, -0.0176, 0.0017, 0.01, -0.0176, 0.0017, 0.01, -0.0176, -0.0018, 0.01, -0.0176, -0.0018, -0.3945, -0.0176, -0.0018, -0.3945, -0.0176, 0.0017, -0.3945, 0.135, 0.0017, 0.01, 0.135, 0.0017, 0.01, 0.1243, 0.0017, 0.01, 0.1243, 0.0017, -0.3945, 0.1243, 0.0017, -0.3945, 0.135, 0.0017, 0.01, 0.135, -0.0018, 0.01, 0.135, 0.0017, -0.3945, 0.135, 0.0017, -0.3945, 0.135, 0.0017, -0.3945, 0.135, -0.0018, 0.01, 0.135, -0.0018, -0.3945, 0.1243, 0.0017, 0.01, 0.1243, 0.0017, 0.01, 0.1243, -0.0018, 0.01, 0.1243, -0.0018, -0.3945, 0.1243, -0.0018, -0.3945, 0.1243, 0.0017, 0.01, 0.2636, 0.1777, -0.01, 0.2636, 0.1777, -0.01, -0.01, 0.1777, -0.01, -0.01, 0.1777, 0.01, -0.01, 0.1777, 0.01, 0.2636, 0.1777, 0.01, -0.01, 0.1795, 0.01, 0.2636, 0.1795, 0.01, 0.2636, 0.1777, 0.01, 0.2636, 0.1777, 0.01, -0.01, 0.1777, 0.01, -0.01, 0.1795, -0.01, 0.2636, 0.1795, -0.01, -0.01, 0.1795, -0.01, -0.01, 0.1777, -0.01, -0.01, 0.1777, -0.01, 0.2636, 0.1777, -0.01, 0.2636, 0.1795, -0.1823, 0.2636, 0.1777, -0.2023, 0.2636, 0.1777, -0.2023, -0.01, 0.1777, -0.2023, -0.01, 0.1777, -0.1823, -0.01, 0.1777, -0.1823, 0.2636, 0.1777, -0.1823, -0.01, 0.1795, -0.1823, 0.2636, 0.1795, -0.1823, 0.2636, 0.1777, -0.1823, 0.2636, 0.1777, -0.1823, -0.01, 0.1777, -0.1823, -0.01, 0.1795, -0.2023, 0.2636, 0.1795, -0.2023, -0.01, 0.1795, -0.2023, -0.01, 0.1777, -0.2023, -0.01, 0.1777, -0.2023, 0.2636, 0.1777, -0.2023, 0.2636, 0.1795, 0.01, -0.0069, 0.176, -0.3945, -0.0069, 0.176, -0.3945, -0.0176, 0.176, -0.3945, -0.0176, 0.176, 0.01, -0.0176, 0.176, 0.01, -0.0069, 0.176, 0.01, -0.0069, 0.1795, -0.3945, -0.0069, 0.1795, -0.3945, -0.0069, 0.176, -0.3945, -0.0069, 0.176, 0.01, -0.0069, 0.176, 0.01, -0.0069, 0.1795, 0.01, -0.0176, 0.1795, 0.01, -0.0176, 0.176, -0.3945, -0.0176, 0.176, -0.3945, -0.0176, 0.176, -0.3945, -0.0176, 0.1795, 0.01, -0.0176, 0.1795, 0.01, 0.135, 0.176, -0.3945, 0.135, 0.176, -0.3945, 0.1243, 0.176, -0.3945, 0.1243, 0.176, 0.01, 0.1243, 0.176, 0.01, 0.135, 0.176, 0.01, 0.135, 0.1795, -0.3945, 0.135, 0.1795, -0.3945, 0.135, 0.176, -0.3945, 0.135, 0.176, 0.01, 0.135, 0.176, 0.01, 0.135, 0.1795, 0.01, 0.1243, 0.1795, 0.01, 0.1243, 0.176, -0.3945, 0.1243, 0.176, -0.3945, 0.1243, 0.176, -0.3945, 0.1243, 0.1795, 0.01, 0.1243, 0.1795, -0.1714, -0.0048, 0.0035, -0.1714, -0.0196, 0.0035, -0.2131, -0.0196, 0.0035, -0.2131, -0.0196, 0.0035, -0.2131, -0.0048, 0.0035, -0.1714, -0.0048, 0.0035, -0.1714, -0.0048, -0.0018, -0.1714, -0.0048, 0.0035, -0.2131, -0.0048, 0.0035, -0.2131, -0.0048, 0.0035, -0.2131, -0.0048, -0.0018, -0.1714, -0.0048, -0.0018, -0.2131, -0.0196, 0.0035, -0.1714, -0.0196, 0.0035, -0.1714, -0.0196, -0.0018, -0.1714, -0.0196, -0.0018, -0.2131, -0.0196, -0.0018, -0.2131, -0.0196, 0.0035, -0.2131, -0.0196, -0.0018, -0.2131, -0.0048, -0.0018, -0.2131, -0.0048, 0.0035, -0.2131, -0.0048, 0.0035, -0.2131, -0.0196, 0.0035, -0.2131, -0.0196, -0.0018, -0.1714, -0.0196, 0.0035, -0.1714, -0.0048, 0.0035, -0.1714, -0.0048, -0.0018, -0.1714, -0.0048, -0.0018, -0.1714, -0.0196, -0.0018, -0.1714, -0.0196, 0.0035, -0.1714, 0.1369, 0.0035, -0.1714, 0.1221, 0.0035, -0.2131, 0.1221, 0.0035, -0.2131, 0.1221, 0.0035, -0.2131, 0.1369, 0.0035, -0.1714, 0.1369, 0.0035, -0.1714, 0.1369, -0.0018, -0.1714, 0.1369, 0.0035, -0.2131, 0.1369, 0.0035, -0.2131, 0.1369, 0.0035, -0.2131, 0.1369, -0.0018, -0.1714, 0.1369, -0.0018, -0.2131, 0.1221, 0.0035, -0.1714, 0.1221, 0.0035, -0.1714, 0.1221, -0.0018, -0.1714, 0.1221, -0.0018, -0.2131, 0.1221, -0.0018, -0.2131, 0.1221, 0.0035, -0.2131, 0.1221, -0.0018, -0.2131, 0.1369, -0.0018, -0.2131, 0.1369, 0.0035, -0.2131, 0.1369, 0.0035, -0.2131, 0.1221, 0.0035, -0.2131, 0.1221, -0.0018, -0.1714, 0.1221, 0.0035, -0.1714, 0.1369, 0.0035, -0.1714, 0.1369, -0.0018, -0.1714, 0.1369, -0.0018, -0.1714, 0.1221, -0.0018, -0.1714, 0.1221, 0.0035, -0.1714, -0.0048, 0.1742, -0.2131, -0.0048, 0.1742, -0.2131, -0.0196, 0.1742, -0.2131, -0.0196, 0.1742, -0.1714, -0.0196, 0.1742, -0.1714, -0.0048, 0.1742, -0.1714, -0.0048, 0.1795, -0.2131, -0.0048, 0.1795, -0.2131, -0.0048, 0.1742, -0.2131, -0.0048, 0.1742, -0.1714, -0.0048, 0.1742, -0.1714, -0.0048, 0.1795, -0.1714, -0.0196, 0.1742, -0.2131, -0.0196, 0.1742, -0.2131, -0.0196, 0.1795, -0.2131, -0.0196, 0.1795, -0.1714, -0.0196, 0.1795, -0.1714, -0.0196, 0.1742, -0.2131, -0.0196, 0.1795, -0.2131, -0.0196, 0.1742, -0.2131, -0.0048, 0.1742, -0.2131, -0.0048, 0.1742, -0.2131, -0.0048, 0.1795, -0.2131, -0.0196, 0.1795, -0.1714, -0.0196, 0.1742, -0.1714, -0.0196, 0.1795, -0.1714, -0.0048, 0.1795, -0.1714, -0.0048, 0.1795, -0.1714, -0.0048, 0.1742, -0.1714, -0.0196, 0.1742, -0.1714, 0.1369, 0.1742, -0.2131, 0.1369, 0.1742, -0.2131, 0.1221, 0.1742, -0.2131, 0.1221, 0.1742, -0.1714, 0.1221, 0.1742, -0.1714, 0.1369, 0.1742, -0.1714, 0.1369, 0.1795, -0.2131, 0.1369, 0.1795, -0.2131, 0.1369, 0.1742, -0.2131, 0.1369, 0.1742, -0.1714, 0.1369, 0.1742, -0.1714, 0.1369, 0.1795, -0.1714, 0.1221, 0.1742, -0.2131, 0.1221, 0.1742, -0.2131, 0.1221, 0.1795, -0.2131, 0.1221, 0.1795, -0.1714, 0.1221, 0.1795, -0.1714, 0.1221, 0.1742, -0.2131, 0.1221, 0.1795, -0.2131, 0.1221, 0.1742, -0.2131, 0.1369, 0.1742, -0.2131, 0.1369, 0.1742, -0.2131, 0.1369, 0.1795, -0.2131, 0.1221, 0.1795, -0.1714, 0.1221, 0.1742, -0.1714, 0.1221, 0.1795, -0.1714, 0.1369, 0.1795, -0.1714, 0.1369, 0.1795, -0.1714, 0.1369, 0.1742, -0.1714, 0.1221, 0.1742)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_65qsh"]
+frequency = 0.0065
+fractal_type = 3
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n7sg0"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_65qsh")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8nee"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("2_c8qht")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_mtwcf")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(3, 10, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.255
+shader_parameter/displacement = SubResource("NoiseTexture2D_n7sg0")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t7n8q"]
+material = SubResource("ShaderMaterial_r8nee")
+size = Vector2(40, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a70yc"]
+resource_name = "LocomotiveSide5_hot"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_t7n8q")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buans"]
+resource_name = "CFOCeiling2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.899258, 0.899258, 0.899258, 1)
+albedo_texture = ExtResource("6_1adcw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usuen"]
+resource_name = "FINALFACTORY_65"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("7_prn05")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhmrn"]
+resource_name = "FINALFACTORY_118"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("8_de536")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c8qht"]
+data = PackedVector3Array(0.0347, 0.1693, 0.1937, 0.0347, -0.1012, 0.1937, 0.0347, -0.1012, -0.0004, 0.0347, -0.1012, -0.0004, 0.0347, 0.1693, -0.0004, 0.0347, 0.1693, 0.1937, 0.0347, -0.1119, 0.1937, 0.0347, -0.1119, -0.0004, 0.0347, -0.1012, -0.0004, 0.0347, -0.1012, -0.0004, 0.0347, -0.1012, 0.1937, 0.0347, -0.1119, 0.1937, -0.0347, -0.1012, 0.1937, -0.0347, -0.1012, -0.0004, -0.0347, -0.1119, -0.0004, -0.0347, -0.1119, -0.0004, -0.0347, -0.1119, 0.1937, -0.0347, -0.1012, 0.1937, -0.0347, 0.1693, 0.1937, -0.0347, 0.1693, -0.0004, -0.0347, -0.1012, -0.0004, -0.0347, -0.1012, -0.0004, -0.0347, -0.1012, 0.1937, -0.0347, 0.1693, 0.1937, 0.012, -0.1012, 0.1937, 0.012, 0.1693, 0.1937, -0.012, 0.1693, 0.1937, -0.012, 0.1693, 0.1937, -0.012, -0.1012, 0.1937, 0.012, -0.1012, 0.1937, 0.012, 0.1693, 0.1937, 0.012, -0.1012, 0.1937, 0.0347, -0.1012, 0.1937, 0.0347, -0.1012, 0.1937, 0.0347, 0.1693, 0.1937, 0.012, 0.1693, 0.1937, -0.0347, 0.1693, 0.1937, -0.0347, -0.1012, 0.1937, -0.012, -0.1012, 0.1937, -0.012, -0.1012, 0.1937, -0.012, 0.1693, 0.1937, -0.0347, 0.1693, 0.1937, -0.0347, -0.1012, 0.1937, -0.0347, -0.1119, 0.1937, -0.012, -0.1119, 0.1937, -0.012, -0.1119, 0.1937, -0.012, -0.1012, 0.1937, -0.0347, -0.1012, 0.1937, 0.012, -0.1012, 0.1937, 0.012, -0.1119, 0.1937, 0.0347, -0.1119, 0.1937, 0.0347, -0.1119, 0.1937, 0.0347, -0.1012, 0.1937, 0.012, -0.1012, 0.1937, -0.012, -0.1012, 0.1937, -0.012, -0.1119, 0.1937, 0.012, -0.1119, 0.1937, 0.012, -0.1119, 0.1937, 0.012, -0.1012, 0.1937, -0.012, -0.1012, 0.1937)
+
+[node name="molten_hall_straight" instance=ExtResource("1_r8gh7")]
+script = ExtResource("2_65qsh")
+
+[node name="CameraPath" type="Path3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.958, 11.19)
+curve = SubResource("Curve3D_r8gh7")
+
+[node name="BossPath" type="Path3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0425831, 11.1897)
+curve = SubResource("Curve3D_r8gh7")
+
+[node name="Lava" parent="." index="4"]
+transform = Transform3D(100, 0, 0, 0, -1, -1.50996e-05, 0, 1.50996e-07, -100, -3.11831e-07, 0.268831, -2.86894)
+visible = false
+instance_shader_parameters/speed = 1.0
+surface_material_override/0 = SubResource("ShaderMaterial_ww5rk")
+
+[node name="ReinforcedBars" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pmhac")
+surface_material_override/1 = SubResource("StandardMaterial3D_wkten")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ReinforcedBars" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReinforcedBars/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_t7n8q")
+
+[node name="LavaRef" type="MeshInstance3D" parent="." index="6"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29421, 0.451004, -3.40265)
+visible = false
+mesh = SubResource("PlaneMesh_t7n8q")
+
+[node name="hall_straight" parent="." index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_a70yc")
+surface_material_override/1 = SubResource("StandardMaterial3D_buans")
+surface_material_override/2 = SubResource("StandardMaterial3D_usuen")
+surface_material_override/3 = SubResource("StandardMaterial3D_jhmrn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hall_straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hall_straight/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_c8qht")

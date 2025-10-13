@@ -8,7 +8,7 @@ func _ready() -> void:
 	super()
 
 func body_entered(body : Node3D) -> void:
-	if not disabled and body is Player and body.state == Player.PlayerState.WALK:
+	if not disabled and body is Player and body.controller.current_state.accepts_interaction():
 		press()
 
 func body_exited(body : Node3D) -> void:

@@ -3,8 +3,8 @@ extends CogAttack
 const PHONE := preload("res://models/props/cog_props/phone_receiver/prop_phone.glb")
 const RECEIVER := preload("res://models/props/cog_props/phone_receiver/prop_receiver.glb")
 const SFX := preload('res://audio/sfx/battle/cogs/attacks/SA_hangup.ogg')
-const ANIM_HIT := 'slip_backward'
-const ANIM_MISS := 'happy'
+const ANIM_HIT := 'slip-backward'
+const ANIM_MISS := 'jump'
 
 func action() -> void:
 	# Roll for accuracy

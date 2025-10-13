@@ -6,6 +6,10 @@ const SOLD_OUT_PHRASES: Array[String] = [
 	"Fresh out of stock, sorry pal.",
 	"I've got nothing else to sell you. Try again later.",
 ]
+const SALE_PHRASES: Array[String] = [
+	"It's all yours. Enjoy!",
+	"I'll finally be able to afford that new Lobster Chair!",
+]
 
 @export var toon: Toon
 @export var toon_speaks := true
@@ -26,6 +30,7 @@ func _ready() -> void:
 		var dna := ToonDNA.new()
 		dna.randomize_dna()
 		toon.construct_toon(dna)
+		toon.apply_random_accessories()
 		toon.set_animation('neutral')
 	
 	# And completely remove their collision shapes
@@ -49,6 +54,8 @@ func _ready() -> void:
 			await world_item.s_item_assigned
 
 		stored_prices[world_items.find(world_item)] = get_price(world_item)
+
+	Globals.s_shop_spawned.emit(self)
 
 ## React to player interact
 func body_entered(body: Node3D) -> void:
@@ -100,11 +107,11 @@ func get_price(world_item: WorldItem) -> int:
 		base_price = item.custom_shop_price
 	else:
 		base_price = 2.0 + float(item.qualitoon as int + 1) * 7.0
-	var mult: float = RandomService.randf_range_channel('shop_item_random', 0.9, 1.1)
+	var mult: float = RNG.channel(RNG.ChannelShopItemRandom).randf_range(0.9, 1.1)
 	base_price = max(0, (base_price * mult) - Util.get_player().stats.shop_discount)
 	var price_with_discount := base_price
 	# 20% chance of discount per 1.0 luck stat
-	if RandomService.randf_channel('shop_item_random') < Util.get_player().stats.get_stat('luck') * 0.2:
+	if RNG.channel(RNG.ChannelShopItemRandom).randf() < Util.get_player().stats.get_stat('luck') * 0.2:
 		price_with_discount *= SHOP_SALE_MULT
 		discounted_items[world_items.find(world_item)] = true
 	price_with_discount *= get_inflation_rate()
@@ -113,7 +120,7 @@ func get_price(world_item: WorldItem) -> int:
 func get_inflation_rate() -> float:
 	if not is_instance_valid(Util.floor_manager):
 		return 1.0
-	var game_floor : GameFloor = Util.floor_manager
+	var game_floor: GameFloor = Util.floor_manager
 	if game_floor.floor_tags.has('shop_inflation'):
 		return game_floor.floor_tags['shop_inflation']
 	return 1.0
@@ -134,21 +141,14 @@ func get_item(index: int) -> Item:
 
 func purchase() -> void:
 	Util.get_player().stats.money -= stored_prices[item_index]
-	world_items[item_index].monitorable = false
-	if Util.get_player().stats.current_active_item and world_items[item_index].item is ItemActive:
-		yeah_ill_hold_that_for_you()
 	ui.set_item(null, -1)
+	if Util.get_player().stats.current_active_item and world_items[item_index].item is ItemActive:
+		if Util.get_player().stats.actives_in_reserve.size() >= Util.get_player().stats.active_reserve_size:
+			stored_prices[item_index] = 0
+			ui.set_item(Util.get_player().stats.current_active_item, 0)
 	world_items[item_index].collect(Util.get_player())
-	if toon and toon_speaks:
-		toon.speak("It's all yours. Enjoy!")
-	DiscordManager.update_presence()
-
-## Yeah they'll hold it for you
-func yeah_ill_hold_that_for_you() -> void:
-	var current_index := item_index
-	await Task.delay(5.0)
-	world_items[current_index].monitorable = true
-	stored_prices[current_index] = 0
+	if toon and toon_speaks and not stored_prices[item_index] == 0:
+		toon.speak(SALE_PHRASES.pick_random())
 
 func is_shop_empty() -> bool:
 	for item in world_items:
@@ -158,7 +158,7 @@ func is_shop_empty() -> bool:
 
 func cancel_shop_enter() -> void:
 	if toon_speaks:
-		toon.speak(RandomService.array_pick_random('true_random', SOLD_OUT_PHRASES))
+		toon.speak(SOLD_OUT_PHRASES.pick_random())
 
 func exit() -> void:
 	ui.hide()

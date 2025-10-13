@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SignalAchievement" load_steps=3 format=3 uid="uid://vo6l0k0dk6im"]
+
+[ext_resource type="Script" uid="uid://bu0ypaddtve76" path="res://objects/save_file/achievements/signal_achievement.gd" id="1_14mav"]
+[ext_resource type="Texture2D" uid="uid://cpawi21t3aj1o" path="res://ui_assets/achievements/icon_achievement_stranger.png" id="1_ig83j"]
+
+[resource]
+script = ExtResource("1_14mav")
+signal_source = 1
+signal_name = "s_stranger_bought_item"
+achievement_name = "Shady Dealings"
+achievement_summary = "Make a trade with The Stranger."
+achievement_index = 30
+achievement_icon = ExtResource("1_ig83j")
+metadata/_custom_type_script = "uid://bu0ypaddtve76"

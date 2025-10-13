@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cha3dccp1m281"]
+[gd_scene load_steps=164 format=3 uid="uid://cha3dccp1m281"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_py1ix"]
 [ext_resource type="Script" uid="uid://b2tqjgqv6xn1p" path="res://scenes/title_screen/credits/credits_panel.gd" id="2_3oeyj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c3hrw7tgrcqf3" path="res://scenes/title_screen/credits/icons/icon_evan.png" id="4_bsh7l"]
 [ext_resource type="Texture2D" uid="uid://cvyhl11ep7ahe" path="res://scenes/title_screen/credits/icons/icon_buck.png" id="4_hafue"]
 [ext_resource type="Texture2D" uid="uid://cts7wacmb7mlp" path="res://scenes/title_screen/credits/icons/icon_kel.png" id="10_edme2"]
+[ext_resource type="Texture2D" uid="uid://c6kryke3jpejm" path="res://scenes/title_screen/credits/icons/icon_rottie.png" id="11_cdx2j"]
 [ext_resource type="Texture2D" uid="uid://b3knce3d3qmqx" path="res://scenes/title_screen/credits/icons/icon_elisei.png" id="11_ohq2p"]
 [ext_resource type="Texture2D" uid="uid://4akr1gdn66rb" path="res://scenes/title_screen/credits/icons/icon_neo.png" id="12_fxlu6"]
 [ext_resource type="Texture2D" uid="uid://c2m3ejo7xbyog" path="res://scenes/title_screen/credits/icons/icon_treetop.png" id="13_ohq2p"]
@@ -21,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bjga653jb1eoe" path="res://scenes/title_screen/credits/icons/icon_blu.png" id="17_k5w5c"]
 [ext_resource type="Texture2D" uid="uid://bj1y1uiss30dg" path="res://scenes/title_screen/credits/icons/icon_john.png" id="18_b78ew"]
 [ext_resource type="Texture2D" uid="uid://cj454u3a2jn07" path="res://scenes/title_screen/credits/icons/icon_eli.png" id="18_yf430"]
-[ext_resource type="Texture2D" uid="uid://bleneovuehtr8" path="res://scenes/title_screen/credits/icons/icon_unfinished.png" id="19_5t5bw"]
+[ext_resource type="Texture2D" uid="uid://bleneovuehtr8" path="res://scenes/title_screen/credits/icons/icon_alastair.png" id="19_5t5bw"]
 [ext_resource type="Texture2D" uid="uid://c5qsdunp78trl" path="res://scenes/title_screen/credits/icons/icon_jake.png" id="22_3wdtd"]
 [ext_resource type="Texture2D" uid="uid://2irere7p5yay" path="res://scenes/title_screen/credits/icons/icon_you.png" id="22_x0h0m"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="23_dkcqs"]
@@ -42,8 +43,46 @@
 [ext_resource type="Texture2D" uid="uid://cyuwqr76tu2ae" path="res://scenes/title_screen/credits/icons/icon_trd.png" id="29_p23p7"]
 [ext_resource type="Texture2D" uid="uid://b375rhlwbechh" path="res://scenes/title_screen/credits/icons/icon_greetings.png" id="29_qn4cl"]
 [ext_resource type="Texture2D" uid="uid://bk67why3saua1" path="res://scenes/title_screen/credits/icons/icon_evh.png" id="30_k0n1y"]
+[ext_resource type="Texture2D" uid="uid://by2y1qleoa8nv" path="res://scenes/title_screen/credits/icons/icon_lappy.png" id="32_ec610"]
 [ext_resource type="Texture2D" uid="uid://cxgdaa2ob5wme" path="res://scenes/title_screen/credits/icons/icon_blu_toon.png" id="32_yfxw4"]
+[ext_resource type="Script" uid="uid://bpn2grm5wiohs" path="res://scenes/title_screen/credits/game_credit_animated.gd" id="33_33vr7"]
+[ext_resource type="Texture2D" uid="uid://wsxmbg4xvghr" path="res://scenes/title_screen/credits/icons/icon_inso.png" id="33_cdx2j"]
 [ext_resource type="Texture2D" uid="uid://ctm0g411jlmlq" path="res://scenes/title_screen/credits/icons/icon_erin.png" id="35_edme2"]
+[ext_resource type="Texture2D" uid="uid://x2yrye8kms7s" path="res://scenes/title_screen/credits/icons/icon_stripey/1a2370fa-6725-499b-9f66-4f86f9db58ab.png" id="41_hqko8"]
+[ext_resource type="Texture2D" uid="uid://uhimh203uppy" path="res://scenes/title_screen/credits/icons/icon_stripey/4fc99334-61c0-4dd0-b319-a410ae515bbb.png" id="42_cdx2j"]
+[ext_resource type="Texture2D" uid="uid://de268n28a787f" path="res://scenes/title_screen/credits/icons/icon_stripey/7aaa0ed1-c190-46ab-bda2-2fbfea33374e.png" id="43_nkjnu"]
+[ext_resource type="Texture2D" uid="uid://cbcx572o2ddve" path="res://scenes/title_screen/credits/icons/icon_stripey/17b358d7-30c6-4613-ab53-bffe69321998.png" id="44_33vr7"]
+[ext_resource type="Texture2D" uid="uid://qglcrkhrlp68" path="res://scenes/title_screen/credits/icons/icon_stripey/50b5e216-0178-4f86-9b73-35ac310247ae.png" id="45_q042p"]
+[ext_resource type="Texture2D" uid="uid://ck6w8f8q32637" path="res://scenes/title_screen/credits/icons/icon_stripey/82f63238-88ef-4b82-8497-0203527781f1.png" id="46_dk2i1"]
+[ext_resource type="Texture2D" uid="uid://ck6y22grum1qc" path="res://scenes/title_screen/credits/icons/icon_stripey/223d2869-dae9-4a2c-85bd-3d54fe8fc2a9.png" id="47_o0djb"]
+[ext_resource type="Texture2D" uid="uid://75f0ksfjlkoc" path="res://scenes/title_screen/credits/icons/icon_stripey/492a648d-ba9a-4e48-bb8a-2d26f02fded4.png" id="48_e1miu"]
+[ext_resource type="Texture2D" uid="uid://ch27b6ihyu1av" path="res://scenes/title_screen/credits/icons/icon_stripey/667d513e-b3dd-4009-b804-ae2097b0741b.png" id="49_vfha2"]
+[ext_resource type="Texture2D" uid="uid://bhrdhsi3nwrl3" path="res://scenes/title_screen/credits/icons/icon_stripey/792a60ca-0722-45d2-8c5e-7202591cc3ba.png" id="50_qbbro"]
+[ext_resource type="Texture2D" uid="uid://gok1ll1jb3go" path="res://scenes/title_screen/credits/icons/icon_stripey/2233cb7d-2631-4e29-8fb6-b1fdeab37885.png" id="51_slv7n"]
+[ext_resource type="Texture2D" uid="uid://dw73vodpbal2v" path="res://scenes/title_screen/credits/icons/icon_stripey/49242e74-8328-46b2-bce8-72372db7c9bb.png" id="52_uk0ku"]
+[ext_resource type="Texture2D" uid="uid://dbiui4ppkskts" path="res://scenes/title_screen/credits/icons/icon_stripey/351310b4-d573-492f-ae6d-6969a1b6fc35.png" id="53_3ohx7"]
+[ext_resource type="Texture2D" uid="uid://cc8ps52k44wlx" path="res://scenes/title_screen/credits/icons/icon_stripey/746610a8-0aaa-4fd5-b452-db53a075dd89.png" id="54_6v767"]
+[ext_resource type="Texture2D" uid="uid://cr80wirasty2w" path="res://scenes/title_screen/credits/icons/icon_stripey/847476e5-4408-43dc-9928-d748a8e52872.png" id="55_3uak0"]
+[ext_resource type="Texture2D" uid="uid://dhe3ivdseqt83" path="res://scenes/title_screen/credits/icons/icon_stripey/9429151c-7a44-4a9e-b45d-ec5320c30bf1.png" id="56_a2ghk"]
+[ext_resource type="Texture2D" uid="uid://c5ymsddx0ddr1" path="res://scenes/title_screen/credits/icons/icon_stripey/88190619-3a48-4fd7-9281-5dd90436b94b.png" id="57_g8g0k"]
+[ext_resource type="Texture2D" uid="uid://dgoygr0m6trkk" path="res://scenes/title_screen/credits/icons/icon_stripey/a9227363-3271-4d40-9f45-363e8bc84276.png" id="58_qessy"]
+[ext_resource type="Texture2D" uid="uid://ip3jhi51260v" path="res://scenes/title_screen/credits/icons/icon_stripey/aa2405b7-253e-44dd-a84c-66adc55772da.png" id="59_3b23m"]
+[ext_resource type="Texture2D" uid="uid://bx0n4gyqvlid2" path="res://scenes/title_screen/credits/icons/icon_stripey/ccf7c0f9-e6d1-4184-9b93-2b45267f4a45.png" id="60_nhnax"]
+[ext_resource type="Texture2D" uid="uid://bwgi2vplkrpho" path="res://scenes/title_screen/credits/icons/icon_stripey/e0adf2bd-02a9-4f1a-92ac-1544f66f349b.png" id="61_jqiv7"]
+[ext_resource type="Texture2D" uid="uid://0pe7jis5augj" path="res://scenes/title_screen/credits/icons/icon_stripey/e937a904-7889-4103-b6cf-b0907a4eafe9.png" id="62_jwpc7"]
+[ext_resource type="Texture2D" uid="uid://dqat2qqlamuhh" path="res://scenes/title_screen/credits/icons/icon_stripey/f1d60e02-2fce-44f8-8fd5-425da38d3dfd.png" id="63_fl7iw"]
+[ext_resource type="Texture2D" uid="uid://dwxi3grb1c0oj" path="res://scenes/title_screen/credits/icons/icon_modloader.png" id="63_q042p"]
+[ext_resource type="Texture2D" uid="uid://cub2vq7q33xx" path="res://scenes/title_screen/credits/icons/icon_stripey/f1db792b-31d2-474c-b85c-568d72537b25.png" id="64_cxbqg"]
+[ext_resource type="Texture2D" uid="uid://bbonecvp8lrx3" path="res://scenes/title_screen/credits/icons/icon_tony.png" id="64_dk2i1"]
+[ext_resource type="Texture2D" uid="uid://o0e8t1dqiefe" path="res://scenes/title_screen/credits/icons/icon_eden.png" id="65_o0djb"]
+[ext_resource type="Texture2D" uid="uid://bukiv6tc1dmy8" path="res://scenes/title_screen/credits/icons/icon_stripey/f151adc4-ffbd-4d50-a136-04c264f94dab.png" id="65_t0vuj"]
+[ext_resource type="Texture2D" uid="uid://t87ifqnw7eux" path="res://scenes/title_screen/credits/icons/icon_stripey/f1800036-c28b-4947-8285-3845e9f5d8ba.png" id="66_p0psl"]
+[ext_resource type="Texture2D" uid="uid://dlcfad03xmb1c" path="res://scenes/title_screen/credits/icons/icon_alder.png" id="66_slv7n"]
+[ext_resource type="Texture2D" uid="uid://ct5ksco28mhgs" path="res://scenes/title_screen/credits/icons/icon_stripey/fb821da4-b8da-448f-a43a-361810e3ba58.png" id="67_8u8q4"]
+[ext_resource type="Texture2D" uid="uid://ddyp4dug0t45d" path="res://scenes/title_screen/credits/icons/icon_evelyn.png" id="67_e1miu"]
+[ext_resource type="Texture2D" uid="uid://cyi0ifeqapok1" path="res://scenes/title_screen/credits/icons/icon_jacky.png" id="72_vfha2"]
+[ext_resource type="Texture2D" uid="uid://2idccit1ej3t" path="res://scenes/title_screen/credits/icons/icon_doggo.png" id="73_qbbro"]
+[ext_resource type="Texture2D" uid="uid://b0xb0kjmc85nj" path="res://scenes/title_screen/credits/icons/icon_alex.png" id="75_uk0ku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yadbj"]
 font = ExtResource("3_8rgp0")
@@ -54,6 +93,7 @@ shadow_size = 4
 shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 
 [sub_resource type="Resource" id="Resource_ttvt2"]
+resource_name = "Evan"
 script = ExtResource("3_ksngi")
 icon = ExtResource("4_bsh7l")
 name = "Evan"
@@ -69,26 +109,27 @@ shadow_size = 4
 shadow_color = Color(0.0516425, 1.96373e-05, 0.225641, 0.32549)
 
 [sub_resource type="Resource" id="Resource_7jidy"]
+resource_name = "Sketched"
 script = ExtResource("3_ksngi")
 icon = ExtResource("16_byarp")
 name = "Sketched"
 role = "Programmer & Game Designer"
 label_settings = SubResource("LabelSettings_r8ymr")
 
-[sub_resource type="LabelSettings" id="LabelSettings_tmj41"]
+[sub_resource type="LabelSettings" id="LabelSettings_bsh7l"]
 font = ExtResource("3_8rgp0")
 font_size = 24
-font_color = Color(0.255, 0.412, 0.886, 1)
-outline_color = Color(1.50409e-07, 0, 0.157023, 1)
-shadow_size = 4
-shadow_color = Color(0.064, 0.137, 0.4, 0.58)
+font_color = Color(0.643137, 0.403922, 0.752941, 1)
+shadow_color = Color(0.356863, 0.188235, 0.435294, 0.686275)
 
-[sub_resource type="Resource" id="Resource_kqonq"]
+[sub_resource type="Resource" id="Resource_ohq2p"]
+resource_name = "squiddy"
 script = ExtResource("3_ksngi")
-icon = ExtResource("17_k5w5c")
-name = "Bludoo"
-role = "Programmer & Game Designer"
-label_settings = SubResource("LabelSettings_tmj41")
+icon = ExtResource("29_id6o1")
+name = "squiddy"
+role = "Programmer, 3D & Texture Artist"
+label_settings = SubResource("LabelSettings_bsh7l")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ncy1i"]
 font = ExtResource("3_8rgp0")
@@ -99,27 +140,31 @@ shadow_size = 4
 shadow_color = Color(0.0861411, 0.321197, 0.101117, 0.58)
 
 [sub_resource type="Resource" id="Resource_pbofr"]
+resource_name = "TheRandomDog"
 script = ExtResource("3_ksngi")
 icon = ExtResource("29_p23p7")
 name = "TheRandomDog"
 role = "Programmer"
 label_settings = SubResource("LabelSettings_ncy1i")
 
-[sub_resource type="LabelSettings" id="LabelSettings_bsh7l"]
+[sub_resource type="LabelSettings" id="LabelSettings_tmj41"]
 font = ExtResource("3_8rgp0")
 font_size = 24
-font_color = Color(0.643137, 0.403922, 0.752941, 1)
-shadow_color = Color(0.356863, 0.188235, 0.435294, 0.686275)
+font_color = Color(0.255, 0.412, 0.886, 1)
+outline_color = Color(1.50409e-07, 0, 0.157023, 1)
+shadow_size = 4
+shadow_color = Color(0.064, 0.137, 0.4, 0.58)
 
-[sub_resource type="Resource" id="Resource_ohq2p"]
+[sub_resource type="Resource" id="Resource_kqonq"]
+resource_name = "Bludoo"
 script = ExtResource("3_ksngi")
-icon = ExtResource("29_id6o1")
-name = "squiddy"
-role = "Programmer, 3D & Texture Artist"
-label_settings = SubResource("LabelSettings_bsh7l")
-metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+icon = ExtResource("17_k5w5c")
+name = "Bludoo"
+role = "Programmer"
+label_settings = SubResource("LabelSettings_tmj41")
 
 [sub_resource type="Resource" id="Resource_2m611"]
+resource_name = "Kel'Block"
 script = ExtResource("3_ksngi")
 icon = ExtResource("10_edme2")
 name = "Kel'Block"
@@ -135,6 +180,7 @@ shadow_size = 4
 shadow_color = Color(0.10713, 0.285534, 0.308891, 0.713726)
 
 [sub_resource type="Resource" id="Resource_1oxjh"]
+resource_name = "Elisei"
 script = ExtResource("3_ksngi")
 icon = ExtResource("11_ohq2p")
 name = "Elisei"
@@ -150,6 +196,7 @@ shadow_size = 4
 shadow_color = Color(0.0368, 0.23, 0.1817, 0.501961)
 
 [sub_resource type="Resource" id="Resource_hdogm"]
+resource_name = "neoNote"
 script = ExtResource("3_ksngi")
 icon = ExtResource("12_fxlu6")
 name = "neoNote"
@@ -157,11 +204,44 @@ role = "3D Artist, Texture Artist, Sound & Game Designer"
 label_settings = SubResource("LabelSettings_q52wn")
 
 [sub_resource type="Resource" id="Resource_wxm28"]
+resource_name = "Treetop Legend"
 script = ExtResource("3_ksngi")
 icon = ExtResource("13_ohq2p")
 name = "Treetop Legend"
 role = "3D Artist, Animator, & Rigging"
 label_settings = SubResource("LabelSettings_ncy1i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_33vr7"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.219608, 0.647059, 0.533333, 1)
+shadow_size = 4
+shadow_color = Color(0.0678382, 0.260738, 0.209503, 0.47451)
+
+[sub_resource type="Resource" id="Resource_ent56"]
+resource_name = "ROTTIEBONES"
+script = ExtResource("3_ksngi")
+icon = ExtResource("11_cdx2j")
+name = "ROTTIEBONES"
+role = "3D Artist"
+label_settings = SubResource("LabelSettings_33vr7")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkjnu"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.996078, 0.458824, 0.231373, 1)
+shadow_size = 4
+shadow_color = Color(0.387512, 0.127542, 0.00213337, 0.670588)
+
+[sub_resource type="Resource" id="Resource_33vr7"]
+resource_name = "Inso"
+script = ExtResource("3_ksngi")
+icon = ExtResource("33_cdx2j")
+name = "Inso"
+role = "Texture Artist/Generalist"
+label_settings = SubResource("LabelSettings_nkjnu")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="LabelSettings" id="LabelSettings_sejxq"]
 font = ExtResource("3_8rgp0")
@@ -172,6 +252,7 @@ shadow_size = 4
 shadow_color = Color(0.0516425, 1.96373e-05, 0.225641, 0.32549)
 
 [sub_resource type="Resource" id="Resource_dib10"]
+resource_name = "Measured Moth"
 script = ExtResource("3_ksngi")
 icon = ExtResource("24_q8jnd")
 name = "Measured Moth"
@@ -187,6 +268,7 @@ shadow_size = 4
 shadow_color = Color(0.455467, 0.224786, 0.0267251, 0.345)
 
 [sub_resource type="Resource" id="Resource_7gmnw"]
+resource_name = "Boots"
 script = ExtResource("3_ksngi")
 icon = ExtResource("14_ec610")
 name = "Boots"
@@ -202,6 +284,7 @@ shadow_size = 4
 shadow_color = Color(0.30054, 0.0826133, 0.0169427, 0.443137)
 
 [sub_resource type="Resource" id="Resource_ec610"]
+resource_name = "Peppersnoop"
 script = ExtResource("3_ksngi")
 icon = ExtResource("15_e66o5")
 name = "Peppersnoop"
@@ -218,6 +301,7 @@ shadow_size = 4
 shadow_color = Color(0.241208, 0.0153124, 0.118658, 0.501961)
 
 [sub_resource type="Resource" id="Resource_7hcke"]
+resource_name = "Loonatic"
 script = ExtResource("3_ksngi")
 icon = ExtResource("16_wxm28")
 name = "Loonatic"
@@ -233,11 +317,20 @@ shadow_size = 4
 shadow_color = Color(0.15, 0.02, 0, 0.529412)
 
 [sub_resource type="Resource" id="Resource_5m0kl"]
+resource_name = "Lavender"
 script = ExtResource("3_ksngi")
 icon = ExtResource("17_ent56")
 name = "Lavender"
 role = "Logo, Texture & UI Artist"
 label_settings = SubResource("LabelSettings_o3tdj")
+
+[sub_resource type="Resource" id="Resource_qbbro"]
+resource_name = "Eden"
+script = ExtResource("3_ksngi")
+icon = ExtResource("65_o0djb")
+name = "Eden"
+role = "Texture & Graphic Artist, Video Editor"
+label_settings = SubResource("LabelSettings_ncy1i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5bhjy"]
 font = ExtResource("3_8rgp0")
@@ -248,6 +341,7 @@ shadow_size = 4
 shadow_color = Color(0.10713, 0.285534, 0.308891, 0.713726)
 
 [sub_resource type="Resource" id="Resource_5lw2h"]
+resource_name = "SleepyEli"
 script = ExtResource("3_ksngi")
 icon = ExtResource("18_yf430")
 name = "SleepyEli"
@@ -263,9 +357,10 @@ shadow_size = 4
 shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 
 [sub_resource type="Resource" id="Resource_qhht1"]
+resource_name = "Alastair"
 script = ExtResource("3_ksngi")
 icon = ExtResource("19_5t5bw")
-name = "Unfinished"
+name = "Alastair"
 role = "Composer"
 label_settings = SubResource("LabelSettings_hh8xr")
 
@@ -278,6 +373,7 @@ shadow_size = 4
 shadow_color = Color(0.0516425, 1.96373e-05, 0.225641, 0.32549)
 
 [sub_resource type="Resource" id="Resource_1g23c"]
+resource_name = "Buck"
 script = ExtResource("3_ksngi")
 icon = ExtResource("4_hafue")
 name = "Buck"
@@ -291,6 +387,7 @@ font_color = Color(0, 0.501961, 0.501961, 1)
 shadow_color = Color(0, 0.184314, 0.184314, 0.419608)
 
 [sub_resource type="Resource" id="Resource_edme2"]
+resource_name = "callmeDJ"
 script = ExtResource("3_ksngi")
 icon = ExtResource("28_5eg4f")
 name = "callmeDJ"
@@ -307,10 +404,11 @@ shadow_size = 4
 shadow_color = Color(0.064, 0.1368, 0.4, 0.584314)
 
 [sub_resource type="Resource" id="Resource_4b13b"]
+resource_name = "Jake Henderson"
 script = ExtResource("3_ksngi")
 icon = ExtResource("22_3wdtd")
 name = "Jake Henderson"
-role = "Writer & Game Designer"
+role = "Writer, Game & Narrative Designer"
 label_settings = SubResource("LabelSettings_dxg0f")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lp0s0"]
@@ -322,6 +420,7 @@ shadow_size = 4
 shadow_color = Color(0.370647, 0.0954, 0.53, 0.572549)
 
 [sub_resource type="Resource" id="Resource_2bp18"]
+resource_name = "LadyMisticus"
 script = ExtResource("3_ksngi")
 icon = ExtResource("23_tgaj4")
 name = "LadyMisticus"
@@ -337,6 +436,7 @@ shadow_size = 4
 shadow_color = Color(0.0861411, 0.321197, 0.101117, 0.58)
 
 [sub_resource type="Resource" id="Resource_dgyyg"]
+resource_name = "StuckTheDuck"
 script = ExtResource("3_ksngi")
 icon = ExtResource("24_xdhb6")
 name = "StuckTheDuck"
@@ -353,11 +453,28 @@ shadow_size = 4
 shadow_color = Color(0.256003, 0.000672724, 0.430362, 0.411)
 
 [sub_resource type="Resource" id="Resource_coqfa"]
+resource_name = "Niko Frost"
 script = ExtResource("3_ksngi")
 icon = ExtResource("25_ru8qe")
 name = "Niko Frost"
 role = "Game Designer"
 label_settings = SubResource("LabelSettings_rf1qn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0djb"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.968627, 0.847059, 0.278431, 1)
+outline_color = Color(1.50409e-07, 0, 0.157023, 1)
+shadow_size = 4
+shadow_color = Color(0.169204, 0.139359, 0.00750618, 0.431373)
+
+[sub_resource type="Resource" id="Resource_vfha2"]
+resource_name = "Tony (Roe)"
+script = ExtResource("3_ksngi")
+icon = ExtResource("64_dk2i1")
+name = "Tony (Roe)"
+role = "Cinematic Director"
+label_settings = SubResource("LabelSettings_o0djb")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lu6ox"]
 font = ExtResource("3_8rgp0")
@@ -368,6 +485,7 @@ shadow_size = 4
 shadow_color = Color(0.488, 0, 0.233, 0.308)
 
 [sub_resource type="Resource" id="Resource_w23nx"]
+resource_name = "Raine"
 script = ExtResource("3_ksngi")
 icon = ExtResource("14_n64th")
 name = "Raine"
@@ -375,26 +493,28 @@ role = "Quality Assurance"
 label_settings = SubResource("LabelSettings_lu6ox")
 
 [sub_resource type="Resource" id="Resource_ol1pa"]
+resource_name = "Supergoose"
 script = ExtResource("3_ksngi")
 icon = ExtResource("27_ced4h")
 name = "Supergoose"
 role = "Quality Assurance"
 label_settings = SubResource("LabelSettings_5bhjy")
 
-[sub_resource type="LabelSettings" id="LabelSettings_rdjg7"]
+[sub_resource type="LabelSettings" id="LabelSettings_gqhi7"]
 font = ExtResource("3_8rgp0")
 font_size = 24
-font_color = Color(0.87451, 0.596078, 0.807843, 1)
+font_color = Color(0.875, 0.596, 0.808, 1)
 outline_color = Color(1.50409e-07, 0, 0.157023, 1)
 shadow_size = 4
-shadow_color = Color(0.261001, 0.0886031, 0.227863, 0.525)
+shadow_color = Color(0.261, 0.089, 0.228, 0.525)
 
 [sub_resource type="Resource" id="Resource_mdpg3"]
+resource_name = "John Boyo"
 script = ExtResource("3_ksngi")
 icon = ExtResource("18_b78ew")
 name = "John Boyo"
 role = "Quality Assurance"
-label_settings = SubResource("LabelSettings_rdjg7")
+label_settings = SubResource("LabelSettings_gqhi7")
 
 [sub_resource type="LabelSettings" id="LabelSettings_bxmax"]
 font = ExtResource("3_8rgp0")
@@ -405,50 +525,223 @@ shadow_size = 4
 shadow_color = Color(0.064, 0.137, 0.4, 0.58)
 
 [sub_resource type="Resource" id="Resource_m42v0"]
+resource_name = "Greetings"
 script = ExtResource("3_ksngi")
 icon = ExtResource("29_qn4cl")
 name = "Greetings"
 role = "Consultant"
 label_settings = SubResource("LabelSettings_bxmax")
 
+[sub_resource type="LabelSettings" id="LabelSettings_dk2i1"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.996078, 0.898039, 0.337255, 1)
+shadow_size = 4
+shadow_color = Color(0.54902, 0.478431, 0.0117647, 0.470588)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sae7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_hqko8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_cdx2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_nkjnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_33vr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_q042p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_dk2i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_o0djb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_e1miu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_vfha2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_qbbro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_slv7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_uk0ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_3ohx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_6v767")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_3uak0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_a2ghk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_g8g0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_qessy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_3b23m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_nhnax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_jqiv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_jwpc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_fl7iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_cxbqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_t0vuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_p0psl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_8u8q4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Resource" id="Resource_o0djb"]
+script = ExtResource("33_33vr7")
+sprite_frames = SubResource("SpriteFrames_sae7g")
+name = "Stripey"
+role = "Marketing"
+label_settings = SubResource("LabelSettings_dk2i1")
+metadata/_custom_type_script = "uid://bpn2grm5wiohs"
+
+[sub_resource type="LabelSettings" id="LabelSettings_q042p"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.470588, 0.317647, 0.662745, 1)
+shadow_size = 4
+shadow_color = Color(0.230975, 0.139521, 0.34224, 0.505882)
+
+[sub_resource type="Resource" id="Resource_dk2i1"]
+resource_name = "Lappy"
+script = ExtResource("3_ksngi")
+icon = ExtResource("32_ec610")
+name = "Lappy"
+role = "Lappy?"
+label_settings = SubResource("LabelSettings_q042p")
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
 [sub_resource type="Resource" id="Resource_c5kur"]
+resource_name = "Toontown: Event Horizon"
 script = ExtResource("3_ksngi")
 icon = ExtResource("30_k0n1y")
 name = "Toontown: Event Horizon"
 role = "Cog Rigs"
 
+[sub_resource type="Resource" id="Resource_e1miu"]
+resource_name = "Godot Mod Loader"
+script = ExtResource("3_ksngi")
+icon = ExtResource("63_q042p")
+name = "Godot Mod Loader"
+role = "Modding Backend"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="Resource" id="Resource_6v767"]
+resource_name = "Alder (Beastnode)"
+script = ExtResource("3_ksngi")
+icon = ExtResource("66_slv7n")
+name = "Alder (Beastnode)"
+role = "Glowering Dagger concept"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="Resource" id="Resource_3uak0"]
+resource_name = "AlexLH"
+script = ExtResource("3_ksngi")
+icon = ExtResource("75_uk0ku")
+name = "AlexLH"
+role = "v1.2.0 Playtesting"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="Resource" id="Resource_3ohx7"]
+resource_name = "DoggoMafia"
+script = ExtResource("3_ksngi")
+icon = ExtResource("73_qbbro")
+name = "DoggoMafia"
+role = "Designer of Cash Cow"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
 [sub_resource type="Resource" id="Resource_e66o5"]
+resource_name = "Erin (Cosmic)"
 script = ExtResource("3_ksngi")
 icon = ExtResource("35_edme2")
 name = "Erin (Cosmic)"
-role = ""
+role = "Creator of Original Pocket Pranks mod"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
+[sub_resource type="Resource" id="Resource_slv7n"]
+resource_name = "Evelyn (Velvet Petunia)"
+script = ExtResource("3_ksngi")
+icon = ExtResource("67_e1miu")
+name = "Evelyn (Velvet Petunia)"
+role = "Designer of Live Wire"
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_daahu"]
+resource_name = "Goatcanon"
 script = ExtResource("3_ksngi")
 icon = ExtResource("17_i8d8j")
 name = "Goatcanon"
-role = ""
+
+[sub_resource type="Resource" id="Resource_uk0ku"]
+resource_name = "Jackyland"
+script = ExtResource("3_ksngi")
+icon = ExtResource("72_vfha2")
+name = "Jackyland"
+role = "Designer of Stickler"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_bsh7l"]
+resource_name = "Just a BLU Toon"
 script = ExtResource("3_ksngi")
 icon = ExtResource("32_yfxw4")
 name = "Just a BLU Toon"
-role = ""
+role = "Cog Creator Testing & Designer of Cash Cow"
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_id6o1"]
+resource_name = "Niji"
 script = ExtResource("3_ksngi")
 icon = ExtResource("27_bxmax")
 name = "Niji"
-role = ""
+role = "Discord Moderation"
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
 [sub_resource type="Resource" id="Resource_ohm68"]
+resource_name = "Princess Sandy"
 script = ExtResource("3_ksngi")
 icon = ExtResource("27_xwo8y")
 name = "Princess Sandy"
-role = ""
 
 [sub_resource type="LabelSettings" id="LabelSettings_eknjt"]
 font = ExtResource("23_ts00s")
@@ -464,6 +757,19 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_aj6wg"]
 font = ExtResource("3_8rgp0")
 font_color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="GDScript" id="GDScript_hqko8"]
+resource_name = "stripey_credit"
+script/source = "extends HBoxContainer
+
+## Stripey handed me a GIF, and said \"if that doesn't work I can send a png\"
+## I took this as a challenge
+
+
+func on_frame_changed() -> void:
+	var frame: int = $Animation.frame
+	$Icon.set_texture($Animation.sprite_frames.get_frame_texture('default', frame))
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbtjq"]
 font = ExtResource("3_8rgp0")
@@ -486,8 +792,8 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_ohq2p"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_c5kur")])
-special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_e66o5"), SubResource("Resource_daahu"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_ohq2p"), SubResource("Resource_pbofr"), SubResource("Resource_kqonq"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_ent56"), SubResource("Resource_33vr7"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_qbbro"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_vfha2"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_o0djb"), SubResource("Resource_dk2i1"), SubResource("Resource_c5kur"), SubResource("Resource_e1miu")])
+special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_6v767"), SubResource("Resource_3uak0"), SubResource("Resource_3ohx7"), SubResource("Resource_e66o5"), SubResource("Resource_slv7n"), SubResource("Resource_daahu"), SubResource("Resource_uk0ku"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
 
@@ -511,6 +817,9 @@ label_settings = SubResource("LabelSettings_eknjt")
 
 [node name="Body" parent="Panel" index="1"]
 text = ""
+
+[node name="CancelButton" parent="Panel" index="2"]
+font_size = 36.0
 
 [node name="CreditWindow" type="Control" parent="Panel" index="3"]
 layout_mode = 1
@@ -545,7 +854,7 @@ layout_mode = 2
 [node name="CreditTemplate" type="HBoxContainer" parent="." index="2"]
 visible = false
 texture_filter = 2
-layout_mode = 2
+layout_mode = 0
 offset_left = 28.0
 offset_top = 106.0
 offset_right = 446.0
@@ -571,9 +880,45 @@ layout_mode = 2
 text = "Game Designer"
 label_settings = SubResource("LabelSettings_aj6wg")
 
-[node name="ThanksLabel" type="Label" parent="." index="3"]
+[node name="AnimatedCredit" type="HBoxContainer" parent="." index="3"]
+unique_name_in_owner = true
 visible = false
+texture_filter = 2
+layout_mode = 0
+offset_left = 28.0
+offset_top = 106.0
+offset_right = 446.0
+offset_bottom = 170.0
+script = SubResource("GDScript_hqko8")
+
+[node name="Animation" type="AnimatedSprite2D" parent="AnimatedCredit" index="0"]
+position = Vector2(32, 33)
+scale = Vector2(0.0107239, 0.0107239)
+autoplay = "default"
+
+[node name="Icon" type="TextureRect" parent="AnimatedCredit" index="1"]
+texture_filter = 4
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("2_s4vxw")
+expand_mode = 1
+
+[node name="LabelContainer" type="VBoxContainer" parent="AnimatedCredit" index="2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="AnimatedCredit/LabelContainer" index="0"]
+layout_mode = 2
+text = "Namey McPersonson"
+label_settings = SubResource("LabelSettings_pa3ay")
+
+[node name="Role" type="Label" parent="AnimatedCredit/LabelContainer" index="1"]
+layout_mode = 2
+text = "Game Designer"
+label_settings = SubResource("LabelSettings_aj6wg")
+
+[node name="ThanksLabel" type="Label" parent="." index="4"]
+visible = false
+layout_mode = 0
 offset_left = 28.0
 offset_top = 72.0
 offset_right = 446.0
@@ -582,9 +927,9 @@ text = "Special Thanks"
 label_settings = SubResource("LabelSettings_mbtjq")
 horizontal_alignment = 1
 
-[node name="FakeoutCredit" type="HBoxContainer" parent="." index="4"]
+[node name="FakeoutCredit" type="HBoxContainer" parent="." index="5"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 234.91
 offset_top = 255.985
 offset_right = 652.91
@@ -612,6 +957,7 @@ texture_pressed = ExtResource("25_o5hyb")
 texture_hover = ExtResource("26_vw3sy")
 texture_disabled = null
 text = "Really?"
+font_size = 16.0
 
 [node name="Label" parent="FakeoutCredit/LabelContainer/GeneralButton" index="0"]
 text = "Really?"
@@ -623,9 +969,11 @@ layout_mode = 2
 text = "No, not you. The guy behind you."
 label_settings = SubResource("LabelSettings_aj6wg")
 
+[connection signal="frame_changed" from="Panel/CreditWindow/ScrollContainer/CreditContainer/AnimatedCredit/Animation" to="Panel/CreditWindow/ScrollContainer/CreditContainer/AnimatedCredit" method="on_frame_changed"]
 [connection signal="button_down" from="Panel/CreditWindow/ScrollContainer/CreditContainer/FakeoutCredit/LabelContainer/GeneralButton" to="Panel/CreditWindow/ScrollContainer/CreditContainer/FakeoutCredit/LabelContainer/GeneralButton" method="on_button_down"]
 [connection signal="mouse_entered" from="Panel/CreditWindow/ScrollContainer/CreditContainer/FakeoutCredit/LabelContainer/GeneralButton" to="Panel/CreditWindow/ScrollContainer/CreditContainer/FakeoutCredit/LabelContainer/GeneralButton" method="on_mouse_entered"]
 [connection signal="pressed" from="Panel/CreditWindow/ScrollContainer/CreditContainer/FakeoutCredit/LabelContainer/GeneralButton" to="." method="do_fakeout"]
+[connection signal="frame_changed" from="AnimatedCredit/Animation" to="AnimatedCredit" method="on_frame_changed"]
 [connection signal="pressed" from="FakeoutCredit/LabelContainer/GeneralButton" to="." method="do_fakeout"]
 
 [editable path="FakeoutCredit/LabelContainer/GeneralButton"]

@@ -117,6 +117,7 @@ backface_collision = true
 script = ExtResource("1_cx3te")
 
 [node name="PaintMixerBase" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 4.88281e-06, -1.07324, 0)
 mesh = SubResource("ArrayMesh_ft6t4")
 skeleton = NodePath("")
@@ -133,5 +134,6 @@ transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_al3qv")
 
 [node name="ShaftCollide" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 4.88281e-06, -1.07324, 0)
 shape = SubResource("ConcavePolygonShape3D_bh3ky")

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://klobdj40hb36"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_w8ppd"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_yblqh"]
+[ext_resource type="Texture2D" uid="uid://bvgx27pic2vhh" path="res://models/accessories/backpacks/standard_backpack/small_pouch-pix-3.png" id="3_w8ppd"]
+[ext_resource type="PackedScene" uid="uid://dgvajqgogj81d" path="res://models/accessories/backpacks/standard_backpack/medium_pouch.tscn" id="4_w8ppd"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="5_ntny7"]
+
+[sub_resource type="Resource" id="Resource_6vjhu"]
+script = ExtResource("2_yblqh")
+body_type = 2
+position = Vector3(0.01, 0.72, 0.8)
+rotation = Vector3(-8.28, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_4scxt"]
+script = ExtResource("2_yblqh")
+body_type = 1
+position = Vector3(0.01, 0.35, 0.78)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_pj1q4"]
+script = ExtResource("2_yblqh")
+position = Vector3(0.11, 0.46, 1.08)
+rotation = Vector3(8.28, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("5_ntny7")
+accessory_placements = Array[ExtResource("1_w8ppd")]([SubResource("Resource_6vjhu"), SubResource("Resource_4scxt"), SubResource("Resource_pj1q4")])
+tags = Array[int]([0])
+qualitoon = 3
+rarity = 2
+slot = 3
+world_scale = 0.15
+item_name = "Medium Pouch"
+item_description = "Even more storage space!"
+big_description = "Adds +3 to your Gag carry capacity."
+model = ExtResource("4_w8ppd")
+stats_add = {
+"gag_cap": 3
+}
+icon = ExtResource("3_w8ppd")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

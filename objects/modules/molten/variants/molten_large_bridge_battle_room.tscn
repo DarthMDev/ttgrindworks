@@ -1,0 +1,363 @@
+[gd_scene load_steps=25 format=3 uid="uid://ig4sxydkyni"]
+
+[ext_resource type="PackedScene" uid="uid://bhfjcfwvkuwhl" path="res://objects/modules/molten/base_rooms/molten_large_room.tscn" id="1_swwns"]
+[ext_resource type="Script" uid="uid://0o2mkcd8d7d7" path="res://objects/modules/molten/variants/molten_large_bridge_battle_room.gd" id="2_e4h67"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_owx0t"]
+[ext_resource type="PackedScene" uid="uid://e5xfuhel0svu" path="res://objects/props/molten/molten_bucket.tscn" id="3_osu7x"]
+[ext_resource type="PackedScene" uid="uid://ca5iu2h5u2ltv" path="res://objects/props/mint/mint_safe.tscn" id="4_r075j"]
+[ext_resource type="PackedScene" uid="uid://bd42w05f4y08b" path="res://objects/props/molten/grate.tscn" id="5_7kx6s"]
+[ext_resource type="PackedScene" uid="uid://hox57qqxnjdl" path="res://objects/props/factory/gear_post.tscn" id="6_0co7n"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="9_y50lo"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="10_00642"]
+[ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="11_r075j"]
+[ext_resource type="Resource" uid="uid://c1ieqc06wj6gp" path="res://objects/items/pools/rewards.tres" id="11_ytyvo"]
+[ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="12_0tkww"]
+[ext_resource type="PackedScene" uid="uid://brupbko3w3tbq" path="res://objects/props/mint/gold_stack.tscn" id="13_r075j"]
+[ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="14_4r1ok"]
+[ext_resource type="PackedScene" uid="uid://dn2240phqf7k2" path="res://objects/props/mint/money_bag.tscn" id="16_4r1ok"]
+[ext_resource type="PackedScene" uid="uid://cpui5l4pi63l0" path="res://objects/props/factory/small_gear.tscn" id="17_x8p3n"]
+[ext_resource type="PackedScene" uid="uid://rriejmaesd7l" path="res://objects/props/factory/gear.tscn" id="18_n7d30"]
+[ext_resource type="PackedScene" uid="uid://bd3uosfksls0q" path="res://objects/battle/battle_resources/misc_movies/bookkeeper/burning_bookshelf.tscn" id="19_vpiwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_osu7x"]
+size = Vector3(14.5, 8, 10.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tkww"]
+size = Vector3(12.3453, 7.3, 14.1323)
+
+[sub_resource type="Curve3D" id="Curve3D_e4h67"]
+closed = true
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 15.4707, 0, -9.97954, 0, 0, 0, -9.375, 0, 0, 9.022, 0, -9.984, 0, 0, -0.865, 0, 0, 0, -0.00662041, -2.28882e-05, 0.00862026, 0, 0, 0, 0, 0, 0, -0.0142136, -2.28882e-05, 24.5311, 0, 0, 0, 0, 0, 0, -0.102417, -8.01086e-05, 35.5425, 0, 0, 0, 0, 0, 0, 18.0906, -8.01086e-05, 31.0524, 0, 0, 0, 0, 0, 0, 20.3799, -8.01086e-05, -2.75113),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+up_vector_enabled = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytyvo"]
+size = Vector3(10, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kx6s"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibkpe"]
+size = Vector3(81.4076, 51.9558, 69.0896)
+
+[node name="molten_large_room" instance=ExtResource("1_swwns")]
+script = ExtResource("2_e4h67")
+
+[node name="ENTRANCE" parent="." index="6"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -20.3431, 30.7208, 33.7264)
+
+[node name="EXIT" parent="." index="7"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 13.7045, 30.7208, -36.4982)
+
+[node name="molten_bucket" parent="." index="13"]
+visible = false
+
+[node name="molten_bucket2" parent="." index="14"]
+visible = false
+
+[node name="molten_bucket3" parent="." index="15"]
+visible = false
+
+[node name="Battles" type="Node3D" parent="." index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 47.7887, -33)
+
+[node name="BattleNodeDynamic" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("2_owx0t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.1, -17.0385, 3.6)
+cog_range = Vector2i(2, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 3.5, 0.699997)
+shape = SubResource("BoxShape3D_osu7x")
+
+[node name="BattleNodeDynamic2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("2_owx0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97828, -17.0385, 6.19336)
+cog_range = Vector2i(2, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148804, 3.15, -2.96737)
+shape = SubResource("BoxShape3D_0tkww")
+
+[node name="Path3D" type="Path3D" parent="." index="17"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.945, 38.269, 11.352)
+curve = SubResource("Curve3D_e4h67")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" index="0"]
+transform = Transform3D(0.000691607, 0, 0.999997, 0, 1, 0, -0.999997, 0, 0.000691607, 15.4707, 0, -9.97954)
+rotation_mode = 1
+tilt_enabled = false
+
+[node name="molten_bucket" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("3_osu7x")]
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D" index="1"]
+transform = Transform3D(-0.999971, 0, 0.000309613, 0, 0.999983, 0, -0.000309609, 0, -0.999982, -0.00722238, -2.28882e-05, 1.95271)
+progress = 23.7325
+rotation_mode = 1
+tilt_enabled = false
+
+[node name="molten_bucket" parent="Path3D/PathFollow3D2" index="0" instance=ExtResource("3_osu7x")]
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D" index="2"]
+transform = Transform3D(-0.999936, 0, 0.00800982, 0, 0.999984, 0, -0.00800972, 0, -0.999948, -0.023455, -2.88834e-05, 25.6848)
+progress = 47.465
+rotation_mode = 1
+tilt_enabled = false
+
+[node name="molten_bucket" parent="Path3D/PathFollow3D3" index="0" instance=ExtResource("3_osu7x")]
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D" index="3"]
+transform = Transform3D(0.239611, 0, -0.970864, 0, 0.999987, 0, 0.970857, 0, 0.239613, 13.3678, -8.01086e-05, 32.218)
+progress = 71.1975
+rotation_mode = 1
+tilt_enabled = false
+
+[node name="molten_bucket" parent="Path3D/PathFollow3D4" index="0" instance=ExtResource("3_osu7x")]
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Path3D" index="4"]
+transform = Transform3D(0.997665, 0, -0.0675681, 0, 0.999984, 0, 0.0675656, 0, 0.997702, 19.3655, -8.01086e-05, 12.2275)
+progress = 94.93
+rotation_mode = 1
+tilt_enabled = false
+
+[node name="molten_bucket" parent="Path3D/PathFollow3D5" index="0" instance=ExtResource("3_osu7x")]
+
+[node name="Elevator" type="Node3D" parent="." index="18"]
+transform = Transform3D(0.975, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 28, -20.576)
+
+[node name="Platform" type="AnimatableBody3D" parent="Elevator" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44, 0.35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Elevator/Platform" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.250006, 0)
+shape = SubResource("BoxShape3D_ytyvo")
+
+[node name="grate2" parent="Elevator/Platform" index="1" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="grate" parent="Elevator/Platform" index="2" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+
+[node name="Top" type="Node3D" parent="Elevator" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0)
+
+[node name="Bottom" type="Node3D" parent="Elevator" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.5, 0)
+
+[node name="TopTop" type="Node3D" parent="Elevator" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44, 0.35)
+
+[node name="Destroyed Bridge" type="Node3D" parent="." index="20"]
+
+[node name="grate2" parent="Destroyed Bridge" index="0" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4, 30.717, 23.6546)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Destroyed Bridge/grate2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destroyed Bridge/grate2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.250006, 0)
+shape = SubResource("BoxShape3D_7kx6s")
+
+[node name="grate3" parent="Destroyed Bridge" index="1" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 0.937549, 0.347852, 0, -0.347852, 0.937549, -20.4, 29.8462, 18.8074)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Destroyed Bridge/grate3" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destroyed Bridge/grate3/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.250006, 0)
+shape = SubResource("BoxShape3D_7kx6s")
+
+[node name="grate4" parent="Destroyed Bridge" index="2" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 0.697615, 0.716472, 0, -0.716472, 0.697615, -20.4, 27.1835, 14.7427)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Destroyed Bridge/grate4" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destroyed Bridge/grate4/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.250006, 0)
+shape = SubResource("BoxShape3D_7kx6s")
+
+[node name="grate8" parent="Destroyed Bridge" index="3" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(1, 0, 0, 0, 0.93089, -0.365299, 0, 0.365299, 0.93089, -20.4, 29.7926, -5.51358)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Destroyed Bridge/grate8" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Destroyed Bridge/grate8/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, -0.250006, 0)
+shape = SubResource("BoxShape3D_7kx6s")
+
+[node name="gear_post" parent="Destroyed Bridge" index="4" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.06692, -1.30734, 0, 0.0933438, 14.9429, 0, 0, 0, 1.071, -22.6009, 30.7237, 21.1303)
+
+[node name="gear_post2" parent="Destroyed Bridge" index="5" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.06692, 1.30734, 0, -0.0933438, 14.9429, 0, 0, 0, 1.071, -18.1586, 30.7237, 21.1303)
+
+[node name="gear_post5" parent="Destroyed Bridge" index="6" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.07032, -0.462764, 0, 0.0381246, 12.9918, 0, 0, 0, 1.071, -21.9431, 32.3724, 7.78901)
+
+[node name="gear_post6" parent="Destroyed Bridge" index="7" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.06936, 0.884779, 0, -0.0592249, 15.9755, 0, 0, 0, 1.071, -19.267, 29.1552, 7.78901)
+
+[node name="gear_post3" parent="Destroyed Bridge" index="8" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.13765, -1.39449, 0, 0.0995319, 15.9391, 0, 0, 0, 1.142, -22.6009, 29.0692, -3.74556)
+
+[node name="gear_post4" parent="Destroyed Bridge" index="9" instance=ExtResource("6_0co7n")]
+transform = Transform3D(1.13765, 1.39449, 0, -0.0995319, 15.9391, 0, 0, 0, 1.142, -18.1586, 29.0692, -3.74556)
+
+[node name="SinkingPlatform" parent="." index="21" instance=ExtResource("11_r075j")]
+transform = Transform3D(1.17509, 0, -1.14401, 0, 1.64, 0, 1.14401, 0, 1.17509, -21.016, 1.98436, 9.197)
+sink_speed = 0.9
+
+[node name="Platform" parent="SinkingPlatform" index="0"]
+visible = false
+
+[node name="grate5" parent="SinkingPlatform" index="2" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(0.609756, 0, 0, 0, 0.609756, 0, 0, 0, 0.609756, 0, 0.154119, 0)
+
+[node name="SinkingPlatform2" parent="." index="22" instance=ExtResource("11_r075j")]
+transform = Transform3D(1.52531, 0, 0.602526, 0, 1.64, 0, -0.602526, 0, 1.52531, -26.7575, 1.97575, 1.55159)
+sink_speed = 0.9
+
+[node name="Platform" parent="SinkingPlatform2" index="0"]
+visible = false
+
+[node name="grate6" parent="SinkingPlatform2" index="2" instance=ExtResource("5_7kx6s")]
+transform = Transform3D(0.61, 0, 0, 0, 0.61, 0, 0, 0, 0.61, 0, 0.154, 0)
+
+[node name="MoltenBellows" parent="." index="23" instance=ExtResource("9_y50lo")]
+transform = Transform3D(0.749634, -0.0623705, -0.272321, 0.0854555, 0.793623, 0.0534726, 0.265981, -0.0791952, 0.750321, -29.7592, 0.52775, -5.50143)
+
+[node name="treasure_chest" parent="." index="24" instance=ExtResource("10_00642")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6784, 2.9811, -35.6929)
+item_pool = ExtResource("11_ytyvo")
+
+[node name="Deco" type="Node3D" parent="." index="25"]
+
+[node name="shelf2" parent="Deco" index="0" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.4, 30.663, -19.5)
+
+[node name="shelf6" parent="Deco" index="1" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.4, 30.663, -15.4)
+
+[node name="shelf10" parent="Deco" index="2" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.4, 30.663, -11.3)
+Type = 1
+
+[node name="shelf18" parent="Deco" index="3" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.4, 30.663, -30.8)
+
+[node name="shelf19" parent="Deco" index="4" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40.4, 30.663, -26.7)
+Type = 1
+
+[node name="shelf7" parent="Deco" index="5" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.8, 30.663, -12.1)
+
+[node name="shelf8" parent="Deco" index="6" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.8, 30.663, -16.2)
+Type = 1
+
+[node name="shelf9" parent="Deco" index="7" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.8, 30.663, -20.3)
+
+[node name="shelf3" parent="Deco" index="8" instance=ExtResource("12_0tkww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9, 30.663, -22)
+
+[node name="shelf4" parent="Deco" index="9" instance=ExtResource("12_0tkww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8, 30.663, -22)
+
+[node name="shelf5" parent="Deco" index="10" instance=ExtResource("12_0tkww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7, 30.663, -22)
+Type = 1
+
+[node name="shelf14" parent="Deco" index="11" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -30.1, 30.663, -25.5)
+
+[node name="shelf15" parent="Deco" index="12" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.8, 30.663, -24.2)
+
+[node name="shelf16" parent="Deco" index="13" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -37.9, 30.663, -24.2)
+Type = 1
+
+[node name="shelf11" parent="Deco" index="14" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.6, 30.663, -25.1)
+
+[node name="shelf12" parent="Deco" index="15" instance=ExtResource("12_0tkww")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.6, 30.663, -29.2)
+Type = 1
+
+[node name="shelf13" parent="Deco" index="16" instance=ExtResource("12_0tkww")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -28.7, 30.663, -29.2)
+
+[node name="treasure_chest2" parent="Deco" index="17" instance=ExtResource("10_00642")]
+transform = Transform3D(-0.610353, 0, -0.79213, 0, 1, 0, 0.79213, 0, -0.610353, -30.2206, 30.7211, -26.7135)
+
+[node name="gold_stack2" parent="Deco" index="18" instance=ExtResource("13_r075j")]
+transform = Transform3D(0.998172, 0, 0.0604388, 0, 1, 0, -0.0604388, 0, 0.998172, -36.9182, 30.6428, -35.5223)
+
+[node name="gold_stack3" parent="Deco" index="19" instance=ExtResource("13_r075j")]
+transform = Transform3D(0.997681, 0, -0.0680675, 0, 1, 0, 0.0680675, 0, 0.997681, -34.5056, 30.6428, -35.7002)
+
+[node name="mint_crate" parent="Deco" index="20" instance=ExtResource("14_4r1ok")]
+transform = Transform3D(0.979343, 0, -0.202206, 0, 1, 0, 0.202206, 0, 0.979343, -26.601, 30.7229, -21.9982)
+
+[node name="mint_crate3" parent="Deco" index="21" instance=ExtResource("14_4r1ok")]
+transform = Transform3D(0.948551, 0, 0.316626, 0, 1, 0, -0.316626, 0, 0.948551, -38.7357, 30.7229, -20.5634)
+
+[node name="mint_crate4" parent="Deco" index="22" instance=ExtResource("14_4r1ok")]
+transform = Transform3D(0.993242, 0, 0.116064, 0, 1, 0, -0.116064, 0, 0.993242, -38.7674, 30.7229, -25.9397)
+
+[node name="mint_crate2" parent="Deco" index="23" instance=ExtResource("14_4r1ok")]
+transform = Transform3D(0.969991, 0, 0.243141, 0, 1, 0, -0.243141, 0, 0.969991, -16.2012, 30.7229, -9.50291)
+
+[node name="mint_crate5" parent="Deco" index="24" instance=ExtResource("14_4r1ok")]
+transform = Transform3D(0.966788, 0.198867, 0.16054, -0.099197, 0.870867, -0.481404, -0.235545, 0.449491, 0.861671, -13.8405, 1.10702, -3.49901)
+
+[node name="money_bag" parent="Deco" index="25" instance=ExtResource("16_4r1ok")]
+transform = Transform3D(-0.392562, 0, -0.919726, 0, 1, 0, 0.919726, 0, -0.392562, -29.7455, 30.7209, -28.5657)
+
+[node name="money_bag3" parent="Deco" index="26" instance=ExtResource("16_4r1ok")]
+transform = Transform3D(-0.304818, 0, 0.739653, 0, 0.8, 0, -0.739653, 0, -0.304818, -38.9195, 32.3973, -26.2429)
+
+[node name="money_bag2" parent="Deco" index="27" instance=ExtResource("16_4r1ok")]
+transform = Transform3D(-0.885588, 0, -0.464471, 0, 1, 0, 0.464471, 0, -0.885588, -31.985, 30.7209, -25.4658)
+
+[node name="SmallGear" parent="Deco" index="28" instance=ExtResource("17_x8p3n")]
+transform = Transform3D(0.963835, 0, -0.266498, 0, 1, 0, 0.266498, 0, 0.963835, -28.548, 30.7219, -20.3089)
+
+[node name="SmallGear2" parent="Deco" index="29" instance=ExtResource("17_x8p3n")]
+transform = Transform3D(0.832206, 0, -0.554467, 0, 1, 0, 0.554467, 0, 0.832206, -28.386, 31.6028, -20.4023)
+
+[node name="SmallGear3" parent="Deco" index="30" instance=ExtResource("17_x8p3n")]
+transform = Transform3D(-0.187981, 0, 0.982173, 0, 1, 0, -0.982173, 0, -0.187981, -0.0649162, 30.7219, -35.3908)
+
+[node name="SmallGear5" parent="Deco" index="31" instance=ExtResource("17_x8p3n")]
+transform = Transform3D(-0.407454, 0, 0.913226, 0, 1, 0, -0.913226, 0, -0.407454, -1.97944, 30.7219, -35.1638)
+
+[node name="SmallGear4" parent="Deco" index="32" instance=ExtResource("17_x8p3n")]
+transform = Transform3D(0.409159, 0, 0.912463, 0, 1, 0, -0.912463, 0, 0.409159, -0.469125, 31.6028, -35.5464)
+
+[node name="gear" parent="Deco" index="33" instance=ExtResource("18_n7d30")]
+transform = Transform3D(0.643597, -0.0756856, 0.264679, 0.275288, 0.176946, -0.618795, 0, 0.673025, 0.192453, -5.01937, 32.6411, -35.5768)
+
+[node name="cb_safe" parent="Deco" index="34" instance=ExtResource("4_r075j")]
+transform = Transform3D(0.80679, 0, 0.679749, 0, 0.8, 0, -0.747723, 0, 0.733445, -39.8496, 30.7167, -34.3152)
+
+[node name="BurningBookshelf" parent="." index="26" instance=ExtResource("19_vpiwh")]
+transform = Transform3D(-0.120795, 0.7421, -1.85329, -1.21832, 1.44344, 0.657395, 1.58149, 1.16866, 0.364877, 37.9632, 0, 4.48382)
+
+[node name="RoomArea" type="Area3D" parent="." index="28"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.548035, 25.9774, -1.73914)
+shape = SubResource("BoxShape3D_ibkpe")
+
+[editable path="SinkingPlatform"]
+[editable path="SinkingPlatform/Platform/platform2"]
+[editable path="SinkingPlatform2"]
+[editable path="SinkingPlatform2/Platform/platform2"]

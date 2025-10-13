@@ -58,7 +58,7 @@ func place_hiding_spots() -> void:
 	var x_dist := -(float(spots_needed) * SPOT_SEPARATION) / 2.0
 	if spots_needed % 2 == 0: x_dist += SPOT_SEPARATION / 2.0
 	for i in spots_needed:
-		var new_spot : Node3D = hiding_spot_objects[RandomService.randi_channel('minigames') % hiding_spot_objects.size()]
+		var new_spot : Node3D = hiding_spot_objects[RNG.channel(RNG.ChannelMinigames).randi() % hiding_spot_objects.size()]
 		new_spot.reparent(hiding_spot_origin)
 		new_spot.position = Vector3(x_dist, 0.0, 0.0)
 		x_dist += SPOT_SEPARATION

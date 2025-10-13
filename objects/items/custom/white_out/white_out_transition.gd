@@ -42,12 +42,9 @@ func refresh_lines() -> void:
 		
 		var start_pos := Vector2(0.0, y_pos)
 		var stopping_point := size.x * 2.0
-		var y_stopping_point := y_pos
+
 		if i == line_count - 1:
 			stopping_point *= line_ratio
-			y_stopping_point += (line_width * line_ratio)
-		else:
-			y_stopping_point += line_width
 
 		# For alternating side
 		if i % 2 == 0:
@@ -60,7 +57,7 @@ func refresh_lines() -> void:
 		y_pos += line_width
 
 func create_new_line_element() -> Control:
-	return %Line.duplicate()
+	return %Line.duplicate(true)
 
 func do_fadeout() -> void:
 	var fade_tween := create_tween().set_parallel()
@@ -70,12 +67,13 @@ func do_fadeout() -> void:
 
 func on_fade_over(tween: Tween) -> void:
 	tween.kill()
+	
+	# Make sure that floor variants are loaded
 	if Globals.cgc_floor_variant == null:
 		GameLoader.load_phase(GameLoader.Phase.GAMEPLAY)
 		await GameLoader.wait_for_phase(GameLoader.Phase.GAMEPLAY)
-		restart_floor()
-	else:
-		restart_floor()
+
+	restart_floor()
 
 func restart_floor() -> void:
 	# Clean up the current floor
@@ -85,8 +83,8 @@ func restart_floor() -> void:
 	Util.floor_number -= 1
 	
 	# Get our new floor variant
-	var floor_variant: FloorVariant = RandomService.array_pick_random('white_out_floor', Globals.FLOOR_VARIANTS).duplicate()
-	if floor_variant.alt_floor and RandomService.randi_channel('floors') % 10 == 0:
+	var floor_variant: FloorVariant = RNG.channel(RNG.ChannelWhiteOutFloor).pick_random(Globals.FLOOR_VARIANTS).duplicate(true)
+	if floor_variant.alt_floor and RNG.channel(RNG.ChannelFloors).randi() % 10 == 0:
 		floor_variant = floor_variant.alt_floor
 	floor_variant.randomize_details()
 	if is_instance_valid(Util.floor_manager):

@@ -12,7 +12,7 @@ func setup() -> void:
 func on_round_start(actions: Array[BattleAction]) -> void:
 	for action in actions:
 		if action is ToonAttack:
-			if RandomService.randf_channel('true_random') < CHANGE_CHANCE:
+			if randf() < Util.get_player().stats.get_luck_weighted_chance(CHANGE_CHANCE, CHANGE_CHANCE * 2.0, 2.0):
 				change_gag(action)
 
 func change_gag(action: ToonAttack) -> void:
@@ -26,7 +26,7 @@ func change_gag(action: ToonAttack) -> void:
 	if gag_index < 0 or gag_index >= unlocked:
 		return
 	else:
-		replace_gag(action, find_track(action).gags[gag_index].duplicate())
+		replace_gag(action, find_track(action).gags[gag_index].duplicate(true))
 
 func replace_gag(gag: ToonAttack, new_gag: ToonAttack) -> void:
 	var battle := BattleService.ongoing_battle

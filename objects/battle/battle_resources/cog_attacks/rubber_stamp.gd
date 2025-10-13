@@ -1,5 +1,4 @@
 extends CogAttack
-class_name RubberStamp
 
 func action():
 	# Setup
@@ -35,7 +34,7 @@ func action():
 	text.look_at(target.head_node.global_position)
 	
 	if not hit:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		manager.battle_text(target, "MISSED")
 	
 	# Make text approach player

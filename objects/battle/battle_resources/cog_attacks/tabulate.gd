@@ -1,5 +1,4 @@
 extends CogAttack
-class_name Tabulate
 
 const CALCULATOR := preload('res://models/props/cog_props/calculator/calculator.glb')
 const PARTICLES := preload('res://objects/battle/effects/tabulate/tabulate.tscn')
@@ -38,7 +37,7 @@ func action():
 		target.set_animation('conked')
 		manager.affect_target(target, damage)
 	else:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		manager.battle_text(target,"MISSED")
 	
 	await manager.sleep(2.0)

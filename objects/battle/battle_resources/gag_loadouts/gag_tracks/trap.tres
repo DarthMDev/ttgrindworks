@@ -29,53 +29,36 @@
 [sub_resource type="Resource" id="Resource_73lf0"]
 script = ExtResource("4_swcev")
 model = ExtResource("3_u2s4r")
-toss_time = 1.5
-animation = 0
 toss_sfx = ExtResource("5_1x2ri")
 icon = ExtResource("2_havg1")
-damage = 16
-crit_chance_mod = 1.0
-target_type = 0
+damage = 20
 action_name = "Banana Peel"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_dut7k"]
 script = ExtResource("4_swcev")
 model = ExtResource("7_k4nyl")
-toss_time = 1.5
 animation = 1
 toss_sfx = ExtResource("8_yeylq")
 icon = ExtResource("6_1ymct")
-damage = 25
-crit_chance_mod = 1.0
-target_type = 0
+damage = 30
 action_name = "Rake"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_f0nrw"]
 script = ExtResource("4_swcev")
 model = ExtResource("10_h22uw")
 toss_time = 0.01
-animation = 0
 toss_sfx = ExtResource("11_0ofh8")
 icon = ExtResource("9_kdq8f")
-damage = 40
-crit_chance_mod = 1.0
-target_type = 0
+damage = 56
 action_name = "Marbles"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_nxdef"]
 script = ExtResource("14_p7agb")
 model = ExtResource("13_ab7jr")
 sfx = ExtResource("15_ke5jd")
-trap_type = 0
 icon = ExtResource("12_wo0sp")
 damage = 70
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Quicksand"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_w688w"]
 script = ExtResource("14_p7agb")
@@ -84,10 +67,7 @@ sfx = ExtResource("18_prpj5")
 trap_type = 1
 icon = ExtResource("16_knhxa")
 damage = 110
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Trap Door"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_qce66"]
 script = ExtResource("14_p7agb")
@@ -96,23 +76,16 @@ sfx = ExtResource("21_uwxdx")
 trap_type = 2
 icon = ExtResource("19_n254b")
 damage = 150
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "Portable Hole"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_tl7qg"]
 script = ExtResource("4_swcev")
 model = ExtResource("20_xkotm")
-toss_time = 1.5
 animation = 2
 toss_sfx = ExtResource("21_dfefd")
 icon = ExtResource("19_h7iyt")
 damage = 190
-crit_chance_mod = 1.0
-target_type = 0
 action_name = "TNT"
-one_time_use = false
 
 [resource]
 script = ExtResource("22_lrt3n")

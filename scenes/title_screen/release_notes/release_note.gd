@@ -21,10 +21,17 @@ func make_label_for_note(note: String) -> RichTextLabel:
 		new_label.custom_minimum_size.y = 48
 		note = "  " + note
 	else:
+		if note.begins_with("    "):
+			note = note.replace("    ", "[ul][indent][indent]")
+		elif note.begins_with("  "):
+			note = note.replace("  ", "[ul][indent]")
+		else:
+			note = "[ul bullet=- ]" + note
+
 		new_label.add_theme_font_override('normal_font', LABEL_SETTINGS_ENTRY.font)
 		new_label.add_theme_font_size_override('normal_font_size', LABEL_SETTINGS_ENTRY.font_size)
-		note = "[ul bullet=- ]" + note
 		new_label.fit_content = true
+
 	new_label.add_theme_color_override('default_color', Color.BLACK)
 	new_label.text = note
 	#new_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -37,6 +44,10 @@ func copy_with_formatting() -> void:
 		var index := notes_as_array.find(line)
 		if line.begins_with("[TITLE]"):
 			line = line.replace("[TITLE]", "## ")
+		elif line.begins_with("    "):
+			line = line.replace("    ", "    - ")
+		elif line.begins_with("  "):
+			line = line.replace("  ", "  - ")
 		else:
 			line = "- %s" % line
 		if not index == notes_as_array.size() - 1:

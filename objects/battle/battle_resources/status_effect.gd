@@ -22,7 +22,7 @@ enum EffectQuality {
 @export var mini_icon_color := Color.WHITE
 @export var mini_icon_scale := 1.0
 @export var visible := true
-@export var description := "This is a Status Effect"
+@export_multiline var description := "This is a Status Effect"
 @export var status_name := "Status Effect"
 var target: Actor
 var manager: BattleManager

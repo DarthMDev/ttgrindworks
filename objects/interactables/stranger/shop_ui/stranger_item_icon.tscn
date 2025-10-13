@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddslgvj8rri3n"]
+
+[ext_resource type="Script" uid="uid://cxgu4i8evuad" path="res://objects/interactables/stranger/shop_ui/stranger_item_icon.gd" id="1_aec31"]
+[ext_resource type="Resource" uid="uid://cmjhh4fc3c231" path="res://objects/items/resources/passive/balancing_scale.tres" id="2_1hghc"]
+[ext_resource type="FontFile" uid="uid://di8ufnpo4oxql" path="res://fonts/made_mirage_bold.OTF" id="3_1hghc"]
+[ext_resource type="Texture2D" uid="uid://xf7s2qvt73i" path="res://ui_assets/misc/quality_star.png" id="3_aec31"]
+[ext_resource type="Texture2D" uid="uid://di30t7iyqoeca" path="res://objects/items/custom/scale/lb_scale-pix-1.png" id="4_pp6qv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7x8ob"]
+resource_local_to_scene = true
+font = ExtResource("3_1hghc")
+font_size = 15
+font_color = Color(0.7, 0.4, 1, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.768627)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5eg0t"]
+resource_local_to_scene = true
+font = ExtResource("3_1hghc")
+font_size = 18
+font_color = Color(1, 1, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.768627)
+
+[node name="StrangerItemIcon" type="VBoxContainer"]
+custom_minimum_size = Vector2(124, 129)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_aec31")
+price = 3
+item = ExtResource("2_1hghc")
+
+[node name="ItemName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Balancing Scale"
+label_settings = SubResource("LabelSettings_7x8ob")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="IconOrigin" type="Control" parent="."]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+
+[node name="IconScale" type="Control" parent="IconOrigin"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="IconOrigin/IconScale"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pp6qv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PriceContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PriceLabel" type="Label" parent="PriceContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Value:"
+label_settings = SubResource("LabelSettings_5eg0t")
+
+[node name="StarIcon" type="TextureRect" parent="PriceContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_aec31")
+expand_mode = 1
+
+[node name="StarCountLabel" type="Label" parent="PriceContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "x3"
+label_settings = SubResource("LabelSettings_5eg0t")
+
+[connection signal="gui_input" from="IconOrigin/IconScale/ItemIcon" to="." method="icon_gui_event"]
+[connection signal="mouse_entered" from="IconOrigin/IconScale/ItemIcon" to="." method="icon_hover"]
+[connection signal="mouse_exited" from="IconOrigin/IconScale/ItemIcon" to="." method="icon_unhover"]

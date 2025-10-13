@@ -107,15 +107,19 @@ size = Vector3(2.16, 1.37, 1)
 
 [node name="Button" type="Node3D"]
 
-[node name="TheBigButton" type="MeshInstance3D" parent="."]
+[node name="Rotator" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="TheBigButton" type="MeshInstance3D" parent="Rotator"]
 mesh = SubResource("ArrayMesh_v7twd")
 skeleton = NodePath("")
 
-[node name="TheCase" type="MeshInstance3D" parent="."]
+[node name="TheCase" type="MeshInstance3D" parent="Rotator"]
 mesh = SubResource("ArrayMesh_slf4p")
 skeleton = NodePath("")
 
-[node name="UIHelper" type="MeshInstance3D" parent="."]
+[node name="UIHelper" type="MeshInstance3D" parent="Rotator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506259, 0)
 visible = false
 mesh = SubResource("BoxMesh_300wj")
+skeleton = NodePath("../..")

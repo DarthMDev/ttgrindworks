@@ -5,14 +5,14 @@ func action():
 	# Start
 	manager.s_focus_char.emit(user)
 	var target = targets[0]
-	user.set_animation('squirt_gun')
+	user.set_animation('water-gun')
 	user.face_position(target.global_position)
 	
 	# Place gun in hand
 	var gun = load('res://models/props/gags/water_gun/water_gun.tscn').instantiate()
 	user.toon.right_hand_bone.add_child(gun)
 	gun.position = Vector3(-0.214,0.125,-0.025)
-	gun.rotation_degrees = Vector3(0,90,90)
+	gun.rotation_degrees = Vector3(180,90,270)
 	gun.scale*=.85
 	
 	await manager.sleep(1.8)

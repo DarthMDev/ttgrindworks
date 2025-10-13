@@ -7,7 +7,7 @@ func _onto_tween(_owner: Node, tween: Tween):
 	if not intervals:
 		return
 	var subtween := _owner.create_tween()
-	var ivals := intervals.duplicate()
+	var ivals := intervals.duplicate(true)
 	ivals.shuffle()
 	ivals[0]._onto_tween(_owner, subtween)
 	for ival in ivals.slice(1):

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bgw6nin360tg5"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://d3rg5of4nopl6"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_3oga0"]
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_m45yl"]
@@ -9,38 +9,27 @@
 
 [sub_resource type="Resource" id="Resource_dtwuu"]
 script = ExtResource("2_ebtjf")
-body_type = 0
-position = Vector3(0, 0.12, -1.03)
-rotation = Vector3(8.27, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0, 0.12, 0.95)
+rotation = Vector3(8.27, 180, 0)
 
 [sub_resource type="Resource" id="Resource_kkr2k"]
 script = ExtResource("2_ebtjf")
 body_type = 1
-position = Vector3(0, 0, -0.69)
-rotation = Vector3(14.48, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0, 0, 0.71)
+rotation = Vector3(14.48, 180, 0)
 
 [sub_resource type="Resource" id="Resource_btln7"]
 script = ExtResource("2_ebtjf")
 body_type = 2
-position = Vector3(0, 0.35, -0.57)
-rotation = Vector3(4.14, 0, 0)
-scale = Vector3(1, 1, 1)
+position = Vector3(0, 0.35, 0.55)
+rotation = Vector3(4.14, 180, 0)
 
 [resource]
 script = ExtResource("1_m45yl")
 accessory_placements = Array[ExtResource("1_3oga0")]([SubResource("Resource_dtwuu"), SubResource("Resource_kkr2k"), SubResource("Resource_btln7")])
-item_tags = null
 qualitoon = 4
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.4
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Wooden Sword"
 item_description = "Don't hold back!"
 big_description = "+ 15% Damage"
@@ -49,12 +38,5 @@ pickup_sfx = ExtResource("5_s8sik")
 stats_add = {
 "damage": 0.15
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_fmyad")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

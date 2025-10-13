@@ -4,11 +4,7 @@
 
 [resource]
 script = ExtResource("1_37k2q")
-accuracy = 75
-damage = 1
-ignore_stats = false
+damage = 0
 summary = "Traffic Manager bans tracks!"
 attack_lines = Array[String](["I'll stop you in your tracks!", "You're heading to a dead end, Toon.", "I'll trap you in rush hour!"])
-target_type = 0
 action_name = "Red Light"
-one_time_use = false

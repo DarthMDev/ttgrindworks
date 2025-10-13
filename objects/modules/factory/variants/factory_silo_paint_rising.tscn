@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="24_ebw32"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="25_wmn5m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ad0cc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebw32"]
 resource_name = "lambert55"
 transparency = 4
 cull_mode = 2
@@ -1006,7 +1006,7 @@ data = PackedVector3Array(2221.48, 385.056, -2420.32, 2222.13, 398.139, -2430.03
 backface_collision = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_610uq"]
-material = SubResource("StandardMaterial3D_ad0cc")
+material = SubResource("StandardMaterial3D_ebw32")
 radial_segments = 6
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_32wca"]
@@ -1103,7 +1103,7 @@ shadow_color = Color(0, 0, 0, 1)
 [node name="FactorySiloPaintBoss" node_paths=PackedStringArray("paint_streams", "paint") instance=ExtResource("1_kwh8e")]
 script = ExtResource("2_7yupl")
 paint_streams = [NodePath("Model/faucet3/PaintStream"), NodePath("Model/faucet2/PaintStream"), NodePath("Model/faucet1/PaintStream")]
-paint_mat = SubResource("StandardMaterial3D_ad0cc")
+paint_mat = SubResource("StandardMaterial3D_ebw32")
 paint = NodePath("Model/RisingPaint")
 
 [node name="TopPlatform" parent="Model/ZONE33/bluesilo/room29/geometry_bluesilo1/platforms_inside" index="0"]
@@ -1625,7 +1625,6 @@ transform = Transform3D(0.703122, 0, 0.711069, 0, 1, 0, -0.711069, 0, 0.703122, 
 curve = SubResource("Curve3D_4t780")
 
 [node name="ElevatingPlatform" parent="Platforms/ThirdFloorObstacles/GoalPlatform" index="1" node_paths=PackedStringArray("path") instance=ExtResource("14_j41po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.269189, 0)
 path = NodePath("../Path3D")
 speed = 3.0
 
@@ -1705,6 +1704,7 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+font_size = 36.0
 
 [node name="Label" parent="SkipButton" index="0"]
 text = "Skip"

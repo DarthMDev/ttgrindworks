@@ -4,50 +4,15 @@ const DISTANCE_LIMIT := 3.0
 const CHEST = "res://objects/interactables/treasure_chest/treasure_chest.tscn"
 
 
-func use() -> void:
-	var player = Util.get_player()
-	
-	var dist := -1.0
-	var closest_chest: TreasureChest
-	var chests := search_node(SceneLoader)
-	
-	for chest in chests:
-		var test_dist : float = player.global_position.distance_to(chest.global_position)
-		if dist < 0 or test_dist < dist:
-			closest_chest = chest
-			dist = test_dist
-	
-	if not closest_chest or dist > DISTANCE_LIMIT:
-		cancel_use()
-		return
-	
-	var chest : TreasureChest = load(CHEST).instantiate()
-	chest.override_replacement_rolls = true
-	chest.item_pool = closest_chest.item_pool
-	chest.override_item = closest_chest.override_item
-	closest_chest.get_parent().add_child(chest)
-	chest.update_texture(closest_chest.get_current_texture())
-	chest.set_ray_gradient(closest_chest.ray_tex.gradient)
-	
-	# Positions the chest between the player and chest
-	chest.global_position = closest_chest.global_position
-	chest.scale = closest_chest.scale
-	var dir_to = chest.global_position.direction_to(player.global_position)
-	dir_to *= dist / 2
-	chest.global_position += Vector3(dir_to.x, 0, dir_to.z)
-	
-	# Rotates the chest to look at the player
-	chest.look_at(player.global_position)
-	chest.rotation = Vector3(0, chest.rotation.y + deg_to_rad(180), 0)
-	
-	# Poof effect
-	var dust_cloud = Globals.DUST_CLOUD.instantiate()
-	chest.get_parent().add_child(dust_cloud)
-	dust_cloud.scale *= chest.scale
-	dust_cloud.global_position = chest.global_position
+func validate_use() -> bool:
+	return is_instance_valid(find_chest())
 
-func search_node(node : Node) -> Array[TreasureChest]:
-	var chests : Array[TreasureChest] = []
+func use() -> void:
+	var closest_chest := find_chest()
+	closest_chest.make_duplicate_chest()
+
+func search_node(node: Node) -> Array[TreasureChest]:
+	var chests: Array[TreasureChest] = []
 	for child in node.get_children():
 		if child is TreasureChest:
 			if child.opened:
@@ -56,3 +21,22 @@ func search_node(node : Node) -> Array[TreasureChest]:
 		else:
 			chests.append_array(search_node(child))
 	return chests
+
+func get_zone() -> Node:
+	if is_instance_valid(Util.floor_manager):
+		return Util.floor_manager.get_current_room()
+	return SceneLoader.current_scene
+
+func find_chest() -> TreasureChest:
+	var chests := search_node(get_zone())
+	var player := Util.get_player()
+	var dist := -1.0
+	var closest_chest: TreasureChest
+	for chest in chests:
+		var test_dist: float = player.global_position.distance_to(chest.global_position)
+		if dist < 0 or test_dist < dist:
+			closest_chest = chest
+			dist = test_dist
+	if dist > DISTANCE_LIMIT: return null
+	
+	return closest_chest

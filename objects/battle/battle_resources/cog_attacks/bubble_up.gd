@@ -1,5 +1,4 @@
 extends CogAttack
-class_name CogAttackBubbleUp
 
 const BUBBLE := preload('res://objects/battle/effects/bubble/attack_bubble.tscn')
 const GAME := preload('res://objects/battle/misc_battle_objects/tug_of_war/tug_of_war_battle_game.tscn')
@@ -91,7 +90,7 @@ func action() -> void:
 		bubble.queue_free()
 		player.global_position.x = battle_node.player_pos.x
 		player.global_position.z = battle_node.player_pos.z
-		player.set_animation('slip_forwards')
+		player.set_animation('slip-forward')
 		player.animator.seek(0.5)
 		player.global_rotation = Vector3.ZERO
 		battle_node.face_battle_center(player)

@@ -1,0 +1,185 @@
+[gd_scene load_steps=9 format=3 uid="uid://dquwmshe5gxlu"]
+
+[ext_resource type="Script" uid="uid://djr48v7ppomlq" path="res://scenes/title_screen/character_select/character_selection.gd" id="1_efwr3"]
+[ext_resource type="PackedScene" uid="uid://cy4iox7mj5ei0" path="res://objects/toon/toon.tscn" id="2_7jwno"]
+[ext_resource type="PackedScene" uid="uid://cp2ncy4ta6ubt" path="res://objects/misc/teleport_hole/teleport_hole.tscn" id="3_y2bc0"]
+
+[sub_resource type="GDScript" id="GDScript_7jwno"]
+resource_name = "teleport_in"
+script/source = "extends State3D
+
+func _enter(prev: State3D):
+	assert(prev == null)
+	await fsm.selected_toon.teleport_in()
+	fsm.request('Idle')
+"
+
+[sub_resource type="GDScript" id="GDScript_y2bc0"]
+resource_name = "idle"
+script/source = "extends State3D
+
+func _enter(prev: State3D):
+	assert(
+		prev == null or
+		prev == fsm.states.get(&'TeleportIn') or
+		prev == fsm.states.get(&'Land')
+	)
+	fsm.selected_toon.set_animation('neutral')
+"
+
+[sub_resource type="GDScript" id="GDScript_27kgf"]
+resource_name = "melt"
+script/source = "extends State3D
+
+var tween: Tween
+
+func _enter(prev: State3D):
+	assert(
+		prev == fsm.states.get(&'Idle') or
+		prev == fsm.states.get(&'Land')
+	)
+	tween = create_tween()
+	tween.tween_callback(fsm.teleport_hole.show)
+	tween.tween_callback(fsm.teleport_hole.get_node('AnimationPlayer').play.bind('grow'))
+	tween.tween_callback(AudioManager.play_snippet.bind(load(\"res://audio/sfx/toon/AV_teleport.ogg\"), 0.0, 1.0))
+	tween.tween_interval(0.25)
+	tween.tween_callback(fsm.selected_toon.set_animation.bind('melt-nosink'))
+	tween.tween_callback(AudioManager.play_snippet.bind(load(\"res://audio/sfx/battle/gags/trap/TL_trap_door.ogg\"), 1.26))
+	tween.tween_callback(fsm.selected_toon.anim_seek.bind(1.8))
+	tween.tween_property(fsm.selected_toon,'position:y', -5.0, 0.5)
+	tween.tween_callback(fsm.selected_toon.hide)
+	tween.tween_callback(fsm._fall_or_land.bind(fsm.next_character))
+
+func _exit(_next: State3D):
+	tween.kill()
+"
+
+[sub_resource type="GDScript" id="GDScript_efwr3"]
+resource_name = "fall_through"
+script/source = "extends State3D
+
+const START_HEIGHT := 10.0
+const END_HEIGHT := -5.0
+const FALL_TIME := 0.75
+const VISIBLE_Y := 0.7
+const TIME_TIL_VISIBLE := \\
+	((VISIBLE_Y - START_HEIGHT) / -(START_HEIGHT - END_HEIGHT)) * FALL_TIME
+
+var tween: Tween
+var character: PlayerCharacter
+
+func _enter(prev: State3D) -> void:
+	assert(prev == fsm.states.get(&'Melt'))
+	fsm.FallAnim.new('melt-nosink', 1.39 - TIME_TIL_VISIBLE, 20.0)
+	fsm.FallAnim.new('jump', 1.21 - TIME_TIL_VISIBLE, 5.0)
+	fsm.FallAnim.new('RESET', 0.0, 0.5)
+	fsm.FallAnim.new('sprinkle-dust', 1.57 - TIME_TIL_VISIBLE, 4.5)
+	_fall_through(fsm.FallAnim.new('melt-nosink', 1.8 - TIME_TIL_VISIBLE, 70.0))
+	
+func _on_self_enter() -> void:
+	tween.kill()
+	_fall_through(fsm.FallAnim.random())
+
+func _fall_through(anim) -> void:
+	tween = create_tween()
+	tween.tween_callback(fsm.selected_toon.construct_toon.bind(character.dna))
+	tween.tween_callback(anim.apply_to_toon.bind(fsm.selected_toon))
+	tween.tween_callback(func(): fsm.selected_toon.position.y = START_HEIGHT)
+	tween.tween_callback(fsm.selected_toon.show)
+	tween.tween_property(fsm.selected_toon, 'position:y', END_HEIGHT, FALL_TIME)
+	tween.tween_callback(fsm.selected_toon.hide)
+	tween.tween_callback(fsm._fall_or_land.bind(fsm.next_character))
+
+func _exit(_next: State3D):
+	fsm.FallAnim.anims.clear()
+	fsm.FallAnim.anim_weights.clear()
+	tween.kill()
+"
+
+[sub_resource type="GDScript" id="GDScript_hntqk"]
+resource_name = "land"
+script/source = "extends State3D
+
+const START_HEIGHT := 10.0
+const END_HEIGHT := 0.0
+const FALL_TIME := 0.5
+const VISIBLE_Y := 0.7
+const TIME_TIL_VISIBLE := \\
+	((VISIBLE_Y - START_HEIGHT) / -(START_HEIGHT - END_HEIGHT)) * FALL_TIME
+	
+const SIDESTEP_SEEK := 0.5 - TIME_TIL_VISIBLE
+
+var tween: Tween
+var character: PlayerCharacter
+
+func _enter(prev: State3D):
+	assert(
+		prev == fsm.states.get(&'Melt') or
+		prev == fsm.states.get(&'FallThrough')
+	)
+	fsm.FallAnim.new('jump', 1.07 - TIME_TIL_VISIBLE, 95.0)
+	fsm.FallAnim.new('sidestep-left', SIDESTEP_SEEK, 5.0)
+	var anim = fsm.FallAnim.random()
+	
+	tween = create_tween()
+	if anim.anim_name != 'sidestep-left':
+		_shrink_hole(tween)
+	tween.tween_callback(fsm.selected_toon.construct_toon.bind(character.dna))
+	tween.tween_callback(anim.apply_to_toon.bind(fsm.selected_toon))
+	tween.tween_callback(func(): fsm.selected_toon.position.y = 10.0)
+	tween.tween_callback(fsm.selected_toon.show)
+	tween.tween_property(fsm.selected_toon, 'position:y', 0.0, 0.5)
+	#tween.tween_callback(AudioManager.play_sound.bind(load(\"res://audio/sfx/toon/MG_cannon_hit_dirt.ogg\")))
+	tween.tween_interval(0.5)
+	if anim.anim_name == 'sidestep-left':
+		var sidestep: Animation = fsm.selected_toon.legs.animator.get_animation('sidestep-left')
+		_shrink_hole(tween)
+		tween.tween_callback(func(): fsm.selected_toon.set_animation('sidestep-left', -1, 2.0))
+		tween.tween_interval(((sidestep.length - SIDESTEP_SEEK) / 2.0) - 0.5)
+	tween.tween_callback(fsm._fall_or_idle.bind(character))
+
+func _shrink_hole(_tween: Tween):
+	_tween.tween_callback(fsm.teleport_hole.get_node('AnimationPlayer').play.bind('shrink'))
+
+func _exit(_next: State3D):
+	fsm.FallAnim.anims.clear()
+	fsm.FallAnim.anim_weights.clear()
+	tween.kill()
+"
+
+[node name="CharacterDisplay" type="Node3D"]
+script = ExtResource("1_efwr3")
+metadata/_custom_type_script = "uid://cs7q470v3yvq3"
+
+[node name="TeleportIn" type="Node3D" parent="."]
+visible = false
+script = SubResource("GDScript_7jwno")
+metadata/_custom_type_script = "uid://c0x8ymvu44xkw"
+
+[node name="Idle" type="Node3D" parent="."]
+visible = false
+script = SubResource("GDScript_y2bc0")
+metadata/_custom_type_script = "uid://c0x8ymvu44xkw"
+
+[node name="Melt" type="Node3D" parent="."]
+visible = false
+script = SubResource("GDScript_27kgf")
+metadata/_custom_type_script = "uid://c0x8ymvu44xkw"
+
+[node name="FallThrough" type="Node3D" parent="."]
+visible = false
+script = SubResource("GDScript_efwr3")
+metadata/_custom_type_script = "uid://c0x8ymvu44xkw"
+
+[node name="Land" type="Node3D" parent="."]
+visible = false
+script = SubResource("GDScript_hntqk")
+metadata/_custom_type_script = "uid://c0x8ymvu44xkw"
+
+[node name="Toon" parent="." instance=ExtResource("2_7jwno")]
+unique_name_in_owner = true
+visible = false
+
+[node name="TeleportHole" parent="." instance=ExtResource("3_y2bc0")]
+unique_name_in_owner = true
+visible = false

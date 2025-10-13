@@ -77,7 +77,7 @@ func set_anomalies(anomaly_count: int) -> void:
 func set_reward(item: Item) -> void:
 	# Add new reward to menu
 	reward_item = item
-	var reward_model = item.model.instantiate()
+	var reward_model = item.get_model().instantiate()
 	%NodeViewer.camera_position_offset = item.ui_cam_offset
 	%NodeViewer.node = reward_model
 	%NodeViewer.want_spin_tween = item.want_ui_spin

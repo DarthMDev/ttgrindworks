@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0kh641y7aoyt"]
+
+[ext_resource type="PackedScene" uid="uid://blft1vallmipl" path="res://models/props/cog_props/calculator/calculator.glb" id="1_sb3ly"]
+[ext_resource type="PackedScene" uid="uid://bx2dkich61dwi" path="res://models/props/toon_props/recycle_bin/recycle_bin.tscn" id="2_e11yj"]
+
+[node name="calculator2" instance=ExtResource("1_sb3ly")]
+
+[node name="calculator" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, -0.510757, 0, 0)
+
+[node name="UIHelper" parent="." index="1" instance=ExtResource("2_e11yj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.01968, -0.309597)
+visible = false
+
+[node name="UIHelper2" parent="." index="2" instance=ExtResource("2_e11yj")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 0, 1.01968, -0.309597)
+visible = false

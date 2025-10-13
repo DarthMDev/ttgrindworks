@@ -153,7 +153,6 @@ size = Vector3(14.3969, 11.7299, 7.10208)
 
 [sub_resource type="Resource" id="Resource_i20xn"]
 script = ExtResource("9_40llp")
-skippable = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fob1n"]
 size = Vector3(16.9556, 10.9269, 13.0482)

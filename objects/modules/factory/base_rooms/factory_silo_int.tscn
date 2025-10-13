@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://4or3gn2i26vk" path="res://models/facilities/factory/FINALFACTORY_130.png" id="13_fndy1"]
 [ext_resource type="Texture2D" uid="uid://dke1bfad57030" path="res://models/facilities/factory/FINALFACTORY_131.png" id="14_hi0kx"]
 [ext_resource type="Texture2D" uid="uid://cb3t35xn5dyqj" path="res://models/facilities/factory/FINALFACTORY_133.png" id="16_hhaaj"]
-[ext_resource type="Texture2D" uid="uid://5yjyn2js3h1k" path="res://models/facilities/factory/FINALFACTORY_9.png" id="17_fa0s3"]
+[ext_resource type="Texture2D" uid="uid://c4btnd8o0b0cp" path="res://models/facilities/factory/FINALFACTORY_9.png" id="17_fa0s3"]
 [ext_resource type="Texture2D" uid="uid://cf2ru2tw0qu6q" path="res://models/facilities/factory/FINALFACTORY_134.png" id="18_xauay"]
 [ext_resource type="Texture2D" uid="uid://boa3kx8k7l22t" path="res://models/facilities/factory/FINALFACTORY_135.png" id="19_3en15"]
 [ext_resource type="PackedScene" uid="uid://dgjcjdwr47ch7" path="res://objects/props/factory/smoke_particles.tscn" id="20_ddesw"]

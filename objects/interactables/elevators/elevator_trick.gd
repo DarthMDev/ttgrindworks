@@ -23,20 +23,20 @@ func player_entered(player : Player):
 	await Task.delay(0.2)
 	
 	AudioManager.play_snippet(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_riser.ogg"))
-	player.toon.set_animation('melt_nosink')
+	player.toon.set_animation('melt-nosink')
 	await Task.delay(1.0)
 	AudioManager.play_sound(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_react.ogg"))
-	player.animator.speed_scale = -1.0
+	player.toon.anim_set_speed(-1.0)
 	player.toon.set_emotion(Toon.Emotion.SAD)
 	await Task.delay(1.0)
-	player.animator.speed_scale = 1.0
+	player.toon.anim_set_speed(1.0)
 	player.animator.stop()
 	AudioManager.stop_music(true)
 	AudioManager.reset_music_pitch()
 	await Task.delay(1.0)
 	AudioManager.play_snippet(load("res://audio/sfx/sequences/elevator_trick/elevator_trick_fall.ogg"))
-	player.set_animation('melt_nosink')
-	player.animator.seek(2.0)
+	player.set_animation('melt-nosink')
+	player.toon.anim_seek(2.0)
 	var fall_tween := create_tween()
 	fall_tween.tween_property(player,'position:y',-10,0.6)
 	await fall_tween.finished

@@ -1,0 +1,143 @@
+[gd_scene load_steps=17 format=3 uid="uid://dy40hjdmf82ep"]
+
+[ext_resource type="PackedScene" uid="uid://bbmpk0bcnkij1" path="res://objects/modules/cgc/base_rooms/cgc_long_room.tscn" id="1_drsjx"]
+[ext_resource type="Script" uid="uid://h0b48xrci8d6" path="res://objects/modules/cgc/variants/cgc_fence_gate.gd" id="2_hlgyn"]
+[ext_resource type="PackedScene" uid="uid://d3br8qv0sep7h" path="res://objects/props/cgc/tree1.tscn" id="2_sae72"]
+[ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="3_816if"]
+[ext_resource type="PackedScene" uid="uid://bwu5l3d7uncro" path="res://objects/props/cgc/hedge_pillar_spiked.tscn" id="4_jcdyv"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="5_jcdyv"]
+[ext_resource type="PackedScene" uid="uid://bi13q17f7cx0v" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_trap_with_moles.tscn" id="7_sb4e7"]
+[ext_resource type="Shader" uid="uid://3bv5mj5bjsjm" path="res://objects/obstacles/sandtrap/sandtrap.tres" id="8_sae72"]
+[ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="9_hujeg"]
+[ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="9_sb4e7"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="11_hujeg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_md4hg"]
+frequency = 0.0205
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n5d0c"]
+noise = SubResource("FastNoiseLite_md4hg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk7eb"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("8_sae72")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+shader_parameter/uv_scale = Vector2(12.837161, 16.115353)
+shader_parameter/ImageTexture = ExtResource("9_hujeg")
+shader_parameter/NoiseTexture = SubResource("NoiseTexture2D_n5d0c")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5q4d0"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_lk7eb")
+size = Vector2(30.745, 38)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb4e7"]
+size = Vector3(12.135742, 5.3242188, 13.214233)
+
+[node name="CGCLongRoomMoles" instance=ExtResource("1_drsjx")]
+
+[node name="Tree9" parent="Trees" index="5" instance=ExtResource("2_sae72")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -8.127865, -0.042597532, -13.012755)
+
+[node name="Tree10" parent="Trees" index="6" instance=ExtResource("2_sae72")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -9.053219, -0.042597532, -18.283386)
+
+[node name="Tree11" parent="Trees" index="7" instance=ExtResource("2_sae72")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -9.053219, -0.042597532, -15.7350445)
+
+[node name="Tree12" parent="Trees" index="8" instance=ExtResource("2_sae72")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -7.510396, -0.042597532, -14.740963)
+
+[node name="Tree13" parent="Trees" index="9" instance=ExtResource("2_sae72")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -7.510396, -0.042597532, -18.616611)
+
+[node name="Tree14" parent="Trees" index="10" instance=ExtResource("2_sae72")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 3, 0, -8.742278e-08, 0, -1, 8.13764, -0.042597532, -18.570248)
+
+[node name="Tree15" parent="Trees" index="11" instance=ExtResource("2_sae72")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 3, 0, -8.742278e-08, 0, -1, 9.062994, -0.042597532, -13.299619)
+
+[node name="Tree16" parent="Trees" index="12" instance=ExtResource("2_sae72")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 3, 0, -8.742278e-08, 0, -1, 9.062994, -0.042597532, -15.84796)
+
+[node name="Tree17" parent="Trees" index="13" instance=ExtResource("2_sae72")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 3, 0, -8.742278e-08, 0, -1, 7.520171, -0.042597532, -16.842041)
+
+[node name="Tree18" parent="Trees" index="14" instance=ExtResource("2_sae72")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 3, 0, -8.742278e-08, 0, -1, 7.520171, -0.042597532, -12.966393)
+
+[node name="FenceGate" type="Node3D" parent="." index="8" node_paths=PackedStringArray("left_pivot", "right_pivot", "fence_cam")]
+transform = Transform3D(0.9498248, 0, 0.3127825, 0, 1, 0, -0.3127825, 0, 0.9498248, -0.028847694, 0, -10.558922)
+script = ExtResource("2_hlgyn")
+left_pivot = NodePath("leftpivot")
+right_pivot = NodePath("rightpivot")
+fence_cam = NodePath("FenceCam")
+
+[node name="rightpivot" type="Node3D" parent="FenceGate" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69078, 0, 1.64899)
+
+[node name="fence" parent="FenceGate/rightpivot" index="0" instance=ExtResource("3_816if")]
+transform = Transform3D(0.188196, 0, 0.603016, 0, 0.65, 0, -0.622159, 0, 0.182406, -2.14315, 0, -0.63177)
+
+[node name="leftpivot" type="Node3D" parent="FenceGate" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01855, 0, -1.28507)
+
+[node name="fence2" parent="FenceGate/leftpivot" index="0" instance=ExtResource("3_816if")]
+transform = Transform3D(-0.188196, 0, -0.603016, 0, 0.65, 0, 0.622159, 0, -0.182406, 2.2051, 0, 0.674932)
+
+[node name="FenceCam" type="Camera3D" parent="FenceGate" index="2"]
+transform = Transform3D(0.574877, 0, -0.81824, 0, 1, 0, 0.81824, 0, 0.574877, -7.61444, 2.66901, 4.38047)
+fov = 50.0
+
+[node name="PillarSpiked" parent="FenceGate" index="3" instance=ExtResource("4_jcdyv")]
+transform = Transform3D(0.957168, 0, -0.289533, 0, 1, 0, 0.289533, 0, 0.957168, 5.8539, 0, 2.02803)
+
+[node name="PillarSpiked2" parent="FenceGate" index="4" instance=ExtResource("4_jcdyv")]
+transform = Transform3D(0.957168, 0, -0.289533, 0, 1, 0, 0.289533, 0, 0.957168, -6.11954, 0, -1.5938)
+
+[node name="fence2" parent="." index="9" instance=ExtResource("3_816if")]
+transform = Transform3D(0.02302511, 0, -0.62960464, 0, 0.65, 0, 0.6495916, 0, 0.022316081, 9.678913, 0, -10.527798)
+
+[node name="fence3" parent="." index="10" instance=ExtResource("3_816if")]
+transform = Transform3D(-0.013510746, 0, 0.62986386, 0, 0.65, 0, -0.6498591, 0, -0.013094464, -9.964397, 0, -10.147742)
+
+[node name="DebugPlayerPositionMarker" parent="." index="11" instance=ExtResource("5_jcdyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.691004)
+
+[node name="SandTrap" parent="." index="12" node_paths=PackedStringArray("mole_force_launch_node") instance=ExtResource("7_sb4e7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27300453, 0.01, 5.747772)
+mesh = SubResource("PlaneMesh_5q4d0")
+mole_count_range = Vector2i(6, 6)
+mole_scale = Vector3(1.25, 1.25, 1.25)
+mole_force_launch_node = NodePath("../MoleLaunchPos")
+size = Vector2(30.745, 38)
+
+[node name="MoleStompGame" type="Area3D" parent="." index="13" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8.163003, 0, -2.3871307)
+script = ExtResource("9_sb4e7")
+force_launch_node = NodePath("../MoleLaunchPos")
+quota = 7
+launch_cam = NodePath("../LaunchCam")
+hole_separation = 2.25
+normal_mole_cog_boost_time = 0.5
+metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoleStompGame" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4682617, 2.1621094, 6.1071167)
+shape = SubResource("BoxShape3D_sb4e7")
+
+[node name="MoleLaunchPos" type="Marker3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.61254)
+
+[node name="LaunchCam" type="Camera3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20211172, 0.640873, 19.612425)
+fov = 52.0
+
+[node name="treasure_chest" parent="." index="16" instance=ExtResource("11_hujeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8141816, 0, -19.99962)
+
+[node name="treasure_chest2" parent="." index="17" instance=ExtResource("11_hujeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5631287, 0, -20.043074)
+
+[connection signal="s_game_win" from="MoleStompGame" to="FenceGate" method="open"]

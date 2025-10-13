@@ -1,6 +1,6 @@
 extends ItemScript
 
-func on_collect(item : Item, _model : Node3D) -> void:
+func on_collect(item: Item, _model: Node3D) -> void:
 	var player := Util.get_player()
 	var game_floor := Util.floor_manager
 	
@@ -12,7 +12,7 @@ func on_collect(item : Item, _model : Node3D) -> void:
 	if game_floor.floor_variant.reward == item:
 		return
 	
-	try_add_anomaly(player, game_floor)
+	try_add_anomaly(game_floor)
 
-func try_add_anomaly(player : Player, game_floor : GameFloor) -> void:
+func try_add_anomaly(game_floor: GameFloor) -> void:
 	game_floor.spawn_new_anomalies(1)

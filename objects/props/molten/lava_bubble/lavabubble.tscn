@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcijrwwpli7qf"]
+
+[ext_resource type="ArrayMesh" uid="uid://dybg436in2p0c" path="res://objects/props/molten/lava_bubble/bubble.tres" id="4_sa4bu"]
+
+[sub_resource type="Gradient" id="Gradient_7s2un"]
+colors = PackedColorArray(0.926241, 0.376341, 0.273598, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gok1h"]
+gradient = SubResource("Gradient_7s2un")
+
+[sub_resource type="Curve" id="Curve_1ff75"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_o0mhi"]
+curve = SubResource("Curve_1ff75")
+
+[sub_resource type="Curve" id="Curve_if38p"]
+_data = [Vector2(0, 0.0598215), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dp3gn"]
+curve = SubResource("Curve_if38p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_idwj2"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 3.35
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -258.2
+angle_max = 273.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.36
+scale_max = 0.36
+scale_curve = SubResource("CurveTexture_dp3gn")
+color_initial_ramp = SubResource("GradientTexture1D_gok1h")
+emission_curve = SubResource("CurveTexture_o0mhi")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="LavaBubbles" type="GPUParticles3D" parent="."]
+amount = 14
+lifetime = 1.67
+speed_scale = 1.35
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_idwj2")
+draw_pass_1 = ExtResource("4_sa4bu")

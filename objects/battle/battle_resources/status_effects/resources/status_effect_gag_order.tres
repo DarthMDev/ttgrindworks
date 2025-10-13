@@ -6,14 +6,8 @@
 [resource]
 script = ExtResource("2_pkvv5")
 banned_color = Color(0.545098, 0, 0, 1)
-gags = Array[ExtResource("1_4mmou")]([])
 quality = 1
 rounds = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
 visible = false
-description = "This is a Status Effect"
 status_name = "Gag Order"
 id = 17

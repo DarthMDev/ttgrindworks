@@ -1,5 +1,4 @@
 extends DoodleAction
-class_name DoodleBackflip
 
 
 
@@ -20,7 +19,7 @@ func action():
 	await user.animator.animation_finished
 	
 	# Apply the 1 round status effect
-	var stat_effect := create_stat_boost('defense', 1.25)
+	var stat_effect := create_stat_boost('defense', 0.25)
 	manager.add_status_effect(stat_effect)
 	
 	# Focus player

@@ -18,9 +18,6 @@ var targetCogs : Array[Cog]
 var beans_per_cog = 7.0
 
 func use() -> void:
-	if not is_instance_valid(BattleService.ongoing_battle):
-		cancel_use()
-		return
 	
 	AudioManager.play_sound(SFX)
 	
@@ -35,15 +32,15 @@ func use() -> void:
 		@warning_ignore("narrowing_conversion")
 		cog.stats.hp *= 1.0 + hp_boost
 		
-		var bean_return := BEAN_STAT.duplicate()
+		var bean_return := BEAN_STAT.duplicate(true)
 		bean_return.quality = StatusEffect.EffectQuality.POSITIVE
 		bean_return.just_applied = false
 		bean_return.bean_count = ceili(beans_per_cog * (float(cog.stats.hp) / cog.stats.max_hp))
 		bean_return.target = cog
 		
-		var dmg_boost = STAT_BOOST.duplicate()
+		var dmg_boost = STAT_BOOST.duplicate(true)
 		dmg_boost.quality = StatusEffect.EffectQuality.POSITIVE
-		dmg_boost.boost = 1.0 + damage_boost
+		dmg_boost.boost = damage_boost
 		dmg_boost.stat = 'damage'
 		dmg_boost.target = cog
 		dmg_boost.rounds = -1
@@ -71,14 +68,14 @@ func cutscene() -> void:
 	battle.battle_node.battle_cam.position.z += 3.0
 	
 	for cog in targetCogs:
-		cog.set_animation(RandomService.array_pick_random('true_random', ['clap', 'buffed']))
-		cog.speak(RandomService.array_pick_random('true_random', responses))
+		cog.set_animation(['clap', 'buffed'].pick_random())
+		cog.speak(responses.pick_random())
 	
-	var txt = Util.do_3d_text(BattleService.ongoing_battle.battle_node, "Damage Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+	var _txt = Util.do_3d_text(BattleService.ongoing_battle.battle_node, "Damage Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 	
 	await battle.sleep(0.5)
 	
-	var txt2 = Util.do_3d_text(BattleService.ongoing_battle.battle_node, "Health Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
+	var _txt2 = Util.do_3d_text(BattleService.ongoing_battle.battle_node, "Health Up!", BattleText.colors.orange[0], BattleText.colors.orange[1])
 	
 	await battle.sleep(2.0)
 	battle.battle_ui.visible = true

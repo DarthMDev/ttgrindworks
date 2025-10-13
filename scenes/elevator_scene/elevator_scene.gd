@@ -1,8 +1,8 @@
 extends Node3D
 class_name ElevatorScene
 
-const FINAL_FLOOR_VARIANT := preload("res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor.tres")
-const ALT_FLOOR_CHANCE := 10
+var FINAL_FLOOR_VARIANT: FloorVariant
+const ALT_FLOOR_CHANCE := 0.15
 
 
 @onready var player_pos := $PlayerPosition
@@ -12,6 +12,14 @@ const ALT_FLOOR_CHANCE := 10
 var player: Player
 var next_floors: Array[FloorVariant] = []
 
+func _init():
+	# GameLoader Requirement:
+	# - final_boss_floor.tres has a very large dependency chain.
+	#   Since this script extends Node and has a class_name, the editor will try
+	#   to load all dependencies of it. This causes a large lag spike if preloaded.
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'FINAL_FLOOR_VARIANT': 'res://scenes/game_floor/floor_variants/alt_floors/final_boss_floor.tres'
+	})
 
 func _ready():
 	if Util.floor_number == 5:
@@ -71,6 +79,7 @@ func start_game_floor(floor_var : FloorVariant) -> void:
 		var game_floor: GameFloor = load('res://scenes/game_floor/game_floor.tscn').instantiate()
 		game_floor.floor_variant = floor_var
 		SceneLoader.change_scene_to_node(game_floor)
+		
 
 ## Selects 3 random floors to give to the player
 func get_next_floors() -> void:
@@ -80,13 +89,13 @@ func get_next_floors() -> void:
 	var floor_variants := Globals.FLOOR_VARIANTS
 	var taken_items: Array[String] = []
 	for i in 3:
-		var new_floor := floor_variants[RandomService.randi_channel('floors') % floor_variants.size()]
+		var new_floor := floor_variants[RNG.channel(RNG.ChannelFloors).randi() % floor_variants.size()]
 		floor_variants.erase(new_floor)
-		new_floor = new_floor.duplicate()
+		new_floor = new_floor.duplicate(true)
 		
 		# Roll for alt floor
-		if new_floor.alt_floor and RandomService.randi_channel('floors') % ALT_FLOOR_CHANCE == 0:
-			new_floor = new_floor.alt_floor.duplicate()
+		if new_floor.alt_floor and RNG.channel(RNG.ChannelFloors).randf() < ALT_FLOOR_CHANCE:
+			new_floor = new_floor.alt_floor.duplicate(true)
 		
 		new_floor.randomize_details()
 		while not new_floor.reward or new_floor.reward.item_name in taken_items:
@@ -97,7 +106,7 @@ func get_next_floors() -> void:
 	$ElevatorUI.set_floor_index(0)
 
 func final_boss_time_baby() -> void:
-	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
+	var final_floor := FINAL_FLOOR_VARIANT.duplicate(true)
 	final_floor.level_range = Vector2i(9, 14)
 	next_floors = [final_floor]
 	$ElevatorUI.floors = next_floors

@@ -26,7 +26,7 @@ func action() -> void:
 	movie.kill()
 
 func add_effect(target : Cog, track : Track) -> void:
-	var new_effect := EFFECT.duplicate()
+	var new_effect := EFFECT.duplicate(true)
 	new_effect.target = target
 	new_effect.rounds = 2
 	new_effect.track = track

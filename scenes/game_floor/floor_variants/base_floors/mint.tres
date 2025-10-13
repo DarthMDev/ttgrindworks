@@ -4,17 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://d37hnib3h7pup" path="res://models/cogs/misc/hp_light/cash.png" id="1_ejshq"]
 [ext_resource type="Resource" uid="uid://cljdlcw5dbu7a" path="res://scenes/game_floor/department_floors/rooms_cash.tres" id="1_mvt2m"]
 [ext_resource type="Resource" uid="uid://b14s6jiqdlynh" path="res://objects/cog/presets/pools/cashbot.tres" id="1_qi1sy"]
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="1_wgywc"]
+[ext_resource type="Resource" uid="uid://c1fypamyq6b03" path="res://scenes/game_floor/floor_variants/alt_floors/molten_mint.tres" id="1_tt535"]
 
 [resource]
 script = ExtResource("1_6f465")
-floor_difficulty = 0
 floor_type = ExtResource("1_mvt2m")
 floor_name = "The Mint"
 cog_pool = ExtResource("1_qi1sy")
-modifiers = Array[Script]([])
-end_rooms = Array[ExtResource("1_wgywc")]([])
-floor_icon = ExtResource("1_ejshq")
-anomalies = Array[Script]([])
-level_range = Vector2i(1, 12)
-room_count = 13
+alt_floor = ExtResource("1_tt535")
+floor_icons = Array[Texture2D]([ExtResource("1_ejshq")])
+room_count = 11

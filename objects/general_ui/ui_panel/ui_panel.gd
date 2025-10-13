@@ -32,7 +32,7 @@ class_name UIPanel
 @onready var animator : AnimationPlayer = $AnimationPlayer
 
 var active := false
-var click_buffer : Control
+var click_buffer: Control
 
 signal s_closed
 

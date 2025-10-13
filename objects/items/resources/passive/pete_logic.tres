@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://j2f777map5cr"]
+
+[ext_resource type="Script" uid="uid://cf08ujidvpjrg" path="res://objects/items/custom/item_pete_logic.gd" id="1_jrnqo"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_mkr3s"]
+
+[resource]
+script = ExtResource("1_mkr3s")
+item_script = ExtResource("1_jrnqo")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+metadata/_custom_type_script = "uid://combwqypom1ru"

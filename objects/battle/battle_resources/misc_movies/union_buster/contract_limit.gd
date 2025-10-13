@@ -1,5 +1,4 @@
 extends CogAttack
-class_name UBContractLimit
 
 @export var status_effect: UBContractLimitBomb
 
@@ -22,7 +21,7 @@ func action() -> void:
 	battle_node.focus_character(target_cog)
 	
 	# Apply the status effect
-	var stat_effect: UBContractLimitBomb = status_effect.duplicate()
+	var stat_effect: UBContractLimitBomb = status_effect.duplicate(true)
 	stat_effect.target = target_cog
 	stat_effect.union_buster = user
 	manager.add_status_effect(stat_effect)

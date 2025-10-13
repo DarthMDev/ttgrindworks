@@ -111,6 +111,11 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_nqfjm"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="LabelSettings" id="LabelSettings_khjnh"]
+font = ExtResource("3_ij621")
+font_size = 20
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10epn"]
 shader = ExtResource("4_sgslx")
 shader_parameter/Shift_Hue = 0.585
@@ -120,10 +125,6 @@ shader_parameter/alpha = 1.0
 shader = ExtResource("4_sgslx")
 shader_parameter/Shift_Hue = 0.585
 shader_parameter/alpha = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_khjnh"]
-font = ExtResource("3_ij621")
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_klw45"]
 length = 0.001
@@ -166,19 +167,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TopLevelElements/BackdropHolder/Backdrop/Buttons:position")
+tracks/3/path = NodePath("Pages/MainPage/StatsHolder:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, -10)]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pages/MainPage/StatsHolder:position")
+tracks/4/path = NodePath("Pages/MainPage/RewardHolder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -190,55 +191,54 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Pages/MainPage/RewardHolder:position")
+tracks/5/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(166.833, -60.854)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
+tracks/6/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(166.833, -60.854)]
+"values": [Vector2(0.7, 0.7)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
+tracks/7/path = NodePath("Blur:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.7, 0.7)]
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/8/type = "value"
+tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Blur:modulate")
+tracks/8/path = NodePath("TopLevelElements/ButtonLeft:position:x")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TopLevelElements/ButtonLeft:position:x")
+tracks/9/path = NodePath("TopLevelElements/ButtonLeft:position:y")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -249,7 +249,7 @@ tracks/9/keys = {
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("TopLevelElements/ButtonLeft:position:y")
+tracks/10/path = NodePath("TopLevelElements/ButtonRight:position:x")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -260,21 +260,10 @@ tracks/10/keys = {
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("TopLevelElements/ButtonRight:position:x")
+tracks/11/path = NodePath("TopLevelElements/ButtonRight:position:y")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("TopLevelElements/ButtonRight:position:y")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -321,99 +310,99 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TopLevelElements/BackdropHolder/Backdrop/Buttons:position")
+tracks/3/path = NodePath("Pages/MainPage/StatsHolder:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.333333),
 "transitions": PackedFloat32Array(0.15, 1),
 "update": 0,
-"values": [Vector2(-1, -10), Vector2(-1, -10)]
+"values": [Vector2(520, 0), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pages/MainPage/StatsHolder:position")
+tracks/4/path = NodePath("Pages/MainPage/RewardHolder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(0.15, 1),
-"update": 0,
-"values": [Vector2(520, 0), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Pages/MainPage/RewardHolder:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0.0333333, 0.45),
 "transitions": PackedFloat32Array(0.15, 1),
 "update": 0,
 "values": [Vector2(384, 0), Vector2(-1, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pages/MainPage/Quests/QuestTitle:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.47),
 "transitions": PackedFloat32Array(0.15, 1),
 "update": 0,
 "values": [Vector2(166.832, -127.694), Vector2(166.833, -60.854)]
 }
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pages/MainPage/Quests/Quest1/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("quest_pop-in"),
+"times": PackedFloat32Array(0.0333333)
+}
 tracks/7/type = "animation"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pages/MainPage/Quests/Quest1/AnimationPlayer")
+tracks/7/path = NodePath("Pages/MainPage/Quests/Quest2/AnimationPlayer")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "clips": PackedStringArray("quest_pop-in"),
-"times": PackedFloat32Array(0.0333333)
+"times": PackedFloat32Array(0.0666667)
 }
 tracks/8/type = "animation"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Pages/MainPage/Quests/Quest2/AnimationPlayer")
+tracks/8/path = NodePath("Pages/MainPage/Quests/Quest3/AnimationPlayer")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "clips": PackedStringArray("quest_pop-in"),
-"times": PackedFloat32Array(0.0666667)
+"times": PackedFloat32Array(0.1)
 }
 tracks/9/type = "animation"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Pages/MainPage/Quests/Quest3/AnimationPlayer")
+tracks/9/path = NodePath("Pages/MainPage/Quests/Quest4/AnimationPlayer")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "clips": PackedStringArray("quest_pop-in"),
-"times": PackedFloat32Array(0.1)
+"times": PackedFloat32Array(0.133333)
 }
-tracks/10/type = "animation"
+tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Pages/MainPage/Quests/Quest4/AnimationPlayer")
+tracks/10/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"clips": PackedStringArray("quest_pop-in"),
-"times": PackedFloat32Array(0.133333)
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.7, 0.7)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Pages/MainPage/Quests/Quest1:scale")
+tracks/11/path = NodePath("Pages/MainPage/Quests/Quest2:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0.7, 0.7)]
@@ -421,11 +410,11 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Pages/MainPage/Quests/Quest2:scale")
+tracks/12/path = NodePath("Pages/MainPage/Quests/Quest3:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(0, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0.7, 0.7)]
@@ -433,11 +422,11 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Pages/MainPage/Quests/Quest3:scale")
+tracks/13/path = NodePath("Pages/MainPage/Quests/Quest4:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.133333),
+"times": PackedFloat32Array(0, 0.166667),
 "transitions": PackedFloat32Array(0, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0.7, 0.7)]
@@ -445,67 +434,55 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Pages/MainPage/Quests/Quest4:scale")
+tracks/14/path = NodePath("Blur:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(0, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0.7, 0.7)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Blur:modulate")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
 "times": PackedFloat32Array(0, 0.166667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TopLevelElements/ButtonLeft:position:x")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-74, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.43)
+}
 tracks/16/type = "bezier"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("TopLevelElements/ButtonLeft:position:x")
+tracks/16/path = NodePath("TopLevelElements/ButtonLeft:position:y")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-74, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.43)
 }
 tracks/17/type = "bezier"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("TopLevelElements/ButtonLeft:position:y")
+tracks/17/path = NodePath("TopLevelElements/ButtonRight:position:x")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.43)
+"points": PackedFloat32Array(71, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.47)
 }
 tracks/18/type = "bezier"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("TopLevelElements/ButtonRight:position:x")
+tracks/18/path = NodePath("TopLevelElements/ButtonRight:position:y")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(71, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.47)
-}
-tracks/19/type = "bezier"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("TopLevelElements/ButtonRight:position:y")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.47)
@@ -590,6 +567,7 @@ alignment = 1
 
 [node name="FacilityIcon" type="TextureRect" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer/FloorContainer"]
 unique_name_in_owner = true
+texture_filter = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("10_lmpwx")
@@ -608,6 +586,7 @@ vertical_alignment = 1
 
 [node name="FacilityIcon2" type="TextureRect" parent="Pages/MainPage/FloorMainHolder/FloorMainContainer/FloorContainer"]
 unique_name_in_owner = true
+texture_filter = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("10_lmpwx")
@@ -637,7 +616,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -158.167
 offset_top = -60.854
-offset_right = 34.833
+offset_right = 34.833008
 offset_bottom = -27.8535
 grow_horizontal = 2
 text = "ToonTasks"
@@ -746,7 +725,7 @@ vertical_alignment = 1
 
 [node name="DamageChange" type="Label" parent="Pages/MainPage/StatsHolder/Stats/MarginContainer/VBoxContainer/Damage"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_left = -94.0
 offset_right = -4.0
 offset_bottom = 21.0
@@ -967,25 +946,59 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.34902)
 
+[node name="MarginContainer" type="MarginContainer" parent="TopLevelElements/BackdropHolder/Backdrop"]
+custom_minimum_size = Vector2(0, 63.375)
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopLevelElements/BackdropHolder/Backdrop/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VersionLabel" type="Label" parent="TopLevelElements/BackdropHolder/Backdrop/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "v1.2"
+label_settings = SubResource("LabelSettings_khjnh")
+
+[node name="SeedLabel" type="Label" parent="TopLevelElements/BackdropHolder/Backdrop/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Seed: 123456789000"
+label_settings = SubResource("LabelSettings_khjnh")
+
+[node name="SeedButton" type="Button" parent="TopLevelElements/BackdropHolder/Backdrop/MarginContainer/VBoxContainer/SeedLabel"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Buttons" type="HBoxContainer" parent="TopLevelElements/BackdropHolder/Backdrop"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -10.0
-offset_right = -1.0
-offset_bottom = 10.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -50.0
+offset_right = 464.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(152, 126)
 theme_override_constants/separation = 64
-alignment = 1
+alignment = 2
 
 [node name="Resume" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
 material = SubResource("ShaderMaterial_10epn")
@@ -996,6 +1009,7 @@ texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
 text = "Resume"
+font_size = 36.0
 
 [node name="Settings" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
 material = SubResource("ShaderMaterial_ry7vf")
@@ -1006,6 +1020,7 @@ texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
 text = "Settings"
+font_size = 36.0
 
 [node name="Quit" parent="TopLevelElements/BackdropHolder/Backdrop/Buttons" instance=ExtResource("2_fdjxk")]
 custom_minimum_size = Vector2(230, 100)
@@ -1015,21 +1030,7 @@ texture_pressed = ExtResource("7_pio3r")
 texture_hover = ExtResource("8_l83vw")
 texture_disabled = ExtResource("7_pio3r")
 text = "Quit"
-
-[node name="VersionLabel" type="Label" parent="TopLevelElements/BackdropHolder/Backdrop"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -23.0
-offset_right = 7.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "v1.0"
-label_settings = SubResource("LabelSettings_khjnh")
+font_size = 36.0
 
 [node name="ButtonLeft" type="Control" parent="TopLevelElements"]
 layout_mode = 1
@@ -1053,6 +1054,7 @@ grow_vertical = 2
 texture_normal = ExtResource("9_bs06e")
 texture_pressed = ExtResource("10_jrqgq")
 texture_disabled = ExtResource("11_1s8xm")
+font_size = 36.0
 
 [node name="ButtonRight" type="Control" parent="TopLevelElements"]
 layout_mode = 1
@@ -1080,6 +1082,7 @@ texture_normal = ExtResource("9_bs06e")
 texture_pressed = ExtResource("10_jrqgq")
 texture_disabled = ExtResource("11_1s8xm")
 flip_h = true
+font_size = 36.0
 
 [node name="ItemHolder" type="Control" parent="TopLevelElements"]
 layout_mode = 1

@@ -1,6 +1,7 @@
 extends TextureButton
 class_name GagButton
 
+const DEFAULT_COLOR := Color("00a1ff")
 const DISABLED_COLOR := Color('2e2e2e')
 
 @onready var image_rect := $Image
@@ -22,7 +23,7 @@ const DISABLED_COLOR := Color('2e2e2e')
 signal s_enabled
 signal s_disabled
 
-var default_color := Color("00a1ff"):
+var default_color := DEFAULT_COLOR:
 	set(x):
 		default_color = x
 		if not disabled:

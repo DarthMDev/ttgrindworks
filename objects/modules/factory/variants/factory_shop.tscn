@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cenu6j4tpqfhh"]
+[gd_scene load_steps=24 format=3 uid="uid://cenu6j4tpqfhh"]
 
 [ext_resource type="PackedScene" uid="uid://srxbjtdik0jv" path="res://objects/modules/mint/base_rooms/mint_skele_room2.tscn" id="1_isvc1"]
 [ext_resource type="Texture2D" uid="uid://brgqli0hmk7ls" path="res://models/facilities/factory/FINALFACTORY_101.png" id="2_mmm1w"]
@@ -18,40 +18,55 @@
 [ext_resource type="PackedScene" uid="uid://csdrrw6xiokuy" path="res://objects/props/mint/pipes/kit/pipe_shadow.tscn" id="16_1ejhi"]
 [ext_resource type="PackedScene" uid="uid://celxj5u1aay0l" path="res://objects/props/etc/wood_crate.tscn" id="16_lvlnf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbi63"]
-resource_name = "textures:textures1:textures:CashBotLocomotive_v2_s3:LMtopFix:LMSidePanels_SHD"
-cull_mode = 2
-albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
-albedo_texture = ExtResource("2_mmm1w")
-emission_enabled = true
-uv1_scale = Vector3(1.333, 4, 1)
-uv1_offset = Vector3(0.315, 0, 0)
-
 [sub_resource type="Resource" id="Resource_yc21l"]
 script = ExtResource("5_8trba")
-body_type = 0
-species = 2
-head_index = 0
-eyelashes = true
-skirt = false
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yyr5y"]
 size = Vector3(1, 9.95868, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2n3r"]
+resource_name = "LocomotiveSide5"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_mmm1w")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(0.665, 1.335, 1)
+uv1_offset = Vector3(0.33, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dffs3"]
+resource_name = "LocomotiveSide5"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_mmm1w")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(1.333, 4, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dffs3"]
+data = PackedVector3Array(0, 2.286, -2.286, 0, 2.286, 2.286, 0, -2.286, 2.286, 0, -2.286, 2.286, 0, -2.286, -2.286, 0, 2.286, -2.286)
+backface_collision = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b2n3r"]
+data = PackedVector3Array(-2.286, 2.286, 0, 2.286, 2.286, 0, 2.286, -2.286, 0, 2.286, -2.286, 0, -2.286, -2.286, 0, -2.286, 2.286, 0)
+
 [node name="Root Scene" instance=ExtResource("1_isvc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000535488, -0.00364494, 0.00501585)
 
-[node name="GeometryTransformHelper6" parent="Z18a_ALL/Z18/connector/room/geometry_connector/wall" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_pbi63")
-
-[node name="Lights" parent="Z18a_ALL/Z18/connector/room/geometry_connector" index="3"]
+[node name="Path_E" parent="." index="6"]
 visible = false
 
-[node name="EXIT" parent="." index="7"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 7.30664, 1.19209e-06, -0.206741)
+[node name="CollisionShape3D" parent="Path_E/StaticBody3D" index="0"]
+disabled = true
+
+[node name="Path_W" parent="." index="7"]
+visible = false
+
+[node name="CollisionShape3D" parent="Path_W/StaticBody3D" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="StairCollision_E/StaticBody3D" index="0"]
+disabled = true
 
 [node name="Shop" type="Node3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.45023)
@@ -176,3 +191,42 @@ transform = Transform3D(0.337961, 0, -0.162504, 0, 1.16, 0, 0.162504, 0, 0.33796
 [node name="wood_crate2" parent="." index="19" instance=ExtResource("16_lvlnf")]
 transform = Transform3D(2.14102, 0, -0.0107797, 0, 1.4, 0, 0.0165537, 0, 1.39423, 5.72381, -0.323958, -6.03972)
 visible = false
+
+[node name="Walls_E" parent="." index="20"]
+visible = false
+
+[node name="CollisionShape3D" parent="Walls_E/StaticBody3D" index="0"]
+disabled = true
+
+[node name="Walls_W" parent="." index="21"]
+visible = false
+
+[node name="CollisionShape3D" parent="Walls_W/StaticBody3D" index="0"]
+disabled = true
+
+[node name="ceiling" parent="." index="22"]
+surface_material_override/0 = SubResource("StandardMaterial3D_b2n3r")
+
+[node name="wall" parent="." index="25"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dffs3")
+
+[node name="wall_N" parent="." index="27"]
+visible = true
+surface_material_override/0 = SubResource("StandardMaterial3D_dffs3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_N" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_N/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_dffs3")
+
+[node name="wall_W" parent="." index="28"]
+visible = true
+surface_material_override/0 = SubResource("StandardMaterial3D_dffs3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_W" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_W/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_b2n3r")
+
+[node name="EXIT" type="Node3D" parent="." index="30"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.037, 0, -0.207)

@@ -26,13 +26,14 @@ _data = {
 &"lose": ExtResource("1_gbnnt")
 }
 
-[node name="suitB-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone") instance=ExtResource("1_6xa7n")]
+[node name="suitB-lose" node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "head_bone", "shadow_bone") instance=ExtResource("1_6xa7n")]
 script = ExtResource("1_wvgtt")
 skeleton = NodePath("rig_deform/Skeleton3D")
 animator = NodePath("AnimationPlayer")
 head_scale = 5.0
 wrists_and_shoes = NodePath("rig_deform/Skeleton3D/Object")
 head_bone = NodePath("rig_deform/Skeleton3D/HeadBone")
+shadow_bone = NodePath("")
 is_lose = true
 
 [node name="Skeleton3D" parent="rig_deform" index="0"]
@@ -53,7 +54,6 @@ bones/10/position = Vector3(1.14321e-07, -1.76683, -2.23277e-08)
 bones/12/position = Vector3(0, -1.76683, 0)
 bones/13/position = Vector3(4.58998, 0.530965, 13.0085)
 bones/13/rotation = Quaternion(0.137529, 0.687903, -0.197947, 0.684611)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(2.17102, 0.295066, 0.100845)
 bones/14/rotation = Quaternion(-1.84643e-08, 0.642788, -1.58048e-08, 0.766044)
 bones/15/position = Vector3(1.29675, -4.14903e-07, 0.0739714)
@@ -86,7 +86,6 @@ bones/34/position = Vector3(-4.36823, 0.53361, 0.142912)
 bones/35/position = Vector3(-5.76519e-10, -0.150289, 1.76181)
 bones/36/position = Vector3(-4.86327, 0.845942, 13.0689)
 bones/36/rotation = Quaternion(0.117961, -0.682208, 0.195138, 0.694693)
-bones/36/scale = Vector3(1, 1, 1)
 bones/37/position = Vector3(-2.17102, 0.295072, 0.100845)
 bones/37/rotation = Quaternion(-9.72604e-09, -0.642788, 1.42851e-08, 0.766044)
 bones/38/position = Vector3(-1.29675, 4.61286e-07, 0.0739721)
@@ -106,19 +105,16 @@ bones/45/position = Vector3(-5.19434e-07, -1.70998, -1.6972e-07)
 bones/45/scale = Vector3(0.3, 0.3, 0.3)
 bones/46/position = Vector3(4.81705, 1.16295, 18.6972)
 bones/46/rotation = Quaternion(-0.392392, 0.6357, 0.340157, 0.571146)
-bones/46/scale = Vector3(1, 1, 1)
 bones/47/position = Vector3(5.72816, -1.67568e-06, -1.53109e-06)
 bones/48/position = Vector3(5.72816, -1.73044e-06, -1.72978e-06)
 bones/49/position = Vector3(0.643723, -3.57424e-07, 6.25319e-08)
 bones/50/position = Vector3(4.76159, 1.081, 19.4254)
 bones/50/rotation = Quaternion(0.201112, 0.672071, -0.133209, 0.700093)
-bones/50/scale = Vector3(1, 1, 1)
 bones/51/position = Vector3(4.38924, 0.530833, 24.3148)
 bones/51/rotation = Quaternion(0, 0, -0.0173676, 0.999849)
 bones/52/position = Vector3(1.09524e-07, 3.12068e-08, 8.1414e-08)
 bones/53/position = Vector3(4.26114e-07, -1.13198e-06, -9.83892e-08)
 bones/53/rotation = Quaternion(0.19999, 0.109992, 0.672405, 0.704114)
-bones/53/scale = Vector3(1, 1, 1)
 bones/54/position = Vector3(4.0215e-08, -1.1381e-08, -6.38598e-08)
 bones/54/rotation = Quaternion(-0.356471, 0.553237, 0.397688, 0.639298)
 bones/55/position = Vector3(-3.55212e-07, -2.71165e-06, 4.32499e-07)
@@ -145,7 +141,6 @@ bones/67/rotation = Quaternion(0.327923, 0.570318, -0.402326, 0.636662)
 bones/68/position = Vector3(-1.12536, 4.36518e-07, -8.78429e-07)
 bones/69/position = Vector3(-4.98312, 1.6425, 18.7402)
 bones/69/rotation = Quaternion(0.337778, 0.564536, -0.413323, 0.629579)
-bones/69/scale = Vector3(1, 1, 1)
 bones/70/position = Vector3(5.72816, -2.35839e-06, 2.60273e-06)
 bones/71/position = Vector3(5.72816, -2.50442e-06, 2.21576e-06)
 bones/71/rotation = Quaternion(-0.011421, 0.707015, -0.707015, -0.0114212)
@@ -153,7 +148,6 @@ bones/72/position = Vector3(0.639651, -7.49366e-07, -3.10694e-07)
 bones/72/rotation = Quaternion(-0.0114212, 0.707015, -0.707014, -0.0114216)
 bones/73/position = Vector3(-4.9, 1.53771, 19.4629)
 bones/73/rotation = Quaternion(0.201943, -0.662226, 0.107168, 0.713576)
-bones/73/scale = Vector3(1, 1, 1)
 bones/75/position = Vector3(1.41812e-06, 3.04682e-06, 0.030625)
 bones/75/scale = Vector3(1.00061, 1.00061, 1.00061)
 bones/76/position = Vector3(4.58998, 0.530975, 13.0085)
@@ -176,11 +170,11 @@ surface_material_override/1 = SubResource("StandardMaterial3D_rtuhi")
 surface_material_override/2 = SubResource("StandardMaterial3D_q3cqj")
 
 [node name="HeadBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="5"]
-transform = Transform3D(0.994521, 0.104539, 2.22045e-16, -2.54076e-09, 2.41712e-08, 1, 0.104539, -0.994521, 2.43044e-08, -0.000131749, 25.9336, 0.000945075)
+transform = Transform3D(0.994521, 0.104539, 3.77476e-15, -2.54076e-09, 2.41712e-08, 1, 0.104539, -0.994521, 2.43043e-08, -0.000131749, 25.9336, 0.000945075)
 bone_name = "joint_head"
 bone_idx = 82
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_6plvx")
+&"": SubResource("AnimationLibrary_6plvx")
 }

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://b1xox8xswxkxi"]
+
+[ext_resource type="Texture2D" uid="uid://6dh2fxdcvj16" path="res://models/props/toon_props/silly_meter_parts/gauge_part-pix-1.png" id="1_pn6q4"]
+[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_pn6q4"]
+
+[resource]
+script = ExtResource("2_pn6q4")
+progress_value = "pocket_pranks_used"
+quota = 150
+signal_source = 1
+signal_name = "s_pocket_prank_used"
+achievement_name = "Silly Surge"
+achievement_summary = "Unlocked Dilly Dial."
+hint = "Utilize your Pranks."
+achievement_index = 33
+achievement_icon = ExtResource("1_pn6q4")
+use_achievement_background = true
+custom_background_color = Color(0.6, 0.2, 1, 1)
+metadata/_custom_type_script = "uid://bly70o6230roo"

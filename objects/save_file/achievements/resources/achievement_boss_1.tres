@@ -6,7 +6,6 @@
 [resource]
 script = ExtResource("1_bo33m")
 progress_value = "boss_cogs_defeated"
-quota = 1
 signal_source = 2
 signal_name = "s_boss_died"
 achievement_name = "Corporate Shakeup"

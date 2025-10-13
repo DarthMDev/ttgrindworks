@@ -1,5 +1,4 @@
 extends CogAttack
-class_name BKMentalMath
 
 @export var particle_scene: PackedScene
 @export var flash_color: Color = Color.RED
@@ -28,6 +27,6 @@ func action():
 	particles.queue_free()
 
 func apply_effect() -> void:
-	var effect := status.duplicate()
+	var effect := status.duplicate(true)
 	effect.target = user
 	manager.add_status_effect(effect)

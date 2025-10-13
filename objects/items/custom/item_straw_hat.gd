@@ -30,4 +30,4 @@ func is_boost_cog(cog: Cog) -> bool:
 	return false
 
 func boost_gag(gag: GagTrap) -> void:
-	gag.damage *= PROXY_BOOST
+	gag.damage = roundi(float(gag.damage) * PROXY_BOOST)

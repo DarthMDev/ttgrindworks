@@ -4,11 +4,5 @@
 
 [resource]
 script = ExtResource("1_63khx")
-accuracy = 75
-damage = 1
-ignore_stats = false
-summary = ""
 attack_lines = Array[String](["You can't afford these expenses.", "The well's all dried up.", "Better hope you saved wisely.", "These funds must be reallocated."])
-target_type = 0
 action_name = "Budget Cuts"
-one_time_use = false

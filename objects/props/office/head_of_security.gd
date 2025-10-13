@@ -1,36 +1,36 @@
 @tool
 extends Node3D
 
-@export var shake_intensity : float = 1.0:
+@export var shake_intensity: float = 1.0:
 	set(x):
 		shake_intensity = x
 		if not is_node_ready():
 			await ready
 		set_glitch_intensity(shake_intensity)
 
-@onready var head_mod : MeshInstance3D = %Cube
-@onready var glitch_timer : Timer = %GlitchTimer
+@onready var head_mod: MeshInstance3D = %Cube
+@onready var glitch_timer: Timer = %GlitchTimer
 
-var FONT : Font
-var SPEECH_BUBBLE : PackedScene
-var speech_bubble : SpeechBubble
-var speak_sfx : AudioStream
+var FONT: Font
+var SPEECH_BUBBLE: PackedScene
+var speech_bubble: SpeechBubble
+var speak_sfx: AudioStream
 
 func _init() -> void:
 	if Engine.is_editor_hint(): return
 	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self,
 	{
-		'SPEECH_BUBBLE' : "res://objects/misc/speech_bubble/speech_bubble.tscn",
-		'FONT' : "res://fonts/vtRemingtonPortable.ttf",
-		'speak_sfx' : "res://audio/sfx/battle/cogs/Skel_COG_VO_statement.ogg",
+		'SPEECH_BUBBLE': "res://objects/misc/speech_bubble/speech_bubble.tscn",
+		'FONT': "res://fonts/vtRemingtonPortable.ttf",
+		'speak_sfx': "res://audio/sfx/battle/cogs/Skel_COG_VO_statement.ogg",
 	})
 
-@onready var animator : AnimationPlayer = %AnimationPlayer
+@onready var animator: AnimationPlayer = %AnimationPlayer
 
-func set_animation(anim : String) -> void:
+func set_animation(anim: String) -> void:
 	animator.play(anim)
 
-func speak(phrase : String) -> void:
+func speak(phrase: String) -> void:
 	if is_instance_valid(speech_bubble):
 		speech_bubble.queue_free()
 	speech_bubble = SPEECH_BUBBLE.instantiate()
@@ -54,23 +54,23 @@ func timer_timeout() -> void:
 	elif Engine.is_editor_hint():
 		glitch_timer.wait_time = randf_range(RATE_VARIANCE.x, RATE_VARIANCE.y)
 	else:
-		glitch_timer.wait_time = RandomService.randf_range_channel('true_random', RATE_VARIANCE.x, RATE_VARIANCE.y)
+		glitch_timer.wait_time = randf_range(RATE_VARIANCE.x, RATE_VARIANCE.y)
 	glitch_timer.start()
 
 var glitch_enabled := true
 func toggle_glitch() -> void:
 	glitch_enabled = not glitch_enabled
-	var shader : ShaderMaterial = head_mod.get_surface_override_material(0)
+	var shader: ShaderMaterial = head_mod.get_surface_override_material(0)
 	shader.set_shader_parameter('should_shake', glitch_enabled)
 
-func set_glitch_intensity(intensity : float) -> void:
-	var shader : ShaderMaterial = head_mod.get_surface_override_material(0)
+func set_glitch_intensity(intensity: float) -> void:
+	var shader: ShaderMaterial = head_mod.get_surface_override_material(0)
 	shader.set_shader_parameter('shake_power', intensity)
 
 func do_explosion() -> void:
 	if Engine.is_editor_hint(): return
 	
-	var explosion : AnimatedSprite3D = Globals.EXPLOSION.instantiate()
+	var explosion: AnimatedSprite3D = Globals.EXPLOSION.instantiate()
 	add_child(explosion)
 	explosion.scale *= 20.0
 	explosion.play()
@@ -79,8 +79,7 @@ func do_explosion() -> void:
 	head_mod.hide()
 	await Task.delay(0.45)
 	queue_free()
-	
 
-func _process(_delta : float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#%SpeechNode.global_position.y = %SpeechPos.global_position.y

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://h62x0l242r7a"]
+
+[ext_resource type="PackedScene" uid="uid://ciyyhun2e5nmf" path="res://objects/props/etc/crate/crate_general.tscn" id="1_nlfcu"]
+[ext_resource type="Texture2D" uid="uid://b4cid5klcomtk" path="res://models/props/facility_objects/crate/crate_general_0.png" id="2_4uox2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k36q"]
+resource_name = "crate_general_MetalCrateV1SHD1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.51, 0.42432, 0.36720002, 0.8)
+albedo_texture = ExtResource("2_4uox2")
+emission_enabled = true
+
+[node name="crate_general_cooked" instance=ExtResource("1_nlfcu")]
+
+[node name="GeometryTransformHelper3" parent="group/crate_general_crate/crate_general_metal__crate/crate_general_metal_crate_sides" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2k36q")
+surface_material_override/1 = SubResource("StandardMaterial3D_2k36q")
+surface_material_override/2 = SubResource("StandardMaterial3D_2k36q")
+
+[node name="GeometryTransformHelper4" parent="group/crate_general_crate/crate_general_metal__crate/crate_general_metal_crate_top" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2k36q")

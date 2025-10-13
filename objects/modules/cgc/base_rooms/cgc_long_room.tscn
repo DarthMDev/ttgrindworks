@@ -93,22 +93,18 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.961, 0, -21.5588)
 [node name="ResizeableWall" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6918, 0, -10.9478)
 volume = Vector3(3.34, 6.865, 19.995)
-want_brick_top = null
 
 [node name="ResizeableWall2" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5031, 0, -10.9478)
 volume = Vector3(3.34, 6.865, 19.995)
-want_brick_top = null
 
 [node name="ResizeableWall3" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77344, 0, -22.096)
 volume = Vector3(6.05, 6.875, 1)
-want_brick_top = null
 
 [node name="ResizeableWall4" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04316, 0, -22.096)
 volume = Vector3(6.46, 6.875, 1)
-want_brick_top = null
 
 [node name="Branches" type="Node3D" parent="."]
 

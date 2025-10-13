@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=4 uid="uid://dr8qrxcwdycmu"]
+
+[ext_resource type="PackedScene" uid="uid://kb8bqj0tpkgg" path="res://models/props/toon_props/philosophers_stone/philosophersStone.fbx" id="1_5ovl1"]
+[ext_resource type="PackedScene" uid="uid://b1ebxidhw6o1q" path="res://objects/battle/effects/pixie_dust/pixie_dust.tscn" id="2_vgti3"]
+
+[sub_resource type="Curve" id="Curve_q6t6r"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.275109, 1), 0.0, 0.0, 0, 0, Vector2(0.69869, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8e1y"]
+curve = SubResource("Curve_q6t6r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vgti3"]
+resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.4
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.06
+color = Color(0.6514973, 0.60424215, 1, 1)
+alpha_curve = SubResource("CurveTexture_j8e1y")
+turbulence_influence_max = 0.451
+turbulence_initial_displacement_min = -3.9
+turbulence_initial_displacement_max = 28.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6t6r"]
+resource_local_to_scene = true
+render_priority = 3
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vwpok"]
+resource_local_to_scene = true
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA"),
+"format": 34359738393,
+"material": SubResource("StandardMaterial3D_q6t6r"),
+"primitive": 1,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC/")
+}]
+
+[node name="philosophersStone" instance=ExtResource("1_5ovl1")]
+
+[node name="buckteeth" parent="." index="0"]
+transform = Transform3D(25, 0, 0, 0, 25, 1.8874475e-06, 0, -1.8874475e-06, 25, 0, -0.162, 0)
+
+[node name="philosophersStone" parent="." index="1"]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, -0.16202903, 0)
+
+[node name="Particles" parent="." index="2" instance=ExtResource("2_vgti3")]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.009006381, -0.046191398, 0)
+amount = 32
+lifetime = 1.0
+preprocess = 3.0
+process_material = SubResource("ParticleProcessMaterial_vgti3")
+draw_pass_1 = SubResource("ArrayMesh_vwpok")

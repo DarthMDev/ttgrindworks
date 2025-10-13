@@ -14,5 +14,13 @@ func open(time := 1.0) -> void:
 	tween.kill()
 	queue_free()
 
+func close(time := 1.0) -> void:
+	set_circle_size(1.0)
+	var tween := create_tween()
+	tween.tween_method(set_circle_size,1.0,0.0,time)
+	await tween.finished
+	tween.kill()
+	queue_free()
+
 func set_circle_size(circle_size : float) -> void:
 	material.set_shader_parameter('circle_size',circle_size)

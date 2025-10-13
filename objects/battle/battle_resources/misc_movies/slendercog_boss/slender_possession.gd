@@ -78,9 +78,8 @@ func action() -> void:
 ## And does some setup
 func possess(cog : Cog) -> void:
 	cog.set_dna(SLENDER_DNA,false)
-	for effect in SLENDER_DNA.status_effects:
-		var add_eff : StatusEffect = effect.duplicate()
-		add_eff.target = cog
-		manager.add_status_effect(add_eff)
+	for effect in SLENDER_DNA.instantiate_status_effects():
+		effect.target = cog
+		manager.add_status_effect(effect)
 	if should_increase:
 		manager.unskip_turn(cog)

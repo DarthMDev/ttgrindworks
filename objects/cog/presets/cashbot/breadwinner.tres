@@ -1,47 +1,30 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=15 format=3 uid="uid://tfs8jtibs727"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://tfs8jtibs727"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tt8ui"]
 [ext_resource type="Resource" uid="uid://b4kaq7rjifwfc" path="res://objects/battle/battle_resources/cog_attacks/resources/liquidate.tres" id="2_x14fq"]
 [ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="3_r2bt6"]
-[ext_resource type="PackedScene" uid="uid://d1mcdliu4fa2u" path="res://models/cogs/heads/moneybags.glb" id="4_7d01h"]
 [ext_resource type="Resource" uid="uid://dwkmwkdn3ws4k" path="res://objects/battle/battle_resources/cog_attacks/resources/evil_eye.tres" id="4_gvv37"]
 [ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="5_2br0q"]
-[ext_resource type="Texture2D" uid="uid://dcikrnqt76tm" path="res://models/cogs/heads/BreadWinner.png" id="5_gbr5o"]
-[ext_resource type="Texture2D" uid="uid://2fj5qbvh3qa1" path="res://models/cogs/textures/misc/sleeve_2.png" id="5_o1xbe"]
 [ext_resource type="Resource" uid="uid://qk4f4h40o5u1" path="res://objects/battle/battle_resources/cog_attacks/resources/guilt_trip.tres" id="6_d6vdm"]
-[ext_resource type="Texture2D" uid="uid://idf1e68fml3o" path="res://models/cogs/textures/misc/blazer_1.png" id="6_jfb8l"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="6_pxjit"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="7_28jv1"]
-[ext_resource type="Texture2D" uid="uid://o3hrfvdxeisb" path="res://models/cogs/textures/misc/leg_4.png" id="7_buqry"]
-[ext_resource type="Resource" uid="uid://b4vuuxwhv0d3v" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres" id="12_iwn2e"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="7_moctc"]
 
 [resource]
-script = ExtResource("6_pxjit")
+script = ExtResource("7_moctc")
 department = 1
 suit = 2
-custom_blazer_tex = ExtResource("6_jfb8l")
-custom_arm_tex = ExtResource("5_o1xbe")
-custom_leg_tex = ExtResource("7_buqry")
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
 cog_name = "Breadwinner"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("4_7d01h")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/moneybags.glb"
 scale = 4.8
-head_textures = Array[Texture2D]([ExtResource("5_gbr5o")])
+head_textures = PackedStringArray("res://models/cogs/heads/BreadWinner.png")
 hand_color = Color(0.894118, 0.772549, 0.662745, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_tt8ui")]([ExtResource("2_x14fq"), ExtResource("3_r2bt6"), ExtResource("4_gvv37"), ExtResource("5_2br0q"), ExtResource("6_d6vdm")])
 level_low = 6
 level_high = 20
-status_effects = Array[ExtResource("7_28jv1")]([ExtResource("12_iwn2e")])
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
 is_mod_cog = true
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["Money will be the yeast of your concerns.", "I'm on the rise!", "Time to separate the wheat from the chaff.", "Prepare to be toasted.", "Don't try to butter me up.", "Your stale jokes won't fly here.", "I'm on a roll!", "Would you like a knuckle sandwich?", "Quit loafing around."])
 external_assets = {
 &"head_model": "",

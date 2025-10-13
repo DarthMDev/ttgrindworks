@@ -18,7 +18,8 @@ signal s_lava_hit
 
 var active := true
 var timer: Timer
-var hp_tick := -1
+var hp_tick := -1:
+	get: return Util.get_hazard_damage(base_damage)
 var current_checkpoint : Node3D
 
 
@@ -27,9 +28,6 @@ func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = tick_delay
 	timer.one_shot = true
-	
-	hp_tick = Util.get_hazard_damage() + base_damage
-	
 	
 	# Set up teleportation
 	if default_spawn_point:

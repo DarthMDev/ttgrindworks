@@ -1,0 +1,690 @@
+[gd_scene load_steps=36 format=3 uid="uid://41xnxhujwml4"]
+
+[ext_resource type="Script" uid="uid://c3jegvuytik2a" path="res://objects/interactables/stranger/shop_ui/stranger_ui.gd" id="1_xrcja"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_0yh53"]
+[ext_resource type="Texture2D" uid="uid://b1xu7yg7wo4ml" path="res://ui_assets/stranger/stranger_ui.png" id="2_bfjsr"]
+[ext_resource type="Texture2D" uid="uid://c6b3irbmnwfqa" path="res://ui_assets/stranger/stranger_item_selection_ui.png" id="2_y30fe"]
+[ext_resource type="FontFile" uid="uid://di8ufnpo4oxql" path="res://fonts/made_mirage_bold.OTF" id="3_j7sa3"]
+[ext_resource type="Texture2D" uid="uid://c87bgol1mb7y8" path="res://ui_assets/misc/quality_star_unfilled.png" id="9_87c30"]
+[ext_resource type="PackedScene" uid="uid://dqhaniv0lvn07" path="res://objects/interactables/stranger/shop_ui/item_sell_icon.tscn" id="10_rneyd"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="11_g08qy"]
+[ext_resource type="Texture2D" uid="uid://3rqq04gyfjbj" path="res://ui_assets/stranger/stranger_arrow_up.png" id="11_y30fe"]
+[ext_resource type="Texture2D" uid="uid://c14h8cr0mcyb7" path="res://ui_assets/general/CheckButtonUp.png" id="12_8gm6d"]
+[ext_resource type="Texture2D" uid="uid://5sb24v82af16" path="res://ui_assets/stranger/stranger_arrow_down.png" id="12_j7sa3"]
+[ext_resource type="Texture2D" uid="uid://rhi56acvmvc" path="res://ui_assets/stranger/stranger_arrow_disabled.png" id="13_d5dog"]
+[ext_resource type="Texture2D" uid="uid://i8dbmhyj5akn" path="res://ui_assets/general/CheckButtonDown.png" id="13_rxd51"]
+[ext_resource type="Texture2D" uid="uid://cuxdebgtthepu" path="res://ui_assets/general/CheckButtonRollover.png" id="14_6kyek"]
+[ext_resource type="Texture2D" uid="uid://e5com3vf5py6" path="res://ui_assets/general/CheckIcon.png" id="15_8gm6d"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="16_gm01h"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="17_bfjsr"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="18_xrcja"]
+[ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="20_lalp0"]
+[ext_resource type="PackedScene" uid="uid://dh0hmi51080a6" path="res://objects/interactables/stranger/shop_ui/stranger_item_bar.tscn" id="21_d5dog"]
+[ext_resource type="Texture2D" uid="uid://xf7s2qvt73i" path="res://ui_assets/misc/quality_star.png" id="24_dft4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocwml"]
+line_spacing = 0.0
+font = ExtResource("3_j7sa3")
+font_size = 24
+font_color = Color(0.890196, 0.392157, 0.113725, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a15kq"]
+font = ExtResource("3_j7sa3")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.623529)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nou84"]
+shader = ExtResource("20_lalp0")
+shader_parameter/Shift_Hue = 0.585
+shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5dog"]
+font = ExtResource("3_j7sa3")
+font_size = 20
+shadow_color = Color(0, 0, 0, 0.662745)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fux6q"]
+font = ExtResource("3_j7sa3")
+font_size = 26
+font_color = Color(0.19651, 0.579885, 0.918822, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ok84"]
+font = ExtResource("3_j7sa3")
+font_size = 20
+shadow_color = Color(0, 0, 0, 0.611765)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjajf"]
+line_spacing = -5.0
+font = ExtResource("3_j7sa3")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.44, 0.44, 0.44, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rneyd"]
+font = ExtResource("3_j7sa3")
+font_size = 36
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.517647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_87c30"]
+font = ExtResource("2_0yh53")
+font_size = 36
+font_color = Color(1, 1, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.517647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrcja"]
+font = ExtResource("3_j7sa3")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.584314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3i4xp"]
+font = ExtResource("3_j7sa3")
+font_size = 24
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.517647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gm6d"]
+font = ExtResource("3_j7sa3")
+font_size = 18
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.517647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vergr"]
+line_spacing = -4.315
+font = ExtResource("3_j7sa3")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.890196)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktw2a"]
+font = ExtResource("3_j7sa3")
+font_size = 28
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.61960787)
+
+[node name="StrangerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xrcja")
+
+[node name="Pages" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemSelect" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -449.0
+offset_top = -184.0
+offset_right = -16.0
+offset_bottom = 184.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Pages/ItemSelect"]
+custom_minimum_size = Vector2(368, 368)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -184.0
+offset_right = 184.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y30fe")
+expand_mode = 1
+
+[node name="PricePanel" type="Control" parent="Pages/ItemSelect"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(302, 120)
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 8.0
+offset_right = 349.0
+offset_bottom = 128.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ItemLabel" type="Label" parent="Pages/ItemSelect/PricePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 29.0
+offset_right = 299.0
+offset_bottom = 78.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "Placeholder Item"
+label_settings = SubResource("LabelSettings_ocwml")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PriceContainer" type="HBoxContainer" parent="Pages/ItemSelect/PricePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = 62.0
+offset_right = 122.0
+offset_bottom = 98.0
+grow_vertical = 2
+
+[node name="Star" type="TextureRect" parent="Pages/ItemSelect/PricePanel/PriceContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("24_dft4c")
+expand_mode = 1
+
+[node name="PriceLabel" type="Label" parent="Pages/ItemSelect/PricePanel/PriceContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "x5"
+label_settings = SubResource("LabelSettings_a15kq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TradeButton" parent="Pages/ItemSelect/PricePanel" instance=ExtResource("11_g08qy")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_nou84")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -18.0
+offset_right = 7.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("16_gm01h")
+texture_pressed = ExtResource("17_bfjsr")
+texture_hover = ExtResource("18_xrcja")
+texture_disabled = ExtResource("17_bfjsr")
+text = "TRADE"
+font_size = 20.0
+
+[node name="Label" parent="Pages/ItemSelect/PricePanel/TradeButton" index="0"]
+text = "TRADE"
+label_settings = SubResource("LabelSettings_d5dog")
+
+[node name="ArrowLeft" parent="Pages/ItemSelect/PricePanel" instance=ExtResource("11_g08qy")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -28.0
+offset_right = -17.0
+offset_bottom = 18.0
+grow_vertical = 2
+texture_normal = ExtResource("11_y30fe")
+texture_pressed = ExtResource("12_j7sa3")
+texture_disabled = ExtResource("13_d5dog")
+font_size = 36.0
+
+[node name="ArrowRight" parent="Pages/ItemSelect/PricePanel" instance=ExtResource("11_g08qy")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 77.0
+offset_top = -36.0
+offset_right = 102.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture_normal = ExtResource("11_y30fe")
+texture_pressed = ExtResource("12_j7sa3")
+texture_disabled = ExtResource("13_d5dog")
+font_size = 36.0
+
+[node name="DescPanel" type="Control" parent="Pages/ItemSelect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(302, 120)
+anchors_preset = 0
+offset_left = 53.0
+offset_top = 195.0
+offset_right = 386.0
+offset_bottom = 417.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Pages/ItemSelect/DescPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 11.0
+offset_right = -8.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pages/ItemSelect/DescPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="DescTitle" type="Label" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "BOOST ITEM"
+label_settings = SubResource("LabelSettings_fux6q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rating" type="Control" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="QualityLabel" type="Label" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = 286.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Rating:"
+label_settings = SubResource("LabelSettings_7ok84")
+
+[node name="RatingContainer" type="HBoxContainer" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -16.0
+offset_right = 286.0
+offset_bottom = 16.0
+grow_vertical = 2
+
+[node name="Star" type="TextureRect" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating/RatingContainer"]
+layout_mode = 2
+texture = ExtResource("24_dft4c")
+expand_mode = 2
+
+[node name="Star2" type="TextureRect" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating/RatingContainer"]
+layout_mode = 2
+texture = ExtResource("24_dft4c")
+expand_mode = 2
+
+[node name="Star3" type="TextureRect" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating/RatingContainer"]
+layout_mode = 2
+texture = ExtResource("24_dft4c")
+expand_mode = 2
+
+[node name="Star4" type="TextureRect" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating/RatingContainer"]
+layout_mode = 2
+texture = ExtResource("24_dft4c")
+expand_mode = 2
+
+[node name="Star5" type="TextureRect" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer/Rating/RatingContainer"]
+layout_mode = 2
+texture = ExtResource("24_dft4c")
+expand_mode = 2
+
+[node name="DescLabel" type="Label" parent="Pages/ItemSelect/DescPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "\"Placeholder description\""
+label_settings = SubResource("LabelSettings_mjajf")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TradeWindow" type="Control" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.0
+offset_top = -264.0
+offset_right = 543.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TradeWindow" type="TextureRect" parent="Pages/TradeWindow"]
+custom_minimum_size = Vector2(809, 456)
+layout_mode = 0
+offset_left = 13.0
+offset_right = 822.0
+offset_bottom = 528.0
+texture = ExtResource("2_bfjsr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemNameLabel" type="Label" parent="Pages/TradeWindow/TradeWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.5
+offset_top = 138.0
+offset_right = 132.5
+offset_bottom = 185.0
+grow_horizontal = 2
+text = "Item Name"
+label_settings = SubResource("LabelSettings_rneyd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarCountLabel" type="Label" parent="Pages/TradeWindow/TradeWindow"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.5
+offset_top = 108.0
+offset_right = 132.5
+offset_bottom = 149.0
+grow_horizontal = 2
+text = "Stars: 0/8"
+label_settings = SubResource("LabelSettings_87c30")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="Pages/TradeWindow/TradeWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -70.0
+offset_right = 254.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StarIcon" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon2" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon3" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon4" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon5" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon6" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon7" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StarIcon8" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/StarContainer"]
+layout_mode = 2
+texture = ExtResource("9_87c30")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CancelButton" parent="Pages/TradeWindow/TradeWindow" instance=ExtResource("11_g08qy")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -120.0
+offset_right = 64.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("16_gm01h")
+texture_pressed = ExtResource("17_bfjsr")
+texture_hover = ExtResource("18_xrcja")
+texture_disabled = null
+text = "Cancel"
+font_size = 24.0
+
+[node name="Label" parent="Pages/TradeWindow/TradeWindow/CancelButton" index="0"]
+text = "Cancel"
+label_settings = SubResource("LabelSettings_xrcja")
+
+[node name="ItemExchange" type="Control" parent="Pages/TradeWindow/TradeWindow"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -268.0
+offset_right = 256.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TradeLabel" type="Label" parent="Pages/TradeWindow/TradeWindow/ItemExchange"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.5
+offset_top = 1.0
+offset_right = 137.5
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "Trade Which Items?"
+label_settings = SubResource("LabelSettings_3i4xp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmButton" parent="Pages/TradeWindow/TradeWindow/ItemExchange" instance=ExtResource("11_g08qy")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 374.0
+offset_top = 55.0
+offset_right = 446.0
+offset_bottom = 123.0
+disabled = true
+texture_normal = ExtResource("12_8gm6d")
+texture_pressed = ExtResource("13_rxd51")
+texture_hover = ExtResource("14_6kyek")
+texture_disabled = null
+font_size = 36.0
+
+[node name="CheckIcon" type="TextureRect" parent="Pages/TradeWindow/TradeWindow/ItemExchange/ConfirmButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_8gm6d")
+
+[node name="WindowLabel3" type="Label" parent="Pages/TradeWindow/TradeWindow/ItemExchange/ConfirmButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 64.0
+offset_right = 55.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "Confirm"
+label_settings = SubResource("LabelSettings_8gm6d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemContainer" type="HBoxContainer" parent="Pages/TradeWindow/TradeWindow/ItemExchange"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -19.0
+offset_right = 95.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="ItemSellIcon" parent="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer" instance=ExtResource("10_rneyd")]
+layout_mode = 2
+
+[node name="ItemSellIcon2" parent="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer" instance=ExtResource("10_rneyd")]
+layout_mode = 2
+
+[node name="ItemSellIcon3" parent="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer" instance=ExtResource("10_rneyd")]
+layout_mode = 2
+
+[node name="StrangerItemBar" parent="Pages/TradeWindow" instance=ExtResource("21_d5dog")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(174, 528)
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 826.0
+offset_top = 0.0
+offset_right = 1000.0
+offset_bottom = 528.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Pages/TradeWindow/StrangerItemBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -19.0
+offset_right = 24.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Your
+Items"
+label_settings = SubResource("LabelSettings_vergr")
+horizontal_alignment = 1
+
+[node name="ExitButton" parent="." instance=ExtResource("11_g08qy")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -82.0
+offset_right = 87.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("16_gm01h")
+texture_pressed = ExtResource("17_bfjsr")
+texture_hover = ExtResource("18_xrcja")
+texture_disabled = ExtResource("17_bfjsr")
+text = "EXIT"
+font_size = 28.0
+
+[node name="Label" parent="ExitButton" index="0"]
+text = "EXIT"
+label_settings = SubResource("LabelSettings_ktw2a")
+
+[connection signal="pressed" from="Pages/ItemSelect/PricePanel/TradeButton" to="." method="on_trade_pressed"]
+[connection signal="pressed" from="Pages/ItemSelect/PricePanel/ArrowLeft" to="." method="left_pressed"]
+[connection signal="pressed" from="Pages/ItemSelect/PricePanel/ArrowRight" to="." method="right_pressed"]
+[connection signal="pressed" from="Pages/TradeWindow/TradeWindow/CancelButton" to="." method="cancel_trade"]
+[connection signal="pressed" from="Pages/TradeWindow/TradeWindow/ItemExchange/ConfirmButton" to="." method="confirm_trade"]
+[connection signal="s_item_canceled" from="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer/ItemSellIcon" to="." method="deselect_item"]
+[connection signal="s_item_canceled" from="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer/ItemSellIcon2" to="." method="deselect_item"]
+[connection signal="s_item_canceled" from="Pages/TradeWindow/TradeWindow/ItemExchange/ItemContainer/ItemSellIcon3" to="." method="deselect_item"]
+[connection signal="s_item_selected" from="Pages/TradeWindow/StrangerItemBar" to="." method="on_item_trade_primed"]
+[connection signal="pressed" from="ExitButton" to="." method="close_window"]
+
+[editable path="Pages/ItemSelect/PricePanel/TradeButton"]
+[editable path="Pages/TradeWindow/TradeWindow/CancelButton"]
+[editable path="ExitButton"]

@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/pipes_B.fbx-795e711846b933934a797927983356ba.
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,22 +34,29 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "Default_Material": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/Default_Material.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/Default_Material.tres",
+"use_external/path": "uid://dpuhp3d757ah6"
 },
 "RoundShadow:CircleShadow_SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/RoundShadow_CircleShadow_SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/RoundShadow_CircleShadow_SHD.tres",
+"use_external/path": "uid://bh4jbx3xjwb6d"
 },
 "__BOILERROOM_lowerpoly_v1s2_Pipes1Surface3SHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/__BOILERROOM_lowerpoly_v1s2_Pipes1Surface3SHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/__BOILERROOM_lowerpoly_v1s2_Pipes1Surface3SHD.tres",
+"use_external/path": "uid://co8rqfhuirrgq"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

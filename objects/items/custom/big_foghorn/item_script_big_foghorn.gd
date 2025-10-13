@@ -6,12 +6,12 @@ const SFX_BLAST := preload("res://audio/sfx/battle/gags/sound/SZ_DD_foghorn.ogg"
 const TREASURE_CHEST := "res://objects/interactables/treasure_chest/treasure_chest.tscn"
 const BATTLE_CLEAR_POOL := "res://objects/items/pools/battle_clears.tres"
 
+func validate_use() -> bool:
+	return not get_all_battles().is_empty()
+
 func use() -> void:
 	var player := Util.get_player()
 	var battles := get_all_battles()
-	if not player.is_on_floor() or battles.is_empty():
-		cancel_use()
-		return
 	
 	var tween := make_tween(player, battles)
 	await tween.finished
@@ -20,7 +20,7 @@ func use() -> void:
 
 func make_tween(player : Player, battles : Array[BattleNode]) -> Tween:
 	var megaphone := MEGAPHONE.instantiate()
-	var foghorn := item.model.instantiate()
+	var foghorn := item.get_model().instantiate()
 	
 	# Add gag to megaphone
 	megaphone.add_child(foghorn)
@@ -30,6 +30,7 @@ func make_tween(player : Player, battles : Array[BattleNode]) -> Tween:
 	foghorn.scale = Vector3.ONE * 0.475
 	
 	player.toon.right_hand_bone.add_child(megaphone)
+	megaphone.rotation_degrees += Vector3(0.0, 180.0, 0.0)
 	player.state = Player.PlayerState.STOPPED
 	
 	var tween := create_tween()
@@ -63,7 +64,7 @@ func search_node(node : Node) -> Array[BattleNode]:
 	var battles : Array[BattleNode] = []
 	for child in node.get_children():
 		if child is BattleNode:
-			if child.monitoring and not child.override_intro:
+			if child.monitoring and not child.override_intro and not child.boss_battle:
 				battles.append(child)
 		else:
 			battles.append_array(search_node(child))
@@ -102,11 +103,11 @@ func shake_camera(cam : Camera3D, time : float, offset : float, taper := true, x
 		else:
 			new_offset = offset
 		if x:
-			cam.global_position.x = base_pos.x + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.x = base_pos.x + randf_range(-new_offset, new_offset)
 		if y:
-			cam.global_position.y = base_pos.y + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.y = base_pos.y + randf_range(-new_offset, new_offset)
 		if z:
-			cam.global_position.z = base_pos.z + RandomService.randf_range_channel('true_random', -new_offset,new_offset)
+			cam.global_position.z = base_pos.z + randf_range(-new_offset, new_offset)
 		
 		if timer.time_left <= 0:
 			shaking = false

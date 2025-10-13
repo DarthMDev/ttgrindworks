@@ -11,10 +11,11 @@ script = ExtResource("1_exayl")
 
 [node name="RoomArea" type="Area3D" parent="."]
 
-[node name="BattleNode" parent="." instance=ExtResource("2_pcyau")]
+[node name="BattleNode" parent="." node_paths=PackedStringArray("cogs") instance=ExtResource("2_pcyau")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.8102, 0, -25.4665)
-cog_range = Vector2i(3, 4)
+cog_range = Vector2i(2, 2)
 cog_dist = 1.75
+cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31517, 2.32129, 2.68134)

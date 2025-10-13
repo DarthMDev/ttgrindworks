@@ -1,0 +1,636 @@
+[gd_scene load_steps=26 format=3 uid="uid://cpt2l8o1h70a7"]
+
+[ext_resource type="Script" uid="uid://bmpstolq0xsxw" path="res://scenes/title_screen/character_select/character_clipboard.gd" id="1_idg4e"]
+[ext_resource type="Texture2D" uid="uid://cpo5l0enhf7va" path="res://ui_assets/pick_a_toon/clipboard BACK.png" id="2_r1yg0"]
+[ext_resource type="Texture2D" uid="uid://tb8i2jgrruoe" path="res://ui_assets/pick_a_toon/clipboard FRONT.png" id="3_m2w18"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="4_kh1bl"]
+[ext_resource type="Texture2D" uid="uid://dpt21awypabxf" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowUp.png" id="5_60xxe"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="5_q43as"]
+[ext_resource type="Texture2D" uid="uid://bkbmvj823roof" path="res://ui_assets/general/tt_t_gui_mat_shuffleArrowDown.png" id="6_6nt6a"]
+[ext_resource type="PackedScene" uid="uid://cumojo4vtowmv" path="res://objects/toon/laff_meter.tscn" id="6_vaej1"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="6_yp5r1"]
+[ext_resource type="Texture2D" uid="uid://be7nrxoyxenp6" path="res://ui_assets/battle/statuses/damage.png" id="7_xqmya"]
+[ext_resource type="Texture2D" uid="uid://ca70trnfykg5p" path="res://ui_assets/battle/statuses/defense.png" id="8_h1p3g"]
+[ext_resource type="FontVariation" uid="uid://cqcwnmjssed8e" path="res://fonts/impressbt_italics.tres" id="9_cv3rc"]
+[ext_resource type="Texture2D" uid="uid://cd0igouy5fqje" path="res://ui_assets/battle/statuses/luck_crit.png" id="10_6ce74"]
+[ext_resource type="Texture2D" uid="uid://cfycg8i42vtu6" path="res://ui_assets/pick_a_toon/PAPERCLIP.png" id="10_60xxe"]
+[ext_resource type="Texture2D" uid="uid://cabh8sh536557" path="res://ui_assets/battle/statuses/evasiveness.png" id="11_60xxe"]
+[ext_resource type="Texture2D" uid="uid://b02dgcnkrbbtx" path="res://ui_assets/battle/gags/inventory_tart.png" id="12_xqmya"]
+[ext_resource type="Texture2D" uid="uid://d3g5bahu8kvdx" path="res://ui_assets/player_ui/pocket_prank_icons/paintbucket.png" id="13_h1p3g"]
+[ext_resource type="Texture2D" uid="uid://dkriwcm0xxlsn" path="res://ui_assets/battle/statuses/speed.png" id="15_vbor5"]
+[ext_resource type="Texture2D" uid="uid://tcw8unb6vyqx" path="res://ui_assets/pick_a_toon/stamplike_enter_button.png" id="18_60xxe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv3rc"]
+font = ExtResource("4_kh1bl")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_er0f4"]
+font = ExtResource("4_kh1bl")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xqt1"]
+font = ExtResource("5_q43as")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1p3g"]
+font = ExtResource("4_kh1bl")
+font_color = Color(0.623529, 0.313726, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbor5"]
+font = ExtResource("5_q43as")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbor5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[node name="CharacterClipboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_idg4e")
+
+[node name="ClipboardOrigin" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -299.0
+offset_right = -20.0
+offset_bottom = 296.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(252.5, 297.5)
+
+[node name="ClipboardBack" type="TextureRect" parent="ClipboardOrigin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_right = 0.331726
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r1yg0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterTabs" type="Control" parent="ClipboardOrigin"]
+anchors_preset = 0
+offset_left = -214.0
+offset_top = 67.0
+offset_right = 269.0
+offset_bottom = 529.0
+
+[node name="CharTabMask" type="Control" parent="ClipboardOrigin/CharacterTabs"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.5
+offset_top = -195.0
+offset_right = 241.5
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharTabs" type="VBoxContainer" parent="ClipboardOrigin/CharacterTabs/CharTabMask"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -264.0
+offset_bottom = 388.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="CharButtonUp" parent="ClipboardOrigin/CharacterTabs" instance=ExtResource("6_yp5r1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 45.5
+offset_right = 75.5
+offset_bottom = 32.0
+grow_horizontal = 2
+rotation = 1.5708
+disabled = true
+texture_normal = ExtResource("5_60xxe")
+texture_pressed = ExtResource("6_6nt6a")
+texture_disabled = ExtResource("6_6nt6a")
+font_size = 36.0
+
+[node name="CharButtonDown" parent="ClipboardOrigin/CharacterTabs" instance=ExtResource("6_yp5r1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 13.5
+offset_top = 460.0
+offset_right = 43.5
+offset_bottom = 492.0
+grow_horizontal = 2
+rotation = -1.5708
+texture_normal = ExtResource("5_60xxe")
+texture_pressed = ExtResource("6_6nt6a")
+texture_disabled = ExtResource("6_6nt6a")
+font_size = 36.0
+
+[node name="ClipboardFront" type="TextureRect" parent="ClipboardOrigin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_top = -22.0
+offset_right = 0.331726
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m2w18")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page1" type="Control" parent="ClipboardOrigin/ClipboardFront"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1"]
+anchors_preset = 0
+offset_left = 54.0
+offset_top = 118.0
+offset_right = 387.0
+offset_bottom = 219.0
+
+[node name="ToonName" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Name"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 320.0
+offset_bottom = 29.0
+text = "Flippy"
+label_settings = SubResource("LabelSettings_cv3rc")
+
+[node name="ToonSummary" type="RichTextLabel" parent="ClipboardOrigin/ClipboardFront/Page1/Name"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 29.0
+offset_right = 214.0
+offset_bottom = 88.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_q43as")
+theme_override_fonts/italics_font = ExtResource("9_cv3rc")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+bbcode_enabled = true
+text = "President of the Toon Council, he once hired a Yesman to kill his political opponent."
+fit_content = true
+autowrap_mode = 2
+
+[node name="LaffMeter" parent="ClipboardOrigin/ClipboardFront/Page1" instance=ExtResource("6_vaej1")]
+unique_name_in_owner = true
+process_mode = 4
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.332
+offset_top = -153.5
+offset_right = -49.3312
+offset_bottom = -63.5
+grow_horizontal = 0
+scale = Vector2(1.2, 1.2)
+
+[node name="Anchor" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter" index="0"]
+rotation = -0.0698132
+
+[node name="Tooth1" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter/Anchor/Meter/Healthy/Mouth" index="0"]
+visible = false
+
+[node name="Tooth2" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter/Anchor/Meter/Healthy/Mouth" index="1"]
+visible = false
+
+[node name="Tooth3" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter/Anchor/Meter/Healthy/Mouth" index="2"]
+visible = false
+
+[node name="ReviveLabel" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter/Anchor" index="1"]
+visible = false
+
+[node name="PaperClip" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/LaffMeter"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -13.3333
+offset_right = 151.0
+offset_bottom = 78.6667
+scale = Vector2(0.515, 0.515)
+texture = ExtResource("10_60xxe")
+
+[node name="Abilities" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 53.0
+offset_top = 221.0
+offset_right = 262.0
+offset_bottom = 374.0
+
+[node name="Title" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Abilities"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Abilities"
+label_settings = SubResource("LabelSettings_er0f4")
+
+[node name="ToonDetails" type="RichTextLabel" parent="ClipboardOrigin/ClipboardFront/Page1/Abilities"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -19.0
+offset_top = 23.0
+offset_right = 239.0
+offset_bottom = 128.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_q43as")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[ul bullet=- ]Can revive once before going sad
+5% base Throw boost
+Up to
+5 unique
+Stats"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Stats" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 53.0
+offset_top = 354.0
+offset_right = 262.0
+offset_bottom = 400.0
+
+[node name="Title" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats"]
+layout_mode = 0
+offset_top = -5.0
+offset_right = 195.0
+offset_bottom = 18.0
+text = "Stats"
+label_settings = SubResource("LabelSettings_er0f4")
+
+[node name="StatContainer" type="HBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -29.0
+offset_right = 116.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Damage" type="VBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer"]
+custom_minimum_size = Vector2(64, 51)
+layout_mode = 2
+alignment = 1
+
+[node name="StatIcon" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Damage"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("7_xqmya")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Damage"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_8xqt1")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Defense" type="VBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer"]
+custom_minimum_size = Vector2(64, 51)
+layout_mode = 2
+alignment = 1
+
+[node name="StatIcon" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Defense"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("8_h1p3g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Defense"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_8xqt1")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Evasiveness" type="VBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer"]
+custom_minimum_size = Vector2(64, 51)
+layout_mode = 2
+alignment = 1
+
+[node name="StatIcon" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Evasiveness"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("11_60xxe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Evasiveness"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_8xqt1")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Luck" type="VBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer"]
+custom_minimum_size = Vector2(64, 51)
+layout_mode = 2
+alignment = 1
+
+[node name="StatIcon" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Luck"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("10_6ce74")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Luck"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_8xqt1")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Speed" type="VBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer"]
+custom_minimum_size = Vector2(64, 51)
+layout_mode = 2
+alignment = 1
+
+[node name="StatIcon" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Speed"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("15_vbor5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Speed"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_8xqt1")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Gear" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 53.0
+offset_top = 422.0
+offset_right = 262.0
+offset_bottom = 533.0
+
+[node name="Title" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Gear"]
+layout_mode = 1
+offset_right = 61.0
+offset_bottom = 23.0
+text = "Gear"
+label_settings = SubResource("LabelSettings_er0f4")
+
+[node name="Gags" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1/Gear"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 89.0
+offset_bottom = 103.0
+
+[node name="GagLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Gags"
+label_settings = SubResource("LabelSettings_h1p3g")
+horizontal_alignment = 1
+
+[node name="GagContainer" type="GridContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Gags/GagContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("12_xqmya")
+expand_mode = 1
+
+[node name="Items" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1/Gear"]
+anchors_preset = 0
+offset_left = 97.0
+offset_top = 24.0
+offset_right = 181.0
+offset_bottom = 103.0
+
+[node name="ItemLabel" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Items"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Items"
+label_settings = SubResource("LabelSettings_h1p3g")
+horizontal_alignment = 1
+
+[node name="ItemContainer" type="GridContainer" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Items"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/Page1/Gear/Items/ItemContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("13_h1p3g")
+expand_mode = 1
+
+[node name="SeedEntry" type="Control" parent="ClipboardOrigin/ClipboardFront/Page1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.666
+offset_top = -72.0
+offset_right = 127.334
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ClipboardOrigin/ClipboardFront/Page1/SeedEntry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ClipboardOrigin/ClipboardFront/Page1/SeedEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Custom Seed:"
+label_settings = SubResource("LabelSettings_vbor5")
+vertical_alignment = 1
+
+[node name="SeedEdit" type="LineEdit" parent="ClipboardOrigin/ClipboardFront/Page1/SeedEntry/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.252028, 0.252028, 0.252028, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.392102, 0.582538, 1, 1)
+theme_override_fonts/font = ExtResource("5_q43as")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_vbor5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vbor5")
+placeholder_text = "Enter a Seed"
+max_length = 12
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="EnterButton" parent="ClipboardOrigin/ClipboardFront" instance=ExtResource("6_yp5r1")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.332
+offset_top = -135.0
+offset_right = -45.3317
+offset_bottom = -89.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(55, 23)
+texture_normal = null
+texture_pressed = null
+texture_disabled = null
+font_size = 36.0
+
+[node name="EnterTexture" type="TextureRect" parent="ClipboardOrigin/ClipboardFront/EnterButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(55, 23)
+texture = ExtResource("18_60xxe")
+expand_mode = 1
+
+[connection signal="pressed" from="ClipboardOrigin/CharacterTabs/CharButtonUp" to="." method="char_list_up"]
+[connection signal="pressed" from="ClipboardOrigin/CharacterTabs/CharButtonDown" to="." method="char_list_down"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Damage" to="." method="hover_text" binds= ["Damage"]]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Damage" to="." method="stop_hover"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Defense" to="." method="hover_text" binds= ["Defense"]]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Defense" to="." method="stop_hover"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Evasiveness" to="." method="hover_text" binds= ["Evasiveness"]]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Evasiveness" to="." method="stop_hover"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Luck" to="." method="hover_text" binds= ["Luck"]]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Luck" to="." method="stop_hover"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Speed" to="." method="hover_text" binds= ["Speed"]]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/Page1/Stats/StatContainer/Speed" to="." method="stop_hover"]
+[connection signal="text_changed" from="ClipboardOrigin/ClipboardFront/Page1/SeedEntry/HBoxContainer/SeedEdit" to="." method="seed_entered"]
+[connection signal="button_down" from="ClipboardOrigin/ClipboardFront/EnterButton" to="." method="enter_down"]
+[connection signal="button_up" from="ClipboardOrigin/ClipboardFront/EnterButton" to="." method="enter_up"]
+[connection signal="mouse_entered" from="ClipboardOrigin/ClipboardFront/EnterButton" to="." method="enter_hovered"]
+[connection signal="mouse_exited" from="ClipboardOrigin/ClipboardFront/EnterButton" to="." method="enter_unhovered"]
+[connection signal="pressed" from="ClipboardOrigin/ClipboardFront/EnterButton" to="." method="play_pressed"]
+
+[editable path="ClipboardOrigin/ClipboardFront/Page1/LaffMeter"]

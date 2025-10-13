@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://c8hbpj5bgfuem"]
+
+[ext_resource type="Texture2D" uid="uid://dpi7l2sgsayvr" path="res://ui_assets/player_ui/pocket_prank_icons/spinning_top.png" id="1_fhb30"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_if86y"]
+[ext_resource type="Script" uid="uid://cga36dbroal63" path="res://objects/items/custom/spinning_top/item_spinning_top.gd" id="2_arhv2"]
+[ext_resource type="PackedScene" uid="uid://bphml0rxvewmm" path="res://models/props/toon_props/spinning_top/spinning_top.tscn" id="2_g8gex"]
+
+[resource]
+script = ExtResource("1_if86y")
+active_type = 2
+charge_count = 3
+current_charge = 3
+item_name = "Spinning Top"
+item_description = "You're all over the place!"
+big_description = "Shuffles your stat boosts."
+model = ExtResource("2_g8gex")
+item_script = ExtResource("2_arhv2")
+icon = ExtResource("1_fhb30")
+shop_category_color = Color(0.929412, 0.262745, 0.278431, 1)
+metadata/_custom_type_script = "uid://5uwfsntxdag6"

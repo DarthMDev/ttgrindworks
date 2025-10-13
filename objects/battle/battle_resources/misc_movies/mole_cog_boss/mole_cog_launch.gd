@@ -1,5 +1,4 @@
 extends CogAttack
-class_name MoleCogLaunch
 
 const SFX_LAUNCH := preload("res://audio/sfx/objects/moles/Mole_Surprise.ogg")
 const SFX_GRUNT := preload("res://audio/sfx/toon/target_impact_grunt1.ogg")
@@ -51,13 +50,13 @@ func action() -> void:
 		movie.tween_callback(player.set_animation.bind('run'))
 		movie.tween_property(player.toon, 'position:y', 20, 1.5)
 		movie.tween_property(player.toon, 'position:y', 0.0, 1.5)
-		movie.parallel().tween_callback(player.set_animation.bind('slip_forwards')).set_delay(1.0)
+		movie.parallel().tween_callback(player.set_animation.bind('slip-forward')).set_delay(1.0)
 		movie.parallel().tween_property(mole_hill.mole_surprised, 'position:y', -1.0, 1.0)
 		movie.tween_callback(manager.affect_target.bind(player, damage))
 		movie.tween_callback(AudioManager.play_sound.bind(SFX_GRUNT))
 		movie.tween_callback(AudioManager.play_sound.bind(SFX_IMPACT))
 	else:
-		movie.parallel().tween_callback(player.set_animation.bind('sidestep_left'))
+		movie.parallel().tween_callback(player.set_animation.bind('sidestep-left'))
 		movie.tween_callback(manager.battle_text.bind(player, "MISSED"))
 		movie.tween_interval(1.0)
 		movie.tween_property(mole_hill.mole_norm,'position:y', -1.0, 1.0)

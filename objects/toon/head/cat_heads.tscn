@@ -1269,9 +1269,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ubhmg")
 
 [node name="cat_heads" type="Node3D"]
-transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 
 [node name="BigHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadBigMuzzle"]
@@ -1363,6 +1363,7 @@ mesh = SubResource("ArrayMesh_7pruq")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadSmallMuzzle"]
@@ -1454,6 +1455,7 @@ mesh = SubResource("ArrayMesh_7pruq")
 skeleton = NodePath("")
 
 [node name="SmallHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="SmallHeadSmallMuzzle"]
@@ -1545,6 +1547,7 @@ mesh = SubResource("ArrayMesh_67x3e")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="SmallHeadBigMuzzle"]

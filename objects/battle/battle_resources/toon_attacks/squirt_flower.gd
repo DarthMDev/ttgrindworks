@@ -5,7 +5,7 @@ func action():
 	# Start
 	manager.s_focus_char.emit(user)
 	var target = targets[0]
-	user.set_animation('button_press')
+	user.set_animation('press-button')
 	user.face_position(target.global_position)
 	
 	# Place button in hand
@@ -16,10 +16,10 @@ func action():
 	var flower = load('res://models/props/gags/squirt_flower/squirt_flower.glb').instantiate()
 	user.toon.flower_bone.add_child(flower)
 	
-	var is_tall_skirt: bool = (user.toon.toon_dna.body_type == ToonDNA.BodyType.LARGE and user.toon.toon_dna.skirt)
-	var is_med_shorts: bool = (user.toon.toon_dna.body_type == ToonDNA.BodyType.MEDIUM and not user.toon.toon_dna.skirt)
-	if is_tall_skirt or is_med_shorts:
-		flower.rotation_degrees = Vector3(65.5,-88.5,0)
+	#var is_tall: bool = (user.toon.toon_dna.body_type == ToonDNA.BodyType.LARGE)
+	#var is_med_shorts: bool = (user.toon.toon_dna.body_type == ToonDNA.BodyType.MEDIUM and not user.toon.toon_dna.skirt)
+	#if is_tall or is_med_shorts:
+		#flower.rotation_degrees = Vector3(65.5,-88.5,0)
 	
 	await manager.sleep(2.3)
 	var hit := manager.roll_for_accuracy(self)

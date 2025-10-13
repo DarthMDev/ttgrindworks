@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://cigwiwiur1bho"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_1mv6n"]
+[ext_resource type="Resource" uid="uid://6hjcsu17tt4g" path="res://objects/battle/battle_resources/cog_attacks/resources/brain_storm.tres" id="2_48w2b"]
+[ext_resource type="Resource" uid="uid://bhl72hd7pn8s2" path="res://objects/battle/battle_resources/cog_attacks/resources/workout.tres" id="3_ai5b4"]
+[ext_resource type="Resource" uid="uid://dxpqtt8gh5brv" path="res://objects/battle/battle_resources/cog_attacks/resources/finger_wag.tres" id="3_sbtk6"]
+[ext_resource type="Resource" uid="uid://c3gg5tsci6aye" path="res://objects/battle/battle_resources/cog_attacks/resources/hang_up.tres" id="4_8wjc6"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="4_ix7ad"]
+[ext_resource type="Resource" uid="uid://by0leo7nlf311" path="res://objects/battle/battle_resources/cog_attacks/resources/heckle.tres" id="5_bsnrc"]
+[ext_resource type="Resource" uid="uid://b4kaq7rjifwfc" path="res://objects/battle/battle_resources/cog_attacks/resources/liquidate.tres" id="6_evnre"]
+
+[resource]
+script = ExtResource("4_ix7ad")
+suit = 1
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
+cog_name = "Live Wire"
+name_prefix = "Live"
+name_suffix = "Wire"
+head = "res://models/cogs/heads/livewire.tscn"
+head_scale = Vector3(0.65, 0.65, 0.65)
+head_pos = Vector3(0, 0, 0.1)
+scale = 3.5
+head_textures = PackedStringArray("res://models/cogs/heads/livewire.png")
+hand_color = Color(1, 0.2, 0.20784314, 1)
+attacks = Array[ExtResource("1_1mv6n")]([ExtResource("2_48w2b"), ExtResource("3_sbtk6"), ExtResource("4_8wjc6"), ExtResource("5_bsnrc"), ExtResource("6_evnre"), ExtResource("3_ai5b4")])
+level_low = 7
+level_high = 20
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
+is_mod_cog = true
+battle_phrases = Array[String](["You don’t want to cross me!", "You’re walking a high wire!", "I’ve got a VERY short fuse for Toons!", "I’ll blow you away!!!", "You can’t stop the countdown to your destruction, Toon!", "This boom will spell your doom!", "Too late to defuse this situation!", "I’m about to drop a bombshell!"])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

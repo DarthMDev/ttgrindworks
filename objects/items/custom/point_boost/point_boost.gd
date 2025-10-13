@@ -22,6 +22,8 @@ var tween: Tween:
 		tween = x
 
 func setup(new_resource: Item) -> void:
+	if Util.get_player().gags_cost_beans:
+		new_resource.reroll()
 	
 	resource = new_resource
 	resource.item_name = "Gag Point Boost"

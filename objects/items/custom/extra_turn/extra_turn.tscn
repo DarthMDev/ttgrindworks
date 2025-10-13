@@ -13,7 +13,7 @@ render_priority = 1
 outline_render_priority = 0
 modulate = Color(0.43, 1, 0.449, 1)
 text = "+1
-Turn"
+Move"
 font = ExtResource("1_hkqvy")
 script = ExtResource("1_bf4cb")
 
@@ -29,5 +29,5 @@ render_priority = 1
 outline_render_priority = 0
 modulate = Color(0.431373, 1, 0.447059, 1)
 text = "+1
-Turn"
+Move"
 font = ExtResource("1_hkqvy")

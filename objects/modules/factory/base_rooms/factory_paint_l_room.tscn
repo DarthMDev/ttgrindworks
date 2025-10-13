@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cqahudkf6anvg" path="res://models/facilities/factory/factory_paint_l_room.fbx" id="1_jv2l6"]
 [ext_resource type="Texture2D" uid="uid://bg28yomkn1lgx" path="res://models/facilities/factory/FINALFACTORY_66.png" id="2_qrvgo"]
 [ext_resource type="Texture2D" uid="uid://d35gru1sglser" path="res://models/facilities/factory/FINALFACTORY_24.png" id="3_ucoje"]
-[ext_resource type="Texture2D" uid="uid://ckjvdqmnty5ng" path="res://models/facilities/factory/FINALFACTORY_65.png" id="4_7iwnu"]
+[ext_resource type="Texture2D" uid="uid://b82ecu51mhwnt" path="res://models/facilities/factory/FINALFACTORY_65.png" id="4_7iwnu"]
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="5_7gqh6"]
 [ext_resource type="Texture2D" uid="uid://k0ae0ls3xljl" path="res://models/facilities/factory/FINALFACTORY_116.png" id="6_ol8hr"]
 [ext_resource type="Texture2D" uid="uid://dai74xkx6u3dv" path="res://models/facilities/factory/FINALFACTORY_107.png" id="7_yuf6p"]
 [ext_resource type="Texture2D" uid="uid://vb1mg0ta3bta" path="res://models/facilities/factory/FINALFACTORY_60.png" id="8_hc7iq"]
-[ext_resource type="Texture2D" uid="uid://b3m4ki8a0y1i1" path="res://models/facilities/factory/FINALFACTORY_64.png" id="9_xdbl2"]
+[ext_resource type="Texture2D" uid="uid://4d8qdd4icuiu" path="res://models/facilities/factory/FINALFACTORY_64.png" id="9_xdbl2"]
 [ext_resource type="Texture2D" uid="uid://bfarayhobfa4j" path="res://models/facilities/factory/GearEdgePaint.png" id="10_v5a8t"]
 [ext_resource type="Texture2D" uid="uid://conb0dcb5scpe" path="res://models/facilities/factory/GearCap1.png" id="11_jp1gv"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="12_s3kry"]
@@ -416,8 +416,8 @@ fractal_lacunarity = 1.0
 fractal_weighted_strength = 0.95
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r0pwm"]
-seamless = true
 noise = SubResource("FastNoiseLite_mqphr")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_le1ib"]
 resource_name = "lava"

@@ -1,142 +1,108 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=47 format=3 uid="uid://c1kumm74qwmtf"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=24 format=3 uid="uid://c1kumm74qwmtf"]
 
-[ext_resource type="AudioStream" uid="uid://b8q4035btjkkk" path="res://audio/music/CHQ_FACT_bg.ogg" id="1_57p8i"]
-[ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_mxwab"]
-[ext_resource type="AudioStream" uid="uid://bdxsvibml5lmw" path="res://audio/music/seize_the_means.ogg" id="2_x2jwy"]
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="3_jw8rd"]
-[ext_resource type="PackedScene" uid="uid://dui2hdkuqux28" path="res://objects/modules/factory/variants/factory_gear_room_battle.tscn" id="4_i1303"]
-[ext_resource type="PackedScene" uid="uid://b1sjkcka65imo" path="res://objects/modules/factory/base_rooms/factory_entrance.tscn" id="4_n2qep"]
-[ext_resource type="PackedScene" uid="uid://cfye5nnqbgqn4" path="res://objects/modules/factory/variants/factory_boiler_room_battle.tscn" id="5_0wskm"]
-[ext_resource type="PackedScene" uid="uid://5bgksoev317t" path="res://objects/modules/factory/variants/factory_pipe_room_battles.tscn" id="6_6281o"]
-[ext_resource type="PackedScene" uid="uid://c66x2l5k572kt" path="res://objects/modules/factory/variants/factory_paint_battle_room.tscn" id="7_ftjfd"]
-[ext_resource type="PackedScene" uid="uid://cff1bqr5tt2g7" path="res://objects/modules/factory/variants/factory_doublesilo_battle.tscn" id="8_cdyu7"]
-[ext_resource type="PackedScene" uid="uid://b37r6570oqicm" path="res://objects/modules/factory/variants/factory_lobby_battle.tscn" id="9_f51yy"]
-[ext_resource type="PackedScene" uid="uid://bablbd6r8nx4u" path="res://objects/modules/factory/variants/factory_silo_paint_rising.tscn" id="10_jwuoc"]
-[ext_resource type="PackedScene" uid="uid://dl04a2v3qyrq4" path="res://objects/modules/factory/variants/factory_catwalk_battle.tscn" id="10_x2jwy"]
-[ext_resource type="PackedScene" uid="uid://82yclxx45fat" path="res://objects/modules/factory/base_rooms/factory_warehouse_ushape.tscn" id="11_3x6g4"]
-[ext_resource type="PackedScene" uid="uid://cenu6j4tpqfhh" path="res://objects/modules/factory/variants/factory_shop.tscn" id="11_jhxxv"]
-[ext_resource type="PackedScene" uid="uid://dwxw7pxsu8i2y" path="res://objects/modules/factory/base_rooms/sales_director_boss_room.tscn" id="11_pe7pm"]
-[ext_resource type="PackedScene" uid="uid://c3q05xmc0boca" path="res://objects/modules/factory/variants/factory_pipe_room_goons.tscn" id="11_wd5jg"]
-[ext_resource type="PackedScene" uid="uid://c6eci400go3qt" path="res://objects/modules/factory/variants/factory_paint_mixer_platforms.tscn" id="12_5tspn"]
-[ext_resource type="PackedScene" uid="uid://3bekjcrco14e" path="res://objects/modules/factory/base_rooms/factory_connector1.tscn" id="13_nd683"]
-[ext_resource type="PackedScene" uid="uid://d0g72d061vadc" path="res://objects/modules/factory/variants/factory_connector_2.tscn" id="14_a7y36"]
-[ext_resource type="PackedScene" uid="uid://ec3fmvj5p3qp" path="res://objects/modules/factory/variants/factory_obstacle_paint_gears.tscn" id="15_vhdrk"]
-[ext_resource type="PackedScene" uid="uid://4tnbltasjda3" path="res://objects/modules/factory/variants/factory_warehouse_conveyors.tscn" id="16_78435"]
-[ext_resource type="PackedScene" uid="uid://bugcden6bpfgd" path="res://objects/modules/factory/variants/factory_goontorial.tscn" id="17_hupyr"]
-[ext_resource type="PackedScene" uid="uid://c620sk7k7hisa" path="res://objects/modules/factory/variants/factory_lobby_obstacle.tscn" id="18_wxqcg"]
-[ext_resource type="PackedScene" uid="uid://x4q856o51k2w" path="res://objects/modules/factory/variants/factory_lobby_massive_stomper.tscn" id="21_18nv5"]
-[ext_resource type="PackedScene" uid="uid://dwqhe1xe18u11" path="res://objects/modules/factory/variants/factory_paint_l_room_platform.tscn" id="22_a7y36"]
-[ext_resource type="PackedScene" uid="uid://dwcrk4j4vmlk6" path="res://objects/modules/factory/variants/factory_paint_gear_room.tscn" id="24_0esyn"]
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_0sqxl"]
+[ext_resource type="Script" uid="uid://brjywdpat6vxg" path="res://scenes/game_floor/department_floors/department_floor.gd" id="2_pk8mt"]
 
-[sub_resource type="Resource" id="Resource_4qbtu"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("5_0wskm")
+[sub_resource type="Resource" id="Resource_l7op8"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_boiler_room_battle.tscn"
 rarity_weight = 0.9
 
-[sub_resource type="Resource" id="Resource_m8i4a"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("4_i1303")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_saks8"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_gear_room_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_cekil"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("6_6281o")
+[sub_resource type="Resource" id="Resource_vwlyh"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_pipe_room_battles.tscn"
 rarity_weight = 0.9
 
-[sub_resource type="Resource" id="Resource_jixe6"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("7_ftjfd")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_p5yx7"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_paint_battle_room.tscn"
 
-[sub_resource type="Resource" id="Resource_fwme7"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("8_cdyu7")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_8nxu8"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_doublesilo_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_7l1tc"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("9_f51yy")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_0baxo"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_lobby_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_3x6g4"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("10_x2jwy")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+[sub_resource type="Resource" id="Resource_jwktu"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_catwalk_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_x2jwy"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("11_3x6g4")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+[sub_resource type="Resource" id="Resource_0sqxl"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_warehouse_ushape_battle.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_yfkbg"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("10_jwuoc")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_le1d0"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_paint_mixer_battle.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_qfkma"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("11_pe7pm")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_xklq2"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_silo_paint_rising.tscn"
 
-[sub_resource type="Resource" id="Resource_gtsco"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("12_5tspn")
+[sub_resource type="Resource" id="Resource_jn3e5"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/base_rooms/sales_director_boss_room.tscn"
+
+[sub_resource type="Resource" id="Resource_x2dqo"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_paint_mixer_platforms.tscn"
 rarity_weight = 0.9
 
-[sub_resource type="Resource" id="Resource_0wcom"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("11_wd5jg")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_n0tym"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_pipe_room_goons.tscn"
 
-[sub_resource type="Resource" id="Resource_ue4yj"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("15_vhdrk")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_eaopf"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_obstacle_paint_gears.tscn"
 
-[sub_resource type="Resource" id="Resource_tmynw"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("18_wxqcg")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_4d0qs"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_lobby_obstacle.tscn"
 
-[sub_resource type="Resource" id="Resource_nd683"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("21_18nv5")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+[sub_resource type="Resource" id="Resource_cbv6q"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_lobby_massive_stomper.tscn"
 
-[sub_resource type="Resource" id="Resource_2gn4s"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("22_a7y36")
+[sub_resource type="Resource" id="Resource_r7f44"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_paint_l_room_platform.tscn"
 rarity_weight = 0.85
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
 
-[sub_resource type="Resource" id="Resource_a7y36"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("24_0esyn")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+[sub_resource type="Resource" id="Resource_jgawv"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_paint_gear_room.tscn"
 
-[sub_resource type="Resource" id="Resource_vqx64"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("11_jhxxv")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_pk8mt"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_long_paint_obstacle.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_6xghj"]
-script = ExtResource("3_jw8rd")
-room = ExtResource("16_78435")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_fyijm"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_shop.tscn"
+
+[sub_resource type="Resource" id="Resource_lh4p2"]
+script = ExtResource("1_0sqxl")
+room = "res://objects/modules/factory/variants/factory_warehouse_conveyors.tscn"
 
 [resource]
-script = ExtResource("1_mxwab")
-entrances = Array[PackedScene]([ExtResource("4_n2qep")])
-battle_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_4qbtu"), SubResource("Resource_m8i4a"), SubResource("Resource_cekil"), SubResource("Resource_jixe6"), SubResource("Resource_fwme7"), SubResource("Resource_7l1tc"), SubResource("Resource_3x6g4"), SubResource("Resource_x2jwy")])
-obstacle_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_gtsco"), SubResource("Resource_0wcom"), SubResource("Resource_ue4yj"), SubResource("Resource_tmynw"), SubResource("Resource_nd683"), SubResource("Resource_2gn4s"), SubResource("Resource_a7y36")])
-connectors = Array[PackedScene]([ExtResource("13_nd683"), ExtResource("14_a7y36")])
-pre_final_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_vqx64")])
-final_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_yfkbg"), SubResource("Resource_qfkma")])
-one_time_rooms = Array[PackedScene]([ExtResource("17_hupyr")])
-special_rooms = Array[ExtResource("3_jw8rd")]([SubResource("Resource_6xghj")])
-background_music = Array[AudioStream]([ExtResource("1_57p8i")])
-battle_music = ExtResource("2_x2jwy")
+script = ExtResource("2_pk8mt")
+entrances = PackedStringArray("res://objects/modules/factory/base_rooms/factory_entrance.tscn")
+battle_rooms = Array[ExtResource("1_0sqxl")]([SubResource("Resource_l7op8"), SubResource("Resource_saks8"), SubResource("Resource_vwlyh"), SubResource("Resource_p5yx7"), SubResource("Resource_8nxu8"), SubResource("Resource_0baxo"), SubResource("Resource_jwktu"), SubResource("Resource_0sqxl"), SubResource("Resource_le1d0")])
+obstacle_rooms = Array[ExtResource("1_0sqxl")]([SubResource("Resource_x2dqo"), SubResource("Resource_n0tym"), SubResource("Resource_eaopf"), SubResource("Resource_4d0qs"), SubResource("Resource_cbv6q"), SubResource("Resource_r7f44"), SubResource("Resource_jgawv"), SubResource("Resource_pk8mt")])
+connectors = PackedStringArray("res://objects/modules/factory/base_rooms/factory_connector1.tscn", "res://objects/modules/factory/variants/factory_connector_2.tscn", "res://objects/modules/factory/variants/factory_connector_snake.tscn", "res://objects/modules/factory/variants/factory_connector_snake_2.tscn")
+pre_final_rooms = Array[ExtResource("1_0sqxl")]([SubResource("Resource_fyijm")])
+final_rooms = Array[ExtResource("1_0sqxl")]([SubResource("Resource_xklq2"), SubResource("Resource_jn3e5")])
+one_time_rooms = PackedStringArray("res://objects/modules/factory/variants/factory_goontorial.tscn")
+special_rooms = Array[ExtResource("1_0sqxl")]([SubResource("Resource_lh4p2")])
+background_music = PackedStringArray("res://audio/music/CHQ_FACT_bg.ogg")
+battle_music = "res://audio/music/seize_the_means.ogg"

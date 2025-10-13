@@ -4,8 +4,8 @@ extends MeshInstance3D
 signal s_color_changed(light_color: Color, glow_color: Color)
 
 func _ready() -> void:
-	set_surface_override_material(0, get_surface_override_material(0).duplicate())
-	$Glow.set_surface_override_material(0, $Glow.get_surface_override_material(0).duplicate())
+	set_surface_override_material(0, get_surface_override_material(0).duplicate(true))
+	$Glow.set_surface_override_material(0, $Glow.get_surface_override_material(0).duplicate(true))
 
 func set_color(light_color: Color, glow_color: Color):
 	get_surface_override_material(0).albedo_color = light_color

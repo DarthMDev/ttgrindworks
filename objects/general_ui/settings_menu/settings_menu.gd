@@ -15,30 +15,34 @@ func _ready() -> void:
 		Globals.s_settings_opened.emit()
 	cancel_button.pressed.disconnect(close)
 	cancel_button.pressed.connect(cancel_changes)
+	Globals.s_settings_opened.emit(self)
 
 func _sync_settings() -> void:
 	_sync_video_settings()
 	_sync_audio_settings()
 	_sync_gameplay_settings()
 	_sync_controls()
+	_sync_mod_settings()
 
 func backup_prev_settings() -> void:
-	prev_file = SaveFileService.settings_file.duplicate()
+	prev_file = SaveFileService.settings_file.duplicate(true)
 
 func cancel_changes() -> void:
-	var panel : UIPanel = Util.confirm(
+	var _panel: UIPanel = Util.confirm(
 		"Cancel Changes?",
 		"Are you sure you want to revert your settings?"
 		)
-	panel.s_confirmed.connect(close)
-	panel.process_mode = Node.PROCESS_MODE_ALWAYS
-	tree_exited.connect(panel.queue_free)
+	_panel.s_confirmed.connect(close)
+	_panel.process_mode = Node.PROCESS_MODE_ALWAYS
+	tree_exited.connect(_panel.queue_free)
 
-## VIDEO SETTINGS
+#region Video Settings
 
 @onready var fullscreen_button: GeneralButton = %FullscreenButton
 @onready var fps_button: GeneralButton = %FPSButton
 @onready var alias_button: GeneralButton = %AliasButton
+@onready var camera_shake_button: GeneralButton = %CameraShakeButton
+
 const FPSOptionText: Dictionary = {
 	0: "60",
 	1: "90",
@@ -55,7 +59,8 @@ func _sync_video_settings() -> void:
 	Util.s_fullscreen_toggled.connect(func(_fullscreen: bool): fullscreen_button.text = get_toggle_text(get_setting('fullscreen')))
 	fps_button.text = FPSOptionText[get_setting('fps_idx')]
 	alias_button.text = get_toggle_text(get_setting('anti_aliasing'))
-	
+	camera_shake_button.text = SettingsFile.CameraShakeSetting.keys()[get_setting('camera_shake_setting')]
+
 func toggle_full_screen() -> void:
 	toggle_setting('fullscreen')
 	if get_setting('fullscreen'):
@@ -79,6 +84,15 @@ func toggle_anti_aliasing() -> void:
 	alias_button.text = get_toggle_text(get_setting('anti_aliasing'))
 	RenderingServer.viewport_set_msaa_3d(SaveFileService.get_viewport().get_viewport_rid(),
 				RenderingServer.VIEWPORT_MSAA_4X if get_setting('anti_aliasing') else RenderingServer.VIEWPORT_MSAA_DISABLED)
+
+func toggle_camera_shake() -> void:
+	var index: int = SaveFileService.settings_file.camera_shake_setting as int
+	index += 1
+	if index >= SaveFileService.settings_file.CameraShakeSetting.size():
+		index = 0
+	var new_value: String = SettingsFile.CameraShakeSetting.keys()[index]
+	camera_shake_button.text = new_value
+	update_setting('camera_shake_setting', index as SettingsFile.CameraShakeSetting)
 
 ## AUDIO SETTINGS
 
@@ -109,8 +123,9 @@ func toggle_ambient_sfx() -> void:
 	toggle_setting('ambient_sfx_enabled')
 	ambient_button.text = get_toggle_text(get_setting('ambient_sfx_enabled'))
 	AudioServer.set_bus_volume_db(get_bus_index("Ambient"), linear_to_db(1.0 if get_setting('ambient_sfx_enabled') else 0.0))
+#endregion
 
-## GAMEPLAY SETTINGS
+#region Gameplay Settings
 
 @onready var speed_button: GeneralButton = %SpeedButton
 @onready var reaction_button: GeneralButton = %ReactionButton
@@ -212,12 +227,14 @@ func get_control_style(style : bool) -> String:
 		return "Default"
 	return "Classic"
 
+#endregion
 
-## SAVE FILE SETTINGS
+#region Save File Settings
 func open_save_folder() -> void:
 	OS.shell_open(ProjectSettings.globalize_path("user://"))
+#endregion
 
-## Controls
+#region Control Settings
 
 @onready var control_template := %ControlTemplate
 @onready var control_settings: VBoxContainer = %ControlSettings
@@ -320,6 +337,65 @@ func close(save := false) -> void:
 	if prev_file and not save:
 		SaveFileService.settings_file = prev_file
 		prev_file.sync_settings()
+		cancel_mod_changes()
 	else:
 		SaveFileService.save_settings()
 	super()
+
+#endregion
+
+#region MOD SETTINGS
+@onready var mod_container: VBoxContainer = %ModSettings
+@onready var mod_template: HBoxContainer = %ModTemplate
+var enabled_mods: Dictionary[String, bool] = {}
+
+func _sync_mod_settings() -> void:
+	var mod_data := ModLoaderStore.mod_data.duplicate()
+	if mod_data.size() == 0:
+		mod_container.hide()
+		return
+	for mod in mod_data.keys():
+		mod_container.add_child(create_mod_setting(mod))
+		enabled_mods[mod] = get_mod_enabled(mod)
+
+func create_mod_setting(mod_id: String) -> HBoxContainer:
+	# Get the author and mod name
+	var mod_name := ""
+	var mod_author := ""
+	var mod_split := mod_id.split('-')
+	if mod_split.size() > 1:
+		mod_author = mod_split[0]
+		mod_name = mod_id.trim_prefix(mod_author + "-")
+	
+	# Create the new element
+	var new_mod_setting := mod_template.duplicate()
+	var button: GeneralButton = new_mod_setting.get_node('GeneralButton')
+	new_mod_setting.show()
+	button.pressed.connect(toggle_mod.bind(mod_id, button))
+	button.text = get_toggle_text(get_mod_enabled(mod_id))
+	
+	# Set the labels
+	new_mod_setting.get_node('ModNameContainer/Title').set_text(mod_name)
+	new_mod_setting.get_node('ModNameContainer/Author').set_text(mod_author)
+	
+	return new_mod_setting
+
+func get_mod_enabled(mod_id: String) -> bool:
+	var mod_profile := ModLoaderUserProfile.get_current()
+	return mod_profile.mod_list[mod_id].is_active
+
+func toggle_mod(mod_id: String, button: GeneralButton) -> void:
+	var mod_enabled: bool = get_mod_enabled(mod_id)
+	if mod_enabled: ModLoaderUserProfile.disable_mod(mod_id)
+	else: ModLoaderUserProfile.force_enable_mod(mod_id)
+	
+	button.text = get_toggle_text(not mod_enabled)
+
+func cancel_mod_changes() -> void:
+	for mod in enabled_mods:
+		if enabled_mods[mod] == true:
+			ModLoaderUserProfile.force_enable_mod(mod)
+		else:
+			ModLoaderUserProfile.disable_mod(mod)
+
+#endregion

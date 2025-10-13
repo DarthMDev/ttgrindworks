@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://0oc1jjduxeqc"]
+
+[ext_resource type="Script" uid="uid://diyoxb4bfa7m6" path="res://scenes/stranger_shop/gameplay_test/stranger_shop.gd" id="1_1q66g"]
+[ext_resource type="PackedScene" uid="uid://3opgp6apv4g0" path="res://objects/interactables/elevators/mint_elevator.tscn" id="2_1q66g"]
+[ext_resource type="PackedScene" uid="uid://dpjnelniqhk0j" path="res://objects/modules/mint/base_rooms/mint_skele_room.tscn" id="3_1q66g"]
+[ext_resource type="PackedScene" uid="uid://j80phpewtwx7" path="res://objects/interactables/stranger/stranger.tscn" id="4_ru4nw"]
+[ext_resource type="Script" uid="uid://cygjgxpwpn6ck" path="res://objects/interactables/interaction/interaction_dialogue.gd" id="5_fc0ih"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="5_nxxi2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g40wu"]
+radius = 1.02005
+
+[node name="StrangerShop" type="Node3D"]
+script = ExtResource("1_1q66g")
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.335, 0, 0)
+
+[node name="mint_elevator" parent="." instance=ExtResource("2_1q66g")]
+transform = Transform3D(-4.69897e-08, 0, 1.075, 0, 1.075, 0, -1.075, 0, -4.69897e-08, -13.689, 0, 0)
+monitoring = false
+opened = false
+
+[node name="mint_elevator2" parent="." instance=ExtResource("2_1q66g")]
+transform = Transform3D(-4.69897e-08, 0, -1.075, 0, 1.075, 0, 1.075, 0, -4.69897e-08, 13.6953, 0, 0)
+
+[node name="Root Scene" parent="." instance=ExtResource("3_1q66g")]
+
+[node name="Stranger" parent="." instance=ExtResource("4_ru4nw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 5.35078)
+
+[node name="InteractionDialogue" type="Area3D" parent="Stranger/Toon" index="2" node_paths=PackedStringArray("actor", "interaction_camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47015, 0)
+collision_mask = 2
+script = ExtResource("5_fc0ih")
+dialogue = Array[String](["ayyyyy im da strangla ayyyyyy", "come check out my wares ayyyyyyyyyy"])
+actor = NodePath("..")
+exit_on_finish = false
+interaction_camera = NodePath("Camera3D")
+metadata/_custom_type_script = "uid://cygjgxpwpn6ck"
+
+[node name="Camera3D" type="Camera3D" parent="Stranger/Toon/InteractionDialogue"]
+transform = Transform3D(0.902743, 0, 0.43018, 0, 1, 0, -0.43018, 0, 0.902743, 0.914771, -0.24709, 1.86464)
+fov = 52.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Stranger/Toon/InteractionDialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.935132, 0)
+shape = SubResource("SphereShape3D_g40wu")
+
+[node name="InteractionArea" parent="Stranger" index="1"]
+monitoring = false
+
+[node name="CollisionShape3D" parent="Stranger/InteractionArea" index="0"]
+shape = SubResource("SphereShape3D_g40wu")
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("5_nxxi2")]
+
+[connection signal="s_interaction_finished" from="Stranger" to="Stranger/Toon/InteractionDialogue" method="end_interaction"]
+[connection signal="s_interacted" from="Stranger/Toon/InteractionDialogue" to="Stranger/Toon" method="speak" binds= ["."]]
+[connection signal="s_interaction_finished_player" from="Stranger/Toon/InteractionDialogue" to="Stranger" method="on_interact"]
+
+[editable path="Stranger"]

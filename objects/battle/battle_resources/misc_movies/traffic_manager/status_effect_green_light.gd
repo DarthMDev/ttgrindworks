@@ -18,7 +18,7 @@ var traffic_man: Cog
 
 func apply() -> void:
 	traffic_man = logic_effect.traffic_man
-	trimmed_list = track_list.duplicate()
+	trimmed_list = track_list.duplicate(true)
 	manager.s_round_ended.connect(require_random_track)
 	manager.s_round_started.connect(on_round_started)
 	BattleService.s_battle_participant_died.connect(participant_died)
@@ -39,8 +39,8 @@ func participant_died(who: Node3D) -> void:
 func require_random_track() -> void:
 	if expires_this_round:
 		return
-	RandomService.array_shuffle_channel('true_random', trimmed_list)
-	var new_track : Track = trimmed_list.pop_back()
+	trimmed_list.shuffle()
+	var new_track: Track = trimmed_list.pop_back()
 	required_tracks.append(new_track)
 	var new_effect := make_banned_effect(new_track.gags)
 	manager.add_status_effect(new_effect)
@@ -60,7 +60,7 @@ func get_description() -> String:
 	return desc
 
 func make_banned_effect(gags: Array[ToonAttack]) -> StatusEffect:
-	var banned_effect := GAG_BAN_EFFECT.duplicate()
+	var banned_effect := GAG_BAN_EFFECT.duplicate(true)
 	banned_effect.rounds = rounds
 	banned_effect.target = player
 	banned_effect.banned_color = Color.DARK_GREEN

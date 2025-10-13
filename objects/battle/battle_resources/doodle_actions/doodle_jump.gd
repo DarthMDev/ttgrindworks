@@ -1,5 +1,4 @@
 extends DoodleAction
-class_name DoodleJump
 
 ## Amount to heal player
 const HEAL_PERCENT := 0.1
@@ -35,7 +34,7 @@ func action():
 	manager.s_focus_char.emit(target)
 	target.toon.speak('Ha Ha Ha')
 	manager.affect_target(target, heal_amount)
-	target.set_animation('happy')
+	target.set_animation('jump')
 	await target.animator.animation_finished
 	
 	# End

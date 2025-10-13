@@ -347,6 +347,7 @@ shadow_mesh = SubResource("ArrayMesh_fq8po")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5v2at"]
 resource_name = "heads_cvs_PICTURES_pupils_picShader"
+render_priority = 1
 transparency = 4
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.905882, 0.905882, 0.905882, 1)
@@ -1275,9 +1276,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qnrlg")
 
 [node name="horse_heads" type="Node3D"]
-transform = Transform3D(-4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 0, 0, 0)
 
 [node name="SmallHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadSmallMuzzle"]
@@ -1367,6 +1368,7 @@ mesh = SubResource("ArrayMesh_j6buq")
 skeleton = NodePath("")
 
 [node name="BigHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadBigMuzzle"]
@@ -1456,6 +1458,7 @@ mesh = SubResource("ArrayMesh_hrdgy")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="SmallHeadBigMuzzle"]
@@ -1545,6 +1548,7 @@ mesh = SubResource("ArrayMesh_j6buq")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 0, 0, 0)
 visible = false
 
 [node name="eyes" type="Node3D" parent="BigHeadSmallMuzzle"]

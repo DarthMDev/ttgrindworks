@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://s4ya4ge25pbp"]
+[gd_scene load_steps=30 format=3 uid="uid://s4ya4ge25pbp"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_jb6nm"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_rf3ng"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bu0mb68t7unr8" path="res://objects/battle/effects/cog_gears/cog_gears.tscn" id="6_1ofur"]
 [ext_resource type="Script" uid="uid://sxmvpbn607hv" path="res://objects/battle/battle_resources/misc_movies/goon_boss/goon_boss_intro.gd" id="7_i8rni"]
 [ext_resource type="Texture2D" uid="uid://dtb1wxg7cs2sj" path="res://models/cogs/misc/explosion/gear.png" id="7_ole4f"]
-[ext_resource type="AudioStream" uid="uid://dldt3lfnuqw63" path="res://audio/music/action_law.ogg" id="9_tlr3e"]
+[ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="8_buitt"]
+[ext_resource type="AudioStream" uid="uid://dcrl5s4vl1gpb" path="res://audio/music/action_law.ogg" id="9_tlr3e"]
 [ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="10_fqr7e"]
 [ext_resource type="PackedScene" uid="uid://bftnews8dsdpb" path="res://objects/props/office/paper_twist_stacks.tscn" id="11_gco7t"]
 [ext_resource type="PackedScene" uid="uid://b1cl5gdttc2ps" path="res://objects/props/office/lamp_small.tscn" id="12_kr7vh"]
@@ -80,70 +81,31 @@ eye_color = Color(1, 1, 1, 1)
 state = 3
 
 [node name="rrt_footCNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="0"]
-transform = Transform3D(-2.82129e-07, 7.09762e-10, -1, 0.0021031, 0.999997, 1.16415e-10, 0.999997, -0.0021031, -2.8213e-07, -0.132046, 2.34705e-05, -0.34509)
+transform = Transform3D(-2.8212887e-07, 7.0976247e-10, -1, 0.0021030998, 0.999997, 1.1641532e-10, 0.999997, -0.0021030998, -2.8212997e-07, -0.132046, 2.34705e-05, -0.34509)
 
 [node name="lft_footCNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="1"]
-transform = Transform3D(-2.82129e-07, 7.09762e-10, -1, 0.0021031, 0.999997, 1.16415e-10, 0.999997, -0.0021031, -2.8213e-07, 0.131497, 0.000109829, 0.117243)
+transform = Transform3D(-2.8212887e-07, 7.0976247e-10, -1, 0.0021030998, 0.999997, 1.1641532e-10, 0.999997, -0.0021030998, -2.8212997e-07, 0.131497, 0.000109829, 0.117243)
 
 [node name="hip_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="2"]
-transform = Transform3D(1, -9.18521e-10, 3.65764e-12, 9.18521e-10, 1, 2.37332e-10, -3.65764e-12, -2.37332e-10, 0.999999, 0, 0.741858, 0.0150286)
+transform = Transform3D(1, -9.18521e-10, 3.6576363e-12, 9.18521e-10, 1, 2.3733174e-10, -3.6576406e-12, -2.37332e-10, 0.999999, 0, 0.741858, 0.0150286)
 
 [node name="shoulder_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS/hip_CNTRL" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="lft_kneeGear2_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS/hip_CNTRL" index="1"]
-transform = Transform3D(-0.030584, -0.0933966, 0.229873, -0.136376, 0.199818, 0.0630412, -0.207283, -0.117684, -0.0753933, 0.254344, 0.0551858, -0.123156)
+transform = Transform3D(-0.030584045, -0.09339659, 0.229873, -0.13637598, 0.19981793, 0.06304117, -0.20728299, -0.11768414, -0.0753933, 0.254344, 0.0551858, -0.123156)
 
 [node name="lft_kneeGear1_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS/hip_CNTRL" index="2"]
-transform = Transform3D(-0.0923354, -0.116513, 0.200995, -0.138316, 0.201348, 0.0531762, -0.186662, -0.0915632, -0.138829, 0.271498, 0.0960889, -0.0463035)
+transform = Transform3D(-0.09233536, -0.11651301, 0.20099507, -0.138316, 0.20134799, 0.0531762, -0.186662, -0.09156325, -0.13882886, 0.271498, 0.0960889, -0.0463035)
 
 [node name="rt_kneeGear1_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS/hip_CNTRL" index="3"]
-transform = Transform3D(-0.0559071, 0.102463, -0.221079, 0.122786, 0.207767, 0.0652425, 0.21047, -0.0939919, -0.096787, -0.283564, 0.0968082, -0.0375393)
+transform = Transform3D(-0.05590714, 0.10246302, -0.22107902, 0.12278604, 0.207767, 0.06524246, 0.21046998, -0.09399189, -0.09678701, -0.283564, 0.0968082, -0.0375393)
 
 [node name="rt_kneeGear2_CNTRL" parent="GoonBoss/goon/goonie_CNTRLS/hip_CNTRL" index="4"]
-transform = Transform3D(-0.0803607, -0.162944, -0.171731, 0.0900189, 0.1467, -0.181317, 0.218949, -0.120119, 0.0115165, -0.254643, 0.0377606, -0.115187)
+transform = Transform3D(-0.08036075, -0.16294388, -0.17173095, 0.090018906, 0.14669971, -0.18131699, 0.21894898, -0.12011948, 0.011516515, -0.254643, 0.0377606, -0.115187)
 
 [node name="lft_knee_pointCNTRL" parent="GoonBoss/goon/goonie_CNTRLS" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157208, 0.726637, 0.590667)
-
-[node name="Skeleton3D" parent="GoonBoss/goon" index="2"]
-bones/1/rotation = Quaternion(0.55501, -0.438137, 0.55501, -0.438137)
-bones/2/rotation = Quaternion(-1.913e-25, 1.68084e-17, 0.274503, 0.961586)
-bones/3/rotation = Quaternion(0.620268, -0.474629, -0.379504, 0.495955)
-bones/4/rotation = Quaternion(0.00168357, 0.707105, -0.00168357, 0.707105)
-bones/5/rotation = Quaternion(0.263142, 0.401092, 0.582345, 0.65632)
-bones/6/rotation = Quaternion(0.263142, 0.401092, 0.582345, 0.65632)
-bones/7/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/8/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/9/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/10/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/11/rotation = Quaternion(0.55501, -0.438137, 0.55501, 0.438137)
-bones/12/rotation = Quaternion(0.55501, -0.438137, 0.55501, 0.438137)
-bones/13/rotation = Quaternion(0.55501, -0.438137, 0.55501, -0.438137)
-bones/14/rotation = Quaternion(5.77968e-17, 9.49952e-18, 0.274503, 0.961586)
-bones/15/rotation = Quaternion(0.793059, -0.609144, -5.63397e-17, 2.58492e-17)
-bones/16/rotation = Quaternion(0.00168357, 0.707105, -0.00168357, 0.707105)
-bones/17/rotation = Quaternion(-0.203113, 0.677307, 0.203113, 0.677307)
-bones/18/rotation = Quaternion(-0.203113, 0.677307, 0.203113, 0.677307)
-bones/19/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/20/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/21/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/22/rotation = Quaternion(0.41342, -0.573658, 0.41342, 0.573658)
-bones/23/rotation = Quaternion(0.55501, -0.438137, 0.55501, 0.438137)
-bones/24/rotation = Quaternion(0.55501, -0.438137, 0.55501, 0.438137)
-bones/50/rotation = Quaternion(-0.000743539, -0.707106, 0.000743539, 0.707106)
-bones/51/rotation = Quaternion(0, 0, 0.956787, 0.29079)
-bones/52/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
-bones/53/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
-bones/54/rotation = Quaternion(0.00074354, 0.707106, -0.00074354, 0.707106)
-bones/55/rotation = Quaternion(-0.000743539, -0.707106, 0.000743539, 0.707106)
-bones/56/rotation = Quaternion(0, 0, 0.956787, 0.29079)
-bones/57/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
-bones/58/rotation = Quaternion(0.676766, 0.204908, -0.676766, 0.204908)
-bones/59/rotation = Quaternion(0.00074354, 0.707106, -0.00074354, 0.707106)
-
-[node name="LightBone" parent="GoonBoss/goon/Skeleton3D" index="42"]
-transform = Transform3D(0.0328084, 0, 0, 0, 0.0328084, 0, 0, 0, 0.0328084, 0, 0.812955, 0.0139425)
 
 [node name="goon_light" parent="GoonBoss/goon/Skeleton3D/LightBone" index="0"]
 transform = Transform3D(27.81, 0, 0, 0, 19.935, 0, 0, 0, 5.98, 0, -24.79, 7.235)
@@ -179,6 +141,13 @@ transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, -3.89827
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoonBoss/goon/GoonCollide" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490516, 0)
 shape = SubResource("BoxShape3D_y6udm")
+
+[node name="important" type="Label3D" parent="GoonBoss/goon" index="13"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.6968843, 0)
+text = "Did you know:
+The SG on the hat stands for
+Schell Games?"
+font = ExtResource("8_buitt")
 
 [node name="BattleNode" parent="GoonBoss" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("4_gc330")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2.8813)

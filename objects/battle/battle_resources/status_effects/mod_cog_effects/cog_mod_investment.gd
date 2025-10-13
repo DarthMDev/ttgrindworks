@@ -36,14 +36,14 @@ func renew() -> void:
 	# Movie Start
 	var movie := manager.create_tween()
 	
-	var calculator : Node3D = CALCULATOR.instantiate()
+	var calculator: Node3D = CALCULATOR.instantiate()
 	cog.body.left_hand_bone.add_child(calculator)
 	calculator.rotation_degrees = Vector3(-60, 45, 130)
 	
 	# Focus Cog
 	movie.tween_callback(battle_node.focus_character.bind(cog))
 	
-	movie.tween_callback(cog.speak.bind(RandomService.array_pick_random('true_random', PHRASES)))
+	movie.tween_callback(cog.speak.bind(PHRASES.pick_random()))
 	movie.tween_callback(cog.set_animation.bind('phone'))
 	movie.tween_interval(2.0)
 	movie.tween_callback(manager.affect_target.bind(cog, heal_amount))

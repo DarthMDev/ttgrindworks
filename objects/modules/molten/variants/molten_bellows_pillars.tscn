@@ -1,0 +1,318 @@
+[gd_scene load_steps=19 format=3 uid="uid://bd524gtya7yfm"]
+
+[ext_resource type="PackedScene" uid="uid://yoiyquggqfjn" path="res://objects/modules/molten/base_rooms/molten_bellows_pillars.tscn" id="1_dbwyy"]
+[ext_resource type="Script" uid="uid://bamuflr0smt7f" path="res://objects/modules/molten/variants/molten_bellows_pillars.gd" id="2_upbiw"]
+[ext_resource type="Script" uid="uid://dqpyvwnain3c5" path="res://objects/modules/factory/base_rooms/gear_spin.gd" id="3_lr3bg"]
+[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="4_v8s3v"]
+[ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="5_6hug6"]
+[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="6_hg02f"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="7_nhn7r"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="8_q2v5w"]
+[ext_resource type="PackedScene" uid="uid://e5xfuhel0svu" path="res://objects/props/molten/molten_bucket.tscn" id="12_0bmbh"]
+[ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="13_15i25"]
+[ext_resource type="PackedScene" uid="uid://k44r7tk128hb" path="res://objects/props/molten/moving_tower.tscn" id="14_lkqkr"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="15_pf72y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5w78"]
+resource_name = "Molten_CompiledSet1"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_v8s3v")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjk4x"]
+resource_name = "FINALFACTORY_143"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_6hug6")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr1ca"]
+resource_name = "metalgrate_rusted"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_hg02f")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="Curve3D" id="Curve3D_upbiw"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 17.88, 8.485, 0, 0, 0, 0, 0, 0, 0, -18.53, 8.485, 0, 0, 0, 0, 0, 0, 0, -18.53, 29.815, 0, 0, 0, 0, 0, 0, 0, 17.88, 29.815, 0),
+"tilts": PackedFloat32Array(0, 0, 1, 1)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_nhn7r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -6.42, 0, 0, 0, 0, 0, 0, 0, 0, 0.135, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_q2v5w"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.135, 0, 0, 0, 0, 0, 0, 0, 0, -6.42, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="molten_bellows_pillars" instance=ExtResource("1_dbwyy")]
+script = ExtResource("2_upbiw")
+
+[node name="FanBlades" parent="." index="4"]
+unique_name_in_owner = true
+transform = Transform3D(-9.099629e-05, 7.955149e-12, -100, -8.742278e-06, -100, 0, -100, 8.742278e-06, 9.099629e-05, 0.0467062, 19.3536, 30.0111)
+script = ExtResource("3_lr3bg")
+rotation_speed = -800.0
+rotation_type = 0
+
+[node name="FanCasing" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c5w78")
+surface_material_override/1 = SubResource("StandardMaterial3D_rjk4x")
+surface_material_override/2 = SubResource("StandardMaterial3D_rr1ca")
+
+[node name="Pillars" parent="." index="7"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 15.1429, 4.33802)
+
+[node name="BucketPath" type="Path3D" parent="." index="16"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.72636, 13.1077)
+curve = SubResource("Curve3D_upbiw")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="BucketPath" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.88, 8.485, 0)
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="BucketPath" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3248076, 8.485, 0)
+progress = 11.548
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D2" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="BucketPath" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2160163, 8.485, 0)
+progress = 23.096
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D3" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="BucketPath" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.760319, 8.485, 0)
+progress = 34.644
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D4" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="BucketPath" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.53, 18.266914, 0)
+progress = 46.1919
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D5" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="BucketPath" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.530048, 29.814978, 0)
+progress = 57.7399
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D6" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="BucketPath" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9748735, 29.815, 0)
+progress = 69.2879
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D7" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D8" type="PathFollow3D" parent="BucketPath" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.566004, 29.815, 0)
+progress = 80.8359
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D8" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D9" type="PathFollow3D" parent="BucketPath" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.110327, 29.815, 0)
+progress = 92.3839
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D9" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="PathFollow3D10" type="PathFollow3D" parent="BucketPath" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.88, 20.032888, 0)
+progress = 103.932
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="molten_bucket" parent="BucketPath/PathFollow3D10" index="0" instance=ExtResource("12_0bmbh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0158329, -0.843951, -0.0322075)
+
+[node name="JumpSpot1" type="Node3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.647, -1.379)
+
+[node name="Path3D" type="Path3D" parent="JumpSpot1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.89935, -3.57628e-07)
+curve = SubResource("Curve3D_nhn7r")
+
+[node name="ElevatingPlatform" parent="JumpSpot1" index="1" node_paths=PackedStringArray("path") instance=ExtResource("13_15i25")]
+transform = Transform3D(0.75811, 0, 0, 0, 0.75811, 0, 0, 0, 0.75811, 0, 0.135, 0)
+path = NodePath("../Path3D")
+speed = 3.0
+
+[node name="MovingTower" parent="JumpSpot1/ElevatingPlatform" index="2" instance=ExtResource("14_lkqkr")]
+transform = Transform3D(1.31907, 0, 0, 0, 1.31907, 0, 0, 0, 1.31907, 0, 0.321543, 0)
+
+[node name="MoltenBellows" parent="JumpSpot1/ElevatingPlatform/MovingTower" index="1" instance=ExtResource("15_pf72y")]
+transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.09666, 0)
+max_push = 2.0
+
+[node name="Platform" parent="JumpSpot1/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445962, -2.3841858e-07)
+
+[node name="SquareDropShadow" parent="JumpSpot1/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
+visible = false
+
+[node name="JumpSpot2" type="Node3D" parent="." index="18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.647, 8.621)
+
+[node name="Path3D" type="Path3D" parent="JumpSpot2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.89935, -3.57628e-07)
+curve = SubResource("Curve3D_q2v5w")
+
+[node name="ElevatingPlatform" parent="JumpSpot2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("13_15i25")]
+transform = Transform3D(0.75811, 0, 0, 0, 0.75811, 0, 0, 0, 0.75811, 0, -6.42, 0)
+path = NodePath("../Path3D")
+speed = 3.0
+
+[node name="MovingTower" parent="JumpSpot2/ElevatingPlatform" index="2" instance=ExtResource("14_lkqkr")]
+transform = Transform3D(1.31907, 0, 0, 0, 1.31907, 0, 0, 0, 1.31907, 0, 0.321543, 0)
+
+[node name="MoltenBellows" parent="JumpSpot2/ElevatingPlatform/MovingTower" index="1" instance=ExtResource("15_pf72y")]
+transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.09666, 0)
+max_push = 2.0
+
+[node name="Platform" parent="JumpSpot2/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.044596, 0)
+
+[node name="SquareDropShadow" parent="JumpSpot2/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
+visible = false
+
+[node name="JumpSpot3" type="Node3D" parent="." index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.647, 17.621)
+
+[node name="Path3D" type="Path3D" parent="JumpSpot3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.89935, -3.57628e-07)
+curve = SubResource("Curve3D_nhn7r")
+
+[node name="ElevatingPlatform" parent="JumpSpot3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("13_15i25")]
+transform = Transform3D(0.75811, 0, 0, 0, 0.75811, 0, 0, 0, 0.75811, 0, 0.135, 0)
+path = NodePath("../Path3D")
+speed = 3.0
+
+[node name="MovingTower" parent="JumpSpot3/ElevatingPlatform" index="2" instance=ExtResource("14_lkqkr")]
+transform = Transform3D(1.31907, 0, 0, 0, 1.31907, 0, 0, 0, 1.31907, 0, 0.321543, 0)
+
+[node name="MoltenBellows" parent="JumpSpot3/ElevatingPlatform/MovingTower" index="1" instance=ExtResource("15_pf72y")]
+transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.09666, 0)
+max_push = 2.0
+
+[node name="Platform" parent="JumpSpot3/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445962, 0)
+
+[node name="SquareDropShadow" parent="JumpSpot3/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
+visible = false
+
+[node name="treasure_chest" parent="." index="21" instance=ExtResource("7_nhn7r")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.06588, 3.59237, 29.4715)
+
+[node name="treasure_chest2" parent="." index="22" instance=ExtResource("7_nhn7r")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.1063, 3.59223, 29.4715)
+
+[node name="BurnerFlame" parent="." index="23" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 1.61997, 6.95956, 4.33802)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+start_enabled = true
+
+[node name="BurnerFlame2" parent="." index="24" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 1.61997, 8.95956, 4.33802)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+start_enabled = true
+
+[node name="BurnerFlame3" parent="." index="25" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(1.19209e-07, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19209e-07, -5.32907e-15, -1.58096, 6.95956, 4.33802)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+
+[node name="BurnerFlame4" parent="." index="26" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(1.19209e-07, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19209e-07, -5.32907e-15, -1.58096, 8.95956, 4.33802)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+
+[node name="BurnerFlame5" parent="." index="27" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91068e-15, -1.58096, 3.93317, 13.0657)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+start_enabled = true
+
+[node name="BurnerFlame6" parent="." index="28" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91068e-15, -1.58096, 5.93317, 13.0657)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+start_enabled = true
+
+[node name="BurnerFlame7" parent="." index="29" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-3.17862e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 3.17862e-08, 1.5077e-15, 1.61997, 3.93317, 13.0657)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+
+[node name="BurnerFlame8" parent="." index="30" instance=ExtResource("8_q2v5w")]
+transform = Transform3D(-3.17862e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 3.17862e-08, 1.5077e-15, 1.61997, 5.93317, 13.0657)
+enabled = false
+automatic = true
+down_time = 2.5
+up_time = 2.5
+
+[editable path="JumpSpot1/ElevatingPlatform/MovingTower/MoltenBellows"]
+[editable path="JumpSpot2/ElevatingPlatform/MovingTower/MoltenBellows"]
+[editable path="JumpSpot3/ElevatingPlatform/MovingTower/MoltenBellows"]

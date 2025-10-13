@@ -34,6 +34,7 @@ expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+texture_filter = 4
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 8
@@ -53,6 +54,7 @@ expand_mode = 1
 
 [node name="MiniIcon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+texture_filter = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
 anchors_preset = 8

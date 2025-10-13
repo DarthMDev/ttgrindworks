@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/suitB-skelecog.glb-00174096c3cdfa12fd0082620b
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.225
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,12 +34,16 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "animations": {
 "anvil-drop": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/anvil-drop.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/anvil-drop.res",
+"save_to_file/path": "uid://j7welu6sq5o6",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1835,8 +1841,9 @@ _subresources={
 },
 "drop": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/drop.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/drop.res",
+"save_to_file/path": "uid://bjj1gbs66hqgr",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -3634,8 +3641,9 @@ _subresources={
 },
 "effort": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/effort.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/effort.res",
+"save_to_file/path": "uid://b73m08nyu73kj",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -5433,8 +5441,9 @@ _subresources={
 },
 "finger-wag": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/finger-wag.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/finger-wag.res",
+"save_to_file/path": "uid://dqnruujbls2g5",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -7232,8 +7241,9 @@ _subresources={
 },
 "flailing": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/flailing.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/flailing.res",
+"save_to_file/path": "uid://0p8qc7rrhi16",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -9031,8 +9041,9 @@ _subresources={
 },
 "hold-eraser": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/hold-eraser.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/hold-eraser.res",
+"save_to_file/path": "uid://cg3hycgs2u76u",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -10830,8 +10841,9 @@ _subresources={
 },
 "hold-pencil": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/hold-pencil.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/hold-pencil.res",
+"save_to_file/path": "uid://cpxm2lt2wrfrt",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -12629,8 +12641,9 @@ _subresources={
 },
 "hypnotize": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/hypnotize.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/hypnotize.res",
+"save_to_file/path": "uid://5rkxxxwespff",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -14428,8 +14441,9 @@ _subresources={
 },
 "jump": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/jump.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/jump.res",
+"save_to_file/path": "uid://buqmvuau3b2g1",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -16227,8 +16241,9 @@ _subresources={
 },
 "landing": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/landing.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/landing.res",
+"save_to_file/path": "uid://h7g7nh5w6hj6",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -18026,8 +18041,9 @@ _subresources={
 },
 "lured": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/lured.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/lured.res",
+"save_to_file/path": "uid://dcm44u3mt4bdp",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -19825,8 +19841,9 @@ _subresources={
 },
 "magic1": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/magic1.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/magic1.res",
+"save_to_file/path": "uid://dybds1crf6qye",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -21624,8 +21641,9 @@ _subresources={
 },
 "magic2": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/magic2.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/magic2.res",
+"save_to_file/path": "uid://v31cqspubitr",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -23423,8 +23441,9 @@ _subresources={
 },
 "magic3": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/magic3.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/magic3.res",
+"save_to_file/path": "uid://p481f0x1poue",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -25222,8 +25241,9 @@ _subresources={
 },
 "neutral": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/neutral.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/neutral.res",
+"save_to_file/path": "uid://dt3nd0n2gjkr4",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -27021,8 +27041,9 @@ _subresources={
 },
 "pen-squirt": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/pen-squirt.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/pen-squirt.res",
+"save_to_file/path": "uid://bt72qiaauehdu",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -28820,8 +28841,9 @@ _subresources={
 },
 "pencil-sharpener": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/pencil-sharpener.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/pencil-sharpener.res",
+"save_to_file/path": "uid://cn6ko0ox6eici",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -30619,8 +30641,9 @@ _subresources={
 },
 "phone": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/phone.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/phone.res",
+"save_to_file/path": "uid://j2p2sca6bxpi",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -32418,8 +32441,9 @@ _subresources={
 },
 "pickpocket": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/pickpocket.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/pickpocket.res",
+"save_to_file/path": "uid://b2gb4ixo6h2xs",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -34217,8 +34241,9 @@ _subresources={
 },
 "pie-small": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/pie-small.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/pie-small.res",
+"save_to_file/path": "uid://bt8ent1m6bbcu",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -36016,8 +36041,9 @@ _subresources={
 },
 "rake": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/rake.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/rake.res",
+"save_to_file/path": "uid://c6t50ff1o8b6f",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -37815,8 +37841,9 @@ _subresources={
 },
 "roll-o-dex": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/roll-o-dex.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/roll-o-dex.res",
+"save_to_file/path": "uid://dmpjkw80eqxgp",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -39614,8 +39641,9 @@ _subresources={
 },
 "sidestep-left": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/sidestep-left.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/sidestep-left.res",
+"save_to_file/path": "uid://bwc2clqlstrde",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -41413,8 +41441,9 @@ _subresources={
 },
 "sidestep-right": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/sidestep-right.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/sidestep-right.res",
+"save_to_file/path": "uid://bugfvdh5lrqmy",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -43212,8 +43241,9 @@ _subresources={
 },
 "slip-backward": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/slip-backward.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/slip-backward.res",
+"save_to_file/path": "uid://c4j503lkfu7qu",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -45011,8 +45041,9 @@ _subresources={
 },
 "slip-forward": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/slip-forward.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/slip-forward.res",
+"save_to_file/path": "uid://ckimlnql0or2k",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -46810,8 +46841,9 @@ _subresources={
 },
 "soak": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/soak.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/soak.res",
+"save_to_file/path": "uid://dgau0xgg1a3pv",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -48609,8 +48641,9 @@ _subresources={
 },
 "speak": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/speak.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/speak.res",
+"save_to_file/path": "uid://bng0vj4k0tiab",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -50408,8 +50441,9 @@ _subresources={
 },
 "squirt-large": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/squirt-large.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/squirt-large.res",
+"save_to_file/path": "uid://brfkj3475a83f",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -52207,8 +52241,9 @@ _subresources={
 },
 "squirt-small": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/squirt-small.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/squirt-small.res",
+"save_to_file/path": "uid://nv8umqa057uy",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -54006,8 +54041,9 @@ _subresources={
 },
 "stomp": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/stomp.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/stomp.res",
+"save_to_file/path": "uid://cenue6nbvd2ty",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -55805,8 +55841,9 @@ _subresources={
 },
 "suitB-lose_002": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/suitB-lose_002.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/suitB-lose_002.res",
+"save_to_file/path": "uid://d2v23rw7beajp",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -57604,8 +57641,9 @@ _subresources={
 },
 "throw-object": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/throw-object.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/throw-object.res",
+"save_to_file/path": "uid://dto0aa0nucn81",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -59403,8 +59441,9 @@ _subresources={
 },
 "throw-paper": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/throw-paper.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/throw-paper.res",
+"save_to_file/path": "uid://515pnuiv1c4o",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -61202,8 +61241,9 @@ _subresources={
 },
 "tray-neutral": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/tray-neutral.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/tray-neutral.res",
+"save_to_file/path": "uid://bbis8fanj3nfr",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -63001,8 +63041,9 @@ _subresources={
 },
 "tray-walk": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/tray-walk.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/tray-walk.res",
+"save_to_file/path": "uid://d1tvxcx823byh",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -64800,8 +64841,9 @@ _subresources={
 },
 "tug-o-war": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/tug-o-war.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/tug-o-war.res",
+"save_to_file/path": "uid://dojostmlauhfx",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -66599,8 +66641,9 @@ _subresources={
 },
 "victory": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/victory.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/victory.res",
+"save_to_file/path": "uid://clq8xm0dpj47k",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -68398,8 +68441,9 @@ _subresources={
 },
 "walk": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/walk.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/walk.res",
+"save_to_file/path": "uid://ex8yfjlw1uc2",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -70197,8 +70241,9 @@ _subresources={
 },
 "walknreach": {
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/cogs/suitb/skelecog/animations/walknreach.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://models/cogs/suitb/skelecog/animations/walknreach.res",
+"save_to_file/path": "uid://k3ua4qgdipka",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

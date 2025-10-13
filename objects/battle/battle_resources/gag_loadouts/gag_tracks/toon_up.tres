@@ -17,47 +17,24 @@
 
 [sub_resource type="Resource" id="Resource_ykd0g"]
 script = ExtResource("6_5nyuh")
-stat = "defense"
-boost = 1.2
+boost = 0.3
 quality = 0
 rounds = -1
-rounds_offset = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
-id = 0
 
 [sub_resource type="Resource" id="Resource_654rw"]
 script = ExtResource("3_3nxeb")
-movie_type = 0
 custom_description = "Defense boost"
 status_effect = SubResource("Resource_ykd0g")
 icon = ExtResource("2_mk5mw")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Feather"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_bhq5a"]
 script = ExtResource("6_5nyuh")
 stat = "damage"
-boost = 1.1
+boost = 0.1
 quality = 0
 rounds = -1
-rounds_offset = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
-id = 0
 
 [sub_resource type="Resource" id="Resource_f160u"]
 script = ExtResource("3_3nxeb")
@@ -65,25 +42,14 @@ movie_type = 1
 custom_description = "Attack boost"
 status_effect = SubResource("Resource_bhq5a")
 icon = ExtResource("10_mgua5")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Megaphone"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_dsjnk"]
 script = ExtResource("8_ki655")
-discount = 1
 quality = 0
 rounds = 2
-rounds_offset = 0
 icon = ExtResource("7_ki655")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
 status_name = "Gag Discount"
 id = 41
 metadata/_custom_type_script = "uid://df7irk63ikx4k"
@@ -94,27 +60,15 @@ movie_type = 2
 custom_description = "Gag Discount"
 status_effect = SubResource("Resource_dsjnk")
 icon = ExtResource("7_480hh")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Lipstick"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_xd2n5"]
 script = ExtResource("6_5nyuh")
 stat = "evasiveness"
-boost = 1.2
+boost = 0.4
 quality = 0
 rounds = -1
-rounds_offset = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
-id = 0
 
 [sub_resource type="Resource" id="Resource_n8qmn"]
 script = ExtResource("3_3nxeb")
@@ -122,27 +76,15 @@ movie_type = 3
 custom_description = "Evasiveness boost"
 status_effect = SubResource("Resource_xd2n5")
 icon = ExtResource("5_b6fii")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Bamboo Cane"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_mjlbk"]
 script = ExtResource("9_o3o8k")
-amount = 0
 instant_effect = false
 quality = 0
 rounds = 2
-rounds_offset = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
 description = "20% Laff Regeneration"
-status_name = "Status Effect"
-id = 0
 
 [sub_resource type="Resource" id="Resource_l5wod"]
 script = ExtResource("3_3nxeb")
@@ -150,27 +92,15 @@ movie_type = 4
 custom_description = "20% laff regeneration"
 status_effect = SubResource("Resource_mjlbk")
 icon = ExtResource("9_e8hrd")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Pixie Dust"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_mg323"]
 script = ExtResource("6_5nyuh")
 stat = "luck"
-boost = 1.1
+boost = 0.2
 quality = 0
 rounds = -1
-rounds_offset = 0
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
-status_name = "Status Effect"
-id = 0
 
 [sub_resource type="Resource" id="Resource_bci3h"]
 script = ExtResource("3_3nxeb")
@@ -178,22 +108,16 @@ movie_type = 5
 custom_description = "Luck boost"
 status_effect = SubResource("Resource_mg323")
 icon = ExtResource("8_3w7na")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "Juggling Cubes"
-one_time_use = false
 
 [sub_resource type="Resource" id="Resource_w75b6"]
 script = ExtResource("3_3nxeb")
 movie_type = 6
 custom_description = "All stats boost"
 icon = ExtResource("11_32ks8")
-damage = 0
-crit_chance_mod = 1.0
 target_type = 4
 action_name = "High Dive"
-one_time_use = false
 
 [resource]
 script = ExtResource("11_vgh4o")

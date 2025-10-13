@@ -25,7 +25,7 @@ func modify_floor() -> void:
 	# Apparently game floor's tree exited signal is emitted on startup when direclty loading into the scene
 	# Only affects debug but I don't like the sky not being there
 	await get_tree().process_frame
-	game_floor.tree_exited.connect(func(): skybox.queue_free(); skybox = null; ground.queue_free())
+	game_floor.tree_exited.connect(func(): if skybox: skybox.queue_free(); skybox = null; if ground: ground.queue_free())
 	
 
 func get_mod_name() -> String:

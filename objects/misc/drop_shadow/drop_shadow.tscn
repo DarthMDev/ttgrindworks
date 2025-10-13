@@ -45,6 +45,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pxvpv")
 
 [node name="DropShadow" type="RayCast3D"]
+process_physics_priority = 500
 target_position = Vector3(0, -100, 0)
 script = ExtResource("1_lmaue")
 

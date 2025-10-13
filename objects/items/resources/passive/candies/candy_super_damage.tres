@@ -9,12 +9,7 @@ script = ExtResource("2_i3m8l")
 qualitoon = 3
 rarity = 3
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.11
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Super Punch-Up Bubblegum"
 item_description = "Damage up!"
 big_description = "+ 8% damage"
@@ -23,13 +18,9 @@ pickup_sfx = ExtResource("2_86iq5")
 stats_add = {
 "damage": 0.08
 }
-stats_multiply = {}
-player_values = {}
 arbitrary_data = {
 "super": true
 }
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
 force_show_shop_category = true
-custom_shop_price = 0

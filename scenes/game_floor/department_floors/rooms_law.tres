@@ -1,141 +1,108 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=46 format=3 uid="uid://qky6hxt0lyw2"]
+[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=24 format=3 uid="uid://qky6hxt0lyw2"]
 
-[ext_resource type="PackedScene" uid="uid://b1nbdcg8lvn4k" path="res://objects/modules/office/base_rooms/connector1.tscn" id="1_i5e2j"]
-[ext_resource type="Script" uid="uid://bs13ap551050v" path="res://scenes/game_floor/department_floors/department_floor.gd" id="1_kxs6h"]
-[ext_resource type="AudioStream" uid="uid://c56el0mbft2yb" path="res://audio/music/DA_Office.ogg" id="1_ojny5"]
-[ext_resource type="AudioStream" uid="uid://k3mankqgl7a4" path="res://audio/music/LB_juryBG.ogg" id="2_18ffd"]
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="3_75e7d"]
-[ext_resource type="PackedScene" uid="uid://dtaq2wty6bytx" path="res://objects/modules/office/variants/office_battle_room_battle.tscn" id="3_gbl83"]
-[ext_resource type="PackedScene" uid="uid://cr1htfcl3unfw" path="res://objects/modules/office/variants/office_diamond_room_battle.tscn" id="4_w1muv"]
-[ext_resource type="PackedScene" uid="uid://s7hcmq7vdag6" path="res://objects/modules/office/variants/office_puzzle_room_battle.tscn" id="5_645mc"]
-[ext_resource type="PackedScene" uid="uid://bh3gbfvcrqsw2" path="res://objects/modules/office/base_rooms/connector2.tscn" id="5_of1qx"]
-[ext_resource type="PackedScene" uid="uid://3a1rn2dg5dw4" path="res://objects/modules/office/variants/office_entrance_standard.tscn" id="6_b4kxl"]
-[ext_resource type="PackedScene" uid="uid://c7g34v8mxjqyt" path="res://objects/modules/office/variants/office_battle_room_puzzle.tscn" id="7_cpwv5"]
-[ext_resource type="PackedScene" uid="uid://p377w16ialr0" path="res://objects/modules/office/variants/office_obstacle_battle_gavels.tscn" id="8_5a8ni"]
-[ext_resource type="PackedScene" uid="uid://s4ya4ge25pbp" path="res://objects/modules/office/variants/office_goon_boss.tscn" id="9_7gbeu"]
-[ext_resource type="PackedScene" uid="uid://cgtwlg02hp5fy" path="res://objects/modules/office/variants/office_puzzle_room1_puzzles.tscn" id="9_mq2wb"]
-[ext_resource type="PackedScene" uid="uid://cqrejftx6uyso" path="res://objects/modules/office/variants/office_L_room_battle.tscn" id="9_orj4w"]
-[ext_resource type="PackedScene" uid="uid://d0lb5hhynsva" path="res://objects/modules/office/variants/office_shop.tscn" id="10_44tp6"]
-[ext_resource type="PackedScene" uid="uid://bwy6nw86pgfc6" path="res://objects/modules/office/variants/office_obstacle_course.tscn" id="10_bnm3e"]
-[ext_resource type="PackedScene" uid="uid://cnuqkx4m7bxhq" path="res://objects/modules/office/variants/office_bookshelf_maze.tscn" id="13_88wmc"]
-[ext_resource type="PackedScene" uid="uid://be4vavros0suo" path="res://objects/modules/office/variants/office_head_of_security_boss.tscn" id="14_x72hs"]
-[ext_resource type="PackedScene" uid="uid://ce2757t0r7axg" path="res://objects/modules/office/variants/office_puzzle_room_buttons.tscn" id="16_7fkw1"]
-[ext_resource type="PackedScene" uid="uid://bgivn1na5b2qh" path="res://objects/modules/office/variants/office_L_room_spotlights.tscn" id="17_83oh5"]
-[ext_resource type="PackedScene" uid="uid://dnr4jopyijvee" path="res://objects/modules/office/variants/office_L_room_puzzles.tscn" id="19_hoo1n"]
-[ext_resource type="PackedScene" uid="uid://cc1tsojhw6x8o" path="res://objects/modules/office/variants/office_diamond_room_puzzle.tscn" id="20_hrunt"]
-[ext_resource type="PackedScene" uid="uid://c7jpg878lyye3" path="res://objects/modules/office/variants/office_l_room_stomper.tscn" id="24_epcxj"]
-[ext_resource type="PackedScene" uid="uid://yu15nnc5gm1r" path="res://objects/modules/office/variants/office_puzzle_long_room_memory.tscn" id="25_epcxj"]
-[ext_resource type="PackedScene" uid="uid://c3jefjvjikh4q" path="res://objects/modules/office/variants/office_skull_finder_room.tscn" id="26_5lpgc"]
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_sk6r2"]
+[ext_resource type="Script" uid="uid://brjywdpat6vxg" path="res://scenes/game_floor/department_floors/department_floor.gd" id="2_16wr7"]
 
-[sub_resource type="Resource" id="Resource_d10vb"]
-script = ExtResource("3_75e7d")
-room = ExtResource("3_gbl83")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_iq66s"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_battle_room_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_xhxje"]
-script = ExtResource("3_75e7d")
-room = ExtResource("5_645mc")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_ivha5"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_puzzle_room_battle.tscn"
 
-[sub_resource type="Resource" id="Resource_yt051"]
-script = ExtResource("3_75e7d")
-room = ExtResource("4_w1muv")
-rarity_weight = 0.8
+[sub_resource type="Resource" id="Resource_cjt6j"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_battle_room_puzzle.tscn"
 
-[sub_resource type="Resource" id="Resource_i3bs5"]
-script = ExtResource("3_75e7d")
-room = ExtResource("7_cpwv5")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_c6aj3"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_obstacle_battle_gavels.tscn"
+rarity_weight = 0.7
 
-[sub_resource type="Resource" id="Resource_twmee"]
-script = ExtResource("3_75e7d")
-room = ExtResource("8_5a8ni")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_algo1"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_L_room_battle.tscn"
+rarity_weight = 0.7
 
-[sub_resource type="Resource" id="Resource_41cqb"]
-script = ExtResource("3_75e7d")
-room = ExtResource("9_orj4w")
+[sub_resource type="Resource" id="Resource_tqiyo"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_hexagon_battle_room.tscn"
+
+[sub_resource type="Resource" id="Resource_t3rv6"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_diamond_room_battle.tscn"
+
+[sub_resource type="Resource" id="Resource_vdnkf"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_goon_boss.tscn"
+
+[sub_resource type="Resource" id="Resource_vk7gd"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_head_of_security_boss.tscn"
+
+[sub_resource type="Resource" id="Resource_c5lr0"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_obstacle_course.tscn"
 rarity_weight = 0.9
 
-[sub_resource type="Resource" id="Resource_wmqbf"]
-script = ExtResource("3_75e7d")
-room = ExtResource("9_7gbeu")
-rarity_weight = 1.0
+[sub_resource type="Resource" id="Resource_27xfg"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_bookshelf_maze.tscn"
+
+[sub_resource type="Resource" id="Resource_ivaqa"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_puzzle_room1_puzzles.tscn"
+
+[sub_resource type="Resource" id="Resource_k7aay"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_L_room_spotlights.tscn"
+rarity_weight = 0.7
+
+[sub_resource type="Resource" id="Resource_fi4us"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_L_room_puzzles.tscn"
+rarity_weight = 0.7
+
+[sub_resource type="Resource" id="Resource_s0utw"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_diamond_room_puzzle.tscn"
+
+[sub_resource type="Resource" id="Resource_ls1nk"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_l_room_stomper.tscn"
+rarity_weight = 0.7
+
+[sub_resource type="Resource" id="Resource_sk6r2"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_book_rows_room.tscn"
+rarity_weight = 0.9
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
+
+[sub_resource type="Resource" id="Resource_i3c3o"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_shop.tscn"
+
+[sub_resource type="Resource" id="Resource_4bsh7"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_puzzle_room_buttons.tscn"
+
+[sub_resource type="Resource" id="Resource_x72hs"]
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_puzzle_long_room_memory.tscn"
 
 [sub_resource type="Resource" id="Resource_481lp"]
-script = ExtResource("3_75e7d")
-room = ExtResource("14_x72hs")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
-
-[sub_resource type="Resource" id="Resource_4hddu"]
-script = ExtResource("3_75e7d")
-room = ExtResource("10_bnm3e")
-rarity_weight = 0.9
-
-[sub_resource type="Resource" id="Resource_kg1bk"]
-script = ExtResource("3_75e7d")
-room = ExtResource("13_88wmc")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_k3k2e"]
-script = ExtResource("3_75e7d")
-room = ExtResource("9_mq2wb")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_1bmyi"]
-script = ExtResource("3_75e7d")
-room = ExtResource("17_83oh5")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_lap2p"]
-script = ExtResource("3_75e7d")
-room = ExtResource("19_hoo1n")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_5lpgc"]
-script = ExtResource("3_75e7d")
-room = ExtResource("20_hrunt")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
-
-[sub_resource type="Resource" id="Resource_gfh6x"]
-script = ExtResource("3_75e7d")
-room = ExtResource("24_epcxj")
-rarity_weight = 0.9
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
-
-[sub_resource type="Resource" id="Resource_ckkc0"]
-script = ExtResource("3_75e7d")
-room = ExtResource("10_44tp6")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_lddew"]
-script = ExtResource("3_75e7d")
-room = ExtResource("16_7fkw1")
-rarity_weight = 1.0
-
-[sub_resource type="Resource" id="Resource_87wki"]
-script = ExtResource("3_75e7d")
-room = ExtResource("25_epcxj")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
-
-[sub_resource type="Resource" id="Resource_0qre3"]
-script = ExtResource("3_75e7d")
-room = ExtResource("26_5lpgc")
-rarity_weight = 1.0
-metadata/_custom_type_script = "uid://dhyadt7p1gv78"
+script = ExtResource("1_sk6r2")
+room = "res://objects/modules/office/variants/office_skull_finder_room.tscn"
 
 [resource]
-script = ExtResource("1_kxs6h")
-entrances = Array[PackedScene]([ExtResource("6_b4kxl")])
-battle_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_d10vb"), SubResource("Resource_xhxje"), SubResource("Resource_yt051"), SubResource("Resource_i3bs5"), SubResource("Resource_twmee"), SubResource("Resource_41cqb")])
-obstacle_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_4hddu"), SubResource("Resource_kg1bk"), SubResource("Resource_k3k2e"), SubResource("Resource_1bmyi"), SubResource("Resource_lap2p"), SubResource("Resource_5lpgc"), SubResource("Resource_gfh6x")])
-connectors = Array[PackedScene]([ExtResource("1_i5e2j"), ExtResource("5_of1qx")])
-pre_final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_ckkc0")])
-final_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_wmqbf"), SubResource("Resource_481lp")])
-one_time_rooms = Array[PackedScene]([])
-special_rooms = Array[ExtResource("3_75e7d")]([SubResource("Resource_lddew"), SubResource("Resource_87wki"), SubResource("Resource_0qre3")])
-background_music = Array[AudioStream]([ExtResource("1_ojny5")])
-battle_music = ExtResource("2_18ffd")
+script = ExtResource("2_16wr7")
+entrances = PackedStringArray("res://objects/modules/office/variants/office_entrance_standard.tscn")
+battle_rooms = Array[ExtResource("1_sk6r2")]([SubResource("Resource_iq66s"), SubResource("Resource_ivha5"), SubResource("Resource_cjt6j"), SubResource("Resource_c6aj3"), SubResource("Resource_algo1"), SubResource("Resource_tqiyo"), SubResource("Resource_t3rv6")])
+obstacle_rooms = Array[ExtResource("1_sk6r2")]([SubResource("Resource_c5lr0"), SubResource("Resource_27xfg"), SubResource("Resource_ivaqa"), SubResource("Resource_k7aay"), SubResource("Resource_fi4us"), SubResource("Resource_s0utw"), SubResource("Resource_ls1nk"), SubResource("Resource_sk6r2")])
+connectors = PackedStringArray("res://objects/modules/office/base_rooms/connector1.tscn", "res://objects/modules/office/base_rooms/connector2.tscn", "res://objects/modules/office/base_rooms/office_connector_buried.tscn", "res://objects/modules/office/base_rooms/office_connector_foyer.tscn", "res://objects/modules/office/base_rooms/office_connector_stairs.tscn")
+pre_final_rooms = Array[ExtResource("1_sk6r2")]([SubResource("Resource_i3c3o")])
+final_rooms = Array[ExtResource("1_sk6r2")]([SubResource("Resource_vdnkf"), SubResource("Resource_vk7gd")])
+special_rooms = Array[ExtResource("1_sk6r2")]([SubResource("Resource_4bsh7"), SubResource("Resource_x72hs"), SubResource("Resource_481lp")])
+background_music = PackedStringArray("res://audio/music/DA_Office.ogg")
+battle_music = "res://audio/music/LB_juryBG.ogg"

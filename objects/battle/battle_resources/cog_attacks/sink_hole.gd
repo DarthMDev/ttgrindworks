@@ -1,5 +1,4 @@
 extends CogAttack
-class_name CogAttackSinkHole
 
 const MINIGAME := preload('res://objects/battle/misc_battle_objects/spam_game/spam_game.tscn')
 const MUD := preload('res://models/props/gags/quicksand/quicksand.glb')
@@ -47,8 +46,8 @@ func action() -> void:
 	
 	# Movie resume
 	var movie2 := manager.create_tween()
-	movie2.tween_callback(player.set_animation.bind('happy'))
-	movie2.tween_callback(player.toon.animator.seek.bind(0.5))
+	movie2.tween_callback(player.set_animation.bind('jump'))
+	movie2.tween_callback(player.toon.anim_seek.bind(0.5))
 	movie2.tween_property(player.toon, 'position:y', 0.0, 0.25)
 	if not game_won:
 		movie2.tween_callback(manager.affect_target.bind(player, damage))

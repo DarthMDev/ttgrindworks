@@ -7,6 +7,7 @@
 script = ExtResource("1_6asl0")
 
 [node name="Body" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
 [node name="DropShadow" parent="." instance=ExtResource("2_6lsek")]
 unique_name_in_owner = true

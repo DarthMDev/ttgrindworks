@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/power_tie.fbx-bb7d85f869556242f4ef580478b495b
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,14 +34,19 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "suit_props_cvs_PICTURES_power_tie_picShader": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/cog_props/power_tie/suit_props_cvs_PICTURES_power_tie_picShader.tres"
+"use_external/fallback_path": "res://models/props/cog_props/power_tie/suit_props_cvs_PICTURES_power_tie_picShader.tres",
+"use_external/path": "uid://c1fbibym84lon"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

@@ -13,7 +13,6 @@
 
 [sub_resource type="Resource" id="Resource_l3j0c"]
 script = ExtResource("4_fa1g6")
-skippable = false
 override_music = ExtResource("3_l8dbs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cciol"]

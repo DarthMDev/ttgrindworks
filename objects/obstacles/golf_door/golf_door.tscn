@@ -53,7 +53,7 @@ speed = 0.8
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 2.496, 11.968)
 
 [node name="DropShadow" parent="RollingGolfBall" instance=ExtResource("6_3oiqf")]
-transform = Transform3D(0.0666667, 0, 0, 0, 0.0666667, 0, 0, 0, 0.0666667, 0, -0.0751025, 0)
+transform = Transform3D(0.0666667, 0, 0, 0, 0.0666667, 0, 0, 0, 0.0666667, 0, 0, 0)
 
 [node name="GolfCouseDoor" parent="." instance=ExtResource("3_k7vpm")]
 transform = Transform3D(-6.38186e-08, 0, 1.46, 0, 1.46, 0, -1.46, 0, -6.38186e-08, -0.423, 1.414, -19.754)

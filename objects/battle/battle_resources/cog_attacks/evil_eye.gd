@@ -1,5 +1,4 @@
 extends CogAttack
-class_name EvilEye
 
 
 func action():
