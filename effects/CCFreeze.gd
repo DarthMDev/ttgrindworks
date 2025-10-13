@@ -6,8 +6,8 @@ class_name CCFreeze
 func _start(_instance: CCEffectInstanceTimed) -> EffectResult:
 	var player = Util.get_player()
 	if player:
-		player.movement_disabled = true # Disable movement inputs
-		player.can_jump = false # Disable jumping
+		player.controller.current_state.movement_disabled = true # Disable movement inputs
+		player.controller.current_state.can_jump = false # Disable jumping
 	return RUNNING
 
 func _should_be_running() -> bool:
@@ -21,18 +21,18 @@ func _should_be_running() -> bool:
 func _stop(_instance: CCEffectInstanceTimed, _force := false) -> bool:
 	var player = Util.get_player()
 	if player:
-		player.movement_disabled = false # Re-enable movement inputs
-		player.can_jump = true # Re-enable jumping
+		player.controller.current_state.movement_disabled = false # Re-enable movement inputs
+		player.controller.current_state.can_jump = true # Re-enable jumping
 	return true
 
 func _resume() -> void:
 	var player = Util.get_player()
 	if player:
-		player.movement_disabled = true # Reapply movement restriction on resume
-		player.can_jump = false # Reapply jump restriction
+		player.controller.current_state.movement_disabled = true # Reapply movement restriction on resume
+		player.controller.current_state.can_jump = false # Reapply jump restriction
 		
 func _pause() -> void:
 	var player = Util.get_player()
 	if player:
-		player.movement_disabled = false # Temporarily allow movement during pause
-		player.can_jump = true # Temporarily allow jumping
+		player.controller.current_state.movement_disabled = false # Temporarily allow movement during pause
+		player.controller.current_state.can_jump = true # Temporarily allow jumping

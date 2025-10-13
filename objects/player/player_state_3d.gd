@@ -58,8 +58,10 @@ func handle_default_movement(delta: float) -> void:
 	sprint = should_sprint()
 	if not sprint: target_speed /= 2.0
 	
-	if speed != target_speed:
+	if speed != target_speed and not movement_disabled:
 		speed = lerp(speed, target_speed, 0.2)
+	elif movement_disabled:
+		speed = 0.0
 	
 	if control_style:
 		_movement_style_standard(delta)
@@ -149,6 +151,14 @@ var jump_velocity := 7.0
 var jump_velocity_mult := 1.0
 var gravity := 16.0
 var last_floor_time: float = 0.0
+var movement_disabled := false:
+	set(x):
+		movement_disabled = x
+		if movement_disabled:
+			velocity.x = 0.0
+			velocity.z = 0.0
+			speed = 0.0
+			moving = false
 
 var _extra_jump_task: Task
 var _extra_jumps_remaining := 0
