@@ -14,7 +14,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# make a new list out of the ones we dont have
 	var anomalies = new_anomalies()
 	if anomalies.size() > 0:
-		var new_mod: String = RandomService.array_pick_random('floor_mods', anomalies)
+		var new_mod: String = RNG.channel(RNG.ChannelFloorMods).pick_random(anomalies)
 		var loaded_mod: Script = Util.universal_load(new_mod)
 		Util.floor_manager.add_anomaly(loaded_mod)
 		return SUCCESS
