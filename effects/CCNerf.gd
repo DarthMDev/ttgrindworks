@@ -20,7 +20,9 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	new_debuff.target = player
 	new_debuff.rounds = 2
 	new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE
-	new_debuff.stat = RandomService.array_pick_random('true_random', BoostNums.keys())
+	var rng = RNG.channel(RNG.ChannelTrueRandom)
+	var stat_keys = BoostNums.keys()
+ 	new_debuff.stat = stat_keys[rng.randi_range(0, stat_keys.size() - 1)]
 	new_debuff.boost = BoostNums[new_debuff.stat]
 	BattleService.ongoing_battle.add_status_effect(new_debuff)
 	AudioManager.play_sound(player.toon.yelp)
