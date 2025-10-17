@@ -17,7 +17,8 @@ item_name = "Glowering Dagger"
 item_description = "Perilous parry!"
 big_description = "- Cogs always hit while item is held
 - Use right before a cog deals damage to deflect
-- Poor timing will result in increased damage from the attack"
+- Poor timing will result in increased damage from the attack
+- Parry time increases with Evasiveness"
 model = ExtResource("3_hwm4u")
 player_values = {
 "cogs_always_hit": true

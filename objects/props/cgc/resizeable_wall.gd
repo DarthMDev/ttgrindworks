@@ -1,8 +1,8 @@
 @tool
 extends Node3D
 
-const TopMat: StandardMaterial3D = preload("res://objects/props/cgc/wall_plane_mat_top.tres")
-const BrickMat: StandardMaterial3D = preload("res://objects/props/cgc/wall_plane_mat_top_brick.tres")
+const TopMat: StandardMaterial3D = preload("res://models/facilities/cgc/materials/slate.tres")
+const BrickMat: StandardMaterial3D = preload("res://models/facilities/cgc/materials/stone_wall_scaled.tres")
 const OFFSET := 0.5
 
 @export var volume: Vector3 = Vector3.ONE:

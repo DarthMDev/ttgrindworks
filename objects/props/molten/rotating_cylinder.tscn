@@ -1,29 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bqamcxorlapkk"]
+[gd_scene load_steps=9 format=4 uid="uid://bqamcxorlapkk"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfq7nkpejum" path="res://models/props/facility_objects/molten/rotating_cylinder/RotatingCylinder.fbx" id="1_k47k5"]
 [ext_resource type="Texture2D" uid="uid://jnxb62du5548" path="res://models/props/facility_objects/molten/rotating_cylinder/Molten_CompiledSet1.png" id="2_gknvf"]
 [ext_resource type="Texture2D" uid="uid://bsu405v0l17jk" path="res://models/props/facility_objects/molten/rotating_cylinder/PaintedWall.png" id="3_dgdc8"]
 
-[sub_resource type="Gradient" id="Gradient_ue8ik"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.44000006, 0.16000003, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jdvf3"]
-gradient = SubResource("Gradient_ue8ik")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eha32"]
-blend_mode = 1
-albedo_texture = SubResource("GradientTexture2D_jdvf3")
-uv1_scale = Vector3(0, 0.243, 0)
-uv1_offset = Vector3(0, 0.446, 0.068)
-uv1_triplanar = true
-uv1_triplanar_sharpness = 0.08838842
-uv1_world_triplanar = true
-grow_amount = 0.01
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkuho"]
 resource_name = "Molten_CompiledSet1"
-next_pass = SubResource("StandardMaterial3D_eha32")
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_gknvf")
 emission_enabled = true
@@ -32,7 +14,6 @@ emission_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8o02"]
 resource_name = "PaintedWall"
-next_pass = SubResource("StandardMaterial3D_eha32")
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_dgdc8")
 emission_enabled = true

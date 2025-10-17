@@ -1728,10 +1728,10 @@ surface_material_override/1 = ExtResource("15_4n8fl")
 
 [node name="BattleNode" parent="BossObjects/BossFight" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("10_4xj8y")]
 transform = Transform3D(-1, 0, -8.49832e-08, 0, 0.999996, 0, 8.49832e-08, 0, -1, 1.76951e-08, 3.05829, -3.18976)
+tags = Array[int]([0])
 cogs = [NodePath("Cog"), NodePath("GroundFloorInvestor")]
 focus_cog = NodePath("GroundFloorInvestor")
 override_intro = SubResource("Resource_8vpei")
-boss_battle = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BossObjects/BossFight/BattleNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.378779, 3.13534, 23.6856)

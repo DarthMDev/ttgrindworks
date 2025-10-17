@@ -168,10 +168,10 @@ func launch_player() -> void:
 	var land_y: float
 	if force_launch_node:
 		launch_y = force_launch_node.global_position.y + 8.0
-		land_y = player.to_local(force_launch_node.global_position).y
+		land_y = force_launch_node.global_position.y
 	else:
 		launch_y = player.global_position.y + 8.0
-		land_y = global_position.y
+		land_y = player.global_position.y
 
 	launch_tween.tween_property(player, 'global_position:y', launch_y, 1.0)
 	launch_tween.set_ease(Tween.EASE_IN)

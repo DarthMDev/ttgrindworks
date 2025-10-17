@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgtwlg02hp5fy"]
+[gd_scene load_steps=19 format=3 uid="uid://cgtwlg02hp5fy"]
 
 [ext_resource type="PackedScene" uid="uid://cyai35bfek33x" path="res://objects/modules/office/base_rooms/office_puzzle_room1.tscn" id="1_kmlvh"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="2_2bflx"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="9_v3reh"]
 [ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="15_c01rg"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="16_ko1u1"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="17_cmb30"]
 
 [sub_resource type="Resource" id="Resource_jmgml"]
 script = ExtResource("6_jmfmp")
@@ -166,11 +165,11 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/PuzzleLeft" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("5_jqv07")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_jmgml")
 item_pool = null
-is_punishment_battle = true
 
 [node name="Cog" parent="Puzzles/PuzzleLeft/BattleNode" index="2" instance=ExtResource("7_jis3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227, 0, 1.91495)
@@ -203,11 +202,11 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/PuzzleRight" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("5_jqv07")]
 transform = Transform3D(-5.64655e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -5.64655e-08, 1.69604, 0, 3.59506)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_jkugc")
 item_pool = null
-is_punishment_battle = true
 
 [node name="Cog" parent="Puzzles/PuzzleRight/BattleNode" index="2" instance=ExtResource("7_jis3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227, 0, 1.91495)
@@ -239,5 +238,4 @@ NodePath("../CogDoor"): "s_unlocked"
 }
 metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="10" instance=ExtResource("16_ko1u1")]
-script = ExtResource("17_cmb30")
+[node name="DebugPlayerPositionMarker" parent="." index="10" instance=ExtResource("16_ko1u1")]

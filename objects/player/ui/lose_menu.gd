@@ -9,6 +9,8 @@ signal s_choice_made(menu_choice: MenuChoice)
 
 @onready var root: Control = %Root
 @onready var node_viewer: TextureRect = %NodeViewer
+@onready var seed_label: Label = %SeedLabel
+@onready var seed_button: Button = %SeedButton
 
 var toon: Toon
 
@@ -20,6 +22,11 @@ func _ready() -> void:
 	get_tree().paused = true
 	root.modulate.a = 0.0
 
+	seed_label.set_text("Seed: %s" % [RNG._str_seed if RNG._str_seed else str(RNG.base_seed)])
+	seed_button.mouse_entered.connect(_hover_seed_label)
+	seed_button.mouse_exited.connect(_stop_hover_seed_label)
+	seed_button.pressed.connect(_seed_label_clicked)
+
 	toon = load("res://objects/toon/toon.tscn").instantiate()
 	node_viewer.add_child(toon)
 	toon.drop_shadow.queue_free()
@@ -30,7 +37,6 @@ func _ready() -> void:
 	else:
 		dna = Util.get_player().toon.toon_dna
 		Util.get_player().hide()
-
 
 	toon.construct_toon(dna)
 	toon.set_animation('lose')
@@ -64,3 +70,20 @@ func exit() -> void:
 func _exit_tree() -> void:
 	get_tree().paused = false
 	AudioManager.reset_music_pitch()
+
+var _seed_ival: ActiveInterval
+
+func _hover_seed_label() -> void:
+	HoverManager.hover("Click to copy seed")
+	_seed_ival = LerpProperty.setup(seed_label, ^"self_modulate", 0.15, Color(0.4, 1, 1, 1)).interp(Tween.EASE_OUT, Tween.TRANS_QUAD).start(self)
+
+func _stop_hover_seed_label() -> void:
+	HoverManager.stop_hover()
+	_seed_ival = LerpProperty.setup(seed_label, ^"self_modulate", 0.15, Color.WHITE).interp(Tween.EASE_OUT, Tween.TRANS_QUAD).start(self)
+
+func _seed_label_clicked() -> void:
+	DisplayServer.clipboard_set(RNG._str_seed)
+	HoverManager.hover("Seed copied!")
+	AudioManager.play_sound(load("res://audio/sfx/ui/GUI_balloon_popup.ogg"), 10.0)
+	seed_label.self_modulate = Color.ORANGE
+	_seed_ival = LerpProperty.setup(seed_label, ^"self_modulate", 0.6, Color(0.4, 1, 1, 1)).start(self)

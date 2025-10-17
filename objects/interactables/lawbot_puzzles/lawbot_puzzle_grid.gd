@@ -174,36 +174,40 @@ func lose_game() -> void:
 		lose_battle.player_entered(Util.get_player())
 		queue_free()
 	elif lose_type == LoseType.EXPLODE:
-		# Make Player slip backwards
-		var player := Util.get_player()
-		AudioManager.play_sound(player.toon.yelp)
-		player.last_damage_source = "the Head of Security"
-		player.quick_heal(Util.get_hazard_damage(explosion_damage))
-		# Only do the animation if the player is alive
-		if player.stats.hp > 0:
-			player.state = Player.PlayerState.STOPPED
-			player.set_animation('slip-backward')
-		
-		# Do Kaboom
-		AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))
-		var kaboom := Sprite3D.new()
-		kaboom.render_priority = 1
-		kaboom.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		kaboom.texture = load('res://models/props/gags/tnt/kaboom.png')
-		add_child(kaboom)
-		kaboom.global_position = player.global_position
-		kaboom.scale *= 0.25
-		var kaboom_tween := create_tween()
-		kaboom_tween.tween_property(kaboom,'pixel_size',.05,0.25)
-		await kaboom_tween.finished
-		kaboom_tween.kill()
-		kaboom.queue_free()
-		
-		# Free player (only if they're alive)
-		if player.stats.hp > 0:
-			await player.animator.animation_finished
-			player.state = Player.PlayerState.WALK
-			player.do_invincibility_frames(1.0)
+		explode_player()
+
+func explode_player(iframe_time := 1.0) -> void:
+	# Make Player slip backwards
+	var player := Util.get_player()
+	AudioManager.play_sound(player.toon.yelp)
+	player.last_damage_source = "Head of Security"
+	player.quick_heal(Util.get_hazard_damage(explosion_damage))
+	# Only do the animation if the player is alive
+	if player.stats.hp > 0:
+		player.state = Player.PlayerState.STOPPED
+		player.set_animation('slip-backward')
+	
+	# Do Kaboom
+	AudioManager.play_sound(load('res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg'))
+	var kaboom := Sprite3D.new()
+	kaboom.render_priority = 1
+	kaboom.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	kaboom.texture = load('res://models/props/gags/tnt/kaboom.png')
+	add_child(kaboom)
+	kaboom.global_position = player.global_position
+	kaboom.scale *= 0.25
+	var kaboom_tween := create_tween()
+	kaboom_tween.tween_property(kaboom,'pixel_size',.05,0.25)
+	await kaboom_tween.finished
+	kaboom_tween.kill()
+	kaboom.queue_free()
+	
+	# Free player (only if they're alive)
+	if player.stats.hp > 0:
+		await player.animator.animation_finished
+		player.state = Player.PlayerState.WALK
+		if iframe_time > 0.0:
+			player.do_invincibility_frames(iframe_time)
 
 func get_all_panels() -> Array[PuzzlePanel]:
 	var all_panels : Array[PuzzlePanel] = []

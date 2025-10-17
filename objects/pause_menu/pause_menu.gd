@@ -211,7 +211,6 @@ func on_quest_complete() -> void:
 		apply_stat_changes()
 	%GagPanel.refresh()
 
-
 func _process(delta : float) -> void:
 	if open_time < INPUT_DELAY:
 		open_time += delta

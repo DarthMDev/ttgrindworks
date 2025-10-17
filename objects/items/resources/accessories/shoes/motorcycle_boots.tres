@@ -12,6 +12,7 @@ shoe_type = 3
 shoe_tex = ExtResource("3_7c7sj")
 long_leg_tex = ExtResource("1_1fwxi")
 qualitoon = 3
+world_y_offset = -0.2
 item_name = "Motorcycle Boots"
 item_description = "Gas! Gas! Gas!"
 big_description = "+25% damage after defeating a Cog for the rest of the round."

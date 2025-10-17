@@ -49,6 +49,16 @@ _subresources={
 "use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
 "use_external/path": "uid://do7bpsdy2nk"
 },
+"SmoothSlate": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/smooth_wall.tres",
+"use_external/path": "uid://ch6ioni4g2jm1"
+},
+"Stone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/stone_wall.tres",
+"use_external/path": "uid://xbihtj11aaah"
+},
 "mazedirt_golf": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/facilities/cgc/materials/floor_mat.tres",

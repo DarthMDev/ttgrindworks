@@ -90,30 +90,30 @@ var see_descriptions: bool = false:
 	set(x):
 		see_descriptions = x
 		%ItemDescriptions.visible = x
-var see_anomalies := false
-var random_cog_heals := false
-var custom_gag_order := false
-var less_shop_items := false
-var better_battle_rewards := false
-var no_negative_anomalies := false
-var throw_heals := true
-var trap_needs_lure := true
-var inverted_sound_damage := false
-var obscured_anomalies := false
+var see_anomalies := 0
+var random_cog_heals := 0
+var custom_gag_order := 0
+var less_shop_items := 0
+var better_battle_rewards := 0
+var no_negative_anomalies := 0
+var throw_heals := 1
+var trap_needs_lure := 1
+var inverted_sound_damage := 0
+var obscured_anomalies := 0
 ## Damage immunity from light-based obstacles, such as spotlights and goon beams.
-var immune_to_light_damage := false
+var immune_to_light_damage := 0
 ## Damage immunity from stompers and other crush-based obstacles
-var immune_to_crush_damage := false
+var immune_to_crush_damage := 0
 ## Unique for Prof. Pete
-var gags_cost_beans := false
+var gags_cost_beans := 0
 ## Used for Oldman
-var revives_are_hp := false
+var revives_are_hp := 0
 ## Used in battle to override Gag prices
 var free_gags : Array[ToonAttack] = []
 ## For modders who hate their players
-var use_accuracy := false
+var use_accuracy := 0
 ## Self explanatory
-var cogs_always_hit := false
+var cogs_always_hit := 0
 var stranger_guaranteed := false
 var obscured_laff: bool:
 	get: return laff_meter.obscured

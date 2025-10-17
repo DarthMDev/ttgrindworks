@@ -64,7 +64,7 @@ func search_node(node : Node) -> Array[BattleNode]:
 	var battles : Array[BattleNode] = []
 	for child in node.get_children():
 		if child is BattleNode:
-			if child.monitoring and not child.override_intro and not child.boss_battle:
+			if not BattleNode.BattleTag.BLOCK_REALTIME_PRANKS in child.tags:
 				battles.append(child)
 		else:
 			battles.append_array(search_node(child))

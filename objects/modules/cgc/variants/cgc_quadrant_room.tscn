@@ -1,11 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5be6q4r0cn2l"]
+[gd_scene load_steps=35 format=3 uid="uid://b5be6q4r0cn2l"]
 
 [ext_resource type="PackedScene" uid="uid://bln8k5hdfnymx" path="res://objects/props/cgc/resizeable_wall.tscn" id="1_w0qh8"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_qcf8b"]
 [ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="4_pp8jr"]
 [ext_resource type="Script" uid="uid://c1ip615wqfun" path="res://objects/modules/cgc/variants/cgc_multi_mole_manager.gd" id="5_k8hhu"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="6_q0w5i"]
-[ext_resource type="Material" uid="uid://cp8vv8al3i6nl" path="res://models/facilities/general/materials/oil_mat.tres" id="7_x1lri"]
+[ext_resource type="Shader" uid="uid://b3xje7jv3si6v" path="res://general_resources/shaders/liquid_shader.gdshader" id="7_3npku"]
+[ext_resource type="Texture2D" uid="uid://bdf3g7nyxirat" path="res://models/facilities/cgc/textures/oil.png" id="8_cmjfk"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="9_ckfp5"]
 [ext_resource type="PackedScene" uid="uid://bnlt8eyy2ha65" path="res://objects/props/cgc/cgc_gateway.tscn" id="9_nnima"]
 [ext_resource type="PackedScene" uid="uid://dbjjb2sjjolvo" path="res://objects/props/cgc/castle_tower.tscn" id="10_4b7f8"]
@@ -22,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://hjl7feh88kw3" path="res://objects/props/cgc/pillar.tscn" id="20_w3g3r"]
 [ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="21_4h3gd"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="22_3npku"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="23_cmjfk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8weq3"]
 vertices = PackedVector3Array(-15.0268, 7.5, -21.5255, -15.0268, 7.5, -20.5255, -4.2768, 7.5, -20.5255, -4.2768, 7.5, -21.5255, 4.4732, 7.5, -21.5255, 4.4732, 7.5, -20.5255, 15.4732, 7.5, -20.5255, 15.4732, 7.5, -21.5255, -17.5268, 6.75, -19.7755, -17.5268, 6.75, -21.0255, -20.7768, 6.75, -21.0255, -20.7768, 6.75, 20.9745, -17.5268, 6.75, 20.9745, -17.5268, 6.75, 19.4745, -16.2768, 6.75, 19.2245, -16.2768, 6.75, -19.5255, 17.7232, 6.75, 19.4745, 17.7232, 6.75, 20.9745, 21.4732, 6.75, 20.9745, 21.4732, 6.75, -21.0255, 17.7232, 6.75, -21.0255, 17.7232, 6.75, -19.5255, 16.7232, 6.75, -19.2755, 16.7232, 6.75, 19.2245, 3.2232, 0.25, -17.2755, 3.4732, 0.5, -16.7755, 4.2232, 0.25, -19.5255, 3.4732, 0.25, -19.7755, -14.2768, 0.5, -13.2755, -14.2768, 0.5, -3.2755, -3.2768, 0.5, -3.2755, -3.2768, 0.5, -17.0255, 3.4732, 0.25, -20.5255, -3.2768, 0.5, -20.5255, -3.5268, 0.5, -19.2755, -15.0268, 0.5, -19.5255, -15.0268, 0.5, -13.5255, 14.7232, 0.5, -13.2755, 15.4732, 0.5, -13.5255, 15.4732, 0.25, -19.2755, 3.4732, 0.5, -3.2755, 14.7232, 0.5, -3.2755, 3.4732, 0.25, 19.4745, 3.9732, 0.25, 19.2245, 3.4732, 0.5, 17.2245, -3.2768, 0.5, 17.2245, -3.5268, 0.5, 19.2245, -3.2768, 0.5, 20.7245, -14.2768, 0.5, 13.2245, -15.0268, 0.5, 13.4745, -15.0268, 0.5, 19.2245, 3.4732, 0.25, 20.7245, -3.2768, 0.5, 3.4745, -14.2768, 0.5, 3.4745, 15.4732, 0.25, 19.2245, 15.4732, 0.5, 13.4745, 14.7232, 0.5, 13.2245, 14.7232, 0.5, 3.4745, 3.4732, 0.5, 3.4745, -15.0268, 7.5, 20.2245, -15.0268, 7.5, 21.4745, -4.2768, 7.5, 21.4745, -4.2768, 7.5, 20.2245, 4.4732, 7.5, 20.2245, 4.4732, 7.5, 21.4745, 15.4732, 7.5, 21.4745, 15.4732, 7.5, 20.2245)
@@ -34,8 +34,33 @@ size = Vector3(8.9867, 12.2784, 4.52087)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3fr2c"]
 size = Vector3(38.5891, 0.419852, 41.1362)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mqphr"]
+noise_type = 3
+frequency = 0.0101
+offset = Vector3(47.62, 0, 0)
+fractal_type = 3
+fractal_octaves = 2
+fractal_lacunarity = 1.0
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r0pwm"]
+noise = SubResource("FastNoiseLite_mqphr")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rhc8"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("7_3npku")
+shader_parameter/albedo = Color(0.847474, 0.847474, 0.847474, 1)
+shader_parameter/texture_albedo = ExtResource("8_cmjfk")
+shader_parameter/uv1_scale = Vector3(5.14, 2.98, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_scroll = 0.05
+shader_parameter/height_scale = 0.255
+shader_parameter/displacement = SubResource("NoiseTexture2D_r0pwm")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_60om0"]
-material = ExtResource("7_x1lri")
+material = SubResource("ShaderMaterial_4rhc8")
 size = Vector2(79.585, 45.355)
 subdivide_width = 32
 subdivide_depth = 32
@@ -227,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59721, -0.249593, 1.06342)
 shape = SubResource("BoxShape3D_3fr2c")
 
 [node name="LavaPlane" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76687, -2.93431, -0.607525)
+transform = Transform3D(0.69537103, 0, 0, 0, 1, 0, 0, 0, 1, -2.76687, -2.93431, -0.607525)
 mesh = SubResource("PlaneMesh_60om0")
 
 [node name="FloorColl" type="StaticBody3D" parent="."]
@@ -238,7 +263,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38739, -0.354345, 1.30404)
 shape = SubResource("BoxShape3D_rkcy4")
 
 [node name="ENTRANCE" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.2202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.988834)
 
 [node name="EntranceVisual" parent="ENTRANCE" instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
 visible = false
@@ -250,6 +275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -20.802)
 
 [node name="Gateway" parent="EXIT" instance=ExtResource("9_nnima")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
 
 [node name="Pillars" type="Node3D" parent="."]
 
@@ -529,8 +555,7 @@ NodePath("../MoleBossManager"): "s_game_won"
 }
 metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." instance=ExtResource("22_3npku")]
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("22_3npku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.66828, -0.00955803, 5.68749)
-script = ExtResource("23_cmjfk")
 
 [connection signal="body_entered" from="MoleBossManager/GameStartColl" to="MoleBossManager" method="body_entered"]

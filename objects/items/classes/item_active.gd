@@ -63,5 +63,5 @@ func play_sound_key(key: SoundType) -> void:
 func remove_item(player: Player) -> void:
 	super(player)
 	node.attempt_disconnect()
-	Util.get_player().stats.current_active_item = null
-	Util.get_player().stats.current_active_item = null
+	if self in player.stats.actives_in_reserve:
+		player.stats.actives_in_reserve.erase(self)

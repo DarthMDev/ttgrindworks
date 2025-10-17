@@ -1,19 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://d054ke2blploi"]
+[gd_scene load_steps=20 format=3 uid="uid://d054ke2blploi"]
 
 [ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_hp4bx"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="2_bvmko"]
 [ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="3_smlqd"]
 [ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="4_klolr"]
 [ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="5_bvmko"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="6_klolr"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="7_scpds"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smlqd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvmko"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("3_smlqd")
 roughness = 0.552786
 uv1_scale = Vector3(1, 3.915, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klolr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smlqd"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("3_smlqd")
@@ -67,17 +69,17 @@ NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
 }
 
 [node name="ConveyerBelt" parent="." index="7" instance=ExtResource("2_bvmko")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.08228, 0.522622, -10.5374)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.0489786, 0.5226201, -10.536672)
 constant_linear_velocity = Vector3(-10, 0, -4.371139e-07)
 size = Vector3(4, 1.65, 3.915)
-platform_mat = SubResource("StandardMaterial3D_smlqd")
+platform_mat = SubResource("StandardMaterial3D_bvmko")
 speed = 10.0
 
 [node name="ConveyerBelt2" parent="." index="8" instance=ExtResource("2_bvmko")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 3.0435, 0.522622, 3.83546)
 constant_linear_velocity = Vector3(10, 0, 7.54979e-07)
 size = Vector3(4, 1.65, 4)
-platform_mat = SubResource("StandardMaterial3D_klolr")
+platform_mat = SubResource("StandardMaterial3D_smlqd")
 speed = 10.0
 
 [node name="BurnerFlame" parent="." index="9" instance=ExtResource("4_klolr")]
@@ -102,7 +104,7 @@ flame_length = 2.165
 transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, 1.07091e-06, 5.0401, 2.79225)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7768204, -4.54413, 1.1131015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29092672, -4.24249, 1.1131017)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77991e-07, 0, 5.91933)
@@ -112,7 +114,7 @@ shape = SubResource("BoxShape3D_hp4bx")
 transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, -1.07091e-06, 5.0401, -7.86906)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9446205, -4.54413, -2.7055354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075658694, -4.126082, -2.7055354)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80686e-07, 0, 6.08611)
@@ -153,3 +155,7 @@ mesh = SubResource("BoxMesh_ee6et")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_scpds")
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="19" instance=ExtResource("6_klolr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5569007, 1.6737852)
+script = ExtResource("7_scpds")

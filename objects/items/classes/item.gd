@@ -169,7 +169,12 @@ func apply_item_stats(player: Player) -> void:
 			stats[stat] *= stats_multiply[stat]
 	
 	for value in player_values:
-		player.set(value, player_values[value])
+		if player_values[value] is bool and player.get(value) is int:
+			match player_values[value]:
+				true: player.set(value, player.get(value) + 1)
+				false: player.set(value, player.get(value) - 1)
+		else:
+			player.set(value, player_values[value])
 
 func apply_item_script(player : Player, object : Node3D = null) -> void:
 	if item_script:
@@ -242,12 +247,19 @@ func remove_item(player: Player) -> void:
 	# Undo player values
 	for value in player_values:
 		if player_values[value] is bool:
-			player.set(value, not player_values[value])
+			if player.get(value) is int:
+				match player_values[value]:
+					true: player.set(value, player.get(value) - 1)
+					false: player.set(value, player.get(value) + 1)
+			else:
+				player.set(value, not player_values[value])
 		else:
 			printerr("Data type of %s is not set up to be un-applied in item class!" % value)
 	
 	# Remove item node
 	for node in player.item_node.get_children():
+		if node.is_queued_for_deletion(): 
+			continue
 		if node is ItemScript and node.get_script() == item_script:
 			node.on_item_removed()
 			node.queue_free()

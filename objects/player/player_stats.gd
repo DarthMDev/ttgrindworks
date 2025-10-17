@@ -95,6 +95,8 @@ signal s_luck_changed(new_luck: float)
 				actives_in_reserve.append(current_active_item)
 		if x in actives_in_reserve: 
 			actives_in_reserve.erase(x)
+		if x == null and not actives_in_reserve.is_empty():
+			x = actives_in_reserve.pop_front()
 		current_active_item = x
 		s_active_item_changed.emit(x)
 signal s_active_item_changed(new_item: ItemActive)

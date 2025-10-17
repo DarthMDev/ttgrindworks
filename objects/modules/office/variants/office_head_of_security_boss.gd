@@ -169,8 +169,9 @@ func skip_cutscene(tween: Tween) -> void:
 	tween.custom_step(10000.0)
 	AudioManager.music_player.set_volume_db(0.0)
 	%CogDoor.skip_tween()
-	if %TextSprawl.sprawl_tween and %TextSprawl.sprawl_tween.is_running():
-		%TextSprawl.sprawl_tween.custom_step(1000.0)
+	if get_node_or_null('TextSprawl'):
+		if %TextSprawl.sprawl_tween and %TextSprawl.sprawl_tween.is_running():
+			%TextSprawl.sprawl_tween.custom_step(1000.0)
 
 func do_transition_cutscene() -> Tween:
 	transition_count += 1

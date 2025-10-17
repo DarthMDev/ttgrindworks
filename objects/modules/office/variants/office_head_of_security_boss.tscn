@@ -273,6 +273,7 @@ label_settings = SubResource("LabelSettings_qx1ei")
 
 [node name="TextSprawl" parent="." index="36" instance=ExtResource("14_ftyqj")]
 unique_name_in_owner = true
+visible = false
 offset_top = 142.0
 offset_bottom = 200.0
 text = "HEAD OF SECURITY"

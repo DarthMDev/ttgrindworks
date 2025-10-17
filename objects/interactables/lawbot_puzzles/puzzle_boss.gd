@@ -83,10 +83,12 @@ func get_game_text() -> String:
 	return ""
 
 ## Make the penalty for mistakes scale over time
-func lose_game() -> void:
+func lose_game(iframe_time := 1.0) -> void:
+	if Util.get_player().is_invincible():
+		return
 	if not Util.get_player().state == Player.PlayerState.WALK:
 		return
-	super()
+	explode_player(iframe_time)
 	if Util.on_easy_floor(): explosion_damage -= 1
 	else: explosion_damage -= 2
 
@@ -251,6 +253,7 @@ var drag_remaining_shapes: Array[PuzzlePanel.PanelShape] = [
 var drag_player_panel: PuzzlePanel
 var drag_skull_chance := 14
 var drag_shape_placements := [1, 4, 7]
+var immovables: Array[PuzzlePanel] = []
 
 func drag_initialize() -> void:
 	if not Util.on_easy_floor(): drag_skull_chance = 12
@@ -259,8 +262,11 @@ func drag_initialize() -> void:
 	drag_shape_placements.shuffle()
 	var shape_spaces := {}
 	for shape in drag_remaining_shapes:
-		grid[3 * drag_remaining_shapes.find(shape)][0].panel_shape = shape
-		grid[3 * drag_remaining_shapes.find(shape) + 2][0].panel_shape = shape
+		var immovable1: PuzzlePanel = grid[3 * drag_remaining_shapes.find(shape)][0]
+		var immovable2: PuzzlePanel = grid[3 * drag_remaining_shapes.find(shape) + 2][0]
+		immovable1.panel_shape = shape
+		immovable2.panel_shape = shape
+		immovables.append_array([immovable1, immovable2])
 		grid[drag_shape_placements.pop_back()][grid_height - 2].panel_shape = shape
 	
 	for i in grid.size():
@@ -328,7 +334,7 @@ func drag_player_stepped_on(panel: PuzzlePanel) -> void:
 	if not drag_player_panel:
 		drag_player_panel = panel
 		return
-	if get_panel_coords(panel).y == 0 and not drag_get_bottom_row_swappable(panel.panel_shape):
+	if panel in immovables:
 		return
 	if panel.panel_shape == PuzzlePanel.PanelShape.NOTHING or panel.panel_shape == PuzzlePanel.PanelShape.DOT:
 		if drag_player_panel.panel_shape in drag_remaining_shapes:
@@ -406,7 +412,7 @@ func drag_end() -> void:
 var match_squares := 0
 var match_triangles := 0
 var match_cogs: Array[Cog] = []
-var match_time := 45.0
+var match_time := 40.0
 var match_cog2_spawn_time: float:
 	get:
 		if Util.on_easy_floor():
@@ -735,7 +741,7 @@ func finder_check_panel(panel: PuzzlePanel, player_stepped := true) -> void:
 	if pos in finder_bombs:
 		panel.panel_shape = PuzzlePanel.PanelShape.SKULL
 		if player_stepped:
-			lose_game()
+			lose_game(0.0)
 		if player_stepped:
 			finder_check_chain(finder_get_adjacent_positions(pos.x, pos.y))
 		return
@@ -766,7 +772,7 @@ func finder_get_adjacent_positions(x: int, y: int) -> Array[Vector2i]:
 
 func finder_end() -> void:
 	set_all_panel_shapes(PuzzlePanel.PanelShape.NOTHING)
-	swap_collision_layer()
+	#swap_collision_layer()
 
 #endregion
 

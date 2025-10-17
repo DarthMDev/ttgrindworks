@@ -12,7 +12,6 @@ charge_count = 3
 current_charge = 3
 custom_discharge_time = 10.0
 qualitoon = 1
-rarity = 3
 realtime = true
 world_scale = 0.3
 item_name = "Unstoppable Gobstopper"

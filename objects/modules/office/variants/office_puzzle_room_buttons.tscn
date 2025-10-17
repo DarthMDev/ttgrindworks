@@ -282,6 +282,7 @@ explosion_damage = 0
 [node name="BattleNode" parent="LaserPuzzle" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("14_qksww")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.31152, 0, 1.16323)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
 override_intro = SubResource("Resource_5vlwh")
 item_pool = null

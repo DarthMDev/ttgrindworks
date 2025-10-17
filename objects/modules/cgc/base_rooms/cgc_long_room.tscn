@@ -67,6 +67,7 @@ size = Vector2(5.81, 2.18)
 
 [node name="Gateway" parent="Navigation" instance=ExtResource("4_v5a5g")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -22.5491)
+visible = false
 
 [node name="Pillars" type="Node3D" parent="Navigation"]
 
@@ -155,8 +156,8 @@ transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 8.0052
 [node name="BranchWalls" type="Node3D" parent="."]
 
 [node name="CgcBrushWall" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
-transform = Transform3D(-4.13894, 0, -12.3235, 0, 13, 0, 12.3235, 0, -4.13894, 28.7812, 3.81163, 24.3749)
-length = 1.46
+transform = Transform3D(12.293936, 0, -4.2259455, 0, 13, 0, 4.2259455, 0, 12.293936, 36.474, 3.812, 16.966)
+length = 0.77
 
 [node name="CgcBrushWall3" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
 transform = Transform3D(4.16883, 0, -12.3134, 0, 13, 0, 12.3134, 0, 4.16883, 28.7886, 3.81163, 6.41855)
@@ -165,14 +166,6 @@ length = 1.46
 [node name="CgcBrushWall4" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
 transform = Transform3D(-4.63823, 0, -12.1444, 0, 13, 0, 12.1444, 0, -4.63823, 30.4237, 3.81163, -14.6668)
 length = 2.0
-
-[node name="CgcBrushWall5" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
-transform = Transform3D(-11.5668, 0, -5.93379, 0, 13, 0, 5.93379, 0, -11.5668, 46.5985, 3.81163, -32.7342)
-length = 2.0
-
-[node name="CgcBrushWall2" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
-transform = Transform3D(7.57239, 0, -10.5669, 0, 13, 0, 10.5669, 0, 7.57239, 31.3736, 3.81163, 41.071)
-length = 1.46
 
 [node name="CgcBrushWall6" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
 transform = Transform3D(4.13894, 0, 12.3235, 0, 13, 0, -12.3235, 0, 4.13894, -24.9789, 3.81163, -14.5895)
@@ -183,15 +176,12 @@ transform = Transform3D(-4.16883, 0, 12.3134, 0, 13, 0, -12.3134, 0, -4.16883, -
 length = 1.46
 
 [node name="CgcBrushWall8" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
-transform = Transform3D(4.63823, 0, 12.1444, 0, 13, 0, -12.1444, 0, 4.63823, -26.6214, 3.81163, 24.4521)
-length = 2.0
-
-[node name="CgcBrushWall9" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
-transform = Transform3D(11.5668, 0, 5.93379, 0, 13, 0, -5.93379, 0, 11.5668, -42.7962, 3.81163, 42.5196)
-length = 2.0
+transform = Transform3D(4.63823, 0, 12.1444, 0, 13, 0, -12.1444, 0, 4.63823, -24.17633, 3.81163, 18.05011)
+length = 0.945
 
 [node name="CgcBrushWall10" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
 transform = Transform3D(-7.57239, 0, 10.5669, 0, 13, 0, -10.5669, 0, -7.57239, -27.5713, 3.81163, -31.2856)
+visible = false
 length = 1.46
 
 [node name="Trees" type="Node3D" parent="."]
@@ -204,6 +194,7 @@ transform = Transform3D(1.7, 0, 0, 0, 3, 0, 0, 0, 1, 23.4181, 4.19734, 7.56629)
 
 [node name="Tree3" parent="Trees" instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2, 0, 0, 0, 3.6, 0, 0, 0, 1, -21.119, 4.19734, -28.865)
+visible = false
 
 [node name="Tree4" parent="Trees" instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2.2, 0, 0, 0, 3.6, 0, 0, 0, 1, -23.143, 4.19734, -9.84345)

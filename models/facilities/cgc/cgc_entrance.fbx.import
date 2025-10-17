@@ -44,17 +44,7 @@ _subresources={
 "use_external/fallback_path": "res://models/facilities/cgc/materials/tree_mat.tres",
 "use_external/path": "uid://b45hb25eo5q6v"
 },
-"CogHedgeMaze2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
-"use_external/path": "uid://bv4ojtkb3obxf"
-},
-"CogHedgeMaze3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
-"use_external/path": "uid://c3vi6h4mq71ow"
-},
-"CogHedgeVine": {
+"CogHedgeVine.001": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
 "use_external/path": "uid://do7bpsdy2nk"
@@ -63,6 +53,26 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
 "use_external/path": "uid://do7bpsdy2nk"
+},
+"Hedge": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
+"use_external/path": "uid://bv4ojtkb3obxf"
+},
+"HedgePartial": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
+"use_external/path": "uid://c3vi6h4mq71ow"
+},
+"Slate": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/slate.tres",
+"use_external/path": "uid://cliv41wabcywl"
+},
+"StoneWall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/stone_wall.tres",
+"use_external/path": "uid://xbihtj11aaah"
 },
 "mazedirt_golf": {
 "use_external/enabled": true,

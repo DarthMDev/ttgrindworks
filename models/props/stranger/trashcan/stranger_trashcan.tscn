@@ -11742,12 +11742,14 @@ metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_unxm5")
 volume_db = -1.0
+bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
 [node name="SFXRecenter" type="Node3D" parent="SFX" index="10"]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_bpmml")
 volume_db = -1.0
+bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
 [connection signal="timeout" from="AnimationTimer" to="." method="rustle"]

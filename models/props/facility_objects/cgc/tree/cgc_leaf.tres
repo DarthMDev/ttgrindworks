@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dum3qlv7luomk"]
+
+[ext_resource type="Texture2D" uid="uid://da84wbr6ns047" path="res://models/props/facility_objects/cgc/tree/CGC_Leaf.png" id="1_8tvl4"]
+
+[resource]
+resource_name = "cgc_leaf"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_8tvl4")
+stencil_flags = 2

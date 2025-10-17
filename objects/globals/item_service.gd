@@ -202,7 +202,12 @@ func apply_inventory() -> void:
 					backpack = item
 
 		for value in item.player_values.keys():
-			player.set(value, item.player_values[value])
+			if item.player_values[value] is bool and player.get(value) is int:
+				match item.player_values[value]:
+					true: player.set(value, player.get(value) + 1)
+					false: player.set(value, player.get(value) - 1)
+			else:
+				player.set(value, item.player_values[value])
 	
 		# If a script item is found, run the load method
 		if item.item_script:

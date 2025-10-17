@@ -33,3 +33,8 @@ func apply_item(player: Player, apply_visuals := true, object: Node3D = null) ->
 
 func place_shoes(toon: Toon) -> void:
 	toon.legs.set_shoes(shoe_type as ToonLegs.ShoeType, get_correct_texture(toon.toon_dna))
+
+## Needs to update Player look when discarded
+func remove_item(player: Player) -> void:
+	super(player)
+	player.update_accessories()

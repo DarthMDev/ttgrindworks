@@ -123,7 +123,7 @@ func check_player_state() -> bool:
 	elif item.active_type == ItemActive.ActiveType.REALTIME or item.active_type == ItemActive.ActiveType.ANY:
 		return player.controller.current_state.accepts_interaction()
 	elif item.active_type == ItemActive.ActiveType.WHENEVER:
-		return true
+		return not player.state == Player.PlayerState.SAD
 	return false
 
 func _on_battle_started(battle: BattleManager) -> void:

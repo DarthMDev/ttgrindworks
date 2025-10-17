@@ -198,7 +198,8 @@ func end_boss() -> void:
 	player.state = Player.PlayerState.WALK
 	player.stats.charge_active_item(2)
 	%RecoveryBellows.position = Vector3(-2.877, 0.893, 0.899)
-	AudioManager.set_music(load('res://audio/music/molten_mint/molten_mint.ogg'))
+	AudioManager.stop_music(true)
+	AudioManager.set_default_music(load('res://audio/music/molten_mint/molten_mint.ogg'))
 
 func unload_chase() -> void:
 	for room in rooms.get_children():
@@ -317,7 +318,7 @@ func _process(delta: float) -> void:
 		camera_tween.set_speed_scale(chase_speed)
 
 func _physics_process(_delta: float) -> void:
-	if state == BossState.INACTIVE: return
+	if not state == BossState.ACTIVE and not state == BossState.TUTORIAL: return
 	
 	if player.global_position.y < lava_level:
 		respawn_player()

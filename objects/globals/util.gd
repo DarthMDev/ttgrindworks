@@ -278,6 +278,13 @@ func resume_player_safe() -> void:
 	if is_instance_valid(get_player()):
 		get_player().state = Player.PlayerState.WALK
 
+## Returns battle variant of stats if a battle is active
+## Otherwise, returns regular permanent player stats
+func get_relevant_player_stats() -> PlayerStats:
+	if is_instance_valid(BattleService.ongoing_battle):
+		return BattleService.ongoing_battle.battle_stats[get_player()]
+	return get_player().stats
+
 func barrier(_signal: Signal, timeout: float = 10.0) -> Signal:
 	return SignalBarrier.new([_signal, Task.delay(timeout)], SignalBarrier.BarrierType.ANY).s_complete
 

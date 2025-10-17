@@ -33,8 +33,8 @@ signal s_play_pressed
 
 
 func _ready() -> void:
-	# Await a frame in case a character is unlocked when the title screen is entered
-	await get_tree().process_frame
+	# Await a half-second in case a character is unlocked when the title screen is entered
+	await Task.delay(0.5)
 	
 	character = GameLoader.load("res://objects/player/characters/flippy.tres")
 	re.compile(r"[^a-z0-9]+")

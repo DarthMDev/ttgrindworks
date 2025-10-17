@@ -5,7 +5,7 @@ This is a single-player game based on Disney's Toontown Online developed with th
 
 ## Requirements
 
-- Godot v4.4.1
+- Godot v4.5
 
 ## Disclaimer
 - We are under no obligation to:
@@ -78,10 +78,10 @@ Enjoy!
   - Quality Assurance
 - John Boyo
   - Quality Assurance
+- Stripey
+  - Marketing & Quality Assurance
 - Greetings
   - Consultant
-- Stripey
-  - Marketing
 - Lappy
   - Lappy?
 - Toontown: Event Horizon

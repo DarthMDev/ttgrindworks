@@ -417,7 +417,7 @@ func get_attack() -> CogAttack:
 		attack.user = self
 		if attack.damage > 0:
 			attack.damage += get_damage_boost()
-		if Util.get_player().random_cog_heals and randf() < Util.get_player().stats.get_luck_weighted_chance(0.05, 0.15, 2.0):
+		if Util.get_player().random_cog_heals and randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(0.05, 0.15, 2.0):
 			attack.store_boost_text("Lovely Heal!", Color.HOT_PINK)
 			attack.damage = -attack.damage
 		# Get the target

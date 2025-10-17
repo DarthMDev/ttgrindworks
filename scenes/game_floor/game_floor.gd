@@ -253,7 +253,7 @@ func append_room(room: PackedScene, room_type: RoomType):
 		var prev_exit = prev_room.get_node('EXIT')
 		var new_entrance = new_module.get_node('ENTRANCE')
 		
-		# Failsafe
+		# Failsafe!
 		if not prev_room.is_inside_tree():
 			prev_room.reparent(room_node)
 		

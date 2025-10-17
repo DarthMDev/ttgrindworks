@@ -128,6 +128,7 @@ func play_win_cutscene() -> void:
 	cutscene.tween_callback(s_game_won.emit)
 	cutscene.tween_callback(player.toon.set_blink_paused.bind(false))
 	cutscene.tween_callback(func(): player.game_timer_tick = true)
+	cutscene.tween_callback(%LavaFloor.set_monitoring.bind(true))
 	cutscene.finished.connect(cutscene.kill)
 
 const LIQUIDATOR_MOVE_SPEED := 2.0
