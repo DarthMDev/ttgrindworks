@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://bkt8fawca8835"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_7glei"]
+
+[resource]
+script = ExtResource("1_7glei")
+release_version = "v1.2.1"
+notes = "[TITLE]Items
+Glowering Dagger's parry time will now increase with Evasiveness
+  A more substantial change to the Dagger is currently being workshopped
+Red Tape now takes 15% of your Laff away on use
+Removed Red Tape's buffer of leaving you at 1 Laff before making you go sad
+Sandwich will now only heal 30% of your laff
+Slightly decreased the rarity of Unstoppable Gobstopper
+[TITLE]Characters
+Evasiveness-focused items will no longer reroll for Lil Oldman
+[TITLE]Bosses
+Tweaked how invincibility frames affect the Head of Security boss fight
+  While invincible, you can:
+    Step on skull spaces without taking damage
+    Pass through Virtual Skelecogs during the Matching round
+    Properly interact with the puzzle, whereas before you would not have been able to
+  This change is fully exclusive to the Head of Security boss fight, invincibility frames cannot be used to bypass standard puzzles in any way
+[TITLE]Facilities
+The Cog Golf Course has received a small visual overhaul, and some new connector rooms
+[TITLE]Tweaks
+The run seed is now visible when going sad
+Made the sand mole room in the Cog Golf Course slightly easier
+Items weighted by Luck will now be affected by Luck buffs and debuffs in battle
+Made shoes and boots slightly smaller in world
+[TITLE]Bugfixes
+Fixed an issue where rerolling a Pocket Prank quickly after swapping it out for Paint Bucket would cause a crash
+Added some extra checks to prevent Lil Oldman from randomly exploding
+The Life Insurance status effect will no longer last indefinitely after use
+Fixed Motorcycle Boots activating when Big Foghorn was used
+Fixed missing defeat message from sand moles in the Cog Golf Course
+Fixed the sand mole room not opening the gate upon losing
+Fixed an issue that allowed you to fire The Directors
+Fixed a rare softlock in the Head of Security boss fight
+Fixed a few collision bugs in the Molten Mint
+Fixed a few floating chests in the Molten Mint
+Fixed an issue where pranks like Toy Hammer & Big Foghorn couldn't interact with battles containing Proxy Cogs in the Molten Mint
+Fixed jumps not tracking properly for an item achievement
+Fixed Mystery Toon's unlock being impossible
+  For context, the method of unlocking Mystery Toon is still to defeat The Directors as Moe Zart
+Fixed Audio not playing on MacOS
+Fixed an inconsistency with the alt-floor rate for White-Out and the standard alt-floor rate
+Fixed an issue where after defeating The Liquidator, you were unable to backtrack through the facility, as the death floor was still active
+Fixed an issue where the Molten Mint music would continue on after the Facility ended if you wound up in The Stranger's shop
+Fixed not being able to trade your reserve prank to The Stranger
+Your prank in reserve will now be swapped to after trading your primary prank to The Stranger
+Shoes now properly update after being traded to The Stranger
+The camera will now recenter upon battle end with the classic control style enabled"

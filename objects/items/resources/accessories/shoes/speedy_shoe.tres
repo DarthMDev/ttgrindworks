@@ -7,6 +7,7 @@
 script = ExtResource("1_unhvv")
 shoe_tex = ExtResource("2_2j16s")
 rarity = 7
+world_y_offset = -0.2
 item_name = "Speedy Shoes"
 item_description = "Gotta go fast!"
 big_description = "Increases the game speed by 25%.  (sory i gutted the functionality for this thing)"

@@ -1,0 +1,77 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bifyfsihnr0hn"
+path="res://.godot/imported/Gateways.fbx-de73eaa69f9e6a0b9cc3093a9eb239c8.scn"
+
+[deps]
+
+source_file="res://models/props/facility_objects/cgc/gateway/Gateways.fbx"
+dest_files=["res://.godot/imported/Gateways.fbx-de73eaa69f9e6a0b9cc3093a9eb239c8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=20.0
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Ground": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/floor_mat.tres",
+"use_external/path": "uid://dlodnyf0k6y17"
+},
+"Hedge": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
+"use_external/path": "uid://bv4ojtkb3obxf"
+},
+"HedgePartial": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
+"use_external/path": "uid://c3vi6h4mq71ow"
+},
+"Slate": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/slate.tres",
+"use_external/path": "uid://cliv41wabcywl"
+},
+"Stone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/stone_wall.tres",
+"use_external/path": "uid://xbihtj11aaah"
+},
+"smoothwall_4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/smooth_wall.tres",
+"use_external/path": "uid://ch6ioni4g2jm1"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=true
+fbx/embedded_image_handling=1
+fbx/naming_version=2

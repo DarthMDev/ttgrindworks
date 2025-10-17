@@ -168,7 +168,6 @@ func _ready() -> void:
 
 func reset() -> void:
 	channels.clear()
-	_str_seed = ""
 
 func load_from_run_file(file: SaveFile) -> void:
 	base_seed = file.current_seed

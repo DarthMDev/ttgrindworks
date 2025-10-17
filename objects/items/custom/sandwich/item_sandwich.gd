@@ -8,5 +8,5 @@ func validate_use() -> bool:
 func use() -> void:
 	var player := Util.get_player()
 	
-	player.quick_heal(roundi(player.stats.max_hp * 0.4))
+	player.quick_heal(roundi(player.stats.max_hp * 0.3))
 	AudioManager.play_sound(load(chomp))

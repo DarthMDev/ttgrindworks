@@ -69,12 +69,12 @@ script = ExtResource("1_o01i0")
 mesh = NodePath("Model")
 
 [node name="Model" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_whpwu")
 skin = SubResource("Skin_o01i0")
 surface_material_override/0 = SubResource("StandardMaterial3D_o01i0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0799374, -0.13239)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.0799374, -0.13239)
 visible = false
 mesh = SubResource("BoxMesh_6u6js")

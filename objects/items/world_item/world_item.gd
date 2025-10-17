@@ -115,6 +115,8 @@ static func get_item_description(_item : Item) -> String:
 	return string
 
 func reroll() -> void:
+	if swap_tween and swap_tween.is_running():
+		swap_tween.kill()
 	if model:
 		model.queue_free()
 	ItemService.item_removed(item)

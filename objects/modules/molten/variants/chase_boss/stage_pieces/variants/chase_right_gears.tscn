@@ -66,7 +66,7 @@ spin_speed = 30.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.86107, 4.97449, 12.4209)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66818, -3.9713, -4.28423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66818, -3.971305, -4.28423)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
 shape = SubResource("BoxShape3D_kslio")

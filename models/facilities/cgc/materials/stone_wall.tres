@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xbihtj11aaah"]
+
+[ext_resource type="Texture2D" uid="uid://csmkpukc6maca" path="res://models/facilities/cgc/textures/StoneWall1e.png" id="1_8nfys"]
+
+[resource]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_8nfys")

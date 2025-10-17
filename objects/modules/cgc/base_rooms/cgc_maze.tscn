@@ -83,6 +83,12 @@ shape = SubResource("ConcavePolygonShape3D_ak1ug")
 [node name="HedgeBlocksOutside" parent="MazeAll/OutsideElements" index="7"]
 visible = false
 
+[node name="TunnelFront1" parent="MazeAll/BattleArea/Geometry" index="42"]
+visible = false
+
+[node name="GeometryTransformHelper80" parent="MazeAll/BattleArea/Geometry/SeemPatch" index="0"]
+visible = false
+
 [node name="Collision" parent="MazeAll/BattleArea" index="1"]
 visible = false
 
@@ -100,6 +106,9 @@ shape = SubResource("ConcavePolygonShape3D_x40rn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MazeAll/BattleArea/Collision/collisionfloor2/GeometryTransformHelper82/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_kkctj")
+
+[node name="EXIT" parent="MazeAll" index="4"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -975.6246, -0.00039530417, -768.2109)
 
 [node name="collision_walls_outside_1" parent="MazeAll/Maze_0/Maze_outside_0/Outside_1" index="5"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pul5ihcv4jso"]
+[gd_scene load_steps=13 format=3 uid="uid://pul5ihcv4jso"]
 
 [ext_resource type="PackedScene" uid="uid://cu152iitwfet2" path="res://objects/modules/cgc/base_rooms/cgc_finale_room.tscn" id="1_6f8n4"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_e72f8"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://cotrm84ro0n5b" path="res://audio/music/action_boss.ogg" id="4_tl5sg"]
 [ext_resource type="Resource" uid="uid://b2numr2pojy1o" path="res://objects/cog/presets/bossbot/mole_cog.tres" id="5_k3qvb"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="9_q4nkj"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="10_2sxtf"]
 
 [sub_resource type="Resource" id="Resource_8dvvi"]
 script = ExtResource("4_pn2yh")
@@ -32,9 +31,9 @@ script = ExtResource("2_voars")
 
 [node name="BattleNode" parent="." index="29" node_paths=PackedStringArray("cogs") instance=ExtResource("2_e72f8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.540187, 0, 0)
+tags = Array[int]([0, 2])
 cogs = [NodePath("MoleCog")]
 override_intro = SubResource("Resource_8dvvi")
-boss_battle = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.273437, 2.00091, 3.87165)
@@ -86,7 +85,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29891, 0, 0)
 [node name="FlyAwayPos" type="Node3D" parent="CharPositions" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5921, 3.74627, 0)
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="33" instance=ExtResource("9_q4nkj")]
-script = ExtResource("10_2sxtf")
+[node name="DebugPlayerPositionMarker" parent="." index="33" instance=ExtResource("9_q4nkj")]
 
 [editable path="mole_hole"]

@@ -28,7 +28,7 @@ shape = SubResource("BoxShape3D_8bf60")
 fov = 52.0
 
 [node name="CogDoor" parent="." index="5" instance=ExtResource("3_0cw1j")]
-transform = Transform3D(-4.3711378e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711378e-08, 11.7046, 0, -0.617949)
+transform = Transform3D(-4.3711378e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711378e-08, 12.006052, 0, -0.617949)
 
 [node name="SignalChests" parent="." index="19" instance=ExtResource("4_f61ge")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.46024, 0, -0.631011)

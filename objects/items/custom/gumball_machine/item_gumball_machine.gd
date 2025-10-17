@@ -12,7 +12,7 @@ func _init() -> void:
 func use() -> void:
 	var player := Util.get_player()
 	var use_pool: ItemPool
-	if RNG.channel(RNG.ChannelGumballMachineRolls).randf() < player.stats.get_luck_weighted_chance(SUPER_CHANCE, 0.3, 2.0):
+	if RNG.channel(RNG.ChannelGumballMachineRolls).randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(SUPER_CHANCE, 0.3, 2.0):
 		use_pool = ItemService.get_centralized_pool(SUPER_CANDY_POOL)
 	else:
 		use_pool = ItemService.get_centralized_pool(CANDY_POOL)

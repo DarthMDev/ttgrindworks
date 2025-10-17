@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_vnwu0")
 shoe_tex = ExtResource("2_bj0a2")
+world_y_offset = -0.2
 item_name = "Test Shoes"
 item_description = "Shoes."
 big_description = "They are literally just shoes. There is no benefit to wearing them unless you like how they look."

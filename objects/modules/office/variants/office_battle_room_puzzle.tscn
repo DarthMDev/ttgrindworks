@@ -221,6 +221,7 @@ connected_objects = [NodePath("../../CogDoor")]
 [node name="BattleNode" parent="Puzzle" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_w5skt")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_i20xn")

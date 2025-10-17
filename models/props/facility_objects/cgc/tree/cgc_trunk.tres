@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsxecxaohgwef"]
+
+[ext_resource type="Texture2D" uid="uid://ci7mht76qg2sy" path="res://models/props/facility_objects/cgc/tree/CGC_Trunk.png" id="1_1bi4h"]
+
+[resource]
+resource_name = "cgc_trunk"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_1bi4h")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.37
+distance_fade_max_distance = 105.26

@@ -256,10 +256,10 @@ script = SubResource("GDScript_7yq8o")
 
 [node name="BattleNode" parent="BossFight" index="0" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_rx16n")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.83406, -0.0134251, 0)
+tags = Array[int]([0, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Slendercog"), NodePath("Cog3")]
 focus_cog = NodePath("Slendercog")
 override_intro = SubResource("Resource_5xd7t")
-boss_battle = true
 
 [node name="Slendercog" parent="BossFight/BattleNode" index="3" instance=ExtResource("3_b8xw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25697, 0, 0)

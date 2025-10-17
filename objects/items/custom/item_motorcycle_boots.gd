@@ -28,5 +28,6 @@ func reset_boost() -> void:
 	damage_mult.amount = 0.0
 
 func on_cog_died(_cog) -> void:
+	if not is_instance_valid(BattleService.ongoing_battle): return
 	damage_mult.amount += BOOST_AMT
 	Util.get_player().boost_queue.queue_text("Rev up!", Color(0.937, 0.278, 0.278))

@@ -94,11 +94,11 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/Puzzle1" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("7_1j6pf")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_ohdkq")
 item_pool = null
-is_punishment_battle = true
 
 [node name="Cog" parent="Puzzles/Puzzle1/BattleNode" index="2" instance=ExtResource("9_lrbdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227, 0, 1.91495)
@@ -131,11 +131,11 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/Puzzle2" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("7_1j6pf")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_ohdkq")
 item_pool = null
-is_punishment_battle = true
 
 [node name="Cog" parent="Puzzles/Puzzle2/BattleNode" index="2" instance=ExtResource("9_lrbdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227, 0, 1.91495)

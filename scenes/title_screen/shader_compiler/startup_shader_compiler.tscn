@@ -27,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_85l3m")
-files_to_load = Array[String](["res://objects/items/custom/toonosaur_hat/meteor.tscn", "res://objects/items/custom/toonosaur_hat/meteor_explosion.tscn", "res://objects/battle/effects/cog_healing/cog_healing.tscn", "res://objects/battle/effects/rainbow_paint_splash/rainbow_paint_splash_effect.tscn", "res://objects/battle/effects/coin/coinspill.tscn", "res://objects/battle/effects/fire/fireburst.tscn", "res://objects/battle/effects/unite/unite.tscn", "res://objects/battle/effects/pixie_dust/pixie_dust_battle_effect.tscn", "res://objects/battle/effects/poison/poison_cog.tscn", "res://models/props/gags/geyser-revamp/geyser_gag.tscn"])
+files_to_load = Array[String](["res://objects/items/custom/toonosaur_hat/meteor.tscn", "res://objects/items/custom/toonosaur_hat/meteor_explosion.tscn", "res://objects/battle/effects/cog_healing/cog_healing.tscn", "res://objects/battle/effects/rainbow_paint_splash/rainbow_paint_splash_effect.tscn", "res://objects/battle/effects/coin/coinspill.tscn", "res://objects/battle/effects/fire/fireburst.tscn", "res://objects/battle/effects/unite/unite.tscn", "res://objects/battle/effects/pixie_dust/pixie_dust_battle_effect.tscn", "res://objects/battle/effects/poison/poison_cog.tscn", "res://models/props/gags/geyser-revamp/geyser_gag.tscn", "res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/mole_movement.tscn", "res://objects/obstacles/sandtrap/sandtrap_dust.tscn"])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

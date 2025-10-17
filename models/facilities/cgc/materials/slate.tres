@@ -5,7 +5,8 @@
 [resource]
 resource_name = "lambert167"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.716, 0.716, 0.716, 0.8)
+vertex_color_is_srgb = true
+albedo_color = Color(0.72, 0.72, 0.72, 1)
 albedo_texture = ExtResource("1_m508d")
 emission_enabled = true
 uv1_scale = Vector3(0.4, 0.4, 0.4)

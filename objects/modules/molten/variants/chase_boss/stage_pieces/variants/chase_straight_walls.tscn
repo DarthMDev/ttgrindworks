@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://gnesxsphxwp7" path="res://objects/obstacles/standard_platforms/molten_hall_platform_metal.tscn" id="2_3c8lo"]
 [ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="3_3i04f"]
 [ext_resource type="Texture2D" uid="uid://b14pa1232wtue" path="res://models/facilities/molten/textures/FINALFACTORY_101.png" id="3_06smy"]
-[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_grcsw"]
+[ext_resource type="Texture2D" uid="uid://cukeb4lk6t7ro" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_grcsw"]
 [ext_resource type="PackedScene" uid="uid://bycg7kp5uocp" path="res://objects/props/molten/barrier.tscn" id="4_3i04f"]
 [ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="4_q1ddg"]
 [ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="5_q1ddg"]
-[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="7_3c8lo"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="7_3c8lo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogwo1"]
 resource_name = "FINALFACTORY_67"
@@ -209,20 +209,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.07091e-06, 5.0401, 4.49296)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.911989e-07, -4.11022, 2.190096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9023115e-07, -4.11022, 4.4667583)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.692119)
 shape = SubResource("BoxShape3D_cs16k")
 
 [node name="Respawn2" type="Area3D" parent="RespawnPoints" index="1"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.07091e-06, 5.0401, -8.01479)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.07091e-06, 5.0401, -6.0948257)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49809e-07, -4.11022, -0.17164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4802367e-07, -4.11022, 4.424246)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn2" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96861e-07, 0, 4.75723)
 shape = SubResource("BoxShape3D_cs16k")
 
 [node name="hall_straight" parent="." index="11"]

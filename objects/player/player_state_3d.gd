@@ -180,6 +180,7 @@ func handle_jump(_delta: float) -> void:
 
 			check_extra_jumps()
 
+			SaveFileService.progress_file.times_jumped += 1
 			player.s_jumped.emit()
 			Globals.s_player_jumped.emit()
 			if moving: 

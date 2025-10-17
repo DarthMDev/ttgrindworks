@@ -94,9 +94,11 @@ func miss(cog : Cog) -> void:
 	await miss_tween.finished
 	miss_tween.kill()
 
-const TENURE_STATUS := "res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres"
 func cog_has_tenure(cog: Cog) -> bool:
-	return cog.status_effects.has(load(TENURE_STATUS))
+	for effect in cog.status_effects:
+		if effect.status_name == 'Tenure':
+			return true
+	return false
 
 func get_stats() -> String:
 	return "Pink Slips: " + str(Util.get_player().stats.pink_slips)

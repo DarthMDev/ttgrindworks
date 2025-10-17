@@ -12,7 +12,7 @@ func setup() -> void:
 func on_round_start(actions: Array[BattleAction]) -> void:
 	for action in actions:
 		if action is ToonAttack:
-			if randf() < Util.get_player().stats.get_luck_weighted_chance(CHANGE_CHANCE, CHANGE_CHANCE * 2.0, 2.0):
+			if randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(CHANGE_CHANCE, CHANGE_CHANCE * 2.0, 2.0):
 				change_gag(action)
 
 func change_gag(action: ToonAttack) -> void:
