@@ -1,13 +1,13 @@
-[gd_scene load_steps=54 format=4 uid="uid://cqlsdocn7uhsn"]
+[gd_scene load_steps=56 format=4 uid="uid://cqlsdocn7uhsn"]
 
 [ext_resource type="PackedScene" uid="uid://bbxnxtnfekgqi" path="res://models/facilities/molten/molten_side_lava.fbx" id="1_ynts8"]
 [ext_resource type="Texture2D" uid="uid://v7y7mef5rs2i" path="res://models/facilities/molten/textures/FINALFACTORY_118.png" id="2_0fsyq"]
 [ext_resource type="Texture2D" uid="uid://ckati0khfc15e" path="res://models/facilities/molten/textures/StoneSquares.png" id="2_aoi5o"]
+[ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="3_upo54"]
 [ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="4_np2e0"]
 [ext_resource type="Texture2D" uid="uid://lpqo478g33r8" path="res://objects/props/factory/tt_t_efx_ext_smoke.png" id="4_upo54"]
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="5_vjb3i"]
 [ext_resource type="Texture2D" uid="uid://58hn0ewqd1s0" path="res://models/facilities/molten/textures/StoneSquares_Hot.png" id="6_4lfdh"]
-[ext_resource type="Script" uid="uid://0v6jh8nv5lnx" path="res://objects/obstacles/lava_floor/lava_floor.gd" id="6_jl8vf"]
 [ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="7_hpvry"]
 [ext_resource type="PackedScene" uid="uid://dgakumo14442k" path="res://objects/battle/effects/steam/steam.tscn" id="8_cahvg"]
 [ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="8_n1lvq"]
@@ -53,7 +53,7 @@ subdivide_width = 20
 subdivide_depth = 20
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_np2e0"]
-size = Vector3(1.9104, 1.34473, 2)
+size = Vector3(1.9468992, 1.34473, 2.0327148)
 
 [sub_resource type="Curve" id="Curve_np2e0"]
 _limits = [0.0, 1.15, 0.0, 1.0]
@@ -281,6 +281,12 @@ emission_energy_multiplier = 0.0
 data = PackedVector3Array(-0.0609, -0.1651, 0.1042, -0.0609, 0.2332, 0.1042, -0.0609, -0.0969, 0.0465, -0.0609, -0.1421, 0.0465, -0.0609, -0.1651, 0.1042, -0.0609, -0.0969, 0.0465, 0.203, -0.1651, 0.1042, -0.0609, -0.1651, 0.1042, -0.0609, -0.1651, 0.0013, -0.0609, -0.1651, 0.0013, 0.203, -0.1651, 0.0013, 0.203, -0.1651, 0.1042, 0.203, -0.1651, -0.0371, 0.203, -0.1651, 0.0013, -0.0609, -0.1651, 0.0013, -0.0609, -0.1651, 0.0013, -0.0609, -0.1651, -0.0371, 0.203, -0.1651, -0.0371, 0.203, 0.2332, 0.1042, 0.203, -0.1651, 0.1042, 0.203, -0.1651, 0.0013, 0.203, -0.1651, 0.0013, 0.203, 0.2332, 0.0013, 0.203, 0.2332, 0.1042, -0.0609, 0.2332, 0.0013, -0.0496, 0.2332, 0.0013, -0.0496, 0.2332, -0.0371, -0.0496, 0.2332, -0.0371, -0.0609, 0.2332, -0.0371, -0.0609, 0.2332, 0.0013, -0.0496, 0.2332, 0.0466, -0.0496, 0.2332, 0.0013, -0.0609, 0.2332, 0.0013, -0.0609, 0.2332, 0.0013, -0.0609, 0.2332, 0.1042, -0.0496, 0.2332, 0.0466, -0.0496, 0.2332, 0.0466, -0.0609, 0.2332, 0.1042, -0.0068, 0.2332, 0.0466, -0.0609, 0.2332, 0.1042, 0.203, 0.2332, 0.1042, -0.0068, 0.2332, 0.0466, -0.0068, 0.2332, 0.0466, 0.203, 0.2332, 0.1042, 0.203, 0.2332, 0.0013, 0.203, 0.2332, 0.0013, -0.0068, 0.2332, 0.0013, -0.0068, 0.2332, 0.0466, -0.0068, 0.2332, -0.0371, -0.0068, 0.2332, 0.0013, 0.203, 0.2332, 0.0013, 0.203, 0.2332, 0.0013, 0.203, 0.2332, -0.0371, -0.0068, 0.2332, -0.0371, 0.203, 0.2332, -0.0371, 0.203, 0.2332, 0.0013, 0.203, -0.1651, 0.0013, 0.203, -0.1651, 0.0013, 0.203, -0.1651, -0.0371, 0.203, 0.2332, -0.0371, -0.0609, -0.1651, 0.0013, -0.0609, -0.1651, 0.1042, -0.0609, -0.1421, 0.0465, -0.0609, -0.1421, 0.0465, -0.0609, -0.1421, 0.0013, -0.0609, -0.1651, 0.0013, -0.0609, -0.0969, 0.0465, -0.0609, 0.2332, 0.1042, -0.0609, 0.2332, 0.0013, -0.0609, 0.2332, 0.0013, -0.0609, -0.0969, 0.0013, -0.0609, -0.0969, 0.0465, -0.0496, 0.2332, 0.0013, -0.0068, 0.2332, 0.0013, -0.0068, 0.2332, -0.0371, -0.0068, 0.2332, -0.0371, -0.0496, 0.2332, -0.0371, -0.0496, 0.2332, 0.0013, -0.0609, -0.1651, 0.1042, 0.203, -0.1651, 0.1042, 0.1483, -0.0912, 0.1042, 0.1483, -0.0912, 0.1042, -0.0062, -0.0912, 0.1042, -0.0609, -0.1651, 0.1042, 0.203, -0.1651, 0.1042, 0.203, 0.2332, 0.1042, 0.1483, 0.1593, 0.1042, 0.1483, 0.1593, 0.1042, 0.1483, -0.0912, 0.1042, 0.203, -0.1651, 0.1042, 0.1483, 0.1593, 0.1042, 0.203, 0.2332, 0.1042, -0.0609, 0.2332, 0.1042, -0.0062, -0.0912, 0.1042, 0.1483, -0.0912, 0.1042, 0.1483, 0.1593, 0.1042, -0.0609, 0.2332, 0.1042, -0.0062, 0.1593, 0.1042, 0.1483, 0.1593, 0.1042, 0.1483, 0.1593, 0.1042, -0.0062, 0.1593, 0.1042, -0.0062, -0.0912, 0.1042, -0.0062, 0.1593, 0.1042, -0.0609, 0.2332, 0.1042, -0.0609, -0.1651, 0.1042, -0.0609, -0.1651, 0.1042, -0.0062, -0.0912, 0.1042, -0.0062, 0.1593, 0.1042)
 backface_collision = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_upo54"]
+size = Vector3(2.3640747, 5.055725, 4.847168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu56g"]
+size = Vector3(1.8583069, 9.0659485, 4.384186)
+
 [node name="molten_side_lava" instance=ExtResource("1_ynts8")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BigPipe" index="0"]
@@ -297,16 +303,11 @@ shape = SubResource("ConcavePolygonShape3D_n1lvq")
 transform = Transform3D(-9.21819e-07, 0, -13.4361, 0, 1, 0, 21.0888, 0, -5.8731e-07, 7.17474, -3.22157, -3.34173)
 mesh = SubResource("PlaneMesh_hu5od")
 
-[node name="LavaFloor" type="Area3D" parent="Lava" index="0" node_paths=PackedStringArray("default_spawn_point")]
-script = ExtResource("6_jl8vf")
-base_damage = -5
-default_spawn_point = NodePath("../PlayerSpawn")
-metadata/_custom_type_script = "uid://0v6jh8nv5lnx"
+[node name="LavaFloor" parent="Lava" index="0" instance=ExtResource("3_upo54")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lava/LavaFloor" index="0"]
-transform = Transform3D(0.999999, 0, 3.55271e-15, 0, 1, 0, 1.06581e-13, 0, 1, 0, -0.172363, 0)
+transform = Transform3D(0.99999905, 0, 1.7763568e-15, 0, 1, 0, 4.689582e-13, 0, 1, -0.018249556, -0.17236304, -0.016357422)
 shape = SubResource("BoxShape3D_np2e0")
-disabled = true
 
 [node name="PlayerSpawn" type="Node3D" parent="Lava" index="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.720089, 3.35352, 0.654027)
@@ -414,3 +415,21 @@ surface_material_override/1 = SubResource("StandardMaterial3D_hu5od")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_b0nld")
+
+[node name="Blockers" type="StaticBody3D" parent="." index="15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockers" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.34469, -1.8304749, 5.3557034)
+shape = SubResource("BoxShape3D_upo54")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Blockers" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.597574, 5.2125516, 5.3710995)
+shape = SubResource("BoxShape3D_hu56g")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Blockers" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.597574, 5.2125516, -12.186533)
+shape = SubResource("BoxShape3D_hu56g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Blockers" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.34469, -1.8304749, -12.162924)
+shape = SubResource("BoxShape3D_upo54")

@@ -1,6 +1,6 @@
 extends ItemScriptActive
 
-const DEFLECT_TIME := 0.3
+const DEFLECT_TIME_MIN := 0.3
 const DEFLECT_COLOR := Color(0.466, 0.663, 0.935)
 
 var potential_deflected_attack: CogAttack
@@ -38,12 +38,20 @@ func use() -> void:
 	attack_accounted_for = true
 	action.nullified = true
 	potential_deflected_attack = action
-	player.toon.color_overlay_mat.flash_instant_fade(player, DEFLECT_COLOR, DEFLECT_TIME, 0.7)
+	var deflect_time := get_deflect_time()
+	player.toon.color_overlay_mat.flash_instant_fade(player, DEFLECT_COLOR, deflect_time, 0.7)
 	AudioManager.play_sound(load("res://audio/sfx/items/laff_boost_pickup.ogg"))
 
-	await Task.delay(DEFLECT_TIME)
+	await Task.delay(deflect_time)
 
 	check_deflect_fail()
+
+func get_deflect_time() -> float:
+	var deflect_time := DEFLECT_TIME_MIN
+	var evasiveness: float = Util.get_relevant_player_stats().get_stat('evasiveness')
+	var evasiveness_boost := maxf(0.0, (evasiveness - 1.0) * 0.5)
+	deflect_time += evasiveness_boost
+	return deflect_time
 
 func _on_battle_started(battle: BattleManager) -> void:
 	super(battle)
@@ -67,12 +75,15 @@ func check_deflect_fail() -> void:
 			battle.action_hit_rolls[potential_deflected_attack] = true
 
 		if battle.action_hit_rolls[potential_deflected_attack]:
-			if not potential_deflected_attack.has_tag(BattleAction.ActionTag.OLDMAN_NULLIFY):
+			var oldman_deflected := false
+			if potential_deflected_attack.has_tag(BattleAction.ActionTag.OLDMAN_NULLIFY):
+				oldman_deflected = true
+			else:
 				potential_deflected_attack.nullified = false
 			player.boost_queue.queue_text("Parry Fail!", Color(1.0, 0.287, 0.225))
 			potential_deflected_attack.damage = deflect_damage
 			AudioManager.play_snippet(load("res://audio/sfx/battle/gags/drop/AA_drop_flowerpot_miss.ogg"), 0.32, -1.0, 5.0)
-			if player.revives_are_hp:
+			if player.revives_are_hp and not oldman_deflected:
 				# Take an additional HP loss on a failed deflect on a revives-only character
 				potential_deflected_attack.add_tag(BattleAction.ActionTag.DOUBLE_REVIVE_DAMAGE)
 

@@ -14,6 +14,7 @@ shoe_tex = ExtResource("3_tdvqm")
 long_leg_tex = ExtResource("1_n0dv0")
 qualitoon = 4
 rarity = 7
+world_y_offset = -0.2
 item_name = "Super Toon Boots"
 item_description = "Hit the ground running."
 big_description = "+1 move on the first round of every battle."

@@ -85,7 +85,7 @@ func body_exited_chase(body: Node3D) -> void:
 		stop_chasing()
 
 func player_hit(player: Player) -> void:
-	if player.state == Player.PlayerState.STOPPED:
+	if not player.state == Player.PlayerState.WALK:
 		stop_chasing()
 		return
 	player.set_animation('neutral')
@@ -178,6 +178,7 @@ func launch_player(player : Player) -> void:
 	reposition_tween.kill()
 	player.position = newpos
 	player.set_animation('slip-backward')
+	player.last_damage_source = "some sand Moles"
 	player.quick_heal(Util.get_hazard_damage(base_damage))
 	AudioManager.play_sound(SFX_LAND)
 	await Task.delay(2.75)

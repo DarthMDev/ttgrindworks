@@ -17,7 +17,7 @@ func setup() -> void:
 	player.stats.hp_changed.connect(on_hp_changed)
 
 func on_hp_changed(new_hp: int) -> void:
-	if new_hp < _last_hp and randf() < player.stats.get_luck_weighted_chance(ProcChance, ProcChance * 1.5, 2.0):
+	if new_hp < _last_hp and randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(ProcChance, ProcChance * 1.5, 2.0):
 		proc()
 
 	_last_hp = new_hp

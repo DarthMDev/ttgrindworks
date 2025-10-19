@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8er6lmtrtym6"]
+[gd_scene load_steps=22 format=3 uid="uid://c8er6lmtrtym6"]
 
 [ext_resource type="PackedScene" uid="uid://cm5jv55t2wnby" path="res://objects/modules/molten/base_rooms/molten_small_bridge.tscn" id="1_iitjw"]
 [ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="2_0ce18"]
@@ -42,7 +42,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kviie"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyx3t"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("8_wqyj5")
@@ -51,6 +51,12 @@ uv1_scale = Vector3(1, 11.76, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8eiye"]
 size = Vector3(3.0459, 0.152466, 3.04297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kviie"]
+size = Vector3(0.8312988, 7.65625, 6.364258)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyx3t"]
+size = Vector3(33.027954, 16.222107, 5.5549316)
 
 [node name="molten_small_bridge" instance=ExtResource("1_iitjw")]
 
@@ -163,11 +169,11 @@ sink_level = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27469, 0.0197442, 2.38419e-07)
 
 [node name="shelf2" parent="Props" index="0" instance=ExtResource("5_yhm8a")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -2.97948, 0, 13.8816)
+transform = Transform3D(-1.09, 0, 1.6458543e-07, 0, 1.09, 0, -1.6458543e-07, 0, -1.09, -3.218991, 0, 13.8816)
 texture_type = 1
 
 [node name="shelf3" parent="Props" index="1" instance=ExtResource("5_yhm8a")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 1.45844, 0, 13.8816)
+transform = Transform3D(-1.09, 0, 1.6458543e-07, 0, 1.09, 0, -1.6458543e-07, 0, -1.09, 1.5016242, 0, 13.8816)
 texture_type = 1
 
 [node name="shelf5" parent="Props" index="2" instance=ExtResource("5_yhm8a")]
@@ -274,7 +280,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80953, 9.53674e-07, 14.7095
 transform = Transform3D(1, 0, 0, 0, 5.4219046, 0, 0, 0, 1, 0.42735338, -1.8875103, -2.8638802)
 constant_linear_velocity = Vector3(0, 0, 3)
 size = Vector3(1.58, 1, 11.76)
-platform_mat = SubResource("StandardMaterial3D_kviie")
+platform_mat = SubResource("StandardMaterial3D_lyx3t")
 speed = 3.0
 
 [node name="platform2" parent="." index="14" instance=ExtResource("9_0ce18")]
@@ -296,10 +302,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0761108, 0)
 shape = SubResource("BoxShape3D_8eiye")
 
 [node name="treasure_chest" parent="." index="20" instance=ExtResource("11_8eiye")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18.0542, 0.11701, 23.295115)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 18.054, 0.016145363, 23.295)
 
 [node name="treasure_chest2" parent="." index="21" instance=ExtResource("11_8eiye")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 21.0733, 0.11701, 23.295115)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 21.073, 0.016, 23.295)
 
 [node name="Barrier" parent="." index="26" instance=ExtResource("11_yhm8a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641302, 2.3030992, 8.036765)
@@ -311,8 +317,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.791813, 2.3030992, 14.9955
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.187972, -1.6825552, -4.7065153)
 color = Color(0.9999998, 0.48003095, 0.123851605, 1)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="conveyor_belt_portal" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conveyor_belt_portal/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.084350586, 3.328125, 0)
+shape = SubResource("BoxShape3D_kviie")
+
 [node name="conveyor_belt_portal2" parent="." index="29" instance=ExtResource("12_yhm8a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.187972, -1.6825552, 27.692574)
 color = Color(0.9999998, 0.48003095, 0.123851605, 1)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="conveyor_belt_portal2" index="2"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.106378555, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conveyor_belt_portal2/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110033035, 3.328125, 0)
+shape = SubResource("BoxShape3D_kviie")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="conveyor_belt_portal2" index="3"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.8084774, 8.037748, 0.11448765)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conveyor_belt_portal2/StaticBody3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.377991, 6.9689026, 0.08665943)
+shape = SubResource("BoxShape3D_lyx3t")
 
 [node name="BurnersTrial_Bearings" parent="." index="30" instance=ExtResource("13_lyx3t")]

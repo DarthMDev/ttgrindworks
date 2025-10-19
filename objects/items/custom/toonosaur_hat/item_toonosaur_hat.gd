@@ -19,7 +19,7 @@ func setup() -> void:
 	BattleService.s_round_started.connect(on_round_start)
 
 func on_round_start(_actions: Array[BattleAction]) -> void:
-	if randf() < Util.get_player().stats.get_luck_weighted_chance(HIT_CHANCE, HIT_CHANCE * 1.5, 2.0):
+	if randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(HIT_CHANCE, HIT_CHANCE * 1.5, 2.0):
 		queue_movie(BattleService.ongoing_battle)
 	else:
 		print("Toonosaur Hat did not hit :(")
@@ -28,7 +28,7 @@ func queue_movie(battle: BattleManager) -> void:
 	var action := ActionScriptCallable.new()
 	action.callable = battle_movie
 	action.user = battle.battle_node
-	if randf() < Util.get_player().stats.get_luck_weighted_chance(COG_HIT_CHANCE, 0.85, 2.0):
+	if randf() < Util.get_relevant_player_stats().get_luck_weighted_chance(COG_HIT_CHANCE, 0.85, 2.0):
 		action.targets = battle.cogs
 	else:
 		action.targets = [Util.get_player()]
@@ -91,6 +91,7 @@ func battle_movie() -> void:
 			target.set_animation('squirt-small')
 		elif target is Player:
 			target.set_animation('cringe')
+			target.last_damage_source = "Mass Extinction"
 		manager.affect_target(target, damages_to_inflict[targets.find(target)])
 	await Task.delay(4.5)
 	

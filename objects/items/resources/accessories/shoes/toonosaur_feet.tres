@@ -14,6 +14,7 @@ long_leg_tex = ExtResource("3_ytgvh")
 tags = Array[int]([2])
 qualitoon = 2
 rarity = 4
+world_y_offset = -0.2
 item_name = "Toonosaur Boots"
 item_description = "Reign of the dinosaurs!"
 big_description = "+ 4 max Laff at the beginning of each floor"

@@ -76,6 +76,10 @@ func on_fade_over(tween: Tween) -> void:
 	restart_floor()
 
 func restart_floor() -> void:
+	if not is_instance_valid(Util.floor_manager):
+		queue_free()
+		return
+	
 	# Clean up the current floor
 	clean_current_floor()
 	
@@ -84,7 +88,7 @@ func restart_floor() -> void:
 	
 	# Get our new floor variant
 	var floor_variant: FloorVariant = RNG.channel(RNG.ChannelWhiteOutFloor).pick_random(Globals.FLOOR_VARIANTS).duplicate(true)
-	if floor_variant.alt_floor and RNG.channel(RNG.ChannelFloors).randi() % 10 == 0:
+	if floor_variant.alt_floor and RNG.channel(RNG.ChannelFloors).randf() < 0.15:
 		floor_variant = floor_variant.alt_floor
 	floor_variant.randomize_details()
 	if is_instance_valid(Util.floor_manager):

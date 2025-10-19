@@ -516,22 +516,6 @@ name = "John Boyo"
 role = "Quality Assurance"
 label_settings = SubResource("LabelSettings_gqhi7")
 
-[sub_resource type="LabelSettings" id="LabelSettings_bxmax"]
-font = ExtResource("3_8rgp0")
-font_size = 24
-font_color = Color(0.255, 0.412, 0.886, 1)
-outline_color = Color(1.50409e-07, 0, 0.157023, 1)
-shadow_size = 4
-shadow_color = Color(0.064, 0.137, 0.4, 0.58)
-
-[sub_resource type="Resource" id="Resource_m42v0"]
-resource_name = "Greetings"
-script = ExtResource("3_ksngi")
-icon = ExtResource("29_qn4cl")
-name = "Greetings"
-role = "Consultant"
-label_settings = SubResource("LabelSettings_bxmax")
-
 [sub_resource type="LabelSettings" id="LabelSettings_dk2i1"]
 font = ExtResource("3_8rgp0")
 font_size = 24
@@ -632,9 +616,25 @@ animations = [{
 script = ExtResource("33_33vr7")
 sprite_frames = SubResource("SpriteFrames_sae7g")
 name = "Stripey"
-role = "Marketing"
+role = "Marketing & Quality Assurance"
 label_settings = SubResource("LabelSettings_dk2i1")
 metadata/_custom_type_script = "uid://bpn2grm5wiohs"
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxmax"]
+font = ExtResource("3_8rgp0")
+font_size = 24
+font_color = Color(0.255, 0.412, 0.886, 1)
+outline_color = Color(1.50409e-07, 0, 0.157023, 1)
+shadow_size = 4
+shadow_color = Color(0.064, 0.137, 0.4, 0.58)
+
+[sub_resource type="Resource" id="Resource_m42v0"]
+resource_name = "Greetings"
+script = ExtResource("3_ksngi")
+icon = ExtResource("29_qn4cl")
+name = "Greetings"
+role = "Consultant"
+label_settings = SubResource("LabelSettings_bxmax")
 
 [sub_resource type="LabelSettings" id="LabelSettings_q042p"]
 font = ExtResource("3_8rgp0")
@@ -792,7 +792,7 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_ohq2p"), SubResource("Resource_pbofr"), SubResource("Resource_kqonq"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_ent56"), SubResource("Resource_33vr7"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_qbbro"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_vfha2"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_m42v0"), SubResource("Resource_o0djb"), SubResource("Resource_dk2i1"), SubResource("Resource_c5kur"), SubResource("Resource_e1miu")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_ohq2p"), SubResource("Resource_pbofr"), SubResource("Resource_kqonq"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_ent56"), SubResource("Resource_33vr7"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_qbbro"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_vfha2"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_o0djb"), SubResource("Resource_m42v0"), SubResource("Resource_dk2i1"), SubResource("Resource_c5kur"), SubResource("Resource_e1miu")])
 special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_6v767"), SubResource("Resource_3uak0"), SubResource("Resource_3ohx7"), SubResource("Resource_e66o5"), SubResource("Resource_slv7n"), SubResource("Resource_daahu"), SubResource("Resource_uk0ku"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""

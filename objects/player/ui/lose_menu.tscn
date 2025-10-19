@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddo2yudkaj10v"]
+[gd_scene load_steps=22 format=3 uid="uid://ddo2yudkaj10v"]
 
 [ext_resource type="Shader" uid="uid://dri3mi0a32658" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="1_ei3qn"]
 [ext_resource type="Script" uid="uid://dfwjppf3fwupi" path="res://objects/player/ui/lose_menu.gd" id="1_qgeyt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="4_7ldo3"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="5_r1k5q"]
 [ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="6_3v657"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="6_s7lsq"]
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="7_n78l6"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="8_h5jcy"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="9_b6wx8"]
@@ -33,6 +34,12 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rhk66"]
 font = ExtResource("2_qu0um")
+font_size = 24
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_usn63"]
+font = ExtResource("6_s7lsq")
 font_size = 24
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
@@ -119,6 +126,36 @@ label_settings = SubResource("LabelSettings_rhk66")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SeedLabel" type="Label" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -142.0
+offset_right = 380.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Seed: 123456789000"
+label_settings = SubResource("LabelSettings_usn63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeedButton" type="Button" parent="Root/SeedLabel"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="ItemTitle" type="Label" parent="Root"]
 layout_mode = 1
 anchors_preset = 7
@@ -167,12 +204,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 40.0
-offset_top = -145.0
+offset_top = -134.0
 offset_right = 380.0
-offset_bottom = 119.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(152, 126)
+mouse_filter = 2
 theme_override_constants/separation = -12
 alignment = 1
 

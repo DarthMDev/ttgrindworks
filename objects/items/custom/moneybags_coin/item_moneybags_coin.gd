@@ -25,7 +25,7 @@ func use() -> void:
 
 func do_roll() -> bool:
 	var roll := RNG.channel(RNG.ChannelMoneybagsCoin).randf()
-	return roll < Util.get_player().stats.get_luck_weighted_chance(0.5, 0.75, 2.0)
+	return roll < Util.get_relevant_player_stats().get_luck_weighted_chance(0.5, 0.75, 2.0)
 
 func reset_moves(_battle) -> void:
 	var manager := BattleService.ongoing_battle

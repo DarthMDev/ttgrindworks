@@ -260,6 +260,8 @@ func end_battle() -> void:
 	s_battle_ended.emit()
 	player.toon.drop_shadow.reparent(player.toon)
 	player.toon.drop_shadow.position = Vector3(0.0, 0.02, 0.0)
+	if not SaveFileService.settings_file.control_style:
+		player.recenter_camera()
 
 func spawn_reward() -> void:
 	# Battle drops
@@ -268,7 +270,7 @@ func spawn_reward() -> void:
 	else:
 		if battle_node.item_pool:
 			var chest = load('res://objects/interactables/treasure_chest/treasure_chest.tscn').instantiate()
-			if player.better_battle_rewards == true and current_round <= 2:
+			if player.better_battle_rewards and current_round <= 2:
 				chest.item_pool = ItemService.PROGRESSIVE_POOL
 				player.boost_queue.queue_text("Bounty!", Color.GREEN)
 			else:
@@ -412,7 +414,7 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	if target.stats.get_stat(stat) == 0:
 		overkill_amounts[target] = int(amount - pre_stat)
 	
-	if current_action:
+	if current_action and amount > 0:
 		if target == player and player.revives_are_hp and current_action.has_tag(BattleAction.ActionTag.DOUBLE_REVIVE_DAMAGE):
 			target.stats.set(stat, target.stats.get_stat(stat) - 1)
 

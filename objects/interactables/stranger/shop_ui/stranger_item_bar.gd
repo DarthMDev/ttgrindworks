@@ -13,6 +13,7 @@ signal s_item_selected(item: Item)
 func _ready() -> void:
 	if not player: await Util.s_player_assigned
 	ItemService.s_item_applied.connect(item_list_changed)
+	player.stats.s_active_item_changed.connect(item_list_changed)
 	populate_list()
 
 func populate_list() -> void:
@@ -24,6 +25,8 @@ func populate_list() -> void:
 			add_item(item)
 	if player.stats.current_active_item and not Item.ItemTag.STRANGER_NOTRADE in player.stats.current_active_item.tags:
 		add_item(player.stats.current_active_item)
+	for item in player.stats.actives_in_reserve:
+		add_item(item)
 
 func add_item(item: Item) -> void:
 	var new_icon: Control = ITEM_ICON.instantiate()

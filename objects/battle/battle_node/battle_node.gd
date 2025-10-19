@@ -15,16 +15,25 @@ enum BattleState {
 }
 var state := BattleState.INACTIVE
 
+## Cool and fun tags to specify what kind of battle this is
+enum BattleTag {
+	BOSS_BATTLE, # Marks battle as a boss fight
+	IS_PUNISHMENT, # Mark as a battle that shouldn't give rewards
+	BLOCK_REALTIME_PRANKS, # Stops usage of items like Toy Hammer/Big Foghorn on this battle
+}
+@export var tags: Array[BattleTag] = []
+
 # Cogs present in battle
 @export var cogs: Array[Cog]
 @export var focus_cog: Cog
 @export var override_intro: BattleStartMovie
 @export var item_pool: ItemPool
-@export var boss_battle := false
 @export var override_camera_angles: Dictionary[String, Transform3D] = {}
 
-## Marks whether or not Cogs in this battle will be counted towards Quests/Item Benefits
-@export var is_punishment_battle := false
+var is_punishment_battle: bool:
+	get: return BattleTag.IS_PUNISHMENT in tags
+var boss_battle: bool:
+	get: return BattleTag.BOSS_BATTLE in tags
 
 # Child References
 @onready var battle_cam := $BirdsEye/BattleCamera

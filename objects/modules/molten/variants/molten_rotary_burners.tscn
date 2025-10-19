@@ -122,10 +122,10 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.95116)
 
 [node name="treasure_chest" parent="." index="14" instance=ExtResource("7_7tbbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1617, 0.147228, -18.1434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1617, 0.044831797, -18.1434)
 
 [node name="treasure_chest2" parent="." index="15" instance=ExtResource("7_7tbbv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5816, 0.147228, -18.1434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.582, 0.045, -18.143)
 
 [editable path="Props/cb_safe"]
 [editable path="Props/cb_safe2"]

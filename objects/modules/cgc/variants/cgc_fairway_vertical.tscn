@@ -577,16 +577,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -893.357, 195.334, 525.526)
 
 [node name="gate" parent="BBFairway/Geometry" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1466.34, 466.419, -4.728)
+visible = false
 
 [node name="CollisionShape3D" parent="RoomArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 10.260962, 1.30658)
 shape = SubResource("BoxShape3D_crsqn")
 
 [node name="ENTRANCE" parent="." index="26"]
-transform = Transform3D(-4.37114e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37114e-10, -31.3482, 0, -0.0306853)
+transform = Transform3D(-4.37114e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37114e-10, -33.47002, 0, -0.0306853)
 
 [node name="EXIT" parent="." index="27"]
-transform = Transform3D(0, -0.01, 0, 0, 0, -0.01, 0.01, 0, 0, 29.5956, 11.476, -0.267615)
+transform = Transform3D(0, -0.01, 0, 0, 0, -0.01, 0.01, 0, 0, 30.435257, 11.476, -0.267615)
 
 [node name="ResizeableGround" parent="." index="29" instance=ExtResource("2_edifh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4882, 11.4733, 0.2481)

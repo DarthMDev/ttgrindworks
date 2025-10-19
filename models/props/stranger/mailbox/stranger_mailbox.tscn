@@ -39837,16 +39837,19 @@ metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 [node name="SFXSwoop" type="Node3D" parent="SFX" index="7"]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_t6ju8")
+bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
 [node name="SFXSwoop2" type="Node3D" parent="SFX" index="8"]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_kc2y0")
+bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
 [node name="SFXSwoop3" type="Node3D" parent="SFX" index="9"]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_dvc0v")
+bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
 [node name="SFXCrankNorm" type="AudioStreamPlayer3D" parent="SFX" index="10"]

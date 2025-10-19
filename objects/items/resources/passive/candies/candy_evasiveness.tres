@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("2_tsmpf")
-tags = Array[int]([2])
 qualitoon = 1
 evergreen = true
 world_scale = 0.11

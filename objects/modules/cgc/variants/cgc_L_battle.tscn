@@ -1,20 +1,20 @@
 [gd_scene load_steps=20 format=3 uid="uid://da0irj81d7pb8"]
 
 [ext_resource type="PackedScene" uid="uid://dpqpwpljhfswb" path="res://objects/modules/cgc/base_rooms/golf_course_l_shape_room.tscn" id="1_fptfh"]
-[ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_0j782"]
 [ext_resource type="PackedScene" uid="uid://bln8k5hdfnymx" path="res://objects/props/cgc/resizeable_wall.tscn" id="2_bl02i"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_qs1ux"]
-[ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="3_8k8w4"]
 [ext_resource type="PackedScene" uid="uid://dashkj2a6dgb0" path="res://objects/props/cgc/cgc_flat_tree_a.tscn" id="3_bavcb"]
-[ext_resource type="PackedScene" uid="uid://d3br8qv0sep7h" path="res://objects/props/cgc/tree1.tscn" id="3_fxgjf"]
 [ext_resource type="PackedScene" uid="uid://bwu5l3d7uncro" path="res://objects/props/cgc/hedge_pillar_spiked.tscn" id="4_tim1r"]
 [ext_resource type="PackedScene" uid="uid://ksciix5yj6x1" path="res://objects/props/cgc/cgc_flat_tree_b.tscn" id="4_xcae4"]
 [ext_resource type="Script" uid="uid://h0b48xrci8d6" path="res://objects/modules/cgc/variants/cgc_fence_gate.gd" id="5_6w4g4"]
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="5_jdas8"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="11_6hihm"]
+[ext_resource type="PackedScene" uid="uid://c274ukuqy7wgd" path="res://objects/props/cgc/tree/cgc_tree.tscn" id="13_0lfe4"]
 [ext_resource type="PackedScene" uid="uid://pn7r3ut085aw" path="res://objects/props/cgc/hedge_pillar.tscn" id="13_wngv4"]
 [ext_resource type="Texture2D" uid="uid://cjd18xmoljlbm" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="14_so7bu"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="14_w536x"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="14_ymyt3"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="15_qs1ux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1gbn"]
 size = Vector3(22.3149, 7.7998, 14.4093)
@@ -39,6 +39,12 @@ size = Vector3(16.675, 0.15, 2.705)
 
 [node name="CGCLBattle" instance=ExtResource("1_fptfh")]
 
+[node name="ENTRANCE" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66685, 0.07217991, 15.14615)
+
+[node name="EXIT" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.192772, 0, -26.5432)
+
 [node name="BattleNodeDynamic" parent="." index="4" node_paths=PackedStringArray("cogs") instance=ExtResource("2_qs1ux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90778, 0, 3.08615)
 cog_range = Vector2i(1, 3)
@@ -49,20 +55,13 @@ cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0965672, 3.3999, -4.2619)
 shape = SubResource("BoxShape3D_g1gbn")
 
-[node name="BattleNode3" parent="." index="5" node_paths=PackedStringArray("cogs") instance=ExtResource("2_0j782")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.5323, 0, -26.6978)
-cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3")]
+[node name="BattleNodeDynamic2" parent="." index="5" node_paths=PackedStringArray("cogs") instance=ExtResource("2_qs1ux")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.5323, 0, -26.6978)
+cog_range = Vector2i(3, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
-[node name="Cog" parent="BattleNode3" index="3" instance=ExtResource("3_8k8w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
-
-[node name="Cog2" parent="BattleNode3" index="4" instance=ExtResource("3_8k8w4")]
-
-[node name="Cog3" parent="BattleNode3" index="5" instance=ExtResource("3_8k8w4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNode3" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0787029, 3.3999, -2.75656)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic2" index="4"]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 0.07870293, 3.3999, -2.7565594)
 shape = SubResource("BoxShape3D_53po8")
 
 [node name="FenceGate" type="Node3D" parent="." index="6" node_paths=PackedStringArray("left_pivot", "right_pivot", "fence_cam")]
@@ -204,72 +203,64 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 35.5633,
 [node name="Props_Flats#CGCFlatTreeB10" parent="TheCasualties" index="19" instance=ExtResource("4_xcae4")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 33.1014, 0, -33.5194)
 
-[node name="Props_Trees#Tree15" parent="TheCasualties" index="20" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.6, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 9.2828, 0, -14.8306)
+[node name="cgc_tree" parent="TheCasualties" index="20" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(0.295, 0, 0, 0, 0.30977318, 0, 0, 0, 0.295, 9.2828, 0.0052502747, -14.8306)
 
-[node name="Props_Trees#Tree20" parent="TheCasualties" index="21" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.6, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.0877, 0, -13.9598)
+[node name="cgc_tree2" parent="TheCasualties" index="21" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(0.107303016, 0, 0.3092297, 0, 0.26401415, 0, -0.27479276, 0, 0.12075019, 8.427087, 0.0052133547, -11.515355)
 
-[node name="Props_Trees#Tree21" parent="TheCasualties" index="22" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.6, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 8.11534, 0, -12.0898)
+[node name="cgc_tree3" parent="TheCasualties" index="22" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(0.17772451, 0, -0.26496202, 0, 0.3480193, 0, 0.23545489, 0, 0.19999687, 5.418796, 0.0052812425, -7.679513)
 
-[node name="Props_Trees#Tree22" parent="TheCasualties" index="23" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.6, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 6.20139, 0, -8.39665)
+[node name="cgc_tree4" parent="TheCasualties" index="23" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.14136325, 0, -0.29137176, 0, 0.36149868, 0, 0.2589236, 0, -0.15907887, -1.5459948, 0.0052812425, -23.18732)
 
-[node name="Props_Trees#Tree23" parent="TheCasualties" index="24" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.6, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -1.7524, 0, -13.0278)
+[node name="cgc_tree11" parent="TheCasualties" index="24" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.14903115, 0, -0.32031998, 0, 0.47179356, 0, 0.27296826, 0, -0.17488359, 24.87194, 0.0052812425, -23.072495)
 
-[node name="Props_Trees#Tree18" parent="TheCasualties" index="25" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.9, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 1.43807, 0, -18.0835)
+[node name="cgc_tree12" parent="TheCasualties" index="25" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.14903115, 0, -0.32031998, 0, 0.47179356, 0, 0.27296826, 0, -0.17488359, 30.43081, 0.0052812425, -22.08794)
 
-[node name="Props_Trees#Tree24" parent="TheCasualties" index="26" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -1.16305, 0, -19.7587)
+[node name="cgc_tree13" parent="TheCasualties" index="26" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(0.28053695, 0, -0.15752926, 0, 0.36836568, 0, 0.13424224, 0, 0.32920158, 40.394165, 0.0052812425, -22.08794)
 
-[node name="Props_Trees#Tree25" parent="TheCasualties" index="27" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 41.8174, 0, -32.5447)
+[node name="cgc_tree14" parent="TheCasualties" index="27" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.07045715, 0, -0.35546204, 0, 0.3683657, 0, 0.30291545, 0, -0.08267942, 40.394165, 0.0052812425, -31.327555)
 
-[node name="Props_Trees#Tree26" parent="TheCasualties" index="28" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 41.8174, 0, -20.8109)
+[node name="cgc_tree15" parent="TheCasualties" index="28" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.0564528, 0, -0.28480896, 0, 0.25118607, 0, 0.24270675, 0, -0.06624572, 29.924232, 0.0052812425, -31.327555)
 
-[node name="Props_Trees#Tree27" parent="TheCasualties" index="29" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 35.3682, 0, -21.9332)
+[node name="cgc_tree16" parent="TheCasualties" index="29" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.3765271, 0, -0.055687487, 0, 0.41633058, 0, 0.06653422, 0, -0.3151443, 26.172848, 0.0052812425, -30.584215)
 
-[node name="Props_Trees#Tree28" parent="TheCasualties" index="30" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 31.1157, 0, -22.3017)
+[node name="cgc_tree17" parent="TheCasualties" index="30" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.1290607, 0, 0.3869334, 0, 0.5339191, 0, -0.17555352, 0, -0.2844595, 34.98147, 0.0052812425, -30.584215)
 
-[node name="Props_Trees#Tree29" parent="TheCasualties" index="31" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 27.3647, 0, -21.7158)
+[node name="cgc_tree10" parent="TheCasualties" index="31" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.45082134, 0, 0.025355984, 0, 0.48592687, 0, -0.04178176, 0, -0.27358845, 11.53624, 0.0052812425, -17.27922)
 
-[node name="Props_Trees#Tree30" parent="TheCasualties" index="32" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 23.0301, 0, -21.9332)
+[node name="cgc_tree5" parent="TheCasualties" index="32" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.29069707, 0, 0.056492932, 0, 0.25963676, 0, -0.050201654, 0, -0.3271271, 7.140333, 0.0052812425, -34.2166)
 
-[node name="Props_Trees#Tree31" parent="TheCasualties" index="33" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 35.3682, 0, -31.6199)
+[node name="cgc_tree6" parent="TheCasualties" index="33" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.05587416, 0, -0.32596037, 0, 0.34944156, 0, 0.28966027, 0, -0.06287633, 11.870179, 0.0052812425, -33.830025)
 
-[node name="Props_Trees#Tree32" parent="TheCasualties" index="34" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 31.1157, 0, -31.9883)
+[node name="cgc_tree7" parent="TheCasualties" index="34" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.20704775, 0, -0.084183276, 0, 0.20454828, 0, 0.06861484, 0, -0.2540262, 8.281661, 0.0052812425, -32.905556)
 
-[node name="Props_Trees#Tree33" parent="TheCasualties" index="35" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 27.3647, 0, -31.4024)
+[node name="cgc_tree8" parent="TheCasualties" index="35" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.20704775, 0, -0.084183276, 0, 0.20454828, 0, 0.06861484, 0, -0.2540262, -0.5676899, 0.0052812425, -19.828308)
 
-[node name="Props_Trees#Tree34" parent="TheCasualties" index="36" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 25.1501, 0, -31.6199)
+[node name="cgc_tree9" parent="TheCasualties" index="36" instance=ExtResource("13_0lfe4")]
+transform = Transform3D(-0.20704775, 0, -0.084183276, 0, 0.33659458, 0, 0.06861484, 0, -0.2540262, -4.2869053, 0.0052812425, -10.659262)
 
-[node name="Props_Trees#Tree19" parent="TheCasualties" index="37" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.9, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -1.34631, 0, -15.8458)
-
-[node name="Props_Trees#Tree16" parent="TheCasualties" index="38" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(1.4, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -0.0739946, 0, -22.8807)
-
-[node name="Props_Trees#Tree35" parent="TheCasualties" index="39" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(1.4, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6.48651, 0, -33.6757)
-
-[node name="Props_Trees#Tree17" parent="TheCasualties" index="40" instance=ExtResource("3_fxgjf")]
-transform = Transform3D(0.75, 0, 0, 0, 2.3, 0, 0, 0, 1.9, 11.8009, 0, -16.9151)
-
-[node name="Geometrry#ResizeableWall" parent="TheCasualties" index="41" instance=ExtResource("2_bl02i")]
+[node name="Geometrry#ResizeableWall" parent="TheCasualties" index="37" instance=ExtResource("2_bl02i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4213, 0, -17.3215)
 volume = Vector3(18.84, 6.095, 4.795)
 
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="14" instance=ExtResource("14_ymyt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.653408, 0, -16.310974)
+script = ExtResource("15_qs1ux")
+
 [connection signal="s_battle_end" from="BattleNodeDynamic" to="FenceGate" method="open"]
-[connection signal="s_battle_end" from="BattleNode3" to="FenceGate2" method="open"]
+[connection signal="s_battle_end" from="BattleNodeDynamic2" to="FenceGate2" method="open"]

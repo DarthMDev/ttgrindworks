@@ -33,13 +33,14 @@ script = ExtResource("1_d3ivm")
 room = "res://objects/modules/cgc/variants/cgc_walled_battle_room.tscn"
 metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
-[sub_resource type="Resource" id="Resource_cunho"]
-script = ExtResource("1_d3ivm")
-room = "res://objects/modules/cgc/variants/cgc_mole_cog_fight.tscn"
-
 [sub_resource type="Resource" id="Resource_76ygg"]
 script = ExtResource("1_d3ivm")
 room = "res://objects/modules/cgc/variants/cgc_fairway_parkour_boss.tscn"
+
+[sub_resource type="Resource" id="Resource_cunho"]
+script = ExtResource("1_d3ivm")
+room = "res://objects/modules/cgc/variants/cgc_mole_cog_fight.tscn"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
 
 [sub_resource type="Resource" id="Resource_ufq0t"]
 script = ExtResource("1_d3ivm")
@@ -94,9 +95,9 @@ script = ExtResource("2_qoxls")
 entrances = PackedStringArray("res://objects/modules/cgc/variants/cgc_entrance_standard.tscn")
 battle_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_ci65f"), SubResource("Resource_6xq8g"), SubResource("Resource_vg1ab"), SubResource("Resource_5bicp"), SubResource("Resource_ckcik"), SubResource("Resource_qoxls"), SubResource("Resource_g1sud")])
 obstacle_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_ufq0t"), SubResource("Resource_n8yoj"), SubResource("Resource_td0r1"), SubResource("Resource_42byl"), SubResource("Resource_b86si"), SubResource("Resource_d3ivm"), SubResource("Resource_lluls")])
-connectors = PackedStringArray("res://objects/modules/cgc/base_rooms/cgc_conector1.tscn", "res://objects/modules/cgc/base_rooms/cgc_connector_2.tscn")
+connectors = PackedStringArray("res://objects/modules/cgc/base_rooms/cgc_connector_statue.tscn", "res://objects/modules/cgc/base_rooms/cgc_connector_hedges.tscn", "res://objects/modules/cgc/base_rooms/cgc_connector_river.tscn", "res://objects/modules/cgc/base_rooms/cgc_connector_pillarhedge.tscn")
 pre_final_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_xiql5")])
-final_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_cunho"), SubResource("Resource_76ygg")])
+final_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_76ygg"), SubResource("Resource_cunho")])
 special_rooms = Array[ExtResource("1_d3ivm")]([SubResource("Resource_6pdv4"), SubResource("Resource_0wscn"), SubResource("Resource_14h1b")])
 background_music = PackedStringArray("res://audio/music/Bossbot_Factory_v1.ogg", "res://audio/music/Bossbot_Factory_v2.ogg", "res://audio/music/Bossbot_Factory_v3.ogg")
 battle_music = "res://audio/music/BossBot_CEO_v1.ogg"

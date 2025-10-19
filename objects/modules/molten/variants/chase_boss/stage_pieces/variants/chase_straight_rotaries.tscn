@@ -15,7 +15,7 @@ NodePath("RespawnPoints/Respawn2"): NodePath("RespawnPoints/Respawn2/Pos")
 }
 
 [node name="chase_thin_platform" parent="." index="7" instance=ExtResource("2_a1sjy")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333335, 0.320591, 9.18336)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333335, -0.09005782, 9.18336)
 
 [node name="chase_thin_platform2" parent="." index="8" instance=ExtResource("2_a1sjy")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.333334, -0.0386024, -3.38584)
@@ -59,7 +59,7 @@ transform = Transform3D(-5.8622896e-07, 1.0147785, 1.6113784, 5.2948785, 1.01518
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 5.0401, 3.6867757)
 
 [node name="Pos" type="Node3D" parent="RespawnPoints/Respawn1" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.793389e-07, -3.254509, -5.693356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.793389e-07, -3.665158, -5.693356)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/Respawn1" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.43105)

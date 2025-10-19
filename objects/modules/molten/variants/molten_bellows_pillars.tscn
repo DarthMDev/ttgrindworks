@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://yoiyquggqfjn" path="res://objects/modules/molten/base_rooms/molten_bellows_pillars.tscn" id="1_dbwyy"]
 [ext_resource type="Script" uid="uid://bamuflr0smt7f" path="res://objects/modules/molten/variants/molten_bellows_pillars.gd" id="2_upbiw"]
 [ext_resource type="Script" uid="uid://dqpyvwnain3c5" path="res://objects/modules/factory/base_rooms/gear_spin.gd" id="3_lr3bg"]
-[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="4_v8s3v"]
+[ext_resource type="Texture2D" uid="uid://cukeb4lk6t7ro" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="4_v8s3v"]
 [ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="5_6hug6"]
-[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="6_hg02f"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="6_hg02f"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="7_nhn7r"]
 [ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="8_q2v5w"]
 [ext_resource type="PackedScene" uid="uid://e5xfuhel0svu" path="res://objects/props/molten/molten_bucket.tscn" id="12_0bmbh"]
@@ -65,7 +65,7 @@ script = ExtResource("2_upbiw")
 
 [node name="FanBlades" parent="." index="4"]
 unique_name_in_owner = true
-transform = Transform3D(-9.099629e-05, 7.955149e-12, -100, -8.742278e-06, -100, 0, -100, 8.742278e-06, 9.099629e-05, 0.0467062, 19.3536, 30.0111)
+transform = Transform3D(-9.099629e-05, 1.656065e-10, -100, -0.00018199258, -100, 0, -100, 0.00018199258, 9.099629e-05, 0.0467062, 19.3536, 30.0111)
 script = ExtResource("3_lr3bg")
 rotation_speed = -800.0
 rotation_type = 0
@@ -192,7 +192,7 @@ transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.096
 max_push = 2.0
 
 [node name="Platform" parent="JumpSpot1/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
-transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445962, -2.3841858e-07)
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445964, -2.3841858e-07)
 
 [node name="SquareDropShadow" parent="JumpSpot1/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
 visible = false
@@ -217,7 +217,7 @@ transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.096
 max_push = 2.0
 
 [node name="Platform" parent="JumpSpot2/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
-transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.044596, 0)
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445964, 0)
 
 [node name="SquareDropShadow" parent="JumpSpot2/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
 visible = false
@@ -242,16 +242,16 @@ transform = Transform3D(0.582314, 0, 0, 0, 0.582314, 0, 0, 0, 0.582314, 0, 3.096
 max_push = 2.0
 
 [node name="Platform" parent="JumpSpot3/ElevatingPlatform/MovingTower/MoltenBellows" index="1"]
-transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445962, 0)
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 3.0445964, 0)
 
 [node name="SquareDropShadow" parent="JumpSpot3/ElevatingPlatform/MovingTower/MoltenBellows" index="9"]
 visible = false
 
 [node name="treasure_chest" parent="." index="21" instance=ExtResource("7_nhn7r")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.06588, 3.59237, 29.4715)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.06588, 3.59237, 27.892784)
 
 [node name="treasure_chest2" parent="." index="22" instance=ExtResource("7_nhn7r")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.1063, 3.59223, 29.4715)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.1063, 3.59223, 27.892784)
 
 [node name="BurnerFlame" parent="." index="23" instance=ExtResource("8_q2v5w")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 1.61997, 6.95956, 4.33802)

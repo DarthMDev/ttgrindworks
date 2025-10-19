@@ -29,6 +29,7 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 @onready var elevator_out: Elevator = $ElevatorExit
 
 var unlock_toon := false
+var unlock_mystery := false
 
 ## For battle tracking
 const COG_LEVEL_RANGE := Vector2i(9, 14)
@@ -148,6 +149,9 @@ func set_caged_toon_dna(dna: ToonDNA) -> void:
 func get_caged_toon_dna() -> ToonDNA:
 	var unlock_index: int = SaveFileService.progress_file.characters_unlocked
 	var can_unlock: bool = unlock_index < 5
+	if not SaveFileService.is_achievement_unlocked(ProgressFile.GameAchievement.UNLOCK_RANDOM):
+		if Util.get_player().character.character_id == PlayerCharacter.Character.MOE:
+			unlock_mystery = true
 	if not can_unlock:
 		var dna := ToonDNA.new()
 		dna.randomize_dna()
@@ -159,6 +163,8 @@ func on_battle_finished() -> void:
 	if unlock_toon:
 		Globals.s_character_unlocked.emit(Globals.fetch_toon_unlock_order()[SaveFileService.progress_file.characters_unlocked])
 		SaveFileService.progress_file.characters_unlocked += 1
+	if unlock_mystery:
+		SaveFileService.progress_file.unlock_achievement(ProgressFile.GameAchievement.UNLOCK_RANDOM)
 	win_game()
 
 func end_game() -> void:

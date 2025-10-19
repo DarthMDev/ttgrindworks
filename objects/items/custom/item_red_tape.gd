@@ -1,6 +1,6 @@
 extends ItemScript
 
-const UseCost := 0.1
+const UseCost := 0.15
 
 var player: Player
 var curr_active_item: ItemActive
@@ -27,8 +27,6 @@ func on_active_item_changed(active_item: ItemActive) -> void:
 func on_item_use_fail() -> void:
 	player.stats.current_active_item.current_charge += 1
 	var damage_amount: int = ceili(player.stats.max_hp * UseCost)
-	if player.stats.hp > 1 and player.stats.hp - damage_amount <= 0:
-		damage_amount = player.stats.hp - 1
 
 	player.quick_heal(-damage_amount, false)
 	player.last_damage_source = "Beauracracy"

@@ -33,7 +33,7 @@ material = SubResource("ShaderMaterial_lk7eb")
 size = Vector2(30.745, 38)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4e7"]
-size = Vector3(12.135742, 5.3242188, 13.214233)
+size = Vector3(16.79419, 7.963379, 4.8641205)
 
 [node name="CGCLongRoomMoles" instance=ExtResource("1_drsjx")]
 
@@ -108,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.691004)
 [node name="SandTrap" parent="." index="12" node_paths=PackedStringArray("mole_force_launch_node") instance=ExtResource("7_sb4e7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27300453, 0.01, 5.747772)
 mesh = SubResource("PlaneMesh_5q4d0")
-mole_count_range = Vector2i(6, 6)
+mole_count_range = Vector2i(5, 5)
 mole_scale = Vector3(1.25, 1.25, 1.25)
 mole_force_launch_node = NodePath("../MoleLaunchPos")
 size = Vector2(30.745, 38)
@@ -117,14 +117,14 @@ size = Vector2(30.745, 38)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8.163003, 0, -2.3871307)
 script = ExtResource("9_sb4e7")
 force_launch_node = NodePath("../MoleLaunchPos")
-quota = 7
+quota = 6
 launch_cam = NodePath("../LaunchCam")
 hole_separation = 2.25
 normal_mole_cog_boost_time = 0.5
 metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MoleStompGame" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4682617, 2.1621094, 6.1071167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.775514, 3.4816895, 14.732567)
 shape = SubResource("BoxShape3D_sb4e7")
 
 [node name="MoleLaunchPos" type="Marker3D" parent="." index="14"]
@@ -140,4 +140,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8141816, 0, -19.99962)
 [node name="treasure_chest2" parent="." index="17" instance=ExtResource("11_hujeg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5631287, 0, -20.043074)
 
-[connection signal="s_game_win" from="MoleStompGame" to="FenceGate" method="open"]
+[connection signal="s_normal_finished" from="MoleStompGame" to="FenceGate" method="open"]

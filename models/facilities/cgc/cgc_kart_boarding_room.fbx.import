@@ -39,35 +39,45 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"CogHedgeFar2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/tree_mat.tres",
-"use_external/path": "uid://b45hb25eo5q6v"
-},
-"CogHedgeMaze2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
-"use_external/path": "uid://bv4ojtkb3obxf"
-},
-"CogHedgeMaze3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
-"use_external/path": "uid://c3vi6h4mq71ow"
-},
-"CogHedgeVine": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
-"use_external/path": "uid://do7bpsdy2nk"
-},
 "CogThinTree": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
 "use_external/path": "uid://do7bpsdy2nk"
 },
-"mazedirt_golf": {
+"Ground": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/facilities/cgc/materials/floor_mat.tres",
 "use_external/path": "uid://dlodnyf0k6y17"
+},
+"Hedge": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
+"use_external/path": "uid://bv4ojtkb3obxf"
+},
+"HedgeDark": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_dark.tres",
+"use_external/path": "uid://u261qh7el46l"
+},
+"HedgePartial": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
+"use_external/path": "uid://c3vi6h4mq71ow"
+},
+"Slate": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/slate.tres",
+"use_external/path": "uid://cliv41wabcywl"
+},
+"Stone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/stone_wall.tres",
+"use_external/path": "uid://xbihtj11aaah"
+},
+"Vines": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
+"use_external/path": "uid://do7bpsdy2nk"
 }
 }
 }
