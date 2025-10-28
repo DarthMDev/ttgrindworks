@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://ck1bbiruro2gk"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_gc7ls"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_hgb4p"]
+[ext_resource type="Texture2D" uid="uid://ehpaf68e3p7m" path="res://models/accessories/backpacks/dragonfly_wings/dragonfly_wings.png" id="3_gc7ls"]
+[ext_resource type="Script" uid="uid://d0ninnmfvycn7" path="res://objects/items/custom/item_dragonfly_wings.gd" id="4_gc7ls"]
+[ext_resource type="PackedScene" uid="uid://c86egwwmhvbco" path="res://models/accessories/backpacks/dragonfly_wings/dragonfly_wings.tscn" id="5_gc7ls"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="6_6c6dm"]
+
+[sub_resource type="Resource" id="Resource_xqi40"]
+script = ExtResource("2_hgb4p")
+position = Vector3(0, 0.58, 1.11)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_bsqs6"]
+script = ExtResource("2_hgb4p")
+body_type = 1
+position = Vector3(0.01, 0.56, 0.77)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_n1he7"]
+script = ExtResource("2_hgb4p")
+body_type = 2
+position = Vector3(0.01, 0.78, 0.84)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("6_6c6dm")
+accessory_placements = Array[ExtResource("1_gc7ls")]([SubResource("Resource_xqi40"), SubResource("Resource_bsqs6"), SubResource("Resource_n1he7")])
+qualitoon = 2
+rarity = 5
+evergreen = true
+slot = 3
+world_scale = 0.11
+ui_cam_offset = 0.4
+item_name = "Dragonfly Wings"
+item_description = "Soar and score!"
+big_description = "+ 50% Damage
+Damage boost gradually decays over the course of 15 minutes"
+model = ExtResource("5_gc7ls")
+item_script = ExtResource("4_gc7ls")
+icon = ExtResource("3_gc7ls")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

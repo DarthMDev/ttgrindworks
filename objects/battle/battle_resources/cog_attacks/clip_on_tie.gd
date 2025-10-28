@@ -34,7 +34,7 @@ func action() -> void:
 	
 	# Dodge 
 	if not hit:
-		tween.tween_callback(player.set_animation.bind('sidestep_left'))
+		tween.tween_callback(player.set_animation.bind('sidestep-left'))
 		tween.tween_callback(manager.battle_text.bind(player, "MISSED"))
 	
 	# Tween tie over

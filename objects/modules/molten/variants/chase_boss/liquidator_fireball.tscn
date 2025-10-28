@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddusr8in6xgs"]
+
+[ext_resource type="PackedScene" uid="uid://dqaugm8pltfca" path="res://objects/items/custom/toonosaur_hat/meteor.tscn" id="1_86oys"]
+[ext_resource type="Script" uid="uid://d0b8thg6g45xt" path="res://objects/modules/molten/variants/chase_boss/liquidator_fireball.gd" id="1_wefjl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wefjl"]
+radius = 1.00763
+
+[node name="LiquidatorFireball" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_wefjl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wefjl")
+
+[node name="Meteor" parent="." instance=ExtResource("1_86oys")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="lifetime_over"]

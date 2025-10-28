@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgc3bqs4ugtpu" path="res://models/props/cog_props/coin/CBCoin_CB1CoinEdge_SHD.png" id="1_jtq35"]
 [ext_resource type="Texture2D" uid="uid://c0uyni48ky6h0" path="res://models/props/cog_props/coin/CBCoin_BCCoinFront_SHD.png" id="2_rbqia"]
-[ext_resource type="Texture2D" uid="uid://82ah76neyjt0" path="res://models/props/cog_props/coin/CBCoin_CBCoin1Back_shd-file2.png" id="3_s4xrn"]
+[ext_resource type="Texture2D" uid="uid://8ohe7oj2m4rw" path="res://models/props/cog_props/coin/CBCoin_CBCoin1Back_shd-file2.png" id="3_s4xrn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15w03"]
 resource_name = "CB1CoinEdge_SHD"

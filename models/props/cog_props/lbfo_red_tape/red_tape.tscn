@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3iylwnk0k5w"]
+
+[ext_resource type="PackedScene" uid="uid://u0b2uevrxq0v" path="res://models/props/cog_props/lbfo_red_tape/red_tape.fbx" id="1_0pi1o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0pi1o"]
+size = Vector3(2, 1.605, 1.575)
+
+[node name="red_tape" instance=ExtResource("1_0pi1o")]
+
+[node name="redTape" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.93024474, 0.36693966, 0, -0.36693966, 0.93024474, 0, -0.52838314, 0.17615461)
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="2"]
+visible = false
+mesh = SubResource("BoxMesh_0pi1o")

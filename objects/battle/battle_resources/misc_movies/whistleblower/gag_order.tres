@@ -4,11 +4,6 @@
 
 [resource]
 script = ExtResource("1_vik3j")
-accuracy = 75
-damage = 1
-ignore_stats = false
 summary = "Whistleblower bans the gags you used!"
 attack_lines = Array[String](["Strike that from the record.", "I prohibit you from doing that again.", "I wouldn't repeat that if I were you."])
-target_type = 0
 action_name = "Gag Order"
-one_time_use = false

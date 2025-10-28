@@ -7,6 +7,7 @@ class_name ProgressFile
 @export var needs_custom_cog_help := true
 @export var cog_creator_unlocked := false
 @export var mystery_toon_win := false
+@export var stranger_met := false
 
 ## Fun statistics
 ## Accounted for v
@@ -18,20 +19,31 @@ var total_cogs_defeated : int:
 		for cog in cogs_defeated.keys():
 			total_cogs += cogs_defeated[cog]
 		return total_cogs
+@export var proxy_cogs_defeated := 0
 @export var boss_cogs_defeated := 0
 @export var floors_cleared := 0
 @export var deaths := 0
 @export var gags_used := 0
-@export var total_playtime := 0.0
+@export var total_playtime := 0.0:
+	set(x):
+		if is_nan(x):
+			return
+		total_playtime = maxf(0.0, x)
 @export var jellybeans_collected := 0
 @export var win_streak := 0
 @export var wins := 0
 @export var best_time := 0.0
+@export var pocket_pranks_used := 0
+
+## Item Specific stat tracking
+@export_storage var special_chests_opened: int = 0
+@export_storage var times_jumped: int = 0
+@export_storage var times_stranger_seen: int = 0
 
 
 var proxies_unlocked: bool:
 	get: return characters_unlocked >= 2
-
+	
 func save_to(file_name: String):
 	ResourceSaver.save(self,SaveFileService.SAVE_FILE_PATH + file_name)
 
@@ -40,6 +52,7 @@ func start_listening() -> void:
 	BattleService.s_battle_started.connect(on_battle_start)
 	BattleService.s_boss_died.connect(func(_cog): boss_cogs_defeated += 1)
 	Util.s_floor_ended.connect(on_floor_end)
+	Globals.s_game_win.connect(on_game_win)
 	initialize_achievements()
 	run_infer_checks()
 
@@ -58,8 +71,15 @@ func battle_participant_died(participant: Node3D) -> void:
 			add_cog_defeat('other')
 		else:
 			add_cog_defeat(participant.dna.cog_name)
+			if participant.dna.is_mod_cog:
+				proxy_cogs_defeated += 1
+	## The Player object will report its death to us, so we don't need this
 	elif participant is Player:
-		win_streak = 0
+		pass
+
+func on_player_died() -> void:
+	if win_streak > 0: win_streak = 0
+	else: win_streak -= 1
 
 func add_cog_defeat(cog: String) -> void:
 	if cogs_defeated.has(cog):
@@ -69,6 +89,13 @@ func add_cog_defeat(cog: String) -> void:
 
 func on_floor_end() -> void:
 	floors_cleared += 1
+
+func on_game_win() -> void:
+	wins += 1
+	if win_streak <= 0:
+		win_streak = 1
+	else:
+		win_streak += 1
 
 #region ACHIEVEMENTS
 
@@ -111,36 +138,61 @@ enum GameAchievement {
 	# 1.1 Achievements
 	WIN_GAME_HOUR,
 	FLIPPY_GETS_BUCKET,
+
+	# 1.2 Achievements
+	UNLOCK_PETE,
+	UNLOCK_OLDMAN,
+	DEFEAT_LIQUIDATOR,
+	MEET_STRANGER,
+	UNLOCK_LAW_BOOK,
+	UNLOCK_DAGGER,
+	UNLOCK_DILLY_DIAL,
+	UNLOCK_PHILOSOPHERS_STONE,
+	UNLOCK_BIRD_WINGS,
+	UNLOCK_WEIRD_GLASSES,
+	UNLOCK_ROLODEX,
 }
 
+const PATH := "res://objects/save_file/achievements/resources/"
 const ACHIEVEMENT_RESOURCES := {
-	GameAchievement.DEFEAT_COGS_1: "res://objects/save_file/achievements/resources/achievement_one_cog.tres",
-	GameAchievement.DEFEAT_COGS_10: "res://objects/save_file/achievements/resources/achievement_ten_cog.tres",
-	GameAchievement.DEFEAT_COGS_100: "res://objects/save_file/achievements/resources/achievement_hundred_cog.tres",
-	GameAchievement.DEFEAT_COGS_1000: "res://objects/save_file/achievements/resources/achievement_thousand_cog.tres",
-	GameAchievement.DEFEAT_COGS_10000: "res://objects/save_file/achievements/resources/achievement_ten_thousand_cog.tres",
-	GameAchievement.DEFEAT_BOSSES_1: "res://objects/save_file/achievements/resources/achievement_boss_1.tres",
-	GameAchievement.DEFEAT_BOSSES_5: "res://objects/save_file/achievements/resources/achievement_boss_5.tres",
-	GameAchievement.DEFEAT_BOSSES_25: "res://objects/save_file/achievements/resources/achievement_boss_25.tres",
-	GameAchievement.DEFEAT_BOSSES_100: "res://objects/save_file/achievements/resources/achievement_boss_100.tres",
-	GameAchievement.DEFEAT_BOSSES_200: "res://objects/save_file/achievements/resources/achievement_boss_200.tres",
-	GameAchievement.DEFEAT_CLOWNS: "res://objects/save_file/achievements/resources/achievement_special_boss_clowns.tres",
-	GameAchievement.DEFEAT_SLENDER: "res://objects/save_file/achievements/resources/achievement_special_boss_slendercog.tres",
-	GameAchievement.UNLOCK_PROXY_COGS: "res://objects/save_file/achievements/resources/achievement_special_proxy_cogs.tres",
-	GameAchievement.UNLOCK_CLARA: "res://objects/save_file/achievements/resources/achievement_unlock_clara.tres",
-	GameAchievement.UNLOCK_JULIUS: "res://objects/save_file/achievements/resources/achievement_unlock_wheezer.tres",
-	GameAchievement.UNLOCK_BESSIE: "res://objects/save_file/achievements/resources/achievement_unlock_bessie.tres",
-	GameAchievement.UNLOCK_MOE: "res://objects/save_file/achievements/resources/achievement_unlock_moe.tres",
-	GameAchievement.UNLOCK_RANDOM: "res://objects/save_file/achievements/resources/achievement_unlock_random.tres",
-	GameAchievement.DOODLE: "res://objects/save_file/achievements/resources/achievement_doodle.tres",
-	GameAchievement.GO_SAD_1: "res://objects/save_file/achievements/resources/achievement_sad_1.tres",
-	GameAchievement.GO_SAD_5: "res://objects/save_file/achievements/resources/achievement_sad_5.tres",
-	GameAchievement.GO_SAD_10: "res://objects/save_file/achievements/resources/achievement_sad_10.tres",
-	GameAchievement.EASTER_EGG_EXPLORER: "res://objects/save_file/achievements/resources/achievement_easteregg_secret_floor.tres",
-	GameAchievement.EASTER_EGG_GEAR: "res://objects/save_file/achievements/resources/achievement_easteregg_gears.tres",
-	GameAchievement.ONE_HUNDRED_PERCENT: "res://objects/save_file/achievements/resources/achievement_100p.tres",
-	GameAchievement.WIN_GAME_HOUR: "res://objects/save_file/achievements/resources/achievement_one_hour.tres",
-	GameAchievement.FLIPPY_GETS_BUCKET: "res://objects/save_file/achievements/resources/achievement_bucket.tres",
+	GameAchievement.DEFEAT_COGS_1: PATH + "achievement_one_cog.tres",
+	GameAchievement.DEFEAT_COGS_10: PATH + "achievement_ten_cog.tres",
+	GameAchievement.DEFEAT_COGS_100: PATH + "achievement_hundred_cog.tres",
+	GameAchievement.DEFEAT_COGS_1000: PATH + "achievement_thousand_cog.tres",
+	GameAchievement.DEFEAT_COGS_10000: PATH + "achievement_ten_thousand_cog.tres",
+	GameAchievement.DEFEAT_BOSSES_1: PATH + "achievement_boss_1.tres",
+	GameAchievement.DEFEAT_BOSSES_5: PATH + "achievement_boss_5.tres",
+	GameAchievement.DEFEAT_BOSSES_25: PATH + "achievement_boss_25.tres",
+	GameAchievement.DEFEAT_BOSSES_100: PATH + "achievement_boss_100.tres",
+	GameAchievement.DEFEAT_BOSSES_200: PATH + "achievement_boss_200.tres",
+	GameAchievement.DEFEAT_CLOWNS: PATH + "achievement_special_boss_clowns.tres",
+	GameAchievement.DEFEAT_SLENDER: PATH + "achievement_special_boss_slendercog.tres",
+	GameAchievement.UNLOCK_PROXY_COGS: PATH + "achievement_special_proxy_cogs.tres",
+	GameAchievement.UNLOCK_CLARA: PATH + "achievement_unlock_clara.tres",
+	GameAchievement.UNLOCK_JULIUS: PATH + "achievement_unlock_wheezer.tres",
+	GameAchievement.UNLOCK_BESSIE: PATH + "achievement_unlock_bessie.tres",
+	GameAchievement.UNLOCK_MOE: PATH + "achievement_unlock_moe.tres",
+	GameAchievement.UNLOCK_RANDOM: PATH + "achievement_unlock_random.tres",
+	GameAchievement.DOODLE: PATH + "achievement_doodle.tres",
+	GameAchievement.GO_SAD_1: PATH + "achievement_sad_1.tres",
+	GameAchievement.GO_SAD_5: PATH + "achievement_sad_5.tres",
+	GameAchievement.GO_SAD_10: PATH + "achievement_sad_10.tres",
+	GameAchievement.EASTER_EGG_EXPLORER: PATH + "achievement_easteregg_secret_floor.tres",
+	GameAchievement.EASTER_EGG_GEAR: PATH + "achievement_easteregg_gears.tres",
+	GameAchievement.ONE_HUNDRED_PERCENT: PATH + "achievement_100p.tres",
+	GameAchievement.WIN_GAME_HOUR: PATH + "achievement_one_hour.tres",
+	GameAchievement.FLIPPY_GETS_BUCKET: PATH + "achievement_bucket.tres",
+	GameAchievement.UNLOCK_PETE: PATH + "achievement_unlock_pete.tres",
+	GameAchievement.UNLOCK_OLDMAN: PATH + "achievement_unlock_oldman.tres",
+	GameAchievement.DEFEAT_LIQUIDATOR: PATH + "achievement_special_boss_liquidator.tres",
+	GameAchievement.MEET_STRANGER: PATH + "achievement_meet_stranger.tres",
+	GameAchievement.UNLOCK_LAW_BOOK: PATH + "achievement_item_law_book.tres",
+	GameAchievement.UNLOCK_DAGGER: PATH + "achievement_item_dagger.tres",
+	GameAchievement.UNLOCK_DILLY_DIAL: PATH + "achievement_item_dilly_dial.tres",
+	GameAchievement.UNLOCK_PHILOSOPHERS_STONE: PATH + "achievement_item_philosophers_stone.tres",
+	GameAchievement.UNLOCK_BIRD_WINGS: PATH + "achievement_item_bird_wings.tres",
+	GameAchievement.UNLOCK_WEIRD_GLASSES: PATH + "achievement_item_weird_glasses.tres",
+	GameAchievement.UNLOCK_ROLODEX: PATH + "achievement_item_rolodex.tres",
 }
 
 @export var achievements_earned := {
@@ -169,9 +221,21 @@ const ACHIEVEMENT_RESOURCES := {
 	GameAchievement.EASTER_EGG_EXPLORER: false,
 	GameAchievement.EASTER_EGG_GEAR: false,
 	GameAchievement.ONE_HUNDRED_PERCENT: false,
-	GameAchievement.WIN_GAME_HOUR : false,
+	GameAchievement.WIN_GAME_HOUR: false,
 	GameAchievement.FLIPPY_GETS_BUCKET: false,
+	GameAchievement.UNLOCK_PETE: false,
+	GameAchievement.UNLOCK_OLDMAN: false,
+	GameAchievement.DEFEAT_LIQUIDATOR: false,
+	GameAchievement.MEET_STRANGER: false,
+	GameAchievement.UNLOCK_LAW_BOOK: false,
+	GameAchievement.UNLOCK_DAGGER: false,
+	GameAchievement.UNLOCK_DILLY_DIAL: false,
+	GameAchievement.UNLOCK_PHILOSOPHERS_STONE: false,
+	GameAchievement.UNLOCK_BIRD_WINGS: false,
+	GameAchievement.UNLOCK_WEIRD_GLASSES: false,
+	GameAchievement.UNLOCK_ROLODEX: false,
 }
+
 var achievement_count: int:
 	get:
 		var counter := 0
@@ -191,8 +255,6 @@ func get_achievement_unlocked(achievement : GameAchievement) -> bool:
 	return achievements_earned[achievement]
 
 #endregion
-
-#region Infer Checks
 
 func run_infer_checks() -> void:
 	# Check for initial wins

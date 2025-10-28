@@ -23,26 +23,17 @@
 [ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="17_8fcps"]
 [ext_resource type="Script" uid="uid://ckypnf7t805p3" path="res://objects/battle/battle_resources/gag_loadouts/gag_loadout.gd" id="17_aepo7"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="23_16xtn"]
-[ext_resource type="Resource" uid="uid://dcsxiitw5cbcq" path="res://objects/items/resources/passive/gag_voucher_pack.tres" id="24_16xtn"]
-[ext_resource type="Resource" uid="uid://thgjta7yh73q" path="res://objects/items/resources/accessories/hats/witch_hat.tres" id="25_1xuw6"]
-[ext_resource type="Resource" uid="uid://csrgfcqxhl18x" path="res://objects/items/resources/active/golden_jellybean.tres" id="26_16xtn"]
+[ext_resource type="Resource" uid="uid://c8xt0naden1hv" path="res://objects/items/resources/accessories/shoes/super_toon_boots.tres" id="24_16xtn"]
+[ext_resource type="Resource" uid="uid://klobdj40hb36" path="res://objects/items/resources/accessories/backpacks/medium_pouch.tres" id="25_1xuw6"]
+[ext_resource type="Resource" uid="uid://b73ax0fohafiu" path="res://objects/items/resources/accessories/hats/toonosaur_hat.tres" id="26_16xtn"]
 [ext_resource type="Resource" uid="uid://c3sjb3vivkvux" path="res://objects/items/resources/passive/laff_boost.tres" id="27_4p2an"]
-[ext_resource type="Resource" uid="uid://bed0hxns3is4g" path="res://objects/items/resources/accessories/hats/fedora.tres" id="28_qncha"]
+[ext_resource type="Resource" uid="uid://ca25j75xttg4p" path="res://objects/items/resources/active/moneybags_coin.tres" id="28_16xtn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pfdn"]
 size = Vector3(14.6639, 5.65576, 10.2309)
 
 [sub_resource type="Resource" id="Resource_4yraj"]
 script = ExtResource("5_wgpvb")
-damage = 1.0
-defense = 1.0
-evasiveness = 1.0
-accuracy = 1.0
-speed = 1.0
-max_turns = 3
-max_hp = 25
-hp = 25
-turns = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kprq4"]
 load_path = "res://.godot/imported/desat_shorts_10_2.png-006293ca57932ca262d7592d1c1d61cb.ctex"
@@ -51,7 +42,6 @@ load_path = "res://.godot/imported/desat_shorts_10_2.png-006293ca57932ca262d7592
 script = ExtResource("6_sp5d7")
 texture = SubResource("CompressedTexture2D_kprq4")
 base_color = Color(0.71, 0.231, 0.435, 1)
-color_type = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d57wk"]
 load_path = "res://.godot/imported/desat_shirt_4.png-bfcf4c92cccaf058f4524676d1ca500a.ctex"
@@ -65,15 +55,11 @@ shirt_texture = SubResource("CompressedTexture2D_d57wk")
 sleeve_texture = SubResource("CompressedTexture2D_ees5g")
 base_color = Color(0.992157, 0.478431, 0.168627, 1)
 sleeve_color = Color(0.992157, 0.478431, 0.168627, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_h5kab"]
 script = ExtResource("7_42kli")
-body_type = 0
-species = 2
 head_index = 2
 eyelashes = false
-skirt = false
 head_color = Color(0.345098, 0.819608, 0.952941, 1)
 torso_color = Color(0.345098, 0.819608, 0.952941, 1)
 leg_color = Color(0.345098, 0.819608, 0.952941, 1)
@@ -86,24 +72,17 @@ loadout = Array[ExtResource("9_4i7n6")]([ExtResource("11_hy8sk"), ExtResource("1
 
 [sub_resource type="Resource" id="Resource_br8l0"]
 script = ExtResource("13_d0tkq")
-character_name = "Flippy"
 character_summary = "- Can revive once before going sad
 - 5% base Throw boost
 - Starts with Toon-Up and Throw"
 dna = SubResource("Resource_h5kab")
 gag_loadout = SubResource("Resource_s4oci")
-starting_laff = 25
 starting_items = Array[ExtResource("14_7upve")]([ExtResource("15_8ctgi")])
 base_stats = SubResource("Resource_4yraj")
-override_index = -1
-achievement_qualities = Dictionary[int, String]({})
-random_character_stored_name = ""
-achievement_index = 0
 
 [sub_resource type="Resource" id="Resource_vs51t"]
 script = ExtResource("17_8fcps")
 money = 30
-items = Array[ExtResource("14_7upve")]([])
 gags_unlocked = Dictionary[String, int]({
 "Drop": 7,
 "Lure": 7,
@@ -144,8 +123,14 @@ gag_vouchers = Dictionary[String, int]({
 "Throw": 1,
 "Trap": 1
 })
-gag_battle_start_point_boost = Dictionary[String, int]({})
-global_battle_start_point_boost = 0
+bean_vouchers = Dictionary[int, int]({
+0: 1,
+1: 1,
+2: 1,
+3: 1,
+4: 1,
+5: 1
+})
 toonups = Dictionary[int, int]({
 0: 10,
 1: 10,
@@ -155,46 +140,15 @@ toonups = Dictionary[int, int]({
 5: 10,
 6: 10
 })
-treasures = Dictionary[int, int]({
-0: 0,
-1: 0,
-2: 0,
-3: 0,
-4: 0,
-5: 0
-})
 gag_cap = 100
-gag_discount = -1
 character = SubResource("Resource_br8l0")
-quests = Array[ExtResource("16_qov7a")]([])
-quest_rerolls = 3
 pink_slips = 10
-luck = 1.0
-crit_mult = 1.25
-mod_cog_dmg_mult = 1.0
-shop_discount = 0
-healing_effectiveness = 1.0
 throw_heal_boost = 0.1
-squirt_defense_boost = 0.8
-drop_aftershock_round_boost = 0
-trap_knockback_percent = 0.0
-anomaly_boost = 0
-laff_boost_boost = 0
-extra_lives = 0
-toonup_boost = 0.0
-sellbot_boost = 1.0
-cashbot_boost = 1.0
-lawbot_boost = 1.0
-bossbot_boost = 1.0
-proxy_chance_boost = 0.0
-cog_hp_death_threshold = 0.0
-battle_timers = Array[int]([])
 damage = 2.0
 defense = 1.25
 evasiveness = 1.1
 accuracy = 1.5
 speed = 1.1
-max_turns = 3
 max_hp = 1000
 hp = 1000
 turns = 3
@@ -259,4 +213,4 @@ override_item = ExtResource("27_4p2an")
 
 [node name="treasure_chest5" parent="." instance=ExtResource("23_16xtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65817, 0, -5.41882)
-override_item = ExtResource("28_qncha")
+override_item = ExtResource("28_16xtn")

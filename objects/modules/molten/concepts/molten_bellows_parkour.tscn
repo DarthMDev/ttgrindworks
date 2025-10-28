@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=3 uid="uid://djqmq0qse804k"]
+
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="2_qlfpe"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="3_bdckf"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="4_ayrxo"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="5_bes7r"]
+[ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="6_1helb"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="6_f51r8"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="7_1vehf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb7e0"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("4_ayrxo")
+roughness = 0.552786
+uv1_scale = Vector3(1, 11.975, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j4pq"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("4_ayrxo")
+roughness = 0.552786
+uv1_scale = Vector3(1, 11.975, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_alp1p"]
+noise_type = 3
+frequency = 0.0101
+offset = Vector3(47.62, 0, 0)
+fractal_type = 3
+fractal_octaves = 2
+fractal_lacunarity = 1.0
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bh1jp"]
+noise = SubResource("FastNoiseLite_alp1p")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aehv3"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("5_bes7r")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("6_1helb")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(4.1, 2.795, 10)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.475
+shader_parameter/displacement = SubResource("NoiseTexture2D_bh1jp")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fw5kb"]
+material = SubResource("ShaderMaterial_aehv3")
+size = Vector2(42, 27.345)
+subdivide_width = 50
+subdivide_depth = 32
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlfpe"]
+size = Vector3(35.9493, 24.3324, 49.7959)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.971437, 0, 0, 0, 1.00074, 0, 0, 0, 0.941028, 0.0739374, 16.6578, -24.9432)
+use_collision = true
+size = Vector3(11.0752, 0.692871, 10.0704)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81507, 17.5021, 12.3535)
+size = Vector3(30.3393, 1, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.3523, 17.5021, 15.9594)
+size = Vector3(8.19687, 1, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.291748, 0)
+use_collision = true
+size = Vector3(11.2334, 0.692871, 11.5056)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(0.971437, 0, 0, 0, 1.00074, 0, 0, 0, 0.941028, 24.9549, 16.6578, -24.9432)
+use_collision = true
+size = Vector3(11.0752, 0.692871, 10.0704)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.58828, 0, 0, 0, 1, 0, 0, 0, 1, 12.6573, 1.68085, -11.5278)
+use_collision = true
+size = Vector3(23, 4.73621, 11.5056)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, 18.3066, 6.92251, 0)
+use_collision = true
+size = Vector3(15.8594, 16.0774, 11.5056)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, 13.1269, 19.3499, -5.51581)
+use_collision = true
+size = Vector3(9.3847, 8.81118, 0.473999)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.99382e-08, 0, 1, 0, 1, 0, -1.6, 0, -4.37114e-08, 5.89281, 16.728, -11.3545)
+use_collision = true
+size = Vector3(7.00199, 14.2313, 0.473999)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.99382e-08, 0, 1, 0, 1, 0, -1.6, 0, -4.37114e-08, 5.89281, 19.3696, 0.0994368)
+use_collision = true
+size = Vector3(7.00199, 8.94816, 0.473999)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37436e-08, 0, -1.00074, 0, 1.00074, 0, 1.00074, 0, -4.37436e-08, 12.6222, 11.8256, -4.79754)
+flip_faces = true
+size = Vector3(49.6137, 26.1126, 35.8168)
+
+[node name="MoltenBellows" parent="." instance=ExtResource("2_qlfpe")]
+transform = Transform3D(0.347279, 0, 0, 0, 0.347279, 0, 0, 0, 0.347279, 0.00893521, 0, 0)
+visible = false
+max_push = 2.5
+
+[node name="MoltenBellows2" parent="." instance=ExtResource("2_qlfpe")]
+transform = Transform3D(0.347279, 0, 0, 0, 0.347279, 0, 0, 0, 0.347279, 27.3139, 4.26737, -8.72439)
+visible = false
+retract_speed = 6.0
+
+[node name="MoltenBellows3" parent="." instance=ExtResource("2_qlfpe")]
+transform = Transform3D(0.347279, 0, 0, 0, 0.347279, 0, 0, 0, 0.347279, 0.673312, 4.26737, -8.72439)
+visible = false
+retract_speed = 6.0
+
+[node name="MoltenBellows4" parent="." instance=ExtResource("2_qlfpe")]
+transform = Transform3D(0.347279, 0, 0, 0, 0.347279, 0, 0, 0, 0.347279, 0.673312, 4.26737, -14.0737)
+visible = false
+retract_speed = 6.0
+
+[node name="ConveyerBelt" parent="." instance=ExtResource("3_bdckf")]
+transform = Transform3D(-4.40191e-08, 0, -1.00704, 0, 1.00704, 0, 1.00704, 0, -4.40191e-08, 12.6534, 4.12531, -8.79269)
+constant_linear_velocity = Vector3(-5, 0, -2.18557e-07)
+size = Vector3(1.67, 1, 11.975)
+platform_mat = SubResource("StandardMaterial3D_nb7e0")
+speed = 5.0
+
+[node name="ConveyerBelt2" parent="." instance=ExtResource("3_bdckf")]
+transform = Transform3D(0.0033751, -0.0012351, -1.00703, 0.00259062, 1.00704, -0.0012264, 1.00703, -0.00258648, 0.00337826, 12.6581, 4.12533, -14.3411)
+constant_linear_velocity = Vector3(-4.99997, 0, 0.0167731)
+size = Vector3(1.67, 1, 11.975)
+platform_mat = SubResource("StandardMaterial3D_2j4pq")
+speed = 5.0
+
+[node name="LavaPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.861311, 0, 0, 0, 1, 0, 0, 0, 1.7945, 12.7264, -0.7883, -5.11827)
+visible = false
+mesh = SubResource("PlaneMesh_fw5kb")
+
+[node name="ENTRANCE" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.64694, 0, 0)
+
+[node name="EXIT" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.0036, 14.8205, 0)
+
+[node name="RoomArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7697, 11.6662, -5.15974)
+shape = SubResource("BoxShape3D_qlfpe")
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." instance=ExtResource("6_f51r8")]
+script = ExtResource("7_1vehf")

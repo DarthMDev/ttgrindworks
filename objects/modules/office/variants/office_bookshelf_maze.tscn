@@ -142,7 +142,7 @@ connected_objects = [NodePath("../CogDoor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45063, 0, 9.6383)
 
 [node name="treasure_chest2" parent="." index="10" instance=ExtResource("4_kelww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6946, -0.0418701, 9.61931)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6946, -0.00354769, 9.61931)
 
 [node name="CogDoor" parent="." index="11" instance=ExtResource("5_ve7e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.594)

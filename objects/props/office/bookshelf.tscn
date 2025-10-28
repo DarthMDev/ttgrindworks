@@ -1,21 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceghombqxco7o"]
+[gd_scene load_steps=9 format=3 uid="uid://ceghombqxco7o"]
 
 [ext_resource type="PackedScene" uid="uid://dp5ejyjjmcpwu" path="res://models/props/facility_objects/da_office/bookshelf/law_bookshelf.glb" id="1_3rfxt"]
+[ext_resource type="Texture2D" uid="uid://srgte74wrlal" path="res://models/props/facility_objects/da_office/bookshelf/law_bookshelf_squareshadow.png" id="2_vcc86"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ob3hy"]
-size = Vector3(2.65924, 1.92113, 0.457581)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcc86"]
+size = Vector3(2.70508, 1.9223, 0.463867)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kb60"]
+resource_name = "lambert4"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_vcc86")
+roughness = 0.552786
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tg7bo"]
+_surfaces = [{
+"aabb": AABB(-1.67217, -1.21517e-07, -0.401117, 3.35584, 1e-05, 0.802235),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "lambert4",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 56, 6, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 56, 6, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l5ocu"]
+resource_name = "law_bookshelf_Mesh_004"
+_surfaces = [{
+"aabb": AABB(-1.67217, -1.21517e-07, -0.401117, 3.35584, 1e-05, 0.802235),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_0kb60"),
+"name": "lambert4",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 56, 6, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 56, 6, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tg7bo")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vcc86"]
+load_path = "res://.godot/imported/law_bookshelf_squareshadow.png-1e8088b8197a0a37c278fc15a7dd990c.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4kx5"]
+resource_name = "lambert4"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.28627452)
+albedo_texture = SubResource("CompressedTexture2D_vcc86")
+roughness = 0.5527864
 
 [node name="law_bookshelf" instance=ExtResource("1_3rfxt")]
 
-[node name="collision" parent="Law_bookcaseB" index="0"]
-visible = false
+[node name="CollisionShape3D" parent="Bookshelf/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967438, 0)
+shape = SubResource("BoxShape3D_vcc86")
 
-[node name="shadow" parent="Law_bookcaseB" index="6"]
+[node name="Law_bookcaseB#shadow" type="MeshInstance3D" parent="." index="1"]
 transparency = 0.35
+mesh = SubResource("ArrayMesh_l5ocu")
+skeleton = NodePath("")
 
-[node name="Collision" type="StaticBody3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695074, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0235291, 0.269783, -0.00216675)
-shape = SubResource("BoxShape3D_ob3hy")
+[node name="shadow" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d4kx5")

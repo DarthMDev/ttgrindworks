@@ -3,9 +3,13 @@ class_name BoostQueue
 
 const BOOST_TEXT_LABEL := preload("res://objects/player/ui/boost_text_label.tscn")
 const STAGGER_TIME := 0.75
+const MAX_QUEUE_COUNT := 50
 
 var queue: Array = []
 var can_queue_text := true
+
+var queue_but_text_only: Array:
+	get: return queue.map(func(x: Array): return x[0])
 
 
 func _do_text(text: String, color: Color) -> void:
@@ -19,6 +23,10 @@ func _do_text(text: String, color: Color) -> void:
 	new_label.queue_free()
 
 func queue_text(text: String, color: Color) -> void:
+	# Too much of this text type already. Don't want it!!!
+	if queue_but_text_only.count(text) >= 5: return
+	if queue.size() >= MAX_QUEUE_COUNT: return
+
 	if queue.is_empty() and can_queue_text:
 		run_text(text, color)
 	else:

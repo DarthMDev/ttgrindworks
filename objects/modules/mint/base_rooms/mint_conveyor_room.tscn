@@ -1,10 +1,11 @@
-[gd_scene load_steps=92 format=4 uid="uid://cmwth04hxrxf4"]
+[gd_scene load_steps=93 format=4 uid="uid://cmwth04hxrxf4"]
 
 [ext_resource type="PackedScene" uid="uid://bbpa14c3mhbii" path="res://models/facilities/mint/mint_conveyor_room.fbx" id="1_3hn8j"]
 [ext_resource type="Texture2D" uid="uid://nbvwj2psjraf" path="res://models/facilities/mint/textures/CementFloorx4.png" id="2_cncj2"]
 [ext_resource type="Script" uid="uid://bxhii68t1wesv" path="res://objects/modules/mint/base_rooms/mint_conveyor_room.gd" id="2_m2mgh"]
 [ext_resource type="Texture2D" uid="uid://bg28yomkn1lgx" path="res://models/facilities/factory/FINALFACTORY_66.png" id="3_1kqjs"]
 [ext_resource type="Texture2D" uid="uid://7l45tp60jot0" path="res://models/facilities/mint/textures/CB_Glass.png" id="3_c4x01"]
+[ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="4_5dmvp"]
 [ext_resource type="Texture2D" uid="uid://ofuuiundcoub" path="res://models/facilities/mint/textures/LocomotiveSide5.png" id="4_jkybm"]
 [ext_resource type="Texture2D" uid="uid://cl67spfbv4ht1" path="res://models/facilities/mint/textures/MagnetControl.png" id="5_d7l0k"]
 [ext_resource type="Texture2D" uid="uid://brracvf0fwcfn" path="res://models/facilities/mint/textures/PaintedWall.png" id="5_fqqp6"]
@@ -23,9 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="17_1op3x"]
 [ext_resource type="Texture2D" uid="uid://dxyojq8quwnus" path="res://models/facilities/mint/textures/FINALFACTORY_4.png" id="17_ivbpi"]
 [ext_resource type="Texture2D" uid="uid://dtm13qbxxohgl" path="res://models/facilities/mint/textures/FINALFACTORY_137.png" id="18_4khn2"]
+[ext_resource type="Resource" uid="uid://c1ieqc06wj6gp" path="res://objects/items/pools/rewards.tres" id="25_5dmvp"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="25_bub7a"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="25_bv5h8"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="26_5dmvp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ksdy"]
 resource_name = "FINALFACTORY_66"
@@ -236,21 +237,19 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlxus"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dmvp"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -0.930562, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6muf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aolpe"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("8_6slq6")
 roughness = 0.552786
 uv1_scale = Vector3(1, 15, 1)
-uv1_offset = Vector3(0, -0.820814, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2y4s"]
 size = Vector3(1.53235, 4.8617, 16.5046)
@@ -512,6 +511,7 @@ size = Vector3(4.76855, 3.15479, 36.4082)
 
 [node name="mint_conveyor_room" instance=ExtResource("1_3hn8j")]
 script = ExtResource("2_m2mgh")
+REGULAR_OBJS = Array[PackedScene]([ExtResource("9_henam"), ExtResource("4_5dmvp")])
 
 [node name="Beams" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ksdy")
@@ -704,7 +704,7 @@ unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.191, 0, -2.625)
 constant_linear_velocity = Vector3(-7.54979e-07, 0, -5)
 size = Vector3(1.49, 1, 15)
-platform_mat = SubResource("StandardMaterial3D_nlxus")
+platform_mat = SubResource("StandardMaterial3D_5dmvp")
 speed = 5.0
 
 [node name="CBUpper" parent="Conveyors" index="1" instance=ExtResource("7_vvvsa")]
@@ -712,7 +712,7 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 3.95, 3.5)
 constant_linear_velocity = Vector3(7, 0, -3.0598e-07)
 size = Vector3(1.5, 1, 15)
-platform_mat = SubResource("StandardMaterial3D_h6muf")
+platform_mat = SubResource("StandardMaterial3D_aolpe")
 speed = 7.0
 
 [node name="Crates" type="Node3D" parent="." index="22"]
@@ -1185,9 +1185,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4274, 0, -11.8237)
 
 [node name="treasure_chest2" parent="." index="40" instance=ExtResource("11_n1faw")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.987, 2.509, -18.5656)
+item_pool = ExtResource("25_5dmvp")
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="41" instance=ExtResource("25_bv5h8")]
+[node name="DebugPlayerPositionMarker" parent="." index="41" instance=ExtResource("25_bv5h8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1413, 0, -12.0068)
-script = ExtResource("26_5dmvp")
 
 [connection signal="s_pressed" from="CogButton" to="." method="lower_ramp"]

@@ -1,41 +1,27 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=12 format=3 uid="uid://bkkkabh3sre13"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://bkkkabh3sre13"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_68i6a"]
 [ext_resource type="Resource" uid="uid://bik8l6ycrnufq" path="res://objects/battle/battle_resources/cog_attacks/resources/calculate.tres" id="2_7sios"]
 [ext_resource type="Resource" uid="uid://doowiij7lpxy1" path="res://objects/battle/battle_resources/cog_attacks/resources/rubber_stamp.tres" id="3_0f0y2"]
-[ext_resource type="PackedScene" uid="uid://cbfrdks8hon58" path="res://models/cogs/heads/bookkeeper.glb" id="4_6ql6r"]
 [ext_resource type="Resource" uid="uid://bxeasogxfcdk2" path="res://objects/battle/battle_resources/cog_attacks/resources/tabulate.tres" id="4_f3d4a"]
-[ext_resource type="Texture2D" uid="uid://b5y26u8btf5pg" path="res://models/cogs/heads/bookkeeper_BookkeeperFinal.png" id="5_n3v2s"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="6_5168u"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="7_1kdhu"]
-[ext_resource type="Resource" uid="uid://c8rs8upqmscoh" path="res://objects/battle/battle_resources/status_effects/resources/attentive.tres" id="8_kct6m"]
-[ext_resource type="Resource" uid="uid://bfsdklo5d7n2m" path="res://objects/battle/battle_resources/status_effects/resources/boss_logic_bookkeeper.tres" id="9_tgwk5"]
-[ext_resource type="Resource" uid="uid://bos0wcgjeyg4w" path="res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres" id="10_onfbe"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_psi8g"]
 
 [resource]
-script = ExtResource("6_5168u")
+script = ExtResource("5_psi8g")
 department = 1
 suit = 2
 cog_name = "Bookkeeper"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("4_6ql6r")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/bookkeeper.glb"
 scale = 5.75
-head_textures = Array[Texture2D]([ExtResource("5_n3v2s")])
+head_textures = PackedStringArray("res://models/cogs/heads/bookkeeper_BookkeeperFinal.png")
 hand_color = Color(0.507493, 0.733081, 0.579976, 1)
-head_color = Color(1, 1, 1, 1)
 custom_nametag_height = 7.8
 custom_nametag_suffix = "Director"
 attacks = Array[ExtResource("1_68i6a")]([ExtResource("2_7sios"), ExtResource("3_0f0y2"), ExtResource("4_f3d4a")])
 level_low = 20
 level_high = 20
-status_effects = Array[ExtResource("7_1kdhu")]([ExtResource("8_kct6m"), ExtResource("9_tgwk5"), ExtResource("10_onfbe")])
-is_mod_cog = false
-is_admin = false
-health_mod = 5.952
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/attentive.tres", "res://objects/battle/battle_resources/status_effects/resources/boss_logic_bookkeeper.tres", "res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres")
+health_mod = 5.411
 battle_phrases = Array[String](["I am the bookkeeper"])
 external_assets = {
 &"head_model": "",

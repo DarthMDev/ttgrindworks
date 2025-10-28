@@ -168,7 +168,6 @@ shape = SubResource("BoxShape3D_6b8kx")
 [node name="BattleNodeDynamic2" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("12_eox1m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.06622, 0, 13.1897)
 cog_range = Vector2i(2, 3)
-cog_dist = 0.0
 cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic2" index="4"]

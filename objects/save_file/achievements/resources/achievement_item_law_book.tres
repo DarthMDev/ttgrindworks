@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterWinAchievement" load_steps=3 format=3 uid="uid://bw5q7rncjn8gs"]
+
+[ext_resource type="Texture2D" uid="uid://dojc0hrcrx15i" path="res://ui_assets/player_ui/pocket_prank_icons/book_of_laws.png" id="1_71p2n"]
+[ext_resource type="Script" uid="uid://bly70o6230roo" path="res://objects/save_file/achievements/character_win_achievement.gd" id="1_a6fty"]
+
+[resource]
+script = ExtResource("1_a6fty")
+character_id = 7
+achievement_name = "Know Your Rights"
+achievement_summary = "Unlocked Book of Laws."
+achievement_index = 31
+achievement_icon = ExtResource("1_71p2n")
+use_achievement_background = true
+custom_background_color = Color(0.92941177, 0.2627451, 0.2784314, 1)
+metadata/_custom_type_script = "uid://bly70o6230roo"

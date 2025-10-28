@@ -1,7 +1,7 @@
 @tool
 extends StatusEffect
 
-const BOOST_AMOUNT := 1.25
+const BOOST_AMOUNT := 0.25
 const STAT_BOOST_RESOURCE := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres")
 
 var boost_effects: Array[StatBoost] = []
@@ -29,7 +29,7 @@ func apply_to_cog(cog: Cog) -> void:
 	boost_effects.append(new_boost)
 
 func create_boost(who: Cog) -> StatBoost:
-	var status_effect := STAT_BOOST_RESOURCE.duplicate()
+	var status_effect := STAT_BOOST_RESOURCE.duplicate(true)
 	status_effect.target = who
 	status_effect.boost = BOOST_AMOUNT
 	status_effect.stat = 'damage'

@@ -1,0 +1,189 @@
+[gd_scene load_steps=15 format=3 uid="uid://cqrip2gby1012"]
+
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="2_w312u"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="3_54l0r"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="4_d62pp"]
+[ext_resource type="PackedScene" uid="uid://k44r7tk128hb" path="res://objects/props/molten/moving_tower.tscn" id="4_u5g27"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="5_54l0r"]
+[ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="6_d62pp"]
+[ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="7_d62pp"]
+[ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="8_p0x6o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xba4c"]
+size = Vector3(0.0513379, 0.0513916, 0.018124998)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_14xsj"]
+frequency = 0.0065
+fractal_type = 3
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p0x6o"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_14xsj")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8dnc"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("5_54l0r")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("6_d62pp")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(1.035, 2.61, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.301
+shader_parameter/displacement = SubResource("NoiseTexture2D_p0x6o")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d62pp"]
+material = SubResource("ShaderMaterial_j8dnc")
+size = Vector2(30, 100)
+subdivide_width = 9
+subdivide_depth = 12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jog78"]
+albedo_texture = ExtResource("8_p0x6o")
+uv1_scale = Vector3(0.08, 0.023, 0.115)
+uv1_offset = Vector3(0, 0.495, 0)
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1641164, 11.830013)
+use_collision = true
+size = Vector3(10.290039, 10.702637, 8.472778)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.911516, -12.460015)
+use_collision = true
+size = Vector3(6.5439453, 1, 7.427582)
+
+[node name="MoltenBellows" parent="." instance=ExtResource("3_54l0r")]
+transform = Transform3D(0.9559858, 0, 0, 0, 0.9559858, 0, 0, 0, 0.9559858, 0, -3.3728228, -0.62683344)
+retract_speed = 1.0
+
+[node name="Platform" parent="MoltenBellows" index="1"]
+transform = Transform3D(100.00001, 0, 0, 0, -1.1920901e-05, 100.00001, 0, -100.00001, -1.1920901e-05, 0, 3.0445962, -3.5762787e-07)
+
+[node name="AnimatableBody3D" parent="MoltenBellows/Platform" index="0"]
+transform = Transform3D(0.99999875, 0, 0, 0, 0.99999875, -4.2632564e-14, 0, 4.2632564e-14, 0.99999875, 0, -4.656613e-10, 0)
+
+[node name="CollisionShape3D" parent="MoltenBellows/Platform/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.81597e-14, 0, 7.81597e-14, 1, -0.00012207001, 0.00018310547, 0.010425375)
+shape = SubResource("BoxShape3D_xba4c")
+
+[node name="BurnerFlameSeq1" parent="MoltenBellows/Platform" index="2" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568359e-09, -0.013898579, 0, 0.013898583, -1.6568371e-09, 0, -0.01772122, 0.001866247)
+enabled = false
+automatic = true
+down_time = 2.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq2" parent="MoltenBellows/Platform" index="3" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568359e-09, -0.013898579, 0, 0.013898583, -1.6568371e-09, 0.017762613, -0.01772122, 0.001866247)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 1.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq3" parent="MoltenBellows/Platform" index="4" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568361e-09, -0.013898579, 0, 0.013898583, -1.6568372e-09, 0.017762613, -0.00036188634, 0.0018662487)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 2.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq4" parent="MoltenBellows/Platform" index="5" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568361e-09, -0.013898579, 0, 0.013898583, -1.6568372e-09, 0.017762613, 0.017293338, 0.0018662515)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 3.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq5" parent="MoltenBellows/Platform" index="6" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568361e-09, -0.013898579, 0, 0.013898583, -1.6568372e-09, 0, 0.017293338, 0.0018662515)
+enabled = false
+automatic = true
+down_time = 2.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq6" parent="MoltenBellows/Platform" index="7" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568361e-09, -0.013898579, 0, 0.013898583, -1.6568372e-09, -0.017762613, 0.017293338, 0.0018662515)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 1.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq7" parent="MoltenBellows/Platform" index="8" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568359e-09, -0.013898579, 0, 0.013898583, -1.6568371e-09, -0.017762613, -0.0003618868, 0.0018662489)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 2.0
+volume_enabled = -4.0
+
+[node name="BurnerFlameSeq8" parent="MoltenBellows/Platform" index="9" instance=ExtResource("2_w312u")]
+transform = Transform3D(0.013898579, 0, 0, 0, -1.6568361e-09, -0.013898579, 0, 0.013898583, -1.6568372e-09, -0.017762613, -0.01772122, 0.0018662466)
+enabled = false
+automatic = true
+down_time = 2.0
+delay_time = 3.0
+volume_enabled = -4.0
+
+[node name="SquareDropShadow" parent="MoltenBellows" index="9"]
+visible = false
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("4_d62pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.170202, 8.6220875)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.529831, -0.61549854)
+use_collision = true
+size = Vector3(2.7197266, 28.708038, 2.7497559)
+
+[node name="MovingTower" parent="." instance=ExtResource("4_u5g27")]
+transform = Transform3D(1.658321, 0, 0, 0, 1.2413499, 0, 0, 0, 1.658321, 0.02276802, -7.2769794, -0.63048923)
+
+[node name="LavaSmall2" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-2.3369297e-07, 0, -0.24481446, 0, 0.877742, 0, 1.0692543, 0, -5.3505893e-08, 0, -4.449, -0.106)
+mesh = SubResource("PlaneMesh_d62pp")
+
+[node name="door_frame" parent="." instance=ExtResource("7_d62pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.187202, 16.001417)
+
+[node name="door_frame2" parent="." instance=ExtResource("7_d62pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-06, 8.411516, -16.165936)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.99999994, 0, 0, 0, 0.89441013, 0, 0, 0, -0.99999994, 0, 7.709659, 16.047)
+use_collision = true
+size = Vector3(25.029541, 34.105385, 0.13995767)
+material = SubResource("StandardMaterial3D_jog78")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.99999994, 0, 0, 0, 0.89441013, 0, 0, 0, -0.99999994, 0, 7.709659, -16.197935)
+use_collision = true
+size = Vector3(25.029541, 34.105385, 0.13995767)
+material = SubResource("StandardMaterial3D_jog78")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(4.371138e-08, 0, 0.9999999, 0, 0.89441013, 0, -0.9999999, 0, 4.371138e-08, 12, 7.709659, 0)
+use_collision = true
+size = Vector3(34.48535, 34.105385, 0.13995767)
+material = SubResource("StandardMaterial3D_jog78")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.3113416e-07, 0, -0.9999999, 0, 0.89441013, 0, 0.9999999, 0, -1.3113416e-07, -12, 7.709659, 0)
+use_collision = true
+size = Vector3(34.48535, 34.105385, 0.13995767)
+material = SubResource("StandardMaterial3D_jog78")
+
+[editable path="MoltenBellows"]

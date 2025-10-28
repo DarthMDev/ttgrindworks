@@ -12,7 +12,7 @@ func action():
 	var button: Node3D
 	if not skip_button_movie:
 		manager.s_focus_char.emit(user)
-		user.set_animation('button_press')
+		user.set_animation('press-button')
 		user.face_position(target.global_position)
 		
 		# Place button in hand

@@ -1,0 +1,183 @@
+[gd_scene load_steps=21 format=3 uid="uid://dkpqpf2xflniq"]
+
+[ext_resource type="Texture2D" uid="uid://cp4aaluignlma" path="res://objects/battle/effects/fire/fire.png" id="1_6fhjj"]
+[ext_resource type="Script" uid="uid://bv5gwwvignatc" path="res://objects/misc/thermometer/molten_thermometer.gd" id="1_gdhw0"]
+
+[sub_resource type="Gradient" id="Gradient_gdhw0"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gvugj"]
+gradient = SubResource("Gradient_gdhw0")
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.538462, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qm5mh"]
+texture = SubResource("GradientTexture2D_gvugj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7iil"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 0.701961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fhjj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.129412)
+
+[sub_resource type="Curve" id="Curve_gdhw0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.83305, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvugj"]
+curve = SubResource("Curve_gdhw0")
+
+[sub_resource type="Gradient" id="Gradient_k7iil"]
+offsets = PackedFloat32Array(0, 0.554264, 0.996124)
+colors = PackedColorArray(0.984372, 0.600907, 0.559146, 1, 1, 1, 1, 1, 0.909637, 0.846352, 0.648299, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tlw0c"]
+gradient = SubResource("Gradient_k7iil")
+
+[sub_resource type="Gradient" id="Gradient_gvugj"]
+offsets = PackedFloat32Array(0.46124, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.769375, 0.211959, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qm5mh"]
+gradient = SubResource("Gradient_gvugj")
+
+[sub_resource type="Curve" id="Curve_qm5mh"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k7iil"]
+curve = SubResource("Curve_qm5mh")
+
+[sub_resource type="Curve" id="Curve_gvugj"]
+_data = [Vector2(0, 0.416787), 0.0, 1.13199, 0, 1, Vector2(0.207746, 0.651954), 0.0, 0.0, 0, 0, Vector2(0.461268, 0.5767), 0.0, 0.0, 0, 0, Vector2(0.630282, 0.764834), 0.0, 0.0, 0, 0, Vector2(0.84507, 0.7178), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.82147, 0.0, 1, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_qm5mh"]
+curve = SubResource("Curve_gvugj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gi6e"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.115, 1)
+direction = Vector3(-1, 0, 0)
+spread = 72.803
+initial_velocity_min = 105.0
+initial_velocity_max = 105.0
+gravity = Vector3(0, -200, 0)
+damping_min = 2.158
+damping_max = 2.158
+damping_curve = SubResource("CurveTexture_k7iil")
+scale_min = 0.68
+scale_max = 0.86
+scale_curve = SubResource("CurveTexture_qm5mh")
+color_ramp = SubResource("GradientTexture1D_qm5mh")
+color_initial_ramp = SubResource("GradientTexture1D_tlw0c")
+alpha_curve = SubResource("CurveTexture_gvugj")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k7iil"]
+gradient = SubResource("Gradient_gvugj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gdhw0"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.115, 1)
+spread = 72.803
+initial_velocity_min = 105.0
+initial_velocity_max = 105.0
+gravity = Vector3(0, -200, 0)
+damping_min = 2.158
+damping_max = 2.158
+damping_curve = SubResource("CurveTexture_k7iil")
+scale_min = 0.68
+scale_max = 0.86
+scale_curve = SubResource("CurveTexture_qm5mh")
+color_ramp = SubResource("GradientTexture1D_k7iil")
+color_initial_ramp = SubResource("GradientTexture1D_tlw0c")
+alpha_curve = SubResource("CurveTexture_gvugj")
+
+[node name="MoltenThermometer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gdhw0")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -155.0
+offset_right = -23.0
+offset_bottom = 155.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_qm5mh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7iil")
+step = 0.001
+value = 100.0
+fill_mode = 2
+show_percentage = false
+
+[node name="Border" type="Panel" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fhjj")
+
+[node name="FlameIcon" type="TextureRect" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -23.0
+offset_right = 18.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("1_6fhjj")
+expand_mode = 1
+
+[node name="FireLeft" type="GPUParticles2D" parent="ProgressBar"]
+z_index = -1
+position = Vector2(25, 296)
+texture = ExtResource("1_6fhjj")
+lifetime = 0.65
+process_material = SubResource("ParticleProcessMaterial_6gi6e")
+
+[node name="FireRight" type="GPUParticles2D" parent="ProgressBar"]
+z_index = -1
+position = Vector2(25, 296)
+texture = ExtResource("1_6fhjj")
+lifetime = 0.65
+process_material = SubResource("ParticleProcessMaterial_gdhw0")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+
+[connection signal="timeout" from="DamageTimer" to="." method="on_damage_timeout"]

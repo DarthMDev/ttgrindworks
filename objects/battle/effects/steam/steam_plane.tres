@@ -1,0 +1,51 @@
+[gd_resource type="ArrayMesh" load_steps=6 format=4 uid="uid://bnkhjh0bealr4"]
+
+[ext_resource type="Shader" uid="uid://dtbt3ftkxelk5" path="res://objects/interactables/molten_bellows/bellows_steam.tres" id="1_d6f5p"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_togn3"]
+noise_type = 3
+frequency = 0.024
+fractal_lacunarity = 1.295
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2su3s"]
+width = 247
+height = 709
+noise = SubResource("FastNoiseLite_togn3")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glfgo"]
+render_priority = 0
+shader = ExtResource("1_d6f5p")
+shader_parameter/Steam_Speed = Vector2(0, -0.49)
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_2su3s")
+shader_parameter/Steam_Visibility = 0.08
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fkgxt"]
+_surfaces = [{
+"aabb": AABB(-0.0145321, 0, -4.76837e-09, 0.0290642, 0.0370335, 1e-05),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAwACAAQABAAFAAMABQAEAAYABgAHAAUACAAHAAYABgAJAAgACgAIAAkACQALAAoA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("oai0OwAAAAAAAAAAJRhuPHOwFz0K16OxSdsOPHOwFz0K16OxXMpYOwAAAAAAAAAAuHk+O3OwFz0K16Ox6YaQOgAAAAAAAAAAtnk+u3OwFz0K16Ox6YaQugAAAAAAAAAAXMpYuwAAAAAAAAAASdsOvHOwFz0K16Oxoai0uwAAAAAAAAAAJRhuvHOwFz0K16Ox")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Plane"
+_surfaces = [{
+"aabb": AABB(-0.0145321, 0, -4.76837e-09, 0.0290642, 0.0370335, 1e-05),
+"attribute_data": PackedByteArray("AACAP5RuPj4AGEs8Qrt7PwAAgD/6eK0+4BdLPKCXiDzNzEw/+nitPoBqVD6gl4g8zcxMP5RuPj6EalQ+Qrt7PwAAAACUbj4+oNN8Pz+7ez/MzEw+lG4+PmTlSj8/u3s/zMxMPvp4rT5i5Uo/oJeIPAAAAAD6eK0+oNN8P6CXiDzMzEw+lG4+PmTlSj8/u3s/zczMPpRuPj4i9xg/P7t7P83MzD76eK0+HvcYP8CXiDzMzEw++nitPmLlSj+gl4g8mpkZP5RuPj7BEc4+P7t7P5qZGT/6eK0+wBHOPsCXiDzNzEw/lG4+PoRqVD5Cu3s/zcxMP/p4rT6AalQ+oJeIPJqZGT/6eK0+wBHOPsCXiDyamRk/lG4+PsERzj4/u3s/"),
+"format": 34359742519,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgACgAJAAwADAANAAoADgAPABAAEAARAA4A"),
+"material": SubResource("ShaderMaterial_glfgo"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("oai0OwAAAAAAAAAAJRhuPHOwFz0K16OxSdsOPHOwFz0K16OxXMpYOwAAAAAAAAAAoai0uwAAAAAAAAAAXMpYuwAAAAAAAAAASdsOvHOwFz0K16OxJRhuvHOwFz0K16OxXMpYuwAAAAAAAAAA6YaQugAAAAAAAAAAtnk+u3OwFz0K16OxSdsOvHOwFz0K16Ox6YaQOgAAAAAAAAAAuHk+O3OwFz0K16OxXMpYOwAAAAAAAAAASdsOPHOwFz0K16OxuHk+O3OwFz0K16Ox6YaQOgAAAAAAAAAA/v8AAP///7/+/wAA////v/7/AAD///+//v8AAP///7/+/wAA////v/7/AAD///+//v8AAP///7/+/wAA////v/7/AAD///+//v8AAP///7/+/wAA////v/7/AAD///+//v8AAP///7/+/wAA////v/7/AAD///+//v8AAP///7/+/wAA////v/7/AAD///+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fkgxt")

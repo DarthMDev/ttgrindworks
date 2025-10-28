@@ -8,27 +8,17 @@
 [resource]
 script = ExtResource("3_dysu7")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.5
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Starfish Treasure"
 item_description = "No, YOU'RE a star!"
 big_description = "Heals %d percent of your max laff!"
 model = ExtResource("2_r4a12")
 pickup_sfx = ExtResource("3_pmt77")
-stats_add = {}
-stats_multiply = {}
-player_values = {}
 arbitrary_data = {
 "heal_perc": 20,
 "texture": ExtResource("1_vip01")
 }
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
 custom_shop_price = 6

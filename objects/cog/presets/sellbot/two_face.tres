@@ -1,38 +1,23 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://c2sbco2b7ddrt"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://c2sbco2b7ddrt"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_sl40i"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_74iuj"]
 [ext_resource type="Resource" uid="uid://dwkmwkdn3ws4k" path="res://objects/battle/battle_resources/cog_attacks/resources/evil_eye.tres" id="2_v7hrd"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_jjwnb"]
 [ext_resource type="Resource" uid="uid://c3gg5tsci6aye" path="res://objects/battle/battle_resources/cog_attacks/resources/hang_up.tres" id="4_cpjof"]
-[ext_resource type="PackedScene" uid="uid://i37l7x6g6luj" path="res://models/cogs/heads/twoface.glb" id="5_r5cqh"]
-[ext_resource type="Texture2D" uid="uid://rip6w68eis6c" path="res://models/cogs/heads/twoface_tt_t_ene_hed_twoface.png" id="6_3uf10"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="8_gireu"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_duv3o"]
 
 [resource]
-script = ExtResource("2_74iuj")
-department = 0
-suit = 0
+script = ExtResource("5_duv3o")
 cog_name = "Two-Face"
-name_plural = ""
 name_prefix = "Two-"
 name_suffix = "-Face"
-head = ExtResource("5_r5cqh")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/twoface.glb"
 scale = 5.25
-head_textures = Array[Texture2D]([ExtResource("6_3uf10")])
+head_textures = PackedStringArray("res://models/cogs/heads/twoface_tt_t_ene_hed_twoface.png")
 hand_color = Color(0.929412, 0.835294, 0.752941, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_sl40i")]([ExtResource("2_v7hrd"), ExtResource("3_jjwnb"), ExtResource("4_cpjof")])
 level_low = 6
 level_high = 13
-status_effects = Array[ExtResource("8_gireu")]([])
-is_mod_cog = false
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["Two heads are better than one.", "It takes two to tango, you wanna tango?", "Are you ready to face your doom?", "Which face would you like to defeat you?", "Prepare to face your worst nightmare.", "Face it, I'm better than you.", "I'm 'two' much for you.", "You don't know who you're facing.", "It's time to face-off!", "You're in for two times the trouble.", "You better face up to defeat."])
 external_assets = {
 &"head_model": "",

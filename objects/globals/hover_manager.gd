@@ -80,12 +80,18 @@ func _process(_delta: float) -> void:
 		# Compare bubble bounds to the viewport bounds
 		var adjusted_x_pos: float = hover_root.global_position.x + global_rect.size.x
 
+		var _y_pos: float = hover_root.global_position.y
+		if label.get_line_count() > 2:
+			_y_pos -= (14 * (label.get_line_count() - 2))
+			hover_root.global_position.y = _y_pos
+
 		# Adjust x position if bubble bounds go out of viewport bounds
 		if adjusted_x_pos > viewport_rect.size.x:
 			hover_root.global_position.x -= (adjusted_x_pos - viewport_rect.size.x)
 
 		# Adjust y position if bubble bounds go out of viewport bounds
-		var adjusted_y_pos: float = hover_root.global_position.y + (global_rect.size.y * YAdjust)
+		var adjusted_y_pos: float = _y_pos + (global_rect.size.y * YAdjust)
+
 		if adjusted_y_pos > viewport_rect.size.y:
 			hover_root.global_position.y -= (adjusted_y_pos - viewport_rect.size.y)
 

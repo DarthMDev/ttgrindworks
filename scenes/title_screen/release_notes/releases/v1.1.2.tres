@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://rw7orl30qt4s"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_2yk11"]
+
+[resource]
+script = ExtResource("1_2yk11")
+release_version = "v1.1.2"
+notes = "[TITLE]Items
+Added Fire Hydrant (3-Star)
+Added Straw Hat (3- Star)
+Added Accessory Trunk (4-Star)
+Rebalanced some item pools
+Gumball Machine now takes 4 charges
+Increased Gumball Machine's Super Candy chance to 20%
+For Modders: Centralized the item pools so modifying items and item pools at runtime is much easier
+[TITLE]Bosses
+Slightly decreased the speed of the Golf Balls in the Fairway Fiend boss fight on later floors
+The realtime boss fight intro cutscenes are now skippable
+[TITLE]Tweaks
+It is no longer possible to reroll a specific Cog Task into another specific Cog Task
+Added a keybind for ending your turn
+[TITLE]Bugfixes
+Fixed a bug where the status effects panel wouldn't expand when a Cog has over 8 status effects
+Fixed a bug where skyboxes would stick around if you exited a floor using White-Out
+Fixed a bug where using White-Out on the Ground Floor would allow level 3 Cogs to spawn on the repeated floor
+Fixed some issues where lava pits wouldn't teleport you out if you were invincible
+Potentially fixed a rare bug where the D.A. Office Elevator camera would take over the screen when spawned in
+Also, made the \"I'm Stuck\" button refocus the Player camera as a failsafe for any additional camera shenanigans
+Definitely and for real this time fixed the issue where the Paint Silo elevator wouldn't spawn in the right place
+Major text fixes
+[TITLE]Hotfix #1
+Made Fire Hydrant's animation a little snappier
+Fixed a bug that caused Accessory Trunk to occasionally spawn Laff Boosts & Gag Frames
+Paint Bucket should no longer be able to reroll an item into the same item
+Wizard Hat will no longer retarget Gags targeting v2.0 Cogs
+Fixed a bug where Mini Blinds would not properly reassert the main target of a Gag
+Mini Blinds can no longer upgrade $10 Dollar Bill to Presentation
+The paint streams in the Paint Silo boss can no longer damage you during invincibility frames
+Slightly increased the press range of the buttons in the Golden Goose boss fight
+Hopefully fixed the long standing issue of getting stuck on treasure chests
+Shapes spawning 3 in a row in the \"Drag three of a color in a row\" puzzle will now clear automatically"

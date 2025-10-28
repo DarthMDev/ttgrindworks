@@ -6,7 +6,6 @@ const SFX_ALERT := preload("res://audio/sfx/objects/goon/CHQ_GOON_tractor_beam_a
 const SFX_HUNKER := preload("res://audio/sfx/objects/goon/CHQ_GOON_hunker_down.ogg")
 const SFX_RECOVER := preload("res://audio/sfx/objects/goon/CHQ_GOON_rattle_shake.ogg")
 const SFX_EXPLODE := preload("res://audio/sfx/battle/cogs/ENC_cogfall_apart.ogg")
-const EXPLOSION_SCENE := preload("res://models/cogs/misc/explosion/cog_explosion.tscn")
 
 ## Config
 enum GoonType {
@@ -77,21 +76,18 @@ func _ready() -> void:
 		security_badge.hide()
 		security_hat.hide()
 		# Apply hat color
-		var hard_hat_mat: StandardMaterial3D = hard_hat.mesh.surface_get_material(0).duplicate()
+		var hard_hat_mat: StandardMaterial3D = hard_hat.mesh.surface_get_material(0).duplicate(true)
 		hard_hat_mat.albedo_color = helmet_color
 		hard_hat.set_surface_override_material(0, hard_hat_mat)
 	
-	# Set up damage
-	damage = Util.get_hazard_damage() + base_damage
-	
 	# Set up the headlight material
 	if light_mat:
-		light_mat = light_mat.duplicate()
+		light_mat = light_mat.duplicate(true)
 		for mesh in head_light_meshes:
 			mesh.set_surface_override_material(0,light_mat)
 	
 	# Set up the eye mat
-	eye_mat = eye_mesh.get_surface_override_material(0).duplicate()
+	eye_mat = eye_mesh.get_surface_override_material(0).duplicate(true)
 	eye_mesh.set_surface_override_material(0,eye_mat)
 	set_eye_color(eye_color)
 
@@ -244,7 +240,7 @@ func player_detected(player: Player) -> void:
 	if player.toon.yelp:
 		AudioManager.play_sound(player.toon.yelp)
 	player.last_damage_source = "a Goon"
-	player.quick_heal(damage)
+	player.quick_heal(Util.get_hazard_damage(base_damage))
 	
 	# Stop Goon, remember its movement state
 	animator.pause()
@@ -319,7 +315,7 @@ func set_eye_color(color: Color) -> void:
 
 func explode() -> void:
 	play_sfx(SFX_EXPLODE)
-	var explosion := EXPLOSION_SCENE.instantiate()
+	var explosion := Globals.EXPLOSION.instantiate()
 	add_child(explosion)
 	explosion.play()
 	explosion.position.y = 0.5

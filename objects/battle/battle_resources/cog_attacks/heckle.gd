@@ -1,5 +1,4 @@
 extends CogAttack
-class_name Heckle
 
 @export var status_effect : StatBoost
 const STAT_BOOST := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_stat_boost.tres')
@@ -42,15 +41,15 @@ func action() -> void:
 		await manager.barrier(player.animator.animation_finished, 4.0)
 	# I find this funny but maybe another way of doing this is in order
 	else:
-		player.toon.speak(RandomService.array_pick_random('true_random', MISS_PHRASES))
+		player.toon.speak(MISS_PHRASES.pick_random())
 		manager.battle_text(player,"MISSED!")
 		await manager.sleep(3.0)
 
 
 func create_debuff(player : Player) -> StatBoost:
-	var effect := STAT_BOOST.duplicate()
+	var effect := STAT_BOOST.duplicate(true)
 	effect.quality = StatusEffect.EffectQuality.NEGATIVE
-	effect.boost = 0.8
+	effect.boost = -0.2
 	effect.stat = 'defense'
 	effect.target = player
 	return effect

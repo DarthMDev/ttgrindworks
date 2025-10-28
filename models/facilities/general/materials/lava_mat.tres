@@ -3,18 +3,17 @@
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="1_ub7mi"]
 [ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="2_xlrn8"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mqphr"]
-noise_type = 3
-frequency = 0.0101
-offset = Vector3(47.62, 0, 0)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_us1h3"]
+frequency = 0.0065
 fractal_type = 3
-fractal_octaves = 2
-fractal_lacunarity = 1.0
-fractal_weighted_strength = 0.95
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dbi8t"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e387l"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_us1h3")
 seamless = true
-noise = SubResource("FastNoiseLite_mqphr")
 
 [resource]
 resource_name = "lava"
@@ -23,8 +22,8 @@ shader = ExtResource("1_ub7mi")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("2_xlrn8")
 shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
-shader_parameter/uv1_scale = Vector3(10, 10, 10)
+shader_parameter/uv1_scale = Vector3(2.065, 2.19, 0)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/height_scale = 0.3
-shader_parameter/displacement = SubResource("NoiseTexture2D_dbi8t")
+shader_parameter/height_scale = 0.255
+shader_parameter/displacement = SubResource("NoiseTexture2D_e387l")
 shader_parameter/emission_color = Vector3(2, 0, 0)

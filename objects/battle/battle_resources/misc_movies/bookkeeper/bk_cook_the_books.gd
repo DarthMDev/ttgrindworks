@@ -1,5 +1,4 @@
 extends CogAttack
-class_name BKCookTheBooks
 
 const COOKED := preload("res://objects/battle/battle_resources/status_effects/resources/bk_cooked.tres")
 const BOOKSHELF := preload("res://objects/battle/battle_resources/misc_movies/bookkeeper/burning_bookshelf.tscn")
@@ -46,7 +45,7 @@ func squish_toon() -> void:
 	tween.tween_property(player.toon, 'scale:y', 0.05, 0.05)
 	tween.tween_interval(1.0)
 	tween.tween_callback(AudioManager.play_sound.bind(SFX_DECOMPRESS))
-	tween.tween_callback(player.set_animation.bind('happy'))
+	tween.tween_callback(player.set_animation.bind('jump'))
 	tween.tween_property(player.toon, 'scale:y', base_scale, 0.25)
 	await player.animator.animation_finished
 	tween.kill()
@@ -58,7 +57,7 @@ func apply_cooked() -> void:
 		cooked.amount += 2
 	else:
 		# Apply cooked fresh
-		var cooked := COOKED.duplicate()
+		var cooked := COOKED.duplicate(true)
 		cooked.amount = 10
 		cooked.rounds = -1
 		cooked.target = targets[0]

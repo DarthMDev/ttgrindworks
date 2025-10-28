@@ -5,7 +5,7 @@ extends StatusEffect
 func apply() -> void:
 	manager.s_round_started.connect(on_round_start)
 
-func on_round_start(actions : Array[BattleAction]) -> void:
+func on_round_start(actions: Array[BattleAction]) -> void:
 	var inject_pos := 0
 	for i in actions.size():
 		if actions[i] is ToonAttack or actions[i] is CogAttack:
@@ -16,3 +16,4 @@ func on_round_start(actions : Array[BattleAction]) -> void:
 		if action.user == target:
 			manager.round_actions.erase(action)
 			manager.round_actions.insert(inject_pos, action)
+			action.action_tags.append(BattleAction.ActionTag.PRIORITY_ACTION)

@@ -14,12 +14,14 @@ enum ActionTarget {
 @export var target_type := ActionTarget.ENEMY
 @export var action_name: String = "Attack"
 @export var one_time_use := false
+@export var crit_chance_mod := 1.0
+@export var action_tags: Array[ActionTag] = []
 
 var user: Node3D
 var targets := []
 ## Used for splash attacks
 var main_target
-var camera_angles = {
+static var camera_angles = {
 	SIDE_RIGHT = Transform3D(Basis(Vector3(-0, 0, -1), Vector3(0, 1, 0), Vector3(1, 0, -0)), Vector3(6, 2, 1)),
 	SIDE_LEFT = Transform3D(Basis(Vector3(-0, 0, 1), Vector3(0, 1, 0), Vector3(-1, 0, 0)), Vector3(-6, 2, 1)),
 	TOON_FOCUS = Transform3D(Basis(Vector3(-0.906308, 0, -0.422618), Vector3(-0.185264, 0.898794, 0.397299), Vector3(0.379847, 0.438371, -0.814584)), Vector3(2, 2.5, -0.5)),
@@ -30,6 +32,13 @@ var camera_angles = {
 var special_action_exclude := false
 ## Allow moves to set a custom message for when a player gets merc'ed by it
 var custom_player_death_source := ""
+## Does no damage + Battle text will say "Nullified"
+var nullified := false:
+	set(x):
+		if not ActionTag.NULLIFY_DISABLED in action_tags:
+			nullified = x
+		else:
+			nullified = false
 
 ## Some actions will store boost text to be activated once manager.affect_target is called.
 var stored_boost_text := []
@@ -95,3 +104,26 @@ func contains_boost_text(text: String) -> bool:
 			return true
 
 	return false
+
+
+#region Tags
+
+enum ActionTag {
+	NULLIFY_DISABLED, # Added to actions that cannot be nullified
+	IS_DEFLECT_ATTACK,
+	DOUBLE_REVIVE_DAMAGE,  # Does two revive-damage to characters who only have revives
+	OLDMAN_NULLIFY,
+	PRIORITY_ACTION, # Marks an action as being high priority for a few scripts that need it
+}
+
+func has_tag(tag: ActionTag) -> bool:
+	return tag in action_tags
+
+func add_tag(tag: ActionTag) -> void:
+	action_tags.append(tag)
+
+func remove_tag(tag: ActionTag) -> void:
+	if tag in action_tags:
+		action_tags.erase(tag)
+
+#endregion

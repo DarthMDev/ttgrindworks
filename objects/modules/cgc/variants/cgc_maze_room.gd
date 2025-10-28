@@ -31,9 +31,9 @@ enum MazeSide {
 ## Locals
 var grid_size := Vector2i(1,1)
 var maze_grid := {}
-var game_timer : Control
+var game_timer: Control
 var active := false
-var lose_pos : Node3D
+var lose_pos: Node3D
 var game_valid := true
 
 
@@ -44,7 +44,7 @@ func _ready() -> void:
 func generate() -> void:
 	# Randomized maze size
 	if maze_size == -1:
-		maze_size = RandomService.randi_channel("maze_sizes") % 3
+		maze_size = RNG.channel(RNG.ChannelMazeSizes).randi() % 3
 	
 	# Calculate the grid size
 	# TTO had a non exponentially inclined maze type (the 2 part mazes)
@@ -62,13 +62,13 @@ func generate() -> void:
 			var new_maze := MAZE_SCENE.instantiate()
 			add_child(new_maze)
 			new_maze.get_node('RoomAreaShape').reparent($RoomArea)
-			new_maze.name = "Maze"+str(maze_grid.keys().size()+1)
+			new_maze.name = "Maze" + str(maze_grid.keys().size() + 1)
 			
 			# Add the maze scene to the grid dict
-			maze_grid[Vector2i(i,j)] = new_maze
+			maze_grid[Vector2i(i, j)] = new_maze
 			
 			# Take what we need from the first maze
-			if Vector2i(i,j) == Vector2i(0,0):
+			if Vector2i(i, j) == Vector2i(0, 0):
 				# Get the true room entrance
 				new_maze.get_node('ENTRANCE').reparent(self)
 				new_maze.get_node('EntranceCollision').reparent(maze_entrance)
@@ -102,17 +102,17 @@ func generate() -> void:
 	for i in grid_size.x:
 		for j in grid_size.y:
 			# Get the maze in question
-			var maze_vec := Vector2i(i,j)
-			var maze : Node3D = maze_grid[maze_vec]
+			var maze_vec := Vector2i(i, j)
+			var maze: Node3D = maze_grid[maze_vec]
 			
 			# Mark true maze entrance and exit for deletion
-			if maze_vec == Vector2i(0,0):
+			if maze_vec == Vector2i(0, 0):
 				maze.get_unit(BOTTOM_CELL).get_node('HedgeFront').hide()
 			if maze_vec == Vector2i(grid_size.x - 1, grid_size.y - 1):
 				maze.get_unit(TOP_CELL).get_node('HedgeBack').hide()
 			
 			# For every maze that is not the entrance
-			if not maze_vec == Vector2i(0,0):
+			if not maze_vec == Vector2i(0, 0):
 				# Find the adjacent mazes
 				var connected_mazes := get_connecting_mazes(Vector2i(i, j))
 				for vec in connected_mazes:
@@ -126,10 +126,10 @@ func generate() -> void:
 
 
 ## Places two mazes next to each other geographically
-func place_maze(maze_1 : Node3D, maze_2 : Node3D, side : MazeSide) -> void:
+func place_maze(maze_1: Node3D, maze_2: Node3D, side: MazeSide) -> void:
 	# Find the two exit nodes
-	var exit1 : Node3D
-	var exit2 : Node3D
+	var exit1: Node3D
+	var exit2: Node3D
 
 	match side:
 		MazeSide.TOP:
@@ -146,17 +146,17 @@ func place_maze(maze_1 : Node3D, maze_2 : Node3D, side : MazeSide) -> void:
 			exit2 = maze_2.get_node('EXITS/ExitLeft')
 
 	# Check the positional difference for maze 2 to connect to maze 1
-	var old_pos : Vector3 = exit2.global_position
+	var old_pos: Vector3 = exit2.global_position
 	exit2.global_position = exit1.global_position
-	var pos_diff : Vector3 = exit2.global_position - old_pos
+	var pos_diff: Vector3 = exit2.global_position - old_pos
 	exit2.global_position = old_pos
 	maze_2.global_position += pos_diff
 
 ## Connects maze 2 to maze 1 on specified side
 ## The side refers to maze 1's connection side
-func connect_mazes(maze_1 : Node3D, maze_2 : Node3D, side : MazeSide) -> void:
+func connect_mazes(maze_1: Node3D, maze_2: Node3D, side: MazeSide) -> void:
 	# And open the mazes on connected side
-	var erase_hedges : Array[Node3D] = []
+	var erase_hedges: Array[Node3D] = []
 	match side:
 		MazeSide.TOP:
 			erase_hedges.append_array([maze_1.get_unit(TOP_CELL).get_node('HedgeBack'), maze_2.get_unit(BOTTOM_CELL).get_node('HedgeFront')])
@@ -170,7 +170,7 @@ func connect_mazes(maze_1 : Node3D, maze_2 : Node3D, side : MazeSide) -> void:
 	for hedge in erase_hedges:
 		hedge.hide()
 
-func get_connecting_mazes(from : Vector2i) -> Array[Vector2i]:
+func get_connecting_mazes(from: Vector2i) -> Array[Vector2i]:
 	# Get all the potential vectors
 	var return_arr : Array[Vector2i] = []
 	return_arr.append(Vector2i(from.x - 1, from.y))
@@ -187,20 +187,20 @@ func get_connecting_mazes(from : Vector2i) -> Array[Vector2i]:
 	return return_arr
 
 ## Returns the maze side for when vec2 is to be connected to vec1
-func get_connection_side(vec1 : Vector2i, vec2 : Vector2i) -> MazeSide:
+func get_connection_side(vec1: Vector2i, vec2: Vector2i) -> MazeSide:
 	if vec1.x < vec2.x: return MazeSide.RIGHT
 	elif vec1.x > vec2.x: return MazeSide.LEFT
 	elif vec1.y < vec2.y: return MazeSide.TOP
 	else: return MazeSide.BOTTOM
 
 ## Returns a maze's unit at specified pos
-func get_maze_unit(maze : Node3D, grid_pos : Vector2i) -> Node3D:
+func get_maze_unit(maze: Node3D, grid_pos: Vector2i) -> Node3D:
 	return maze.get_unit(grid_pos)
 #endregion
 
 #region MAZE GAME
 
-func maze_entered(body : Node3D) -> void:
+func maze_entered(body: Node3D) -> void:
 	if not body is Player or not game_valid: return
 	
 	# Start the game
@@ -211,7 +211,7 @@ func maze_entered(body : Node3D) -> void:
 	game_valid = false
 	print("Maze game started.")
 
-func win_game(body : Node3D) -> void:
+func win_game(body: Node3D) -> void:
 	print("Maze game won.")
 	if not active or not body is Player: return
 	body.quick_heal(-base_damage)
@@ -227,7 +227,7 @@ func lose_game() -> void:
 	
 	var player := Util.get_player()
 	player.last_damage_source = "Directions"
-	player.quick_heal(Util.get_hazard_damage() + base_damage)
+	player.quick_heal(Util.get_hazard_damage(base_damage))
 	AudioManager.play_sound(player.toon.yelp)
 	
 	# If player is dead, no need to continue

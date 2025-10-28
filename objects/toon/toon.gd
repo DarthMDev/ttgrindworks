@@ -4,6 +4,7 @@ class_name Toon
 @export var toon_dna: ToonDNA
 @export var randomize_dna := false
 @export var auto_build := false
+@export var initial_anim := &""
 
 ## Child References
 @onready var body_node := $Body
@@ -11,9 +12,15 @@ class_name Toon
 
 ## Locals
 var body: ToonBody
+var legs: ToonLegs
+var ears: ToonEars
 var head: Node3D
-var animator: AnimationPlayer
 var body_node_zero := 0.0
+var animators: Array[AnimationPlayer]:
+	get: return [legs.animator, body.animator, ears.animator]
+var blink_timer: Timer
+
+var color_overlay_mat := ColorOverlayMaterial.new()
 
 ## For emotion displaying
 enum Emotion {
@@ -31,9 +38,9 @@ var eyes_open := true
 var mouths: Node3D
 var eyes: Node3D
 var eye_mat: StandardMaterial3D
-var blink := false
 var eyelashes: Node3D
 var eyelash_meshes: Array[Node] = []
+var head_root: Node3D
 
 # Bones
 var head_bone: BoneAttachment3D
@@ -44,6 +51,13 @@ var right_hand_bone: BoneAttachment3D
 var left_hand_bone: BoneAttachment3D
 var flower_bone: BoneAttachment3D
 var hip_bone: BoneAttachment3D
+
+## Accessory Placement Nodes
+# Old bones are still used for a few things here and there
+# But are retired from use as accessory placement nodes
+var hat_node: Node3D
+var glasses_node: Node3D
+var backpack_node: Node3D
 
 
 ## Speech Values
@@ -84,6 +98,11 @@ var EYE_TEXTURES: Dictionary[String, Texture2D]:
 			SURPRISE_OPEN = eyes_surprise_open,
 		}
 
+signal s_animation_changed(anim: String)
+signal s_animation_paused
+signal s_animation_stopped
+
+
 func _init():
 	GameLoader.queue_into(GameLoader.Phase.AVATARS, self, {
 		'eyes_neutral_open': 'res://models/toon/textures/eyes/neutral.png',
@@ -102,19 +121,30 @@ func _ready() -> void:
 		toon_dna = ToonDNA.new()
 		toon_dna.randomize_dna()
 	if auto_build: construct_toon(toon_dna)
+	if randomize_dna:
+		apply_random_accessories()
+	if not initial_anim.is_empty():
+		set_animation(initial_anim)
 
 func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	if not dna:
 		dna = ToonDNA.new()
 	toon_dna = dna
-	if body:
-		body.queue_free()
+	
+	if legs:
+		legs.queue_free()
+	
+	legs = Globals.fetch_toon_legs(dna.leg_type).instantiate()
+	body_node.add_child(legs)
+	hip_bone = legs.hip_bone
 	
 	body = Globals.fetch_toon_body(dna.body_type, dna.skirt).instantiate()
-	body_node.add_child(body)
+	hip_bone.add_child(body)
 	
-	# Grab a reference to the body's animator
-	animator = body.animator
+	head_root = Node3D.new()
+	body.head_bone.add_child(head_root)
+	ears = Globals.fetch_toon_ears(dna.body_type).instantiate()
+	head_root.add_child(ears)
 	
 	# Get the body bones
 	hat_bone = body.hat_bone
@@ -123,50 +153,46 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	right_hand_bone = body.right_hand_bone
 	left_hand_bone = body.left_hand_bone
 	flower_bone = body.flower_bone
-	hip_bone = body.hip_bone
 	head_bone = body.head_bone
 	
 	# Texture the clothing
-	var shirt_mat: StandardMaterial3D = body.shirt.mesh.surface_get_material(0).duplicate()
+	var shirt_mat: StandardMaterial3D = body.shirt.mesh.surface_get_material(0).duplicate(true)
 	if dna.shirt:
 		if dna.shirt.shirt_texture: shirt_mat.albedo_texture = dna.shirt.shirt_texture
 		shirt_mat.albedo_color = dna.shirt.base_color
 	body.shirt.set_surface_override_material(0, shirt_mat)
 	
-	var sleeve_mat: StandardMaterial3D = body.sleeve_left.mesh.surface_get_material(0).duplicate()
+	var sleeve_mat: StandardMaterial3D = body.sleeves.mesh.surface_get_material(0).duplicate(true)
 	if dna.shirt:
 		if dna.shirt.sleeve_texture: sleeve_mat.albedo_texture = dna.shirt.sleeve_texture
 		sleeve_mat.albedo_color = dna.shirt.sleeve_color
-	body.sleeve_left.set_surface_override_material(0, sleeve_mat)
-	body.sleeve_right.set_surface_override_material(0, sleeve_mat)
+	body.sleeves.set_surface_override_material(0, sleeve_mat)
 	
-	var bottoms_mat: StandardMaterial3D = body.bottoms.mesh.surface_get_material(0).duplicate()
+	var bottoms_mat: StandardMaterial3D = body.bottoms.mesh.surface_get_material(0).duplicate(true)
 	if dna.bottoms:
 		if dna.bottoms.texture: bottoms_mat.albedo_texture = dna.bottoms.texture
 		bottoms_mat.albedo_color = dna.bottoms.base_color
 	body.bottoms.set_surface_override_material(0, bottoms_mat)
 
 	# Color the body
-	var neck_mat: StandardMaterial3D = body.neck.mesh.surface_get_material(0).duplicate()
-	var arm_mat: StandardMaterial3D = body.arm_left.mesh.surface_get_material(0).duplicate()
-	var leg_mat: StandardMaterial3D = arm_mat.duplicate()
-	var foot_mat: StandardMaterial3D = body.foot_left.mesh.surface_get_material(0).duplicate()
+	var neck_mat: StandardMaterial3D = body.neck.mesh.surface_get_material(0).duplicate(true)
+	var arm_mat: StandardMaterial3D = body.arms.mesh.surface_get_material(0).duplicate(true)
+	var leg_mat: StandardMaterial3D = arm_mat.duplicate(true)
+	var foot_mat: StandardMaterial3D = legs.feet.mesh.surface_get_material(0).duplicate(true)
 	neck_mat.albedo_color = dna.head_color
 	arm_mat.albedo_color = dna.torso_color
 	leg_mat.albedo_color = dna.leg_color
 	foot_mat.albedo_color = dna.leg_color
 	body.neck.set_surface_override_material(0, neck_mat)
-	body.arm_left.set_surface_override_material(0, arm_mat)
-	body.arm_right.set_surface_override_material(0, arm_mat)
-	body.leg_left.set_surface_override_material(0, leg_mat)
-	body.leg_right.set_surface_override_material(0, leg_mat)
-	body.foot_left.set_surface_override_material(0, foot_mat)
-	body.foot_right.set_surface_override_material(0, foot_mat)
+	body.arms.set_surface_override_material(0, arm_mat)
+	legs.legs.set_surface_override_material(0, leg_mat)
+	legs.feet.set_surface_override_material(0, foot_mat)
 	
 	# Create head
 	var toonhead = Globals.fetch_toon_head(dna.species).instantiate()
-	head_bone.add_child(toonhead)
+	head_root.add_child(toonhead)
 	dna.head_index = clamp(dna.head_index, 0, toonhead.get_child_count() - 1)
+	toonhead.rotation_degrees.y += 180.0
 	for i in toonhead.get_child_count():
 		if i == dna.head_index:
 			toonhead.get_child(i).show()
@@ -187,10 +213,10 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	if eyes:
 		if eyes.get_child_count() > 0:
 			var eye_mesh: MeshInstance3D = eyes.get_child(0)
-			eye_mat = eye_mesh.mesh.surface_get_material(0).duplicate()
-			eye_mesh.set_surface_override_material(0,eye_mat)
+			eye_mat = eye_mesh.mesh.surface_get_material(0).duplicate(true)
+			eye_mesh.set_surface_override_material(0, eye_mat)
 			if dna.species == ToonDNA.ToonSpecies.RABBIT:
-				eyes.get_child(1).set_surface_override_material(0,eye_mat)
+				eyes.get_child(1).set_surface_override_material(0, eye_mat)
 	# Turn on eyelashes
 	eyelashes = head.get_node_or_null('eyelashes')
 	if eyelashes:
@@ -202,12 +228,12 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	
 	# Hide the ears when not dog
 	if not dna.species == ToonDNA.ToonSpecies.DOG:
-		body.ear_left.hide()
-		body.ear_right.hide()
+		ears.hide()
 	
-	# Get speech bubble node
-	if body.get_node_or_null('SpeechBubbleNode'):
-		speech_bubble_node = body.get_node('SpeechBubbleNode')
+	# Create the speech bubble node
+	speech_bubble_node = Node3D.new()
+	body.add_child(speech_bubble_node)
+	speech_bubble_node.global_position = head_bone.global_position + Vector3(0.0, 0.5, 0.0)
 	
 	# Start blinking
 	do_blink()
@@ -215,14 +241,36 @@ func construct_toon(dna: ToonDNA = ToonDNA.new()):
 	# Scale as per species specification
 	scale = Vector3(1, 1, 1) * (ToonDNA.SPECIES_SCALE.get(dna.species) * ToonDNA.BASE_SCALE)
 	
-	body_node_zero = NodeGlobals.calculate_spatial_bounds(body.skeleton, false).get_center().y
-	body.position.y = -body_node_zero
+	body_node_zero = NodeGlobals.calculate_spatial_bounds(body_node, false).get_center().y
+	legs.position.y = -body_node_zero
 	body_node.position.y = body_node_zero
+	
+	# Set up our accessories
+	hat_node = Node3D.new()
+	toonhead.add_child(hat_node)
+	glasses_node = Node3D.new()
+	toonhead.add_child(glasses_node)
+	backpack_node = backpack_bone
+	legs.set_shoes(ToonLegs.ShoeType.NONE)
+	
+	var meshes: Array[MeshInstance3D] = [
+		body.shirt, body.bottoms, body.neck, body.arms,
+		body.sleeves, body.hands,
+		legs.legs, legs.feet,
+		legs.shoes, legs.boots_short, legs.boots_long,
+		ears.ears,
+	]
+	meshes.append_array(NodeGlobals.get_children_of_type(head, MeshInstance3D, true))
+	for eye_node: MeshInstance3D in NodeGlobals.get_children_of_type(eyes, MeshInstance3D, true):
+		if eye_node in meshes:
+			meshes.erase(eye_node)
+	for mesh: MeshInstance3D in meshes:
+		mesh.material_overlay = color_overlay_mat
 
 func color_mesh(mesh: MeshInstance3D, color: Color) -> void:
 	var surface_count: int = mesh.mesh.get_surface_count()
 	for i in surface_count:
-		var newmat: StandardMaterial3D = mesh.mesh.surface_get_material(i).duplicate()
+		var newmat: StandardMaterial3D = mesh.mesh.surface_get_material(i).duplicate(true)
 		newmat.albedo_color = color
 		mesh.set_surface_override_material(i,newmat)
 
@@ -236,6 +284,9 @@ func speak(phrase: String):
 		if child is SpeechBubble:
 			child.finished.emit()
 	
+	if phrase == ".":
+		return
+	
 	# Create a new speech bubble
 	var bubble: SpeechBubble = load('res://objects/misc/speech_bubble/speech_bubble.tscn').instantiate()
 	bubble.target = speech_bubble_node
@@ -246,7 +297,7 @@ func speak(phrase: String):
 	var sfx: AudioStream
 	if phrase.to_lower().contains('ooo'):
 		sfx = howl
-	if phrase.contains('!'):
+	elif phrase.contains('!'):
 		sfx = yelp
 	elif phrase.contains('?'):
 		sfx = question
@@ -256,12 +307,17 @@ func speak(phrase: String):
 		sfx = speak_med
 	else:
 		sfx = speak_short
+	if phrase.begins_with(".") and not phrase.begins_with("..."):
+		sfx = null
 	if sfx:
 		AudioManager.play_sound(sfx)
 
-func set_animation(anim: String) -> void:
-	if body:
-		body.set_animation(anim)
+func set_animation(anim: String, custom_blend := -1, custom_speed := 1.0, from_end := false) -> void:
+	legs.set_animation(anim, custom_blend, custom_speed, from_end)
+	body.set_animation(anim, custom_blend, custom_speed, from_end)
+	ears.set_animation(anim, custom_blend, custom_speed, from_end)
+	if legs.animator.get_current_animation() == anim:
+		s_animation_changed.emit(anim)
 
 func run_to(global_pos: Vector3, time: float, anim := "run") -> Tween:
 	var run_tween := create_tween()
@@ -306,6 +362,8 @@ func close_eyes() -> void:
 	var eye_textures: Dictionary = EYE_TEXTURES
 	if eye_textures.keys().has(face):
 		eye_mat.albedo_texture = eye_textures[face]
+	else:
+		return
 	
 	# Also hide pupils / eyelashes
 	if eyes and eyes.get_child_count() > 2:
@@ -333,7 +391,7 @@ func open_eyes() -> void:
 			else: lash.hide()
 
 func do_blink() -> void:
-	var blink_timer := Timer.new()
+	blink_timer = Timer.new()
 	body.add_child(blink_timer)
 	blink_timer.one_shot = true
 	while is_instance_valid(blink_timer):
@@ -346,35 +404,83 @@ func do_blink() -> void:
 			await Task.delay(0.1)
 			open_eyes()
 
+func set_blink_paused(paused: bool) -> void:
+	if blink_timer:
+		blink_timer.paused = paused
+
+# Mostly for NPCs
+func apply_random_accessories() -> void:
+	var accessory_pool: ItemPool = ItemService.pool_from_path("res://objects/items/pools/accessories.tres")
+	var accessory_list: Array[String] = []
+	accessory_list.assign(accessory_pool.items)
+	accessory_list.shuffle()
+	var accessories_to_apply: Array[Item] = []
+	var goal_amount := randi_range(2, 3)
+	while accessories_to_apply.size() < goal_amount:
+		var rand_accessory: Item = load(accessory_list.pop_back())
+		var add_accessory := true
+		for accessory in accessories_to_apply: if accessory.slot == rand_accessory.slot:
+			add_accessory = false
+			break
+		if add_accessory: accessories_to_apply.append(rand_accessory)
+	for accessory in accessories_to_apply:
+		if accessory is ItemAccessory:
+			accessory.place_accessory(self)
+		elif accessory is ItemShoe:
+			accessory.place_shoes(self)
+
 #region ANIMATIONS
+func anim_seek(time: float, update := false, update_only := false) -> void:
+	for anim in animators:
+		anim.seek(time, update, update_only)
+
+func anim_set_speed(speed: float) -> void:
+	for animator in animators:
+		animator.set_speed_scale(speed)
+
+func anim_pause() -> void:
+	for animator in animators:
+		animator.pause()
+	if loop_tween and loop_tween.is_running():
+		loop_tween.pause()
+
+func anim_unpause() -> void:
+	for animator in animators:
+		animator.play()
+	if loop_tween and loop_tween.is_valid():
+		loop_tween.play()
+
+func anim_play_backwards(anim: String) -> void:
+	for animator in animators:
+		animator.play_backwards(anim)
 
 func teleport_in() -> void:
 	if not body:
 		push_warning("Toon can't teleport in because it has no body!")
 		return
-	body.position.y -= 10.0
+	legs.position.y -= 10.0
 	var hole : Node3D = load('res://objects/misc/teleport_hole/teleport_hole.tscn').instantiate()
 	add_child(hole)
 	hole.position.y = 0.01
 	hole.scale *= 0.4
 	hole.get_node('AnimationPlayer').play('grow')
 	await hole.get_node('AnimationPlayer').animation_finished
-	var meshes: Array[MeshInstance3D] = [
-		body.shirt, body.bottoms, body.neck, body.arm_left, body.arm_right,
-		body.sleeve_left, body.sleeve_right, body.hand_left, body.hand_right,
-		body.leg_left, body.leg_right, body.foot_left, body.foot_right,
-		body.ear_left, body.ear_right
-	]
-	hole.get_node('ClipPlane').apply_to_mesh_instances(meshes)
-	set_animation('happy')
-	body.animator.seek(0.4)
+	#var meshes: Array[MeshInstance3D] = [
+	#	body.shirt, body.bottoms, body.neck, body.arms,
+	#	body.sleeves, body.hands,
+	#	legs.legs, legs.feet,
+	#	ears.ears,
+	#]
+	#hole.get_node('ClipPlane').apply_to_mesh_instances(meshes)
+	set_animation('jump')
+	anim_seek(0.4, true)
 	var jump_tween := create_tween()
 	jump_tween.set_trans(Tween.TRANS_QUAD)
-	jump_tween.tween_property(body,'position:y',-body_node_zero,0.25)
+	jump_tween.tween_property(legs,'position:y',-body_node_zero,0.25)
 	await jump_tween.finished
 	hole.get_node('AnimationPlayer').play('shrink')
 	await body.animator.animation_finished
-	hole.get_node('ClipPlane').unapply_from_mesh_instances(meshes)
+	#hole.get_node('ClipPlane').unapply_from_mesh_instances(meshes)
 	hole.queue_free()
 
 func teleport_out() -> void:
@@ -411,10 +517,23 @@ func duck_and_cover() -> void:
 	# Make toon duck
 	duck_tween.tween_callback(set_animation.bind('duck'))
 	duck_tween.tween_interval(3.5)
-	duck_tween.tween_callback(animator.set_speed_scale.bind(-1.0))
+	duck_tween.tween_callback(anim_set_speed.bind(-1.0))
 	duck_tween.tween_interval(1.8)
-	duck_tween.tween_callback(animator.set_speed_scale.bind(1.0))
+	duck_tween.tween_callback(anim_set_speed.bind(1.0))
 	duck_tween.finished.connect(duck_tween.kill)
+
+var loop_tween: Tween
+func start_anim_subloop(anim: String, start: float, end: float) -> void:
+	stop_anim_subloop()
+	var loop_time := end - start
+	set_animation(anim)
+	anim_seek(start)
+	loop_tween = create_tween().set_loops()
+	loop_tween.tween_interval(loop_time)
+	loop_tween.tween_callback(func(): anim_set_speed(legs.animator.speed_scale * -1.0))
+
+func stop_anim_subloop() -> void:
+	if loop_tween and loop_tween.is_running(): loop_tween.kill()
 
 #endregion
 

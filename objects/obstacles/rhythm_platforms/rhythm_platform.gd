@@ -14,7 +14,7 @@ signal s_enabled_set(enable : bool)
 
 
 func _ready() -> void:
-	material = base_material.duplicate()
+	material = base_material.duplicate(true)
 	set_surface_override_material(0,material)
 
 func set_color(color : Color) -> void:

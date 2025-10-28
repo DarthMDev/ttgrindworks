@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk30lv0qmipq"]
+
+[ext_resource type="PackedScene" uid="uid://0lyyo5bktlsu" path="res://objects/modules/molten/base_rooms/molten_entrance.tscn" id="1_3n3b0"]
+[ext_resource type="Texture2D" uid="uid://b6ghwokk377dn" path="res://models/facilities/molten/textures/FINALFACTORY_67.png" id="2_0cqxh"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="2_rdboo"]
+[ext_resource type="Resource" uid="uid://j75am6rbrvrj" path="res://objects/items/pools/progressives.tres" id="3_0cqxh"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="4_oylip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oylip"]
+resource_name = "metalgrate_rusted"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_0cqxh")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[node name="molten_entrance" instance=ExtResource("1_3n3b0")]
+
+[node name="MetalGridFloor" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oylip")
+
+[node name="treasure_chest3" parent="." index="16" instance=ExtResource("2_rdboo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.29841, 4.780891, 23.9326)
+item_pool = ExtResource("3_0cqxh")
+
+[node name="treasure_chest4" parent="." index="17" instance=ExtResource("2_rdboo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.45948, 4.780891, 23.9326)
+item_pool = ExtResource("3_0cqxh")
+scripted_progression = true
+
+[node name="MoltenBellows" parent="." index="18" instance=ExtResource("4_oylip")]
+transform = Transform3D(0.496576, 0, 0, 0, 0.496576, 0, 0, 0, 0.496576, 0, 0.181376, 16.5083)
+min_push = 0.8
+max_push = 2.0

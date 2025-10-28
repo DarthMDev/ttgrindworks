@@ -249,6 +249,14 @@ sampling_rate = 48000.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_fybf6"]
 packet_sequence = SubResource("OggPacketSequence_sug0y")
+tags = {
+"artist": "BKST",
+"bpm": "144",
+"description": "Toontown: The Grindworks",
+"encoder": "REAPER",
+"key": "D Minor",
+"title": "L.E.D. Maze Tango"
+}
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_4a53w"]
 stream_count = 8

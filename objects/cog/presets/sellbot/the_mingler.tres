@@ -1,39 +1,21 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://d3j6v3o7y5d0w"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://d3j6v3o7y5d0w"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_20sb0"]
 [ext_resource type="Resource" uid="uid://dimhdaxn1tyey" path="res://objects/battle/battle_resources/cog_attacks/resources/tee_off.tres" id="2_8503x"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_x60dn"]
-[ext_resource type="PackedScene" uid="uid://irtn2e1gj41k" path="res://models/cogs/heads/mingler.glb" id="3_csmlo"]
 [ext_resource type="Resource" uid="uid://c24yy1wqmg24o" path="res://objects/battle/battle_resources/cog_attacks/resources/razzle_dazzle.tres" id="3_q1ull"]
-[ext_resource type="Texture2D" uid="uid://c3u0bajfdyjqt" path="res://models/cogs/heads/mingler_mingler.png" id="4_1xi63"]
 [ext_resource type="Resource" uid="uid://wwf1notai2f8" path="res://objects/battle/battle_resources/cog_attacks/resources/power_trip.tres" id="4_5ouac"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="5_pmbwt"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_1bpgx"]
 
 [resource]
-script = ExtResource("2_x60dn")
-department = 0
-suit = 0
+script = ExtResource("5_1bpgx")
 cog_name = "The Mingler"
-name_plural = ""
-name_prefix = ""
-name_suffix = ""
-head = ExtResource("3_csmlo")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/mingler.glb"
 scale = 5.75
-head_textures = Array[Texture2D]([ExtResource("4_1xi63")])
+head_textures = PackedStringArray("res://models/cogs/heads/mingler_mingler.png")
 hand_color = Color(0.94902, 0.74902, 0.94902, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
-can_speak = true
 attacks = Array[ExtResource("1_20sb0")]([ExtResource("2_8503x"), ExtResource("3_q1ull"), ExtResource("4_5ouac")])
 level_low = 7
 level_high = 14
-status_effects = Array[ExtResource("5_pmbwt")]([])
-is_mod_cog = false
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["Are you sure you're ready to mingle?", "You don't know who you're mingling with.", "I'm going to mingle in your business.", "Ever mingle with the likes of me?", "You're mingling with defeat.", "Let's mingle.", "Well, isn't this cozy?", "Good, it takes two to mingle."])
 external_assets = {
 &"head_model": "",

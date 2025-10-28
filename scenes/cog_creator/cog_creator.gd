@@ -18,11 +18,7 @@ var menu_index := 0
 func _ready() -> void:
 	Globals.import_custom_cogs()
 	
-	# Duplicate the Cog's DNA so we aren't editing anything important wink wink
-	cog.set_dna(safe_cogs.cogs[RandomService.randi_channel('true_random') % safe_cogs.cogs.size()].duplicate())
-	cog.set_animation("neutral")
-	cog.dna.external_assets['head_model'] = cog.dna.head.resource_path
-	cog.dna.head = null
+	randomize_cog()
 	
 	_prepare_menus()
 
@@ -37,6 +33,12 @@ func _prepare_menus() -> void:
 	_ready_attacks()
 	_ready_phrases()
 
+func randomize_cog() -> void:
+	# Duplicate the Cog's DNA so we aren't editing anything important wink wink
+	cog.set_dna(safe_cogs.cogs.pick_random().duplicate(true))
+	cog.set_animation("neutral")
+	cog.dna.external_assets['head_model'] = cog.dna.head
+	cog.dna.head = ""
 
 #region TOP LEVEL MENU
 @onready var next_menu_button : GeneralButton = $FooterButtons/NextMenuButton
@@ -109,6 +111,7 @@ func open_custom_cogs_folder() -> void:
 	OS.shell_open(ProjectSettings.globalize_path(COG_SAVE_PATH))
 
 func new_pressed() -> void:
+	randomize_cog()
 	cog.randomize_cog()
 	opened_file = ""
 	_prepare_menus()
@@ -131,7 +134,7 @@ func close_open_menu() -> void:
 
 func open_file(file : UIFile) -> void:
 	close_open_menu()
-	cog.set_dna(Globals.loaded_custom_cogs[file.file_path].duplicate())
+	cog.set_dna(Globals.loaded_custom_cogs[file.file_path].duplicate(true))
 	_prepare_menus()
 	opened_file = file.file_path
 
@@ -234,7 +237,7 @@ func append_cog_head(head : PackedScene) -> void:
 	head_models.append(new_file)
 
 func set_head(file : UIModelFile) -> void:
-	cog.dna.head = null
+	cog.dna.head = ""
 	cog.dna.external_assets['head_model'] = file.file_path
 	_refresh_cog()
 
@@ -343,9 +346,9 @@ func suit_changed(index : int) -> void:
 				cog.dna.external_assets.erase(value)
 			cog.dna.set(value, null)
 	else:
-		cog.dna.custom_arm_tex = suit['custom_arm_tex']
-		cog.dna.custom_blazer_tex = suit['custom_blazer_tex']
-		cog.dna.custom_leg_tex = suit['custom_leg_tex']
+		cog.dna.custom_arm_tex = suit['custom_arm_tex'].resource_path
+		cog.dna.custom_blazer_tex = suit['custom_blazer_tex'].resource_path
+		cog.dna.custom_leg_tex = suit['custom_leg_tex'].resource_path
 	_refresh_cog()
 
 #endregion
@@ -381,6 +384,7 @@ func set_hand_color(color : Color) -> void:
 @onready var ability_count_slider : HSlider = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider/HSlider
 @onready var ability_count_label : Label = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider/Label
 @onready var ability_count_element : VBoxContainer = $Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider
+@onready var suffix_editor: LineEdit = $Menus/AtrributeSelectorsPart2/VBoxContainer/NametagSuffix/LineEdit
 
 func _ready_attribute() -> void:
 	name_editor.set_text(cog.dna.cog_name)
@@ -393,6 +397,9 @@ func _ready_attribute() -> void:
 	if cog.dna.is_mod_cog:
 		ability_count_element.show()
 	set_ability_count(get_ability_count(cog.dna))
+	if not SaveFileService.progress_file.proxies_unlocked:
+		proxy_button.get_parent().hide()
+	suffix_editor.set_text(cog.dna.custom_nametag_suffix)
 
 func set_cog_name(new_name : String) -> void:
 	cog.dna.cog_name = new_name
@@ -414,6 +421,10 @@ func set_name_prefix(new_prefix : String) -> void:
 func set_name_suffix(new_suffix : String) -> void:
 	cog.dna.name_suffix = new_suffix
 
+func set_custom_suffix(new_suffix: String) -> void:
+	cog.dna.custom_nametag_suffix = new_suffix
+	_refresh_cog()
+
 func set_minimum_level(value : float) -> void:
 	level_min_label.set_text("Minimum Level: %d" % value)
 	cog.dna.level_low = round(value)
@@ -430,30 +441,33 @@ func set_maximum_level(value : float) -> void:
 	if cog.level > cog.dna.level_high:
 		_refresh_cog()
 
-const PROXY_EFFECT := preload('res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres')
+const PROXY_EFFECT := 'res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres'
 func proxy_toggled(yes : bool) -> void:
 	if yes:
 		cog.dna.is_mod_cog = true
 		set_ability_count(1)
 	else:
 		cog.dna.is_mod_cog = false
-		while cog.dna.status_effects.has(PROXY_EFFECT):
-			cog.dna.status_effects.erase(PROXY_EFFECT)
+		var effect_index := cog.dna.baked_status_effects.find(PROXY_EFFECT)
+		while effect_index != -1:
+			cog.dna.baked_status_effects.remove_at(effect_index)
 	_refresh_cog()
 	ability_count_element.visible = yes
 
 func set_ability_count(new_count : float) -> void:
 	while get_ability_count(cog.dna) < new_count:
-		cog.dna.status_effects.append(PROXY_EFFECT)
+		cog.dna.baked_status_effects.append(PROXY_EFFECT)
 	while get_ability_count(cog.dna) > new_count:
-		cog.dna.status_effects.erase(PROXY_EFFECT)
+		cog.dna.baked_status_effects.remove_at(
+			cog.dna.baked_status_effects.find(PROXY_EFFECT)
+		)
 	ability_count_label.set_text("Ability Count: %d" % roundi(new_count))
 	ability_count_slider.set_value_no_signal(new_count)
 	_refresh_cog()
  
 func get_ability_count(dna : CogDNA) -> int:
 	var count := 0
-	for effect in dna.status_effects:
+	for effect in dna.baked_status_effects:
 		if effect == PROXY_EFFECT:
 			count += 1
 	return count
@@ -585,3 +599,13 @@ func files_loading() -> void:
 
 func files_finished_loading() -> void:
 	mouse_blocker.hide()
+
+@onready var gui_group: Array[Node] = [
+	$Menus, $Header, $OpenFolderButton, $FooterButtons,
+]
+var show_ui := true
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed('hide_gui'):
+		show_ui = not show_ui
+		for node in gui_group: 
+			node.set_visible(show_ui)

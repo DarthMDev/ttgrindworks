@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c8317ugfvi2s7"]
+[gd_scene load_steps=53 format=4 uid="uid://c8317ugfvi2s7"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_uwh0y"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_edifh"]
@@ -52,6 +52,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lemun")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crsqn"]
+size = Vector3(63.701, 20.66882, 50.4635)
 
 [sub_resource type="QuadMesh" id="QuadMesh_p8xyp"]
 resource_local_to_scene = true
@@ -574,15 +577,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -893.357, 195.334, 525.526)
 
 [node name="gate" parent="BBFairway/Geometry" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1466.34, 466.419, -4.728)
+visible = false
 
 [node name="CollisionShape3D" parent="RoomArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 11.4776, 1.30658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 10.260962, 1.30658)
+shape = SubResource("BoxShape3D_crsqn")
 
 [node name="ENTRANCE" parent="." index="26"]
-transform = Transform3D(-4.37114e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37114e-10, -31.3482, 0, -0.0306853)
+transform = Transform3D(-4.37114e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37114e-10, -33.47002, 0, -0.0306853)
 
 [node name="EXIT" parent="." index="27"]
-transform = Transform3D(0, -0.01, 0, 0, 0, -0.01, 0.01, 0, 0, 29.5956, 11.476, -0.267615)
+transform = Transform3D(0, -0.01, 0, 0, 0, -0.01, 0.01, 0, 0, 30.435257, 11.476, -0.267615)
 
 [node name="ResizeableGround" parent="." index="29" instance=ExtResource("2_edifh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4882, 11.4733, 0.2481)
@@ -1260,3 +1265,7 @@ endless_stop_moles = false
 want_launch = false
 grid_size = Vector2i(4, 3)
 hole_separation = 1.6
+
+[node name="treasure_chest2" parent="." index="59" instance=ExtResource("17_uns6d")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.20401, 0, 7.93267)
+item_pool = ExtResource("17_crsqn")

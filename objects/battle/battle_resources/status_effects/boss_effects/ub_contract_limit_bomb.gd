@@ -22,7 +22,7 @@ func apply() -> void:
 	var battle_node := manager.battle_node
 	var movie := manager.create_tween()
 	
-	var dialogue_choice: String = RandomService.array_pick_random('true_random', response_lines)
+	var dialogue_choice: String = response_lines.pick_random()
 	
 	movie.tween_callback(target.speak.bind(dialogue_choice))
 	movie.tween_callback(battle_node.focus_character.bind(target))

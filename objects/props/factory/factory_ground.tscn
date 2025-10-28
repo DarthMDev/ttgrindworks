@@ -48,8 +48,8 @@ seed = 20
 frequency = 0.0143
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3it41"]
-seamless = true
 noise = SubResource("FastNoiseLite_f5xuh")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3qb70"]
 render_priority = 0

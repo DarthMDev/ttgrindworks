@@ -24,3 +24,6 @@ shape = SubResource("ConcavePolygonShape3D_ft2lb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plantA/plantA2/pCylinder2/GeometryTransformHelper17/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_vwdfm")
+
+[node name="bench_shadow" parent="plantA/plantA2" index="14"]
+visible = false

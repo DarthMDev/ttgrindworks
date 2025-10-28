@@ -35,6 +35,8 @@ func update_panels() -> void:
 		# Append the panels
 		for i in panels_to_make:
 			var panel = gag_panel.duplicate()
+			if i > Util.get_player().stats.turns:
+				panel.modulate = Color.GREEN
 			reset_panel(panel)
 			add_child(panel)
 			panels.append(panel)
@@ -47,6 +49,10 @@ func update_panels() -> void:
 	if panels_to_make < 0:
 		for i in abs(panels_to_make):
 			panels.pop_back().queue_free()
+	
+	for i in panels.size():
+		if i >= Util.get_player().stats.turns:
+			panels[i].self_modulate = Color.GREEN
 
 func append_gag(gag: ToonAttack) -> void:
 	# Add the icon to the gag panels

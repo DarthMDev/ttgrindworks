@@ -15,7 +15,7 @@ func soak_opponent(who: Node3D, from: Node3D, time: float) -> void:
 	splash.queue_free()
 
 func apply_debuff(target: Cog) -> void:
-	var new_effect: StatBoost = DEBUFF.duplicate()
+	var new_effect: StatBoost = DEBUFF.duplicate(true)
 	new_effect.target = target
 	new_effect.boost = get_player_stats().get_stat('squirt_defense_boost')
 	manager.add_status_effect(new_effect)
@@ -39,7 +39,7 @@ func get_stats() -> String:
 		ActionTarget.ENEMY_SPLASH:
 			string += "Three Cogs"
 		
-	string += "\nDrenched: %s%%" % roundi((1.0 - get_player_stats().get_stat('squirt_defense_boost')) * 100)
+	string += "\nDrenched: %s" % Util.float_to_perc(absf(get_player_stats().get_stat('squirt_defense_boost')))
 	
 	if Util.get_player().stats.has_item('Witch Hat'):
 		string += "\nApplies: Poison"

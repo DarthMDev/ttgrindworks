@@ -1121,9 +1121,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_owigp")
 
 [node name="duck_heads" type="Node3D"]
-transform = Transform3D(-4.3, 0, -6.49282e-07, 0, 4.3, 0, 6.49282e-07, 0, -4.3, 0, 0, 0)
 
 [node name="SmallHeadSmallBill" type="Node3D" parent="."]
+transform = Transform3D(-4.3, 0, -3.75918e-07, 0, 4.3, 0, 3.75918e-07, 0, -4.3, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadSmallBill"]
@@ -1207,6 +1207,7 @@ mesh = SubResource("ArrayMesh_a00kv")
 skeleton = NodePath("")
 
 [node name="BigHeadBigBill" type="Node3D" parent="."]
+transform = Transform3D(-4.3, 0, -3.75918e-07, 0, 4.3, 0, 3.75918e-07, 0, -4.3, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="BigHeadBigBill"]
@@ -1287,6 +1288,7 @@ mesh = SubResource("ArrayMesh_j2eiv")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigBill" type="Node3D" parent="."]
+transform = Transform3D(-4.3, 0, -3.75918e-07, 0, 4.3, 0, 3.75918e-07, 0, -4.3, 0, 0, 0)
 visible = false
 
 [node name="mouths" type="Node3D" parent="SmallHeadBigBill"]
@@ -1367,6 +1369,7 @@ mesh = SubResource("ArrayMesh_a00kv")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallBill" type="Node3D" parent="."]
+transform = Transform3D(-4.3, 0, -3.75918e-07, 0, 4.3, 0, 3.75918e-07, 0, -4.3, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="BigHeadSmallBill"]

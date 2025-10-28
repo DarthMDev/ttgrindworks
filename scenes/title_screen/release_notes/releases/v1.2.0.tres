@@ -1,0 +1,281 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://bdaiigui0xdkl"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_07qi4"]
+
+[resource]
+script = ExtResource("1_07qi4")
+release_version = "v1.2.0"
+notes = "[TITLE]Highlights
+Added 2 new characters: Professor Pete and Lil Oldman
+  The achievements menu has hints for their unlock conditions
+Added a new alternate floor: The Molten Mint
+A Stranger has appeared... somewhere...
+  They can be found... somehow...
+  Will you accept their offer?
+Added 19 new accessory items
+Added 8 new pocket prank items
+Added 5 new passive items
+Added 3 new anomalies
+Added 7 new Proxy Cog abilities
+Added 4 new Proxy Cogs, 3 of which were from the Summer 2025 Community-Crafted Cogs Contest. Specific credits can be found in the Proxy Cogs section below!
+Added 11 new achievements
+Revamped the Pick-A-Toon screen
+  When choosing a character, you can now use a custom seed for your run. Great for competing with friends or to share a crazy run you had with others
+[TITLE]Engine
+Updated to Godot version 4.5
+Back-end rewrite to run randomization to better support seeded runs
+[TITLE]Items
+Added Accessories:
+  Toonosaur Hat (1-Star)
+  Masquerade Mask (2-Star)
+  Plush Bear Pack (2-Star)
+  Bee Hive Hairdo (2-Star)
+  Toonosaur Boots (3-Star)
+  Danger Shades (3-Star)
+  Airplane Wings (3-Star)
+  Fishing Hat (3-Star)
+  Small Pouch (3-Star)
+  Dragonfly Wings (3-Star)
+  Smooch Glasses (3-Star)
+  Bird Wings (3-Star) (Locked)
+  Butterfly Wings (4-Star)
+  Motorcycle Boots (4-Star)
+  Napoleon Hat (4-Star)
+  Weird Glasses (4-Star) (Locked)
+  Large Pouch (5-Star)
+  Spider Legs (5-Star)
+  Super Toon Boots (5-Star)
+Added Pocket Pranks:
+  Spinning Top (1-Star)
+  Calculator (2-Star)
+  Moneybags Coin (2-Star)
+  Book of Laws (3-Star) (Locked)
+  Glowering Dagger (3-Star) (Locked)
+  Spinach Can (3-Star)
+  Watering Can (3-Star)
+  Recycle Bin (4-Star)
+Added Passive Items:
+  Rolodex (2-Star) (Locked)
+  Red Tape (3-Star)
+  Wacky Whistle (3-Star)
+  Philosopher's Stone (4-Star) (Locked)
+  Dilly Dial (5-Star) (Locked)
+Balance Tweaks:
+  Cowboy Hat now has a damage penalty of -15%
+  Made Cowboy Hat slightly rarer
+  Paint Bucket now rerolls all the items in the room
+  Sandwich can now be used in battle
+  Cash Register now grants a 10% Damage boost for 1 round for 3 beans each
+  Gag Button is now a 4-Star item rather than a 3-Star item
+  Gumball Machine's base super candy chance has been reduced to 15%
+    This chance will now scale to 30% at 200% Luck
+  Goggles is now displayed as a 4-Star item rather than a 5-Star item (rarity is unchanged)
+  Balancing Scale is now a 3-Star item rather than a 5-Star item
+  Pompadour Hairdo now gives +4% to all stats and -8% damage instead of +2% to all stats and -10% damage
+  Fedora now gives +5% Luck
+  Wizard Hat and Crown now give +3% Luck
+  Hats that boost damage for specific departments (Bowler Hat, Police Hat, etc.) now boost 15% instead of 10%, and also affect defense against that department
+  Jester Hat is now a 4-Star item and doubles Toon-Up effects instead of adding a flat +20%
+  Pirate Hat now gives 2-4 jellybeans per Proxy defeated instead of just 2
+  Archer Hat luck boost per Gag has been increased from 2.5% to 4%
+  Mask now gives +20% Evasiveness instead of +10%
+  Super Toon Cape now gives +10% Evasiveness instead of +5%
+  Eye Patch now gives -10% Luck instead of -15%
+  Heart Glasses and Mini Blinds now scale with luck
+  Bee Wings now convert 50% of Speed into Crit damage instead of 75%
+  Laff Boosts now scale based on the treasure chest they are found in
+  Laff Boosts no longer spawn naturally from item pools
+    (This just means Laff Boosts are more directly managed by the game logic, you will still see plenty)
+  The Zippy Zap candy now boosts speed by 5% rather than 3%
+  Treasures now give a 33% heal instead of a 25% heal on pick-up, with a minimum of +1 Laff
+  Treasures now become rarer the more you have
+  You can now only carry 7 treasures across all types
+  Made Gag Track Frames relatively inexpensive when in the shop
+  Made Stat Candies a little less expensive when in the shop
+  Evasiveness Stat Candies now give +5% for their regular variant and +12% for their super variant
+  Feather now adds +30% Defense rather than +20%
+  Bamboo Cane now adds +40% Evasiveness rather than +20%
+  Juggling Cubes now adds +20% Luck rather than +10%
+  Defense, Evasiveness, and Luck have also had their High Dive effects increased
+Misc:
+  Updated the description for Pixie Dust to be more in line with other consumables
+  Added a quick grow-in sequence for world items
+  Majorly reorganized the item pools across the entire game
+    Specifically, no Accessory/Pocket Prank can appear in more than two item pools (minus a few outliers)
+  For example, the Wooden Sword used to be available as a Floor Clear reward, in Shops, as well as Gold and Special Treasure Chests, and is now only available in two locations
+[TITLE]Toons
+Implemented full ToonDNA, meaning...
+  All Toon body combinations from Toontown Online are now possible
+  All previously missing Toon animations are now available to us
+  Mixed body actions are now theoretically possible (though not implemented) like throwing a pie while running
+  Toons are now capable of wearing shoes
+Added some new clothing types
+Implementing these new bodies was a very big under-the-hood change we may have missed a few small visual issues with, so please let us know about any bugs you find
+[TITLE]Gags
+The damage reductions of group Lure Gags now increase over the track
+Group Lure Gags now also apply an accuracy down on Cogs
+The damage of Banana Peel, Rake and Marbles have all been increased
+[TITLE]Characters
+Added Professor Pete
+Added Lil Oldman
+Clara will now keep 10% of the boosts she obtains on the floor permanently
+When at full Laff, Clara can no longer roll an HP boost from Trap
+Clara can now hear in the dark (we fixed her ear size)
+Bessie's Drop will now activate as the final move of her turn, rather than the first
+Slightly increased Moe Zart's self heal and damage boosts
+All Character DNA has been updated to properly reflect their Toontown Online DNA
+[TITLE]Bosses
+A new Boss has appeared, ready for a heated confrontation
+Damage in the Head of Security boss fight will now increase with each mistake made
+Slightly nerfed HP values of the Directors to 2500
+Increased the damage dealt by the Directors
+Made a sizeable increase to the damage of Traffic Manager's Traffic Jam & Bookkeeper's Reprimand
+Union Buster's Liability Waver & Contract Limit moves now queue at the end of the round
+Cogs are no longer queued to spawn every round when Union Buster is in the fight
+Added new music to the Paint Silo boss
+Added new music to the Barrel Room (the room before the Directors boss fight)
+Allowing the static meter to reach the top in the Slendercog boss battle will now result in an instant defeat
+Made a few changes to some boss cutscenes where Toons would annoyingly clip into the camera
+Changed the name of the Security Goon's attack to \"Ex post facto Law\"
+Buttons that are almost immediately stomped in the Golden Goose fight will prompt another button to spawn quickly after
+Implemented anti Cog farming measures to bosses like Chartist and Ground Floor Investor where reinforcements can spawn infinitely 
+Some bosses now have a typewriter effect to introduce their names in their cutscenes
+[TITLE]Title Screen
+Overhauled the Pick-A-Toon menu to be more versatile, including a full UI refresh
+Added a custom run seed field
+  Any custom seed will be displayed under the game timer to differentiate custom seed runs from random seed runs
+[TITLE]Facilities
+Added the Molten Mint
+Certain obstacle rooms will now add charges to your Pocket Prank on completion
+Added Pistons so it is now possible to backtrack from the Ground Floor Investor fight without the \"I'm stuck!\" button
+Added three new anomalies
+Added some new rooms to all standard facility floors
+Mazes in the Cog Golf Course will now only have a 2 cog battle instead of a 4 cog battle at the end
+The D.A. Office has a new shop
+The Mint has new battle music
+The \"Big Puzzle\" special room in the D.A. Office will now only deal damage when you fail Skull Finder
+  The big puzzle can no longer be the \"Run!\" puzzle
+Slightly increased the difficulty of the Pathfinder special room puzzle
+The Haunted Cog Golf Course is now 33% brighter
+Facility Alt Floors are now slightly more common
+Updated the appearance of some rooms
+Moving obstacles will now have the same position between game releases
+The \"Inspiration\" anomaly will now tell you which stat is boosted in its description
+Tightened Security and Faulty Security, when combined, will now synergize into lowering the Cog level range minimum by 1, and increasing the Cog level range maximum by 1, stopping both of them from cancelling each other out
+Increased the bean reward range of Record Profits
+Double Trouble's v2.0 Cog rolls are now properly seeded
+The length of floors will now vary slightly
+Added a few more anomalies to the mid-floor blocklist
+Facility obstacles now use your defense stat in damage calculations
+Slightly decreased the hitbox size of the rolling golf ball
+Fences in the Cog Golf Course will no longer take control of your camera for their opening cutscene
+Slightly updated a few room obstacles to be more challenging
+[TITLE]Cogs
+Cogs have been made slightly stronger overall
+Added Restraining Order
+[TITLE]Proxy Cogs
+Three brand new community-crafted Proxy Cogs have been spotted in Cog HQ!
+  Stickler by Jackyland
+  Live Wire by Evelyn (Velvet Petunia)
+  Cash Cow by JustaBluToon & DoggoMafia
+An additional Proxy Cog has appeared in Cog HQ
+Added seven new Proxy Cog abilities
+Viper has received a makeover
+[TITLE]Cog Creator
+Clicking \"New\" will now swap to a random, standard Cog DNA
+Added a field to give a custom nametag suffix to a Cog
+The Proxy toggle will no longer appear until you have completed your first run
+[TITLE]Tweaks
+Items can now be locked behind achievements
+You can now enable/disable installed mods in the Settings panel
+You can now use F3 to toggle some GUI assets
+Classic Control's turn speed is now based on the player's speed stat
+Classic Control players can now use the orbital camera via right-click
+Added support for mouse controls, you can use left-click to move forward, and right-click to jump
+  Note: Mouse controls are only supported in the \"Default\" control style
+Added a keybind for re-centering the camera
+Individual \"turns\" are now referred to as \"moves\" for clarity, to elaborate...
+  Move: A singular battle action
+  Turn: The set of moves a battle participant makes during the round
+  Round: The combined set of all battle participants' turns before move selection restarts
+Added a keybind for taking screenshots
+Jump height is no longer lowered by platforms moving downwards
+Stat boost status effects are now additive instead of multiplicative
+You can now earn the respect of the credits panel
+Achievements now support hints
+The achievement panel now supports sections
+Added a pity system for a rare achievement
+Changed the name of the 100% completion achievement
+Decreased the hitbox size of the burner obstacle
+Added support for sub-bullet points in the release notes panel
+  They look like this!
+Fixed a few places where treasure chests were a little too embedded into the ground
+Refactored a ton of the game's inner workings
+The Game Timer will now turn yellow when paused
+Win Streaks can now be negative
+Added a developer console
+NPC Toons now wear random accessories
+ToonTasks are now rolled at the start of the Ground Floor
+Improved the look of a few battle movies
+Invincibility frames are now denoted by your Toon flashing blue for a short time
+Implemented a method of forcing the game to cache heavy shaders on startup
+  This loading screen should be much quicker on subsequent startups than on first startup
+  Modified the appearance of the loading screen to match the shader compiler menu
+[TITLE]Bugfixes
+Fixed a bug where Toons would spin violently when jumping on a golf cart
+Fixed a bug where moles could occasionally launch the player downwards
+Fixed the rotation of the Squirting Flower on tall Toons
+Fixed a bug where Doodle names would change upon adoption
+Definitely and for real this time fixed Toon decapitation on the game over screen
+Cogs now properly walk backwards when unlured
+Walking backwards in the Classic Control style will also now properly play the animation backwards
+Implemented a fix for the going sad animation not playing properly on some occasions
+Fixed a bug where the text on the statistics menu could run over the bounds of the panel by introducing a character limit
+Added protection against total playtime corruption
+Fixed a bug with a skirt that was accidentally untextured
+Fixed some pop-in when the boss of The Factory is loaded in
+The Game Timer will now properly re-sync on loading a save file
+Swapping out Pocket Pranks at shops is less finicky
+Drop shadows are now functional with animations in battle
+Fixed a rendering issue with horse Toon pupils
+Fixed an issue where you would not get invincibility frames after being revived
+Fixed an issue where using Trap on an already Lured Cog with Detective Hat would not correctly apply knockback damage if the player also had Safari Hat
+Fixed a bug where Witch Hat's poison damage wouldn't be scaled by your stats
+Fixed an issue where damage could apply twice in the Head of Security Boss Fight
+Fixed an issue where Cogs would not be counted towards ToonTasks when fired
+Fixed the Diverse Portfolio Proxy effect not applying its damage reduction properly
+Fixed a bug where the title screen music would restart on leaving the Cog Creator
+Fixed an exploit in the D.A. Office
+Fixed a bug where you could gain prank charges from Virtual Skelecog battles
+Fixed an issue where Cowboy Hat would still give the Deadeye bonus in Virtual Skelecog battles
+Fixed an issue in the Head of Security boss that allowed you to stand on the skulls in the \"Get to the Safe Zone\" round
+Fixed some miscellaneous damage source reporting issues
+Fixed a long-standing animation issue with the fat Cog body type where its left shoulder was misaligned
+Fixed a bug where Ground Floor ToonTasks would ask for Cogs that could not appear on the Ground Floor due to their level minimum
+  Relatedly, this also fixes the issue where tier 1 Cogs (Flunky, Cold Caller, etc.) could not appear in ToonTasks at all
+Minor text fixes
+[TITLE]For Modders
+The setup for item pools has changed significantly
+  Item pools no longer contain arrays of item resources, but file paths to item resources
+  Implementing modded items must now be done via the new item pool function \"add_items\"
+Proxy Cog effects are now stored in a static variable rather than a constant
+MaxToonupConsumables in Globals is now a variable rather than a constant
+With the introduction of full ToonDNA, any modded character's DNA should be re-assessed as they will be given small legs by default
+Implementing different battle speeds is no longer a hassle if you use SettingsFile.add_battle_speed()
+Gag accuracy can now be reimplemented by setting \"use_accuracy\" to true on the Player object
+Dynamic Battle Nodes no longer have a soft cap of 4 Cogs
+Whether or not a Cog counts towards ToonTasks and certain item benefits (like Cowboy Hat) has been refactored to not rely on the Virtual Skelecog toggle
+Added a signal for the settings menu opening (Globals.s_settings_opened)
+RandomService has been deprecated and is now replaced by the RNG class
+  RandomService will still work as expected for now, but may be fully removed in the future
+  As part of this refactor, the 'true_random' channel is no longer needed, and Godot's built-in random functions should be used instead
+  Here is an example of using the new RNG class:
+  Before: RandomService.randi_channel('floors')
+  After: RNG.channel(RNG.ChannelFloors).randi()
+For Pocket Pranks: the cancel_use function is now deprecated and will be removed in a future version
+  To write custom logic to cancel the use of a Pocket Prank, override the new function validate_use
+Pocket Pranks now have a toggle option to allow use when not at full charge
+HP Overheal can now be enabled on BattleStats via \"allow_overheal\"
+Custom achievements can now be added to the achievement panel via SaveFileService.add_achievement
+  In order to get the most mileage out of it, you'll need your own system of tracking your custom achievements, and a custom script extending from the Achievement resource type that overrides the need to check the vanilla progress file for if an achievement is unlocked
+The upgrade to Godot 4.5 has changed how duplicate() works, and although the migration guide claims it should still maintain original functionality, there's likely to be some changes you need to make if you used it regularly in your mods (like using duplicate(true) to get a resource with all of its properties duplicated properly)"

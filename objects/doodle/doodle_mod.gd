@@ -5,10 +5,11 @@ class_name Doodle
 @export var dna : DoodleDNA
 
 ## Traits
-@export var noses : Array[MeshInstance3D]
-@export var ears : Array[MeshInstance3D]
-@export var tails : Array[MeshInstance3D]
-@export var colored_meshes : Array[MeshInstance3D]
+@export var noses: Array[MeshInstance3D]
+@export var ears: Array[MeshInstance3D]
+@export var tails: Array[MeshInstance3D]
+@export var colored_meshes: Array[MeshInstance3D]
+@export var shadow_bone: BoneAttachment3D
 
 ## Child References
 @onready var skeleton := $TT_pets/Skeleton3D
@@ -61,15 +62,15 @@ func apply_dna():
 		eyes = [load("res://models/doodle/BeanEyeGirlsNew.png"),load("res://models/doodle/BeanEyeGirlsBlinkNew.png")]
 	else:
 		eyes = [load("res://models/doodle/BeanEyeBoys2.png"),load("res://models/doodle/BeanEyeBoysBlink.png")]
-	eye_mesh.set_surface_override_material(0,eye_mesh.mesh.surface_get_material(0).duplicate())
+	eye_mesh.set_surface_override_material(0,eye_mesh.mesh.surface_get_material(0).duplicate(true))
 	eye_mesh.get_surface_override_material(0).albedo_texture = eyes[0]
 	
-	body.set_surface_override_material(0,body.mesh.surface_get_material(0).duplicate())
+	body.set_surface_override_material(0,body.mesh.surface_get_material(0).duplicate(true))
 	body.get_surface_override_material(0).albedo_texture = dna.texture
 	
 	for mesh in colored_meshes:
 		if not mesh.get_surface_override_material(0):
-			mesh.set_surface_override_material(0,mesh.mesh.surface_get_material(0).duplicate())
+			mesh.set_surface_override_material(0,mesh.mesh.surface_get_material(0).duplicate(true))
 		mesh.get_surface_override_material(0).albedo_color = dna.color
 	
 	hair.set_visible(dna.hair)
@@ -80,7 +81,7 @@ func blink():
 		blink_timer.wait_time = 0.25
 	else:
 		open_eyes()
-		blink_timer.wait_time = RandomService.randf_range_channel('true_random', 5.0, 10.0)
+		blink_timer.wait_time = randf_range(5.0, 10.0)
 	blink_timer.start()
 
 func close_eyes() -> void:

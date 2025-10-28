@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://ctmduyervqmmd"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://c5lju4bl2oc7e"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_iixhh"]
 [ext_resource type="Script" uid="uid://c4eyu1xvv7h2l" path="res://objects/items/classes/head_placement.gd" id="2_6abyl"]
@@ -10,8 +10,7 @@
 [sub_resource type="Resource" id="Resource_8pqho"]
 script = ExtResource("2_6abyl")
 species = 2
-head_index = 0
-position = Vector3(0.01, -0.46, 0.15)
+position = Vector3(0.01, 0.59, 0.15)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.35, 0.35, 0.35)
 
@@ -19,7 +18,7 @@ scale = Vector3(0.35, 0.35, 0.35)
 script = ExtResource("2_6abyl")
 species = 2
 head_index = 1
-position = Vector3(0.01, -0.22, -0.03)
+position = Vector3(0.01, 0.83, -0.03)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.31, 0.4, 0.31)
 
@@ -27,7 +26,7 @@ scale = Vector3(0.31, 0.4, 0.31)
 script = ExtResource("2_6abyl")
 species = 2
 head_index = 2
-position = Vector3(0.01, -0.51, 0.02)
+position = Vector3(0.01, 0.54, 0.02)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.39, 0.39, 0.39)
 
@@ -35,47 +34,41 @@ scale = Vector3(0.39, 0.39, 0.39)
 script = ExtResource("2_6abyl")
 species = 2
 head_index = 3
-position = Vector3(0.01, -0.22, -0.03)
+position = Vector3(0.01, 0.83, -0.03)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.31, 0.4, 0.31)
 
 [sub_resource type="Resource" id="Resource_10r2o"]
 script = ExtResource("2_6abyl")
-species = 0
 head_index = 3
-position = Vector3(0.01, -0.46, -0.24)
+position = Vector3(0.01, 0.59, -0.24)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.38, 0.38, 0.38)
 
 [sub_resource type="Resource" id="Resource_1pn5b"]
 script = ExtResource("2_6abyl")
-species = 0
 head_index = 2
-position = Vector3(0.01, -0.46, -0.24)
+position = Vector3(0.01, 0.59, -0.24)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.38, 0.38, 0.38)
 
 [sub_resource type="Resource" id="Resource_12s3o"]
 script = ExtResource("2_6abyl")
-species = 0
 head_index = 1
-position = Vector3(0.01, -0.15, -0.43)
+position = Vector3(0.01, 0.9, -0.43)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.39, 0.39, 0.39)
 
 [sub_resource type="Resource" id="Resource_ri0uk"]
 script = ExtResource("2_6abyl")
-species = 0
-head_index = 0
-position = Vector3(0.01, -0.15, -0.43)
+position = Vector3(0.01, 0.9, -0.43)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.39, 0.39, 0.39)
 
 [sub_resource type="Resource" id="Resource_iuwe1"]
 script = ExtResource("2_6abyl")
 species = 1
-head_index = 0
-position = Vector3(0, -0.57, -0.01)
+position = Vector3(0, 0.48, -0.01)
 rotation = Vector3(-5.48, 0, 0)
 scale = Vector3(0.45, 0.45, 0.45)
 
@@ -83,7 +76,7 @@ scale = Vector3(0.45, 0.45, 0.45)
 script = ExtResource("2_6abyl")
 species = 1
 head_index = 1
-position = Vector3(0, -0.57, -0.01)
+position = Vector3(0, 0.48, -0.01)
 rotation = Vector3(-5.48, 0, 0)
 scale = Vector3(0.45, 0.45, 0.45)
 
@@ -91,7 +84,7 @@ scale = Vector3(0.45, 0.45, 0.45)
 script = ExtResource("2_6abyl")
 species = 1
 head_index = 2
-position = Vector3(0, -0.58, -0.05)
+position = Vector3(0, 0.47, -0.05)
 rotation = Vector3(-5.48, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
@@ -99,15 +92,14 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_6abyl")
 species = 1
 head_index = 3
-position = Vector3(0, -0.58, -0.05)
+position = Vector3(0, 0.47, -0.05)
 rotation = Vector3(-5.48, 0, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_5lxyc"]
 script = ExtResource("2_6abyl")
 species = 3
-head_index = 0
-position = Vector3(0.01, -0.39, -0.14)
+position = Vector3(0.01, 0.66, -0.14)
 rotation = Vector3(-10, 0, 0)
 scale = Vector3(0.5, 0.62, 0.57)
 
@@ -115,7 +107,7 @@ scale = Vector3(0.5, 0.62, 0.57)
 script = ExtResource("2_6abyl")
 species = 3
 head_index = 1
-position = Vector3(0.01, -0.28, -0.14)
+position = Vector3(0.01, 0.77, -0.14)
 rotation = Vector3(-10, 0, 0)
 scale = Vector3(0.5, 0.62, 0.57)
 
@@ -123,7 +115,7 @@ scale = Vector3(0.5, 0.62, 0.57)
 script = ExtResource("2_6abyl")
 species = 3
 head_index = 2
-position = Vector3(0.01, -0.39, -0.14)
+position = Vector3(0.01, 0.66, -0.14)
 rotation = Vector3(-10, 0, 0)
 scale = Vector3(0.5, 0.62, 0.57)
 
@@ -131,7 +123,7 @@ scale = Vector3(0.5, 0.62, 0.57)
 script = ExtResource("2_6abyl")
 species = 3
 head_index = 3
-position = Vector3(0.01, -0.28, -0.14)
+position = Vector3(0.01, 0.77, -0.14)
 rotation = Vector3(-10, 0, 0)
 scale = Vector3(0.5, 0.62, 0.57)
 
@@ -139,7 +131,7 @@ scale = Vector3(0.5, 0.62, 0.57)
 script = ExtResource("2_6abyl")
 species = 4
 head_index = 3
-position = Vector3(0.01, -0.5, -0.25)
+position = Vector3(0.01, 0.55, -0.25)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.33, 0.33, 0.34)
 
@@ -147,7 +139,7 @@ scale = Vector3(0.33, 0.33, 0.34)
 script = ExtResource("2_6abyl")
 species = 4
 head_index = 2
-position = Vector3(0.01, -0.7, -0.1)
+position = Vector3(0.01, 0.35, -0.1)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.33, 0.33, 0.34)
 
@@ -155,23 +147,21 @@ scale = Vector3(0.33, 0.33, 0.34)
 script = ExtResource("2_6abyl")
 species = 4
 head_index = 1
-position = Vector3(0.01, -0.5, -0.25)
+position = Vector3(0.01, 0.55, -0.25)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.33, 0.33, 0.34)
 
 [sub_resource type="Resource" id="Resource_k5eti"]
 script = ExtResource("2_6abyl")
 species = 4
-head_index = 0
-position = Vector3(0.01, -0.7, -0.1)
+position = Vector3(0.01, 0.35, -0.1)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.33, 0.33, 0.34)
 
 [sub_resource type="Resource" id="Resource_5rw3p"]
 script = ExtResource("2_6abyl")
 species = 5
-head_index = 0
-position = Vector3(0.01, -0.3, -0.05)
+position = Vector3(0.01, 0.57, -0.05)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.38, 0.38, 0.38)
 
@@ -179,7 +169,7 @@ scale = Vector3(0.38, 0.38, 0.38)
 script = ExtResource("2_6abyl")
 species = 5
 head_index = 1
-position = Vector3(0.01, -0.1, -0.15)
+position = Vector3(0.01, 0.77, -0.15)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.49, 0.45, 0.41)
 
@@ -187,7 +177,7 @@ scale = Vector3(0.49, 0.45, 0.41)
 script = ExtResource("2_6abyl")
 species = 5
 head_index = 2
-position = Vector3(0.01, -0.3, -0.05)
+position = Vector3(0.01, 0.57, -0.05)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.38, 0.38, 0.38)
 
@@ -195,7 +185,7 @@ scale = Vector3(0.38, 0.38, 0.38)
 script = ExtResource("2_6abyl")
 species = 5
 head_index = 3
-position = Vector3(0.01, -0.1, -0.15)
+position = Vector3(0.01, 0.77, -0.15)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.49, 0.45, 0.41)
 
@@ -203,23 +193,21 @@ scale = Vector3(0.49, 0.45, 0.41)
 script = ExtResource("2_6abyl")
 species = 6
 head_index = 1
-position = Vector3(0, -0.27, -0.15)
+position = Vector3(0, 0.78, -0.15)
 rotation = Vector3(-30.64, -0.82, 2.9)
 scale = Vector3(0.54, 0.54, 0.6)
 
 [sub_resource type="Resource" id="Resource_jafqh"]
 script = ExtResource("2_6abyl")
 species = 6
-head_index = 0
-position = Vector3(0, -0.32, -0.15)
+position = Vector3(0, 0.73, -0.15)
 rotation = Vector3(-30.64, -0.82, 2.9)
 scale = Vector3(0.48, 0.48, 0.48)
 
 [sub_resource type="Resource" id="Resource_7roc0"]
 script = ExtResource("2_6abyl")
 species = 7
-head_index = 0
-position = Vector3(0.01, -0.43, -0.19)
+position = Vector3(0.01, 0.62, -0.19)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.28, 0.3, 0.31)
 
@@ -227,7 +215,7 @@ scale = Vector3(0.28, 0.3, 0.31)
 script = ExtResource("2_6abyl")
 species = 7
 head_index = 1
-position = Vector3(0.01, -0.53, -0.15)
+position = Vector3(0.01, 0.52, -0.15)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.31, 0.31, 0.32)
 
@@ -235,7 +223,7 @@ scale = Vector3(0.31, 0.31, 0.32)
 script = ExtResource("2_6abyl")
 species = 7
 head_index = 2
-position = Vector3(0.01, -0.43, -0.19)
+position = Vector3(0.01, 0.62, -0.19)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.28, 0.3, 0.31)
 
@@ -243,7 +231,7 @@ scale = Vector3(0.28, 0.3, 0.31)
 script = ExtResource("2_6abyl")
 species = 7
 head_index = 3
-position = Vector3(0.01, -0.53, -0.15)
+position = Vector3(0.01, 0.52, -0.15)
 rotation = Vector3(-22.76, 0, 0)
 scale = Vector3(0.31, 0.31, 0.32)
 
@@ -251,7 +239,7 @@ scale = Vector3(0.31, 0.31, 0.32)
 script = ExtResource("2_6abyl")
 species = 8
 head_index = 3
-position = Vector3(0.01, -0.74, -0.07)
+position = Vector3(0.01, 0.31, -0.07)
 rotation = Vector3(0.11, -90.27, 15.96)
 scale = Vector3(0.4, 0.4, 0.4)
 
@@ -259,7 +247,7 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_6abyl")
 species = 8
 head_index = 2
-position = Vector3(0.01, -0.74, -0.07)
+position = Vector3(0.01, 0.31, -0.07)
 rotation = Vector3(0.11, -90.27, 15.96)
 scale = Vector3(0.4, 0.4, 0.4)
 
@@ -267,31 +255,24 @@ scale = Vector3(0.4, 0.4, 0.4)
 script = ExtResource("2_6abyl")
 species = 8
 head_index = 1
-position = Vector3(0.01, -0.74, -0.07)
+position = Vector3(0.01, 0.31, -0.07)
 rotation = Vector3(0.11, -90.27, 15.96)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_bkf5t"]
 script = ExtResource("2_6abyl")
 species = 8
-head_index = 0
-position = Vector3(0.01, -0.74, -0.07)
+position = Vector3(0.01, 0.31, -0.07)
 rotation = Vector3(0.11, -90.27, 15.96)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [resource]
 script = ExtResource("4_7wuts")
 accessory_placements = Array[ExtResource("1_iixhh")]([SubResource("Resource_8pqho"), SubResource("Resource_4qx3c"), SubResource("Resource_s7khx"), SubResource("Resource_g7cfs"), SubResource("Resource_10r2o"), SubResource("Resource_1pn5b"), SubResource("Resource_12s3o"), SubResource("Resource_ri0uk"), SubResource("Resource_iuwe1"), SubResource("Resource_4hlks"), SubResource("Resource_rrf6k"), SubResource("Resource_shykx"), SubResource("Resource_5lxyc"), SubResource("Resource_h15cx"), SubResource("Resource_2gm5v"), SubResource("Resource_ss5a7"), SubResource("Resource_g43iw"), SubResource("Resource_s5fl3"), SubResource("Resource_n3gkc"), SubResource("Resource_k5eti"), SubResource("Resource_5rw3p"), SubResource("Resource_2enl1"), SubResource("Resource_7heev"), SubResource("Resource_1bdb1"), SubResource("Resource_c36o5"), SubResource("Resource_jafqh"), SubResource("Resource_7roc0"), SubResource("Resource_46dnc"), SubResource("Resource_0y12l"), SubResource("Resource_kbcnn"), SubResource("Resource_nk2mc"), SubResource("Resource_57ry5"), SubResource("Resource_y5ahc"), SubResource("Resource_bkf5t")])
-item_tags = null
 qualitoon = 1
 rarity = 4
-evergreen = false
-realtime = false
 slot = 1
 world_scale = 0.17
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Propeller Hat"
 item_description = "Silliness Up!"
 big_description = "+ 1 Anomaly each floor"
@@ -299,13 +280,6 @@ model = ExtResource("3_i7fio")
 stats_add = {
 "anomaly_boost": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 item_script = ExtResource("4_w1gt0")
-remember_item = true
 icon = ExtResource("3_g8f2g")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

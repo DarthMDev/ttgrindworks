@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d355gogwnfyw8"]
+
+[ext_resource type="PackedScene" uid="uid://dqjmilwwvaraf" path="res://models/props/toon_props/silly_meter_parts/whistlePart.fbx" id="1_vcf4s"]
+
+[node name="whistlePart" instance=ExtResource("1_vcf4s")]
+
+[node name="whistlePart" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

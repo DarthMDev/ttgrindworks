@@ -16,8 +16,8 @@ var shader_mat : ShaderMaterial
 const SHADER = preload('res://models/cogs/shaders/colorscale_mask/colorscale_mask.tres')
 
 
-func apply_shader(mesh_instance : MeshInstance3D,surface := 0) -> void:
-	var mask : VisualShader = SHADER.duplicate()
+func apply_shader(mesh_instance: MeshInstance3D, surface := 0) -> void:
+	var mask : VisualShader = SHADER.duplicate(true)
 	shader_mat = ShaderMaterial.new()
 	shader_mat.shader = mask
 	shader_mat.set_shader_parameter('tex_frg_2',base_tex)

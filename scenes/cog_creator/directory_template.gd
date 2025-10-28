@@ -48,7 +48,7 @@ func set_directory(dir : String) -> void:
 	populate_menu()
 
 func show_custom_file_list(list : Array[UIFile]) -> void:
-	files = list.duplicate()
+	files = list.duplicate(true)
 	populate_menu()
 
 func set_up_save_dir() -> void:

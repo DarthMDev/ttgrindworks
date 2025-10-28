@@ -17,12 +17,13 @@ func _ready() -> void:
 	
 	Globals.s_entered_barrel_room.emit()
 	
-	clear_quests(player.stats)
+	player.stats.clear_quests()
 	clear_items_in_play(player.stats)
 
 func play_intro(player : Player) -> void:
 	var intro_tween := create_tween()
 	intro_tween.tween_callback(AudioManager.stop_music.bind(true))
+	intro_tween.tween_callback(AudioManager.set_music.bind(load("res://audio/music/encntr_penultimate/pre_getw.ogg")))
 	intro_tween.tween_interval(5.0)
 	intro_tween.tween_callback(entrance_elevator.open)
 	intro_tween.tween_interval(2.0)
@@ -37,16 +38,12 @@ func play_intro(player : Player) -> void:
 	player.state = Player.PlayerState.WALK
 	player.game_timer_tick = true
 
-func clear_quests(stats : PlayerStats) -> void:
-	for quest : Quest in stats.quests.duplicate():
-		if not quest.is_complete():
-			stats.quests.erase(quest)
 
 ## Attempt to clean out any remaining, unretrievable items
 func clear_items_in_play(stats: PlayerStats) -> void:
 	var safe_items: Array[Item] = []
 	for quest: Quest in stats.quests:
 		safe_items.append(quest.item_reward)
-	for item in ItemService.items_in_play.duplicate():
+	for item in ItemService.items_in_play.duplicate(true):
 		if not item in safe_items:
 			ItemService.item_removed(item)

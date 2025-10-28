@@ -1312,9 +1312,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_doao7")
 
 [node name="pig_heads" type="Node3D"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="BigHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="BigHeadBigMuzzle"]
@@ -1423,6 +1423,8 @@ mesh = SubResource("ArrayMesh_mlxev")
 skeleton = NodePath("")
 
 [node name="SmallHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
 
 [node name="colored_meshes" type="Node3D" parent="SmallHeadSmallMuzzle"]
 
@@ -1523,6 +1525,7 @@ mesh = SubResource("ArrayMesh_58g0m")
 skeleton = NodePath("")
 
 [node name="BigHeadSmallMuzzle" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="BigHeadSmallMuzzle"]
@@ -1626,6 +1629,7 @@ mesh = SubResource("ArrayMesh_58g0m")
 skeleton = NodePath("")
 
 [node name="SmallHeadBigMuzzle" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 visible = false
 
 [node name="colored_meshes" type="Node3D" parent="SmallHeadBigMuzzle"]

@@ -1,6 +1,10 @@
 extends Node3D
 class_name Elevator
 
+const ELEVATOR_SCENE_PATH := "res://scenes/elevator_scene/elevator_scene.tscn"
+const STRANGER_SHOP_PATH := "res://scenes/stranger_shop/stranger_shop.tscn"
+
+
 ## Config
 @export var animator: AnimationPlayer
 @export var player_pos: Node3D
@@ -9,6 +13,7 @@ class_name Elevator
 @export var monitoring := true
 @export var opened := false
 @export var connect_to_game_floor := true
+@export var run_player_check := false
 
 signal s_elevator_entered
 
@@ -20,10 +25,18 @@ func _ready() -> void:
 	# Send floor ended signal when entered
 	if connect_to_game_floor and is_instance_valid(Util.floor_manager):
 		s_elevator_entered.connect(func(): Util.floor_manager.s_floor_ended.emit())
+	
+	# For elevators that players report as problematic
+	if run_player_check:
+		check_camera_status()
 
 func body_entered(body : Node3D) -> void:
 	if body is Player and monitoring:
+		# Don't.
+		if body.state == Player.PlayerState.STOPPED: return
+		
 		monitoring = false
+		run_stranger_check(body)
 		player_entered(body)
 
 func player_entered(player : Player) -> void:
@@ -59,3 +72,18 @@ func close() -> void:
 
 func set_monitoring(monitor : bool) -> void:
 	monitoring = monitor
+
+func check_camera_status() -> void:
+	if not is_instance_valid(Util.get_player()): return
+	var player := Util.get_player()
+	player.camera.make_current()
+
+func is_in_stranger_shop() -> bool:
+	return owner and owner.name == "StrangerShop"
+
+func run_stranger_check(player: Player) -> void:
+	## Only allow this check on elevators that lead to the between-floors scene
+	if not scene_path == ELEVATOR_SCENE_PATH: return
+	
+	if (not is_in_stranger_shop()) and player.stats.run_stranger_roll():
+		scene_path = STRANGER_SHOP_PATH

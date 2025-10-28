@@ -1,5 +1,4 @@
 extends CogAttack
-class_name WriteOff
 
 func action():
 	var hit := manager.roll_for_accuracy(self)
@@ -31,7 +30,7 @@ func action():
 	check.scale*=2.0
 	
 	if not hit:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		manager.battle_text(target,"MISSED")
 	
 	var check_tween : Tween = check.create_tween()
@@ -42,7 +41,7 @@ func action():
 	check.queue_free()
 	
 	if hit:
-		target.set_animation('slip_forwards')
+		target.set_animation('slip-forward')
 		manager.affect_target(target, damage)
 	
 	await manager.barrier(target.animator.animation_finished, 4.0)

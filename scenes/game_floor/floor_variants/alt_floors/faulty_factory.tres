@@ -1,28 +1,32 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=10 format=3 uid="uid://dk64pnype64ch"]
+[gd_resource type="Resource" script_class="FloorVariant" load_steps=11 format=3 uid="uid://dk64pnype64ch"]
 
-[ext_resource type="Script" uid="uid://dhyadt7p1gv78" path="res://objects/modules/facility_room.gd" id="1_6lg5s"]
-[ext_resource type="PackedScene" uid="uid://cpa5vpkfj7mq6" path="res://objects/modules/factory/variants/factory_clown_boss.tscn" id="1_am843"]
+[ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_6lg5s"]
 [ext_resource type="Resource" uid="uid://c1kumm74qwmtf" path="res://scenes/game_floor/department_floors/rooms_sell.tres" id="1_g2dp2"]
 [ext_resource type="Resource" uid="uid://bnubj377geur5" path="res://objects/cog/presets/pools/grunt_cogs.tres" id="1_ifxgl"]
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_w4gfx"]
 [ext_resource type="Script" uid="uid://dlj1yivlwm1k0" path="res://scenes/game_floor/floor_modifiers/scripts/misc/floor_mod_all_fusion.gd" id="2_1ft4g"]
 [ext_resource type="Script" uid="uid://bto4vf3x4gmme" path="res://scenes/game_floor/floor_modifiers/scripts/misc/floor_mod_sbhq_sky.gd" id="2_61pcp"]
 [ext_resource type="Texture2D" uid="uid://bnvln6hkbsr3d" path="res://models/cogs/misc/hp_light/sell.png" id="2_djfgp"]
+[ext_resource type="Script" uid="uid://d3t1vepa4plp4" path="res://scenes/game_floor/floor_variants/room_pack.gd" id="8_x1kjr"]
 
-[sub_resource type="Resource" id="Resource_nkyqb"]
+[sub_resource type="Resource" id="Resource_58cxq"]
 script = ExtResource("1_6lg5s")
-room = ExtResource("1_am843")
-rarity_weight = 1.0
+room = "uid://cpa5vpkfj7mq6"
+metadata/_custom_type_script = "uid://ci1am4p7axbxy"
+
+[sub_resource type="Resource" id="Resource_iwlak"]
+script = ExtResource("8_x1kjr")
+final_mode = 1
+final_rooms = Array[ExtResource("1_6lg5s")]([SubResource("Resource_58cxq")])
+metadata/_custom_type_script = "uid://d3t1vepa4plp4"
 
 [resource]
 script = ExtResource("1_w4gfx")
-floor_difficulty = 0
 floor_type = ExtResource("1_g2dp2")
 floor_name = "The Faulty Factory"
 cog_pool = ExtResource("1_ifxgl")
 modifiers = Array[Script]([ExtResource("2_61pcp"), ExtResource("2_1ft4g")])
-end_rooms = Array[ExtResource("1_6lg5s")]([SubResource("Resource_nkyqb")])
-floor_icon = ExtResource("2_djfgp")
-anomalies = Array[Script]([])
-level_range = Vector2i(1, 12)
+room_pack = SubResource("Resource_iwlak")
+is_alt_floor = true
+floor_icons = Array[Texture2D]([ExtResource("2_djfgp")])
 room_count = 11

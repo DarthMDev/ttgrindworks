@@ -3,43 +3,47 @@ extends LawbotPuzzleGrid
 class_name PuzzleDragThree
 
 var panels := {}
-var remaining_shapes : Array[PuzzlePanel.PanelShape] = [
+var remaining_shapes: Array[PuzzlePanel.PanelShape] = [
 	PuzzlePanel.PanelShape.DIAMOND,
 	PuzzlePanel.PanelShape.X,
 	PuzzlePanel.PanelShape.TRIANGLE
 ]
-var player_panel : PuzzlePanel
-var timer : Timer
+var player_panel: PuzzlePanel
+var timer: Timer
 
 func initialize_game() -> void:
 	# Randomize Initial Shape Placements
 	var shape_spaces := {}
 	for shape in remaining_shapes:
 		for i in 4:
-			var space : Vector2i
+			var space: Vector2i
 			while not space or space in shape_spaces.keys():
-				space = Vector2i(RandomService.randi_channel('puzzles')%grid_width,RandomService.randi_range_channel('puzzles',0,grid_height-2))
+				space = Vector2i(RNG.channel(RNG.ChannelPuzzles).randi() % grid_width, RNG.channel(RNG.ChannelPuzzles).randi_range(0, grid_height - 2))
 			shape_spaces[space] = shape
 	
 	for i in grid.size():
 		for j in grid[i].size():
-			var panel : PuzzlePanel = grid[i][j]
-			panels[panel] = Vector2i(i,j)
+			var panel: PuzzlePanel = grid[i][j]
+			panels[panel] = Vector2i(i, j)
 			
 			# Get shapes when spots are reached
-			if Vector2i(i,j) in shape_spaces:
-				panel.panel_shape = shape_spaces[Vector2i(i,j)]
+			if Vector2i(i, j) in shape_spaces:
+				panel.panel_shape = shape_spaces[Vector2i(i, j)]
 			
 			# All top panels are skulls
-			if j == grid[i].size()-1:
+			if j == grid[i].size() - 1:
 				panel.panel_shape = PuzzlePanel.PanelShape.SKULL
 	timer = Timer.new()
 	timer.wait_time = 0.1
 	timer.one_shot = true
 	timer.timeout.connect(on_timer_timeout)
 	add_child(timer)
+	
+	for shape_space: Vector2i in shape_spaces.keys():
+		var panel: PuzzlePanel = get_panel(shape_space.x, shape_space.y)
+		check_panel(panel)
 
-func panel_shape_changed(panel : PuzzlePanel,shape : PuzzlePanel.PanelShape) -> void:
+func panel_shape_changed(panel: PuzzlePanel, shape: PuzzlePanel.PanelShape) -> void:
 	match shape:
 		PuzzlePanel.PanelShape.TRIANGLE:
 			panel.set_color(Color.GREEN)
@@ -48,7 +52,7 @@ func panel_shape_changed(panel : PuzzlePanel,shape : PuzzlePanel.PanelShape) -> 
 		_:
 			panel.set_color(Color.RED)
 
-func player_stepped_on(panel : PuzzlePanel) -> void:
+func player_stepped_on(panel: PuzzlePanel) -> void:
 	if not player_panel and not panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 		player_panel = panel
 		return
@@ -64,24 +68,24 @@ func player_stepped_on(panel : PuzzlePanel) -> void:
 	
 	player_panel = panel
 
-func get_panel(x : int, y: int) -> PuzzlePanel:
+func get_panel(x: int, y: int) -> PuzzlePanel:
 	for panel in panels.keys():
-		if panels[panel] == Vector2i(x,y):
+		if panels[panel] == Vector2i(x, y):
 			return panel
 	return null
 
-func check_panel(panel : PuzzlePanel) -> void:
+func check_panel(panel: PuzzlePanel) -> void:
 	var pos : Vector2i = panels.get(panel)
 	var shape := panel.panel_shape
 	
 	var checks := []
 	checks.append_array([
-		[get_panel(pos.x-1,pos.y),get_panel(pos.x+1,pos.y)],
-		[get_panel(pos.x,pos.y-1),get_panel(pos.x,pos.y+1)],
-		[get_panel(pos.x,pos.y-1),get_panel(pos.x,pos.y-2)],
-		[get_panel(pos.x,pos.y+1),get_panel(pos.x,pos.y+2)],
-		[get_panel(pos.x-1,pos.y),get_panel(pos.x-2,pos.y)],
-		[get_panel(pos.x+1,pos.y),get_panel(pos.x+2,pos.y)],
+		[get_panel(pos.x - 1, pos.y),get_panel(pos.x + 1, pos.y)],
+		[get_panel(pos.x, pos.y - 1),get_panel(pos.x, pos.y + 1)],
+		[get_panel(pos.x, pos.y - 1),get_panel(pos.x, pos.y - 2)],
+		[get_panel(pos.x, pos.y + 1),get_panel(pos.x, pos.y + 2)],
+		[get_panel(pos.x - 1, pos.y),get_panel(pos.x - 2, pos.y)],
+		[get_panel(pos.x + 1, pos.y),get_panel(pos.x + 2, pos.y)],
 	])
 	for i in checks.size():
 		if not checks[i][0] or not checks[i][1]:
@@ -90,7 +94,7 @@ func check_panel(panel : PuzzlePanel) -> void:
 			remove_shape(shape)
 			return
 
-func remove_shape(shape : PuzzlePanel.PanelShape) -> void:
+func remove_shape(shape: PuzzlePanel.PanelShape) -> void:
 	remaining_shapes.erase(shape)
 	for i in grid.size():
 		for j in grid[i].size():

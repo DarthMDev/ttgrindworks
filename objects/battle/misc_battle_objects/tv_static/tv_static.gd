@@ -12,12 +12,12 @@ var bg : ColorRect
 
 
 func _ready() -> void:
-	material = material.duplicate()
+	material = material.duplicate(true)
 	bg = ColorRect.new()
 	add_child(bg)
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_KEEP_SIZE)
 	
-	bg.material = material.duplicate()
+	bg.material = material.duplicate(true)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	#bg.show_behind_parent = true
 	#bg.hide()
@@ -25,10 +25,7 @@ func _ready() -> void:
 ## Randomize the static every frame
 func _process(_delta : float) -> void:
 	var static_texture : FastNoiseLite = texture.noise
-	if not Engine.is_editor_hint():
-		static_texture.seed = RandomService.randi_channel('true_random')
-	else:
-		static_texture.seed = randi()
+	static_texture.seed = randi()
 
 ## Sets alpha and emits the signal
 func set_alpha(new_alpha : float) -> void:

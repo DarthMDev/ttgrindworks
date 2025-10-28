@@ -6,5 +6,3 @@
 [resource]
 script = ExtResource("1_gh67n")
 texture = ExtResource("2_86bx8")
-base_color = Color(1, 1, 1, 1)
-color_type = 0

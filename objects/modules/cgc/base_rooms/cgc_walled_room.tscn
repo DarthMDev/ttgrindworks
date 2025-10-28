@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdly0pabmp26k"]
+
+[ext_resource type="PackedScene" uid="uid://b8og3sa248oim" path="res://objects/modules/cgc/base_rooms/cgc_kart_boarding_room.tscn" id="1_374i2"]
+[ext_resource type="PackedScene" uid="uid://bnlt8eyy2ha65" path="res://objects/props/cgc/cgc_gateway.tscn" id="2_j7653"]
+
+[node name="CGCWalledRoom" instance=ExtResource("1_374i2")]
+
+[node name="EXIT" parent="." index="1"]
+transform = Transform3D(-1.4341007e-09, 0, -0.0328084, 0, 0.0328084, 0, 0.0328084, 0, -1.4341007e-09, 12.571, 0, 0)
+
+[node name="Gateway" parent="." index="10" instance=ExtResource("2_j7653")]
+transform = Transform3D(1, 0, 1.0658141e-14, 0, 1, 0, -1.0658141e-14, 0, 1, 11.829241, 0, 0)
+visible = false
+
+[node name="CGCKartDoor" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6577559, -25.434275, -0.23793793)
+visible = false

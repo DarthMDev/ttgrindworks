@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgtwlg02hp5fy"]
+[gd_scene load_steps=19 format=3 uid="uid://cgtwlg02hp5fy"]
 
 [ext_resource type="PackedScene" uid="uid://cyai35bfek33x" path="res://objects/modules/office/base_rooms/office_puzzle_room1.tscn" id="1_kmlvh"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="2_2bflx"]
@@ -14,14 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="8_7b8ah"]
 [ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="8_vevfb"]
 [ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="9_v3reh"]
+[ext_resource type="Script" uid="uid://cxnd2ovpbxl8i" path="res://objects/misc/prank_charger.gd" id="15_c01rg"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="16_ko1u1"]
 
 [sub_resource type="Resource" id="Resource_jmgml"]
 script = ExtResource("6_jmfmp")
-skippable = false
 
 [sub_resource type="Resource" id="Resource_jkugc"]
 script = ExtResource("6_jmfmp")
-skippable = false
 
 [node name="OfficePuzzleRoom1" node_paths=PackedStringArray("puzzles") instance=ExtResource("1_kmlvh")]
 script = ExtResource("2_ie1x6")
@@ -165,6 +165,7 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/PuzzleLeft" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("5_jqv07")]
 transform = Transform3D(-2.3006e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -2.3006e-08, 3.231, 0, 3.94534)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_jmgml")
@@ -201,6 +202,7 @@ up_color = Color(1, 1, 1, 1)
 [node name="BattleNode" parent="Puzzles/PuzzleRight" index="1" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("5_jqv07")]
 transform = Transform3D(-5.64655e-08, 0, 0.526316, 0, 0.526316, 0, -0.526316, 0, -5.64655e-08, 1.69604, 0, 3.59506)
 visible = false
+tags = Array[int]([1, 2])
 cogs = [NodePath("Cog"), NodePath("Cog2"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("Cog")
 override_intro = SubResource("Resource_jkugc")
@@ -228,3 +230,12 @@ virtual_cog = true
 
 [node name="CogDoor" parent="." index="6" instance=ExtResource("8_vevfb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.594)
+
+[node name="PrankCharger" type="Node" parent="." index="9" node_paths=PackedStringArray("signals")]
+script = ExtResource("15_c01rg")
+signals = {
+NodePath("../CogDoor"): "s_unlocked"
+}
+metadata/_custom_type_script = "uid://cxnd2ovpbxl8i"
+
+[node name="DebugPlayerPositionMarker" parent="." index="10" instance=ExtResource("16_ko1u1")]

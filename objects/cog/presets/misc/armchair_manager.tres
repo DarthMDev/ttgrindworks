@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=5 format=3 uid="uid://cm5r6l5idf6rw"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_2xn1p"]
+[ext_resource type="Resource" uid="uid://3l28x2fofrgl" path="res://objects/battle/battle_resources/cog_attacks/resources/carbon_copy.tres" id="2_gvw1q"]
+[ext_resource type="Resource" uid="uid://c27ek2anjbx88" path="res://objects/battle/battle_resources/cog_attacks/resources/pound_key.tres" id="3_r5qds"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="4_c1mje"]
+
+[resource]
+script = ExtResource("4_c1mje")
+department = 3
+suit = 2
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
+cog_name = "Armchair Manager"
+head = "res://models/cogs/heads/flunky.glb"
+scale = 7.0
+head_textures = PackedStringArray("res://models/cogs/heads/flunky_tt_t_ene_hed_flunky.png")
+hand_color = Color(0.94902, 0.74902, 0.74902, 1)
+attacks = Array[ExtResource("1_2xn1p")]([ExtResource("2_gvw1q"), ExtResource("3_r5qds")])
+is_admin = true
+battle_phrases = Array[String](["I'm gonna tell the boss about you!", "I may just be a flunky - but I'm real spunky.", "I'm going to use you to step up the corporate ladder.", "You're not going to like the way I work.", "The boss is counting on me to stop you.", "You'll have to go through me first.", "You're going to look good on my resume.", "I excel at Toon disposal.", "I'm sending you back to the playground.", "Let's see how you rate my job performance", "You're never going to meet my boss."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}

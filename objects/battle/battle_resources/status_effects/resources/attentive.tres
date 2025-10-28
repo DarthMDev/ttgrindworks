@@ -7,13 +7,7 @@
 script = ExtResource("1_ldt6t")
 quality = 0
 rounds = -1
-rounds_offset = 0
 icon = ExtResource("1_und5u")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
 description = "Unlures at the end of the round"
 status_name = "Attentive"
 id = 1

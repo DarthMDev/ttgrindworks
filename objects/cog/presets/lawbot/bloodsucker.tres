@@ -1,38 +1,25 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://bqu2erj3ece7u"]
+[gd_resource type="Resource" script_class="CogDNA" load_steps=6 format=3 uid="uid://bqu2erj3ece7u"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_mx0bq"]
-[ext_resource type="Script" uid="uid://okjbx502s3r5" path="res://objects/cog/cogdna.gd" id="2_t585t"]
 [ext_resource type="Resource" uid="uid://b4kaq7rjifwfc" path="res://objects/battle/battle_resources/cog_attacks/resources/liquidate.tres" id="2_w3fgu"]
 [ext_resource type="Resource" uid="uid://bhl72hd7pn8s2" path="res://objects/battle/battle_resources/cog_attacks/resources/workout.tres" id="3_rdjay"]
 [ext_resource type="Resource" uid="uid://c31yj6hc78hh3" path="res://objects/battle/battle_resources/cog_attacks/resources/eviction_notice.tres" id="4_bcwjg"]
-[ext_resource type="PackedScene" uid="uid://d2pl7oar1aevb" path="res://models/cogs/heads/movershaker.glb" id="5_6gkh7"]
-[ext_resource type="Texture2D" uid="uid://c0rrpulky77a4" path="res://models/cogs/heads/bloodsucker.png" id="6_bcwjg"]
-[ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="6_ojm04"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="5_e4wq1"]
 
 [resource]
-script = ExtResource("2_t585t")
+script = ExtResource("5_e4wq1")
 department = 2
 suit = 1
 cog_name = "Bloodsucker"
-name_plural = ""
 name_prefix = "Blood"
 name_suffix = "sucker"
-head = ExtResource("5_6gkh7")
-head_scale = Vector3(1, 1, 1)
-head_pos = Vector3(0, 0, 0)
+head = "res://models/cogs/heads/movershaker.glb"
 scale = 4.375
-head_textures = Array[Texture2D]([ExtResource("6_bcwjg")])
+head_textures = PackedStringArray("res://models/cogs/heads/bloodsucker.png")
 hand_color = Color(0.95, 0.95, 1, 1)
-head_color = Color(1, 1, 1, 1)
-custom_nametag_height = 0.0
-custom_nametag_suffix = ""
 attacks = Array[ExtResource("1_mx0bq")]([ExtResource("2_w3fgu"), ExtResource("3_rdjay"), ExtResource("4_bcwjg")])
 level_low = 2
 level_high = 9
-status_effects = Array[ExtResource("6_ojm04")]([])
-is_mod_cog = false
-is_admin = false
-health_mod = 1.0
 battle_phrases = Array[String](["I'm going to make you dizzy.", "I'm going to leave you high and dry.", "You're soon going to need a cookie and some juice.", "I'm going to need to do a quick count on you.", "\"O\" don't be so \"Negative\".", "This may make you a sore loser.", "Do you have a donation for me?", "I'm surprised you found me, I'm very mobile.", "When I'm through, you'll need to lie down.", "I'm \"A Positive\" I'm going to win.", "Good timing, I'm a pint low.", "This will only hurt for a second."])
 external_assets = {
 &"head_model": "",

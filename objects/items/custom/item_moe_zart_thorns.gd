@@ -1,8 +1,8 @@
 extends ItemScript
 
 const STAGGER_TIME := 0.5
-const HEAL_AMT := 0.8
-const DMG_BOOST := 0.5
+const HEAL_AMT := 0.9
+const DMG_BOOST := 0.6
 
 var health_monitoring := false
 var current_hp := 0

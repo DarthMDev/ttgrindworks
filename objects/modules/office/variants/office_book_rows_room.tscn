@@ -1,0 +1,615 @@
+[gd_scene load_steps=20 format=3 uid="uid://daiwp3unm3knm"]
+
+[ext_resource type="PackedScene" uid="uid://blrbxv7xr3fhq" path="res://objects/modules/office/base_rooms/office_puzzle_long_room.tscn" id="1_fmt81"]
+[ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_kci8i"]
+[ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="3_axmpc"]
+[ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="3_tbyhg"]
+[ext_resource type="PackedScene" uid="uid://b8786m8c0wm1o" path="res://objects/obstacles/spotlight/spotlight.tscn" id="4_p7mli"]
+[ext_resource type="PackedScene" uid="uid://dimw8665cqqxw" path="res://objects/props/office/desk.tscn" id="6_qcnjo"]
+[ext_resource type="PackedScene" uid="uid://b1cl5gdttc2ps" path="res://objects/props/office/lamp_small.tscn" id="7_jbr2d"]
+[ext_resource type="PackedScene" uid="uid://dm86vgodo58fx" path="res://objects/props/office/potted_plant.tscn" id="8_0drp4"]
+[ext_resource type="PackedScene" uid="uid://ils3ro658lhb" path="res://models/props/facility_objects/da_office/law_book/lawbook.glb" id="8_ylcjk"]
+[ext_resource type="PackedScene" uid="uid://bftnews8dsdpb" path="res://objects/props/office/paper_twist_stacks.tscn" id="9_jbr2d"]
+[ext_resource type="PackedScene" uid="uid://c6mq4831rc0uj" path="res://objects/props/office/portrait_backstabber.tscn" id="10_0drp4"]
+[ext_resource type="PackedScene" uid="uid://dn6p7pcjhawfb" path="res://objects/props/office/chair.tscn" id="10_5qk2m"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="11_vs4bg"]
+[ext_resource type="PackedScene" uid="uid://b4h3df6nrryna" path="res://objects/props/office/filing_cabinet.tscn" id="13_kr6td"]
+[ext_resource type="PackedScene" uid="uid://umat7c5gw2t3" path="res://objects/props/office/filing_cabinet_open.tscn" id="14_6w0pr"]
+[ext_resource type="PackedScene" uid="uid://b4kk4sdrhkn2g" path="res://objects/props/office/cardboard_box.tscn" id="16_7uhv8"]
+[ext_resource type="PackedScene" uid="uid://d0bnakgqatchq" path="res://objects/props/office/lamp_big.tscn" id="17_kxgw5"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="20_bytqm"]
+
+[sub_resource type="Curve3D" id="Curve3D_s583y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.5653706, -8.643, 0.45575762, 0, 0, 0, 0, 0, 0, -10.042724, -8.643, -0.9941423, 0, 0, 0, 0, 0, 0, 2.8147297, -8.643, 2.347928, 0, 0, 0, 0, 0, 0, -10.622574, -8.643, 1.7762117, 0, 0, 0, 0, 0, 0, -1.8297577, -8.64, -0.2716956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="OfficeBookRowsRoom" instance=ExtResource("1_fmt81")]
+
+[node name="Bookshelves" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+
+[node name="Row1" type="Node3D" parent="Bookshelves" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.831085)
+
+[node name="law_bookshelf" parent="Bookshelves/Row1" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="da_crate" parent="Bookshelves/Row1/law_bookshelf" index="4" instance=ExtResource("3_axmpc")]
+transform = Transform3D(0.7969546, 0, 0.069738515, 0, 0.8, 0, -0.069738515, 0, 0.7969546, 0.1918664, 0, 1.2745142)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row1" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row1/law_bookshelf2" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="desk3" parent="Bookshelves/Row1/law_bookshelf2" index="5" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(1.2998813, 0, 0.01756079, 0, 1.3, 0, -0.01756079, 0, 1.2998813, -0.21562426, 0, -0.75001025)
+
+[node name="lamp_small" parent="Bookshelves/Row1/law_bookshelf2/desk3" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="potted_plant" parent="Bookshelves/Row1/law_bookshelf2/desk3" index="4" instance=ExtResource("8_0drp4")]
+transform = Transform3D(-1.95352, 0, -1.23282, 0, 2.31, 0, 1.23282, 0, -1.95352, -0.714618, 0.97282, 0.185942)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row1" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row1" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="desk3" parent="Bookshelves/Row1/law_bookshelf4" index="4" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(1.2998813, 0, 0.01756079, 0, 1.3, 0, -0.01756079, 0, 1.2998813, -0.21562426, 0, -0.75001025)
+
+[node name="lamp_small" parent="Bookshelves/Row1/law_bookshelf4/desk3" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="potted_plant" parent="Bookshelves/Row1/law_bookshelf4/desk3" index="4" instance=ExtResource("8_0drp4")]
+transform = Transform3D(-1.95352, 0, -1.23282, 0, 2.31, 0, 1.23282, 0, -1.95352, 0.4592129, 0.97282, 0.106706426)
+
+[node name="lawbook" parent="Bookshelves/Row1/law_bookshelf4/desk3" index="5" instance=ExtResource("8_ylcjk")]
+transform = Transform3D(-1.8626451e-09, 0.21592574, 0.33671376, 0.40000007, -1.39141605e-08, 7.869735e-09, 1.7229468e-08, 0.33671367, -0.21592578, -0.7527531, 1.0088954, -0.2251926)
+
+[node name="lawbook2" parent="Bookshelves/Row1/law_bookshelf4/desk3" index="6" instance=ExtResource("8_ylcjk")]
+transform = Transform3D(-1.8626451e-09, 0.24778011, 0.3140145, 0.40000007, -1.2788085e-08, 9.136118e-09, 1.7229468e-08, 0.3140144, -0.24778016, -0.7527531, 1.078892, -0.2251926)
+
+[node name="lawbook3" parent="Bookshelves/Row1/law_bookshelf4/desk3" index="7" instance=ExtResource("8_ylcjk")]
+transform = Transform3D(-1.8626447e-09, 0.11852328, 0.38203707, 0.40000007, -1.6319966e-08, 3.885306e-09, 1.7229468e-08, 0.382037, -0.118523285, -0.6619007, 1.1422414, -0.2439563)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row1" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row1/law_bookshelf5" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row1" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row1/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row1" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Row2" type="Node3D" parent="Bookshelves" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.4147434)
+
+[node name="law_bookshelf" parent="Bookshelves/Row2" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row2" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row2/law_bookshelf2" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(-1, 0, -8.7422734e-08, 0, 1, 0, 8.7422734e-08, 0, -1, 0.47969234, 0, 0.6016158)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row2" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row2/law_bookshelf3" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row2" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row2" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row2/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row2/law_bookshelf6" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row2" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Row3" type="Node3D" parent="Bookshelves" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.43494797)
+
+[node name="law_bookshelf" parent="Bookshelves/Row3" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row3/law_bookshelf" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row3" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row3" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row3" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row3" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row3/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row3/law_bookshelf6" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row3" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Row4" type="Node3D" parent="Bookshelves" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.554035)
+
+[node name="law_bookshelf" parent="Bookshelves/Row4" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row4/law_bookshelf" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(-1, 0, -8.7422734e-08, 0, 1, 0, 8.7422734e-08, 0, -1, 0.43656528, 0, 0.60161585)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row4" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row4" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row4/law_bookshelf3" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row4" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row4/law_bookshelf5" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(-1, 0, 8.742282e-08, 0, 1, 0, -8.742282e-08, 0, -1, 0.4790219, 0, 0.601616)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row4" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row4/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row4" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Row5" type="Node3D" parent="Bookshelves" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.49506)
+
+[node name="law_bookshelf" parent="Bookshelves/Row5" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row5" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row5/law_bookshelf2" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.9943713, 0, 0.10595169, 0, 1, 0, -0.10595169, 0, 0.9943713, -0.23878881, 0, 0.6557194)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row5" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row5/law_bookshelf4" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1, 0, -4.2632564e-14, 0, 1, 0, 4.2632564e-14, 0, 1, -0.5821166, 0, 0.6016159)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row5" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row5/law_bookshelf5" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(-1, 0, 8.742282e-08, 0, 1, 0, -8.742282e-08, 0, -1, 0.16723347, 0, 0.60161597)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row5" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row5/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row5" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Row6" type="Node3D" parent="Bookshelves" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.493399)
+
+[node name="law_bookshelf" parent="Bookshelves/Row6" index="0" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 10.022399, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf2" parent="Bookshelves/Row6" index="1" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 6.023966, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf2" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row6/law_bookshelf2" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.9994167, 0, 0.034149453, 0, 1, 0, -0.034149453, 0, 0.9994167, -0.8360286, 0, 0.5502421)
+
+[node name="law_bookshelf3" parent="Bookshelves/Row6" index="2" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 2.030858, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf3" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row6/law_bookshelf3" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.9961121, 0, 0.0880946, 0, 1, 0, -0.0880946, 0, 0.9961121, -0.19098169, 0, 0.6016159)
+
+[node name="law_bookshelf4" parent="Bookshelves/Row6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -1.9675751, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf4" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="law_bookshelf5" parent="Bookshelves/Row6" index="4" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -6.029803, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf5" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="paper_twist_stacks" parent="Bookshelves/Row6/law_bookshelf5" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.99900436, 0, -0.044613257, 0, 1, 0, 0.044613257, 0, 0.99900436, -0.69109553, 0, 0.511187)
+
+[node name="law_bookshelf6" parent="Bookshelves/Row6" index="5" instance=ExtResource("2_kci8i")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, -10.028236, 0, 0)
+
+[node name="law_bookshelf7" parent="Bookshelves/Row6/law_bookshelf6" index="3" instance=ExtResource("2_kci8i")]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0.00026607513, 1.9200001, 0)
+
+[node name="NodeRandomizer" type="Node" parent="Bookshelves/Row6" index="6" node_paths=PackedStringArray("targets")]
+script = ExtResource("3_tbyhg")
+chance_type = 4
+chance = 1.0
+targets = [NodePath("../law_bookshelf"), NodePath("../law_bookshelf2"), NodePath("../law_bookshelf3"), NodePath("../law_bookshelf4"), NodePath("../law_bookshelf5"), NodePath("../law_bookshelf6")]
+metadata/_custom_type_script = "uid://dsewqfm70uess"
+
+[node name="Spotlights" type="Node3D" parent="." index="7"]
+
+[node name="Spotlight" parent="Spotlights" index="0" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(0.9932255, 0, 0.11620271, 0, 1, 0, -0.11620271, 0, 0.9932255, 6.469469, 8.64343, 3.3481598)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight2" parent="Spotlights" index="1" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(-0.99511606, 0, -0.098711796, 0, 1, 0, 0.098711796, 0, -0.99511606, -7.3539896, 8.64343, 5.649511)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight2" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight3" parent="Spotlights" index="2" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(-0.9970688, 0, -0.076510124, 0, 1, 0, 0.076510124, 0, -0.9970688, -7.2895546, 8.64343, 13.253548)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight3" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight4" parent="Spotlights" index="3" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(0.9970688, 0, 0.076510035, 0, 1, 0, -0.076510035, 0, 0.9970688, 6.405034, 8.64343, 11.0445385)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight4" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight5" parent="Spotlights" index="4" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(-0.9970688, 0, -0.076510124, 0, 1, 0, 0.076510124, 0, -0.9970688, -7.2895546, 8.64343, 21.885965)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight5" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight6" parent="Spotlights" index="5" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(0.9970688, 0, 0.076510035, 0, 1, 0, -0.076510035, 0, 0.9970688, 6.405034, 8.64343, 19.676956)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight6" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Spotlight7" parent="Spotlights" index="6" node_paths=PackedStringArray("light_path") instance=ExtResource("4_p7mli")]
+transform = Transform3D(0.9970688, 0, 0.076510035, 0, 1, 0, -0.076510035, 0, 0.9970688, 4.03849, 8.64343, -4.730108)
+light_path = NodePath("Path3D")
+light_radius = 2.0
+light_spd = 0.14
+wait_range = Vector2(2, 5)
+
+[node name="Path3D" type="Path3D" parent="Spotlights/Spotlight7" index="6"]
+curve = SubResource("Curve3D_s583y")
+
+[node name="Props" type="Node3D" parent="." index="8"]
+
+[node name="desk" parent="Props" index="0" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(1.4998602, 0, 0.020262668, 0, 1.5, 0, -0.020262668, 0, 1.4998602, -6.1442747, 0, 33.6791)
+
+[node name="lamp_small" parent="Props/desk" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="potted_plant" parent="Props/desk" index="4" instance=ExtResource("8_0drp4")]
+transform = Transform3D(-1.95352, 0, -1.23282, 0, 2.31, 0, 1.23282, 0, -1.95352, -0.714618, 0.97282, 0.185942)
+
+[node name="chair" parent="Props/desk" index="5" instance=ExtResource("10_5qk2m")]
+transform = Transform3D(0.7499999, 0, -9.313226e-10, 0, 0.75000006, 0, 9.313226e-10, 0, 0.7499999, 0.10992384, 0.00029829875, -1.2410355)
+
+[node name="desk2" parent="Props" index="1" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(1.4998602, 0, 0.020262668, 0, 1.5, 0, -0.020262668, 0, 1.4998602, 6.2665467, 0, 33.706318)
+
+[node name="lamp_small" parent="Props/desk2" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="paper_twist_stacks" parent="Props/desk2" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.640266, 0, -0.0780023, 0, 0.645, 0, 0.0780023, 0, 0.640266, -0.6014, 0.987689, -0.00812471)
+
+[node name="chair" parent="Props/desk2" index="5" instance=ExtResource("10_5qk2m")]
+transform = Transform3D(0.7499999, 0, -9.313226e-10, 0, 0.75000006, 0, 9.313226e-10, 0, 0.7499999, 0.10992384, 0.00029829875, -1.2410355)
+
+[node name="desk3" parent="Props" index="2" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(-1.4998603, 0, -0.02026254, 0, 1.5000002, 0, 0.02026254, 0, -1.4998603, 6.266547, 0, -22.160389)
+
+[node name="lamp_small" parent="Props/desk3" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="potted_plant" parent="Props/desk3" index="4" instance=ExtResource("8_0drp4")]
+transform = Transform3D(-1.95352, 0, -1.23282, 0, 2.31, 0, 1.23282, 0, -1.95352, -0.714618, 0.97282, 0.185942)
+
+[node name="chair" parent="Props/desk3" index="5" instance=ExtResource("10_5qk2m")]
+transform = Transform3D(0.7499999, 0, -9.313226e-10, 0, 0.75000006, 0, 9.313226e-10, 0, 0.7499999, 0.10992384, 0.00029829875, -1.2410355)
+
+[node name="desk4" parent="Props" index="3" instance=ExtResource("6_qcnjo")]
+transform = Transform3D(-1.4998603, 0, -0.02026254, 0, 1.5000002, 0, 0.02026254, 0, -1.4998603, -6.1442747, 0, -22.187607)
+
+[node name="lamp_small" parent="Props/desk4" index="3" instance=ExtResource("7_jbr2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.966091, 0.973985, 0.185751)
+
+[node name="paper_twist_stacks" parent="Props/desk4" index="4" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.640266, 0, -0.0780023, 0, 0.645, 0, 0.0780023, 0, 0.640266, -0.6014, 0.987689, -0.00812471)
+
+[node name="chair" parent="Props/desk4" index="5" instance=ExtResource("10_5qk2m")]
+transform = Transform3D(0.7499999, 0, -9.313226e-10, 0, 0.75000006, 0, 9.313226e-10, 0, 0.7499999, 0.14699268, 0.00029829875, -1.2405348)
+
+[node name="PortraitBackstabber" parent="Props" index="4" instance=ExtResource("10_0drp4")]
+transform = Transform3D(1.4, 0, -3.33786e-07, 0, 1.4, 0, 3.33786e-07, 0, 1.4, 5.9916153, 4.1429853, 34.167355)
+
+[node name="PortraitBackstabber2" parent="Props" index="5" instance=ExtResource("10_0drp4")]
+transform = Transform3D(2.7259006e-07, 0, 1.4, 0, 1.4, 0, -1.4, 0, 2.7259006e-07, 11.945225, 4.1429853, -11.5404215)
+
+[node name="PortraitBackstabber3" parent="Props" index="6" instance=ExtResource("10_0drp4")]
+transform = Transform3D(-1.5019818e-07, 0, -1.4, 0, 1.4, 0, 1.4, 0, -1.5019818e-07, -11.892399, 3.4695454, 12.625174)
+
+[node name="Cabinets" type="Node3D" parent="Props" index="7"]
+
+[node name="CabinetGroup1" type="Node3D" parent="Props/Cabinets" index="0"]
+transform = Transform3D(0.9110638, 0, 1.191622, 0, 1.5, 0, -1.191622, 0, 0.9110638, -10.033348, 0, -20.185074)
+
+[node name="filing_cabinet" parent="Props/Cabinets/CabinetGroup1" index="0" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.0817631, 0, 0)
+
+[node name="filing_cabinet2" parent="Props/Cabinets/CabinetGroup1" index="1" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -0.4, 0, 0)
+
+[node name="filing_cabinet3" parent="Props/Cabinets/CabinetGroup1" index="2" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.27723995, 0, 9.895302e-09)
+
+[node name="filing_cabinet4" parent="Props/Cabinets/CabinetGroup1" index="3" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.9563545, 0, 2.3283064e-09)
+
+[node name="CabinetGroup3" type="Node3D" parent="Props/Cabinets" index="1"]
+transform = Transform3D(-6.5567086e-08, 0, -1.5000001, 0, 1.5, 0, 1.5000001, 0, -6.5567086e-08, 11.65163, 0, 4.0302463)
+
+[node name="filing_cabinet" parent="Props/Cabinets/CabinetGroup3" index="0" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.0817631, 0, 0)
+
+[node name="filing_cabinet2" parent="Props/Cabinets/CabinetGroup3" index="1" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -0.4, 0, 0)
+
+[node name="filing_cabinet3" parent="Props/Cabinets/CabinetGroup3" index="2" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.27723995, 0, 9.895302e-09)
+
+[node name="filing_cabinet4" parent="Props/Cabinets/CabinetGroup3" index="3" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.9563545, 0, 2.3283064e-09)
+
+[node name="CabinetGroup2" type="Node3D" parent="Props/Cabinets" index="2"]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -11.647469, 0, -12.129202)
+
+[node name="filing_cabinet" parent="Props/Cabinets/CabinetGroup2" index="0" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.0817631, 0, 0)
+
+[node name="filing_cabinet3" parent="Props/Cabinets/CabinetGroup2" index="1" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.27723995, 0, 9.895302e-09)
+
+[node name="filing_cabinet4" parent="Props/Cabinets/CabinetGroup2" index="2" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.9563545, 0, 2.3283064e-09)
+
+[node name="filing_cabinet_open" parent="Props/Cabinets/CabinetGroup2" index="3" instance=ExtResource("14_6w0pr")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -0.4062328, 0, 0)
+
+[node name="CabinetGroup4" type="Node3D" parent="Props/Cabinets" index="3"]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -11.647468, 0, 12.63243)
+
+[node name="filing_cabinet" parent="Props/Cabinets/CabinetGroup4" index="0" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.0817631, 0, 0)
+
+[node name="filing_cabinet3" parent="Props/Cabinets/CabinetGroup4" index="1" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -0.39201817, 0, 9.895302e-09)
+
+[node name="filing_cabinet4" parent="Props/Cabinets/CabinetGroup4" index="2" instance=ExtResource("13_kr6td")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.9563545, 0, 2.3283064e-09)
+
+[node name="filing_cabinet_open" parent="Props/Cabinets/CabinetGroup4" index="3" instance=ExtResource("14_6w0pr")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.28009284, 0, -2.359224e-15)
+
+[node name="cardboard_box" parent="Props" index="8" instance=ExtResource("16_7uhv8")]
+transform = Transform3D(0.60500216, 0, 0.7962237, 0, 1, 0, -0.7962237, 0, 0.60500216, 9.892832, 0, 31.073523)
+
+[node name="paper_twist_stacks" parent="Props" index="9" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(1.5713899, 0, -1.2372284, 0, 2, 0, 1.2372284, 0, 1.5713899, -10.563938, 0, 30.472797)
+
+[node name="paper_twist_stacks2" parent="Props" index="10" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(-0.5195744, 0, 1.3000163, 0, 1.4, 0, -1.3000163, 0, -0.5195744, -10.998481, 0, 29.617851)
+
+[node name="paper_twist_stacks3" parent="Props" index="11" instance=ExtResource("9_jbr2d")]
+transform = Transform3D(0.6586952, 0, -0.8809771, 0, 1.1, 0, 0.8809771, 0, 0.6586952, -10.360391, 0, 29.140759)
+
+[node name="lamp_big" parent="Props" index="12" instance=ExtResource("17_kxgw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.34842, 0, -3.822171)
+
+[node name="lamp_big4" parent="Props" index="13" instance=ExtResource("17_kxgw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.333919, 0, 4.446541)
+
+[node name="lamp_big5" parent="Props" index="14" instance=ExtResource("17_kxgw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.333919, 0, 20.990015)
+
+[node name="lamp_big2" parent="Props" index="15" instance=ExtResource("17_kxgw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.34842, 0, 12.496361)
+
+[node name="lamp_big3" parent="Props" index="16" instance=ExtResource("17_kxgw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.34842, 0, 29.175694)
+
+[node name="DebugPlayerPositionMarker" parent="." index="9" instance=ExtResource("11_vs4bg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.152496)
+
+[node name="treasure_chest" parent="." index="10" instance=ExtResource("20_bytqm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.2173367, 0, 33.224663)
+
+[node name="treasure_chest2" parent="." index="11" instance=ExtResource("20_bytqm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.4071321, 0, 33.224663)

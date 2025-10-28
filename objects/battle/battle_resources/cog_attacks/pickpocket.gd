@@ -1,5 +1,4 @@
 extends CogAttack
-class_name PickPocket
 
 const JELLYBEAN := preload('res://objects/items/custom/jellybean/blue_jellybean.tscn')
 const BEAN_STAT := preload("res://objects/battle/battle_resources/status_effects/resources/status_effect_diminishing_returns.tres")
@@ -16,7 +15,7 @@ func action():
 	
 	# Roll for money steal
 	if do_money_steal:
-		do_money_steal = (RandomService.randi_channel('true_random') % 1 == 0 and target.stats.money > 0)
+		do_money_steal = (randi() % 1 == 0 and target.stats.money > 0)
 	
 	
 	if hit:
@@ -27,7 +26,7 @@ func action():
 		else:
 			dollar = JELLYBEAN.instantiate()
 			user.body.right_hand_bone.add_child(dollar)
-			dollar.set_color(RandomService.array_pick_random('true_random', dollar.colors.values()))
+			dollar.set_color(dollar.colors.values().pick_random())
 			dollar.rotation_degrees = Vector3(-30.7, 118.0, 92.3)
 			dollar.position = Vector3(-0.292, 0.297, -0.522)
 			
@@ -39,7 +38,7 @@ func action():
 	if hit:
 		target.set_animation('cringe')
 	else:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		
 	
 	# Swap camera angle after 0.5 seconds
@@ -77,7 +76,7 @@ func steal_money(who : Player, quantity : int) -> int:
 	return total_stolen
 
 func apply_bean_stat(count : int) -> void:
-	var effect := BEAN_STAT.duplicate()
+	var effect := BEAN_STAT.duplicate(true)
 	effect.bean_count = count
 	effect.target = user
 	manager.add_status_effect(effect)

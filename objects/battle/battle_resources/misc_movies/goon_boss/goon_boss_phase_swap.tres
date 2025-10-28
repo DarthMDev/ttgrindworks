@@ -4,6 +4,3 @@
 
 [resource]
 script = ExtResource("1_tgx02")
-target_type = 0
-action_name = "Attack"
-one_time_use = false

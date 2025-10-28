@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://gdsmbce80vrq"]
+
+[ext_resource type="PackedScene" uid="uid://b5hgufi22sqfs" path="res://objects/battle/misc_battle_objects/pop_quiz/pop_quiz.tscn" id="1_fnbyj"]
+[ext_resource type="Script" uid="uid://e7t1joyjpbps" path="res://objects/general_ui/dialogue_choice/dialogue_choice_box.gd" id="2_qev02"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qev02"]
+bg_color = Color(0.972549, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="DialogueChoiceBox" instance=ExtResource("1_fnbyj")]
+offset_left = -169.5
+offset_top = -71.5
+offset_right = 364.5
+offset_bottom = 148.5
+script = ExtResource("2_qev02")
+question = "Why are you?"
+answers = Array[String](["i dunno"])
+
+[node name="QuestionLabel" parent="." index="1"]
+text = "Why are you?"
+
+[node name="AnswerNode" parent="." index="2"]
+offset_bottom = 228.0
+
+[node name="Panel" parent="Answer" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_qev02")
+
+[connection signal="button_down" from="AnswerNode/@HBoxContainer@53310/GeneralButton" to="AnswerNode/@HBoxContainer@53310/GeneralButton" method="on_button_down"]
+[connection signal="mouse_entered" from="AnswerNode/@HBoxContainer@53310/GeneralButton" to="AnswerNode/@HBoxContainer@53310/GeneralButton" method="on_mouse_entered"]
+
+[editable path="Answer/GeneralButton"]

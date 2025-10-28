@@ -41,30 +41,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59054, -26.1249, 348.998)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59054, -26.1249, 487.007)
 
 [node name="treasure_chest" parent="." index="4" instance=ExtResource("2_hul5y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.1739, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.1739, 0, -0.892759)
 
-[node name="Battles" type="Node3D" parent="." index="5"]
+[node name="treasure_chest2" parent="." index="5" instance=ExtResource("2_hul5y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.1739, 0, 1.78773)
+
+[node name="Battles" type="Node3D" parent="." index="6"]
 
 [node name="BattleNodeDynamic1" parent="Battles" index="0" node_paths=PackedStringArray("cogs") instance=ExtResource("5_xxpfd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.8599, 0, 0.503852)
 cog_range = Vector2i(2, 3)
-cog_dist = 0.0
 cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic1" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115341, 4.45668, -4.479)
 shape = SubResource("BoxShape3D_3qus3")
 
-[node name="BattleNodeDynamic" parent="Battles" index="1" instance=ExtResource("5_xxpfd")]
+[node name="BattleNodeDynamic" parent="Battles" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("5_xxpfd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.41382, 0, 0)
 cog_range = Vector2i(3, 4)
-cog_dist = 0.0
+cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.492432, 4.84343, -0.914063)
 shape = SubResource("BoxShape3D_7pmsu")
 
-[node name="Pipes" type="Node3D" parent="." index="9"]
+[node name="Pipes" type="Node3D" parent="." index="10"]
 
 [node name="pipes_E" parent="Pipes" index="0" instance=ExtResource("5_0yy82")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.356786, 0, 20.3202)
@@ -72,23 +74,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.356
 [node name="pipes_C" parent="Pipes" index="1" instance=ExtResource("6_tcwsp")]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -7.19424, 3.054, -13.519)
 
-[node name="mint_crate" parent="." index="10" instance=ExtResource("6_sv4dy")]
+[node name="mint_crate" parent="." index="11" instance=ExtResource("6_sv4dy")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.12067, 0.00959027, 18.9136)
 
-[node name="mint_crate2" parent="." index="11" instance=ExtResource("6_sv4dy")]
+[node name="mint_crate2" parent="." index="12" instance=ExtResource("6_sv4dy")]
 transform = Transform3D(1.6302, 0, 0.482115, 0, 1.7, 0, -0.482115, 0, 1.6302, -7.10668, 0.00959027, 14.5375)
 
-[node name="mint_crate3" parent="." index="12" instance=ExtResource("6_sv4dy")]
+[node name="mint_crate3" parent="." index="13" instance=ExtResource("6_sv4dy")]
 transform = Transform3D(1.1621, 0, 1.02568, 0, 1.55, 0, -1.02568, 0, 1.1621, 2.20104, 0.00959027, 17.9574)
 
-[node name="pipes_A1" parent="." index="13" instance=ExtResource("8_jmg4y")]
+[node name="pipes_A1" parent="." index="14" instance=ExtResource("8_jmg4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.654, 0, 6.11305)
 
-[node name="pipes_A2" parent="." index="14" instance=ExtResource("8_jmg4y")]
+[node name="pipes_A2" parent="." index="15" instance=ExtResource("8_jmg4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.654, 0, -5.22115)
 
-[node name="pipes_A3" parent="." index="15" instance=ExtResource("8_jmg4y")]
+[node name="pipes_A3" parent="." index="16" instance=ExtResource("8_jmg4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1022, 0, 6.11305)
 
-[node name="pipes_A4" parent="." index="16" instance=ExtResource("8_jmg4y")]
+[node name="pipes_A4" parent="." index="17" instance=ExtResource("8_jmg4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1022, 0, -5.22115)

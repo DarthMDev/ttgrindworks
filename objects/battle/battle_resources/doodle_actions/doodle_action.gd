@@ -39,7 +39,7 @@ func end_trick():
 	user.face_position(battle_pos)
 
 func create_stat_boost(stat : String, boost : float, rounds := 1) -> StatBoost:
-	var new_boost := STAT_BOOST_REFERENCE.duplicate()
+	var new_boost := STAT_BOOST_REFERENCE.duplicate(true)
 	
 	new_boost.quality = StatusEffect.EffectQuality.POSITIVE
 	

@@ -15,7 +15,7 @@ func on_round_start(_actions: Array[BattleAction], manager: BattleManager) -> vo
 	# Skip Cogs' first turn
 	for i in range(manager.round_actions.size() - 1, -1, -1):
 		var action := manager.round_actions[i]
-		if action.user is Cog and RandomService.randf_channel('true_random') < 0.5:
+		if action.user is Cog and randf() < 0.5:
 			manager.round_actions.remove_at(i)
 			Util.get_player().boost_queue.queue_text("Cog Turn Skipped!", Color(0.659, 0.801, 0.89))
 

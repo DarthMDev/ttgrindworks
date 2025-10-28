@@ -1,0 +1,604 @@
+[gd_scene load_steps=118 format=3 uid="uid://ccfwyicwxcla7"]
+
+[ext_resource type="PackedScene" uid="uid://cgk08agcrro2x" path="res://models/toon/body/med/legs/tt_a_chr_dgm_shorts_legs_1000.fbx" id="1_xnekt"]
+[ext_resource type="Script" uid="uid://civn1ij8glbtx" path="res://objects/toon/toon_legs.gd" id="2_ci782"]
+[ext_resource type="Animation" uid="uid://bi13njkgtr5p1" path="res://models/toon/body/med/legs/anim/angry.res" id="3_fekfd"]
+[ext_resource type="Animation" uid="uid://8122r5uo03vd" path="res://models/toon/body/med/legs/anim/applause.res" id="4_8uiy7"]
+[ext_resource type="Animation" uid="uid://brq7fgm32qpp1" path="res://models/toon/body/med/legs/anim/bad-putt.res" id="5_c1ld0"]
+[ext_resource type="Animation" uid="uid://bvpw5fg5l8t73" path="res://models/toon/body/med/legs/anim/badloop-putt.res" id="6_k64m1"]
+[ext_resource type="Animation" uid="uid://d2i6m4123wtol" path="res://models/toon/body/med/legs/anim/begCycle.res" id="7_4eo1g"]
+[ext_resource type="Animation" uid="uid://bnomvm1p403wb" path="res://models/toon/body/med/legs/anim/begOut.res" id="8_cqlnw"]
+[ext_resource type="Animation" uid="uid://b5d41yxva3jyn" path="res://models/toon/body/med/legs/anim/block.res" id="9_mc6rd"]
+[ext_resource type="Animation" uid="uid://c4byybexevilk" path="res://models/toon/body/med/legs/anim/book.res" id="10_tfwkm"]
+[ext_resource type="Animation" uid="uid://dojps4r26564c" path="res://models/toon/body/med/legs/anim/bored.res" id="11_yd74y"]
+[ext_resource type="Animation" uid="uid://bdgwajjp4wvhq" path="res://models/toon/body/med/legs/anim/bow.res" id="12_bgyfh"]
+[ext_resource type="Animation" uid="uid://dyvw2fwammho0" path="res://models/toon/body/med/legs/anim/cast.res" id="13_y35sn"]
+[ext_resource type="Animation" uid="uid://c6d68uvhkpu7s" path="res://models/toon/body/med/legs/anim/castlong.res" id="14_3yr1r"]
+[ext_resource type="Animation" uid="uid://u4wjss7ykcj4" path="res://models/toon/body/med/legs/anim/climb.res" id="15_2ppcb"]
+[ext_resource type="Animation" uid="uid://cmkkcblxpodu3" path="res://models/toon/body/med/legs/anim/confused.res" id="16_6rdvl"]
+[ext_resource type="Animation" uid="uid://b2ddke6d4tj2b" path="res://models/toon/body/med/legs/anim/conked.res" id="17_feohn"]
+[ext_resource type="Animation" uid="uid://bpuqlj2yspalh" path="res://models/toon/body/med/legs/anim/cringe.res" id="18_jvlw7"]
+[ext_resource type="Animation" uid="uid://bdwxaca5yxap3" path="res://models/toon/body/med/legs/anim/curtsy.res" id="19_4g7f1"]
+[ext_resource type="Animation" uid="uid://cyg4y1no7fht4" path="res://models/toon/body/med/legs/anim/down.res" id="20_313gs"]
+[ext_resource type="Animation" uid="uid://b2j7g3ujp57pw" path="res://models/toon/body/med/legs/anim/duck.res" id="21_vt170"]
+[ext_resource type="Animation" uid="uid://drp02qrxlm70f" path="res://models/toon/body/med/legs/anim/eatnrun.res" id="22_m26ir"]
+[ext_resource type="Animation" uid="uid://d3poyxmo4gl53" path="res://models/toon/body/med/legs/anim/firehose.res" id="23_sxo0x"]
+[ext_resource type="Animation" uid="uid://b2aepbphal7bg" path="res://models/toon/body/med/legs/anim/fish.res" id="24_87uxg"]
+[ext_resource type="Animation" uid="uid://b172uxdtjgsxa" path="res://models/toon/body/med/legs/anim/fishAGAIN.res" id="25_ce202"]
+[ext_resource type="Animation" uid="uid://buot686jc01sg" path="res://models/toon/body/med/legs/anim/fishEND.res" id="26_7rty0"]
+[ext_resource type="Animation" uid="uid://dhycingbq6elj" path="res://models/toon/body/med/legs/anim/fishneutral.res" id="27_wbpk4"]
+[ext_resource type="Animation" uid="uid://cqxnvfl1edueg" path="res://models/toon/body/med/legs/anim/gameneutral.res" id="28_270y2"]
+[ext_resource type="Animation" uid="uid://dekelrei3a0g" path="res://models/toon/body/med/legs/anim/gamerun.res" id="29_6ub28"]
+[ext_resource type="Animation" uid="uid://b8jsef14e8cee" path="res://models/toon/body/med/legs/anim/gameThrow.res" id="30_x4poj"]
+[ext_resource type="Animation" uid="uid://5w20eoorp3d6" path="res://models/toon/body/med/legs/anim/give-props-start.res" id="31_nrcrw"]
+[ext_resource type="Animation" uid="uid://cp8qxbo1mhwwh" path="res://models/toon/body/med/legs/anim/give-props.res" id="32_k6rso"]
+[ext_resource type="Animation" uid="uid://c5g71r211c7v4" path="res://models/toon/body/med/legs/anim/give.res" id="33_f6snr"]
+[ext_resource type="Animation" uid="uid://81rxyvv3qgfn" path="res://models/toon/body/med/legs/anim/good-putt.res" id="34_5ngby"]
+[ext_resource type="Animation" uid="uid://c5ijxehtguewn" path="res://models/toon/body/med/legs/anim/happy-dance.res" id="35_181l1"]
+[ext_resource type="Animation" uid="uid://dm47h2mp41p6v" path="res://models/toon/body/med/legs/anim/headdown-putt.res" id="36_yphq0"]
+[ext_resource type="Animation" uid="uid://4vfh2uec5na5" path="res://models/toon/body/med/legs/anim/hold-bottle.res" id="37_10ty4"]
+[ext_resource type="Animation" uid="uid://cx1qidr68ew15" path="res://models/toon/body/med/legs/anim/hold-magnet.res" id="38_8latr"]
+[ext_resource type="Animation" uid="uid://dmqwqujyq2xtj" path="res://models/toon/body/med/legs/anim/hypnotize.res" id="39_aonxj"]
+[ext_resource type="Animation" uid="uid://utracnnc57lq" path="res://models/toon/body/med/legs/anim/into-putt.res" id="40_syn7o"]
+[ext_resource type="Animation" uid="uid://brh4suwj5kiql" path="res://models/toon/body/med/legs/anim/intoBeg.res" id="41_g6bk0"]
+[ext_resource type="Animation" uid="uid://ei7s3ianpjml" path="res://models/toon/body/med/legs/anim/intoSit.res" id="42_kp2ck"]
+[ext_resource type="Animation" uid="uid://ds1vwnk5ht2sn" path="res://models/toon/body/med/legs/anim/juggle.res" id="43_x5an7"]
+[ext_resource type="Animation" uid="uid://13dyyl3sn1fp" path="res://models/toon/body/med/legs/anim/jump-back-right.res" id="44_xdn4q"]
+[ext_resource type="Animation" uid="uid://cbgui5nywgipr" path="res://models/toon/body/med/legs/anim/jump-z.res" id="45_dxj0s"]
+[ext_resource type="Animation" uid="uid://clhoe56n5v6b3" path="res://models/toon/body/med/legs/anim/jump-zend.res" id="46_287ao"]
+[ext_resource type="Animation" uid="uid://cvgav3j687rgu" path="res://models/toon/body/med/legs/anim/jump-zhang.res" id="47_j4juo"]
+[ext_resource type="Animation" uid="uid://bgc41h0xy4yyn" path="res://models/toon/body/med/legs/anim/jump-zstart.res" id="48_n0a8b"]
+[ext_resource type="Animation" uid="uid://bke8qq06nwy2r" path="res://models/toon/body/med/legs/anim/jump.res" id="49_gd2pw"]
+[ext_resource type="Animation" uid="uid://blb365l4jn744" path="res://models/toon/body/med/legs/anim/left-point.res" id="50_io7g7"]
+[ext_resource type="Animation" uid="uid://chvyl8v54cjie" path="res://models/toon/body/med/legs/anim/left.res" id="51_wguc5"]
+[ext_resource type="Animation" uid="uid://c0fctweey3my3" path="res://models/toon/body/med/legs/anim/leverNeutral.res" id="52_wcq5g"]
+[ext_resource type="Animation" uid="uid://ss88r5vad4o3" path="res://models/toon/body/med/legs/anim/leverPull.res" id="53_ph2rb"]
+[ext_resource type="Animation" uid="uid://cvle6sxmeofc7" path="res://models/toon/body/med/legs/anim/leverReach.res" id="54_d4me2"]
+[ext_resource type="Animation" uid="uid://dsy1vdw4jcon8" path="res://models/toon/body/med/legs/anim/look-putt.res" id="55_yns5u"]
+[ext_resource type="Animation" uid="uid://swhsvafv0cm8" path="res://models/toon/body/med/legs/anim/lookloop-putt.res" id="56_gr6f0"]
+[ext_resource type="Animation" uid="uid://dlldow6g4v36q" path="res://models/toon/body/med/legs/anim/loop-putt.res" id="57_bdrg7"]
+[ext_resource type="Animation" uid="uid://b0ugigmqvdw6f" path="res://models/toon/body/med/legs/anim/lose.res" id="58_jdjy0"]
+[ext_resource type="Animation" uid="uid://0asm8mjv5b2t" path="res://models/toon/body/med/legs/anim/losewalk.res" id="59_ippuc"]
+[ext_resource type="Animation" uid="uid://ds6l0ww3785a3" path="res://models/toon/body/med/legs/anim/melt.res" id="60_empdl"]
+[ext_resource type="Animation" uid="uid://drg2acp3o8dmv" path="res://models/toon/body/med/legs/anim/neutral.res" id="61_22fcc"]
+[ext_resource type="Animation" uid="uid://36ii0w772xnt" path="res://models/toon/body/med/legs/anim/periscope.res" id="62_h60pa"]
+[ext_resource type="Animation" uid="uid://cligpdkrkr3i0" path="res://models/toon/body/med/legs/anim/petend.res" id="63_hs1ue"]
+[ext_resource type="Animation" uid="uid://dpn8uy27lycsh" path="res://models/toon/body/med/legs/anim/petin.res" id="64_7nglo"]
+[ext_resource type="Animation" uid="uid://c0pmjaa6m46v6" path="res://models/toon/body/med/legs/anim/petloop.res" id="65_0606w"]
+[ext_resource type="Animation" uid="uid://bltjm7qmgwyng" path="res://models/toon/body/med/legs/anim/pie-throw.res" id="66_3n5cc"]
+[ext_resource type="Animation" uid="uid://clyfvhv0cgyp1" path="res://models/toon/body/med/legs/anim/pole.res" id="67_kmyjg"]
+[ext_resource type="Animation" uid="uid://b1lqxocxoylxg" path="res://models/toon/body/med/legs/anim/poleneutral.res" id="68_dyfox"]
+[ext_resource type="Animation" uid="uid://q04q8h6dkhj1" path="res://models/toon/body/med/legs/anim/press-button.res" id="69_cx6bg"]
+[ext_resource type="Animation" uid="uid://bbkcutbqdr32c" path="res://models/toon/body/med/legs/anim/push.res" id="70_ax2pn"]
+[ext_resource type="Animation" uid="uid://cu4gy8dqpjrb0" path="res://models/toon/body/med/legs/anim/reel.res" id="71_yecl0"]
+[ext_resource type="Animation" uid="uid://bd32f3pctrpr1" path="res://models/toon/body/med/legs/anim/reelH.res" id="72_57co6"]
+[ext_resource type="Animation" uid="uid://gt3120hws5yi" path="res://models/toon/body/med/legs/anim/reelneutral.res" id="73_pl2ki"]
+[ext_resource type="Animation" uid="uid://bulyqi2j7r4de" path="res://models/toon/body/med/legs/anim/right-hand-start.res" id="74_s6uvo"]
+[ext_resource type="Animation" uid="uid://dy0cf083jxnvb" path="res://models/toon/body/med/legs/anim/right-hand.res" id="75_vbppi"]
+[ext_resource type="Animation" uid="uid://nbfcogu1vp2s" path="res://models/toon/body/med/legs/anim/right-point-start.res" id="76_m3wvf"]
+[ext_resource type="Animation" uid="uid://dtlckdi7ej3aq" path="res://models/toon/body/med/legs/anim/right-point.res" id="77_72mq4"]
+[ext_resource type="Animation" uid="uid://cwstgybrf85wi" path="res://models/toon/body/med/legs/anim/right.res" id="78_qvdvj"]
+[ext_resource type="Animation" uid="uid://xq1tkgoox427" path="res://models/toon/body/med/legs/anim/rotateL-putt.res" id="79_42kqq"]
+[ext_resource type="Animation" uid="uid://vvsid7hanc04" path="res://models/toon/body/med/legs/anim/rotateR-putt.res" id="80_ip5d6"]
+[ext_resource type="Animation" uid="uid://b6stkkwcfrsid" path="res://models/toon/body/med/legs/anim/run.res" id="81_isu1x"]
+[ext_resource type="Animation" uid="uid://s4sogssfrq50" path="res://models/toon/body/med/legs/anim/running-jump.res" id="82_f5tpt"]
+[ext_resource type="Animation" uid="uid://b046qiko0saco" path="res://models/toon/body/med/legs/anim/sad-neutral.res" id="83_mqygb"]
+[ext_resource type="Animation" uid="uid://d3en8nui305dc" path="res://models/toon/body/med/legs/anim/scientistEmcee.res" id="84_acua8"]
+[ext_resource type="Animation" uid="uid://c0il738mooues" path="res://models/toon/body/med/legs/anim/shout.res" id="85_hkpvk"]
+[ext_resource type="Animation" uid="uid://c6xaiir1gyeo5" path="res://models/toon/body/med/legs/anim/shrug.res" id="86_rigt6"]
+[ext_resource type="Animation" uid="uid://cd6abwt8mxp5t" path="res://models/toon/body/med/legs/anim/sidestep-left.res" id="87_ru3e0"]
+[ext_resource type="Animation" uid="uid://c2cgj731q6ewj" path="res://models/toon/body/med/legs/anim/sit.res" id="88_7lnd1"]
+[ext_resource type="Animation" uid="uid://mie5ao1v58pt" path="res://models/toon/body/med/legs/anim/slip-backward.res" id="89_rv8g3"]
+[ext_resource type="Animation" uid="uid://d1i43pueuapdr" path="res://models/toon/body/med/legs/anim/slip-forward.res" id="90_2ecqp"]
+[ext_resource type="Animation" uid="uid://co6e55sh5rxer" path="res://models/toon/body/med/legs/anim/smooch.res" id="91_pcd5l"]
+[ext_resource type="Animation" uid="uid://tk3v2t5xlj0v" path="res://models/toon/body/med/legs/anim/spit.res" id="92_k320e"]
+[ext_resource type="Animation" uid="uid://0lavc1767pfp" path="res://models/toon/body/med/legs/anim/sprinkle-dust.res" id="93_lvq75"]
+[ext_resource type="Animation" uid="uid://bik5ta1doeqbp" path="res://models/toon/body/med/legs/anim/struggle.res" id="94_hjw6h"]
+[ext_resource type="Animation" uid="uid://167vndyvumtd" path="res://models/toon/body/med/legs/anim/swim.res" id="95_hjrjx"]
+[ext_resource type="Animation" uid="uid://uo08mnfopc2y" path="res://models/toon/body/med/legs/anim/swing-putt.res" id="96_4ymfv"]
+[ext_resource type="Animation" uid="uid://c02b4qw2dkake" path="res://models/toon/body/med/legs/anim/swing.res" id="97_rvsih"]
+[ext_resource type="Animation" uid="uid://21nu42u5gwgp" path="res://models/toon/body/med/legs/anim/taunt.res" id="98_1agsi"]
+[ext_resource type="Animation" uid="uid://dy6i04kp2vhqc" path="res://models/toon/body/med/legs/anim/teleport.res" id="99_doj2e"]
+[ext_resource type="Animation" uid="uid://dsbs1mk6nie8c" path="res://models/toon/body/med/legs/anim/think.res" id="100_m41xm"]
+[ext_resource type="Animation" uid="uid://dfeg3kcd5k1h6" path="res://models/toon/body/med/legs/anim/tickle.res" id="101_33f6h"]
+[ext_resource type="Animation" uid="uid://bustkwvxhs3qk" path="res://models/toon/body/med/legs/anim/toss.res" id="102_qn11g"]
+[ext_resource type="Animation" uid="uid://c3gvifnh2g2j7" path="res://models/toon/body/med/legs/anim/tug-o-war.res" id="103_onctg"]
+[ext_resource type="Animation" uid="uid://bi6fn334j7sae" path="res://models/toon/body/med/legs/anim/tutorial-neutral.res" id="104_vqnoy"]
+[ext_resource type="Animation" uid="uid://b23w1qpi5ku57" path="res://models/toon/body/med/legs/anim/up.res" id="105_lk28s"]
+[ext_resource type="Animation" uid="uid://bskboltyf3h6r" path="res://models/toon/body/med/legs/anim/victory-dance.res" id="106_r2nxd"]
+[ext_resource type="Animation" uid="uid://c8137m8bo4nw0" path="res://models/toon/body/med/legs/anim/walk.res" id="107_bbag3"]
+[ext_resource type="Animation" uid="uid://bxl82xqptds8j" path="res://models/toon/body/med/legs/anim/water-gun.res" id="108_0uqyg"]
+[ext_resource type="Animation" uid="uid://v3mav24djt57" path="res://models/toon/body/med/legs/anim/wave.res" id="109_xmy54"]
+[ext_resource type="Animation" uid="uid://cngf14ou6sldp" path="res://models/toon/body/med/legs/anim/z.res" id="110_ydg6l"]
+[ext_resource type="Animation" uid="uid://bg6y3t5h51mcj" path="res://models/toon/body/med/legs/anim/zend.res" id="111_0d4bd"]
+[ext_resource type="Animation" uid="uid://ksh5jeyfyn42" path="res://models/toon/body/med/legs/anim/zhang.res" id="112_3xoxi"]
+[ext_resource type="Animation" uid="uid://dkq5xffsx742n" path="res://models/toon/body/med/legs/anim/zhanglong.res" id="113_m6g2k"]
+[ext_resource type="Animation" uid="uid://1s4b5hatsivh" path="res://models/toon/body/med/legs/anim/zstart.res" id="114_nadfj"]
+
+[sub_resource type="Animation" id="Animation_ypdtk"]
+resource_name = "Take 001"
+length = 4.95833
+step = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dog_legs_m/Skeleton3D:def_left_hip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00210425, 0.0184957, 0.00191838)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dog_legs_m/Skeleton3D:def_left_hip")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.578527, 0.406399, 0.579026, 0.406049)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("dog_legs_m/Skeleton3D:def_left_hip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("dog_legs_m/Skeleton3D:def_left_knee")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00899343, -1.7384e-10, -7.11601e-11)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("dog_legs_m/Skeleton3D:def_left_knee")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 3.93842e-10, -0.000823165, -0.277713, 0.960664)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("dog_legs_m/Skeleton3D:def_left_knee")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("dog_legs_m/Skeleton3D:def_left_ankle")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.00908822, -4.63988e-11, 5.06168e-11)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("dog_legs_m/Skeleton3D:def_left_ankle")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.000333344, 0.000265991, 0.779201, 0.626774)
+tracks/8/type = "scale_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("dog_legs_m/Skeleton3D:def_left_ankle")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/9/type = "position_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("dog_legs_m/Skeleton3D:def_left_ball")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.00414263, 3.18174e-09, 3.16094e-09)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("dog_legs_m/Skeleton3D:def_left_ball")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -3.12363e-28, -2.64698e-23, 0, 1)
+tracks/11/type = "scale_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("dog_legs_m/Skeleton3D:def_left_ball")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/12/type = "position_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("dog_legs_m/Skeleton3D:def_right_hip")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.00210425, 0.0184957, 0.00191838)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("dog_legs_m/Skeleton3D:def_right_hip")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -0.406049, 0.579026, -0.406399, 0.578527)
+tracks/14/type = "scale_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("dog_legs_m/Skeleton3D:def_right_hip")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/15/type = "position_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("dog_legs_m/Skeleton3D:def_right_knee")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0.00899343, 1.7384e-10, 7.11601e-11)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("dog_legs_m/Skeleton3D:def_right_knee")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 3.93842e-10, -0.000823165, -0.277713, 0.960664)
+tracks/17/type = "scale_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("dog_legs_m/Skeleton3D:def_right_knee")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/18/type = "position_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("dog_legs_m/Skeleton3D:def_right_ankle")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0.00908822, 4.63988e-11, -5.06168e-11)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("dog_legs_m/Skeleton3D:def_right_ankle")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, 0.000333344, 0.000265991, 0.779201, 0.626774)
+tracks/20/type = "scale_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("dog_legs_m/Skeleton3D:def_right_ankle")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/21/type = "position_3d"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("dog_legs_m/Skeleton3D:def_right_ball")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, 0.00414263, -3.18174e-09, -3.16094e-09)
+tracks/22/type = "rotation_3d"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("dog_legs_m/Skeleton3D:def_right_ball")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = PackedFloat32Array(0, 1, -3.12363e-28, -5.87747e-39, 9.86076e-32, 1)
+tracks/23/type = "scale_3d"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("dog_legs_m/Skeleton3D:def_right_ball")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/24/type = "position_3d"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("dog_legs_m/Skeleton3D:joint_hips1")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = PackedFloat32Array(0, 1, 0, 0.0184952, 0.00062388)
+tracks/25/type = "rotation_3d"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("dog_legs_m/Skeleton3D:joint_hips1")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/26/type = "scale_3d"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("dog_legs_m/Skeleton3D:joint_hips1")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/27/type = "position_3d"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("dog_legs_m/Skeleton3D:joint_nameTag1")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/28/type = "rotation_3d"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("dog_legs_m/Skeleton3D:joint_nameTag1")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/29/type = "scale_3d"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("dog_legs_m/Skeleton3D:joint_nameTag1")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/30/type = "position_3d"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("dog_legs_m/Skeleton3D:joint_shadow1")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/31/type = "rotation_3d"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("dog_legs_m/Skeleton3D:joint_shadow1")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/32/type = "scale_3d"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("dog_legs_m/Skeleton3D:joint_shadow1")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_xnekt"]
+resource_name = "melt-nosink"
+length = 2.33333
+step = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = false
+tracks/0/path = NodePath("dog_legs_m/Skeleton3D:def_left_hip")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(1.24176e-09, 1, -0.00209329, 0.0176954, 0.00191838, 0.0416667, 1, -0.00209723, 0.0176468, 0.00191838, 0.0833333, 1, -0.00210104, 0.0175856, 0.00191838, 0.125, 1, -0.00210338, 0.0175186, 0.00191838, 0.166667, 1, -0.00210418, 0.0174523, 0.00191838, 0.208333, 1, -0.00210425, 0.0173935, 0.00191838, 0.25, 1, -0.00210425, 0.0173357, 0.00191838, 0.291667, 1, -0.00210425, 0.017267, 0.00191838, 0.333333, 1, -0.00210425, 0.0171863, 0.00191838, 0.375, 1, -0.00210425, 0.0170923, 0.00191838, 0.416667, 1, -0.00210425, 0.0169837, 0.00191838, 0.458333, 1, -0.00210425, 0.0168593, 0.00191838, 0.5, 1, -0.00210425, 0.0167179, 0.00191838, 0.541667, 1, -0.00210425, 0.0165582, 0.00191838, 0.583333, 1, -0.00210425, 0.016379, 0.00191838, 0.625, 1, -0.00210425, 0.016179, 0.00191838, 0.666667, 1, -0.00210425, 0.015957, 0.00191838, 0.708333, 1, -0.00210425, 0.0157118, 0.00191838, 0.75, 1, -0.00210425, 0.015442, 0.00191838, 0.791667, 1, -0.00210425, 0.0151466, 0.00191838, 0.833333, 1, -0.00210425, 0.0148241, 0.00191838, 0.875, 1, -0.00210425, 0.0144734, 0.00191838, 0.916667, 1, -0.00210425, 0.0140933, 0.00191838, 0.958333, 1, -0.00210425, 0.0136825, 0.00191838, 1, 1, -0.00210425, 0.0132397, 0.00191838, 1.04167, 1, -0.00210425, 0.0127637, 0.00191838, 1.08333, 1, -0.00210425, 0.0122533, 0.00191838, 1.125, 1, -0.00210425, 0.0117072, 0.00191838, 1.16667, 1, -0.00210425, 0.0111241, 0.00191838, 1.20833, 1, -0.00210425, 0.0105027, 0.00191838, 1.25, 1, -0.00210425, 0.00983787, 0.00191838, 1.29167, 1, -0.00210425, 0.00912335, 0.00191838, 1.33333, 1, -0.00210425, 0.00835285, 0.00191838, 1.375, 1, -0.00210425, 0.00752, 0.00191838, 1.41667, 1, -0.00210425, 0.00661847, 0.00191838, 1.45833, 1, -0.00210425, 0.005642, 0.00191838, 1.5, 1, -0.00210425, 0.0045842, 0.00191838, 1.54167, 1, -0.00210425, 0.0034388, 0.00191838, 1.58333, 1, -0.00210425, 0.00219944, 0.00191838, 1.625, 1, -0.00210425, 0.000859809, 0.00191838, 1.66667, 1, -0.00210425, -0.000586416, 0.00191838, 1.70833, 1, -0.00210425, -0.00214556, 0.00191838, 1.75, 1, -0.00210425, -0.00382395, 0.00191838, 1.79167, 1, -0.00210425, -0.0056279, 0.00191838, 1.83333, 1, -0.00210425, -0.00756373, 0.00191838, 1.875, 1, -0.00210425, -0.00963778, 0.00191838, 1.91667, 1, -0.00210425, -0.0118564, 0.00191838, 1.95833, 1, -0.00210425, -0.0142258, 0.00191838, 2, 1, -0.00210425, -0.0167524, 0.00191838, 2.04167, 1, -0.00210425, -0.0194425, 0.00191838, 2.08333, 1, -0.00210425, -0.0223025, 0.00191838, 2.125, 1, -0.00210425, -0.0253385, 0.00191838, 2.16667, 1, -0.00210425, -0.0285572, 0.00191838, 2.20833, 1, -0.00210425, -0.0319645, 0.00191838, 2.25, 1, -0.00210425, -0.035567, 0.00191838, 2.29167, 1, -0.00210425, -0.039371, 0.00191838, 2.33333, 1, -0.00210425, -0.0433827, 0.00191838)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("dog_legs_m/Skeleton3D:def_left_hip")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(1.24176e-09, 1, 0.633299, 0.420496, 0.499202, 0.415829, 0.0416667, 1, 0.634038, 0.41935, 0.499994, 0.414906, 0.0833333, 1, 0.635015, 0.417864, 0.500974, 0.413727, 0.125, 1, 0.636016, 0.416375, 0.501898, 0.412569, 0.166667, 1, 0.636799, 0.415234, 0.502568, 0.411695, 0.208333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.25, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.291667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.333333, 1, 0.637112, 0.414782, 0.502825, 0.411354, 0.375, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.416667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.458333, 1, 0.637112, 0.414782, 0.502825, 0.411354, 0.5, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.541667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.583333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.625, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.666667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.708333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.75, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.791667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.833333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.875, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.916667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 0.958333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.04167, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.08333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.125, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.16667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.20833, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.25, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.29167, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.33333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.375, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.41667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.45833, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.5, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.54167, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.58333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.625, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.66667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.70833, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.75, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.79167, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.83333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.875, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.91667, 1, 0.637112, 0.414781, 0.502825, 0.411354, 1.95833, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.04167, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.08333, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.125, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.16667, 1, 0.637112, 0.414782, 0.502825, 0.411354, 2.20833, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.25, 1, 0.637112, 0.414781, 0.502825, 0.411354, 2.29167, 1, 0.637112, 0.414782, 0.502825, 0.411354, 2.33333, 1, 0.637112, 0.414782, 0.502825, 0.411354)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = false
+tracks/2/path = NodePath("dog_legs_m/Skeleton3D:def_right_hip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(1.24176e-09, 1, 0.0020934, 0.0172675, 0.00191838, 0.0416667, 1, 0.00209731, 0.0173043, 0.00191838, 0.0833333, 1, 0.0021011, 0.0173543, 0.00191838, 0.125, 1, 0.00210341, 0.0173986, 0.00191838, 0.166667, 1, 0.00210418, 0.0174181, 0.00191838, 0.208333, 1, 0.00210425, 0.0173935, 0.00191838, 0.25, 1, 0.00210425, 0.0173357, 0.00191838, 0.291667, 1, 0.00210425, 0.017267, 0.00191838, 0.333333, 1, 0.00210425, 0.0171863, 0.00191838, 0.375, 1, 0.00210425, 0.0170923, 0.00191838, 0.416667, 1, 0.00210425, 0.0169837, 0.00191838, 0.458333, 1, 0.00210425, 0.0168593, 0.00191838, 0.5, 1, 0.00210425, 0.0167179, 0.00191838, 0.541667, 1, 0.00210425, 0.0165582, 0.00191838, 0.583333, 1, 0.00210425, 0.016379, 0.00191838, 0.625, 1, 0.00210425, 0.016179, 0.00191838, 0.666667, 1, 0.00210425, 0.015957, 0.00191838, 0.708333, 1, 0.00210425, 0.0157118, 0.00191838, 0.75, 1, 0.00210425, 0.015442, 0.00191838, 0.791667, 1, 0.00210425, 0.0151466, 0.00191838, 0.833333, 1, 0.00210425, 0.0148241, 0.00191838, 0.875, 1, 0.00210425, 0.0144734, 0.00191838, 0.916667, 1, 0.00210425, 0.0140933, 0.00191838, 0.958333, 1, 0.00210425, 0.0136825, 0.00191838, 1, 1, 0.00210425, 0.0132397, 0.00191838, 1.04167, 1, 0.00210425, 0.0127637, 0.00191838, 1.08333, 1, 0.00210425, 0.0122533, 0.00191838, 1.125, 1, 0.00210425, 0.0117072, 0.00191838, 1.16667, 1, 0.00210425, 0.0111241, 0.00191838, 1.20833, 1, 0.00210425, 0.0105027, 0.00191838, 1.25, 1, 0.00210425, 0.00983787, 0.00191838, 1.29167, 1, 0.00210425, 0.00912335, 0.00191838, 1.33333, 1, 0.00210425, 0.00835285, 0.00191838, 1.375, 1, 0.00210425, 0.00752, 0.00191838, 1.41667, 1, 0.00210425, 0.00661847, 0.00191838, 1.45833, 1, 0.00210425, 0.005642, 0.00191838, 1.5, 1, 0.00210425, 0.0045842, 0.00191838, 1.54167, 1, 0.00210425, 0.0034388, 0.00191838, 1.58333, 1, 0.00210425, 0.00219944, 0.00191838, 1.625, 1, 0.00210425, 0.00085981, 0.00191838, 1.66667, 1, 0.00210425, -0.000586416, 0.00191838, 1.70833, 1, 0.00210425, -0.00214556, 0.00191838, 1.75, 1, 0.00210425, -0.00382395, 0.00191838, 1.79167, 1, 0.00210425, -0.0056279, 0.00191838, 1.83333, 1, 0.00210425, -0.00756373, 0.00191838, 1.875, 1, 0.00210425, -0.00963778, 0.00191838, 1.91667, 1, 0.00210425, -0.0118564, 0.00191838, 1.95833, 1, 0.00210425, -0.0142258, 0.00191838, 2, 1, 0.00210425, -0.0167524, 0.00191838, 2.04167, 1, 0.00210425, -0.0194425, 0.00191838, 2.08333, 1, 0.00210425, -0.0223025, 0.00191838, 2.125, 1, 0.00210425, -0.0253385, 0.00191838, 2.16667, 1, 0.00210425, -0.0285572, 0.00191838, 2.20833, 1, 0.00210425, -0.0319645, 0.00191838, 2.25, 1, 0.00210425, -0.035567, 0.00191838, 2.29167, 1, 0.00210425, -0.039371, 0.00191838, 2.33333, 1, 0.00210425, -0.0433827, 0.00191838)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("dog_legs_m/Skeleton3D:def_right_hip")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(1.24176e-09, 1, -0.3406, 0.560103, -0.319638, 0.684184, 0.0416667, 1, -0.342894, 0.558963, -0.322581, 0.682587, 0.0833333, 1, -0.345942, 0.557387, -0.326469, 0.680486, 0.125, 1, -0.349071, 0.555701, -0.330423, 0.678355, 0.166667, 1, -0.351529, 0.554329, -0.333522, 0.67669, 0.208333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 0.25, 1, -0.352527, 0.553761, -0.334773, 0.676018, 0.291667, 1, -0.352527, 0.553761, -0.334773, 0.676018, 0.333333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.375, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.416667, 1, -0.352527, 0.553761, -0.334773, 0.676018, 0.458333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.5, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.541667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.583333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.625, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.666667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.708333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.75, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.791667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.833333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.875, 1, -0.352527, 0.553761, -0.334773, 0.676018, 0.916667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 0.958333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.04167, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.08333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.125, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.16667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.20833, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.25, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.29167, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.33333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.375, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.41667, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.45833, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.5, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.54167, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.58333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.625, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.66667, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.70833, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.75, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.79167, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.83333, 1, -0.352527, 0.553761, -0.334773, 0.676018, 1.875, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.91667, 1, -0.352526, 0.553762, -0.334773, 0.676018, 1.95833, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2, 1, -0.352526, 0.553762, -0.334773, 0.676018, 2.04167, 1, -0.352526, 0.553762, -0.334773, 0.676018, 2.08333, 1, -0.352526, 0.553762, -0.334773, 0.676018, 2.125, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2.16667, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2.20833, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2.25, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2.29167, 1, -0.352527, 0.553761, -0.334773, 0.676018, 2.33333, 1, -0.352527, 0.553761, -0.334773, 0.676018)
+tracks/4/type = "position_3d"
+tracks/4/imported = true
+tracks/4/enabled = false
+tracks/4/path = NodePath("dog_legs_m/Skeleton3D:joint_hips1")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(1.24176e-09, 1, 0, 0.0174809, 0.00062388, 0.0416667, 1, 0, 0.017475, 0.00062388, 0.0833333, 1, 0, 0.0174695, 0.00062388, 0.125, 1, 0, 0.0174581, 0.00062388, 0.166667, 1, 0, 0.0174347, 0.00062388, 0.208333, 1, 0, 0.017393, 0.00062388, 0.25, 1, 0, 0.0173352, 0.00062388, 0.291667, 1, 0, 0.0172665, 0.00062388, 0.333333, 1, 0, 0.0171858, 0.00062388, 0.375, 1, 0, 0.0170918, 0.00062388, 0.416667, 1, 0, 0.0169832, 0.00062388, 0.458333, 1, 0, 0.0168588, 0.00062388, 0.5, 1, 0, 0.0167174, 0.00062388, 0.541667, 1, 0, 0.0165577, 0.00062388, 0.583333, 1, 0, 0.0163785, 0.00062388, 0.625, 1, 0, 0.0161785, 0.00062388, 0.666667, 1, 0, 0.0159565, 0.00062388, 0.708333, 1, 0, 0.0157112, 0.00062388, 0.75, 1, 0, 0.0154415, 0.00062388, 0.791667, 1, 0, 0.0151461, 0.00062388, 0.833333, 1, 0, 0.0148236, 0.00062388, 0.875, 1, 0, 0.0144729, 0.00062388, 0.916667, 1, 0, 0.0140928, 0.00062388, 0.958333, 1, 0, 0.013682, 0.00062388, 1, 1, 0, 0.0132392, 0.00062388, 1.04167, 1, 0, 0.0127632, 0.00062388, 1.08333, 1, 0, 0.0122528, 0.00062388, 1.125, 1, 0, 0.0117067, 0.00062388, 1.16667, 1, 0, 0.0111236, 0.00062388, 1.20833, 1, 0, 0.0105022, 0.00062388, 1.25, 1, 0, 0.00983735, 0.00062388, 1.29167, 1, 0, 0.00912283, 0.00062388, 1.33333, 1, 0, 0.00835233, 0.00062388, 1.375, 1, 0, 0.00751948, 0.00062388, 1.41667, 1, 0, 0.00661795, 0.00062388, 1.45833, 1, 0, 0.00564148, 0.00062388, 1.5, 1, 0, 0.00458367, 0.00062388, 1.54167, 1, 0, 0.00343828, 0.00062388, 1.58333, 1, 0, 0.00219891, 0.00062388, 1.625, 1, 0, 0.000859285, 0.00062388, 1.66667, 1, 0, -0.00058694, 0.00062388, 1.70833, 1, 0, -0.00214608, 0.00062388, 1.75, 1, 0, -0.00382447, 0.00062388, 1.79167, 1, 0, -0.00562843, 0.00062388, 1.83333, 1, 0, -0.00756425, 0.00062388, 1.875, 1, 0, -0.0096383, 0.00062388, 1.91667, 1, 0, -0.0118569, 0.00062388, 1.95833, 1, 0, -0.0142263, 0.00062388, 2, 1, 0, -0.0167529, 0.00062388, 2.04167, 1, 0, -0.0194431, 0.00062388, 2.08333, 1, 0, -0.022303, 0.00062388, 2.125, 1, 0, -0.025339, 0.00062388, 2.16667, 1, 0, -0.0285578, 0.00062388, 2.20833, 1, 0, -0.031965, 0.00062388, 2.25, 1, 0, -0.0355675, 0.00062388, 2.29167, 1, 0, -0.0393715, 0.00062388, 2.33333, 1, 0, -0.0433833, 0.00062388)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("dog_legs_m/Skeleton3D:joint_hips1")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(1.24176e-09, 1, 0, 0, -0.0509039, 0.998704, 0.0416667, 1, 0, 0, -0.0407294, 0.99917, 0.0833333, 1, 0, 0, -0.0274966, 0.999622, 0.125, 1, 0, 0, -0.0142588, 0.999898, 0.166667, 1, 0, 0, -0.00407406, 0.999992, 0.208333, 1, 0, 0, 0, 1, 0.25, 1, 0, 0, 0, 1, 0.291667, 1, 0, 0, 0, 1, 0.333333, 1, 0, 0, 0, 1, 0.375, 1, 0, 0, 0, 1, 0.416667, 1, 0, 0, 0, 1, 0.458333, 1, 0, 0, 0, 1, 0.5, 1, 0, 0, 0, 1, 0.541667, 1, 0, 0, 0, 1, 0.583333, 1, 0, 0, 0, 1, 0.625, 1, 0, 0, 0, 1, 0.666667, 1, 0, 0, 0, 1, 0.708333, 1, 0, 0, 0, 1, 0.75, 1, 0, 0, 0, 1, 0.791667, 1, 0, 0, 0, 1, 0.833333, 1, 0, 0, 0, 1, 0.875, 1, 0, 0, 0, 1, 0.916667, 1, 0, 0, 0, 1, 0.958333, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1.04167, 1, 0, 0, 0, 1, 1.08333, 1, 0, 0, 0, 1, 1.125, 1, 0, 0, 0, 1, 1.16667, 1, 0, 0, 0, 1, 1.20833, 1, 0, 0, 0, 1, 1.25, 1, 0, 0, 0, 1, 1.29167, 1, 0, 0, 0, 1, 1.33333, 1, 0, 0, 0, 1, 1.375, 1, 0, 0, 0, 1, 1.41667, 1, 0, 0, 0, 1, 1.45833, 1, 0, 0, 0, 1, 1.5, 1, 0, 0, 0, 1, 1.54167, 1, 0, 0, 0, 1, 1.58333, 1, 0, 0, 0, 1, 1.625, 1, 0, 0, 0, 1, 1.66667, 1, 0, 0, 0, 1, 1.70833, 1, 0, 0, 0, 1, 1.75, 1, 0, 0, 0, 1, 1.79167, 1, 0, 0, 0, 1, 1.83333, 1, 0, 0, 0, 1, 1.875, 1, 0, 0, 0, 1, 1.91667, 1, 0, 0, 0, 1, 1.95833, 1, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 2.04167, 1, 0, 0, 0, 1, 2.08333, 1, 0, 0, 0, 1, 2.125, 1, 0, 0, 0, 1, 2.16667, 1, 0, 0, 0, 1, 2.20833, 1, 0, 0, 0, 1, 2.25, 1, 0, 0, 0, 1, 2.29167, 1, 0, 0, 0, 1, 2.33333, 1, 0, 0, 0, 1)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("dog_legs_m/Skeleton3D:def_left_knee")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(1.24176e-09, 1, -4.42036e-08, -0.00113064, -0.381575, 0.924337, 0.0416667, 1, -2.73609e-07, -0.00114168, -0.385087, 0.92288, 0.0833333, 1, -1.2211e-06, -0.00115435, -0.389586, 0.920989, 0.125, 1, 3.86833e-06, -0.00116984, -0.394016, 0.919103, 0.166667, 1, 2.45148e-06, -0.00117933, -0.397376, 0.917655, 0.208333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.25, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.291667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.333333, 1, -2.46635e-06, -0.00118095, -0.398708, 0.917077, 0.375, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.416667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.458333, 1, -2.46635e-06, -0.00118095, -0.398708, 0.917077, 0.5, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.541667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.583333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.625, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.666667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.708333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.75, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.791667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.833333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.875, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.916667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 0.958333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.04167, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.08333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.125, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.16667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.20833, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.25, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.29167, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.33333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.375, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.41667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.45833, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.5, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.54167, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.58333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.625, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.66667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.70833, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.75, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.79167, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.83333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.875, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.91667, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 1.95833, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.04167, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.08333, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.125, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.16667, 1, -2.46635e-06, -0.00118095, -0.398708, 0.917077, 2.20833, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.25, 1, -2.52147e-06, -0.00118082, -0.398707, 0.917078, 2.29167, 1, -2.46635e-06, -0.00118095, -0.398708, 0.917077, 2.33333, 1, -2.46635e-06, -0.00118095, -0.398708, 0.917077)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("dog_legs_m/Skeleton3D:def_right_knee")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(1.24176e-09, 1, 9.25912e-07, -0.00078036, -0.411336, 0.911483, 0.0416667, 1, 8.69461e-07, -0.000783079, -0.404306, 0.914623, 0.0833333, 1, -1.9742e-07, -0.00078908, -0.3949, 0.918724, 0.125, 1, 4.12096e-07, -0.000789629, -0.385181, 0.922841, 0.166667, 1, 1.5066e-07, -0.000795732, -0.377479, 0.926018, 0.208333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 0.25, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 0.291667, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 0.333333, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.375, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.416667, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 0.458333, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.5, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.541667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.583333, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.625, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.666667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.708333, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.75, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.791667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.833333, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.875, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 0.916667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 0.958333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.04167, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.08333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.125, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.16667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.20833, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.25, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.29167, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.33333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.375, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.41667, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.45833, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.5, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.54167, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.58333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.625, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.66667, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.70833, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.75, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.79167, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.83333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 1.875, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.91667, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 1.95833, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2, 1, 6.4167e-07, -0.00079815, -0.374343, 0.92729, 2.04167, 1, 6.88882e-07, -0.000798036, -0.374342, 0.92729, 2.08333, 1, 6.4167e-07, -0.00079815, -0.374343, 0.92729, 2.125, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2.16667, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2.20833, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2.25, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2.29167, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291, 2.33333, 1, 6.35607e-07, -0.000797906, -0.374341, 0.927291)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("dog_legs_m/Skeleton3D:def_left_ankle")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(1.24176e-09, 1, 0.190141, -0.0530899, 0.831607, 0.519094, 0.0416667, 1, 0.190255, -0.0527498, 0.832629, 0.517445, 0.0833333, 1, 0.190394, -0.0522691, 0.833939, 0.515329, 0.125, 1, 0.190522, -0.0517304, 0.835216, 0.513264, 0.166667, 1, 0.190616, -0.051287, 0.836179, 0.511703, 0.208333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.25, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.291667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.333333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.375, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.416667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.458333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.5, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.541667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.583333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.625, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.666667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.708333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.75, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.791667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.833333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.875, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.916667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 0.958333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.04167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.08333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.125, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.16667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.20833, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.25, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.29167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.33333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.375, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.41667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.45833, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.5, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.54167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.58333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.625, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.66667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.70833, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.75, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.79167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.83333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.875, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.91667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 1.95833, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.04167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.08333, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.125, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.16667, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.20833, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.25, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.29167, 1, 0.190655, -0.051106, 0.83656, 0.511083, 2.33333, 1, 0.190655, -0.051106, 0.83656, 0.511083)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("dog_legs_m/Skeleton3D:def_right_ankle")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(1.24176e-09, 1, 0.114858, -0.0204622, 0.77933, 0.615657, 0.0416667, 1, 0.114863, -0.0212478, 0.777178, 0.618344, 0.0833333, 1, 0.114851, -0.0222367, 0.774291, 0.621923, 0.125, 1, 0.114817, -0.0231844, 0.771285, 0.625619, 0.166667, 1, 0.114776, -0.0238875, 0.768887, 0.628544, 0.208333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.25, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.291667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.333333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.375, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.416667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.458333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.5, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.541667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.583333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.625, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.666667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.708333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.75, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.791667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.833333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.875, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.916667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 0.958333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.04167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.08333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.125, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.16667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.20833, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.25, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.29167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.33333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.375, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.41667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.45833, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.5, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.54167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.58333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.625, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.66667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.70833, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.75, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.79167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.83333, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.875, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.91667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 1.95833, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2, 1, 0.114756, -0.0241627, 0.767911, 0.62973, 2.04167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.08333, 1, 0.114756, -0.0241627, 0.767911, 0.62973, 2.125, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.16667, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.20833, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.25, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.29167, 1, 0.114756, -0.0241629, 0.767911, 0.62973, 2.33333, 1, 0.114756, -0.0241629, 0.767911, 0.62973)
+tracks/10/type = "position_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("dog_legs_m/Skeleton3D:def_right_ball")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(1.24176e-09, 1, 0.00413245, 3.0469e-06, 2.00663e-06, 0.0416667, 1, 0.00413245, 2.43423e-06, 2.00663e-06, 0.0833333, 1, 0.00413245, 1.65256e-06, 2.00663e-06, 0.125, 1, 0.00413245, 8.71304e-09, 2.00663e-06, 0.166667, 1, 0.00413245, 1.20341e-11, 2.00663e-06, 0.208333, 1, 0.00413245, 4.67413e-12, 2.00663e-06, 0.25, 1, 0.00413245, 3.87563e-12, 2.00663e-06, 0.291667, 1, 0.00413245, 9.12239e-12, 2.00663e-06, 0.333333, 1, 0.00413245, 3.39304e-12, 2.00663e-06, 0.375, 1, 0.00413245, -7.6453e-12, 2.00663e-06, 0.416667, 1, 0.00413245, 3.45585e-12, 2.00663e-06, 0.458333, 1, 0.00413245, 3.39304e-12, 2.00663e-06, 0.5, 1, 0.00413245, 8.88812e-12, 2.00663e-06, 0.541667, 1, 0.00413245, -9.34748e-12, 2.00663e-06, 0.583333, 1, 0.00413245, -3.23739e-12, 2.00663e-06, 0.625, 1, 0.00413245, 9.03451e-12, 2.00663e-06, 0.666667, 1, 0.00413245, -7.6453e-12, 2.00663e-06, 0.708333, 1, 0.00413245, 3.39304e-12, 2.00663e-06, 0.75, 1, 0.00413245, -7.42218e-12, 2.00663e-06, 0.791667, 1, 0.00413245, 4.83829e-12, 2.00663e-06, 0.833333, 1, 0.00413245, -7.6453e-12, 2.00663e-06, 0.875, 1, 0.00413245, 3.56979e-12, 2.00663e-06, 0.916667, 1, 0.00413245, 2.9689e-12, 2.00663e-06, 0.958333, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.04167, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.08333, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.125, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.16667, 1, 0.00413245, 3.80844e-12, 2.00663e-06, 1.20833, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.25, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.29167, 1, 0.00413245, 3.17943e-12, 2.00663e-06, 1.33333, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.375, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.41667, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.45833, 1, 0.00413245, -7.6453e-12, 2.00663e-06, 1.5, 1, 0.00413245, 3.17943e-12, 2.00663e-06, 1.54167, 1, 0.00413245, -7.6453e-12, 2.00663e-06, 1.58333, 1, 0.00413245, 3.03606e-12, 2.00663e-06, 1.625, 1, 0.00413245, 5.60172e-12, 2.00663e-06, 1.66667, 1, 0.00413245, 3.45585e-12, 2.00663e-06, 1.70833, 1, 0.00413245, 4.1296e-12, 2.00663e-06, 1.75, 1, 0.00413245, 3.17943e-12, 2.00663e-06, 1.79167, 1, 0.00413245, 3.17943e-12, 2.00663e-06, 1.83333, 1, 0.00413245, 8.59648e-12, 2.00663e-06, 1.875, 1, 0.00413245, 1.01556e-11, 2.00663e-06, 1.91667, 1, 0.00413245, -8.03858e-12, 2.00663e-06, 1.95833, 1, 0.00413245, 1.09769e-11, 2.00663e-06, 2, 1, 0.00413245, -3.20123e-12, 2.00663e-06, 2.04167, 1, 0.00413245, 1.01556e-11, 2.00663e-06, 2.08333, 1, 0.00413245, 4.5963e-12, 2.00663e-06, 2.125, 1, 0.00413245, -2.02131e-11, 2.00663e-06, 2.16667, 1, 0.00413245, 5.77862e-12, 2.00663e-06, 2.20833, 1, 0.00413245, 5.77862e-12, 2.00663e-06, 2.25, 1, 0.00413245, 5.77862e-12, 2.00663e-06, 2.29167, 1, 0.00413245, 5.77862e-12, 2.00663e-06, 2.33333, 1, 0.00413245, 5.77862e-12, 2.00663e-06)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mquqc"]
+_data = {
+&"RESET": SubResource("Animation_ypdtk"),
+&"angry": ExtResource("3_fekfd"),
+&"applause": ExtResource("4_8uiy7"),
+&"bad-putt": ExtResource("5_c1ld0"),
+&"badloop-putt": ExtResource("6_k64m1"),
+&"begCycle": ExtResource("7_4eo1g"),
+&"begOut": ExtResource("8_cqlnw"),
+&"block": ExtResource("9_mc6rd"),
+&"book": ExtResource("10_tfwkm"),
+&"bored": ExtResource("11_yd74y"),
+&"bow": ExtResource("12_bgyfh"),
+&"cast": ExtResource("13_y35sn"),
+&"castlong": ExtResource("14_3yr1r"),
+&"climb": ExtResource("15_2ppcb"),
+&"confused": ExtResource("16_6rdvl"),
+&"conked": ExtResource("17_feohn"),
+&"cringe": ExtResource("18_jvlw7"),
+&"curtsy": ExtResource("19_4g7f1"),
+&"down": ExtResource("20_313gs"),
+&"duck": ExtResource("21_vt170"),
+&"eatnrun": ExtResource("22_m26ir"),
+&"firehose": ExtResource("23_sxo0x"),
+&"fish": ExtResource("24_87uxg"),
+&"fishAGAIN": ExtResource("25_ce202"),
+&"fishEND": ExtResource("26_7rty0"),
+&"fishneutral": ExtResource("27_wbpk4"),
+&"gameThrow": ExtResource("30_x4poj"),
+&"gameneutral": ExtResource("28_270y2"),
+&"gamerun": ExtResource("29_6ub28"),
+&"give": ExtResource("33_f6snr"),
+&"give-props": ExtResource("32_k6rso"),
+&"give-props-start": ExtResource("31_nrcrw"),
+&"good-putt": ExtResource("34_5ngby"),
+&"happy-dance": ExtResource("35_181l1"),
+&"headdown-putt": ExtResource("36_yphq0"),
+&"hold-bottle": ExtResource("37_10ty4"),
+&"hold-magnet": ExtResource("38_8latr"),
+&"hypnotize": ExtResource("39_aonxj"),
+&"into-putt": ExtResource("40_syn7o"),
+&"intoBeg": ExtResource("41_g6bk0"),
+&"intoSit": ExtResource("42_kp2ck"),
+&"juggle": ExtResource("43_x5an7"),
+&"jump": ExtResource("49_gd2pw"),
+&"jump-back-right": ExtResource("44_xdn4q"),
+&"jump-z": ExtResource("45_dxj0s"),
+&"jump-zend": ExtResource("46_287ao"),
+&"jump-zhang": ExtResource("47_j4juo"),
+&"jump-zstart": ExtResource("48_n0a8b"),
+&"left": ExtResource("51_wguc5"),
+&"left-point": ExtResource("50_io7g7"),
+&"leverNeutral": ExtResource("52_wcq5g"),
+&"leverPull": ExtResource("53_ph2rb"),
+&"leverReach": ExtResource("54_d4me2"),
+&"look-putt": ExtResource("55_yns5u"),
+&"lookloop-putt": ExtResource("56_gr6f0"),
+&"loop-putt": ExtResource("57_bdrg7"),
+&"lose": ExtResource("58_jdjy0"),
+&"losewalk": ExtResource("59_ippuc"),
+&"melt": ExtResource("60_empdl"),
+&"melt-nosink": SubResource("Animation_xnekt"),
+&"neutral": ExtResource("61_22fcc"),
+&"periscope": ExtResource("62_h60pa"),
+&"petend": ExtResource("63_hs1ue"),
+&"petin": ExtResource("64_7nglo"),
+&"petloop": ExtResource("65_0606w"),
+&"pie-throw": ExtResource("66_3n5cc"),
+&"pole": ExtResource("67_kmyjg"),
+&"poleneutral": ExtResource("68_dyfox"),
+&"press-button": ExtResource("69_cx6bg"),
+&"push": ExtResource("70_ax2pn"),
+&"reel": ExtResource("71_yecl0"),
+&"reelH": ExtResource("72_57co6"),
+&"reelneutral": ExtResource("73_pl2ki"),
+&"right": ExtResource("78_qvdvj"),
+&"right-hand": ExtResource("75_vbppi"),
+&"right-hand-start": ExtResource("74_s6uvo"),
+&"right-point": ExtResource("77_72mq4"),
+&"right-point-start": ExtResource("76_m3wvf"),
+&"rotateL-putt": ExtResource("79_42kqq"),
+&"rotateR-putt": ExtResource("80_ip5d6"),
+&"run": ExtResource("81_isu1x"),
+&"running-jump": ExtResource("82_f5tpt"),
+&"sad-neutral": ExtResource("83_mqygb"),
+&"scientistEmcee": ExtResource("84_acua8"),
+&"shout": ExtResource("85_hkpvk"),
+&"shrug": ExtResource("86_rigt6"),
+&"sidestep-left": ExtResource("87_ru3e0"),
+&"sit": ExtResource("88_7lnd1"),
+&"slip-backward": ExtResource("89_rv8g3"),
+&"slip-forward": ExtResource("90_2ecqp"),
+&"smooch": ExtResource("91_pcd5l"),
+&"spit": ExtResource("92_k320e"),
+&"sprinkle-dust": ExtResource("93_lvq75"),
+&"struggle": ExtResource("94_hjw6h"),
+&"swim": ExtResource("95_hjrjx"),
+&"swing": ExtResource("97_rvsih"),
+&"swing-putt": ExtResource("96_4ymfv"),
+&"taunt": ExtResource("98_1agsi"),
+&"teleport": ExtResource("99_doj2e"),
+&"think": ExtResource("100_m41xm"),
+&"tickle": ExtResource("101_33f6h"),
+&"toss": ExtResource("102_qn11g"),
+&"tug-o-war": ExtResource("103_onctg"),
+&"tutorial-neutral": ExtResource("104_vqnoy"),
+&"up": ExtResource("105_lk28s"),
+&"victory-dance": ExtResource("106_r2nxd"),
+&"walk": ExtResource("107_bbag3"),
+&"water-gun": ExtResource("108_0uqyg"),
+&"wave": ExtResource("109_xmy54"),
+&"z": ExtResource("110_ydg6l"),
+&"zend": ExtResource("111_0d4bd"),
+&"zhang": ExtResource("112_3xoxi"),
+&"zhanglong": ExtResource("113_m6g2k"),
+&"zstart": ExtResource("114_nadfj")
+}
+
+[node name="tt_a_chr_dgm_shorts_legs_1000" node_paths=PackedStringArray("animator", "skeleton", "legs", "feet", "boots_short", "boots_long", "shoes", "hip_bone", "shadow_bone") instance=ExtResource("1_xnekt")]
+script = ExtResource("2_ci782")
+animator = NodePath("AnimationPlayer")
+skeleton = NodePath("dog_legs_m/Skeleton3D")
+legs = NodePath("dog_legs_m/Skeleton3D/legs")
+feet = NodePath("dog_legs_m/Skeleton3D/feet")
+boots_short = NodePath("dog_legs_m/Skeleton3D/boots_short")
+boots_long = NodePath("dog_legs_m/Skeleton3D/boots_long")
+shoes = NodePath("dog_legs_m/Skeleton3D/shoes")
+hip_bone = NodePath("dog_legs_m/Skeleton3D/HipBone")
+shadow_bone = NodePath("dog_legs_m/Skeleton3D/ShadowBone")
+
+[node name="Skeleton3D" parent="dog_legs_m" index="3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+motion_scale = 125.0
+bones/0/position = Vector3(-0.263031, 2.31196, 0.239798)
+bones/0/rotation = Quaternion(0.578527, 0.406399, 0.579026, 0.406049)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(-1.12418, -2.173e-08, -8.89501e-09)
+bones/1/rotation = Quaternion(3.98164e-10, -0.000823165, -0.277713, 0.960664)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-1.13603, -5.79985e-09, 6.3271e-09)
+bones/2/rotation = Quaternion(0.000333344, 0.000265991, 0.779201, 0.626774)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(-0.517829, 3.97717e-07, 3.95117e-07)
+bones/3/rotation = Quaternion(-3.12363e-28, -2.64698e-23, 0, 1)
+bones/4/position = Vector3(0.263031, 2.31196, 0.239798)
+bones/4/rotation = Quaternion(-0.406049, 0.579026, -0.406399, 0.578527)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(1.12418, 2.173e-08, 8.89501e-09)
+bones/5/rotation = Quaternion(3.98164e-10, -0.000823165, -0.277713, 0.960664)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(1.13603, 5.79985e-09, -6.3271e-09)
+bones/6/rotation = Quaternion(0.000333344, 0.000265991, 0.779201, 0.626774)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(0.517829, -3.97717e-07, -3.95117e-07)
+bones/7/rotation = Quaternion(-3.12363e-28, -5.87747e-39, 9.86076e-32, 1)
+
+[node name="HipBone" type="BoneAttachment3D" parent="dog_legs_m/Skeleton3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3119, 0.077985)
+bone_name = "joint_hips1"
+bone_idx = 8
+
+[node name="ShadowBone" type="BoneAttachment3D" parent="dog_legs_m/Skeleton3D" index="6"]
+bone_name = "joint_shadow1"
+bone_idx = 10
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_mquqc")
+}

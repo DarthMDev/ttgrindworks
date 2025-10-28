@@ -79,14 +79,6 @@ func get_base_dna() -> ToonDNA:
 
 [sub_resource type="Resource" id="Resource_mr3il"]
 script = ExtResource("11_tbro7")
-body_type = 0
-species = 2
-head_index = 0
-eyelashes = true
-skirt = false
-head_color = Color(1, 1, 1, 1)
-torso_color = Color(1, 1, 1, 1)
-leg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_0ehsp"]
 vertices = PackedVector3Array(12.4832, 0.375569, 3.57657, 14.2332, 0.375569, 3.32657, 14.2332, 0.375569, -4.92343, 12.4832, 0.375569, -5.17343, -14.5168, 0.375569, 14.8266, -14.5168, 0.375569, -16.6734, 12.4832, 0.375569, 14.8266, 12.4832, 0.375569, -16.6734)

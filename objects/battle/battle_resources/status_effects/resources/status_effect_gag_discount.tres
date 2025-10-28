@@ -5,17 +5,9 @@
 
 [resource]
 script = ExtResource("1_0i7ym")
-discount = 1
 quality = 0
 rounds = 2
-rounds_offset = 0
 icon = ExtResource("1_diuq5")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
-description = "This is a Status Effect"
 status_name = "Gag Discount"
 id = 41
 metadata/_custom_type_script = "uid://df7irk63ikx4k"

@@ -4720,7 +4720,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_0njsd"]
 script = ExtResource("20_3wle6")
-skippable = false
 override_music = ExtResource("19_ryjah")
 
 [node name="cog_building_floor1" type="Node3D"]

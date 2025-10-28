@@ -22,7 +22,6 @@ cull_mode = 2
 albedo_texture = ExtResource("3_m7fmi")
 roughness = 0.552786
 uv1_scale = Vector3(1, 7.255, 1)
-uv1_offset = Vector3(0, -1.85686, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2eue"]
 size = Vector3(21.9668, 0.569214, 13.8271)
@@ -37,8 +36,8 @@ fractal_lacunarity = 1.0
 fractal_weighted_strength = 0.95
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qa47e"]
-seamless = true
 noise = SubResource("FastNoiseLite_mqphr")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_le1ib"]
 resource_name = "lava"
@@ -77,6 +76,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.716
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_fyo2c")
 
+[node name="Paint" parent="." index="6"]
+visible = false
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SpinningBar" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpinningBar/StaticBody3D" index="0"]
@@ -84,7 +86,7 @@ shape = SubResource("ConcavePolygonShape3D_qa47e")
 
 [node name="ConveyerBelt" parent="." index="8" instance=ExtResource("2_3xd0q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.156057, 0.09399)
-constant_linear_velocity = Vector3(-1.5, 0, -6.55671e-08)
+constant_linear_velocity = Vector3(-1.5, 0, -6.556708e-08)
 size = Vector3(1.5, 1, 7.255)
 platform_mat = SubResource("StandardMaterial3D_fyo2c")
 speed = 1.5
@@ -102,7 +104,7 @@ shape = SubResource("BoxShape3D_t2eue")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.2485, -0.000106573, 0.0956704)
 
 [node name="LavaPlane" type="MeshInstance3D" parent="." index="11"]
-transform = Transform3D(0.780432, 0, 0, 0, 1, 0, 0, 0, 0.442662, 1.66526, -4.97887, -0.0234008)
+transform = Transform3D(0.780432, 0, 0, 0, 1, 0, 0, 0, 0.442662, 1.1857983, -4.97887, -0.0234008)
 mesh = SubResource("PlaneMesh_trfrj")
 
 [node name="Gears" type="Node3D" parent="." index="12"]
@@ -114,6 +116,7 @@ transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 
 [node name="SpinningGear" parent="Gears/GearDirection" index="0" instance=ExtResource("9_trfrj")]
 transform = Transform3D(13.5834, 0, 0, 0, 13.5834, 0, 0, 0, 13.5834, 0, 0, 0)
 spin_speed = 50.0
+randomize_dir = true
 
 [node name="GearDirection2" type="Node3D" parent="Gears" index="1"]
 transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 0, 1.15579, -4.19414, 0, 0)
@@ -121,6 +124,7 @@ transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 
 [node name="SpinningGear" parent="Gears/GearDirection2" index="0" instance=ExtResource("9_trfrj")]
 transform = Transform3D(13.5834, 0, 0, 0, 13.5834, 0, 0, 0, 13.5834, 0, 0, 0)
 spin_speed = 59.0
+randomize_dir = true
 
 [node name="GearDirection3" type="Node3D" parent="Gears" index="2"]
 transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 0, 1.15579, 0.186416, 0, 0)
@@ -128,6 +132,7 @@ transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 
 [node name="SpinningGear" parent="Gears/GearDirection3" index="0" instance=ExtResource("9_trfrj")]
 transform = Transform3D(13.5834, 0, 0, 0, 13.5834, 0, 0, 0, 13.5834, 0, 0, 0)
 spin_speed = 71.0
+randomize_dir = true
 
 [node name="GearDirection4" type="Node3D" parent="Gears" index="3"]
 transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 0, 1.15579, 4.6345, 0, 0)
@@ -135,6 +140,7 @@ transform = Transform3D(-5.05211e-08, -1.69132, 0, 1.15579, -7.39301e-08, 0, 0, 
 [node name="SpinningGear" parent="Gears/GearDirection4" index="0" instance=ExtResource("9_trfrj")]
 transform = Transform3D(13.5834, 0, 0, 0, 13.5834, 0, 0, 0, 13.5834, 0, 0, 0)
 spin_speed = 97.0
+randomize_dir = true
 
 [node name="RoomArea" type="Area3D" parent="." index="13"]
 

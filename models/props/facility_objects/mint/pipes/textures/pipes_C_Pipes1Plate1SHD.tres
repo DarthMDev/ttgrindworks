@@ -6,6 +6,6 @@
 resource_name = "pipes_C:Pipes1Plate1SHD"
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_color = Color(0.91, 0.91, 0.91, 1)
 albedo_texture = ExtResource("1_pl7ni")
 emission_enabled = true

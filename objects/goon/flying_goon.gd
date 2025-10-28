@@ -12,7 +12,7 @@ var tween: Tween:
 func _ready() -> void:
 	super()
 	make_loop_tween()
-	tween.custom_step(RandomService.randf_range_channel('true_random', 0.01, 0.2))
+	tween.custom_step(randf_range(0.01, 0.2))
 
 func handle_potential_stomp() -> void:
 	make_stomp_tween()

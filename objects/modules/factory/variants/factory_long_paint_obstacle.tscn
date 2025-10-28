@@ -1,0 +1,254 @@
+[gd_scene load_steps=19 format=4 uid="uid://b8ufig62co2je"]
+
+[ext_resource type="PackedScene" uid="uid://b5thphhw61f4t" path="res://objects/modules/factory/base_rooms/factory_long_paint_room.tscn" id="1_y3q68"]
+[ext_resource type="Texture2D" uid="uid://bgewi8moafg3y" path="res://models/misc_zones/menu/Menu Area Textures/FootFactoryMetalPlate.png" id="2_wohnq"]
+[ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="3_f0b2t"]
+[ext_resource type="Texture2D" uid="uid://bge6w1qsrwdwm" path="res://models/facilities/factory/FINALFACTORY_42.png" id="4_4y6vu"]
+[ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="5_4y6vu"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="6_o5taj"]
+[ext_resource type="PackedScene" uid="uid://082ydm2p46ld" path="res://objects/props/factory/wall_lamp.tscn" id="7_rxc1x"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y3q68"]
+height = 22.04747
+radius = 0.37841797
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mokwe"]
+albedo_color = Color(0.90359825, 0.90359825, 0.9035982, 1)
+albedo_texture = ExtResource("2_wohnq")
+uv1_scale = Vector3(0.96, 0.29, 0.315)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8kyok"]
+material = SubResource("StandardMaterial3D_mokwe")
+size = Vector3(2.115, 22.305, 6.41)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f0b2t"]
+data = PackedVector3Array(-1.0575, 11.1525, 3.205, 1.0575, 11.1525, 3.205, -1.0575, -11.1525, 3.205, 1.0575, 11.1525, 3.205, 1.0575, -11.1525, 3.205, -1.0575, -11.1525, 3.205, 1.0575, 11.1525, -3.205, -1.0575, 11.1525, -3.205, 1.0575, -11.1525, -3.205, -1.0575, 11.1525, -3.205, -1.0575, -11.1525, -3.205, 1.0575, -11.1525, -3.205, 1.0575, 11.1525, 3.205, 1.0575, 11.1525, -3.205, 1.0575, -11.1525, 3.205, 1.0575, 11.1525, -3.205, 1.0575, -11.1525, -3.205, 1.0575, -11.1525, 3.205, -1.0575, 11.1525, -3.205, -1.0575, 11.1525, 3.205, -1.0575, -11.1525, -3.205, -1.0575, 11.1525, 3.205, -1.0575, -11.1525, 3.205, -1.0575, -11.1525, -3.205, 1.0575, 11.1525, 3.205, -1.0575, 11.1525, 3.205, 1.0575, 11.1525, -3.205, -1.0575, 11.1525, 3.205, -1.0575, 11.1525, -3.205, 1.0575, 11.1525, -3.205, -1.0575, -11.1525, 3.205, 1.0575, -11.1525, 3.205, -1.0575, -11.1525, -3.205, 1.0575, -11.1525, 3.205, 1.0575, -11.1525, -3.205, -1.0575, -11.1525, -3.205)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y6vu"]
+albedo_color = Color(0.90359825, 0.90359825, 0.9035982, 1)
+albedo_texture = ExtResource("2_wohnq")
+uv1_scale = Vector3(3.03, 8, 0.315)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5taj"]
+material = SubResource("StandardMaterial3D_4y6vu")
+size = Vector3(2, 14, 3.85)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4y6vu"]
+data = PackedVector3Array(-1, 7, 1.925, 1, 7, 1.925, -1, -7, 1.925, 1, 7, 1.925, 1, -7, 1.925, -1, -7, 1.925, 1, 7, -1.925, -1, 7, -1.925, 1, -7, -1.925, -1, 7, -1.925, -1, -7, -1.925, 1, -7, -1.925, 1, 7, 1.925, 1, 7, -1.925, 1, -7, 1.925, 1, 7, -1.925, 1, -7, -1.925, 1, -7, 1.925, -1, 7, -1.925, -1, 7, 1.925, -1, -7, -1.925, -1, 7, 1.925, -1, -7, 1.925, -1, -7, -1.925, 1, 7, 1.925, -1, 7, 1.925, 1, 7, -1.925, -1, 7, 1.925, -1, 7, -1.925, 1, 7, -1.925, -1, -7, 1.925, 1, -7, 1.925, -1, -7, -1.925, 1, -7, 1.925, 1, -7, -1.925, -1, -7, -1.925)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4oc8"]
+resource_name = "BeltWallFrameSHD"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_texture = ExtResource("4_4y6vu")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w1efe"]
+_surfaces = [{
+"aabb": AABB(-1.54715e-14, -69.6773, -69.6773, 1e-05, 139.355, 139.355),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "BeltWallFrameSHD",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("xVqLKMVai0LFWovCxVqLqMVai0LFWotCxVqLqMVai8LFWotCxVqLKMVai8LFWovC")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o5taj"]
+resource_name = "BeltWallFrame6"
+_surfaces = [{
+"aabb": AABB(-1.54715e-14, -69.6773, -69.6773, 1e-05, 139.355, 139.355),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_b4oc8"),
+"name": "BeltWallFrameSHD",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("xVqLKMVai0LFWovCxVqLqMVai0LFWotCxVqLqMVai8LFWotCxVqLKMVai8LFWovCAAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w1efe")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5taj"]
+height = 1.6479492
+
+[node name="FactoryLongPaintObstacle" instance=ExtResource("1_y3q68")]
+
+[node name="Bearings" parent="." index="0"]
+visible = false
+mesh = null
+
+[node name="Belts" parent="." index="1"]
+visible = false
+mesh = null
+
+[node name="SpinningBar" parent="." index="7"]
+transform = Transform3D(5.7817342e-15, -8.742278e-08, 2, -3.026, -8.742278e-08, 0, 1.3227066e-07, -2, -8.742278e-08, 3.694, 4.943, 0.256)
+
+[node name="Walls" parent="." index="9"]
+visible = false
+mesh = null
+
+[node name="LavaPlane" parent="." index="11"]
+transform = Transform3D(0.780432, 0, 0, 0, 1, 0, 0, 0, 0.442662, 1.1697165, -4.97887, -0.0234008)
+
+[node name="BarColl" type="StaticBody3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2189484, 0, 0.12040359)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarColl" index="0"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 6.5027385, 0)
+shape = SubResource("CylinderShape3D_y3q68")
+
+[node name="MidWall" type="MeshInstance3D" parent="." index="16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8657904, 0)
+mesh = SubResource("BoxMesh_8kyok")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MidWall" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MidWall/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_f0b2t")
+
+[node name="MidWall2" type="MeshInstance3D" parent="." index="17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0963156, 5.110322)
+mesh = SubResource("BoxMesh_o5taj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MidWall2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MidWall2/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_4y6vu")
+
+[node name="Gears" type="Node3D" parent="." index="18"]
+
+[node name="Rot" type="Node3D" parent="Gears" index="0"]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, -8.4753, -1.7930292, -6.9520493)
+
+[node name="SpinningGear" parent="Gears/Rot" index="0" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(25, -6.6814973e-21, 0, -8.351871e-21, 20, 0, 0, 0, 25, -0.8728843, 0, 0)
+spin_speed = -20.0
+
+[node name="BeltWallFrame6" type="MeshInstance3D" parent="Gears/Rot" index="1"]
+transform = Transform3D(-4.5896957e-09, 0.16, 2.8412401e-09, 0, -6.9938233e-09, 0.065, 0.105, 6.993822e-09, 0, -3.5060196, -1.0437956, -0.19812441)
+mesh = SubResource("ArrayMesh_o5taj")
+skeleton = NodePath("")
+
+[node name="FloorGear" parent="Gears" index="1" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.1660867, -3.1372635, 0.17948127)
+spin_speed = 15.0
+randomize_dir = true
+
+[node name="TopWallGear" parent="Gears" index="2" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(16.883345, 0, -1.9881172, 0, 7.6149993, 0, 1.9881172, 0, 16.883345, -0.022522092, 3.88211, 7.319166)
+spin_speed = 25.0
+randomize_dir = true
+
+[node name="Ceiling" type="Node3D" parent="Gears" index="3"]
+
+[node name="SpinningGear2" parent="Gears/Ceiling" index="0" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.1660867, 7.882878, 0.17948127)
+spin_speed = 34.0
+
+[node name="SpinningGear3" parent="Gears/Ceiling" index="1" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(11, 0, 0, 0, 10, 0, 0, 0, 11, 5.1660867, 9.116284, 0.17948127)
+spin_speed = -41.0
+
+[node name="SpinningGear4" parent="Gears/Ceiling" index="2" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.1660867, 10.341392, 0.17948127)
+spin_speed = 44.0
+
+[node name="SpinningGear6" parent="Gears/Ceiling" index="3" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(11, 0, 0, 0, 10, 0, 0, 0, 11, 5.1660867, 13.496055, 0.17948127)
+spin_speed = -51.0
+
+[node name="SpinningGear5" parent="Gears/Ceiling" index="4" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(13, 0, 0, 0, 13.845, 0, 0, 0, 13, 5.1660867, 12.06286, 0.17948127)
+spin_speed = 61.0
+
+[node name="SpinningGear7" parent="Gears/Ceiling" index="5" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(12, 0, 0, 0, 13.845, 0, 0, 0, 12, 5.1660867, 15.229574, 0.17948127)
+spin_speed = -72.0
+
+[node name="BeltWallFrame7" type="MeshInstance3D" parent="Gears" index="4"]
+transform = Transform3D(4.9073634e-09, -0.145, 1.0927848e-09, 0, -6.3381513e-09, -0.025, 0.065, 1.0947195e-08, -8.2502955e-17, 0.609398, 3.5808353, 6.951769)
+mesh = SubResource("ArrayMesh_o5taj")
+skeleton = NodePath("")
+
+[node name="PaintMixers" type="Node3D" parent="." index="19"]
+
+[node name="Mixer1" type="Node3D" parent="PaintMixers" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.679971, -2.353937, -5.0384126)
+
+[node name="PaintPlatform" parent="PaintMixers/Mixer1" index="0" instance=ExtResource("5_4y6vu")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+speed = 2.5
+shaft_length = 2.385
+points = Array[Vector3]([Vector3(6, 0, 0), Vector3(0, 0, 0), Vector3(0.301, 3.2, 6.672)])
+
+[node name="Mixer2" type="Node3D" parent="PaintMixers" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7060645, -2.353937, 4.9243884)
+
+[node name="PaintPlatform" parent="PaintMixers/Mixer2" index="0" instance=ExtResource("5_4y6vu")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+shaft_length = 3.0
+points = Array[Vector3]([Vector3(4.901, 5, -0.492)])
+
+[node name="treasure_chest" parent="." index="20" instance=ExtResource("6_o5taj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.48365554, 4.9001265, 5.0988703)
+
+[node name="LightColl" type="StaticBody3D" parent="." index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.621601, 5.4148803, 4.7307525)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightColl" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21226597, -0.006591797, 0)
+shape = SubResource("CapsuleShape3D_o5taj")
+
+[node name="LightColl2" type="StaticBody3D" parent="." index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.647357, 5.4148803, -4.45162)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightColl2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21226597, -0.006591797, 0)
+shape = SubResource("CapsuleShape3D_o5taj")
+
+[node name="DecoGears" type="Node3D" parent="." index="23"]
+
+[node name="ForwardGears" type="Node3D" parent="DecoGears" index="0"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 36.4879, 0)
+
+[node name="SpinningGear" parent="DecoGears/ForwardGears" index="0" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -23.425037, 14.831467, -3.780625)
+spin_speed = 140.0
+
+[node name="SpinningGear2" parent="DecoGears/ForwardGears" index="1" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(7.860202, 6.1107244e-09, 1.4890364, 6.110838e-09, 8, -6.5088e-08, -1.4890364, 6.508801e-08, 7.860202, -23.392345, 14.444545, 0.5046153)
+spin_speed = -140.0
+
+[node name="SpinningGear3" parent="DecoGears/ForwardGears" index="2" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(6.604376, -6.258038e-07, 3.1682556, -1.1060442e-06, -7.325, 8.587434e-07, 3.1682556, -1.2526546e-06, -6.604376, -23.796608, -14.188045, -0.39692187)
+spin_speed = 152.0
+
+[node name="SpinningGear4" parent="DecoGears/ForwardGears" index="3" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(5.1693306, -3.882562e-07, 5.1897635, -1.1060442e-06, -7.325, 5.536922e-07, 5.1897635, -1.174379e-06, -5.1693306, -23.311245, -14.188045, -4.324732)
+spin_speed = -152.0
+
+[node name="SidewaysGears" type="Node3D" parent="DecoGears" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="SpinningGear7" parent="DecoGears/SidewaysGears" index="0" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(-8.485963e-07, 4.913171e-07, -11.24, -1.6971928e-06, -11.24, -4.91317e-07, -11.24, 1.6971928e-06, 8.485964e-07, 8.708633, -8.492361, -4.6951)
+spin_speed = -104.0
+
+[node name="SpinningGear5" parent="DecoGears/SidewaysGears" index="1" instance=ExtResource("3_f0b2t")]
+transform = Transform3D(-4.325264, 1.81827e-06, 9.016212, 7.47678e-07, 10, -1.6579905e-06, -9.016212, -4.3002416e-08, -4.325264, -9.386348, 8.413048, -14.096271)
+spin_speed = 131.0
+
+[node name="WallLamp" parent="." index="24" instance=ExtResource("7_rxc1x")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.060221076, 10.007367, -6.762737)
+
+[node name="WallLamp3" parent="." index="25" instance=ExtResource("7_rxc1x")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.32888, 10.007367, -6.762737)

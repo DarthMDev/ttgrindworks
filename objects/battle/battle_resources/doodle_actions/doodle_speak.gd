@@ -1,5 +1,4 @@
 extends DoodleAction
-class_name DoodleSpeak
 
 const SFX := preload('res://audio/sfx/doodle/speak_v1.ogg')
 
@@ -21,7 +20,7 @@ func action():
 	await user.animator.animation_finished
 	
 	# Apply the 1 round status effect
-	var stat_effect := create_stat_boost('damage', 1.2)
+	var stat_effect := create_stat_boost('damage', 0.2)
 	manager.add_status_effect(stat_effect)
 	
 	# Focus player

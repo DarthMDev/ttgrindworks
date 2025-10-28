@@ -8,15 +8,9 @@
 script = ExtResource("1_ahr11")
 model = ExtResource("1_yvdfa")
 model_rotation = Vector3(-0.228851, -1.87019, 2.443)
-model_scale = Vector3(1, 1, 1)
 model_position = Vector3(-0.320663, 0.61715, -0.615531)
 sfx_throw = ExtResource("3_vp53o")
-accuracy = 75
 damage = 2
-ignore_stats = false
-summary = ""
 attack_lines = Array[String](["Better dress for our meeting.", "You can't go OUT without your tie.", "The best dressed Cogs wear them.", "Try this on for size.", "You should dress for success.", "No tie, no service.", "Do you need help putting this on?", "Nothing says powerful like a good tie.", "Let's see if this fits.", "This is going to choke you up.", "You'll want to dress up before you go OUT.", "I think I'll tie you up."])
-target_type = 0
 action_name = "Clip On Tie"
-one_time_use = false
 metadata/_custom_type_script = "uid://bb27him60xtnk"

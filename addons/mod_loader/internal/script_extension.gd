@@ -103,7 +103,7 @@ static func apply_extension(extension_path: String) -> Script:
 	# Adding metadata that contains the extension script path
 	# We cannot get that path in any other way
 	# Passing the child_script as is would return the base script path
-	# Passing the .duplicate() would return a '' path
+	# Passing the .duplicate(true) would return a '' path
 	child_script.set_meta("extension_script_path", extension_path)
 
 	# Force Godot to compile the script now.
@@ -123,7 +123,7 @@ static func apply_extension(extension_path: String) -> Script:
 		ModLoaderStore.saved_scripts[parent_script_path] = []
 		# The first entry in the saved script array that has the path
 		# used as a key will be the duplicate of the not modified script
-		ModLoaderStore.saved_scripts[parent_script_path].append(parent_script.duplicate())
+		ModLoaderStore.saved_scripts[parent_script_path].append(parent_script.duplicate(true))
 
 	ModLoaderStore.saved_scripts[parent_script_path].append(child_script)
 

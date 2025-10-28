@@ -7,26 +7,17 @@
 [resource]
 script = ExtResource("2_u7ct4")
 qualitoon = 1
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 0.11
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Zippy Zap"
 item_description = "Speed up!"
-big_description = "+ 3% speed"
+big_description = "+ 5% speed"
 model = ExtResource("1_jgdk7")
 pickup_sfx = ExtResource("2_s3040")
 stats_add = {
-"speed": 0.03
+"speed": 0.05
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
 force_show_shop_category = true
-custom_shop_price = 0
+custom_shop_price = 10

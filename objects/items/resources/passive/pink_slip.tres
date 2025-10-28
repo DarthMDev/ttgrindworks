@@ -6,13 +6,8 @@
 [resource]
 script = ExtResource("1_vhofi")
 qualitoon = 4
-rarity = 0
 evergreen = true
-realtime = false
-slot = 0
 world_scale = 2.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Pink Slip"
 item_description = "Fire in the hole!"
 big_description = "Single-use item that one shots most Cogs."
@@ -20,11 +15,7 @@ model = ExtResource("1_6k08u")
 stats_add = {
 "pink_slips": 1
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
 remember_item = false
 shop_category_title = "Consumable"
 shop_category_color = Color(0.105882, 0.54902, 0.537255, 1)
 force_show_shop_category = true
-custom_shop_price = 0

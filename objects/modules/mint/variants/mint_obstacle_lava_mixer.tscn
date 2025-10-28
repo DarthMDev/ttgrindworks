@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c8h76u7dspxxc"]
+[gd_scene load_steps=32 format=3 uid="uid://c8h76u7dspxxc"]
 
 [ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_1bm4i"]
 [ext_resource type="PackedScene" uid="uid://xxhl4spi53gq" path="res://objects/props/mint/mint_stairs.tscn" id="2_picoi"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ca5iu2h5u2ltv" path="res://objects/props/mint/mint_safe.tscn" id="9_kki62"]
 [ext_resource type="PackedScene" uid="uid://dlyjidhdet3jn" path="res://objects/props/factory/wall_pipe_1.tscn" id="10_4gwes"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="12_6100o"]
-[ext_resource type="Material" uid="uid://cusj2ppo3s7p4" path="res://objects/obstacles/paint_platform/edge_regular_mat.tres" id="12_30424"]
 [ext_resource type="Texture2D" uid="uid://dw0ovgcnsmkqi" path="res://objects/misc/spotlight_1.png" id="13_62by4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87o6g"]
@@ -429,62 +428,30 @@ transform = Transform3D(0.877849, 0, 0.478937, 0, 1, 0, -0.478937, 0, 0.877849, 
 [node name="PaintPlatform" parent="PaintMixers" index="0" instance=ExtResource("8_05gdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2642, 3.07146, -2.2806)
 texture_type = 1
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(7.95, 6.515, 4.572)])
-
-[node name="PaintMixerBase" parent="PaintMixers/PaintPlatform" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="PaintMixerTop_001" parent="PaintMixers/PaintPlatform" index="1"]
-surface_material_override/0 = ExtResource("12_30424")
-
-[node name="ShaftCollide" parent="PaintMixers/PaintPlatform" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform2" parent="PaintMixers" index="1" instance=ExtResource("8_05gdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81748, 3.07146, 8.95801)
 texture_type = 1
 speed = 2.5
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(3.4, 7.041, 4.73)])
-
-[node name="PaintMixerBase" parent="PaintMixers/PaintPlatform2" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="PaintMixerTop_001" parent="PaintMixers/PaintPlatform2" index="1"]
-surface_material_override/0 = ExtResource("12_30424")
-
-[node name="ShaftCollide" parent="PaintMixers/PaintPlatform2" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform3" parent="PaintMixers" index="2" instance=ExtResource("8_05gdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.617, 5.94892, 4.0248)
 texture_type = 1
 speed = 2.4
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(-17.159, 2.3, -0.864)])
-
-[node name="PaintMixerBase" parent="PaintMixers/PaintPlatform3" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="PaintMixerTop_001" parent="PaintMixers/PaintPlatform3" index="1"]
-surface_material_override/0 = ExtResource("12_30424")
-
-[node name="ShaftCollide" parent="PaintMixers/PaintPlatform3" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="PaintPlatform4" parent="PaintMixers" index="3" instance=ExtResource("8_05gdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.395, 3.06617, -7.7425)
 texture_type = 1
 speed = 0.55
 loop_wait_delay = 2.0
+shaft_length = 2.0
 points = Array[Vector3]([Vector3(-17.395, 2, -7.743), Vector3(-17.395, 3.7, -7.743)])
-
-[node name="PaintMixerBase" parent="PaintMixers/PaintPlatform4" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
-
-[node name="PaintMixerTop_001" parent="PaintMixers/PaintPlatform4" index="1"]
-surface_material_override/0 = ExtResource("12_30424")
-
-[node name="ShaftCollide" parent="PaintMixers/PaintPlatform4" index="3"]
-transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.02, 0, 0.01, -8.74228e-10, 4.88281e-06, -1.07324, 0)
 
 [node name="treasure_chest" parent="." index="19" instance=ExtResource("12_6100o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.2653, 6.34656, -15.0401)
@@ -516,7 +483,3 @@ shape = SubResource("BoxShape3D_508q2")
 [editable path="Crates/mint_crate32"]
 [editable path="Crates/mint_crate25"]
 [editable path="Crates/mint_crate26"]
-[editable path="PaintMixers/PaintPlatform"]
-[editable path="PaintMixers/PaintPlatform2"]
-[editable path="PaintMixers/PaintPlatform3"]
-[editable path="PaintMixers/PaintPlatform4"]

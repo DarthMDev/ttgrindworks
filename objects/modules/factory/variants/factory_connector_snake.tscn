@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7w5ajbenmohl"]
+
+[ext_resource type="PackedScene" uid="uid://becnyi3ke1i55" path="res://objects/modules/factory/base_rooms/catwalk_snake.tscn" id="1_wa4u0"]
+
+[node name="Catwalk_Snake" instance=ExtResource("1_wa4u0")]
+
+[node name="ENTRANCE" parent="." index="3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.399791, -1.529, 9.275)
+
+[node name="EXIT" parent="." index="4"]
+transform = Transform3D(-4.37113e-08, 0, -0.999999, 0, 0.999999, 0, 0.999999, 0, -4.37113e-08, 20.132341, -1.529, -4.352)

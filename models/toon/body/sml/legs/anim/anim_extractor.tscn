@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca1qpd2ceff1r"]
+
+[sub_resource type="GDScript" id="GDScript_ptvv4"]
+resource_name = "animation_extractor"
+script/source = "extends Node
+
+const LOOP_ANIMS: Array[String] = [
+	'badloop-putt',
+	'fishneutral',
+	'gameneutral',
+	'gamerun',
+	'good-putt',
+	'headdown-putt',
+	'jump-zhang',
+	'losewalk',
+	'neutral',
+	'run',
+	'sit',
+	'swim',
+	'walk',
+	'zhang',
+]
+
+const PINGPONG_ANIMS: Array[String] = [
+	
+]
+
+func _ready() -> void:
+	var path : String = get_tree().current_scene.scene_file_path
+	var path_segments = path.split('/')
+	path = ''
+	for i in path_segments.size()-1:
+		path+=path_segments[i]+'/'
+	var files := DirAccess.get_files_at(path)
+	for file in files:
+		if file.ends_with('.fbx'):
+			var anim_file : Node3D = load(path+file).instantiate()
+			add_child(anim_file)
+			if not anim_file.has_node('AnimationPlayer'):
+				anim_file.queue_free()
+				continue
+			var anim: Animation
+			var anim_name : String
+			var animator : AnimationPlayer
+			animator = anim_file.get_node('AnimationPlayer')
+			anim_name = animator.get_animation_list()[0]
+			anim = animator.get_animation(anim_name)
+			anim.length = get_anim_length(anim)
+			var filename := file.split('_')[-1].trim_suffix('.fbx')
+			if filename in LOOP_ANIMS:
+				anim.loop_mode = Animation.LOOP_LINEAR
+			elif filename in PINGPONG_ANIMS:
+				anim.loop_mode = Animation.LOOP_PINGPONG
+			ResourceSaver.save(anim, path + filename + '.res')
+
+
+func get_anim_length(anim: Animation) -> float:
+	var longest := 0.0
+	var _test = anim.get_track_count()
+	for i in anim.get_track_count():
+		var key_count := anim.track_get_key_count(i) - 1
+		var track_length := anim.track_get_key_time(i, key_count)
+		if longest < track_length:
+			longest = track_length
+	return longest
+"
+
+[node name="AnimExtractor" type="Node"]
+script = SubResource("GDScript_ptvv4")

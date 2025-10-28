@@ -29,14 +29,12 @@ shirt_texture = ExtResource("6_866wx")
 sleeve_texture = ExtResource("7_l0068")
 base_color = Color(0.192157, 0.560784, 0.772549, 1)
 sleeve_color = Color(0.192157, 0.560784, 0.772549, 1)
-color_type = 0
 
 [sub_resource type="Resource" id="Resource_mosn6"]
 script = ExtResource("4_bbi2y")
 body_type = 1
 species = 8
 head_index = 3
-eyelashes = true
 skirt = true
 head_color = Color(0.933333, 0.262745, 0.278431, 1)
 torso_color = Color(0.933333, 0.262745, 0.278431, 1)

@@ -2,15 +2,15 @@
 extends BattleNode
 
 
-const MAX_DYNAMIC_COGS := 4
+
 const COG := preload('res://objects/cog/cog.tscn')
 
 ## The amount of Cogs to appear in battle
 @export var cog_range := Vector2i(2, 4):
 	set(x):
 		cog_range = x
-		cog_range.x = clamp(cog_range.x, 1, MAX_DYNAMIC_COGS)
-		cog_range.y = clamp(cog_range.y, cog_range.x, MAX_DYNAMIC_COGS)
+		cog_range.x = maxi(cog_range.x, 1)
+		cog_range.y = maxi(cog_range.y, cog_range.x)
 		if not cog_node:
 			await ready
 		if Engine.is_editor_hint():
@@ -36,7 +36,7 @@ func _refresh_cogs() -> void:
 	if Engine.is_editor_hint():
 		cog_count = cog_range.y
 	else:
-		cog_count = RandomService.randi_range_channel("cog_counts", cog_range.x, cog_range.y)
+		cog_count = RNG.channel(RNG.ChannelCogCounts).randi_range(cog_range.x, cog_range.y)
 	
 	clear_cogs()
 	if Engine.is_editor_hint():

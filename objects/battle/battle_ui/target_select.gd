@@ -26,7 +26,7 @@ func reposition_buttons(cogs: int):
 		newbutton.disabled = false
 		
 		var cog: Cog = get_parent().get_parent().cogs[i]
-		if gag is LureGroup or gag is GagSound:
+		if gag.target_type == BattleAction.ActionTarget.ENEMY_SPLASH:
 			%TargetCenterLabel.text = "Which Cogs?"
 		else:
 			%TargetCenterLabel.text = "Which Cog?"

@@ -5,17 +5,18 @@ var player: Player
 
 @export var invulnerable := false
 @export var infinite_gag_points := false
+@export var state: Player.PlayerState = Player.PlayerState.WALK
 
 func _init():
 	if OS.has_feature('editor') and not Util.get_player():
 		player = PLAYER_SCENE.instantiate()
-		player.state = Player.PlayerState.WALK
 
 func _ready():
 	if player:
 		add_child(player)
 		SceneLoader.add_persistent_node(player)
 		player.stats.debug_invulnerable = invulnerable
+		player.state = state
 		if infinite_gag_points:
 			player.stats.gag_cap = 100
 			player.stats.debug_gag_points = true

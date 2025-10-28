@@ -5,7 +5,7 @@ var looping = false
 var total_stomps := 0
 var telegraphing = false
 
-func initiate_kill(body: Node3D) -> void:
+func initiate_kill(_body: Node3D) -> void:
 	if looping == false:
 		looping = true
 		print(total_stomps)
@@ -21,12 +21,10 @@ func initiate_kill(body: Node3D) -> void:
 			raise_time = 8
 			do_stomp()
 
-func stop_stomper(body: Node3D) -> void:
+func stop_stomper(_body: Node3D) -> void:
 	pass
-	
 
-
-func telegraph(body: Node3D) -> void:
+func telegraph(_body: Node3D) -> void:
 	if not telegraphing:
 		telegraphing = true
 		var stomp_tween := create_tween()

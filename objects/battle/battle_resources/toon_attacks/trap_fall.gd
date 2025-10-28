@@ -21,7 +21,7 @@ func action():
 		return
 	
 	manager.s_focus_char.emit(user)
-	user.set_animation('button_press')
+	user.set_animation('press-button')
 	user.face_position(target.global_position)
 	
 	# Place button in hand
@@ -67,8 +67,8 @@ func action():
 
 	# For detective hat item
 	if not user.trap_needs_lure and target.lured:
-		manager.force_unlure(target)
 		await activate()
+		manager.force_unlure(target)
 
 func activate():
 	s_activate.emit()

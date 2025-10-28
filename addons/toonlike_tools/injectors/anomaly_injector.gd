@@ -1,14 +1,22 @@
 @tool
 extends EditorContextMenuPlugin
 
-const GAME_FLOOR_SCENE_PATH := 'res://scenes/game_floor/game_floor.tscn'
+const GAME_FLOOR_SCENE_PATH := "res://scenes/test/game_floor_test.tscn"
 var debugger: ToonlikeEditorDebuggerPlugin
 
 func _init(_debugger: ToonlikeEditorDebuggerPlugin):
 	debugger = _debugger
+	debugger.disable_persistent_injection.connect(_disable_persistent_injection)
+
+
+func _disable_persistent_injection():
+	if debugger.session_ready_for.is_connected(_send_game_floor_mods):
+		debugger.session_ready_for.disconnect(_send_game_floor_mods)
+
 
 func is_floor_mod_script(path: String) -> bool:
 	return path.begins_with('res://scenes/game_floor/floor_modifiers/scripts/anomalies/')
+
 
 func _popup_menu(paths: PackedStringArray):
 	if Array(paths).all(is_floor_mod_script):
@@ -18,10 +26,12 @@ func _popup_menu(paths: PackedStringArray):
 			EditorInterface.get_base_control().get_theme_icon('PlayCustom', 'EditorIcons')
 		)
 
+
 func _run_game_floor(paths: PackedStringArray):
 	EditorInterface.play_custom_scene(GAME_FLOOR_SCENE_PATH)
-	debugger.session_ready_for.connect(_send_game_floor_floor_mods.bind(paths), CONNECT_ONE_SHOT)
+	debugger.session_ready_for.connect(_send_game_floor_mods.bind(paths))
 
-func _send_game_floor_floor_mods(session: EditorDebuggerSession, scene: String, paths: PackedStringArray):
+
+func _send_game_floor_mods(session: EditorDebuggerSession, scene: String, paths: PackedStringArray):
 	if scene == debugger.GAME_FLOOR:
 		session.send_message('toonlike:game_floor:add_floor_mods', Array(paths))

@@ -5,7 +5,7 @@ This is a single-player game based on Disney's Toontown Online developed with th
 
 ## Requirements
 
-- Godot v4.4.1
+- Godot v4.5
 
 ## Disclaimer
 - We are under no obligation to:
@@ -24,18 +24,24 @@ Enjoy!
   - Project Lead, Programmer & Designer
 - Sketched
   - Programmer & Game Designer
-- Bludoo
-  - Programmer & Game Designer
-- TheRandomDog
-  - Programmer
 - squiddy
   - Programmer, 3D & Texture Artist
+- TheRandomDog
+  - Programmer
+- Bludoo
+  - Programmer
 - Kel'Block
   - 3D Artist, Animator & Texture Artist
 - Elisei
   - 3D Artist & Texture Artist
 - neoNote
-  - 3D Artist & Texture Artist, Sound & Game Deisgner
+  - 3D Artist & Texture Artist, Sound & Game Designer
+- Treetop Legend
+  - 3D Artist, Animator & Rigging
+- ROTTIEBONES
+  - 3D Artist
+- Inso
+  - Texture Artist/Generalist
 - Measured Moth
   - Programmer, Game Designer & Rigging
 - Boots
@@ -46,9 +52,11 @@ Enjoy!
   - Technical Artist & Texture Artist
 - Lavender
   - Logo, Texture & UI Artist
+- Eden
+  - Texture & Graphic Artist, Video Editor
 - SleepyEli
   - Achievement Icons
-- Unfinished
+- Alastair
   - Composer
 - Buck
   - Programmer, Composer & Sound Designer
@@ -62,19 +70,30 @@ Enjoy!
   - Writer, Game Designer & Polisher
 - Niko Frost
   - Game Designer
+- Tony (Roe)
+  - Cinematic Director
 - Raine
   - Quality Assurance
 - Supergoose
   - Quality Assurance
 - John Boyo
   - Quality Assurance
+- Stripey
+  - Marketing & Quality Assurance
 - Greetings
   - Consultant
+- Lappy
+  - Lappy?
 - Toontown: Event Horizon
   - Cog Rigs
+- Godot Mod Loader
+  - Modding Backend
 ### Special Thanks
+- DoggoMafia
 - Erin (Cosmic)
+- Evelyn (Velvet Petunia)
 - Goatcanon
+- Jackyland
 - Just a BLU Toon
 - Niji
 - Princess Sandy

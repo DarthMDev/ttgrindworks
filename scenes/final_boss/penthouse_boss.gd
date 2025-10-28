@@ -3,7 +3,7 @@ class_name FinalBossScene
 
 const TITLE_SCREEN_SCENE := "res://scenes/title_screen/title_screen.tscn"
 const SKY_SPEED := 3.0
-const COG_SCENE := preload("res://objects/cog/cog.tscn")
+var COG_SCENE: PackedScene
 
 const SFX_CAGE_LOWER := preload("res://audio/sfx/misc/CHQ_SOS_cage_lower.ogg")
 const SFX_CAGE_LAND := preload("res://audio/sfx/misc/CHQ_SOS_cage_land.ogg")
@@ -29,6 +29,7 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 @onready var elevator_out: Elevator = $ElevatorExit
 
 var unlock_toon := false
+var unlock_mystery := false
 
 ## For battle tracking
 const COG_LEVEL_RANGE := Vector2i(9, 14)
@@ -40,17 +41,27 @@ var boss_two_alive := true
 
 var darkened_sky := false
 
+func _init():
+	# GameLoader Requirement:
+	# - cog.tscn has a very large dependency chain.
+	#   Since this script extends Node and has a class_name, the editor will try
+	#   to load all dependencies of it. This causes a large lag spike if preloaded.
+	GameLoader.queue_into(GameLoader.Phase.GAMEPLAY, self, {
+		'COG_SCENE': 'res://objects/cog/cog.tscn'
+	})
+
+
 func _ready() -> void:
 	Globals.s_entered_barrel_room.emit()
 	
 	set_caged_toon_dna(get_caged_toon_dna())
 	AudioManager.set_music(MUSIC_TRACK)
 	# Pick the first boss
-	var boss_choices := possible_bosses.duplicate()
+	var boss_choices := possible_bosses.duplicate(true)
 	if DEBUG_FORCE_BOSS_ONE != null and OS.is_debug_build() and WANT_DEBUG_BOSSES:
 		boss_one_choice = DEBUG_FORCE_BOSS_ONE
 	else:
-		boss_one_choice = RandomService.array_pick_random('base_seed', boss_choices)
+		boss_one_choice = RNG.channel(RNG.ChannelBaseSeed).pick_random(boss_choices)
 	boss_cog.set_dna(boss_one_choice)
 	boss_choices.erase(boss_one_choice)
 
@@ -58,12 +69,12 @@ func _ready() -> void:
 	if DEBUG_FORCE_BOSS_TWO != null and OS.is_debug_build() and WANT_DEBUG_BOSSES:
 		boss_two_choice = DEBUG_FORCE_BOSS_TWO
 	else:
-		boss_two_choice = RandomService.array_pick_random('base_seed', boss_choices)
+		boss_two_choice = RNG.channel(RNG.ChannelBaseSeed).pick_random(boss_choices)
 	boss_cog_2.set_dna(boss_two_choice)
 
 	# Nerf their damage got damn!!!
-	boss_cog.stats.damage = 1.6
-	boss_cog_2.stats.damage = 1.6
+	boss_cog.stats.damage = 1.8
+	boss_cog_2.stats.damage = 1.8
 
 	# Start the battle
 	Util.get_player().state = Player.PlayerState.WALK
@@ -83,12 +94,7 @@ func _ready() -> void:
 
 func try_add_cogs(_actions: Array[BattleAction]) -> void:
 	var cooldown := 2
-
-	# HE NEEDS THE COGS GIVE HIM THE COGS GIVE HIM THE COGS NOW!!!!
-	for cog: Cog in battle.cogs:
-		if cog.dna.cog_name == "Union Buster":
-			cooldown = 1
-		
+	
 	if BattleService.ongoing_battle.current_round % cooldown == 0 and (boss_one_alive or boss_two_alive):
 		var new_reinforcements := ElevatorReinforcements.new()
 		new_reinforcements.user = self
@@ -113,7 +119,7 @@ func battle_ending() -> void:
 		SaveFileService.progress_file.best_time = Util.get_player().game_timer.time
 
 func to_dusk() -> void:
-	$WorldEnvironment.environment = $WorldEnvironment.environment.duplicate()
+	$WorldEnvironment.environment = $WorldEnvironment.environment.duplicate(true)
 	var env: Environment = $WorldEnvironment.environment
 	
 	var dusk_tween := create_tween()
@@ -142,9 +148,10 @@ func set_caged_toon_dna(dna: ToonDNA) -> void:
 
 func get_caged_toon_dna() -> ToonDNA:
 	var unlock_index: int = SaveFileService.progress_file.characters_unlocked
-	var can_unlock: bool = Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[unlock_index - 1].character_name
-	if Util.get_player().stats.character.character_name == Globals.fetch_toon_unlock_order()[5].character_name:
-		can_unlock = false
+	var can_unlock: bool = unlock_index < 5
+	if not SaveFileService.is_achievement_unlocked(ProgressFile.GameAchievement.UNLOCK_RANDOM):
+		if Util.get_player().character.character_id == PlayerCharacter.Character.MOE:
+			unlock_mystery = true
 	if not can_unlock:
 		var dna := ToonDNA.new()
 		dna.randomize_dna()
@@ -156,14 +163,18 @@ func on_battle_finished() -> void:
 	if unlock_toon:
 		Globals.s_character_unlocked.emit(Globals.fetch_toon_unlock_order()[SaveFileService.progress_file.characters_unlocked])
 		SaveFileService.progress_file.characters_unlocked += 1
+	if unlock_mystery:
+		SaveFileService.progress_file.unlock_achievement(ProgressFile.GameAchievement.UNLOCK_RANDOM)
 	win_game()
 
 func end_game() -> void:
-	if not Util.get_player().stats.character.random_character_stored_name == "":
-		if not SaveFileService.progress_file.mystery_toon_win:
-			Globals.s_mystery_win.emit()
-			SaveFileService.make_progress('mystert_toon_win', true)
-	SaveFileService.progress_file.win_streak += 1
+	match Util.get_player().character.character_id:
+		PlayerCharacter.Character.MYSTERY:
+			if not SaveFileService.progress_file.mystery_toon_win:
+				Globals.s_mystery_win.emit()
+				SaveFileService.make_progress('mystery_toon_win', true)
+
+	Globals.s_game_win.emit()
 	for partner in Util.get_player().partners:
 		partner.queue_free()
 	Util.get_player().queue_free()
@@ -178,7 +189,7 @@ func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
 		var cog := COG_SCENE.instantiate()
 		cog.custom_level_range = COG_LEVEL_RANGE
 		if dna: cog.dna = dna
-		elif roll_for_proxies and RandomService.randf_channel('mod_cog_chance') < 0.25:
+		elif roll_for_proxies and RNG.channel(RNG.ChannelModCogChance).randf() < 0.25:
 			cog.use_mod_cogs_pool = true
 		battle.add_child(cog)
 		cog.global_position = get_char_position("CogPos%d" % (i + 1))
@@ -224,6 +235,7 @@ func win_game() -> void:
 	scene.tween_interval(4.0)
 	scene.tween_callback(caged_toon.speak.bind("The Cogs will have those big bads rebuilt in no time!"))
 	scene.tween_interval(4.0)
+	scene.tween_callback(caged_toon.speak.bind("."))
 	await scene.finished
 
 	CameraTransition.from_current(self, %GameWinElevator, 4.0, Tween.EASE_IN_OUT, Tween.TRANS_QUAD)

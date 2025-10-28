@@ -25,7 +25,10 @@ func get_mod_icon() -> Texture2D:
 	return load("res://ui_assets/player_ui/pause/inspiration.png")
 
 func get_description() -> String:
-	return "Increases your lowest stat by 20% for this floor"
+	if not multiplier or multiplier.stat.is_empty():
+		return "Increases your lowest stat by 20% for this floor"
+	else:
+		return "Increases your lowest stat (%s) by 20%%" % multiplier.stat.to_pascal_case()
 
 ## Override this for other objects to tell what type of mod it is
 func get_mod_quality() -> ModType:

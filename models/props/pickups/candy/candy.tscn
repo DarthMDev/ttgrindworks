@@ -22,7 +22,7 @@ point_count = 4
 [sub_resource type="CurveTexture" id="CurveTexture_j8e1y"]
 curve = SubResource("Curve_n67wx")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lhgfk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qh263"]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 0.5
@@ -38,7 +38,7 @@ turbulence_influence_max = 0.451
 turbulence_initial_displacement_min = -3.9
 turbulence_initial_displacement_max = 28.6
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yt6n1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydevw"]
 resource_local_to_scene = true
 render_priority = 3
 transparency = 1
@@ -46,13 +46,13 @@ cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_33wse"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_g87un"]
 resource_local_to_scene = true
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA/////wAAAAAAAAAAAAD//wAAAAAAAIA//////wAAgD8AAIA/AAD//wAAgD8AAAAA"),
 "format": 34359738393,
-"material": SubResource("StandardMaterial3D_yt6n1"),
+"material": SubResource("StandardMaterial3D_ydevw"),
 "primitive": 1,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
@@ -72,5 +72,5 @@ emitting = false
 amount = 40
 lifetime = 1.6
 preprocess = 3.0
-process_material = SubResource("ParticleProcessMaterial_lhgfk")
-draw_pass_1 = SubResource("ArrayMesh_33wse")
+process_material = SubResource("ParticleProcessMaterial_qh263")
+draw_pass_1 = SubResource("ArrayMesh_g87un")

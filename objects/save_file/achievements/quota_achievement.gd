@@ -25,7 +25,7 @@ func _hook_up() -> void:
 	if connected_signal is Signal:
 		connected_signal.connect(increment_amount)
 
-func increment_amount(_arg1=null,_arg2=null,_arg3=null,_arg4=null) -> void:
+func increment_amount(..._args: Array) -> void:
 	if get_completed(): return
 	# Pause briefly to allow progress file to receive the information first
 	await Task.delay(0.1)

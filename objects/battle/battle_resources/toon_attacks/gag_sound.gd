@@ -26,8 +26,9 @@ func action():
 	manager.s_focus_char.emit(user)
 	
 	# Add the megaphone
-	var megaphone = load("res://models/props/gags/megaphone/megaphone.tscn").instantiate()
+	var megaphone: Node3D = load("res://models/props/gags/megaphone/megaphone.tscn").instantiate()
 	user.toon.right_hand_bone.add_child(megaphone)
+	megaphone.rotation_degrees += Vector3(0.0, 180.0, 0.0)
 	
 	# Add gag to megaphone
 	var gag = model.instantiate()

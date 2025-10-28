@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.1.1a"
+const VERSION_NUMBER := "v1.2.1"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -10,16 +10,20 @@ func _init():
 		'GRUNT_COG_POOL': 'res://objects/cog/presets/pools/grunt_cogs.tres',
 		'MOD_COG_POOL': 'res://objects/cog/presets/pools/mod_cogs.tres',
 		'ALL_COGS_POOL': 'res://objects/cog/presets/pools/all_cogs.tres',
-		'REWARD_ITEM_POOL' : "res://objects/items/pools/rewards.tres",
-		'PROGRESSIVE_ITEM_POOL' : "res://objects/items/pools/progressives.tres"
 	})
 	GameLoader.queue(GameLoader.Phase.AVATARS, [
-		'res://objects/toon/bodies/fat_sml.tscn',
-		'res://objects/toon/bodies/sml_med.tscn',
-		'res://objects/toon/bodies/med_lrg.tscn',
-		'res://objects/toon/bodies/fat_sml_skirt.tscn',
-		'res://objects/toon/bodies/sml_med_skirt.tscn',
-		'res://objects/toon/bodies/med_lrg_skirt.tscn',
+		'res://objects/toon/bodies/dog_ears/dog_ears_large.tscn',
+		'res://objects/toon/bodies/dog_ears/dog_ears_medium.tscn',
+		'res://objects/toon/bodies/dog_ears/dog_ears_small.tscn',
+		'res://objects/toon/bodies/legs/legs_large.tscn',
+		'res://objects/toon/bodies/legs/legs_medium.tscn',
+		'res://objects/toon/bodies/legs/legs_small.tscn',
+		'res://objects/toon/bodies/torsos/torso_large_shorts.tscn',
+		'res://objects/toon/bodies/torsos/torso_large_skirt.tscn',
+		'res://objects/toon/bodies/torsos/torso_medium_shorts.tscn',
+		'res://objects/toon/bodies/torsos/torso_medium_skirt.tscn',
+		'res://objects/toon/bodies/torsos/torso_small_shorts.tscn',
+		'res://objects/toon/bodies/torsos/torso_small_skirt.tscn',
 		
 		'res://objects/toon/head/dog_heads.tscn',
 		'res://objects/toon/head/bear_heads.tscn',
@@ -80,7 +84,7 @@ func _ready() -> void:
 	print("Game Version: %s" % VERSION_NUMBER)
 	
 	# Emit one hour signal if best time is already lower than that
-	var best_time := SaveFileService.progress_file.best_time
+	var best_time: float = SaveFileService.progress_file.best_time
 	if not is_equal_approx(best_time, 0.0):
 		if best_time < 3600.0:
 			s_one_hour_win.emit()
@@ -114,20 +118,23 @@ const TOON_UNLOCK_ORDER_PATHS := [
 	'res://objects/player/characters/testchar.tres',
 ]
 ## Characters unlocked non-sequentially
-var ADDITIONAL_TOON_PATHS := []
+var ADDITIONAL_TOON_PATHS := [
+	'res://objects/player/characters/professor_pete.tres',
+	'res://objects/player/characters/lil_oldman.tres',
+]
 
 func fetch_toon_unlock_order() -> Array[PlayerCharacter]:
 	var unlock_order: Array[PlayerCharacter]
 	unlock_order.assign(TOON_UNLOCK_ORDER_PATHS.map(func(path): return GameLoader.load(path)))
 	for path in ADDITIONAL_TOON_PATHS:
-		var char : PlayerCharacter = GameLoader.load(path)
-		if not char.override_index == -1: unlock_order.insert(char.override_index, char)
-		else: unlock_order.append(char)
+		var _char: PlayerCharacter = GameLoader.load(path)
+		if not _char.override_index == -1: unlock_order.insert(_char.override_index, _char)
+		else: unlock_order.append(_char)
 	return unlock_order
 
 func get_unlocked_toons() -> Array[PlayerCharacter]:
 	var unlocked_toons := fetch_toon_unlock_order()
-	for character : PlayerCharacter in unlocked_toons.duplicate():
+	for character : PlayerCharacter in unlocked_toons.duplicate(true):
 		if not character.get_unlocked():
 			unlocked_toons.erase(character)
 	return unlocked_toons
@@ -209,7 +216,7 @@ func clear_custom_cogs() -> void:
 	custom_cog_tex_directory.clear()
 
 func clear_custom_dna(pool : CogPool) -> void:
-	for cog in pool.cogs.duplicate():
+	for cog in pool.cogs.duplicate(true):
 		if cog in loaded_custom_cogs.values():
 			pool.cogs.erase(cog)
 
@@ -283,26 +290,46 @@ var dna_colors := {
 	plum = Color('#B2B2CC'),
 	black = Color('#4C4C59')
 }
-var random_dna_color : Color:
+var random_dna_color: Color:
 	get:
-		return dna_colors[dna_colors.keys()[RandomService.randi_channel('true_random') % dna_colors.keys().size()]]
+		return dna_colors.values().pick_random()
 
 ## Toon Bodies
 # type hinting ToonDNA enum will cause a cyclic inheritance error
 func fetch_toon_body(body_type: int, skirt: bool) -> PackedScene:
 	match {'b': body_type, 's': skirt}:
-		{'b': ToonDNA.BodyType.SMALL, 's': false}:
-			return GameLoader.load('res://objects/toon/bodies/fat_sml.tscn')
-		{'b': ToonDNA.BodyType.MEDIUM, 's': false}:
-			return GameLoader.load('res://objects/toon/bodies/sml_med.tscn')
 		{'b': ToonDNA.BodyType.LARGE, 's': false}:
-			return GameLoader.load('res://objects/toon/bodies/med_lrg.tscn')
-		{'b': ToonDNA.BodyType.SMALL, 's': true}:
-			return GameLoader.load('res://objects/toon/bodies/fat_sml_skirt.tscn')
-		{'b': ToonDNA.BodyType.MEDIUM, 's': true}:
-			return GameLoader.load('res://objects/toon/bodies/sml_med_skirt.tscn')
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_large_shorts.tscn')
 		{'b': ToonDNA.BodyType.LARGE, 's': true}:
-			return GameLoader.load('res://objects/toon/bodies/med_lrg_skirt.tscn')
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_large_skirt.tscn')
+		{'b': ToonDNA.BodyType.MEDIUM, 's': false}:
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_medium_shorts.tscn')
+		{'b': ToonDNA.BodyType.MEDIUM, 's': true}:
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_medium_skirt.tscn')
+		{'b': ToonDNA.BodyType.SMALL, 's': false}:
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_small_shorts.tscn')
+		{'b': ToonDNA.BodyType.SMALL, 's': true}:
+			return GameLoader.load('res://objects/toon/bodies/torsos/torso_small_skirt.tscn')
+	return null
+
+func fetch_toon_legs(body_type: int) -> PackedScene:
+	match {'b': body_type}:
+		{'b': ToonDNA.BodyType.LARGE}:
+			return GameLoader.load('res://objects/toon/bodies/legs/legs_large.tscn')
+		{'b': ToonDNA.BodyType.MEDIUM}:
+			return GameLoader.load('res://objects/toon/bodies/legs/legs_medium.tscn')
+		{'b': ToonDNA.BodyType.SMALL}:
+			return GameLoader.load('res://objects/toon/bodies/legs/legs_small.tscn')
+	return null
+
+func fetch_toon_ears(body_type: int) -> PackedScene:
+	match {'b': body_type}:
+		{'b': ToonDNA.BodyType.LARGE}:
+			return GameLoader.load('res://objects/toon/bodies/dog_ears/dog_ears_large.tscn')
+		{'b': ToonDNA.BodyType.MEDIUM}:
+			return GameLoader.load('res://objects/toon/bodies/dog_ears/dog_ears_medium.tscn')
+		{'b': ToonDNA.BodyType.SMALL}:
+			return GameLoader.load('res://objects/toon/bodies/dog_ears/dog_ears_small.tscn')
 	return null
 
 # type hinting ToonDNA enum will cause a cyclic inheritance error
@@ -418,25 +445,25 @@ var laff_meters := {
 }
 
 ## Toon Clothing
-var random_shirt : ToonShirt:
+var random_shirt: ToonShirt:
 	get:
 		var files := DirAccess.get_files_at('res://objects/toon/clothing/shirts')
-		return Util.universal_load('res://objects/toon/clothing/shirts/'+files[RandomService.randi_channel('true_random')%files.size()])
-var random_shorts : ToonBottoms:
+		return Util.universal_load('res://objects/toon/clothing/shirts/' + files[randi() % files.size()])
+var random_shorts: ToonBottoms:
 	get:
 		var files := DirAccess.get_files_at('res://objects/toon/clothing/shorts')
-		return Util.universal_load('res://objects/toon/clothing/shorts/'+files[RandomService.randi_channel('true_random')%files.size()])
-var random_skirt : ToonBottoms:
+		return Util.universal_load('res://objects/toon/clothing/shorts/' + files[randi() % files.size()])
+var random_skirt: ToonBottoms:
 	get:
 		var files := DirAccess.get_files_at('res://objects/toon/clothing/skirts')
-		return Util.universal_load('res://objects/toon/clothing/skirts/'+files[RandomService.randi_channel('true_random')%files.size()])
+		return Util.universal_load('res://objects/toon/clothing/skirts/' + files[randi() % files.size()])
 
 ## For toon names
 const TOON_NAME_FILE := 'res://objects/toon/toon_names.txt'
-var names_title : Array[String] = []
-var names_first : Array[String] = []
-var names_last_prefix : Array[String] = []
-var names_last_suffix : Array[String] = []
+var names_title: Array[String] = []
+var names_first: Array[String] = []
+var names_last_prefix: Array[String] = []
+var names_last_suffix: Array[String] = []
 
 func get_random_toon_name() -> String:
 	if names_title.is_empty():
@@ -446,16 +473,16 @@ func get_random_toon_name() -> String:
 	var need_last_name := true
 	
 	# 50% chance of including a title name
-	if RandomService.randi_channel('true_random') % 2 == 0:
-		random_name += names_title[RandomService.randi_channel('true_random') % names_title.size()] + " "
+	if randi() % 2 == 0:
+		random_name += names_title.pick_random() + " "
 	# 75% chance of having a first name
-	if RandomService.randi_channel('true_random') % 4 == 0:
+	if randi() % 4 == 0:
 		need_last_name = false
-		random_name += names_first[RandomService.randi_channel('true_random') % names_first.size()] + " "
+		random_name += names_first.pick_random() + " "
 	# 50% chance of last name, or give one if no first name
-	if need_last_name or RandomService.randi_channel('true_random') % 2 == 0:
-		random_name += names_last_prefix[RandomService.randi_channel('true_random') % names_last_prefix.size()]
-		random_name += names_last_suffix[RandomService.randi_channel('true_random') % names_last_suffix.size()]
+	if need_last_name or randi() % 2 == 0:
+		random_name += names_last_prefix.pick_random()
+		random_name += names_last_suffix.pick_random()
 	
 	return random_name
 
@@ -484,6 +511,8 @@ const SUIT_LURE_DISTANCE = 1.5
 const SQUIRT_COLOR := Color('abb6ff')
 const ACCURACY_GUARANTEE_HIT := 999
 const ACCURACY_GUARANTEE_MISS := -999
+const CRIT_MOD_GUARANTEE := 1000.0
+var REINFORCEMENT_ABUSE_QUOTA := 15
 var PROXY_CHANCE_MAXIMUM := 0.5
 
 ## Misc:
@@ -492,8 +521,6 @@ const PLAYER_COLLISION_LAYER := 2
 const HAZARD_COLLISION_LAYER := 3
 var MAX_TURNS := 3
 var MAX_POINT_REGEN := 2
-var REWARD_ITEM_POOL : ItemPool
-var PROGRESSIVE_ITEM_POOL : ItemPool
 var factory_floor_variant: FloorVariant
 var mint_floor_variant: FloorVariant
 var da_floor_variant: FloorVariant
@@ -502,12 +529,16 @@ var reward_chest_chance := 0.4
 var floor_difficulty_increase := 1.0 / 3.0
 var FLOOR_VARIANTS: Array[FloorVariant]:
 	get:
-		return [
+		var variants: Array[FloorVariant] = [
 			factory_floor_variant,
 			mint_floor_variant,
 			da_floor_variant,
 			cgc_floor_variant,
 		]
+		variants.append_array(additional_floors)
+		return variants
+## For modders, add additional floors here
+var additional_floors: Array[FloorVariant] = []
 
 ## Common Scenes
 var DUST_CLOUD: PackedScene:
@@ -532,7 +563,7 @@ var lawbot_puzzles := {
 }
 var random_puzzle: LawbotPuzzleGrid:
 	get:
-		return lawbot_puzzles[lawbot_puzzles.keys()[RandomService.randi_channel('puzzles')%lawbot_puzzles.keys().size()]].duplicate()
+		return lawbot_puzzles[lawbot_puzzles.keys()[RNG.channel(RNG.ChannelPuzzles).randi() % lawbot_puzzles.keys().size()]].duplicate()
 
 ## Achievement Signals
 signal s_character_unlocked(character: PlayerCharacter)
@@ -544,17 +575,23 @@ signal s_cog_volcano
 signal s_one_hour_win
 signal s_hundred_jellybeans
 signal s_achievement_unlocked
+signal s_stranger_bought_item
+signal s_stranger_visited
+signal s_liquidator_boss_defeated
+signal s_pocket_prank_used(prank: ItemActive)
+signal s_special_chest_opened(chest: TreasureChest)
+signal s_player_jumped
 
 func on_floor_start(game_floor: GameFloor) -> void:
-	var floor_name := game_floor.floor_variant.floor_name.to_lower()
-	if floor_name.contains('haunted') or floor_name.contains('faulty'):
+	if game_floor.floor_variant.is_alt_floor:
 		s_secret_floor.emit()
 
-const MaxToonupConsumables := 3
+var MaxToonupConsumables := 3
 
 
 #region Global Signals
 signal s_game_paused(pause_menu)
+signal s_setting_menu_opened(settings_menu: UIPanel)
 signal s_title_screen_entered(title_screen)
 signal s_game_started
 signal s_chest_spawned(chest: TreasureChest)
@@ -564,4 +601,6 @@ signal s_settings_opened
 signal s_mystery_win
 signal s_radio_spawned(radio: Node3D)
 signal s_slendercog_boss_initialized(directory: Node3D)
+signal s_shop_spawned(shop: ToonShop)
+signal s_game_win
 #endregion

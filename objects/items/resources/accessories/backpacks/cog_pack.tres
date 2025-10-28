@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://cuuiafxrn4awf"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://dv5u2vhslq87m"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_s0aaq"]
 [ext_resource type="PackedScene" uid="uid://dn0fit2eej2mm" path="res://models/accessories/backpacks/cog_pack/tt_m_chr_avt_acc_pac_flunky.glb" id="2_b2hvh"]
@@ -8,38 +8,30 @@
 
 [sub_resource type="Resource" id="Resource_m68us"]
 script = ExtResource("2_keyn0")
-body_type = 0
-position = Vector3(0.01, 0.4, -1)
-rotation = Vector3(6.21, 0, 0)
+position = Vector3(0.01, 0.4, 1.11)
+rotation = Vector3(6.21, 180, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_8p7e6"]
 script = ExtResource("2_keyn0")
 body_type = 1
-position = Vector3(0.01, 0.57, -0.46)
-rotation = Vector3(6.21, 0, 0)
+position = Vector3(0.01, 0.52, 0.61)
+rotation = Vector3(6.21, 180, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Resource" id="Resource_f8er1"]
 script = ExtResource("2_keyn0")
 body_type = 2
-position = Vector3(0.01, 0.85, -0.46)
-rotation = Vector3(6.21, 0, 0)
+position = Vector3(0.01, 0.85, 0.65)
+rotation = Vector3(6.21, 180, 0)
 scale = Vector3(0.4, 0.4, 0.4)
 
 [resource]
 script = ExtResource("2_soqtj")
 accessory_placements = Array[ExtResource("1_s0aaq")]([SubResource("Resource_m68us"), SubResource("Resource_8p7e6"), SubResource("Resource_f8er1")])
-item_tags = null
 qualitoon = 1
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.15
-world_y_offset = 0.0
-want_ui_spin = true
-ui_cam_offset = 0.0
 item_name = "Cog Pack"
 item_description = "He's got your six"
 big_description = "+ 20% Defense
@@ -49,12 +41,5 @@ stats_add = {
 "damage": -0.05,
 "defense": 0.2
 }
-stats_multiply = {}
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_dd5vd")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cliv41wabcywl"]
+
+[ext_resource type="Texture2D" uid="uid://du4dqnxb80yr" path="res://models/facilities/cgc/textures/BQ_Fireplace_1.png" id="1_m508d"]
+
+[resource]
+resource_name = "lambert167"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.72, 0.72, 0.72, 1)
+albedo_texture = ExtResource("1_m508d")
+emission_enabled = true
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true

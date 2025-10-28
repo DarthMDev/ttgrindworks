@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterWinAchievement" load_steps=3 format=3 uid="uid://cb7vs0jsemnx2"]
+
+[ext_resource type="Texture2D" uid="uid://brkh3dovhepi1" path="res://ui_assets/player_ui/pocket_prank_icons/glowering dagger.png" id="1_3ijk6"]
+[ext_resource type="Script" uid="uid://bly70o6230roo" path="res://objects/save_file/achievements/character_win_achievement.gd" id="2_12xnq"]
+
+[resource]
+script = ExtResource("2_12xnq")
+character_id = 8
+achievement_name = "Perilous Parry"
+achievement_summary = "Unlocked Glowering Dagger."
+achievement_index = 32
+achievement_icon = ExtResource("1_3ijk6")
+use_achievement_background = true
+custom_background_color = Color(0.92941177, 0.2627451, 0.2784314, 1)
+metadata/_custom_type_script = "uid://bly70o6230roo"

@@ -31,7 +31,7 @@ func handle_expiry_target_logic() -> void:
 		create_reprimand_attack()
 
 func create_reprimand_attack() -> void:
-	var reprimand := REPRIMAND.duplicate()
+	var reprimand := REPRIMAND.duplicate(true)
 	reprimand.user = target
 	reprimand.targets = [Util.get_player()]
 	manager.round_end_actions.append(reprimand)

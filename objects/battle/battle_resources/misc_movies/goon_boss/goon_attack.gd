@@ -2,7 +2,7 @@ extends ActionScript
 class_name GoonAttack
 
 
-const ACTION_NAME := "Adaptive Marketing!"
+const ACTION_NAME := "Ex post facto Law!"
 const ACTION_SUMMARY := "The Goon changes the Cog's gag immunities!"
 
 func action() -> void:
@@ -54,5 +54,5 @@ func get_immunity(cog : Cog) -> StatusEffectGagImmunity:
 			return effect
 	return null
 
-func swap_track(effect : StatusEffectGagImmunity) -> void:
-	effect.set_track(Util.get_player().stats.character.gag_loadout.loadout[RandomService.randi_channel('true_random') % Util.get_player().stats.character.gag_loadout.loadout.size()])
+func swap_track(effect: StatusEffectGagImmunity) -> void:
+	effect.set_track(Util.get_player().stats.character.gag_loadout.loadout.pick_random())

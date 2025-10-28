@@ -1,5 +1,4 @@
 extends CogAttack
-class_name RazzleDazzle
 
 func action():
 	var hit := manager.roll_for_accuracy(self)
@@ -33,7 +32,7 @@ func action():
 	
 	# Dodge if not hit
 	if not hit:
-		target.set_animation('sidestep_left')
+		target.set_animation('sidestep-left')
 		manager.battle_text(target,"MISSED")
 	
 	# Destroy particles after they reach player

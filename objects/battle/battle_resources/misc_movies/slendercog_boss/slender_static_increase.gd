@@ -40,6 +40,8 @@ func action() -> void:
 		action_tween.tween_method(noise_tex.set_alpha, alpha_current, alpha_current + ALPHA_INCREMENT, 1.0)
 		action_tween.tween_callback(slendercog_directory.increment_ambience)
 		action_tween.tween_interval(2.0)
+	else:
+		damage = int(INF)
 	
 	# Focus Player and do damage
 	action_tween.tween_callback(battle_node.focus_character.bind(player))
@@ -58,7 +60,7 @@ func get_scaled_damage(alpha : float) -> int:
 func get_additional_attack() -> CogAttack:
 	if additional_attacks.is_empty():
 		return null
-	var attack : CogAttack = additional_attacks[RandomService.randi_channel('true_random') % additional_attacks.size()].duplicate()
+	var attack: CogAttack = additional_attacks.pick_random().duplicate(true)
 	attack.targets = [Util.get_player()]
 	attack.damage += user.get_damage_boost()
 	attack.user = user

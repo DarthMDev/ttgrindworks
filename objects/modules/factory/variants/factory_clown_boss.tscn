@@ -91,9 +91,9 @@ opened = false
 
 [node name="BattleNode" parent="BossFight" index="1" node_paths=PackedStringArray("cogs") instance=ExtResource("3_fsyd7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.309, 62.8718, -228.878)
+tags = Array[int]([0, 2])
 cogs = [NodePath("Cog1"), NodePath("Clown1"), NodePath("Clown2"), NodePath("Cog2")]
 override_intro = SubResource("Resource_5gjvd")
-boss_battle = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BossFight/BattleNode" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135498, 5.16888, 3.04265)

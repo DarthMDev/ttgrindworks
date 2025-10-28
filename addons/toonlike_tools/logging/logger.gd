@@ -1,5 +1,5 @@
 extends RefCounted
-class_name Logger
+class_name DebugLogger
 ## A logger instance that is tied to an object and will log debug messages from it.
 
 var owner_obj: Variant
@@ -15,10 +15,10 @@ func _init(p_owner_obj: Variant, p_log_level := Logging.GlobalLogLevel, p_includ
 	include_level = p_include_level
 
 ## Need this unfortunately til the .new() autocomplete bug is fixed
-static func make(p_owner_obj: Variant, p_log_level := Logging.GlobalLogLevel, p_include_class: bool = true, p_include_level: bool = true) -> Logger:
-	return Logger.new(p_owner_obj, p_log_level, p_include_class, p_include_level)
+static func make(p_owner_obj: Variant, p_log_level := Logging.GlobalLogLevel, p_include_class: bool = true, p_include_level: bool = true) -> DebugLogger:
+	return DebugLogger.new(p_owner_obj, p_log_level, p_include_class, p_include_level)
 
-## Is the given log level good to go on this Logger?
+## Is the given log level good to go on this DebugLogger?
 func is_loggable(level: Logging.LogLevel) -> bool:
 	return level >= log_level
 

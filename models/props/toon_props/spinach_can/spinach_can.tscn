@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmy8xqck4s1v"]
+
+[ext_resource type="PackedScene" uid="uid://28pebnrd0pn7" path="res://models/props/toon_props/spinach_can/spinachCan.fbx" id="1_8bjtm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8bjtm"]
+size = Vector3(4.23, 3.01, 2.005)
+
+[node name="spinachCan" instance=ExtResource("1_8bjtm")]
+
+[node name="spinachCan" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 7.54979e-06, 0, -7.54979e-06, 100, 0, -0.9248289, 0)
+
+[node name="UIHelper" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2752229, 0)
+visible = false
+mesh = SubResource("BoxMesh_8bjtm")

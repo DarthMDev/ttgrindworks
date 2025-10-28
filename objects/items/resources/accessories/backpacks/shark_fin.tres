@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://cmrx0t67871w2"]
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://bl3w8mdkynjh8"]
 
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_kbdgi"]
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_pof3x"]
@@ -9,50 +9,36 @@
 [sub_resource type="Resource" id="Resource_3frid"]
 script = ExtResource("2_5y17v")
 body_type = 2
-position = Vector3(0.01, 0.58, -0.8)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.58, 0.81)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="Resource" id="Resource_3jk26"]
 script = ExtResource("2_5y17v")
 body_type = 1
-position = Vector3(0.01, 0.34, -0.69)
-rotation = Vector3(0, 0, 0)
+position = Vector3(0.01, 0.34, 0.82)
+rotation = Vector3(0, 180, 0)
 scale = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="Resource" id="Resource_cixyy"]
 script = ExtResource("2_5y17v")
-body_type = 0
-position = Vector3(0, 0.58, -1.03)
-rotation = Vector3(12.41, 0, 0)
+position = Vector3(0, 0.58, 0.97)
+rotation = Vector3(12.41, 180, 0)
 scale = Vector3(0.3, 0.3, 0.3)
 
 [resource]
 script = ExtResource("1_kbdgi")
 accessory_placements = Array[ExtResource("1_pof3x")]([SubResource("Resource_3frid"), SubResource("Resource_3jk26"), SubResource("Resource_cixyy")])
-item_tags = null
 qualitoon = 2
-rarity = 0
-evergreen = false
-realtime = false
 slot = 3
 world_scale = 0.15
-world_y_offset = 0.0
-want_ui_spin = true
 ui_cam_offset = 0.55
 item_name = "Shark Fin"
 item_description = "Terror of the deep"
 big_description = "Organic Squirt boost  (+10%)"
 model = ExtResource("3_3ovak")
-stats_add = {}
-stats_multiply = {
-"gag_boost:Squirt": 1.1
+stats_add = {
+"gag_boost:Squirt": 0.1
 }
-player_values = {}
-arbitrary_data = {}
-remember_item = true
 icon = ExtResource("3_gvol2")
-shop_category_title = "Boost Item"
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
-force_show_shop_category = false
-custom_shop_price = 0

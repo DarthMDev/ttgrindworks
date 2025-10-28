@@ -4,8 +4,9 @@
 
 [resource]
 resource_name = "pipes_C:textures:textures1:textures:CashBotTankCar_v2_s3:CashBotTankCar_v2_s1_CashBotTankCar_v1_s6_LocomotiveDetail1_SHD"
+transparency = 1
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_color = Color(0.906332, 0.906332, 0.906332, 0.8)
+albedo_color = Color(0.91, 0.91, 0.91, 1)
 albedo_texture = ExtResource("1_7ki3y")
 emission_enabled = true

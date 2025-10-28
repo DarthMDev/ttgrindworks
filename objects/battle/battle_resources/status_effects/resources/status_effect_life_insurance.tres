@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://lcsxwv8xnkxp"]
+
+[ext_resource type="Texture2D" uid="uid://dnfba8vhmj5uv" path="res://ui_assets/battle/statuses/investment_cog_heal.png" id="1_fomp6"]
+[ext_resource type="Script" uid="uid://8h0abdksqo5i" path="res://objects/battle/battle_resources/status_effects/status_effect_life_insurance.gd" id="2_fomp6"]
+
+[resource]
+script = ExtResource("2_fomp6")
+quality = 0
+rounds = 0
+icon = ExtResource("1_fomp6")
+description = "Cannot go sad this round"
+status_name = "Life Insurance"
+id = 52
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

@@ -20,7 +20,7 @@ func _ready():
 	if not Engine.is_editor_hint():
 		$DebugVisualizer.queue_free()
 
-func _process(delta: float):
+func _process(_delta: float):
 	if last_position != global_position:
 		for occluder in active_occluders.values():
 			occluder.set_shader_parameter('plane_position', global_position)
@@ -31,8 +31,8 @@ func _process(delta: float):
 			occluder.set_shader_parameter('plane_normal', plane)
 		last_plane_normal = plane
 
-func add_plane_occluder_shader(name: String, transparent := false, cull_disabled := false, render_priority := 0) -> ShaderMaterial:
-	var occluder := PLANE_OCCLUDER.duplicate()
+func add_plane_occluder_shader(_name: String, transparent := false, cull_disabled := false, render_priority := 0) -> ShaderMaterial:
+	var occluder := PLANE_OCCLUDER.duplicate(true)
 	if transparent:
 		occluder.code = '#define USE_ALPHA\n' + occluder.code
 	if cull_disabled:
@@ -42,7 +42,7 @@ func add_plane_occluder_shader(name: String, transparent := false, cull_disabled
 	var material := ShaderMaterial.new()
 	material.shader = occluder
 	material.render_priority = render_priority
-	active_occluders[name] = material
+	active_occluders[_name] = material
 	return material
 		
 func apply_to_mesh_instances(mesh_instances: Array[MeshInstance3D]):
@@ -73,9 +73,18 @@ func apply_to_mesh_instances(mesh_instances: Array[MeshInstance3D]):
 			var shader := add_plane_occluder_shader(
 				mesh_instance.name, transparency, cull_disabled, render_priority
 			)
+			shader.set_shader_parameter('uv1_offset', material.uv1_offset)
+			shader.set_shader_parameter('uv1_scale', material.uv1_scale)
 			shader.set_shader_parameter('albedo_texture', material.albedo_texture)
 			shader.set_shader_parameter('albedo_color', material.albedo_color)
 			shader.set_shader_parameter('use_vertex_color_as_albedo', material.vertex_color_use_as_albedo)
+			
+			shader.set_shader_parameter('texture_metiallic', material.metallic_texture)
+			shader.set_shader_parameter('metallic_texture_channel', material.metallic_texture_channel)
+			shader.set_shader_parameter('texture_roughness', material.roughness)
+			shader.set_shader_parameter('specular', material.metallic_specular)
+			shader.set_shader_parameter('metallic', material.metallic)
+			
 			mesh_instance.set_surface_override_material(surface_index, shader)
 		
 func apply_to_node_recursively(node: Node3D):

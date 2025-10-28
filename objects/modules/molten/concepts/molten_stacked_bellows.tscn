@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhj54p3gmarce"]
+
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_efubc"]
+[ext_resource type="Script" uid="uid://bka0wxvhofnac" path="res://objects/modules/molten/concepts/molten_stacked_bellows.gd" id="1_hr1yy"]
+[ext_resource type="PackedScene" uid="uid://dwuqdubepcccm" path="res://objects/interactables/molten_bellows/pushable_molten_bellows.tscn" id="3_nplkd"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="4_fhj7o"]
+[ext_resource type="PackedScene" uid="uid://cum8xy8yh01le" path="res://objects/interactables/pushable/pushable_trigger.tscn" id="5_fhj7o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhj7o"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.352941, 1, 1, 1)
+
+[node name="MoltenStackedBellows" type="Node3D"]
+script = ExtResource("1_hr1yy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.389688, -0.17903, 0.903378, 0.802811, 0.414613, 0.428474, -0.451262, 0.892213, -0.0178423, 26.6281, 25.126, 0)
+shadow_enabled = true
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("1_efubc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2853, 1.39667, 0.123654)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(27.5479, 0, 0, 0, 1, 0, 0, 0, 25.2139, 0, 0, 0)
+use_collision = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(27.5479, 0, 0, 0, 1, 0, 0, 0, 25.2139, 0, 13.5, 17.54)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 76.304, 0, 0, 0, 1, -0.00160853, 9.52055, 0.00348091)
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 5.5826, 0, 0, 0, 1, 0, 2.83318, -0.157119)
+operation = 2
+use_collision = true
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(27.5479, 0, 0, 0, 1, 0, 0, 0, 25.2139, 0, 13.5, 17.54)
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 81.726, 0, 0, 0, 1, 0, 9.6217, -1.33449)
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 7.801, 0, 0, 0, 0.845, 0, 13.9766, -1.24861)
+operation = 2
+use_collision = true
+
+[node name="CSGBox3DExit" type="CSGBox3D" parent="."]
+transform = Transform3D(27.5479, 0, 0, 0, 1, 0, 0, 0, 25.2139, -19.7388, 36.6702, 0.734476)
+use_collision = true
+
+[node name="MoltenBellows" parent="." instance=ExtResource("4_fhj7o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.554112, 0)
+
+[node name="PushableMoltenBellows" parent="." node_paths=PackedStringArray("stack_link_below") instance=ExtResource("3_nplkd")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 14.0084, 18.4125)
+is_pushable_backward = true
+stack_link_below = NodePath("../MoltenBellows")
+
+[node name="PushableMoltenBellows2" parent="." node_paths=PackedStringArray("stack_link_below") instance=ExtResource("3_nplkd")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 23.6636, -15.8883)
+is_pushable_forward = true
+stack_link_below = NodePath("../PushableMoltenBellows")
+
+[node name="PushableTrigger" parent="." node_paths=PackedStringArray("pushable") instance=ExtResource("5_fhj7o")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.2611, 3.34493)
+pushable = NodePath("../PushableMoltenBellows/PushableComponent")
+
+[node name="PushableTrigger2" parent="." node_paths=PackedStringArray("pushable") instance=ExtResource("5_fhj7o")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00165796, 23.6248, -1.57878)
+pushable = NodePath("../PushableMoltenBellows2/PushableComponent")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.243, -2.45608)
+use_collision = true
+size = Vector3(1.5, 1.51, 1.5)
+material = SubResource("StandardMaterial3D_fhj7o")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27492, 1.98637, -3.20224)
+use_collision = true
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_fhj7o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

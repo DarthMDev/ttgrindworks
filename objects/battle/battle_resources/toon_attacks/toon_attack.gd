@@ -3,10 +3,11 @@ class_name ToonAttack
 
 @export var icon: Texture2D
 @export var damage: int
-@export var crit_chance_mod := 1.0
 
 # Used in the UI to temporarily store the price of a gag
 var price: int
+# Use to force-associate a Gag with a Track
+var track: Track
 
 signal s_hit
 signal s_missed
@@ -27,7 +28,7 @@ func get_stats() -> String:
 	
 	return string
 
-func get_true_damage(dmg_mod := 1.0, base_dmg: int = 0) -> String:
+func get_true_damage(dmg_mod := 1.0, base_dmg: int = 0, override_track: Track = null) -> String:
 	var true_dmg: float
 	if base_dmg == 0:
 		true_dmg = float(damage)
@@ -45,16 +46,8 @@ func get_true_damage(dmg_mod := 1.0, base_dmg: int = 0) -> String:
 	true_dmg *= base_boost
 	
 	var effectiveness := 1.0
-	if self is GagTrap:
-		effectiveness = player_stats.gag_effectiveness['Trap']
-	elif self is GagSound:
-		effectiveness = player_stats.gag_effectiveness['Sound']
-	elif self is GagThrow:
-		effectiveness = player_stats.gag_effectiveness['Throw']
-	elif self is GagSquirt:
-		effectiveness = player_stats.gag_effectiveness['Squirt']
-	elif self is DropBig or self is DropSmall:
-		effectiveness = player_stats.gag_effectiveness['Drop']
+	if not override_track: override_track = player_stats.character.gag_loadout.get_action_track(self)
+	effectiveness = player_stats.get_track_effectiveness(override_track.track_name)
 	return str(roundi(float(true_dmg) * effectiveness))
 
 #region MOVIE SCRIPTS
@@ -64,7 +57,7 @@ const PRESS_SFX := 'res://audio/sfx/battle/gags/AA_trigger_box.ogg'
 func press_button() -> void:
 	var button : Node3D = load(BUTTON_PROP).instantiate()
 	user.toon.left_hand_bone.add_child(button)
-	user.set_animation('button_press')
+	user.set_animation('press-button')
 	Task.delay(2.3).connect(AudioManager.play_sound.bind(load(PRESS_SFX)))
 	Task.delay(3.5).connect(button.queue_free)
 

@@ -1,0 +1,129 @@
+[gd_scene load_steps=21 format=3 uid="uid://e5xfuhel0svu"]
+
+[ext_resource type="PackedScene" uid="uid://brvfb51iepwk" path="res://models/props/facility_objects/molten/molten_bucket/molten_bucket.fbx" id="1_f87hk"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="2_f87hk"]
+[ext_resource type="Texture2D" uid="uid://klhwpf74o3ri" path="res://models/props/facility_objects/molten/molten_bucket/BoxCarSide2.png" id="2_jmumx"]
+[ext_resource type="Texture2D" uid="uid://d0505aop2mx4y" path="res://models/props/facility_objects/molten/molten_bucket/WallMetalPlateLargeRivets.png" id="3_k5od4"]
+[ext_resource type="Texture2D" uid="uid://d5knnlmr4jvq" path="res://models/props/facility_objects/molten/molten_bucket/FINALFACTORY_32.png" id="4_7p6jm"]
+[ext_resource type="Texture2D" uid="uid://c71jj1nsw3iie" path="res://models/props/facility_objects/molten/molten_bucket/FINALFACTORY_8.png" id="5_jno5w"]
+[ext_resource type="Texture2D" uid="uid://c4n6cdjhh7ccb" path="res://models/props/facility_objects/molten/molten_bucket/CashBotTrainStationWall2.png" id="6_ox54j"]
+[ext_resource type="Texture2D" uid="uid://dh55xoyusrlap" path="res://models/props/facility_objects/molten/molten_bucket/CogIntPlate1b.png" id="7_tkrmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf1ef"]
+resource_name = "BoxCarSide2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_jmumx")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y70k8"]
+resource_name = "WallMetalPlateLargeRivets"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_k5od4")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp57c"]
+resource_name = "FINALFACTORY_32"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("4_7p6jm")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahrt5"]
+resource_name = "FINALFACTORY_8"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_jno5w")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6um3"]
+resource_name = "CashBotTrainStationWall2"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("6_ox54j")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw4bi"]
+resource_name = "CogIntPlate1b"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("7_tkrmk")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1qkl4"]
+frequency = 0.0065
+fractal_type = 3
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p8e43"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_1qkl4")
+seamless = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bakqk"]
+load_path = "res://.godot/imported/lava7.png-a846c573883fab8f70d4f7136eb110a1.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmumx"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("2_f87hk")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("CompressedTexture2D_bakqk")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(2.065, 2.19, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.28
+shader_parameter/displacement = SubResource("NoiseTexture2D_p8e43")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p8e43"]
+material = SubResource("ShaderMaterial_jmumx")
+subdivide_width = 4
+subdivide_depth = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f87hk"]
+size = Vector3(3.62598, 9.323, 3.4834)
+
+[node name="molten_bucket" instance=ExtResource("1_f87hk")]
+
+[node name="Bucket" parent="." index="0"]
+transform = Transform3D(104.945, 0, 0, 0, -1.25104e-05, 100, 0, -104.945, -1.19209e-05, 0, -7.3807, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_pf1ef")
+surface_material_override/1 = SubResource("StandardMaterial3D_y70k8")
+surface_material_override/2 = SubResource("StandardMaterial3D_yp57c")
+surface_material_override/3 = SubResource("StandardMaterial3D_ahrt5")
+surface_material_override/4 = SubResource("StandardMaterial3D_i6um3")
+surface_material_override/5 = SubResource("StandardMaterial3D_xw4bi")
+
+[node name="Door_L" parent="." index="1"]
+transform = Transform3D(100, -2.4869e-12, 1.19209e-05, -1.19209e-05, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.751929, -8.08426, -2.98023e-08)
+
+[node name="Door_R" parent="." index="2"]
+transform = Transform3D(100, 2.4869e-12, -1.19209e-05, 1.19209e-05, -1.19209e-05, 100, 0, -100, -1.19209e-05, -0.751929, -8.08426, -2.98023e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1.5, 0, 0, 0, 0.13, 0, 0, 0, 1.457, 0, -5.29279, 0)
+instance_shader_parameters/speed = 0.0
+mesh = SubResource("PlaneMesh_p8e43")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.37757, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76355, 0)
+shape = SubResource("BoxShape3D_f87hk")

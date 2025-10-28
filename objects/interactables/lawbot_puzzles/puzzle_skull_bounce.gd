@@ -5,11 +5,11 @@ class_name PuzzleSkullBounce
 @export var skull_count := 1
 @export var tick_rate := 4.0
 
-class SkullObject :
+class SkullObject:
 	var position := Vector2i(0,0)
 	var velocity := Vector2i(1,1)
 	
-	func move(grid : LawbotPuzzleGrid) -> Vector2:
+	func move(grid: LawbotPuzzleGrid) -> Vector2:
 		if position.x + velocity.x > grid.grid_width - 1 or position.x + velocity.x < 0:
 			velocity.x = -velocity.x
 			return move(grid)
@@ -19,10 +19,10 @@ class SkullObject :
 		position += velocity
 		return position 
 	
-	func make_move(grid : PuzzleSkullBounce) -> void:
+	func make_move(grid: PuzzleSkullBounce) -> void:
 		grid.move_skull(self)
 
-var skulls : Array[SkullObject] = []
+var skulls: Array[SkullObject] = []
 
 
 ## Overwrite this function to initialize your game
@@ -44,33 +44,33 @@ func initialize_game() -> void:
 		timer.timeout.connect(skull.make_move.bind(self))
 		skulls.append(skull)
 
-func move_skull(skull : SkullObject) -> void:
+func move_skull(skull: SkullObject) -> void:
 	var old_pos := skull.position
 	var new_pos := skull.move(self)
-	var new_panel : PuzzlePanel = grid[new_pos.x][new_pos.y]
+	var new_panel: PuzzlePanel = grid[new_pos.x][new_pos.y]
 	new_panel.panel_shape = PuzzlePanel.PanelShape.SKULL
 	
 	for s in skulls:
 		if s.position == old_pos:
 			return
 	
-	var old_panel : PuzzlePanel = grid[old_pos.x][old_pos.y]
+	var old_panel: PuzzlePanel = grid[old_pos.x][old_pos.y]
 	old_panel.panel_shape = PuzzlePanel.PanelShape.DOT
 	
 
 func create_skull() -> SkullObject:
 	var skull := SkullObject.new()
-	skull.position = Vector2i(RandomService.randi_channel('puzzles') % grid_width, RandomService.randi_channel('puzzles') % grid_height)
-	skull.velocity = Vector2i(RandomService.array_pick_random('true_random', [-1, 1]), RandomService.array_pick_random('true_random', [-1, 1]))
+	skull.position = Vector2i(RNG.channel(RNG.ChannelPuzzles).randi() % grid_width, RNG.channel(RNG.ChannelPuzzles).randi() % grid_height)
+	skull.velocity = Vector2i([-1, 1].pick_random(), [-1, 1].pick_random())
 	return skull
 
 
-func player_stepped_on(panel : PuzzlePanel) -> void:
+func player_stepped_on(panel: PuzzlePanel) -> void:
 	if panel.panel_shape == PuzzlePanel.PanelShape.SKULL:
 		lose_game()
 
 ## Overwrite this function to change the colors of shapes
-func panel_shape_changed(panel : PuzzlePanel,shape : PuzzlePanel.PanelShape) -> void:
+func panel_shape_changed(panel: PuzzlePanel, shape: PuzzlePanel.PanelShape) -> void:
 	match shape:
 		PuzzlePanel.PanelShape.SKULL: panel.set_color(Color.RED)
 		PuzzlePanel.PanelShape.DOT: panel.set_color(Color.WHITE)

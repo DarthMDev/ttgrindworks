@@ -6,8 +6,6 @@
 [resource]
 script = ExtResource("1_guteh")
 progress_value = "deaths"
-quota = 1
-signal_source = 0
 signal_name = "s_player_died"
 achievement_name = "Consolation Prize"
 achievement_summary = "Go sad for the first time."

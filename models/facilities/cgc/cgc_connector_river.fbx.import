@@ -1,0 +1,92 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://lfi65l52ot5w"
+path="res://.godot/imported/cgc_connector_river.fbx-b3123b9ea31612f6c493dee5b6be666b.scn"
+
+[deps]
+
+source_file="res://models/facilities/cgc/cgc_connector_river.fbx"
+dest_files=["res://.godot/imported/cgc_connector_river.fbx-b3123b9ea31612f6c493dee5b6be666b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=20.0
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Brickpath": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/brickpath.tres",
+"use_external/path": "uid://bpv4j5sqqc0ro"
+},
+"Brickpath_golf": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/brickpath_leaves.tres",
+"use_external/path": "uid://dw0lmnkhuaqwq"
+},
+"Ground": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/floor_mat.tres",
+"use_external/path": "uid://dlodnyf0k6y17"
+},
+"Hedge": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_full.tres",
+"use_external/path": "uid://bv4ojtkb3obxf"
+},
+"HedgePartial": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/hedge_mat_partial.tres",
+"use_external/path": "uid://c3vi6h4mq71ow"
+},
+"Slate": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/slate.tres",
+"use_external/path": "uid://cliv41wabcywl"
+},
+"Stonewall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/stone_wall.tres",
+"use_external/path": "uid://xbihtj11aaah"
+},
+"Trees": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/facilities/cgc/materials/branch_mat.tres",
+"use_external/path": "uid://do7bpsdy2nk"
+},
+"bbhq_fenceShader": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/props/facility_objects/cgc/fence/cgc_fence.tres",
+"use_external/path": "uid://bagbtftt7lt77"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=true
+fbx/embedded_image_handling=1
+fbx/naming_version=2

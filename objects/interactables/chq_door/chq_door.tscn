@@ -1233,6 +1233,7 @@ script = ExtResource("1_kr1fc")
 transform = Transform3D(0.0290673, 0, 0, 0, 0.0308146, 0, 0, 0, 0.0307253, 0, 0, 0)
 
 [node name="Locks" type="Node3D" parent="Doorway1"]
+unique_name_in_owner = true
 
 [node name="MiddleLock" type="Node3D" parent="Doorway1/Locks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.8442, 0)

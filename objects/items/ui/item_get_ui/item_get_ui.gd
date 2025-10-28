@@ -17,9 +17,9 @@ func _ready():
 	
 	label_name.set_text(item.item_name)
 	label_description.set_text("\"%s\"" % item.item_description)
-	
-	if item.model:
-		model = item.model.instantiate()
+
+	if item.get_model():
+		model = item.get_model().instantiate()
 		node_viewer.camera_position_offset = item.ui_cam_offset
 		node_viewer.node = model
 		node_viewer.want_spin_tween = item.want_ui_spin

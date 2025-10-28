@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/pipes_A1.fbx-b8ba55f5a51c74961c0588ca5af0be62
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,30 +34,39 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "CrossBeamQuarter2SHD1": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamQuarter2SHD1.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamQuarter2SHD1.tres",
+"use_external/path": "uid://biv2ocf45q4fp"
 },
 "CrossBeamQuarterSHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamQuarterSHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamQuarterSHD.tres",
+"use_external/path": "uid://dkysf0km3h07f"
 },
 "CrossBeamTopSHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamTopSHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/CrossBeamTopSHD.tres",
+"use_external/path": "uid://d3hqrdb7gxkti"
 },
 "Entrance_3_CollsionSHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/Entrance_3_CollsionSHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/Entrance_3_CollsionSHD.tres",
+"use_external/path": "uid://tqcn8rxqmkrv"
 },
 "ShadowSquareSHD": {
 "use_external/enabled": true,
-"use_external/path": "res://models/props/facility_objects/mint/pipes/textures/ShadowSquareSHD.tres"
+"use_external/fallback_path": "res://models/props/facility_objects/mint/pipes/textures/ShadowSquareSHD.tres",
+"use_external/path": "uid://d2ks7bswj5vsh"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=true
 fbx/embedded_image_handling=1
+fbx/naming_version=1

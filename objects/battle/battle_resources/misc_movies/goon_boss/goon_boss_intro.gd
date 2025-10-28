@@ -73,7 +73,7 @@ func play() -> Tween:
 	# Elevator opens
 	movie.tween_interval(0.5)
 	movie.set_trans(Tween.TRANS_LINEAR)
-	movie.tween_callback(player.toon.animator.play_backwards.bind('walk'))
+	movie.tween_callback(player.toon.anim_play_backwards.bind('walk'))
 	movie.tween_property(player,'global_position', get_char_position('BackupPos'), 3.0)
 	movie.parallel().tween_property(camera, 'global_transform', get_camera_angle('Elevator'), 2.5).set_delay(0.25)
 	movie.parallel().tween_callback(goon.audio_player.stop).set_delay(1.0)

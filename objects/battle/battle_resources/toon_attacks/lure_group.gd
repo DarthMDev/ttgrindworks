@@ -23,9 +23,13 @@ func action():
 	var wait_time: float
 	var cog_anim: String
 	if action_name == "Hypno Goggles":
-		prop = load("res://models/props/gags/hypno_goggles/hypno_goggles.tscn").instantiate()
-		user.toon.glasses_bone.add_child(prop)
-		prop.get_node('AnimationPlayer').play('hypnotize')
+		prop = load("res://models/props/gags/hypno_goggles/hypno_goggles_v2.tscn").instantiate()
+		var placement_ref: ItemAccessory = load('res://objects/items/custom/super_hypno/super_hypno_placement.tres')
+		var placement: AccessoryPlacement = ItemAccessory.get_placement(placement_ref, user.toon.toon_dna)
+		user.toon.glasses_node.add_child(prop)
+		prop.position = placement.position
+		prop.rotation_degrees = placement.rotation
+		prop.scale = placement.scale
 		user.set_animation('hypnotize')
 		cog_anim = 'hypnotize'
 		wait_time = 1.25
@@ -35,11 +39,11 @@ func action():
 		else:
 			prop = load("res://models/props/gags/magnet/magnet_blue.tscn").instantiate()
 		user.toon.left_hand_bone.add_child(prop)
-		prop.rotation_degrees = Vector3(-81.8, -132.1, 42.3)
-		prop.position = Vector3(-0.21, 0.27, 0.184)
+		prop.rotation_degrees = Vector3(-105.8, -148.6, -119.7)
+		prop.position = Vector3(0.135, 0.18, -0.206)
 		if action_name == "Small Magnet":
 			prop.scale /= 2.0
-		user.set_animation('hold_magnet')
+		user.set_animation('hold-magnet')
 		cog_anim = 'landing'
 		wait_time = 2.5
 	else:

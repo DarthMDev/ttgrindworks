@@ -54,11 +54,14 @@ var locked := false:
 		obscured = x
 		await NodeGlobals.until_ready(self)
 		update_hp()
+		update_extra_lives()
 
 func _ready() -> void:
 	update_hp()
 
 func update_hp():
+	if obscured and Util.get_player().revives_are_hp:
+		update_extra_lives()
 	# Update eye text
 	laff_eye.set_text(str(laff))
 	max_eye.set_text(str(max_laff))
@@ -85,17 +88,17 @@ func update_hp():
 		obscured_face.hide()
 	
 	# Show grin/mouth
-	if laff >= max_laff:
-		if mouth.visible:
-			grin.show()
-			mouth.hide()
-		return
-	elif laff > 0:
+	if laff > 0:
 		if dead_face.visible:
 			dead_face.hide()
 			healthy_face.show()
 			meter.self_modulate = Util.get_player().toon.toon_dna.head_color
-		if grin.visible:
+		if laff >= max_laff:
+			grin.show()
+			mouth.hide()
+			# We don't need to calculate the teeth, then :)
+			return
+		else:
 			mouth.show()
 			grin.hide()
 	else:
@@ -121,7 +124,7 @@ func update_obscured_face() -> void:
 #	var perc : float = float(laff) / float(max_laff)
 #	var hp_unit : float = 1.0 / obscured_face.get_child_count()
 #	var face_index := ceili(perc / hp_unit) - 1
-	var face_index := RandomService.randi_channel('true_random') % obscured_face.get_child_count()
+	var face_index := randi() % obscured_face.get_child_count()
 	print('face index: %f' % face_index)
 	for i in obscured_face.get_child_count():
 		obscured_face.get_child(i).visible = i == face_index
@@ -134,8 +137,11 @@ func set_max_laff(hp: int):
 	laff = laff
 	
 func update_extra_lives() -> void:
-	%ReviveLabel.text = "x%s" % extra_lives
-	%ReviveLabel.visible = extra_lives >= 1
+	if Util.get_player().revives_are_hp and obscured:
+		%ReviveLabel.text = "x???"
+	else:
+		%ReviveLabel.text = "x%s" % extra_lives
+		%ReviveLabel.visible = extra_lives >= 1
 
 ## Sets the laff meter depending on Toon species
 func set_meter(dna: ToonDNA) -> void:

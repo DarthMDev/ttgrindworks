@@ -37,15 +37,6 @@ offset_right = 283.0
 offset_bottom = 294.0
 pivot_offset = Vector2(256, 294)
 script = ExtResource("2_eef6o")
-stats = {
-"Gameplay": {
-"Floors Cleared": "floors_cleared",
-"Games Played": "new_games",
-"Jellybeans Collected": "jellybeans_collected",
-"Times Gone Sad": "deaths",
-"Win Streak": "win_streak"
-}
-}
 title = "Statistics"
 body = ""
 
@@ -71,8 +62,7 @@ label_settings = SubResource("LabelSettings_i5vcb")
 text = ""
 
 [node name="CancelButton" parent="Panel" index="2"]
-hover_db_offset = 6.0
-press_db_offset = 0.0
+font_size = 36.0
 
 [node name="StatScroller" type="ScrollContainer" parent="Panel" index="3"]
 custom_minimum_size = Vector2(420, 460)
@@ -108,7 +98,7 @@ layout_mode = 2
 
 [node name="StatTemplate" type="HBoxContainer" parent="." index="2"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 40.0
 offset_top = 125.0
 offset_right = 426.0
@@ -129,7 +119,7 @@ label_settings = SubResource("LabelSettings_muhdl")
 
 [node name="SectionTemplate" type="VBoxContainer" parent="." index="3"]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 40.0
 offset_top = 125.0
 offset_right = 426.0

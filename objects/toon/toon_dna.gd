@@ -9,6 +9,7 @@ enum BodyType {
 	LARGE
 }
 @export var body_type := BodyType.SMALL
+@export var leg_type := BodyType.SMALL
 
 ## Species
 enum ToonSpecies {
@@ -52,6 +53,7 @@ const BASE_SCALE := 1.17647058824
 
 func randomize_dna() -> void:
 	body_type = randi()%BodyType.keys().size() as BodyType
+	leg_type = randi()%BodyType.keys().size() as BodyType
 	species = randi()%ToonSpecies.keys().size() as ToonSpecies
 	if species == ToonSpecies.MOUSE:
 		head_index = randi()%2
@@ -70,10 +72,10 @@ func randomize_dna() -> void:
 	
 	# Random Clothing
 	if skirt:
-		bottoms = Globals.random_skirt.duplicate()
+		bottoms = Globals.random_skirt.duplicate(true)
 	else:
-		bottoms = Globals.random_shorts.duplicate()
-	shirt = Globals.random_shirt.duplicate()
+		bottoms = Globals.random_shorts.duplicate(true)
+	shirt = Globals.random_shirt.duplicate(true)
 	
 	# Random clothing colors
 	if bottoms.color_type == ToonClothing.ColorType.RECOLORABLE:

@@ -1,0 +1,441 @@
+[gd_scene load_steps=38 format=3 uid="uid://b0ouefo2h34sw"]
+
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_0ybwl"]
+[ext_resource type="Texture2D" uid="uid://58hn0ewqd1s0" path="res://models/facilities/molten/textures/StoneSquares_Hot.png" id="2_lonv8"]
+[ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="3_mn31v"]
+[ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="4_stsaq"]
+[ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="5_7kvwh"]
+[ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="6_2uvqi"]
+[ext_resource type="PackedScene" uid="uid://mmocb33ecqd6" path="res://objects/obstacles/stomper/stomper.tscn" id="7_x23mb"]
+[ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="8_mn31v"]
+[ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="8_sf2mo"]
+[ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="9_e7ieg"]
+[ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="9_stsaq"]
+[ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="10_stsaq"]
+[ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="11_7kvwh"]
+[ext_resource type="Script" uid="uid://0v6jh8nv5lnx" path="res://objects/obstacles/lava_floor/lava_floor.gd" id="12_2pq3o"]
+[ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="12_2uvqi"]
+[ext_resource type="Texture2D" uid="uid://c3kdld6ld4rc4" path="res://models/props/facility_objects/conveyor_platform/CVBelt1_hot.png" id="13_x23mb"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="16_mapg0"]
+[ext_resource type="Shader" uid="uid://b4l5edm0sdpba" path="res://objects/obstacles/burner/shaders/innerburner.tres" id="17_mir77"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="17_ynva6"]
+[ext_resource type="Shader" uid="uid://vgg5px6wnyc" path="res://objects/obstacles/burner/shaders/outerburner.tres" id="18_w5ipm"]
+[ext_resource type="PackedScene" uid="uid://6w7qnjyug5fe" path="res://objects/props/mint/conveyor_belt_portal.tscn" id="19_ff0vf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf2mo"]
+albedo_texture = ExtResource("2_lonv8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ewhy"]
+resource_name = "ConveyerBeltV3SHD"
+cull_mode = 2
+albedo_texture = ExtResource("6_2uvqi")
+roughness = 0.552786
+uv1_scale = Vector3(1, 16.44, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mir77"]
+frequency = 0.0065
+fractal_type = 3
+fractal_lacunarity = 0.025
+fractal_gain = -0.21
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7kvwh"]
+width = 700
+height = 700
+noise = SubResource("FastNoiseLite_mir77")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5ipm"]
+resource_name = "lava"
+render_priority = 0
+shader = ExtResource("8_mn31v")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("9_stsaq")
+shader_parameter/heat_color = Color(1, 0.813341, 0.690464, 1)
+shader_parameter/uv1_scale = Vector3(1.035, 2.61, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/height_scale = 0.301
+shader_parameter/displacement = SubResource("NoiseTexture2D_7kvwh")
+shader_parameter/emission_color = Vector3(2, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2uvqi"]
+material = SubResource("ShaderMaterial_w5ipm")
+size = Vector2(30, 100)
+subdivide_width = 12
+subdivide_depth = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ewhy"]
+size = Vector3(28.149414, 3.2022705, 104.10809)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pq3o"]
+size = Vector3(31.260742, 1, 30.587036)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kvwh"]
+albedo_texture = ExtResource("10_stsaq")
+uv1_scale = Vector3(0.08, 0.023, 0.115)
+uv1_offset = Vector3(0, 0.495, 0)
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qh65"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("17_mir77")
+shader_parameter/FirePanningSpeed = Vector2(1, 3.34)
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/Fresnel_visibility = 2.0
+shader_parameter/Flame_Visibility = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r0tlt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_boa2t"]
+noise = SubResource("FastNoiseLite_r0tlt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvpmk"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("18_w5ipm")
+shader_parameter/ColorParameter = Color(1.2e-05, 0.609375, 0.905171, 1)
+shader_parameter/fire_panning_speed = Vector2(0.5, 2)
+shader_parameter/FirePanningVisibility = 1.0
+shader_parameter/AddFresnelVisibility = 3.59
+shader_parameter/Noise_Texture = SubResource("NoiseTexture2D_boa2t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0froe"]
+size = Vector3(3.8060303, 6.1987305, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mapg0"]
+albedo_texture = ExtResource("13_x23mb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkv7p"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("17_ynva6")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.9996139, 0, 0, 0, -8.74059e-08, 1.9996139, 0, -1.9996139, -8.74059e-08, 0, 2.6797707e-07, 3.051)
+use_collision = true
+polygon = PackedVector2Array(0.010225445, -1.0024295, 0, 2, 1.1273005, 3.0078092, 1.8318161, 2.1375256, 1.6522336, 1.3363118, 2.7849839, 0.9495191, 1.6798617, 0.05160749, 2.3014922, -1.0811425, 1.0720444, -1.7165879)
+material = SubResource("StandardMaterial3D_sf2mo")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.1828966, 0.039403006, 0.21851133, -0.22170159, 0.14466278, 1.1740806, 0.012173806, -1.1941793, 0.14943801, 4.332593, -10.375434, 19.463438)
+use_collision = true
+polygon = PackedVector2Array(0.010225445, -1.0024295, 0.77934337, 0.6297617, 1.6798617, 0.05160749, 2.3014922, -1.0811425, 1.0720444, -1.7165879)
+material = SubResource("StandardMaterial3D_sf2mo")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4.8568254, 0, 0, 0, 1, 11.623677, -1.9962277, -6.540396)
+
+[node name="SinkingPlatform" parent="Node3D" instance=ExtResource("3_mn31v")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, -5.8597155, 0, 0)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="SinkingPlatform2" parent="Node3D" instance=ExtResource("3_mn31v")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, 0.14028454, 0, 0)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="SinkingPlatform3" parent="Node3D" instance=ExtResource("3_mn31v")]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, 6.1402845, 0, 4.7683716e-07)
+texture_type = 1
+sink_speed = 0.1
+
+[node name="MoltenBellows" parent="Node3D/SinkingPlatform3" instance=ExtResource("4_stsaq")]
+transform = Transform3D(0.29036576, 0, 0, 0, 0.059785113, 0, 0, 0, 0.29036576, 0.06937313, 0.15359573, -0.0027780533)
+retract_speed = 5.0
+max_push = 2.1
+
+[node name="ConveyerBelt" parent="." instance=ExtResource("5_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.824144, -0.62104106, 3.4728646)
+constant_linear_velocity = Vector3(0, 0, 10)
+size = Vector3(1.415, 1, 16.44)
+platform_mat = SubResource("StandardMaterial3D_6ewhy")
+speed = 10.0
+
+[node name="Stomper" parent="." instance=ExtResource("7_x23mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, -0.695)
+head_scale = Vector3(0.815, 0.815, 0.815)
+shaft_scale = 4.075
+show_collisions = true
+raise_height = 5.0
+
+[node name="Stomper2" parent="." instance=ExtResource("7_x23mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, 6.672)
+head_scale = Vector3(0.815, 0.815, 0.815)
+shaft_scale = 4.075
+show_collisions = true
+raise_height = 5.0
+raise_time_offset = 1.0
+
+[node name="Stomper6" parent="." instance=ExtResource("7_x23mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.836, -0.484, 15.682)
+head_scale = Vector3(0.87, 1, 1)
+shaft_scale = 4.825
+show_collisions = true
+raise_height = 10.0
+raise_time = 4.0
+
+[node name="CogButton" parent="." node_paths=PackedStringArray("connected_objects") instance=ExtResource("8_sf2mo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.965847, -0.2681236, 23.089766)
+connected_objects = [NodePath("../CogDoor"), NodePath("../BurnersHiddenChest/BurnerFlame7"), NodePath("../BurnersHiddenChest/BurnerFlame8")]
+
+[node name="CogDoor" parent="." instance=ExtResource("9_e7ieg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40.92685, -0.27985215, 23.202328)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.965847, -0.71465683, 23.266106)
+use_collision = true
+size = Vector3(8.144104, 0.8930664, 9.888992)
+material = SubResource("StandardMaterial3D_sf2mo")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.539606, -1.0577524, -16.814978)
+use_collision = true
+size = Vector3(8.240295, 1, 10.424469)
+
+[node name="LavaSmall" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(9.3467754e-08, 0, 0.31896842, 0, 0.877742, 0, -0.7127644, 0, 4.182766e-08, 16.391907, -1.9626637, -1.1283921)
+mesh = SubResource("PlaneMesh_2uvqi")
+
+[node name="LavaFloor" type="Area3D" parent="LavaSmall" node_paths=PackedStringArray("default_spawn_point")]
+script = ExtResource("12_2pq3o")
+base_damage = -2
+default_spawn_point = NodePath("../../LavaSpawnpoint")
+metadata/_custom_type_script = "uid://0v6jh8nv5lnx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaSmall/LavaFloor"]
+transform = Transform3D(1.0000032, 0, -7.1054274e-15, 0, 1, 0, 2.842171e-14, 0, 1, -0.86279595, -1.3928835, 0.6997986)
+shape = SubResource("BoxShape3D_6ewhy")
+
+[node name="LavaFloor2" type="Area3D" parent="." node_paths=PackedStringArray("default_spawn_point")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 16.391907, -12.249015, -1.1283932)
+script = ExtResource("12_2pq3o")
+base_damage = -2
+default_spawn_point = NodePath("../LavaSpawnpoint")
+metadata/_custom_type_script = "uid://0v6jh8nv5lnx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor2"]
+transform = Transform3D(1.0000163, 0, -2.1316282e-14, 0, 1, 0, -3.5527137e-12, 0, 0.99999976, -15.13039, 0, -2.5641031)
+shape = SubResource("BoxShape3D_2pq3o")
+
+[node name="LavaSmall2" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.1726216e-07, 0, 0.43221834, 0, 0.877742, 0, -0.8942152, 0, 5.6678598e-08, 20.419903, -12.662581, 16.01303)
+mesh = SubResource("PlaneMesh_2uvqi")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0.009867668, 0.5001545, 16.752008)
+use_collision = true
+size = Vector3(23.120903, 30.234203, 0.68323565)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.99999994, 0, 0, 0, 1, 0, 0, 0, -0.99999994, 19.510225, -1.435, 28.162)
+use_collision = true
+size = Vector3(42.702847, 34.105385, 0.13995767)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0.009867668, 10.47159, 2.8362172)
+use_collision = true
+size = Vector3(4.773512, 10.291332, 0.68323565)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0.009867668, 6.1008196, -4.7605867)
+use_collision = true
+size = Vector3(10.252967, 19.032873, 0.68323565)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -8.742276e-08, 40.8942, 11.130486, 23.17206)
+use_collision = true
+size = Vector3(11.006836, 8.492755, 0.23334146)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99999994, 0, -4.3711385e-08, 0, 1, 0, 4.3711385e-08, 0, 0.99999994, 10.2022915, 6.4315543, -15.61271)
+use_collision = true
+size = Vector3(20.88066, 17.204138, 12.845371)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99999994, 0, -4.3711385e-08, 0, 1, 0, 4.3711385e-08, 0, 0.99999994, 24.756155, 6.4667387, -10.387451)
+use_collision = true
+size = Vector3(8.439892, 17.204138, 2.3790445)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99999994, 0, -4.3711385e-08, 0, 1, 0, 4.3711385e-08, 0, 0.99999994, 30.343386, 6.4667387, -22.178623)
+use_collision = true
+size = Vector3(19.614355, 17.204138, 2.3790445)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99999994, 0, -4.3711385e-08, 0, 1, 0, 4.3711385e-08, 0, 0.99999994, 30.83137, 11.156689, -10.387451)
+use_collision = true
+size = Vector3(4.223254, 7.824237, 2.3790445)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(-8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -8.742276e-08, 37.098545, 6.4667387, -1.6856791)
+use_collision = true
+size = Vector3(39.8, 17.204138, 8.299839)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -8.742276e-08, 30.833654, -9.55973, 6.086264)
+use_collision = true
+size = Vector3(45.123573, 17.830576, 4.227914)
+material = SubResource("StandardMaterial3D_7kvwh")
+
+[node name="BurnerWalls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.689045, 0.33379656, -9.747333)
+
+[node name="BurnerFlame" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -6.695741, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 1.0
+base_damage = -3
+
+[node name="BurnerFlame2" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.1542144, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 1.0
+base_damage = -3
+
+[node name="BurnerFlame3" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.69574165, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 2.0
+base_damage = -3
+
+[node name="BurnerFlame4" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.84578514, -0.3667202, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 2.0
+base_damage = -3
+
+[node name="BurnerFlame5" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.3042583, 0.5991644, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 3.0
+base_damage = -3
+
+[node name="BurnerFlame6" parent="BurnerWalls" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.845785, 0.5991644, 0)
+enabled = false
+automatic = true
+down_time = 2.0
+up_time = 3.0
+delay_time = 3.0
+base_damage = -3
+
+[node name="door_frame" parent="." instance=ExtResource("12_2uvqi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2.823296)
+
+[node name="BurnersHiddenChest" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -1.509958e-07, 0, 1.509958e-07, -1, 31.00372, 7.0030327, -10.564812)
+
+[node name="BurnerFlame7" parent="BurnersHiddenChest" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, -0.9010277, -0.8852501, 0)
+flame_length = 1.155
+
+[node name="Flame" parent="BurnersHiddenChest/BurnerFlame7" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1.155, 0, -1, -5.048665e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="BurnersHiddenChest/BurnerFlame7/Flame" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_0qh65")
+
+[node name="FlameOuter" parent="BurnersHiddenChest/BurnerFlame7/Flame" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_vvpmk")
+
+[node name="BurnerFlame8" parent="BurnersHiddenChest" instance=ExtResource("11_7kvwh")]
+transform = Transform3D(1.41, 0, 0, 0, 1.41, 0, 0, 0, 1.41, 0.84051514, -0.8852501, 0)
+flame_length = 1.155
+
+[node name="Flame" parent="BurnersHiddenChest/BurnerFlame8" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1.155, 0, -1, -5.048665e-08, 0, 0.561064, 0)
+
+[node name="FlameInner" parent="BurnersHiddenChest/BurnerFlame8/Flame" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_0qh65")
+
+[node name="FlameOuter" parent="BurnersHiddenChest/BurnerFlame8/Flame" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_vvpmk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BurnersHiddenChest/BurnerFlame8/Flame/PlayerDetection" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -5.883294e-12, 1, -0.6853657, -0.3874513, 0.6313968)
+shape = SubResource("BoxShape3D_0froe")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.921322, 11.4201355, 6.6955175)
+size = Vector3(4.038086, 7.5897217, 4.0683594)
+material = SubResource("StandardMaterial3D_mapg0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.921322, 11.4201355, -0.7264061)
+size = Vector3(4.038086, 7.5897217, 4.0683594)
+material = SubResource("StandardMaterial3D_mapg0")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.921322, 13.893234, 15.620861)
+size = Vector3(4.038086, 2.6435242, 4.0683594)
+material = SubResource("StandardMaterial3D_mapg0")
+
+[node name="treasure_chest" parent="." instance=ExtResource("16_mapg0")]
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 23.192104, -0.55997103, -17.01141)
+
+[node name="treasure_chest2" parent="." instance=ExtResource("16_mapg0")]
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 24.403358, -0.55997103, -18.222664)
+
+[node name="treasure_chest3" parent="." instance=ExtResource("16_mapg0")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 40.078114, -0.2712878, 26.434917)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.774801, 8.113239, -2.7156882)
+use_collision = true
+size = Vector3(13.562622, 17.191177, 0.16168213)
+material = SubResource("StandardMaterial3D_bkv7p")
+
+[node name="conveyor_belt_portal" parent="." instance=ExtResource("19_ff0vf")]
+transform = Transform3D(-3.2073988e-08, 0, 0.7337673, 0, 0.7337673, 0, -0.7337673, 0, -3.2073988e-08, 30.70468, -0.5024595, 27.86015)
+
+[node name="conveyor_belt_portal2" parent="." instance=ExtResource("19_ff0vf")]
+transform = Transform3D(-3.207398e-08, 0, -0.7337673, 0, 0.7337673, 0, 0.7337673, 0, -3.207398e-08, 30.70468, -0.5024595, -20.767252)
+
+[node name="LavaSpawnpoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9749174, 0, 2.9340756)
+
+[node name="DebugPlayerPositionMarker" parent="." instance=ExtResource("1_0ybwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9749174, 0, 2.0774643)
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(0.58145326, -1.311327, 0.20152794, -0.47437185, -5.982635e-08, 1.3686675, -1.2390172, -0.615387, -0.4294356, 13.2565975, -11.999701, 18.019053)
+use_collision = true
+polygon = PackedVector2Array(0.010225445, -1.0024295, 0.77934337, 0.6297617, 1.6798617, 0.05160749, 2.3014922, -1.0811425, 0.010529518, -3.0116463)
+material = SubResource("StandardMaterial3D_sf2mo")
+
+[connection signal="s_pressed" from="CogButton" to="BurnersHiddenChest/BurnerFlame7" method="disable" unbinds=1]
+[connection signal="s_pressed" from="CogButton" to="BurnersHiddenChest/BurnerFlame8" method="disable" unbinds=1]
+
+[editable path="BurnersHiddenChest/BurnerFlame7"]
+[editable path="BurnersHiddenChest/BurnerFlame8"]

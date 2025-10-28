@@ -11,7 +11,7 @@ const ImmunityIcons: Dictionary = {
 	"Drop": preload("res://ui_assets/battle/statuses/drop_immunity.png"),
 }
 
-const FALLBACK_TRACK := preload('res://objects/battle/battle_resources/gag_loadouts/gag_tracks/throw.tres')
+const FALLBACK_TRACK := 'res://objects/battle/battle_resources/gag_loadouts/gag_tracks/throw.tres'
 
 @export var track: Track
 
@@ -49,10 +49,10 @@ func set_track(new_track: Track) -> void:
 func randomize_effect() -> void:
 	if is_instance_valid(Util.get_player()):
 		var loadout := Util.get_player().stats.character.gag_loadout
-		track = RandomService.array_pick_random('true_random', loadout.loadout)
+		track = loadout.loadout.pick_random()
 	else:
-		track = FALLBACK_TRACK
-	rounds = RandomService.randi_range_channel('true_random', 1, 3)
+		track = load(FALLBACK_TRACK)
+	rounds = randi_range(1, 3)
 
 func get_icon() -> Texture2D:
 	return ImmunityIcons[track.track_name]

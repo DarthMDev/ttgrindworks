@@ -1,5 +1,4 @@
 extends DoodleAction
-class_name DoodlePlayDead
 
 const SFX := preload('res://audio/sfx/doodle/play_dead.ogg')
 
@@ -25,7 +24,7 @@ func action():
 	await user.animator.animation_finished
 	
 	# Apply the 1 round status effect
-	var stat_effect := create_stat_boost('luck', 1.33)
+	var stat_effect := create_stat_boost('luck', 0.33)
 	manager.add_status_effect(stat_effect)
 	
 	# Focus player

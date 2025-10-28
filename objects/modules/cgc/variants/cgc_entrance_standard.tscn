@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn5ivmft0p2vy"]
+[gd_scene load_steps=4 format=3 uid="uid://cdv7ynkpvys53"]
 
 [ext_resource type="PackedScene" uid="uid://dh73uqxt8akws" path="res://objects/modules/cgc/base_rooms/cgc_entrance.tscn" id="1_42lmr"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="2_3td3o"]
@@ -6,11 +6,14 @@
 
 [node name="cgc_entrance" instance=ExtResource("1_42lmr")]
 
-[node name="treasure_chest" parent="." index="28" instance=ExtResource("2_3td3o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.1382, 0, -4.2958)
+[node name="TrimmedTree_006" parent="TrimmedTrees" index="6"]
+visible = false
+
+[node name="treasure_chest" parent="." index="13" instance=ExtResource("2_3td3o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.1382, 0, -3.7802262)
 item_pool = ExtResource("3_3hems")
 scripted_progression = true
 
-[node name="treasure_chest2" parent="." index="29" instance=ExtResource("2_3td3o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.1382, 0, 3.11784)
+[node name="treasure_chest2" parent="." index="14" instance=ExtResource("2_3td3o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.1382, 0, 3.633414)
 item_pool = ExtResource("3_3hems")

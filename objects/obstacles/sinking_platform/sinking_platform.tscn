@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://y8162bivi546" path="res://objects/obstacles/sinking_platform/sinking_platform.gd" id="1_866e6"]
 [ext_resource type="PackedScene" uid="uid://d0o37sg2xvqe6" path="res://models/props/facility_objects/conveyor_platform/platform.glb" id="2_eg61r"]
-[ext_resource type="Material" uid="uid://b4jsk4lpyajdh" path="res://objects/obstacles/sinking_platform/edge_regular_mat.tres" id="3_256js"]
-[ext_resource type="Material" uid="uid://daqwoobakutyf" path="res://objects/obstacles/sinking_platform/top_regular_mat.tres" id="4_2drc3"]
+[ext_resource type="Material" uid="uid://b4jsk4lpyajdh" path="res://objects/obstacles/sinking_platform/edge_regular_mat.tres" id="3_ae67x"]
+[ext_resource type="Material" uid="uid://daqwoobakutyf" path="res://objects/obstacles/sinking_platform/top_regular_mat.tres" id="4_652l8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y265o"]
 size = Vector3(2.99602, 0.112238, 2.97157)
@@ -19,11 +19,8 @@ script = ExtResource("1_866e6")
 [node name="platform2" parent="Platform" instance=ExtResource("2_eg61r")]
 
 [node name="platform" parent="Platform/platform2" index="0"]
-surface_material_override/0 = ExtResource("3_256js")
-surface_material_override/1 = ExtResource("4_2drc3")
-
-[node name="group1" parent="Platform/platform2" index="3"]
-visible = false
+surface_material_override/0 = ExtResource("3_ae67x")
+surface_material_override/1 = ExtResource("4_652l8")
 
 [node name="PlayerDetect" type="Area3D" parent="Platform"]
 collision_mask = 2

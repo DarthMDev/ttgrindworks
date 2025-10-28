@@ -1,0 +1,243 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcln3bdfllhra"]
+
+[ext_resource type="Script" uid="uid://blalimn2ay2nj" path="res://objects/player/ui/pete_voucher_progress/bean_voucher_meter.gd" id="1_heugu"]
+[ext_resource type="Texture2D" uid="uid://b1ktnp1esto6k" path="res://objects/items/custom/jellybean_voucher/jellybean_voucher_grayscale.png" id="2_s1xf2"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_sp0gx"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="4_llse4"]
+[ext_resource type="AudioStream" uid="uid://cn3dn3fydnkkw" path="res://audio/sfx/ui/Click.ogg" id="4_sp0gx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1xf2"]
+font = ExtResource("2_sp0gx")
+font_size = 30
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heugu"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.29853636, 0.40292725, 0.20146362, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 0.2784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1xf2"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.5970727, 0.8058545, 0.40292725, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_llse4"]
+font = ExtResource("2_sp0gx")
+font_size = 24
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.78039217)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_heugu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5kgt"]
+font = ExtResource("4_llse4")
+font_size = 24
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="BeanVoucherMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+script = ExtResource("1_heugu")
+
+[node name="RewardPopup" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = 253.0
+offset_right = 29.666748
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Scaler" type="Control" parent="RewardPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.01, 0.01)
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="RewardPopup/Scaler"]
+custom_minimum_size = Vector2(69.99999, 42)
+layout_mode = 0
+offset_left = -59.333374
+offset_top = -21.0
+offset_right = 10.666618
+offset_bottom = 21.0
+grow_vertical = 2
+size_flags_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_s1xf2")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="RewardPopup/Scaler"]
+layout_mode = 0
+offset_left = 22.666626
+offset_top = -16.0
+offset_right = 62.666626
+offset_bottom = 15.0
+size_flags_horizontal = 10
+text = "+1"
+label_settings = SubResource("LabelSettings_s1xf2")
+
+[node name="Meter" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = 19.0
+offset_right = 135.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Meter"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_heugu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s1xf2")
+max_value = 30.0
+show_percentage = false
+
+[node name="ProgressLabel" type="Label" parent="Meter/ProgressBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0/30"
+label_settings = SubResource("LabelSettings_llse4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Meter"]
+custom_minimum_size = Vector2(48, 40)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+texture = SubResource("ViewportTexture_heugu")
+expand_mode = 1
+
+[node name="LabelScaler" type="Control" parent="Meter/TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+rotation = -0.34980297
+mouse_filter = 2
+
+[node name="RewardLabel" type="Label" parent="Meter/TextureRect/LabelScaler"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -15.5
+offset_right = 13.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "x0"
+label_settings = SubResource("LabelSettings_u5kgt")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(614, 512)
+
+[node name="World3D" type="Node3D" parent="SubViewport"]
+
+[node name="Voucher3D" type="Sprite3D" parent="SubViewport/World3D"]
+unique_name_in_owner = true
+transform = Transform3D(-0.34569737, 0.060955744, 0.9363625, 0.17364794, 0.9848075, -7.1176146e-08, -0.92213863, 0.16259764, -0.35102972, 0, 0, 0)
+modulate = Color(0.5970727, 0.8058545, 0.40292725, 1)
+pixel_size = 0.007
+texture = ExtResource("2_s1xf2")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/World3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.2614965)
+projection = 1
+current = true
+fov = 52.0
+size = 4.835
+
+[node name="TickSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_sp0gx")
+volume_db = -3.0
+bus = &"SFX"
+
+[node name="RewardCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="GoAwayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="RewardCooldown" to="." method="reward_cooldown_timeout"]

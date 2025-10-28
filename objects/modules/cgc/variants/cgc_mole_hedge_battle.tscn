@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://e3lbnnyh7pga"]
+
+[ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_a8dbm"]
+[ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="2_615d1"]
+[ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_615d1"]
+[ext_resource type="PackedScene" uid="uid://pn7r3ut085aw" path="res://objects/props/cgc/hedge_pillar.tscn" id="4_pym1o"]
+[ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="5_onj87"]
+[ext_resource type="PackedScene" uid="uid://c3x8mxt3ia342" path="res://models/props/cog_props/golf/golf_club.glb" id="6_wu18a"]
+[ext_resource type="PackedScene" uid="uid://ciyyhun2e5nmf" path="res://objects/props/etc/crate/crate_general.tscn" id="7_b7kq7"]
+[ext_resource type="PackedScene" uid="uid://c3tgv76gttxr5" path="res://models/props/cog_props/golf/golf_ball.glb" id="8_11p76"]
+[ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="9_0ebtw"]
+[ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="10_iq6ek"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="11_50pf2"]
+[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="12_trgaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_615d1"]
+size = Vector3(16.408936, 9.01416, 6.3031616)
+
+[node name="mole_room" instance=ExtResource("1_a8dbm")]
+
+[node name="BattleNodeDynamic" parent="." index="17" node_paths=PackedStringArray("cogs") instance=ExtResource("3_615d1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.555, -0.05, -9.07)
+cog_range = Vector2i(1, 3)
+cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41589355, 4.00708, -1.556427)
+shape = SubResource("BoxShape3D_615d1")
+
+[node name="ResizeableHedgeCube" parent="." index="18" instance=ExtResource("2_615d1")]
+transform = Transform3D(0.9583525, 0, -0.285588, 0, 1.4, 0, 0.285588, 0, 0.9583525, -7.111, -0.05, 8.563)
+size = Vector2(3.335, 10.65)
+
+[node name="ResizeableHedgeCube2" parent="." index="19" instance=ExtResource("2_615d1")]
+transform = Transform3D(0.0053581297, 0, -0.9999856, 0, 1.3999999, 0, 0.9999856, 0, 0.0053581297, -2.919, -0.05, 0.31)
+size = Vector2(2.77, 6.27)
+
+[node name="HedgePillar" parent="." index="20" instance=ExtResource("4_pym1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4866447, 0, 12.826826)
+
+[node name="treasure_chest" parent="." index="21" instance=ExtResource("5_onj87")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.6215353, -0.058024686, 9.172269)
+
+[node name="SecretMole" type="Area3D" parent="." index="22"]
+transform = Transform3D(0.81383157, 0, 0.5811007, 0, 1, 0, -0.5811007, 0, 0.81383157, -13.509, -0.05, -12.985)
+script = ExtResource("10_iq6ek")
+game_mode = 1
+endless_stop_moles = false
+difficulty = 0.04
+grid_size = Vector2i(1, 1)
+metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
+
+[node name="SecretMole2" type="Area3D" parent="." index="23"]
+transform = Transform3D(0.81383157, 0, 0.5811007, 0, 1, 0, -0.5811007, 0, 0.81383157, -10.61, -0.05, -15.055)
+script = ExtResource("10_iq6ek")
+game_mode = 1
+endless_stop_moles = false
+difficulty = 0.04
+grid_size = Vector2i(1, 1)
+metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
+
+[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="24" instance=ExtResource("11_50pf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.211983, 0, -0.729856)
+script = ExtResource("12_trgaf")
+
+[node name="Props" type="Node3D" parent="." index="25"]
+
+[node name="crate_general" parent="Props" index="0" instance=ExtResource("7_b7kq7")]
+transform = Transform3D(0.95962393, 0, -0.2812865, 0, 1, 0, 0.2812865, 0, 0.95962393, -3.0217052, 0, 6.3332677)
+
+[node name="golf_ball2" parent="Props" index="1" instance=ExtResource("8_11p76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4414566, 0, 4.9281726)
+
+[node name="golf_ball3" parent="Props" index="2" instance=ExtResource("8_11p76")]
+transform = Transform3D(0.9256726, 0, 0.3783255, -0.10047303, 0.96409076, 0.24583364, -0.36474013, -0.26557294, 0.8924324, -2.90343, -0.074606985, 5.1518974)
+
+[node name="golf_ball4" parent="Props" index="3" instance=ExtResource("8_11p76")]
+transform = Transform3D(-0.85854244, -0.2088771, 0.4682685, -0.10047305, 0.9640909, 0.24583368, -0.50280225, 0.16401026, -0.8486993, -3.0836527, -0.074606985, 4.435245)
+
+[node name="fence" parent="Props" index="4" instance=ExtResource("9_0ebtw")]
+transform = Transform3D(0.27247322, 0, -0.41923544, 0, 0.5, 0, 0.41923544, 0, 0.27247322, -13.095, -0.05, -11.639)
+
+[node name="fence2" parent="Props" index="5" instance=ExtResource("9_0ebtw")]
+transform = Transform3D(0.27247322, 0, -0.41923544, 0, 0.5, 0, 0.41923544, 0, 0.27247322, -9.782, -0.05, -13.793)
+
+[node name="fence3" parent="Props" index="6" instance=ExtResource("9_0ebtw")]
+transform = Transform3D(0.27247322, 0, -0.41923544, 0, 0.5, 0, 0.41923544, 0, 0.27247322, -6.309, -0.05, -16.05)
+
+[node name="golf_club2" parent="Props" index="7" instance=ExtResource("6_wu18a")]
+transform = Transform3D(-0.100332014, -0.5548429, -0.49455324, -0.025660463, 0.5013271, -0.5572366, 0.7428156, -0.05762427, -0.086048916, -3.5633223, 2.1023293, 5.1069255)

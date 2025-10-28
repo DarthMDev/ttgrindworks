@@ -6,13 +6,7 @@
 [resource]
 script = ExtResource("1_yimdi")
 quality = 0
-rounds = 1
 icon = ExtResource("1_uljh3")
-icon_color = Color(1, 1, 1, 1)
-icon_scale = 1.0
-mini_icon_color = Color(1, 1, 1, 1)
-mini_icon_scale = 1.0
-visible = true
 description = "Union Buster will eliminate this Cog for his own gain!"
 status_name = "Contract Limit"
 id = 20

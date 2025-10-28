@@ -58,7 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1.027, -104)
 curve = SubResource("Curve3D_87smo")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform2" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99422, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform3" type="Node3D" parent="Plaforms" index="1"]
@@ -68,7 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1.027, -99)
 curve = SubResource("Curve3D_87smo")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform3" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99422, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform4" type="Node3D" parent="Plaforms" index="2"]
@@ -78,7 +76,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5, 1.027, -99)
 curve = SubResource("Curve3D_j0e6w")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform4" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99578, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform5" type="Node3D" parent="Plaforms" index="3"]
@@ -88,7 +85,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5, 1.027, -104)
 curve = SubResource("Curve3D_j0e6w")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform5" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99578, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform6" type="Node3D" parent="Plaforms" index="4"]
@@ -98,7 +94,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 1.027, -99)
 curve = SubResource("Curve3D_cjh6x")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform6" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16065, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform7" type="Node3D" parent="Plaforms" index="5"]
@@ -108,7 +103,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 1.027, -104)
 curve = SubResource("Curve3D_cjh6x")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform7" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16065, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform8" type="Node3D" parent="Plaforms" index="6"]
@@ -118,7 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, 1.027, -104)
 curve = SubResource("Curve3D_8rqws")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform8" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00578217, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform9" type="Node3D" parent="Plaforms" index="7"]
@@ -128,7 +121,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5, 1.027, -99)
 curve = SubResource("Curve3D_8rqws")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform9" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00578217, 0)
 path = NodePath("../Path3D")
 
 [node name="Plaform10" type="Node3D" parent="Plaforms" index="8"]
@@ -138,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 4, -109)
 curve = SubResource("Curve3D_hb2o8")
 
 [node name="ElevatingPlatform" parent="Plaforms/Plaform10" index="1" node_paths=PackedStringArray("path") instance=ExtResource("2_prisq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.50058, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.501, 0)
 path = NodePath("../Path3D")
 
 [node name="treasure_chest" parent="." index="8" instance=ExtResource("3_da8dp")]

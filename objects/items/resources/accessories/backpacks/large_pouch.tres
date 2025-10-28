@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://dkk2fyypdps0o"]
+
+[ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_2c17e"]
+[ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_ifqk1"]
+[ext_resource type="Texture2D" uid="uid://b1pr5x4odsso3" path="res://models/accessories/backpacks/standard_backpack/small_pouch-pix-2.png" id="3_2c17e"]
+[ext_resource type="PackedScene" uid="uid://v36kuhbfnv5b" path="res://models/accessories/backpacks/standard_backpack/large_pouch.tscn" id="4_ifqk1"]
+[ext_resource type="AudioStream" uid="uid://8vjo40mj15u4" path="res://audio/sfx/items/SZ_MM_fanfare.ogg" id="5_ifqk1"]
+[ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="5_usal2"]
+
+[sub_resource type="Resource" id="Resource_6vjhu"]
+script = ExtResource("2_ifqk1")
+body_type = 2
+position = Vector3(0.01, 0.72, 0.8)
+rotation = Vector3(-8.28, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_4scxt"]
+script = ExtResource("2_ifqk1")
+body_type = 1
+position = Vector3(0.01, 0.35, 0.78)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="Resource" id="Resource_pj1q4"]
+script = ExtResource("2_ifqk1")
+position = Vector3(0.11, 0.46, 1.08)
+rotation = Vector3(8.28, 180, 0)
+scale = Vector3(0.4, 0.4, 0.4)
+
+[resource]
+script = ExtResource("5_usal2")
+accessory_placements = Array[ExtResource("1_2c17e")]([SubResource("Resource_6vjhu"), SubResource("Resource_4scxt"), SubResource("Resource_pj1q4")])
+tags = Array[int]([0])
+qualitoon = 4
+rarity = 3
+slot = 3
+world_scale = 0.15
+item_name = "Large Pouch"
+item_description = "The morest storage space!"
+big_description = "Adds +5 to your Gag carry capacity."
+model = ExtResource("4_ifqk1")
+pickup_sfx = ExtResource("5_ifqk1")
+stats_add = {
+"gag_cap": 5
+}
+icon = ExtResource("3_2c17e")
+shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

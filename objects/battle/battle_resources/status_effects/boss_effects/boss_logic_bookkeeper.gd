@@ -29,23 +29,23 @@ func round_started(_actions: Array[BattleAction]) -> void:
 		ponzi_scheme()
 
 func cook_the_books() -> void:
-	var cooked := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_cook_the_books.tres").duplicate()
+	var cooked := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_cook_the_books.tres").duplicate(true)
 	cooked.targets = [Util.get_player()]
 	cooked.user = bookkeeper
 	manager.round_end_actions.append(cooked)
 
 func financial_report() -> void:
-	var report := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_financial_report.tres").duplicate()
+	var report := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_financial_report.tres").duplicate(true)
 	report.targets = [Util.get_player()]
 	report.user = bookkeeper
 	manager.round_end_actions.append(report)
 
 func mental_math() -> void:
-	var mm := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_mental_math.tres").duplicate()
+	var mm := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_mental_math.tres").duplicate(true)
 	mm.user = bookkeeper
 	manager.round_end_actions.append(mm)
 
 func ponzi_scheme() -> void:
-	var ps := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_ponzi_scheme.tres").duplicate()
+	var ps := load("res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_ponzi_scheme.tres").duplicate(true)
 	ps.user = bookkeeper
 	manager.round_end_actions.append(ps)

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="CogDNA" load_steps=9 format=3 uid="uid://cr7ich07ytdmu"]
+
+[ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_8apu2"]
+[ext_resource type="Resource" uid="uid://dc3wprcrjg58t" path="res://objects/battle/battle_resources/cog_attacks/resources/audit.tres" id="2_twpuu"]
+[ext_resource type="Resource" uid="uid://bik8l6ycrnufq" path="res://objects/battle/battle_resources/cog_attacks/resources/calculate.tres" id="3_31ymo"]
+[ext_resource type="Resource" uid="uid://dwkmwkdn3ws4k" path="res://objects/battle/battle_resources/cog_attacks/resources/evil_eye.tres" id="4_5oh0m"]
+[ext_resource type="Resource" uid="uid://c3gg5tsci6aye" path="res://objects/battle/battle_resources/cog_attacks/resources/hang_up.tres" id="5_5oh0m"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="5_galky"]
+[ext_resource type="Resource" uid="uid://bpupdhbap1rq" path="res://objects/battle/battle_resources/cog_attacks/resources/freeze_assets.tres" id="6_galky"]
+[ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="7_f8lx2"]
+
+[resource]
+script = ExtResource("7_f8lx2")
+department = 1
+suit = 2
+custom_blazer_tex = "res://models/cogs/textures/misc/blazer_1.png"
+custom_arm_tex = "res://models/cogs/textures/misc/sleeve_2.png"
+custom_leg_tex = "res://models/cogs/textures/misc/leg_4.png"
+cog_name = "Cash Cow"
+name_prefix = "Cash"
+name_suffix = "Cow"
+head = "uid://c3kidekq7t47b"
+head_scale = Vector3(0.82, 0.82, 0.82)
+head_pos = Vector3(0, -0.09, 0.1)
+scale = 4.8
+head_textures = PackedStringArray("res://models/cogs/heads/cashCow.png")
+hand_color = Color(0.662745, 0.756863, 0.733333, 1)
+attacks = Array[ExtResource("1_8apu2")]([ExtResource("2_twpuu"), ExtResource("3_31ymo"), ExtResource("4_5oh0m"), ExtResource("5_5oh0m"), ExtResource("6_galky"), ExtResource("5_galky")])
+level_low = 5
+level_high = 20
+baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/status_effect_mod_cog.tres")
+is_mod_cog = true
+battle_phrases = Array[String](["I’ve got beef with you.", "I’ll udderly destroy you!", "I do love a high-steaks game.", "Moooooove it or lose it, Toon.", "I’ll put you out to pasture.", "I’ll stomp you ‘till the cows come home.", "Allow me to relieve you of your milk money."])
+external_assets = {
+&"head_model": "",
+&"head_textures": []
+}
