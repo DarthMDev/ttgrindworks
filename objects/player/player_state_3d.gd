@@ -5,6 +5,7 @@ class_name PlayerState3D
 @onready var toon: Toon = %Toon
 @onready var camera: PlayerCamera = %PlayerCamera
 @onready var move_sfx: AudioStreamPlayer = %MoveSFX
+const TEST_EFFECTS := 'res://objects/player/ui/test_effects.tscn'
 
 #region Override this in subclasses
 
@@ -23,6 +24,7 @@ var stats: PlayerStats:
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_sfx()
+	handle_test_effects()
 
 #region Movement and velocity
 
@@ -309,3 +311,9 @@ func debug_collision_check() -> void:
 		var kc3d: KinematicCollision3D = player.get_last_slide_collision()
 		if kc3d:
 			print(get_tree().root.get_path_to(kc3d.get_collider(0)))
+
+func handle_test_effects() -> void:
+	if OS.is_debug_build():
+	# if we press the c key, we will spawn a test effects menu
+		if Input.is_action_just_pressed("test_effects"):
+			get_tree().get_root().add_child(load(TEST_EFFECTS).instantiate())

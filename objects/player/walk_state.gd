@@ -8,6 +8,7 @@ func handle_movement(delta: float) -> void:
 	debug_collision_check()
 
 	handle_camera()
+	handle_test_effects()
 
 func accepts_interaction() -> bool:
 	return true

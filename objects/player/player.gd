@@ -4,7 +4,6 @@ class_name Player
 var PAUSE_MENU: PackedScene
 const DEATH_THRESHOLD := -20.0
 const IFRAME_TIME := 3.0
-const TEST_EFFECTS := 'res://objects/player/ui/test_effects.tscn'
 const PAUSE_DELAY := 0.25
 
 ## Object states

@@ -17,15 +17,15 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 		var new_mod: String = RNG.channel(RNG.ChannelFloorMods).pick_random(anomalies)
 		var loaded_mod: Script = Util.universal_load(new_mod)
 		Util.floor_manager.add_anomaly(loaded_mod)
-		if loaded_mod.get_mod_name() == "Marathon":
-			# if we are in the shop we should refund the user as the next room is a boss room
-			if Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.pre_final_rooms or Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.final_rooms:
-				# we are in the shop or we are in the boss room
-				# we need to refund the user
-				return FAILURE
-			# we need to emit the signal for marathon so any listeners can pick it up
-			# and add an extra room
-			Util.floor_manager.s_marathon_triggered.emit()
+		# if loaded_mod.get_mod_name() == "Marathon":
+		# 	# if we are in the shop we should refund the user as the next room is a boss room
+		# 	if Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.pre_final_rooms or Util.floor_manager.get_current_room() in Util.floor_manager.floor_rooms.final_rooms:
+		# 		# we are in the shop or we are in the boss room
+		# 		# we need to refund the user
+		# 		return FAILURE
+		# 	# we need to emit the signal for marathon so any listeners can pick it up
+		# 	# and add an extra room
+		# 	Util.floor_manager.s_marathon_triggered.emit()
 			
 		return SUCCESS
 	return FAILURE

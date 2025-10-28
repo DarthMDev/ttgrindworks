@@ -25,7 +25,7 @@ script = ExtResource("1_sb055")
 [node name="Resume" parent="." instance=ExtResource("2_207ts")]
 material = SubResource("ShaderMaterial_k8s8b")
 custom_minimum_size = Vector2(230, 100)
-layout_mode = 2
+layout_mode = 0
 offset_left = -8.0
 offset_top = 557.0
 offset_right = 222.0
@@ -35,6 +35,7 @@ texture_pressed = ExtResource("5_7xrpi")
 texture_hover = ExtResource("6_vc8qy")
 texture_disabled = ExtResource("5_7xrpi")
 text = "Resume"
+font_size = 36.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -54,5 +55,6 @@ vertical = true
 
 [node name="GeneralButton" parent="ScrollContainer/Buttons" instance=ExtResource("2_207ts")]
 layout_mode = 2
+font_size = 36.0
 
 [connection signal="pressed" from="Resume" to="." method="resume"]
