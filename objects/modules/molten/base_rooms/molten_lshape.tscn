@@ -168,7 +168,7 @@ shader_parameter/emission_color = Vector3(2, 0, 0)
 [node name="molten_connector_Lshape" instance=ExtResource("1_crjec")]
 
 [node name="PlayerSpawn" type="Node3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 7.27596e-12, 0, 1.11022e-16, 1, -0.0305821, -1.20721, 0.0724822)
+transform = Transform3D(1, 0, 0, 0, 1, 7.27596e-12, 0, 1.11022e-16, 1, -11.793084, 0.24889857, -14.610627)
 
 [node name="LavaFloor" parent="." index="1" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("4_jtdxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6589668, 0)

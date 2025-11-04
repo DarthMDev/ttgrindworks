@@ -5,7 +5,7 @@ This is a single-player game based on Disney's Toontown Online developed with th
 
 ## Requirements
 
-- Godot v4.5
+- Godot v4.5.1
 
 ## Disclaimer
 - We are under no obligation to:
@@ -29,7 +29,7 @@ Enjoy!
 - TheRandomDog
   - Programmer
 - Bludoo
-  - Programmer
+  - Programmer & Game Designer
 - Kel'Block
   - 3D Artist, Animator & Texture Artist
 - Elisei

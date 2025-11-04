@@ -8,12 +8,11 @@
 [resource]
 script = ExtResource("2_syry0")
 qualitoon = 1
-rarity = 1
 evergreen = true
 item_name = "Bamboo Cane"
 item_description = "Evasiveness Boost!"
-big_description = "Lasts 3 rounds
-+ 40% Evasiveness"
+big_description = "Lasts 2 rounds
++ 50% Evasiveness"
 model = ExtResource("1_atcwe")
 pickup_sfx = ExtResource("2_h5ma3")
 remember_item = false

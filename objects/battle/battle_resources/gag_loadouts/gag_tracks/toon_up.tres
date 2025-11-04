@@ -17,7 +17,7 @@
 
 [sub_resource type="Resource" id="Resource_ykd0g"]
 script = ExtResource("6_5nyuh")
-boost = 0.3
+boost = 0.5
 quality = 0
 rounds = -1
 
@@ -32,7 +32,7 @@ action_name = "Feather"
 [sub_resource type="Resource" id="Resource_bhq5a"]
 script = ExtResource("6_5nyuh")
 stat = "damage"
-boost = 0.1
+boost = 0.2
 quality = 0
 rounds = -1
 
@@ -47,6 +47,7 @@ action_name = "Megaphone"
 
 [sub_resource type="Resource" id="Resource_dsjnk"]
 script = ExtResource("8_ki655")
+discount = 2
 quality = 0
 rounds = 2
 icon = ExtResource("7_ki655")
@@ -66,7 +67,7 @@ action_name = "Lipstick"
 [sub_resource type="Resource" id="Resource_xd2n5"]
 script = ExtResource("6_5nyuh")
 stat = "evasiveness"
-boost = 0.4
+boost = 0.5
 quality = 0
 rounds = -1
 
@@ -98,7 +99,7 @@ action_name = "Pixie Dust"
 [sub_resource type="Resource" id="Resource_mg323"]
 script = ExtResource("6_5nyuh")
 stat = "luck"
-boost = 0.2
+boost = 0.25
 quality = 0
 rounds = -1
 

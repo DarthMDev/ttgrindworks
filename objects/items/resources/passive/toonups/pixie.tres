@@ -11,7 +11,7 @@ evergreen = true
 world_scale = 0.75
 item_name = "Pixie Dust"
 item_description = "Laff Regeneration!"
-big_description = "Lasts 3 rounds
+big_description = "Lasts 2 rounds
 + 20% Laff Regeneration"
 model = ExtResource("1_tiwq4")
 pickup_sfx = ExtResource("2_08lmc")

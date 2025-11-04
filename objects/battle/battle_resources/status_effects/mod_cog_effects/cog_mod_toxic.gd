@@ -33,14 +33,16 @@ func apply_random_effect() -> void:
 
 func apply_effect(effect_tag: String) -> void:
 	var effect: StatusEffect = load(EFFECTS[effect_tag]).duplicate(true)
-	effect.randomize_effect()
 	effect.target = player
+	effect.randomize_effect()
 	effect.quality = EffectQuality.NEGATIVE
 	
 	match effect_tag:
 		"gag_discount": effect.discount = -1
 		"stat_boost": effect.boost = -absf(effect.boost)
-		"budget_cuts": effect.track_name = get_random_track().track_name
+		"budget_cuts": 
+			effect.track_name = get_random_track().track_name
+			if player.gags_cost_beans: effect.penalty = 1
 	
 	manager.add_status_effect(effect)
 

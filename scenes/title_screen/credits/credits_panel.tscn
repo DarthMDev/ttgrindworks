@@ -160,7 +160,7 @@ resource_name = "Bludoo"
 script = ExtResource("3_ksngi")
 icon = ExtResource("17_k5w5c")
 name = "Bludoo"
-role = "Programmer"
+role = "Programmer & Game Designer"
 label_settings = SubResource("LabelSettings_tmj41")
 
 [sub_resource type="Resource" id="Resource_2m611"]

@@ -12,7 +12,6 @@ var ICONS := {
 @export var stat: String = 'defense'
 @export var boost: float = 1.0
 
-var force_no_combine := false
 
 func apply():
 	var battle_stats: BattleStats = manager.battle_stats[target]

@@ -65,4 +65,6 @@ func combine(effect: StatusEffect) -> bool:
 
 func randomize_effect() -> void:
 	super()
+	if target:
+		amount = ceili(randf_range(ceili(target.stats.max_hp * 0.05), ceili(target.stats.max_hp * 0.1)))
 	rounds = -1

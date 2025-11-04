@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://dru761c34xwri"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_g1kfd"]
+
+[resource]
+script = ExtResource("1_g1kfd")
+release_version = "v1.2.2"
+notes = "[TITLE]Items
+Slightly tweaked the Special Items treasure pool
+Toon-Up items will now stack the rounds the effect will last, rather than the potency of the effect
+In the wake of these changes to Toon-Up, the following balance changes have been made:
+  All Toon-Up items last 1 fewer round
+  The maximum Toon-Up item count has been increased to 5
+  Toon-Up items have been made slightly more rare overall
+  Feather now boosts Defense by 50% (previously 30%)
+  Bamboo Cane now boosts Evasiveness by 50% (previously 40%)
+  Megaphone now boosts Damage by 20% (previously 10%)
+  Juggling Cubes now boosts Luck by 25% (previously 20%)
+  Lipstick's gag discount has been increased to 2
+  High Dive's boosts have also been increased:
+    +15% Damage (previously 10%)
+    +20% Luck (previously 15%)
+    +35% Defense (previously 20%)
+    +35% Evasiveness (previously 25%)
+  Combining a High Dive stat boost with another Toon-Up stat boost will increase the rounds of the stat boost, and take the higher of the two boost amounts
+Laff Boosts at the shop will now scale in price with their boost amount
+[TITLE]Bosses
+The following changes were made to The Directors:
+  Increased the HP of each Director to 3000
+  Increased the level range of grunt Cogs during the fight
+  The first reinforcement call will now occur at the end of the first round
+[TITLE]Tweaks
+Group Lure's Accuracy Down is now properly reflected in the GUI and during the battle movie
+Lightened the floor in the Cog Golf Course mazes
+All ToonTask slots can now roll a task related to any department
+[TITLE]Bugfixes
+Fixed an issue where Bird Wings could cause shopkeepers' accessories to glow
+Fixed a bug where Heart Glasses could cause Embezzle to steal negative quantities of jellybeans
+Fixed a bug that would cause items to be unable to be picked up when rerolled with Paint Bucket
+Fixed an issue that allowed you to use Toy Hammer and Big Foghorn on the Chartist boss fight
+Fixed an issue where White-Out could spawn you partway through a floor
+Fixed a crash in the shop related to swapping Pocket Pranks
+Fixed an issue where the Toxic Proxy Cog effect wouldn't scale its effects properly
+Similarly, fixed an issue where Toxic wouldn't properly apply Budget Cuts to Professor Pete
+Fixed a bug in the Cog Creator where the proxy status effect wouldn't be properly added to the Cog's DNA file
+Fixed some wonky battle collisions
+The connectors in the Cog Golf Course no longer consume the chests in the maze room
+Fixed the respawn point of a lava floor in the Molten Mint
+Adjusted an invisible wall in the Molten Mint
+[TITLE]Hotfix #1
+Fixed an issue where non-specific ToonTasks could not be rolled
+Fixed an issue where specific Cog ToonTasks were generating with quotas that were too high
+Due to a coin flip, Star Glasses have returned to the Gold Chest item pool
+Fixed the descriptions of the Toon-Up items"

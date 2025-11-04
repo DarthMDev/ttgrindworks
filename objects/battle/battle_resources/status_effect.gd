@@ -26,6 +26,9 @@ enum EffectQuality {
 @export var status_name := "Status Effect"
 var target: Actor
 var manager: BattleManager
+var is_toonup_effect := false
+var force_no_combine := false
+
 
 ## Called by battle manager on initial application
 func apply():
