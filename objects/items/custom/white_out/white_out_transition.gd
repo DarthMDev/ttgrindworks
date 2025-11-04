@@ -109,3 +109,4 @@ func clean_current_floor() -> void:
 	for child in game_floor.get_node('Modifiers').get_children():
 		if child is FloorModifier:
 			child.clean_up()
+	Util.get_player().global_position = Vector3.ZERO

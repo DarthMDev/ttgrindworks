@@ -21,7 +21,7 @@ attacks = Array[ExtResource("1_68i6a")]([ExtResource("2_7sios"), ExtResource("3_
 level_low = 20
 level_high = 20
 baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/attentive.tres", "res://objects/battle/battle_resources/status_effects/resources/boss_logic_bookkeeper.tres", "res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres")
-health_mod = 5.411
+health_mod = 6.493
 battle_phrases = Array[String](["I am the bookkeeper"])
 external_assets = {
 &"head_model": "",

@@ -63,8 +63,8 @@ func create_walk_tween() -> Tween:
 
 func get_effect_string() -> String:
 	match lure_type:
-		LureType.STUN: return 'Stun'
-		_: return 'Damage Down'
+		LureType.STUN: return 'Applies: Stun'
+		_: return 'Nerfs: Damage/Accuracy'
 
 func get_status_name() -> String:
 	return "Lured"

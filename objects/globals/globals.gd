@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.2.1"
+const VERSION_NUMBER := "v1.2.2"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -586,7 +586,7 @@ func on_floor_start(game_floor: GameFloor) -> void:
 	if game_floor.floor_variant.is_alt_floor:
 		s_secret_floor.emit()
 
-var MaxToonupConsumables := 3
+var MaxToonupConsumables := 5
 
 
 #region Global Signals

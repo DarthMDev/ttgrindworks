@@ -8,6 +8,7 @@ const BOOST_RANGES: Dictionary[String, Vector2i]= {
 	"res://objects/items/pools/progressives.tres": Vector2i(3, 5),
 	"res://objects/items/pools/rewards.tres": Vector2i(4, 7),
 }
+const COST_PER_POINT := 4
 
 @onready var behind: Label3D = %Behind
 
@@ -20,6 +21,7 @@ func setup(resource: Item):
 		var boost := RNG.channel(RNG.ChannelLaffBoosts).randi_range(get_boost_range().x, get_boost_range().y)
 		resource.stats_add['max_hp'] = boost
 		resource.stats_add['hp'] = boost
+		resource.custom_shop_price = COST_PER_POINT * boost
 
 	var label_text := "+" + str(resource.stats_add['max_hp'])
 	set_text(label_text)

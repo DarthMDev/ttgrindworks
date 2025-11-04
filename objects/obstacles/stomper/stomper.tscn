@@ -20,7 +20,7 @@ material = SubResource("StandardMaterial3D_q7jfv")
 points = PackedVector3Array(-6.30843, -6.30843, 11.7799, 9.02536, 9.02536, 9.42646, 9.18218, 9.18218, 0.0191, 9.18218, -9.18218, 0.0191, -9.18218, 9.18218, 0.0191, -9.18218, -9.18218, 0.0191, 9.02649, -9.02649, 9.42577, -9.02649, 9.02649, 9.42577, 6.30843, 6.30843, 11.7799, -9.02649, -9.02649, 9.42577, -6.30843, 6.30843, 11.7799, 6.30843, -6.30843, 11.7799)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ofv0e"]
-height = 11.138513
+height = 2.3085
 radius = 1.28955
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv448"]
@@ -41,10 +41,10 @@ one_shot = true
 
 [node name="SquareDropShadow" parent="." instance=ExtResource("4_jv448")]
 unique_name_in_owner = true
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.01, 0)
+transform = Transform3D(0.9, 0, 0, 0, -3.934025e-08, 0.9, 0, -0.9, -3.934025e-08, 0, 0.01, 0)
 
 [node name="Mesh" parent="SquareDropShadow" index="0"]
-transform = Transform3D(8, 0, 0, 0, -3.496911e-07, 8, 0, -8, -3.496911e-07, 0, 0.01, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0.01, 0)
 mesh = SubResource("QuadMesh_tf7oh")
 
 [node name="Model" type="Node3D" parent="."]

@@ -55,6 +55,7 @@ enum SuitType {
 	head_model = "",
 	head_textures = [],
 	attacks = [],
+	status_effects = [],
 	custom_blazer_tex = "",
 	custom_arm_tex = "",
 	custom_wrist_tex = "",
@@ -203,6 +204,7 @@ const ATTRIBUTE_LIST : Array[String] = [
 	"health_mod",
 	"battle_phrases",
 	"external_assets",
+	"can_speak",
 ]
 const PATH_ATTRIBUTE_LIST : Array[String] = [
 	"custom_blazer_tex",

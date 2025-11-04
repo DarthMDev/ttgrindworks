@@ -111,12 +111,16 @@ static func get_item_description(_item : Item) -> String:
 	string += "\n%s" % _item.big_description
 	
 	
-	
 	return string
 
 func reroll() -> void:
 	if swap_tween and swap_tween.is_running():
 		swap_tween.kill()
+		Task.delay(0.5).connect(
+			func():
+				set_monitoring_deferred(true)
+				$ReactionArea.set_monitoring.call_deferred(true)
+		)
 	if model:
 		model.queue_free()
 	ItemService.item_removed(item)
@@ -133,8 +137,8 @@ func reroll() -> void:
 
 func _tween_model() -> void:
 	rotation_tween = create_tween()
-	rotation_tween.tween_property(self, 'rotation:y', deg_to_rad(360), 3.0)
-	rotation_tween.tween_property(self, 'rotation:y', 0, 0.0)
+	rotation_tween.tween_property(model, 'rotation:y', deg_to_rad(360), 3.0)
+	rotation_tween.tween_property(model, 'rotation:y', 0, 0.0)
 	rotation_tween.set_loops()
 	
 	bob_tween = create_tween()
@@ -229,6 +233,9 @@ var swap_tween: Tween
 func swap_item(swapped_item : Item) -> void:
 	if swap_tween and swap_tween.is_running():
 		swap_tween.custom_step(100.0)
+	if rotation_tween and rotation_tween.is_running():
+		rotation_tween.kill()
+		bob_tween.kill()
 	
 	item = swapped_item
 	var player := Util.get_player()
@@ -241,6 +248,7 @@ func swap_item(swapped_item : Item) -> void:
 	var model_endpt := player.to_local(player.toon.backpack_bone.global_position)
 	
 	swap_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_parallel()
+	var tween_ref: Tween = swap_tween # Just to make sure we don't lose our reference here :)
 	swap_tween.tween_property(swap_model, 'scale', Vector3.ONE * swapped_item.world_scale, tween_time)
 	swap_tween.tween_property(swap_model, 'position', Vector3.ZERO, tween_time)
 	swap_tween.tween_property(model, 'scale', Vector3.ZERO, tween_time)
@@ -249,6 +257,8 @@ func swap_item(swapped_item : Item) -> void:
 	swap_tween.set_parallel(false)
 	swap_tween.tween_callback(
 		func():
+				if model.tree_exited.is_connected(tween_ref.kill):
+					model.tree_exited.disconnect(tween_ref.kill)
 				model.queue_free()
 				model = swap_model
 				description_bubble.set_text(get_item_description(swapped_item))
@@ -261,6 +271,9 @@ func swap_item(swapped_item : Item) -> void:
 			$ReactionArea.set_monitoring.call_deferred(true)
 	)
 	swap_tween.finished.connect(swap_tween.kill)
+	model.tree_exited.connect(swap_tween.kill)
+	swap_model.tree_exited.connect(swap_tween.kill)
+	Engine.time_scale = 1.0
 
 func apply_item() -> void:
 	if not Util.get_player():

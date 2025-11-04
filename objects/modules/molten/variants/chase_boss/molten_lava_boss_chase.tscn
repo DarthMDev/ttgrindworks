@@ -157,7 +157,7 @@ size = Vector3(17.2881, 0.434448, 49.9967)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hnopa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1lp3"]
-size = Vector3(14.4902, 25.5163, 1.11572)
+size = Vector3(18.378906, 25.5163, 1.11572)
 
 [sub_resource type="LabelSettings" id="LabelSettings_14xsj"]
 font = ExtResource("13_vg13v")
@@ -517,7 +517,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.402512, -25.4194)
 
 [node name="InvisWall" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93551, 0.0578613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93551, 0.057861328)
 shape = SubResource("BoxShape3D_g1lp3")
 disabled = true
 

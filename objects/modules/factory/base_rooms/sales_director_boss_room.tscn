@@ -611,7 +611,7 @@ script = ExtResource("21_aj1tv")
 [node name="BattleNode" parent="BossDirectory" index="0" node_paths=PackedStringArray("cogs", "focus_cog") instance=ExtResource("2_ldinr")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.560713)
-tags = Array[int]([0])
+tags = Array[int]([0, 2])
 cogs = [NodePath("Cog"), NodePath("SalesDirector"), NodePath("Cog3"), NodePath("Cog4")]
 focus_cog = NodePath("SalesDirector")
 override_intro = SubResource("Resource_qip20")

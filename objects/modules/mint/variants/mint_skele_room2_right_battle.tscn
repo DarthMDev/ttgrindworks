@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="9_8xvco"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k65xd"]
-size = Vector3(12.532238, 9.10193, 6.3465123)
+size = Vector3(12.532238, 9.10193, 8.781879)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8xvco"]
 data = PackedVector3Array(0, 2.286, -2.286, 0, 2.286, 2.286, 0, -2.286, 2.286, 0, -2.286, 2.286, 0, -2.286, -2.286, 0, 2.286, -2.286)
@@ -31,7 +31,7 @@ cog_dist = 1.75
 cogs = [NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7"), NodePath("Cogs/Cog8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battles/BattleNodeDynamic" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025157023, 4.55096, -3.7205539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025157021, 4.55096, -2.50287)
 shape = SubResource("BoxShape3D_k65xd")
 
 [node name="Path_W" parent="." index="8"]
