@@ -20,7 +20,7 @@ attacks = Array[ExtResource("1_gysk3")]([ExtResource("2_cmets"), ExtResource("3_
 level_low = 20
 level_high = 20
 baked_status_effects = PackedStringArray("res://objects/battle/battle_resources/status_effects/resources/attentive.tres", "res://objects/battle/battle_resources/status_effects/resources/tenure_status.tres", "res://objects/battle/battle_resources/status_effects/resources/boss_logic_whistleblower.tres")
-health_mod = 5.411
+health_mod = 6.493
 battle_phrases = Array[String](["I am the whistle blower"])
 external_assets = {
 &"head_model": "",

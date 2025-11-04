@@ -66,7 +66,7 @@ func action():
 	await manager.check_pulses(targets)
 
 ## Steals money. Returns the amount of money successfully stolen
-func steal_money(who : Player, quantity : int) -> int:
+func steal_money(who: Player, quantity: int) -> int:
 	var original_balance := who.stats.money
 	who.stats.money = max(0, who.stats.money - quantity)
 	var total_stolen := original_balance - who.stats.money
@@ -74,9 +74,13 @@ func steal_money(who : Player, quantity : int) -> int:
 	if total_stolen > 0:
 		manager.battle_text(who, "-%d Jellybeans!" % total_stolen, BattleText.colors.orange[0], BattleText.colors.orange[1])
 		DiscordManager.update_presence()
+	elif total_stolen < 0:
+		targets[0].boost_queue.queue_text("Lovely deposit!", Color(0.487, 1.0, 0.43, 1.0))
 	return total_stolen
 
-func apply_bean_stat(count : int) -> void:
+func apply_bean_stat(count: int) -> void:
+	if count < 0:
+		return
 	var effect := BEAN_STAT.duplicate(true)
 	effect.bean_count = count
 	effect.target = user

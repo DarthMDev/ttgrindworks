@@ -1,9 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://bk0i5jalykfml"]
+[gd_scene load_steps=13 format=4 uid="uid://bk0i5jalykfml"]
 
 [ext_resource type="PackedScene" uid="uid://vj40bldpstks" path="res://objects/modules/cgc/base_rooms/cgc_maze.tscn" id="1_1606g"]
 [ext_resource type="PackedScene" uid="uid://p8gvfa1hsxhc" path="res://objects/props/cgc/hedge.tscn" id="2_l5ohi"]
 [ext_resource type="Script" uid="uid://gigjxsvg8ojv" path="res://objects/modules/cgc/variants/maze_generator.gd" id="2_o0jwp"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="3_6t6a2"]
+[ext_resource type="Texture2D" uid="uid://dnmjqucjpu5sg" path="res://models/facilities/cgc/textures/mazedirt_golf.png" id="4_rfs3i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7spx8"]
+resource_name = "lambert174"
+albedo_color = Color(0.707967, 0.707966, 0.707966, 0.8)
+albedo_texture = ExtResource("4_rfs3i")
+emission_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrja6"]
 size = Vector3(78.1612, 8.42456, 40.5476)
@@ -57,10 +64,13 @@ shadow_mesh = SubResource("ArrayMesh_2rar0")
 script = ExtResource("2_o0jwp")
 
 [node name="treasure_chest" parent="MazeAll/BattleArea" index="2" instance=ExtResource("3_6t6a2")]
-transform = Transform3D(-1.33232e-06, 0, -30.48, 0, 30.48, 0, 30.48, 0, -1.33232e-06, 232.745, -1.67598, -123.408)
+transform = Transform3D(-1.3323199e-06, 0, -30.479998, 0, 30.479998, 0, 30.479998, 0, -1.3323199e-06, 178.86902, -1.767, -114.22455)
 
 [node name="treasure_chest2" parent="MazeAll/BattleArea" index="3" instance=ExtResource("3_6t6a2")]
-transform = Transform3D(-1.33232e-06, 0, -30.48, 0, 30.48, 0, 30.48, 0, -1.33232e-06, 232.745, -1.73165, 123.967)
+transform = Transform3D(-1.3323199e-06, 0, -30.479998, 0, 30.479998, 0, 30.479998, 0, -1.3323199e-06, 178.86902, -1.767, 106.68402)
+
+[node name="GeometryTransformHelper153" parent="MazeAll/Maze_0/Maze_outside_0/Outside_1/Ground2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7spx8")
 
 [node name="ENTRANCE" type="Node3D" parent="." index="25"]
 transform = Transform3D(-1.4341e-09, 0, 0.0328084, 0, 0.0328084, 0, -0.0328084, 0, -1.4341e-09, -111.837, -2.51309e-07, -25.7772)

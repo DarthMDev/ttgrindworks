@@ -54,7 +54,8 @@ func place_accessory(toon: Toon) -> void:
 	mod.scale = placement.scale
 	if mod.has_method('setup'):
 		mod.setup(self)
-	Util.get_player().toon.color_overlay_mat.apply_to_node(mod)
+	if toon.color_overlay_mat:
+		toon.color_overlay_mat.apply_to_node(mod)
 
 ## Needs to update Player look when discarded
 func remove_item(player: Player) -> void:

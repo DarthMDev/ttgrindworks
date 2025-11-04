@@ -32,7 +32,7 @@ var unlock_toon := false
 var unlock_mystery := false
 
 ## For battle tracking
-const COG_LEVEL_RANGE := Vector2i(9, 14)
+const COG_LEVEL_RANGE := Vector2i(10, 16)
 var boss_one_choice: CogDNA
 var boss_two_choice: CogDNA
 
@@ -95,7 +95,7 @@ func _ready() -> void:
 func try_add_cogs(_actions: Array[BattleAction]) -> void:
 	var cooldown := 2
 	
-	if BattleService.ongoing_battle.current_round % cooldown == 0 and (boss_one_alive or boss_two_alive):
+	if BattleService.ongoing_battle.current_round % cooldown == 1 and (boss_one_alive or boss_two_alive):
 		var new_reinforcements := ElevatorReinforcements.new()
 		new_reinforcements.user = self
 		BattleService.ongoing_battle.round_end_actions.append(new_reinforcements)

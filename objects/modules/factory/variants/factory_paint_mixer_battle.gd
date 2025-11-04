@@ -23,5 +23,6 @@ func _notification(what: int) -> void:
 
 func paint_stream_entered(body: Node3D) -> void:
 	if body is Player:
-		body.last_damage_source = "a Paint Stream"
-		body.quick_heal(Util.get_hazard_damage(-5))
+		if body.state == Player.PlayerState.WALK:
+			body.last_damage_source = "a Paint Stream"
+			body.quick_heal(Util.get_hazard_damage(-5))

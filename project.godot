@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="Toontown: The Grindworks"
-config/version="1.2.1"
+config/version="1.2.2"
 run/main_scene="uid://lxi0qm8aebs1"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://cgljrd8dis8an"

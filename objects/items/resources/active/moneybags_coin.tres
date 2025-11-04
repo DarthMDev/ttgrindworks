@@ -12,6 +12,7 @@ charge_count = 2
 current_charge = 2
 qualitoon = 1
 world_scale = 0.3
+world_y_offset = 0.2
 item_name = "Moneybags Coin"
 item_description = "Heads or Tails?"
 big_description = "50% chance to double your moves for the round

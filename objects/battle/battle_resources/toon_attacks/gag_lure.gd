@@ -26,7 +26,7 @@ func get_stats() -> String:
 			string += "One Cog"
 		ActionTarget.ENEMY_SPLASH:
 			string += "Three Cogs"
-	string += "\nApplies: " + lure_effect.get_effect_string()
+	string += "\n" + lure_effect.get_effect_string()
 	return string
 
 

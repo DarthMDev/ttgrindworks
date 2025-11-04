@@ -7,13 +7,12 @@
 [resource]
 script = ExtResource("3_l5yp1")
 qualitoon = 1
-rarity = 1
 evergreen = true
 world_scale = 0.28
 item_name = "Feather"
 item_description = "Defense Boost!"
-big_description = "Lasts 3 rounds
-+ 30% Defense"
+big_description = "Lasts 2 rounds
++ 50% Defense"
 model = ExtResource("2_32jj2")
 pickup_sfx = ExtResource("2_p5fcy")
 remember_item = false
