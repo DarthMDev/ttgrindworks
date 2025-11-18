@@ -33,7 +33,8 @@ func battle_started(manager : BattleManager):
 
 	if CrowdControl.is_connected_to_crowd_control():
 		for effect in EFFECTS.effects:
-			if effect is CCNerf or effect is CCBuff:
+			var sc = effect.get_script()
+			if sc and (sc.resource_path == "res://effects/CCNerf.gd" or sc.resource_path == "res://effects/CCBuff.gd"):
 				effect.sellable = true
 	ongoing_battle = manager
 	ongoing_battle.s_battle_ending.connect(func(): s_battle_ending.emit())
@@ -65,8 +66,9 @@ func battle_ended():
 
 	if CrowdControl.is_connected_to_crowd_control():
 		for effect in EFFECTS.effects:
-			if effect is CCNerf or effect is CCBuff:
-				effect.sellable = false
+			var sc = effect.get_script()
+			if sc and (sc.resource_path == "res://effects/CCNerf.gd" or sc.resource_path == "res://effects/CCBuff.gd"):
+				effect.sellable = true
 	ongoing_battle = null
 	battle_node = null
 	s_battle_ended.emit()
