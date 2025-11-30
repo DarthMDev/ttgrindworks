@@ -7,7 +7,7 @@ var candy: Item
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	candy = ItemService.get_random_candy()
-	candy = candy.duplicate()
+	candy = candy.duplicate(true)
 	candy.apply_item(player)
 	candy.play_collection_sound()
 	if BattleService.ongoing_battle:

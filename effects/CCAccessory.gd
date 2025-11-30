@@ -8,7 +8,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	accessory = ItemService.get_random_accessory()
 	if accessory.evergreen:
-		accessory = accessory.duplicate()
+		accessory = accessory.duplicate(true)
 	else:
 		ItemService.seen_item(accessory)
 	accessory.apply_item(player)        

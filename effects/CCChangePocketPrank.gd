@@ -4,7 +4,7 @@ class_name CCChangePocketPrank
 
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	var active_item = ItemService.get_random_active_item().duplicate()
+	var active_item = ItemService.get_random_active_item().duplicate(true)
 	active_item.apply_item(player)
 	active_item.play_collection_sound()
 	return SUCCESS

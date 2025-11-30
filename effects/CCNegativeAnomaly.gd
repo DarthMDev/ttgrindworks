@@ -21,7 +21,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomalies = FloorVariant.ANOMALIES_NEGATIVE.duplicate()
+	var anomalies = FloorVariant.ANOMALIES_NEGATIVE.duplicate(true)
 	if Util.floor_manager.anomalies:
 		for anomaly in Util.floor_manager.anomalies:
 			if anomaly.get_mod_name() == "Out of Touch":

@@ -9,7 +9,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	# reward a track frame
 	var player = Util.get_player()
 	var track_frame = ItemService.get_track_frame()
-	track_frame = track_frame.duplicate()
+	track_frame = track_frame.duplicate(true)
 	track_frame.apply_item(player)
 	track_frame.play_collection_sound()
 	if BattleService.ongoing_battle:

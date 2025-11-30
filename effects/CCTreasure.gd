@@ -7,7 +7,7 @@ var treasure: Item
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	treasure = ItemService.get_random_treasure()
-	treasure = treasure.duplicate()
+	treasure = treasure.duplicate(true)
 	treasure.apply_item(player)
 	treasure.play_collection_sound()
 	return SUCCESS

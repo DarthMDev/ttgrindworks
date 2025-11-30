@@ -31,7 +31,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomalies = FloorVariant.ANOMALIES_NEUTRAL.duplicate()
+	var anomalies = FloorVariant.ANOMALIES_NEUTRAL.duplicate(true)
 	# TODO , rework marathon to queue marathon to next floor
 	anomalies.erase("res://scenes/game_floor/floor_modifiers/scripts/anomalies/floor_mod_marathon.gd")
 	return anomalies

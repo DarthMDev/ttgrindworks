@@ -61,7 +61,7 @@ func application_movie() -> void:
 	movie.tween_callback(manager.affect_target.bind(player, damage))
 	movie.tween_interval(4.0)
 
-	dot_visual_status = VISUAL_DOT.duplicate()
+	dot_visual_status = VISUAL_DOT.duplicate(true)
 	dot_visual_status.description = "%d damage per round" % damage
 	dot_visual_status.target = player
 	dot_visual_status.rounds = 2

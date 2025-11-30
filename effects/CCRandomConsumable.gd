@@ -7,7 +7,7 @@ class_name CCRandomConsumable
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
 	var consumable = ItemService.get_random_consumable()
-	consumable = consumable.duplicate()
+	consumable = consumable.duplicate(true)
 	consumable.apply_item(player)        
 	consumable.play_collection_sound()
 	# update the battle stats too if we are in a battle

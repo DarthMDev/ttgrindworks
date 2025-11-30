@@ -16,7 +16,7 @@ const BoostNums := {
 # similar to book keeper
 func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	var player = Util.get_player()
-	var new_debuff := STAT_BOOST.duplicate()
+	var new_debuff := STAT_BOOST.duplicate(true)
 	new_debuff.target = player
 	new_debuff.rounds = 2
 	new_debuff.quality = StatusEffect.EffectQuality.NEGATIVE

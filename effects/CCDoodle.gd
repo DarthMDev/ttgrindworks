@@ -8,7 +8,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 
 	# setup a doodle item that will be applied to the player using apply_item 
 	var doodle_item : Item = ItemService.get_doodle()
-	doodle_item = doodle_item.duplicate()
+	doodle_item = doodle_item.duplicate(true)
 	doodle_item.apply_item(player)
 	doodle_item.play_collection_sound()
 	

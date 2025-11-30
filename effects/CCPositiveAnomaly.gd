@@ -16,7 +16,7 @@ func _trigger(_instance: CCEffectInstance) -> EffectResult:
 	return FAILURE
 
 func new_anomalies() -> Array[String]:
-	var anomaly_files_pos: Array[String] = FloorVariant.ANOMALIES_POSITIVE.duplicate()
+	var anomaly_files_pos: Array[String] = FloorVariant.ANOMALIES_POSITIVE.duplicate(true)
 	return anomaly_files_pos
 
 func _can_run() -> bool:
