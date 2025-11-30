@@ -2,10 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpuxjlacctuei"
+uid="uid://bfydi42caxt7s"
 path="res://.godot/imported/lamp_big_2.png-cceaa395779fd609c167a36f8467d9ad.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "c7c2d96e1c3d0ebd49fc40f866acc00e"
 }
 
 [deps]

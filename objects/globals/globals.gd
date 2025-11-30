@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.2.2"
+const VERSION_NUMBER := "v1.2.3"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -75,7 +75,7 @@ func _init():
 		'mint_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/mint.tres',
 		'da_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/da_office.tres',
 		'cgc_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/cog_golf_course.tres',
-		
+		'molten_floor_variant': 'res://scenes/game_floor/floor_variants/alt_floors/molten_mint.tres',
 	})
 
 func _ready() -> void:
@@ -525,6 +525,7 @@ var factory_floor_variant: FloorVariant
 var mint_floor_variant: FloorVariant
 var da_floor_variant: FloorVariant
 var cgc_floor_variant: FloorVariant
+var molten_floor_variant: FloorVariant # Not added to FLOOR_VARIANTS as it's an alt floor
 var reward_chest_chance := 0.4
 var floor_difficulty_increase := 1.0 / 3.0
 var FLOOR_VARIANTS: Array[FloorVariant]:

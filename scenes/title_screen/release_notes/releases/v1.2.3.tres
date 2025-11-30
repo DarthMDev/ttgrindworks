@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://cy3xgdd4s14vx"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_5586j"]
+
+[resource]
+script = ExtResource("1_5586j")
+release_version = "v1.2.3"
+notes = "[TITLE]Tweaks
+Cleaned up/optimized some assets
+[TITLE]Bugfixes
+Fixed an issue where items that would discard for Professor Pete would also discard for Mystery Toon
+Fixed an issue where using White-Out during some real-time boss fights would cause the \"I'm Stuck!\" to remain disabled
+Fixed a non-functional wall in the Molten Mint"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"
