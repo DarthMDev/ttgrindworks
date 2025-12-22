@@ -573,6 +573,7 @@ update_scale = false
 [node name="StaticBody3D" type="StaticBody3D" parent="Spring" index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spring/StaticBody3D" index="0"]
+transform = Transform3D(1.225, 0, 0, 0, 1.225, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_hln1b")
 
 [node name="DisableTimer" type="Timer" parent="." index="3"]

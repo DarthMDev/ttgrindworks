@@ -258,3 +258,4 @@ player_values = {
 }
 icon = ExtResource("3_8s475")
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)
+custom_shop_price = 10

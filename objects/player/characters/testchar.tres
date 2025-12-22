@@ -29,5 +29,4 @@ gag_loadout = ExtResource("2_w38qq")
 starting_laff = 30
 starting_items = Array[ExtResource("4_al6k5")]([ExtResource("6_qib3c")])
 base_stats = SubResource("Resource_q3qk8")
-item_discard_tags = Array[int]([0])
 achievement_index = 17

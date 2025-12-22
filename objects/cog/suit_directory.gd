@@ -86,6 +86,11 @@ func set_dna(dna: CogDNA):
 		torso_tex = get_custom_texture(dna, 'custom_blazer_tex')
 	if get_custom_texture(dna, 'custom_leg_tex'):
 		leg_tex = get_custom_texture(dna, 'custom_leg_tex')
+	if department_emblem:
+		if get_custom_texture(dna, 'custom_emblem_tex'):
+			department_emblem.set_texture(get_custom_texture(dna, 'custom_emblem_tex'))
+		else:
+			department_emblem.set_texture(get_department_emblem(dna.department))
 	
 	# Get the current working materials
 	var torso_mat = torso.mesh.surface_get_material(0).duplicate(true)
@@ -182,3 +187,6 @@ static func get_custom_texture(dna : CogDNA, value : StringName) -> Texture2D:
 				else:
 					tex = ImageTexture.create_from_image(Image.load_from_file(dna.external_assets.get(value)))
 	return tex
+
+static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
+	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

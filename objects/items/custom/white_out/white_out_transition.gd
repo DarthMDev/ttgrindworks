@@ -100,6 +100,7 @@ func restart_floor() -> void:
 	game_floor.floor_variant = floor_variant
 	
 	SceneLoader.change_scene_to_node(game_floor)
+	Util.stuck_lock = false
 	queue_free()
 	AudioManager.set_music_volume(0.0)
 

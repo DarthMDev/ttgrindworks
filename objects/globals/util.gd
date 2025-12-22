@@ -340,17 +340,23 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	# 4. A jellybean consumable, if they have less than 20 beans. If they have 20 or more, give a progressive instead
 	if not player:
 		await s_player_assigned
-	var x_points: Array = [-3.75, -1.25, 1.25, 3.75]
+	var spacing := 2.5
+	var chest_count := 4
+	# This is very funny and stupid
+	if is_instance_valid(floor_manager):
+		if floor_manager.floor_variant:
+			if floor_manager.floor_variant.reward:
+				chest_count += 1
 	var chest_scene: PackedScene = load('res://objects/interactables/treasure_chest/treasure_chest.tscn')
 	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
-	for i in range(4):
+	for i in range(chest_count):
 		var chest: TreasureChest = chest_scene.instantiate()
 		chest.item_pool = ItemService.PROGRESSIVE_POOL
 		chest.override_replacement_rolls = true
 		match i:
 			0:
 				# Give a random super candy
-				chest.item_pool = load("res://objects/items/pools/super_candies.tres")
+				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/super_candies.tres")
 			1:
 				# Give a random track frame
 				chest.override_item = load("res://objects/items/resources/passive/track_frame.tres")
@@ -370,15 +376,20 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				elif player.stats.toonups[ToonUp.MovieType.MEGAPHONE] == 0:
 					chest.override_item = load("res://objects/items/resources/passive/toonups/megaphone.tres")
 			3:
-				# Chance to give Player some money, guaranteed if they're < 20
-				if player.stats.money < 20 or randi() % 2 == 0:
-					chest.item_pool = load("res://objects/items/pools/jellybeans.tres")
+				# Always give players a little bit of money
+				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/jellybeans.tres")
+			4:
+				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/floor_clears.tres")
+				chest.override_item = floor_manager.floor_variant.reward
 		
+		var leftest_position := -spacing * ((float(chest_count) - 0.5) / 2.0)
+		var chest_position := leftest_position + (spacing * i)
 		holder_node.add_child(chest)
-		chest.global_position = pos_node.to_global(Vector3(x_points[i], 0, 0))
+		chest.global_position = pos_node.to_global(Vector3(chest_position, 0, 0))
 		chest.global_rotation = pos_node.global_rotation
-		chest.update_texture(chest.BOSS_TEXTURE)
-		chest.set_ray_gradient(light_beam)
+		if i < 4:
+			chest.update_texture(chest.BOSS_TEXTURE)
+			chest.set_ray_gradient(light_beam)
 
 #endregion
 

@@ -7,5 +7,5 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 retract_speed = 6.0
 max_push = 2.75
 
-[node name="CollisionShape3D" parent="Spring/StaticBody3D" index="0"]
-disabled = true
+[connection signal="body_entered" from="Platform/PlayerDetection" to="." method="body_entered"]
+[connection signal="body_exited" from="Platform/PlayerDetection" to="." method="body_exited"]

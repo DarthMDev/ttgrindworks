@@ -2,9 +2,9 @@ extends ItemScript
 
 const DebugPrint := true
 
-const GoldUpgradeChance := 0.2
-const SpecialUpgradeChance := 0.1
-const ExplodeChance := 0.12
+const GoldUpgradeChance := 0.25
+const SpecialUpgradeChance := 0.15
+const ExplodeChance := 0.08
 
 const POOL_REWARDS := "res://objects/items/pools/rewards.tres"
 const POOL_PROGRESSIVES := "res://objects/items/pools/progressives.tres"

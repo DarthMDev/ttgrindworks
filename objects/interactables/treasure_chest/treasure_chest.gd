@@ -37,12 +37,14 @@ const DOODLE_TEXTURE := preload("res://models/props/treasure_chest/TreasureChest
 const GOLD_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestGold.png")
 const SILVER_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestSilver.png")
 const BRONZE_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestBronze.png")
+const FLOOR_CLEAR_TEXTURE := preload("res://models/props/treasure_chest/TreasureChestFloorClear.png")
 var POOL_TEXTURES: Dictionary[String, Texture2D] = {
 	"res://objects/items/pools/special_items.tres": SPECIAL_TEXTURE,
 	"res://objects/items/pools/rewards.tres": GOLD_TEXTURE,
 	"res://objects/items/pools/progressives.tres": SILVER_TEXTURE,
 	"res://objects/items/pools/battle_clears.tres": BRONZE_TEXTURE,
 	"res://objects/items/pools/doodle_treasure.tres": DOODLE_TEXTURE,
+	"res://objects/items/pools/floor_clears.tres": FLOOR_CLEAR_TEXTURE,
 	"default": GOLD_TEXTURE
 }
 
@@ -52,6 +54,7 @@ var POOL_GRADIENTS : Dictionary[String, String] = {
 	"res://objects/items/pools/progressives.tres": "res://models/props/treasure_chest/sunrays/silverchest_sunrays.tres",
 	"res://objects/items/pools/doodle_treasure.tres": "res://models/props/treasure_chest/sunrays/doodlechest_sunrays.tres",
 	"res://objects/items/pools/special_items.tres": "res://models/props/treasure_chest/sunrays/specialchest_sunrays.tres",
+	"res://objects/items/pools/floor_clears.tres": "res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres",
 	"default": "res://models/props/treasure_chest/sunrays/goldchest_sunrays.tres"
 }
 
@@ -66,6 +69,16 @@ var SCRIPTED_PROGRESSION_ITEMS: Dictionary = {
 	4: EXTRA_TURN,
 	5: LAFF_BOOST,
 }
+static var chest_chances: Array[float] = [
+	1.0, # Bronze
+	0.8, # Silver
+	0.5, # Gold
+]
+static var chest_pools: Array[String] = [
+	"res://objects/items/pools/battle_clears.tres",
+	"res://objects/items/pools/progressives.tres",
+	"res://objects/items/pools/rewards.tres",
+]
 
 var opened := false
 var material_duped := false
@@ -157,15 +170,8 @@ func _ready() -> void:
 	Globals.s_chest_spawned.emit(self)
 
 func do_reroll_chance() -> void:
-	var reward_chest_roll := RNG.channel(RNG.ChannelChestRolls).randf()
-	if reward_chest_roll < Globals.reward_chest_chance:
-		print("Spawning reward pool chest")
-		item_pool = ItemService.REWARD_POOL
-		if RNG.channel(RNG.ChannelChestRolls).randf() < REWARD_OVERRIDE_CHANCE:
-			override_replacement_rolls = true
-	else:
-		print("Spawning progressive pool chest")
-		item_pool = ItemService.PROGRESSIVE_POOL
+	var chest_roll := RNG.channel(RNG.ChannelChestRolls).rand_weighted(chest_chances)
+	item_pool = ItemService.pool_from_path(chest_pools[chest_roll])
 
 func get_chest_tex() -> Texture2D:
 	var texture: Texture2D

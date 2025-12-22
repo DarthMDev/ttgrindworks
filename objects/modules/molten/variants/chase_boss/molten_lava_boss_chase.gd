@@ -35,6 +35,7 @@ var lava_damage := -4
 @onready var boss_follower: PathFollow3D = %BossFollow
 @onready var respawn_point: Node3D = %InitialRespawn
 @onready var liquidator: Node3D = %Liquidator
+@onready var player_marker: Control3D = %PlayerMarker
 
 
 var camera_tween: Tween
@@ -65,6 +66,7 @@ func _ready() -> void:
 
 func begin_chase() -> void:
 	player.game_timer_tick = true
+	player_marker.target = player.toon.speech_bubble_node
 	
 	state = BossState.ACTIVE
 	%LavaBig.show()
@@ -78,7 +80,6 @@ func begin_chase() -> void:
 	liquidator.neutral_anim = &'Walk'
 	%SpeedupTimer.start()
 	
-	
 	if dev_run_checkpoint_test and OS.has_feature('debug'):
 		checkpoint_tester = load('res://models/props/gags/pie/pie.glb').instantiate()
 		add_child(checkpoint_tester)
@@ -86,7 +87,6 @@ func begin_chase() -> void:
 	do_liquidator_spit_cycle()
 	
 	player.s_dying.connect(player_died)
-	
 	
 	await get_tree().process_frame
 	player.global_position = %PlayerBossStartPoint.global_position
@@ -419,7 +419,9 @@ func respawn_player() -> void:
 	player.last_damage_source = %BeginningLavaFloor.damage_name
 	if state == BossState.TUTORIAL:
 		player.global_position = %TutorialRespawn.global_position
-	else: player.global_position = respawn_point.global_position
+	else: 
+		player.global_position = respawn_point.global_position
+		show_player_marker()
 	player.quick_heal(Util.get_hazard_damage(-4))
 	await player.teleport_in()
 	if player.stats.hp <= 0:
@@ -428,6 +430,16 @@ func respawn_player() -> void:
 		player.state = Player.PlayerState.CHASE
 	else:
 		player.state = Player.PlayerState.WALK
+
+var marker_tween: Tween
+func show_player_marker() -> void:
+	player_marker.force_hide = false
+	player_marker.modulate.a = 1.0
+	if marker_tween and marker_tween.is_running():
+		marker_tween.kill()
+	marker_tween = create_tween()
+	marker_tween.tween_interval(4.0)
+	marker_tween.tween_property(player_marker, 'modulate:a', 0.0, 2.0)
 
 func on_player_collided_with_boss(_plyr: Player) -> void:
 	if not state == BossState.INACTIVE:

@@ -283,6 +283,7 @@ script = ExtResource("8_h3qo4")
 game_mode = 1
 difficulty = 0.04
 grid_size = Vector2i(1, 1)
+want_instructions = false
 
 [node name="DebugPlayerPositionMarker" parent="." index="31" instance=ExtResource("11_drjgd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7748, 0, -3.39363)

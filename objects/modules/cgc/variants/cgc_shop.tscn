@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="15_gai5s"]
 [ext_resource type="PackedScene" uid="uid://cnpgawnj8vd27" path="res://objects/props/etc/radio/radio.tscn" id="16_fpggi"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_0ehsp"]
+vertices = PackedVector3Array(12.4832, 0.375569, 3.57657, 14.2332, 0.375569, 3.32657, 14.2332, 0.375569, -4.92343, 12.4832, 0.375569, -5.17343, -14.5168, 0.375569, 14.8266, -14.5168, 0.375569, -16.6734, 12.4832, 0.375569, 14.8266, 12.4832, 0.375569, -16.6734)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 6, 4), PackedInt32Array(5, 7, 3)]
+
 [sub_resource type="GDScript" id="GDScript_w0q02"]
 resource_name = "cgc_shop"
 script/source = "extends Node3D
@@ -80,19 +84,39 @@ func get_base_dna() -> ToonDNA:
 [sub_resource type="Resource" id="Resource_mr3il"]
 script = ExtResource("11_tbro7")
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_0ehsp"]
-vertices = PackedVector3Array(12.4832, 0.375569, 3.57657, 14.2332, 0.375569, 3.32657, 14.2332, 0.375569, -4.92343, 12.4832, 0.375569, -5.17343, -14.5168, 0.375569, 14.8266, -14.5168, 0.375569, -16.6734, 12.4832, 0.375569, 14.8266, 12.4832, 0.375569, -16.6734)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 6, 4), PackedInt32Array(5, 7, 3)]
-
 [node name="mole_room" instance=ExtResource("1_y4lq3")]
 
-[node name="pPlane289" parent="BBGreenRoom/Geometry/trees1" index="13"]
+[node name="Navigation" parent="." index="3"]
+visible = true
+navigation_mesh = SubResource("NavigationMesh_0ehsp")
+
+[node name="Fences" type="Node3D" parent="Navigation" index="0"]
+
+[node name="fence" parent="Navigation/Fences" index="0" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -12.9032, 0, -4.40783)
+
+[node name="fence2" parent="Navigation/Fences" index="1" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -8.90324, 0, -4.40783)
+
+[node name="fence3" parent="Navigation/Fences" index="2" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -4.90324, 0, -4.40783)
+
+[node name="fence4" parent="Navigation/Fences" index="3" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.90324, 0, -4.40783)
+
+[node name="fence5" parent="Navigation/Fences" index="4" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 3.09676, 0, -4.40783)
+
+[node name="fence6" parent="Navigation/Fences" index="5" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 7.09676, 0, -4.40783)
+
+[node name="fence7" parent="Navigation/Fences" index="6" instance=ExtResource("9_1e15g")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 11.0968, 0, -4.40783)
+
+[node name="collision_floor_3" parent="Navigation" index="1"]
 visible = false
 
-[node name="GeometryTransformHelper35" parent="BBGreenRoom/Geometry/trees1/pPlane289" index="0"]
-visible = false
-
-[node name="pPlane10" parent="BBGreenRoom/Geometry/trees1" index="34"]
+[node name="collisionfloor2" parent="Navigation" index="2"]
 visible = false
 
 [node name="Shop" type="Node3D" parent="." index="16"]
@@ -135,39 +159,6 @@ transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 
 unique_name_in_owner = true
 transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, 0.00894141, 1.67461, -0.00341606)
 
-[node name="Navigation" parent="." index="17"]
-visible = true
-navigation_mesh = SubResource("NavigationMesh_0ehsp")
-
-[node name="Fences" type="Node3D" parent="Navigation" index="0"]
-
-[node name="fence" parent="Navigation/Fences" index="0" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -12.9032, 0, -4.40783)
-
-[node name="fence2" parent="Navigation/Fences" index="1" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -8.90324, 0, -4.40783)
-
-[node name="fence3" parent="Navigation/Fences" index="2" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -4.90324, 0, -4.40783)
-
-[node name="fence4" parent="Navigation/Fences" index="3" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.90324, 0, -4.40783)
-
-[node name="fence5" parent="Navigation/Fences" index="4" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 3.09676, 0, -4.40783)
-
-[node name="fence6" parent="Navigation/Fences" index="5" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 7.09676, 0, -4.40783)
-
-[node name="fence7" parent="Navigation/Fences" index="6" instance=ExtResource("9_1e15g")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 11.0968, 0, -4.40783)
-
-[node name="collision_floor_3" parent="Navigation" index="1"]
-visible = false
-
-[node name="collisionfloor2" parent="Navigation" index="2"]
-visible = false
-
 [node name="MoleStompGame" type="Area3D" parent="." index="18" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8659, -0.0502783, -14.1157)
 script = ExtResource("10_600br")
@@ -177,6 +168,7 @@ force_launch_node = NodePath("../MoleForcePos")
 grid_size = Vector2i(10, 5)
 launch_cam = NodePath("../MoleCam")
 hole_separation = 2.2
+want_instructions = false
 
 [node name="MoleForcePos" type="Node3D" parent="." index="19"]
 

@@ -305,9 +305,8 @@ func construct_cog():
 	animator = body.animator
 	animator.animation_finished.connect(animation_end)
 	
-	# Set the department emblem
+	# Get the department emblem
 	department_emblem = body.department_emblem
-	department_emblem.texture = Cog.get_department_emblem(dna.department)
 	hp_light = body.health_meter
 	
 	if virtual_cog:

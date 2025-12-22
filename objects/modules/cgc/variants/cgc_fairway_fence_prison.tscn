@@ -309,6 +309,7 @@ want_launch = false
 difficulty = 6.0
 grid_size = Vector2i(21, 4)
 hole_separation = 1.75
+want_instructions = false
 
 [node name="treasure_chest" parent="." index="30" instance=ExtResource("4_bi30y")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.50236, 0, 20.8723)
@@ -384,6 +385,7 @@ force_launch_node = NodePath("../SecretMoleForceLandPos")
 difficulty = 0.04
 grid_size = Vector2i(1, 1)
 launch_cam = NodePath("../LaunchCam")
+want_instructions = false
 
 [node name="SecretMoleForceLandPos" type="Node3D" parent="." index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31091, 0, 11.0946)
@@ -403,6 +405,7 @@ endless_stop_moles = false
 force_launch_node = NodePath("../SecretMole2ForceLand")
 grid_size = Vector2i(3, 3)
 launch_cam = NodePath("../LaunchCam")
+want_instructions = false
 
 [connection signal="body_entered" from="Navigation/Props/desk/Cog/BrushOff" to="Navigation/Props/desk/Cog" method="_on_brush_off_body_entered"]
 [connection signal="s_endless_hit" from="MoleStompGame" to="Navigation/Props/desk/Cog" method="_on_mole_stomp_game_failed"]

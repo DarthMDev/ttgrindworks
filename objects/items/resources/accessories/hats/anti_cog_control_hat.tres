@@ -270,12 +270,12 @@ world_scale = 0.1
 ui_cam_offset = 0.05
 item_name = "Anti-Cog Control Hat"
 item_description = "Resist!"
-big_description = "+ 10% Defense
-+ 5% Evasiveness"
+big_description = "+ 20% Defense
++ 15% Evasiveness"
 model = ExtResource("2_01lsb")
 stats_add = {
-"defense": 0.1,
-"evasiveness": 0.05
+"defense": 0.2,
+"evasiveness": 0.1
 }
 icon = ExtResource("3_sck2m")
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

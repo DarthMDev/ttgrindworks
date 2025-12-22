@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://wvlcxtyhkm3v"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_1leur"]
+
+[resource]
+script = ExtResource("1_1leur")
+release_version = "v1.2.4"
+notes = "[TITLE]Items
+Increased the effects of the Anti-Cog Control Hat
+Slightly buffed the positive rolls for Philosopher's Stone
+Reorganized the Item Pools for what is definitely the last final and for real time
+  Bronze Chests now spawn naturally
+  Silver Chests now hold Accessories/Pocket Pranks
+  Gold Chests are notably rarer and hold better Items
+[TITLE]Characters
+Mystery Toon's random Accessory and Pocket Prank are now unaffected by Item rarity
+[TITLE]Bosses
+Added an indicator for your current position when respawning in The Liquidator boss fight
+[TITLE]Title Screen
+Mystery Toon's look can now be instantly refreshed by clicking their tab again once they have landed on the ground
+[TITLE]Facilities
+Floor Reward Items will now be obtained via a special chest found when completing a boss
+Mole Stomp now displays instructions when the game starts
+Improved the feel of the bellows spring collisions in the Molten Mint
+[TITLE]Cog Creator
+Custom Cogs now support custom department emblems (only through manual editing, the attribute name is \"custom_emblem_tex\")
+[TITLE]Tweaks
+Starting Accessories are now displayed on the Toon during the falling cutscene
+[TITLE]Bugfixes
+Fixed a crash that occurred if you managed to use Big Foghorn twice in the same room
+Fixed an issue where the Wheelhouse Proxy Cog effect would not activate properly
+Calculator has been added to the \"everything\" Item Pool"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

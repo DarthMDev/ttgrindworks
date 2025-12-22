@@ -11,6 +11,7 @@ const BOOST_STATS := [
 func apply() -> void:
 	stat = BOOST_STATS.pick_random()
 	boost = randf_range(BOOST_RANGE.x, BOOST_RANGE.y)
+	super()
 
 func get_icon() -> Texture2D:
 	return GameLoader.load("res://ui_assets/battle/statuses/wheelhouse.png")

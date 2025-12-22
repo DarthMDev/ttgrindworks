@@ -444,8 +444,9 @@ fov = 58.5
 [node name="ToonOrigin" type="Node3D" parent="World3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.99648)
 
-[node name="CharacterDisplay" parent="World3D/ToonOrigin" instance=ExtResource("15_otspg")]
+[node name="CharacterDisplay" parent="World3D/ToonOrigin" node_paths=PackedStringArray("character_clipboard") instance=ExtResource("15_otspg")]
 unique_name_in_owner = true
+character_clipboard = NodePath("../../../GUI/CharacterClipboard")
 
 [node name="Props" type="Node3D" parent="World3D"]
 
@@ -853,6 +854,7 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
 [node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame"]
 gizmo_extents = 1.0
@@ -869,6 +871,7 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
 [node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame2"]
 gizmo_extents = 1.0
@@ -885,6 +888,7 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
 [node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame4"]
 gizmo_extents = 1.0
@@ -901,6 +905,7 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
 [node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame5"]
 gizmo_extents = 1.0
@@ -917,6 +922,7 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
 [node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame3"]
 gizmo_extents = 1.0

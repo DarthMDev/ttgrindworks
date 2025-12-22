@@ -43,12 +43,33 @@ func _ready() -> void:
 	toon.body.animator.play()
 	toon.set_emotion(Toon.Emotion.SURPRISE)
 	toon.reset_physics_interpolation()
+	try_add_accessories()
 	var twoon := toon.create_tween()
 	twoon.tween_property(toon, 'scale', Vector3.ONE * 0.01, 5.0)
 	animate_toon()
 	do_gag_creation()
 	await move_camera()
 	end_scene()
+
+func try_add_accessories() -> void:
+	var items := Util.get_player().stats.character.starting_items
+	var hat: ItemAccessory
+	var glasses: ItemAccessory
+	var backpack: ItemAccessory
+	var shoes: ItemShoe
+	for item in items:
+		if item is ItemAccessory:
+			match item.slot:
+				Item.ItemSlot.HAT: hat = item
+				Item.ItemSlot.GLASSES: glasses = item
+				Item.ItemSlot.BACKPACK: backpack = item
+		elif item is ItemShoe:
+			shoes = item
+	for accessory in [hat, glasses, backpack]:
+		if accessory:
+			accessory.place_accessory(toon)
+	if shoes:
+		shoes.place_shoes(toon)
 
 func animate_toon() -> void:
 	while true:

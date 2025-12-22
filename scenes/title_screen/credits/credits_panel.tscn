@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://cha3dccp1m281"]
+[gd_scene load_steps=166 format=3 uid="uid://cha3dccp1m281"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_py1ix"]
 [ext_resource type="Script" uid="uid://b2tqjgqv6xn1p" path="res://scenes/title_screen/credits/credits_panel.gd" id="2_3oeyj"]
@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://dlcfad03xmb1c" path="res://scenes/title_screen/credits/icons/icon_alder.png" id="66_slv7n"]
 [ext_resource type="Texture2D" uid="uid://ct5ksco28mhgs" path="res://scenes/title_screen/credits/icons/icon_stripey/fb821da4-b8da-448f-a43a-361810e3ba58.png" id="67_8u8q4"]
 [ext_resource type="Texture2D" uid="uid://ddyp4dug0t45d" path="res://scenes/title_screen/credits/icons/icon_evelyn.png" id="67_e1miu"]
+[ext_resource type="Texture2D" uid="uid://bi4snh00iaqki" path="res://scenes/title_screen/credits/icons/icon_daisy.png" id="68_3ohx7"]
 [ext_resource type="Texture2D" uid="uid://cyi0ifeqapok1" path="res://scenes/title_screen/credits/icons/icon_jacky.png" id="72_vfha2"]
 [ext_resource type="Texture2D" uid="uid://2idccit1ej3t" path="res://scenes/title_screen/credits/icons/icon_doggo.png" id="73_qbbro"]
 [ext_resource type="Texture2D" uid="uid://b0xb0kjmc85nj" path="res://scenes/title_screen/credits/icons/icon_alex.png" id="75_uk0ku"]
@@ -683,6 +684,14 @@ name = "AlexLH"
 role = "v1.2.0 Playtesting"
 metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
 
+[sub_resource type="Resource" id="Resource_a2ghk"]
+resource_name = "Daisy"
+script = ExtResource("3_ksngi")
+icon = ExtResource("68_3ohx7")
+name = "Daisy"
+role = "Floor Reward Chest Texture"
+metadata/_custom_type_script = "uid://cjlnrijv3rd4r"
+
 [sub_resource type="Resource" id="Resource_3ohx7"]
 resource_name = "DoggoMafia"
 script = ExtResource("3_ksngi")
@@ -793,7 +802,7 @@ offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
 credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_ohq2p"), SubResource("Resource_pbofr"), SubResource("Resource_kqonq"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_wxm28"), SubResource("Resource_ent56"), SubResource("Resource_33vr7"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_ec610"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_qbbro"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_edme2"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_vfha2"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_o0djb"), SubResource("Resource_m42v0"), SubResource("Resource_dk2i1"), SubResource("Resource_c5kur"), SubResource("Resource_e1miu")])
-special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_6v767"), SubResource("Resource_3uak0"), SubResource("Resource_3ohx7"), SubResource("Resource_e66o5"), SubResource("Resource_slv7n"), SubResource("Resource_daahu"), SubResource("Resource_uk0ku"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
+special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_6v767"), SubResource("Resource_3uak0"), SubResource("Resource_a2ghk"), SubResource("Resource_3ohx7"), SubResource("Resource_e66o5"), SubResource("Resource_slv7n"), SubResource("Resource_daahu"), SubResource("Resource_uk0ku"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
 
