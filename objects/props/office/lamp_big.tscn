@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0bnakgqatchq"]
+[gd_scene format=3 uid="uid://d0bnakgqatchq"]
 
 [ext_resource type="PackedScene" uid="uid://uwb7bfwocq4w" path="res://models/props/facility_objects/da_office/lamp_big/lamp_big.fbx" id="1_pqejj"]
 

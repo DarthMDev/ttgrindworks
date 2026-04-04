@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2rshqkhhqxy6"]
+[gd_scene format=3 uid="uid://2rshqkhhqxy6"]
 
 [ext_resource type="PackedScene" uid="uid://dpjnelniqhk0j" path="res://objects/modules/mint/base_rooms/mint_skele_room.tscn" id="1_gmdhj"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_qxcxx"]

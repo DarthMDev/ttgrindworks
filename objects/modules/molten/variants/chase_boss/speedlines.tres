@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bnm8iugrlnl18"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bnm8iugrlnl18"]
 
 [ext_resource type="Shader" uid="uid://q3a34k6eof88" path="res://objects/modules/molten/variants/chase_boss/speedlines.gdshader" id="1_ge8qt"]
 

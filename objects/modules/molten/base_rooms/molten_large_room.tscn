@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bhfjcfwvkuwhl"]
+[gd_scene format=4 uid="uid://bhfjcfwvkuwhl"]
 
 [ext_resource type="PackedScene" uid="uid://du4nmaj27oigq" path="res://models/facilities/molten/molten_large_room.fbx" id="1_a0btr"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="2_6af4q"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dd48imdhejrx8" path="res://models/facilities/molten/textures/FINALFACTORY_65.png" id="8_alp1p"]
 [ext_resource type="Texture2D" uid="uid://bybymj5r4vfbk" path="res://models/facilities/molten/textures/FINALFACTORY_66.png" id="9_aehv3"]
 [ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="10_lrs0d"]
-[ext_resource type="Texture2D" uid="uid://dh14xv8mgissq" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="11_cthqr"]
+[ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="11_cthqr"]
 [ext_resource type="Texture2D" uid="uid://g0urd0og2t43" path="res://models/facilities/molten/textures/CementFloorx4.png" id="12_rpkpt"]
 [ext_resource type="Texture2D" uid="uid://c3kje7kpsynpg" path="res://models/facilities/molten/textures/CBStationStripes2.png" id="13_muvsy"]
 [ext_resource type="Texture2D" uid="uid://deix5y5igntq1" path="res://models/facilities/molten/textures/FINALFACTORY_4.png" id="14_2tkvx"]

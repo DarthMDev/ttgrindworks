@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://beae6gw3f8vgw"]
+[gd_scene format=3 uid="uid://beae6gw3f8vgw"]
 
 [ext_resource type="PackedScene" uid="uid://0dusq3e771sq" path="res://models/accessories/hats/flowerpot_hat/tt_m_chr_avt_acc_hat_flowerPot.glb" id="1_kqq6r"]
 

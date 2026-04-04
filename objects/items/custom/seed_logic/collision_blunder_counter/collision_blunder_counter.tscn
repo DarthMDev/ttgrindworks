@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://vcwmayp1krq6"]
+
+[ext_resource type="Script" uid="uid://uwbufybl66il" path="res://objects/items/custom/seed_logic/collision_blunder_counter/collision_blunder_counter.gd" id="1_7bhyr"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="1_7pu3r"]
+[ext_resource type="AudioStream" uid="uid://dv150fju22sy0" path="res://audio/sfx/misc/ding.mp3" id="3_1s1v3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_envel"]
+font = ExtResource("1_7pu3r")
+font_size = 28
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.64705884)
+
+[node name="CollisionBlunderCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7bhyr")
+
+[node name="SFXDing" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_1s1v3")
+bus = &"SFX"
+
+[node name="LabelOrigin" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 32.0
+offset_right = -20.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="LabelScaler" type="Control" parent="LabelOrigin"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="LabelOrigin/LabelScaler"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -24.0
+offset_right = 130.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Collision Blunders: 0"
+label_settings = SubResource("LabelSettings_envel")
+horizontal_alignment = 1
+vertical_alignment = 2

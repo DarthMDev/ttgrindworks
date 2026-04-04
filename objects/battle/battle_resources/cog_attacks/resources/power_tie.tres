@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://305avsq3iu30"]
+[gd_resource type="Resource" format=3 uid="uid://305avsq3iu30"]
 
 [ext_resource type="PackedScene" uid="uid://dw6n51u6rf4av" path="res://models/props/cog_props/power_tie/power_tie.fbx" id="1_eri7w"]
 [ext_resource type="Script" uid="uid://y48dsoiqjqw5" path="res://objects/battle/battle_resources/cog_attacks/clip_on_tie.gd" id="2_cu4ck"]

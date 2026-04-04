@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://3x8s3iw6r1rk"]
+
+[ext_resource type="Texture2D" uid="uid://b8tdy4qthmv3t" path="res://ui_assets/battle/gags/inventory_cake_1.png" id="1_gynjg"]
+[ext_resource type="Script" uid="uid://dn55jvuxkrot3" path="res://objects/interactables/gag_shop/assets/alt_gag_button.gd" id="1_y1xw2"]
+[ext_resource type="Resource" uid="uid://itjq3hljgdry" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/birthday_cake.tres" id="2_hvhcy"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_y1xw2"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_hvhcy"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="4_ss5b4"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="5_b0744"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="6_n60e5"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="7_yd0v5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fo3u"]
+font = ExtResource("2_y1xw2")
+font_size = 24
+font_color = Color(1, 0.498039, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="AltGagButton" type="HBoxContainer" unique_id=1229488988]
+custom_minimum_size = Vector2(562, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -64.0
+offset_right = 281.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y1xw2")
+gag = ExtResource("2_hvhcy")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1516765487]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1_gynjg")
+expand_mode = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="." unique_id=163013181]
+layout_mode = 2
+
+[node name="GagName" type="Label" parent="InfoContainer" unique_id=763250269]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Birthday Cake"
+label_settings = SubResource("LabelSettings_7fo3u")
+text_overrun_behavior = 3
+
+[node name="GagSummary" type="RichTextLabel" parent="InfoContainer" unique_id=2096107112]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_hvhcy")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[color=FF0000]Damage: 85 [/color]
+[color=FFF000]Targets: One Cog[/color]
+[color=00FF00]Applies: Nothing[/color]
+[color=00F0FF]Price: 10 Jellybeans"
+fit_content = true
+
+[node name="BuyButton" parent="." unique_id=1863302965 instance=ExtResource("4_ss5b4")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 60)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+texture_normal = ExtResource("5_b0744")
+texture_pressed = ExtResource("6_n60e5")
+texture_hover = ExtResource("7_yd0v5")
+texture_disabled = null
+text = "SWAP"
+font_size = 36.0
+
+[connection signal="pressed" from="BuyButton" to="." method="on_press"]

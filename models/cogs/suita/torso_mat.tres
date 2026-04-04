@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bxowuwqrq273m"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxowuwqrq273m"]
 
 [ext_resource type="Texture2D" uid="uid://xltph7ap4j30" path="res://models/cogs/suita/suita_c_blazer.png" id="1_kykbf"]
 

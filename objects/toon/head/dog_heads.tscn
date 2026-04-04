@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://cepelw13m2tp6"]
+[gd_scene format=4 uid="uid://cepelw13m2tp6"]
 
 [ext_resource type="Texture2D" uid="uid://vwtbgy7rpkta" path="res://models/toon/head/dog/dog_heads_dogSSshorts_SS_Shorts_zero_dogSS_cvs_PICTURES_ShrtHeadGeneric_picShader_albedo000.png" id="2_vjqu4"]
 [ext_resource type="Texture2D" uid="uid://doo4pra2abtmt" path="res://models/toon/head/dog/dog_heads_dogSSshorts_SS_Shorts_zero_dogSS_cvs_PICTURES_muzzleLngGeneric_picShader_albedo000.png" id="3_irxcu"]

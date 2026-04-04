@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://2p6r48esch8k"]
+[gd_scene format=4 uid="uid://2p6r48esch8k"]
 
 [ext_resource type="Texture2D" uid="uid://cf2duuuletu7g" path="res://models/props/gags/bugle/bugle_bugle_in.png" id="1_0m6v7"]
 [ext_resource type="Texture2D" uid="uid://bfyw6qptoidti" path="res://models/props/gags/bugle/bugle_bugle_mouth.png" id="2_pgv6b"]

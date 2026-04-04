@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1b7i2vtf1dgu"]
+[gd_scene format=3 uid="uid://b1b7i2vtf1dgu"]
 
 [ext_resource type="PackedScene" uid="uid://b5ntdrn2i31gm" path="res://objects/items/custom/toonosaur_hat/meteor/Meteor.fbx" id="1_olwxq"]
-[ext_resource type="Texture2D" uid="uid://cwkbcdyskvhrv" path="res://objects/items/custom/toonosaur_hat/meteor/WesternGround.png" id="2_gfyh8"]
-[ext_resource type="Texture2D" uid="uid://denyki60086p4" path="res://objects/items/custom/toonosaur_hat/meteor/lava7.png" id="3_ku2m1"]
+[ext_resource type="Texture2D" uid="uid://cvgp3acg4qmbs" path="res://objects/items/custom/toonosaur_hat/meteor/WesternGround.png" id="2_gfyh8"]
+[ext_resource type="Texture2D" uid="uid://2cryo5sbjgk7" path="res://objects/items/custom/toonosaur_hat/meteor/lava7.png" id="3_ku2m1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcvnx"]
 resource_name = "WesternGround"

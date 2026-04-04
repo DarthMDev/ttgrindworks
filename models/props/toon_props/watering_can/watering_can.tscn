@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dijbpg5dusgan"]
+[gd_scene format=3 uid="uid://dijbpg5dusgan"]
 
 [ext_resource type="PackedScene" uid="uid://brpvyxcia03vv" path="res://models/props/toon_props/watering_can/watering_can.fbx" id="1_dbae4"]
 

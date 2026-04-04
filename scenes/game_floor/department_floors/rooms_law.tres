@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DepartmentFloor" load_steps=24 format=3 uid="uid://qky6hxt0lyw2"]
+[gd_resource type="Resource" script_class="DepartmentFloor" format=3 uid="uid://qky6hxt0lyw2"]
 
 [ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_sk6r2"]
 [ext_resource type="Script" uid="uid://brjywdpat6vxg" path="res://scenes/game_floor/department_floors/department_floor.gd" id="2_16wr7"]

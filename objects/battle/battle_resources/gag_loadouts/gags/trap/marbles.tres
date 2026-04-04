@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrapToss" format=3 uid="uid://cn0duh0rw6c1y"]
+
+[ext_resource type="Texture2D" uid="uid://c312k6k81b08" path="res://ui_assets/battle/gags/inventory_marbles.png" id="1_0161d"]
+[ext_resource type="PackedScene" uid="uid://bx4qgugxa0mos" path="res://models/props/gags/marbles/marbles.tscn" id="2_1iy4c"]
+[ext_resource type="Script" uid="uid://cgs0v0f7jhwsc" path="res://objects/battle/battle_resources/toon_attacks/trap_toss.gd" id="3_l6pb8"]
+[ext_resource type="AudioStream" uid="uid://cgfiap65t8c7o" path="res://audio/sfx/battle/gags/trap/TL_marbles.ogg" id="4_1pd7m"]
+
+[resource]
+script = ExtResource("3_l6pb8")
+model = ExtResource("2_1iy4c")
+toss_time = 0.01
+toss_sfx = ExtResource("4_1pd7m")
+icon = ExtResource("1_0161d")
+damage = 56
+action_name = "Marbles"

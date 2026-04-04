@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://1r5i4ax366co"]
+[gd_scene format=3 uid="uid://1r5i4ax366co"]
 
 [ext_resource type="PackedScene" uid="uid://bbmpk0bcnkij1" path="res://objects/modules/cgc/base_rooms/cgc_long_room.tscn" id="1_ybll3"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_m4jup"]

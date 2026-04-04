@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://8o8qbaywt2n7"]
+[gd_resource type="Resource" format=3 uid="uid://8o8qbaywt2n7"]
 
 [ext_resource type="Script" uid="uid://cwhkk5itf7g7t" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_toxic.gd" id="1_ex0bw"]
 [ext_resource type="Texture2D" uid="uid://u07334o83e4i" path="res://ui_assets/battle/statuses/toxic.png" id="1_s5o7b"]

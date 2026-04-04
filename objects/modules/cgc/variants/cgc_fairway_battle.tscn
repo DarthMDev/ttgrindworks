@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bck84ftelia7y"]
+[gd_scene format=3 uid="uid://bck84ftelia7y"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_1hppd"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_han7l"]

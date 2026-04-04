@@ -1,109 +1,28 @@
-[gd_resource type="Resource" script_class="Track" load_steps=40 format=3 uid="uid://lf7h5xkbt2op"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://lf7h5xkbt2op"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_tudwb"]
-[ext_resource type="Texture2D" uid="uid://b58goas1dfh35" path="res://ui_assets/battle/gags/inventory_flower_pot.png" id="2_nr4db"]
-[ext_resource type="PackedScene" uid="uid://b83bdoxnutfks" path="res://models/props/gags/flower_pot/flower_pot.tscn" id="3_t5arf"]
-[ext_resource type="Script" uid="uid://dehi0sbejfe52" path="res://objects/battle/battle_resources/toon_attacks/drop_small.gd" id="4_3wka0"]
-[ext_resource type="AudioStream" uid="uid://dhp8y3qd2amis" path="res://audio/sfx/battle/gags/drop/AA_drop_flowerpot.ogg" id="5_848h6"]
-[ext_resource type="AudioStream" uid="uid://blyhe56l6dfkn" path="res://audio/sfx/battle/gags/drop/AA_drop_flowerpot_miss.ogg" id="6_f7iyq"]
-[ext_resource type="Texture2D" uid="uid://b0ur80pn0rlga" path="res://ui_assets/battle/gags/inventory_sandbag.png" id="7_ynwgd"]
-[ext_resource type="PackedScene" uid="uid://bqcn6woo6faw3" path="res://models/props/gags/sandbag/sandbag.tscn" id="8_jch5h"]
-[ext_resource type="AudioStream" uid="uid://daregunub3lk2" path="res://audio/sfx/battle/gags/drop/AA_drop_sandbag.ogg" id="9_agee5"]
-[ext_resource type="AudioStream" uid="uid://d216a4hd3dteb" path="res://audio/sfx/battle/gags/drop/AA_drop_sandbag_miss.ogg" id="10_slusc"]
-[ext_resource type="Texture2D" uid="uid://dqtqf65k6nxi8" path="res://ui_assets/battle/gags/inventory_anvil.png" id="11_s4omm"]
-[ext_resource type="PackedScene" uid="uid://bbrcfwwkp3uhk" path="res://models/props/gags/anvil/anvil.tscn" id="12_mqpo8"]
-[ext_resource type="AudioStream" uid="uid://omjhv7l4ctpi" path="res://audio/sfx/battle/gags/drop/AA_drop_anvil.ogg" id="13_ou2c6"]
-[ext_resource type="AudioStream" uid="uid://bj15l5kuxgkny" path="res://audio/sfx/battle/gags/drop/AA_drop_anvil_miss.ogg" id="14_6a3e5"]
-[ext_resource type="Texture2D" uid="uid://d12bdaxn4rm1e" path="res://ui_assets/battle/gags/inventory_weight.png" id="15_07x27"]
-[ext_resource type="PackedScene" uid="uid://b0iui2nh3h4wb" path="res://models/props/gags/big_weight/big_weight.tscn" id="16_bw01p"]
-[ext_resource type="Script" uid="uid://bacdlj4c328s6" path="res://objects/battle/battle_resources/toon_attacks/drop_big.gd" id="17_wt3cn"]
-[ext_resource type="AudioStream" uid="uid://bgx8rpo052x5q" path="res://audio/sfx/battle/gags/drop/AA_drop_bigweight.ogg" id="18_38bwk"]
-[ext_resource type="AudioStream" uid="uid://ddj4or7ioqguv" path="res://audio/sfx/battle/gags/drop/AA_drop_bigweight_miss.ogg" id="19_di2oc"]
-[ext_resource type="Texture2D" uid="uid://d3lgtwpp1y4ev" path="res://ui_assets/battle/gags/inventory_safe_box.png" id="20_jhkrj"]
-[ext_resource type="PackedScene" uid="uid://cueenmir23h2" path="res://models/props/gags/safe/safe.tscn" id="21_2fidh"]
-[ext_resource type="AudioStream" uid="uid://cuvfjvbbukbm3" path="res://audio/sfx/battle/gags/drop/AA_drop_safe.ogg" id="22_m1vk1"]
-[ext_resource type="AudioStream" uid="uid://cytnpbt1lx7kn" path="res://audio/sfx/battle/gags/drop/AA_drop_safe_miss.ogg" id="23_cqxrb"]
-[ext_resource type="Texture2D" uid="uid://u70efnid5wvk" path="res://ui_assets/battle/gags/inventory_piano.png" id="24_gx5cy"]
-[ext_resource type="PackedScene" uid="uid://dag5hn213d5m" path="res://models/props/gags/piano/piano.tscn" id="25_tlwck"]
-[ext_resource type="AudioStream" uid="uid://cg7wh45vhpg8x" path="res://audio/sfx/battle/gags/drop/AA_drop_piano.ogg" id="26_btxwu"]
-[ext_resource type="AudioStream" uid="uid://10qtggbu7xha" path="res://audio/sfx/battle/gags/drop/AA_drop_piano_miss.ogg" id="27_2cpd8"]
+[ext_resource type="Resource" uid="uid://c3cy1e5fvbds6" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/flower_pot.tres" id="2_g5jok"]
+[ext_resource type="Resource" uid="uid://b36jh0mm8fske" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/sandbag.tres" id="3_dfe2c"]
+[ext_resource type="Resource" uid="uid://bsbidil8mdrcx" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/anvil.tres" id="4_lwyrl"]
+[ext_resource type="Resource" uid="uid://bjrby3dvsnsqx" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/big_weight.tres" id="5_anp2t"]
+[ext_resource type="Resource" uid="uid://doe7eiwy4sm5y" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/safe.tres" id="6_vt0l2"]
+[ext_resource type="Resource" uid="uid://c67xcvusaysdi" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/piano.tres" id="7_u5f0h"]
+[ext_resource type="Resource" uid="uid://cavn2ph00cuks" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/statue.tres" id="8_qlh2s"]
+[ext_resource type="Resource" uid="uid://bmx80pp17bbl6" path="res://objects/battle/battle_resources/gag_loadouts/gags/drop/bricks.tres" id="9_dfe2c"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="28_0rg6a"]
-[ext_resource type="Texture2D" uid="uid://cbqu6d060xt2w" path="res://ui_assets/battle/gags/inventory_statue.png" id="28_qi3du"]
-[ext_resource type="PackedScene" uid="uid://gnotwb20f4fk" path="res://models/props/gags/statue/statue_gag.tscn" id="29_evr1f"]
-[ext_resource type="AudioStream" uid="uid://cit520rn3lov1" path="res://audio/sfx/misc/tt_s_ara_mat_crash_wood.ogg" id="30_pvtt7"]
-[ext_resource type="AudioStream" uid="uid://7p2scphsqn72" path="res://audio/sfx/battle/gags/drop/AA_drop_statue_miss.ogg" id="31_il2je"]
-
-[sub_resource type="Resource" id="Resource_bdyje"]
-script = ExtResource("4_3wka0")
-model = ExtResource("3_t5arf")
-shadow_scale = 1.25
-sfx_hit = ExtResource("5_848h6")
-sfx_miss = ExtResource("6_f7iyq")
-icon = ExtResource("2_nr4db")
-damage = 8
-action_name = "Flower Pot"
-
-[sub_resource type="Resource" id="Resource_0vh8a"]
-script = ExtResource("4_3wka0")
-model = ExtResource("8_jch5h")
-shadow_scale = 1.25
-sfx_hit = ExtResource("9_agee5")
-sfx_miss = ExtResource("10_slusc")
-icon = ExtResource("7_ynwgd")
-damage = 14
-action_name = "Sandbag"
-
-[sub_resource type="Resource" id="Resource_ye2tp"]
-script = ExtResource("4_3wka0")
-model = ExtResource("12_mqpo8")
-shadow_scale = 1.5
-sfx_hit = ExtResource("13_ou2c6")
-sfx_miss = ExtResource("14_6a3e5")
-icon = ExtResource("11_s4omm")
-damage = 20
-action_name = "Anvil"
-
-[sub_resource type="Resource" id="Resource_7r1t1"]
-script = ExtResource("17_wt3cn")
-model = ExtResource("16_bw01p")
-shadow_scale = 2.0
-sfx_hit = ExtResource("18_38bwk")
-sfx_miss = ExtResource("19_di2oc")
-icon = ExtResource("15_07x27")
-damage = 36
-action_name = "Big Weight"
-
-[sub_resource type="Resource" id="Resource_ctukw"]
-script = ExtResource("17_wt3cn")
-model = ExtResource("21_2fidh")
-shadow_scale = 3.0
-sfx_hit = ExtResource("22_m1vk1")
-sfx_miss = ExtResource("23_cqxrb")
-icon = ExtResource("20_jhkrj")
-damage = 56
-action_name = "Safe"
-
-[sub_resource type="Resource" id="Resource_xnjq8"]
-script = ExtResource("17_wt3cn")
-model = ExtResource("25_tlwck")
-sfx_hit = ExtResource("26_btxwu")
-sfx_miss = ExtResource("27_2cpd8")
-icon = ExtResource("24_gx5cy")
-damage = 76
-action_name = "Grand Piano"
-
-[sub_resource type="Resource" id="Resource_tnwe1"]
-script = ExtResource("17_wt3cn")
-model = ExtResource("29_evr1f")
-shadow_scale = 3.0
-sfx_hit = ExtResource("30_pvtt7")
-sfx_miss = ExtResource("31_il2je")
-icon = ExtResource("28_qi3du")
-damage = 100
-action_name = "Statue"
 
 [resource]
 script = ExtResource("28_0rg6a")
 track_name = "Drop"
 track_color = Color(0.207843, 0.956863, 1, 1)
-gags = Array[ExtResource("1_tudwb")]([SubResource("Resource_bdyje"), SubResource("Resource_0vh8a"), SubResource("Resource_ye2tp"), SubResource("Resource_7r1t1"), SubResource("Resource_ctukw"), SubResource("Resource_xnjq8"), SubResource("Resource_tnwe1")])
+gags = Array[ExtResource("1_tudwb")]([ExtResource("2_g5jok"), ExtResource("3_dfe2c"), ExtResource("4_lwyrl"), ExtResource("5_anp2t"), ExtResource("6_vt0l2"), ExtResource("7_u5f0h"), ExtResource("8_qlh2s")])
+mod_gags = Dictionary[ExtResource("1_tudwb"), int]({
+ExtResource("2_g5jok"): 0,
+ExtResource("3_dfe2c"): 1,
+ExtResource("4_lwyrl"): 2,
+ExtResource("5_anp2t"): 3,
+ExtResource("6_vt0l2"): 4,
+ExtResource("7_u5f0h"): 5,
+ExtResource("8_qlh2s"): 6,
+ExtResource("9_dfe2c"): 1
+})

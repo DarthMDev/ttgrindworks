@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c3gg5tsci6aye"]
+[gd_resource type="Resource" format=3 uid="uid://c3gg5tsci6aye"]
 
 [ext_resource type="Script" uid="uid://cdc82h130g5b5" path="res://objects/battle/battle_resources/cog_attacks/hang_up.gd" id="1_rdyvm"]
 

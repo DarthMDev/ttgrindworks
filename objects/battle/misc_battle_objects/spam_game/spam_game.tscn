@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn4a51dwspr5o"]
+[gd_scene format=3 uid="uid://cn4a51dwspr5o"]
 
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="1_2o5xy"]
 [ext_resource type="Script" uid="uid://iljdtsltk8he" path="res://objects/battle/misc_battle_objects/spam_game/spam_game.gd" id="1_h8o37"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://xyyc4r1gb5m4"]
+[gd_resource type="Resource" script_class="PlayerCharacter" format=3 uid="uid://xyyc4r1gb5m4"]
 
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_cedi1"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="3_iq2rv"]

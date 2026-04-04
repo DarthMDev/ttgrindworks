@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dhg405h16fbv3"]
+[gd_scene format=4 uid="uid://dhg405h16fbv3"]
 
 [ext_resource type="PackedScene" uid="uid://wjibyue3cmwn" path="res://models/props/facility_objects/da_office/scale/lb_scale.fbx" id="1_ykcpa"]
 [ext_resource type="Material" uid="uid://c3n21aektlurt" path="res://models/props/facility_objects/da_office/scale/textures/gold2.tres" id="2_64v12"]

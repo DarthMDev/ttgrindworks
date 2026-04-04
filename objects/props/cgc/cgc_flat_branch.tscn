@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://dcovg7c53hvck"]
+[gd_scene format=4 uid="uid://dcovg7c53hvck"]
 
 [ext_resource type="Material" uid="uid://do7bpsdy2nk" path="res://models/facilities/cgc/materials/branch_mat.tres" id="1_6r1sv"]
 

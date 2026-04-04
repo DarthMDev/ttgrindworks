@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd75urtji65pw"]
+[gd_scene format=3 uid="uid://dd75urtji65pw"]
 
 [ext_resource type="PackedScene" uid="uid://sqd5qfy78aql" path="res://models/props/gags/bday_cake/bday_cake.glb" id="1_pehkf"]
 

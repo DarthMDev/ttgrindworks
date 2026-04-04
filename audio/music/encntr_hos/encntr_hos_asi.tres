@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamInteractive" load_steps=73 format=4 uid="uid://b31b8dpu7ommp"]
+[gd_resource type="AudioStreamInteractive" format=4 uid="uid://b31b8dpu7ommp"]
 
 [ext_resource type="AudioStream" uid="uid://2h2dg3banfi2" path="res://audio/music/encntr_hos/intro_01/encntr_hos_intro_01_Unpitched Percussion_144bpm.ogg" id="1_ej8il"]
 [ext_resource type="AudioStream" uid="uid://c65kcbduqy22c" path="res://audio/music/encntr_hos/intro_02/encntr_hos_intro_02_Bass_144bpm.ogg" id="2_2x30v"]

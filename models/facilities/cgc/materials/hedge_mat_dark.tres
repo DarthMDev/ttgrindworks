@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://u261qh7el46l"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://u261qh7el46l"]
 
 [ext_resource type="Texture2D" uid="uid://dn3ce1gbwb6ie" path="res://models/facilities/cgc/textures/CogHedgeFar2.png" id="1_w2tp4"]
 

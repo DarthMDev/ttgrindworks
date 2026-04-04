@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dkysf0km3h07f"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dkysf0km3h07f"]
 
 [ext_resource type="Texture2D" uid="uid://bfi7oyk4hrj46" path="res://models/props/facility_objects/mint/pipes/textures/CrossBeamQuarter.png" id="1_hgnwr"]
 

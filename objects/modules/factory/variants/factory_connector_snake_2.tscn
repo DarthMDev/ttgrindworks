@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bce5tic37ix2c"]
+[gd_scene format=3 uid="uid://bce5tic37ix2c"]
 
 [ext_resource type="PackedScene" uid="uid://c7w5ajbenmohl" path="res://objects/modules/factory/variants/factory_connector_snake.tscn" id="1_rewsg"]
 [ext_resource type="PackedScene" uid="uid://bqvkntyk0ljsq" path="res://objects/goon/goon.tscn" id="2_lgu6f"]

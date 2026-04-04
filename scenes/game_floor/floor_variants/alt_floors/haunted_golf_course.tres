@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=11 format=3 uid="uid://brhahnbakm60"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://brhahnbakm60"]
 
 [ext_resource type="Resource" uid="uid://05unenh4dgjs" path="res://objects/cog/presets/pools/bossbot.tres" id="1_5r77w"]
 [ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_qwy8y"]

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://beyj4wws86ddy"]
+
+[ext_resource type="Shader" uid="uid://bmlo6fveyl3vd" path="res://objects/items/custom/rainbow_jellybean/rainbow.gdshader" id="1_11i6w"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_11i6w")
+shader_parameter/strength = 0.338000016055
+shader_parameter/speed = 0.50000002375
+shader_parameter/angle = 95.0000045125

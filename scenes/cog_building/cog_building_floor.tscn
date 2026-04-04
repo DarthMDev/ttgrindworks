@@ -1,4 +1,4 @@
-[gd_scene load_steps=249 format=4 uid="uid://pg3dqtneqvwt"]
+[gd_scene format=4 uid="uid://pg3dqtneqvwt"]
 
 [ext_resource type="Texture2D" uid="uid://bybwlevpkmfua" path="res://models/misc_zones/cog_building/cog_building_floor1_0.png" id="1_6qk73"]
 [ext_resource type="Script" uid="uid://bh347rsny7oxl" path="res://scenes/cog_building/cog_building_floor.gd" id="1_60jla"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://c8yh80vqngv1b"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c8yh80vqngv1b"]
 
 [ext_resource type="Texture2D" uid="uid://dj32koje0oucv" path="res://objects/items/custom/treasure/music.png" id="1_h3kp7"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_b4gat"]

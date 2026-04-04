@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://b0ouvdrl2hhxp"]
+[gd_scene format=3 uid="uid://b0ouvdrl2hhxp"]
 
 [ext_resource type="PackedScene" uid="uid://cqr7xxnsql5ph" path="res://models/facilities/molten/molten_connector_bellows.fbx" id="1_u8iqr"]
 [ext_resource type="Script" uid="uid://cf7ebfq18rpud" path="res://objects/modules/molten/base_rooms/connectors/molten_connector_bellows.gd" id="2_vmh8w"]
 [ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="2_ynbxm"]
 [ext_resource type="PackedScene" uid="uid://brupbko3w3tbq" path="res://objects/props/mint/gold_stack.tscn" id="3_4u1it"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="3_lgyiy"]
-[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="4_4jqhg"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="4_4jqhg"]
 [ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="4_jjp10"]
 [ext_resource type="PackedScene" uid="uid://dbip8tydrs1a3" path="res://objects/interactables/water_bucket/water_bucket.tscn" id="4_lgyiy"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="5_h4i3f"]
@@ -52,13 +52,13 @@ emission_energy_multiplier = 0.0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kka82"]
 data = PackedVector3Array(-0.0818, -0.0287, 0.030499998, -0.0818, -0.0287, -0.030499998, -0.0818, -0.1275, -0.030499998, -0.0818, -0.1275, -0.030499998, -0.0818, -0.1275, 0.030499998, -0.0818, -0.0287, 0.030499998, -0.0818, -0.0287, 0.030499998, -0.0818, -0.0287, 0.0835, -0.0818, 0.030499998, 0.0835, -0.0818, 0.030499998, 0.0835, -0.0818, 0.030499998, 0.030499998, -0.0818, -0.0287, 0.030499998, -0.021, -0.1275, 0.030499998, -0.021, -0.1275, -0.030499998, 0.0981, -0.1275, -0.030499998, 0.0981, -0.1275, -0.030499998, 0.0981, -0.1275, 0.030499998, -0.021, -0.1275, 0.030499998, 0.0981, -0.1275, 0.0835, -0.021, -0.1275, 0.030499998, 0.0981, -0.1275, 0.030499998, -0.021, -0.1275, 0.030499998, 0.0981, -0.1275, 0.0835, -0.0818, -0.1275, 0.0835, -0.0818, -0.1275, 0.0835, -0.0818, -0.1275, 0.030499998, -0.021, -0.1275, 0.030499998, -0.021, -0.1275, -0.030499998, -0.021, -0.1275, 0.030499998, -0.028299998, -0.1275, 0.0142, -0.028299998, -0.1275, 0.0142, -0.028299998, -0.1275, -0.030499998, -0.021, -0.1275, -0.030499998, -0.074499995, -0.1275, 0.0142, -0.0818, -0.1275, 0.030499998, -0.0818, -0.1275, -0.030499998, -0.0818, -0.1275, -0.030499998, -0.074499995, -0.1275, -0.030499998, -0.074499995, -0.1275, 0.0142, 0.044499997, 0.030499998, 0.0753, -0.0818, 0.030499998, 0.0835, 0.0981, 0.030499998, 0.0835, 0.0981, 0.030499998, 0.0835, 0.091, 0.030499998, 0.0753, 0.044499997, 0.030499998, 0.0753, 0.091, 0.030499998, 0.0753, 0.0981, 0.030499998, 0.0835, 0.0981, 0.030499998, 0.030499998, 0.0981, 0.030499998, 0.030499998, 0.0906, 0.030499998, 0.030499998, 0.091, 0.030499998, 0.0753, -0.0818, -0.0287, 0.0835, -0.0818, -0.0287, 0.030499998, -0.0818, -0.1275, 0.030499998, -0.0818, -0.1275, 0.030499998, -0.0818, -0.1275, 0.0835, -0.0818, -0.0287, 0.0835, 0.044499997, 0.030499998, 0.0753, 0.044499997, 0.030499998, 0.030499998, -0.0818, 0.030499998, 0.030499998, -0.0818, 0.030499998, 0.030499998, -0.0818, 0.030499998, 0.0835, 0.044499997, 0.030499998, 0.0753, -0.074499995, -0.1275, 0.0142, -0.028299998, -0.1275, 0.0142, -0.021, -0.1275, 0.030499998, -0.021, -0.1275, 0.030499998, -0.0818, -0.1275, 0.030499998, -0.074499995, -0.1275, 0.0142, 0.0981, -0.0287, 0.0835, 0.0981, -0.0287, 0.030499998, 0.0981, 0.030499998, 0.030499998, 0.0981, 0.030499998, 0.030499998, 0.0981, 0.030499998, 0.0835, 0.0981, -0.0287, 0.0835, 0.0981, -0.1275, 0.030499998, 0.0981, -0.0287, 0.030499998, 0.0981, -0.0287, 0.0835, 0.0981, -0.0287, 0.0835, 0.0981, -0.1275, 0.0835, 0.0981, -0.1275, 0.030499998, 0.0981, -0.0287, 0.030499998, 0.0981, -0.1275, 0.030499998, 0.0981, -0.1275, -0.030499998, 0.0981, -0.1275, -0.030499998, 0.0981, -0.0287, -0.030499998, 0.0981, -0.0287, 0.030499998, 0.091, 0.0797, 0.0753, 0.091, 0.030499998, 0.0753, 0.0906, 0.030499998, 0.030499998, 0.0906, 0.030499998, 0.030499998, 0.0906, 0.0797, 0.030499998, 0.091, 0.0797, 0.0753, 0.044499997, 0.0797, 0.030499998, 0.044499997, 0.030499998, 0.030499998, 0.044499997, 0.030499998, 0.0753, 0.044499997, 0.030499998, 0.0753, 0.044499997, 0.0797, 0.0753, 0.044499997, 0.0797, 0.030499998, 0.086399995, -0.118999995, -0.030499998, -0.021, -0.118999995, -0.030499998, -0.021, -0.037299998, -0.030499998, -0.021, -0.037299998, -0.030499998, 0.086399995, -0.037299998, -0.030499998, 0.086399995, -0.118999995, -0.030499998, 0.086399995, -0.037299998, -0.030499998, -0.021, -0.037299998, -0.030499998, -0.021, -0.0287, -0.030499998, -0.021, -0.0287, -0.030499998, 0.0981, -0.0287, -0.030499998, 0.086399995, -0.037299998, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.021, -0.037299998, -0.030499998, -0.021, -0.118999995, -0.030499998, -0.021, -0.1275, -0.030499998, -0.021, -0.118999995, -0.030499998, 0.086399995, -0.118999995, -0.030499998, 0.086399995, -0.118999995, -0.030499998, 0.0981, -0.1275, -0.030499998, -0.021, -0.1275, -0.030499998, -0.021, -0.118999995, -0.030499998, -0.021, -0.1275, -0.030499998, -0.028299998, -0.1275, -0.030499998, -0.028299998, -0.1275, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.021, -0.118999995, -0.030499998, -0.021, -0.118999995, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.028299998, -0.0287, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.0818, -0.0287, -0.030499998, -0.028299998, -0.0287, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.074599996, -0.118999995, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.074599996, -0.1275, -0.030499998, -0.074599996, -0.118999995, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.028299998, -0.118999995, -0.030499998, -0.028299998, -0.1275, -0.030499998, -0.074599996, -0.1275, -0.030499998, -0.0818, -0.1275, -0.030499998, -0.0818, -0.0287, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.074599996, -0.037299998, -0.030499998, -0.074599996, -0.118999995, -0.030499998, -0.0818, -0.1275, -0.030499998, 0.0981, -0.1275, -0.030499998, 0.086399995, -0.118999995, -0.030499998, 0.086399995, -0.037299998, -0.030499998, 0.086399995, -0.037299998, -0.030499998, 0.0981, -0.0287, -0.030499998, 0.0981, -0.1275, -0.030499998, -0.021, -0.0287, -0.030499998, -0.021, -0.037299998, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.028299998, -0.037299998, -0.030499998, -0.028299998, -0.0287, -0.030499998, -0.021, -0.0287, -0.030499998, -0.074599996, -0.1275, -0.030499998, -0.0818, -0.1275, -0.030499998, -0.074599996, -0.118999995, -0.030499998, 0.044499997, 0.030499998, 0.030499998, 0.044499997, 0.0797, 0.030499998, 0.0906, 0.0797, 0.030499998, 0.0906, 0.0797, 0.030499998, 0.0906, 0.030499998, 0.030499998, 0.044499997, 0.030499998, 0.030499998, 0.0681, -0.0287, 0.0835, 0.0681, 0.00049999997, 0.0835, -0.051799998, 0.00049999997, 0.0835, -0.051799998, 0.00049999997, 0.0835, -0.051799998, -0.0287, 0.0835, 0.0681, -0.0287, 0.0835, 0.0681, -0.097399995, 0.0835, 0.0681, -0.0287, 0.0835, -0.051799998, -0.0287, 0.0835, -0.051799998, -0.0287, 0.0835, -0.051799998, -0.097399995, 0.0835, 0.0681, -0.097399995, 0.0835, -0.0818, -0.0287, 0.0835, -0.0818, -0.1275, 0.0835, -0.051799998, -0.097399995, 0.0835, -0.051799998, -0.097399995, 0.0835, -0.051799998, -0.0287, 0.0835, -0.0818, -0.0287, 0.0835, 0.0981, -0.0287, 0.0835, 0.0681, -0.0287, 0.0835, 0.0681, -0.097399995, 0.0835, 0.0681, -0.097399995, 0.0835, 0.0981, -0.1275, 0.0835, 0.0981, -0.0287, 0.0835, -0.0818, -0.0287, 0.0835, -0.051799998, -0.0287, 0.0835, -0.051799998, 0.00049999997, 0.0835, -0.051799998, 0.00049999997, 0.0835, -0.0818, 0.030499998, 0.0835, -0.0818, -0.0287, 0.0835, -0.0818, 0.030499998, 0.0835, -0.051799998, 0.00049999997, 0.0835, 0.0681, 0.00049999997, 0.0835, 0.0681, 0.00049999997, 0.0835, 0.0981, 0.030499998, 0.0835, -0.0818, 0.030499998, 0.0835, 0.0981, -0.1275, 0.0835, 0.0681, -0.097399995, 0.0835, -0.051799998, -0.097399995, 0.0835, -0.051799998, -0.097399995, 0.0835, -0.0818, -0.1275, 0.0835, 0.0981, -0.1275, 0.0835, 0.0981, -0.0287, 0.0835, 0.0981, 0.030499998, 0.0835, 0.0681, 0.00049999997, 0.0835, 0.0681, 0.00049999997, 0.0835, 0.0681, -0.0287, 0.0835, 0.0981, -0.0287, 0.0835, 0.044499997, 0.0797, 0.0753, 0.044499997, 0.030499998, 0.0753, 0.091, 0.030499998, 0.0753, 0.091, 0.030499998, 0.0753, 0.091, 0.0797, 0.0753, 0.044499997, 0.0797, 0.0753)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jqhg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kkui"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("7_vmh8w")
 roughness = 0.552786
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgi8y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e0oy"]
 resource_name = "ConveyerBeltV3SHD"
 cull_mode = 2
 albedo_texture = ExtResource("7_vmh8w")
@@ -71,21 +71,25 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_50i4p"]
 material = SubResource("StandardMaterial3D_jjp10")
 
-[node name="molten_connector_bellows" instance=ExtResource("1_u8iqr")]
+[sub_resource type="NavigationMesh" id="NavigationMesh_ldqdh"]
+vertices = PackedVector3Array(14.211426, 6.707782, -2.2120152, 14.211426, 6.457782, -7.462015, 13.461426, 6.457782, -7.712015, 9.961426, 6.457782, -7.462015, 13.461426, 6.457782, -12.462015, 10.211426, 6.457782, -12.462015, -2.2885742, 6.707782, -2.2120152, -2.2885742, 6.457782, -7.462015, -2.0385742, 0.45778155, 7.287985, 14.211426, 0.45778155, 7.037985, 14.211426, 0.45778155, -1.7120152, -2.2885742, 0.45778155, -1.7120152)
+polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(7, 3, 6), PackedInt32Array(6, 3, 0), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11)]
+
+[node name="molten_connector_bellows" unique_id=1795763286 instance=ExtResource("1_u8iqr")]
 script = ExtResource("2_vmh8w")
 REGULAR_OBJS = Array[PackedScene]([ExtResource("3_4u1it")])
 
 [node name="Barrier" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_uywio")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Barrier" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Barrier" index="0" unique_id=467845320]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrier/StaticBody3D" index="0" unique_id=1720086181]
 shape = SubResource("ConcavePolygonShape3D_u8iqr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BarriersSupports" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BarriersSupports" index="0" unique_id=459173949]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BarriersSupports/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarriersSupports/StaticBody3D" index="0" unique_id=127990992]
 shape = SubResource("ConcavePolygonShape3D_ynbxm")
 
 [node name="Belts" parent="." index="2"]
@@ -94,113 +98,113 @@ transform = Transform3D(-4.578989e-06, -100, -4.371139e-06, 0, -4.371139e-06, 10
 [node name="Collisions_Wall" parent="." index="3"]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Collisions_Wall" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Collisions_Wall" index="0" unique_id=1265603316]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions_Wall/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions_Wall/StaticBody3D" index="0" unique_id=443294530]
 shape = SubResource("ConcavePolygonShape3D_si0qv")
 
-[node name="SquareDropShadow" parent="Console" index="0" instance=ExtResource("4_jjp10")]
+[node name="SquareDropShadow" parent="Console" index="0" unique_id=2044357325 instance=ExtResource("4_jjp10")]
 transform = Transform3D(-0.070657626, -2.824632e-09, -1.2346856e-16, 4.663572e-16, -3.8516577e-09, 0.03231004, -6.1770873e-09, 0.03231004, 3.851657e-09, 0.016254637, -0.0010490557, 0.00021481671)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ConveyorWalkway" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ConveyorWalkway" index="0" unique_id=1451779189]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorWalkway/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConveyorWalkway/StaticBody3D" index="0" unique_id=2121769739]
 shape = SubResource("ConcavePolygonShape3D_lgyiy")
 
-[node name="MoltenBellows" parent="." index="7" instance=ExtResource("2_ynbxm")]
+[node name="MoltenBellows" parent="." index="7" unique_id=986382981 instance=ExtResource("2_ynbxm")]
 transform = Transform3D(0.423691, 0, 0, 0, 0.423691, 0, 0, 0, 0.423691, 0, -0.025035165, 1.81385)
 push_force = 5.605
 max_push = 2.0
 
-[node name="RoomArea" type="Area3D" parent="." index="8"]
+[node name="RoomArea" type="Area3D" parent="." index="8" unique_id=1786621911]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0" unique_id=1483146658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44397, 5.20746, 0)
 shape = SubResource("BoxShape3D_lgyiy")
 
-[node name="DebugPlayerPositionMarker" parent="." index="9" instance=ExtResource("3_lgyiy")]
+[node name="DebugPlayerPositionMarker" parent="." index="9" unique_id=74766195 instance=ExtResource("3_lgyiy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0577205, 5.11591)
 
-[node name="WaterBucket" parent="." index="10" instance=ExtResource("4_lgyiy")]
+[node name="WaterBucket" parent="." index="10" unique_id=1729674503 instance=ExtResource("4_lgyiy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95571, 6.84133, -4.92608)
 
 [node name="ENTRANCE" parent="." index="11"]
 transform = Transform3D(0.99999905, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, -0.04221898, 7.753725)
 
-[node name="door_frame" parent="ENTRANCE" index="0" instance=ExtResource("5_h4i3f")]
+[node name="door_frame" parent="ENTRANCE" index="0" unique_id=321388633 instance=ExtResource("5_h4i3f")]
 
 [node name="EXIT" parent="." index="12"]
 transform = Transform3D(0.99999905, 0, 0, 0, 0.9999989, 7.549782e-08, 0, -7.549782e-08, 0.9999989, 11.917924, 6.059885, -12.962014)
 
-[node name="door_frame" parent="EXIT" index="0" instance=ExtResource("5_h4i3f")]
+[node name="door_frame" parent="EXIT" index="0" unique_id=677168947 instance=ExtResource("5_h4i3f")]
 
 [node name="Walls" parent="." index="13"]
 surface_material_override/2 = SubResource("StandardMaterial3D_50i4p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0" unique_id=1296349709]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0" unique_id=778031753]
 shape = SubResource("ConcavePolygonShape3D_kka82")
 
-[node name="CBUpper" parent="." index="15" instance=ExtResource("6_kka82")]
+[node name="CBUpper" parent="." index="15" unique_id=883196636 instance=ExtResource("6_kka82")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2565374, 0.2750411, -5.1255097)
 visible = false
 constant_linear_velocity = Vector3(0, 0, 0)
-platform_mat = SubResource("StandardMaterial3D_4jqhg")
+platform_mat = SubResource("StandardMaterial3D_2kkui")
 speed = 0.0
 
-[node name="dontmindthisguy" type="Node3D" parent="CBUpper" index="2"]
+[node name="dontmindthisguy" type="Node3D" parent="CBUpper" index="2" unique_id=55893462]
 
-[node name="CBLower" parent="." index="16" instance=ExtResource("6_kka82")]
+[node name="CBLower" parent="." index="16" unique_id=830688290 instance=ExtResource("6_kka82")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.2565374, 0.2750411, -5.1255097)
 constant_linear_velocity = Vector3(-5, 0, -2.1855695e-07)
 size = Vector3(1.905, 1, 5.605)
-platform_mat = SubResource("StandardMaterial3D_wgi8y")
+platform_mat = SubResource("StandardMaterial3D_8e0oy")
 speed = 5.0
 
-[node name="SpawnPointA" type="Node3D" parent="." index="17"]
+[node name="SpawnPointA" type="Node3D" parent="." index="17" unique_id=1966887052]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423287, 0.4263822, -4.9870067)
 
-[node name="SpawnPointA2" type="Node3D" parent="." index="18"]
+[node name="SpawnPointA2" type="Node3D" parent="." index="18" unique_id=77078194]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423287, 0.4263822, -4.9870067)
 
-[node name="SpawnPointB" type="Node3D" parent="." index="19"]
+[node name="SpawnPointB" type="Node3D" parent="." index="19" unique_id=540183421]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423287, 0.4263822, -4.9870067)
 
-[node name="SpawnPointB2" type="Node3D" parent="." index="20"]
+[node name="SpawnPointB2" type="Node3D" parent="." index="20" unique_id=783840757]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.423287, 0.4263822, -4.9870067)
 
-[node name="ObjsA" type="Node3D" parent="." index="21"]
+[node name="ObjsA" type="Node3D" parent="." index="21" unique_id=1665613470]
 unique_name_in_owner = true
 
-[node name="ObjsB" type="Node3D" parent="." index="22"]
+[node name="ObjsB" type="Node3D" parent="." index="22" unique_id=1693390423]
 unique_name_in_owner = true
 
-[node name="door_frame" parent="." index="23" instance=ExtResource("5_h4i3f")]
+[node name="door_frame" parent="." index="23" unique_id=735550206 instance=ExtResource("5_h4i3f")]
 transform = Transform3D(-5.3910465e-08, 0, 1.3398467, 0, 1.3398467, 0, -1.2333277, 0, -5.856656e-08, -1.2750382, -0.46793294, -5.0336094)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="door_frame" index="9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door_frame" index="9" unique_id=554542072]
 transform = Transform3D(4.1327004, 0, -2.842171e-14, 0, 4.1327004, 0, 1.4210855e-14, 0, 4.1327004, 0, 2.3105628, 0.07399583)
 mesh = SubResource("QuadMesh_50i4p")
 
-[node name="door_frame2" parent="." index="24" instance=ExtResource("5_h4i3f")]
+[node name="door_frame2" parent="." index="24" unique_id=1585984738 instance=ExtResource("5_h4i3f")]
 transform = Transform3D(1.617314e-07, 0, -1.3398467, 0, 1.3398467, 0, 1.2333277, 0, 1.7569968e-07, 13.820804, -0.46793294, -5.0336094)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="door_frame2" index="9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door_frame2" index="9" unique_id=1354456639]
 transform = Transform3D(4.1327004, 0, -2.842171e-14, 0, 4.1327004, 0, 1.4210855e-14, 0, 4.1327004, 0, 2.3105628, 0.07399583)
 mesh = SubResource("QuadMesh_50i4p")
 
-[node name="CogDoor" parent="." index="25" instance=ExtResource("12_d5oln")]
+[node name="CogDoor" parent="." index="25" unique_id=1968577354 instance=ExtResource("12_d5oln")]
 transform = Transform3D(1.1958794e-07, 0, -0.91195095, 0, 0.91195095, 0, 0.91195095, 0, 1.1958794e-07, 14.946291, -0.07108921, 3.119189)
 monitoring = false
 
-[node name="SecretNeverBeforeSeenLore" type="Label3D" parent="CogDoor" index="5"]
+[node name="SecretNeverBeforeSeenLore" type="Label3D" parent="CogDoor" index="5" unique_id=1031613766]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.9407e-08, 2.30666, -0.129)
 double_sided = false
 text = "wouldn't you like to know
@@ -208,3 +212,6 @@ whats behind this door buddy
 well too bad :)"
 font = ExtResource("13_4jqhg")
 font_size = 64
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." index="26" unique_id=651304411]
+navigation_mesh = SubResource("NavigationMesh_ldqdh")

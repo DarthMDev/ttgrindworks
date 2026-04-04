@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cl6jho6mr8gam"]
+[gd_resource type="Resource" format=3 uid="uid://cl6jho6mr8gam"]
 
 [ext_resource type="Script" uid="uid://ckob5x75u3qgl" path="res://objects/battle/battle_resources/misc_movies/mole_cog_boss/mole_cog_launch.gd" id="1_58wf1"]
 

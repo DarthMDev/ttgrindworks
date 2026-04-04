@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GagLoadout" load_steps=8 format=3 uid="uid://oromnsmw0dhr"]
+[gd_resource type="Resource" script_class="GagLoadout" format=3 uid="uid://oromnsmw0dhr"]
 
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="1_fvjjb"]
 [ext_resource type="Resource" uid="uid://dvxiqtapdvmj4" path="res://objects/battle/battle_resources/gag_loadouts/gag_tracks/squirt.tres" id="2_il3vg"]

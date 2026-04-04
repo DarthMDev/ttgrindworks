@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://cfongabaw87hp"]
+[gd_scene format=3 uid="uid://cfongabaw87hp"]
 
 [ext_resource type="PackedScene" uid="uid://beiy07ewbtahj" path="res://models/toon/body/lrg/shorts/tt_a_chr_dgl_shorts_torso_1000.fbx" id="1_tk03w"]
 [ext_resource type="Animation" uid="uid://drsxgxdoueunx" path="res://models/toon/body/lrg/shorts/anim/angry.res" id="2_68tcj"]

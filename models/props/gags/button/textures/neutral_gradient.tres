@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dk3qnwhnh1r7d"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dk3qnwhnh1r7d"]
 
 [ext_resource type="Texture2D" uid="uid://03njkqkgvnnl" path="res://models/props/gags/button/textures/neutral_gradient.png" id="1_ce1vq"]
 

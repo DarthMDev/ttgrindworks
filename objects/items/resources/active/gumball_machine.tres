@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://bpctsghink3ao"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://bpctsghink3ao"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_7lxgk"]
 [ext_resource type="Texture2D" uid="uid://f30idsc78uyi" path="res://ui_assets/player_ui/pocket_prank_icons/gumball machine.png" id="1_ewmq0"]

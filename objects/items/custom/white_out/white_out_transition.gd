@@ -89,7 +89,7 @@ func restart_floor() -> void:
 	# Get our new floor variant
 	var floor_variant: FloorVariant = RNG.channel(RNG.ChannelWhiteOutFloor).pick_random(Globals.FLOOR_VARIANTS).duplicate(true)
 	if floor_variant.alt_floor and RNG.channel(RNG.ChannelFloors).randf() < 0.15:
-		floor_variant = floor_variant.alt_floor
+		floor_variant = floor_variant.alt_floor.duplicate(true)
 	floor_variant.randomize_details()
 	if is_instance_valid(Util.floor_manager):
 		floor_variant.reward = Util.floor_manager.floor_variant.reward

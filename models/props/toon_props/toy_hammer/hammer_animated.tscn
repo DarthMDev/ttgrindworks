@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://drije3o1ot8ho"]
+[gd_scene format=3 uid="uid://drije3o1ot8ho"]
 
 [ext_resource type="PackedScene" uid="uid://bbrcfwwkp3uhk" path="res://models/props/gags/anvil/anvil.tscn" id="1_6byau"]
 [ext_resource type="PackedScene" uid="uid://c1o3q1hgrjs0y" path="res://models/props/toon_props/toy_hammer/toyHammer.glb" id="2_1ifnh"]

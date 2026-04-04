@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=5 format=3 uid="uid://cfgq4sxagf8fo"]
+[gd_resource type="Resource" script_class="CogDNA" format=3 uid="uid://cfgq4sxagf8fo"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_rm1bc"]
 [ext_resource type="Script" uid="uid://cgc7g6cmo0v86" path="res://objects/battle/battle_resources/misc_movies/slendercog_boss/slender_static_increase.gd" id="2_iq3wl"]

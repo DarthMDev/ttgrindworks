@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c86egwwmhvbco"]
+[gd_scene format=3 uid="uid://c86egwwmhvbco"]
 
 [ext_resource type="PackedScene" uid="uid://d28bn1p716yti" path="res://models/accessories/backpacks/dragonfly_wings/tt_m_chr_avt_acc_pac_dragonFlyWings.glb" id="1_cyt7x"]
 [ext_resource type="Script" uid="uid://b0eskrsvnqp0u" path="res://models/accessories/backpacks/dragonfly_wings/dragonfly_wings.gd" id="2_rjcmu"]

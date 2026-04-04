@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://kw24drhs7u34"]
+[gd_scene format=3 uid="uid://kw24drhs7u34"]
 
 [ext_resource type="Script" uid="uid://dgm8xffhe5pw4" path="res://objects/obstacles/stomper/old_stomper.gd" id="1_5ymn8"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PopQuizAttack" load_steps=7 format=3 uid="uid://bmp6wgk24lvba"]
+[gd_resource type="Resource" script_class="PopQuizAttack" format=3 uid="uid://bmp6wgk24lvba"]
 
 [ext_resource type="Script" uid="uid://nfv1tbmrrbwv" path="res://objects/battle/battle_resources/cog_attacks/pop_quiz.gd" id="1_giy4v"]
 [ext_resource type="Script" uid="uid://b55u2wxwx511g" path="res://general_resources/audio_snippet/audio_snippet.gd" id="1_mc6oc"]

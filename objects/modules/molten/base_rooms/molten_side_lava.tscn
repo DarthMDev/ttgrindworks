@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://cqlsdocn7uhsn"]
+[gd_scene format=4 uid="uid://cqlsdocn7uhsn"]
 
 [ext_resource type="PackedScene" uid="uid://bbxnxtnfekgqi" path="res://models/facilities/molten/molten_side_lava.fbx" id="1_ynts8"]
 [ext_resource type="Texture2D" uid="uid://v7y7mef5rs2i" path="res://models/facilities/molten/textures/FINALFACTORY_118.png" id="2_0fsyq"]

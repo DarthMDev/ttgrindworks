@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7374wvctrryy"]
+[gd_scene format=3 uid="uid://7374wvctrryy"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_esag1"]
 emission_shape = 1

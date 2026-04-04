@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi13q17f7cx0v"]
+[gd_scene format=3 uid="uid://bi13q17f7cx0v"]
 
 [ext_resource type="PackedScene" uid="uid://f6p3f57tkk11" path="res://objects/obstacles/sandtrap/sandtrap.tscn" id="1_ekaxr"]
 [ext_resource type="Shader" uid="uid://3bv5mj5bjsjm" path="res://objects/obstacles/sandtrap/sandtrap.tres" id="2_rnw84"]

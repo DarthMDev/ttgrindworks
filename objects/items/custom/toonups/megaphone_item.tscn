@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccvkulvc6sjox"]
+[gd_scene format=3 uid="uid://ccvkulvc6sjox"]
 
 [ext_resource type="PackedScene" uid="uid://j6islxt27d70" path="res://models/props/gags/megaphone/megaphone.tscn" id="1_aoew6"]
 [ext_resource type="Script" uid="uid://xsesvqbgiawt" path="res://objects/items/custom/item_toonup_pickup.gd" id="2_xt13h"]

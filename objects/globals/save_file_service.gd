@@ -144,6 +144,7 @@ func load_run() -> String:
 	if not run_file:
 		return ""
 	RNG.load_from_run_file(run_file)
+	ScoreTally.load_score_from_file(run_file)
 	Util.floor_number = run_file.floor_number
 	ItemService.seen_items = run_file.seen_items
 	ItemService.items_in_play = run_file.items_in_play

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckstshgoiqux3"]
+[gd_scene format=3 uid="uid://ckstshgoiqux3"]
 
 [ext_resource type="PackedScene" uid="uid://bwovn5qyuqkt0" path="res://models/props/cog_props/bounce_check/bouncecheck.glb" id="1_uu2dt"]
 

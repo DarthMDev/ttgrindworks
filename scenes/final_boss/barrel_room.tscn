@@ -1,11 +1,11 @@
-[gd_scene load_steps=35 format=4 uid="uid://djdspcssaqo6b"]
+[gd_scene format=4 uid="uid://djdspcssaqo6b"]
 
 [ext_resource type="PackedScene" uid="uid://ckmb6yt5n6p60" path="res://models/misc_zones/field_office/barrel_room/barrel_room.fbx" id="1_5rygu"]
 [ext_resource type="Script" uid="uid://def84ygtijnp5" path="res://scenes/final_boss/barrel_room.gd" id="2_cvi7d"]
 [ext_resource type="Texture2D" uid="uid://dyubshykgudd0" path="res://models/misc_zones/field_office/barrel_room/barrel_room_16.png" id="3_e42x2"]
 [ext_resource type="Texture2D" uid="uid://b7kxyuk1551pd" path="res://models/misc_zones/field_office/barrel_room/barrel_room_12.png" id="4_7iwl7"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="4_kub1n"]
-[ext_resource type="Texture2D" uid="uid://oln3ougwc0hm" path="res://models/misc_zones/field_office/barrel_room/barrel_room_13.png" id="4_qmiye"]
+[ext_resource type="Texture2D" uid="uid://b7xlax470j7y3" path="res://models/misc_zones/field_office/barrel_room/barrel_room_13.png" id="4_qmiye"]
 [ext_resource type="PackedScene" uid="uid://b8mtvfipu1qsg" path="res://objects/interactables/elevators/cogdo_elevator.tscn" id="5_bolby"]
 [ext_resource type="Texture2D" uid="uid://c1bruy7bchscu" path="res://models/misc_zones/field_office/barrel_room/barrel_room_15.png" id="6_0runw"]
 [ext_resource type="Texture2D" uid="uid://da3871j4xhvx8" path="res://models/misc_zones/field_office/barrel_room/barrel_room_11.png" id="6_ox528"]
@@ -124,7 +124,6 @@ ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
-glow_blend_mode = 1
 glow_hdr_threshold = 4.0
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 28.2

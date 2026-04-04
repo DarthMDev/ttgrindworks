@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalAchievement" load_steps=3 format=3 uid="uid://01gq0en5yra1"]
+[gd_resource type="Resource" script_class="SignalAchievement" format=3 uid="uid://01gq0en5yra1"]
 
 [ext_resource type="Script" uid="uid://bu0ypaddtve76" path="res://objects/save_file/achievements/signal_achievement.gd" id="1_2jsh5"]
 [ext_resource type="Texture2D" uid="uid://ca04awiyijg10" path="res://ui_assets/achievements/icon_achievement_pete.png" id="1_wqtfu"]
@@ -12,5 +12,4 @@ achievement_summary = "Unlocked Professor Pete."
 hint = "Build some robust savings."
 achievement_index = 27
 achievement_icon = ExtResource("1_wqtfu")
-override_index = 18
 metadata/_custom_type_script = "uid://bu0ypaddtve76"

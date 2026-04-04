@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c83iwrx6mdta7"]
+[gd_scene format=3 uid="uid://c83iwrx6mdta7"]
 
 [ext_resource type="PackedScene" uid="uid://dy45kccck15hb" path="res://models/props/facility_objects/cgc/moles/mole_cog.fbx" id="1_jolab"]
 [ext_resource type="PackedScene" uid="uid://bsh7hdhmvrp13" path="res://models/cogs/heads/mole_cog_merged.fbx" id="2_di5ml"]

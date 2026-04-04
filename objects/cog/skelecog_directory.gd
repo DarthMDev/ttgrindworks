@@ -47,11 +47,20 @@ func set_dna(dna: CogDNA) -> void:
 	
 	if tie_mesh:
 		var tie_mat: StandardMaterial3D = tie_mesh.get_surface_override_material(0)
-		match dna.department:
-			CogDNA.CogDept.SELL: tie_mat.albedo_texture = load("res://models/cogs/textures/sell/cog_robot_tie_sales.png")
-			CogDNA.CogDept.CASH: tie_mat.albedo_texture = load("res://models/cogs/textures/cash/cog_robot_tie_money.png")
-			CogDNA.CogDept.LAW: tie_mat.albedo_texture = load("res://models/cogs/textures/law/cog_robot_tie_legal.png")
-			CogDNA.CogDept.BOSS: tie_mat.albedo_texture = load("res://models/cogs/textures/boss/cog_robot_tie_boss.png")
+		if get_custom_texture(dna, 'custom_skelecog_tie_tex'):
+			tie_mat.albedo_texture = get_custom_texture(dna, 'custom_skelecog_tie_tex')
+		else:
+			match dna.department:
+				CogDNA.CogDept.SELL: tie_mat.albedo_texture = load("res://models/cogs/textures/sell/cog_robot_tie_sales.png")
+				CogDNA.CogDept.CASH: tie_mat.albedo_texture = load("res://models/cogs/textures/cash/cog_robot_tie_money.png")
+				CogDNA.CogDept.LAW: tie_mat.albedo_texture = load("res://models/cogs/textures/law/cog_robot_tie_legal.png")
+				CogDNA.CogDept.BOSS: tie_mat.albedo_texture = load("res://models/cogs/textures/boss/cog_robot_tie_boss.png")
+
+	if department_emblem:
+		if get_custom_texture(dna, 'custom_emblem_tex'):
+			department_emblem.set_texture(get_custom_texture(dna, 'custom_emblem_tex'))
+		else:
+			department_emblem.set_texture(get_department_emblem(dna.department))
 
 	is_mod = dna.is_mod_cog
 	custom_nametag_height = dna.custom_nametag_height
@@ -77,3 +86,24 @@ func flash_instant(color: Color, time: float = 0.2, strength: float = 0.7) -> vo
 func flash(color: Color, time: float = 0.2, strength: float = 0.7) -> void:
 	if color_overlay_mat:
 		color_overlay_mat.flash(self, color, time, strength)
+
+static func get_custom_texture(dna : CogDNA, value : StringName) -> Texture2D:
+	if not value in dna:
+		return null
+	var tex: Texture2D
+	
+	var tex_path: String = dna.get(value)
+	if tex_path:
+		tex = load(tex_path)
+	
+	if not tex_path:
+		if dna.external_assets.has(value):
+			if dna.external_assets.get(value) is String:
+				if dna.external_assets.get(value).begins_with("res://"):
+					tex = load(dna.external_assets.get(value))
+				else:
+					tex = ImageTexture.create_from_image(Image.load_from_file(dna.external_assets.get(value)))
+	return tex
+
+static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
+	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

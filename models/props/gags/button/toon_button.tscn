@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cf2wgv8gpygb"]
+[gd_scene format=4 uid="uid://cf2wgv8gpygb"]
 
 [ext_resource type="Texture2D" uid="uid://03njkqkgvnnl" path="res://models/props/gags/button/textures/neutral_gradient.png" id="1_udd2k"]
 [ext_resource type="Material" uid="uid://dk3qnwhnh1r7d" path="res://models/props/gags/button/textures/neutral_gradient.tres" id="2_c3q01"]

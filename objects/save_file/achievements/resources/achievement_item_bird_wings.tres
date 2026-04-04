@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://df3mpgui6fqe0"]
+[gd_resource type="Resource" script_class="AchievementQuota" format=3 uid="uid://df3mpgui6fqe0"]
 
 [ext_resource type="Texture2D" uid="uid://dv0raxow0q50w" path="res://models/accessories/backpacks/bird_wings/tt_m_chr_avt_acc_pac_birdWings.glb-pix-1.png" id="1_jieit"]
 [ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_coybl"]

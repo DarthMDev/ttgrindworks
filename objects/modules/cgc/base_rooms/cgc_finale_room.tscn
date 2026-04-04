@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu152iitwfet2"]
+[gd_scene format=3 uid="uid://cu152iitwfet2"]
 
 [ext_resource type="PackedScene" uid="uid://b8og3sa248oim" path="res://objects/modules/cgc/base_rooms/cgc_kart_boarding_room.tscn" id="1_d15rw"]
 [ext_resource type="PackedScene" uid="uid://dcxxijtaocc15" path="res://objects/interactables/elevators/golf_cart.tscn" id="3_hx46t"]

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://gbbgvy3jhotm"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://gbbgvy3jhotm"]
 
 [ext_resource type="Texture2D" uid="uid://dadktmck4daeg" path="res://models/props/toon_props/flowers/daisy/daisy_2.png" id="1_tru60"]
 

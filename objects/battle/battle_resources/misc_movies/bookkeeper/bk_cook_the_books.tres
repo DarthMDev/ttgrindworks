@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://hks3uw7001wu"]
+[gd_resource type="Resource" format=3 uid="uid://hks3uw7001wu"]
 
 [ext_resource type="Script" uid="uid://dsqaittbivmrc" path="res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_cook_the_books.gd" id="1_kjf6g"]
 

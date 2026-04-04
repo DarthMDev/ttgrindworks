@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqhpwlj842au3"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bqhpwlj842au3"]
 
 [ext_resource type="Texture2D" uid="uid://yg140phfgff2" path="res://models/accessories/backpacks/bat_wings/tt_m_chr_avt_acc_pac_batWings_tt_t_chr_avt_acc_pac_batWings.png" id="1_3runv"]
 

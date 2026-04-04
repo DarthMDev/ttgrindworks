@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://84cyyv177x0m"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://84cyyv177x0m"]
 
 [ext_resource type="Texture2D" uid="uid://0todffjwq3o4" path="res://models/cogs/suitc/suitc_l_sleeve.png" id="1_clju8"]
 

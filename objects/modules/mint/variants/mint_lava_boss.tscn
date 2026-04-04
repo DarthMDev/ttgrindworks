@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=4 uid="uid://b2ia8h86cdjo2"]
+[gd_scene format=4 uid="uid://b2ia8h86cdjo2"]
 
 [ext_resource type="Texture2D" uid="uid://cl747gxnyssir" path="res://models/facilities/mint/textures/WallCementLightEdge.png" id="1_r2dla"]
 [ext_resource type="Texture2D" uid="uid://c72xdn0nwkaug" path="res://models/facilities/mint/textures/CFOCeiling2.png" id="2_xdjiy"]

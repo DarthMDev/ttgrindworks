@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://bkthwpyj2bvjr"]
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://bkthwpyj2bvjr"]
 
 [ext_resource type="AudioStream" uid="uid://de0jw14mtef0f" path="res://audio/music/encntr_penultimate/encntr_penultimate_intro.ogg" id="1_2hp67"]
 [ext_resource type="AudioStream" uid="uid://b1khu4m7k2aie" path="res://audio/music/encntr_penultimate/encntr_penultimate_base.ogg" id="2_lonqq"]

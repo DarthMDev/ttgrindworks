@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d27k2kv2tqtcu"]
+[gd_scene format=4 uid="uid://d27k2kv2tqtcu"]
 
 [ext_resource type="Texture2D" uid="uid://b1lwy5glu10he" path="res://models/props/facility_objects/conveyor_platform/platform_CVBeltEdge.png" id="1_5smeo"]
 [ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="2_4hqq7"]

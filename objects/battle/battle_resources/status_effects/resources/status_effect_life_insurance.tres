@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://lcsxwv8xnkxp"]
+[gd_resource type="Resource" format=3 uid="uid://lcsxwv8xnkxp"]
 
 [ext_resource type="Texture2D" uid="uid://dnfba8vhmj5uv" path="res://ui_assets/battle/statuses/investment_cog_heal.png" id="1_fomp6"]
 [ext_resource type="Script" uid="uid://8h0abdksqo5i" path="res://objects/battle/battle_resources/status_effects/status_effect_life_insurance.gd" id="2_fomp6"]

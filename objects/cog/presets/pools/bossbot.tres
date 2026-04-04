@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogPool" load_steps=11 format=3 uid="uid://05unenh4dgjs"]
+[gd_resource type="Resource" script_class="CogPool" format=3 uid="uid://05unenh4dgjs"]
 
 [ext_resource type="Resource" uid="uid://c5dbwjk742di6" path="res://objects/cog/presets/bossbot/flunky.tres" id="1_br6ic"]
 [ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="1_hac36"]

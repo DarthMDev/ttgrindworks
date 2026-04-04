@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8er6lmtrtym6"]
+[gd_scene format=3 uid="uid://c8er6lmtrtym6"]
 
 [ext_resource type="PackedScene" uid="uid://cm5jv55t2wnby" path="res://objects/modules/molten/base_rooms/molten_small_bridge.tscn" id="1_iitjw"]
 [ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="2_0ce18"]

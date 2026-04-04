@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bge4d1wrscftk"]
+[gd_scene format=3 uid="uid://bge4d1wrscftk"]
 
 [ext_resource type="PackedScene" uid="uid://ba543ydquhmmn" path="res://models/props/toon_props/resistance_fist/badge.fbx" id="1_3x5cs"]
 

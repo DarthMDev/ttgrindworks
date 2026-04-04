@@ -89,6 +89,9 @@ Enjoy!
 - Godot Mod Loader
   - Modding Backend
 ### Special Thanks
+- Alder (Beastnode)
+- AlexLH
+- Daisy
 - DoggoMafia
 - Erin (Cosmic)
 - Evelyn (Velvet Petunia)

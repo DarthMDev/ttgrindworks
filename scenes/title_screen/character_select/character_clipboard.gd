@@ -146,7 +146,8 @@ func populate_tabs() -> void:
 			current_tab = char_tab
 
 func on_tab_clicked(new_character: PlayerCharacter, tab: Control) -> void:
-	if tab == current_tab: return
+	if tab == current_tab and not new_character.character_id == PlayerCharacter.Character.MYSTERY:
+		return
 	
 	character = new_character
 	if character.character_name == "Mystery Toon":

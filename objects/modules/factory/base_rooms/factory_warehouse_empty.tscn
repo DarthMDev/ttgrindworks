@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://du44f34bf0nmq"]
+[gd_scene format=4 uid="uid://du44f34bf0nmq"]
 
 [ext_resource type="PackedScene" uid="uid://uiyl32ijmoif" path="res://objects/modules/factory/base_rooms/factory_warehouse.tscn" id="1_6s3ee"]
 [ext_resource type="Texture2D" uid="uid://cii0n1gqxm5h5" path="res://models/facilities/factory/FINALFACTORY_112.png" id="2_5dog6"]

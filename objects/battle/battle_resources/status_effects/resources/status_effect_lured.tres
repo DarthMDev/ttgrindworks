@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatusLured" load_steps=2 format=3 uid="uid://dbdcjegogoona"]
+[gd_resource type="Resource" script_class="StatusLured" format=3 uid="uid://dbdcjegogoona"]
 
 [ext_resource type="Script" uid="uid://gpeto6dx1eja" path="res://objects/battle/battle_resources/status_effects/lured.gd" id="1_4nqnk"]
 

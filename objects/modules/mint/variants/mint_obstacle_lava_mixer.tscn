@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c8h76u7dspxxc"]
+[gd_scene format=3 uid="uid://c8h76u7dspxxc"]
 
 [ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_1bm4i"]
 [ext_resource type="PackedScene" uid="uid://xxhl4spi53gq" path="res://objects/props/mint/mint_stairs.tscn" id="2_picoi"]

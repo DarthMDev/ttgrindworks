@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dmqj8ppngvrcl"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dmqj8ppngvrcl"]
 
 [ext_resource type="Script" uid="uid://ca13a1ubpub8b" path="res://objects/items/custom/item_moe_zart_thorns.gd" id="1_88y1x"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_f6a11"]

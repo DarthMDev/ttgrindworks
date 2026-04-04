@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://wu70ua24wujr"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://wu70ua24wujr"]
 
 [ext_resource type="Texture2D" uid="uid://cug3ukcenp3xt" path="res://ui_assets/player_ui/pocket_prank_icons/unstoppable gobstopper.png" id="1_5562o"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_axjl6"]

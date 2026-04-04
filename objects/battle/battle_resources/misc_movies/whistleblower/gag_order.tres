@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://hyho52ep7rs8"]
+[gd_resource type="Resource" format=3 uid="uid://hyho52ep7rs8"]
 
 [ext_resource type="Script" uid="uid://p3ko25ccrsfp" path="res://objects/battle/battle_resources/misc_movies/whistleblower/gag_order.gd" id="1_vik3j"]
 

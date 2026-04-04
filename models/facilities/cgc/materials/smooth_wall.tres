@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ch6ioni4g2jm1"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ch6ioni4g2jm1"]
 
 [ext_resource type="Texture2D" uid="uid://nw4d3q8wa5nk" path="res://models/facilities/cgc/textures/smoothwall_4.png" id="1_q6745"]
 

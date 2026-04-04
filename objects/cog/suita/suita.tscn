@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dqoqpd1hkuwja"]
+[gd_scene format=3 uid="uid://dqoqpd1hkuwja"]
 
 [ext_resource type="PackedScene" uid="uid://d1p4lknci4r4o" path="res://models/cogs/suita/suita.glb" id="1_dqh8a"]
 [ext_resource type="Script" uid="uid://cqkt0omtc1wel" path="res://objects/cog/suit_directory.gd" id="2_gqcip"]

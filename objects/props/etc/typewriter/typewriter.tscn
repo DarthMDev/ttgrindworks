@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctmdkttdjm51l"]
+[gd_scene format=3 uid="uid://ctmdkttdjm51l"]
 
 [ext_resource type="PackedScene" uid="uid://be73enqtcrcmc" path="res://models/props/facility_objects/typewriter/Typewriter.fbx" id="1_f7bm7"]
 [ext_resource type="Texture2D" uid="uid://d0ewjw15ne5hg" path="res://models/props/facility_objects/typewriter/tt_t_ara_cmg_typewriter_upscayl_4x_ultramix_balanced.png" id="2_g0ppj"]

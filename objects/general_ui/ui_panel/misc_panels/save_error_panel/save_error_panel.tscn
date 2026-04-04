@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxbwnis7yc03g"]
+[gd_scene format=3 uid="uid://dxbwnis7yc03g"]
 
 [ext_resource type="PackedScene" uid="uid://u4vik7rgy7we" path="res://objects/general_ui/ui_panel/acknowledge_panel.tscn" id="1_ahl3m"]
 [ext_resource type="Script" uid="uid://capoh323fylby" path="res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.gd" id="2_ahl3m"]

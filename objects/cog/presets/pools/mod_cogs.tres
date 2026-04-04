@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogPool" load_steps=35 format=3 uid="uid://bmj3cbv7sk3jj"]
+[gd_resource type="Resource" script_class="CogPool" format=3 uid="uid://bmj3cbv7sk3jj"]
 
 [ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="1_awa7n"]
 [ext_resource type="Resource" uid="uid://ch01vicvrjrve" path="res://objects/cog/presets/bossbot/pushed_pencil.tres" id="2_qrj4r"]

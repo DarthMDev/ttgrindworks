@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2jegw5afysdk"]
+[gd_scene format=3 uid="uid://c2jegw5afysdk"]
 
 [ext_resource type="Script" uid="uid://bbn6jelvh5r7t" path="res://objects/modules/cgc/variants/cgc_maze_room.gd" id="1_exayl"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_pcyau"]

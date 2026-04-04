@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b0iui2nh3h4wb"]
+[gd_scene format=4 uid="uid://b0iui2nh3h4wb"]
 
 [ext_resource type="Texture2D" uid="uid://bqv24wrrlymnh" path="res://models/props/gags/big_weight/big_weight_weight_1ton.png" id="1_v5std"]
 [ext_resource type="Texture2D" uid="uid://dycuedis4ss4a" path="res://models/props/gags/big_weight/big_weight_weight1ton2.png" id="2_yiahs"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WaterGlass" load_steps=3 format=3 uid="uid://ogf18kx0knl5"]
+
+[ext_resource type="Texture2D" uid="uid://cgteesdi0svcp" path="res://ui_assets/battle/gags/inventory_glass_of_water.png" id="1_b40am"]
+[ext_resource type="Script" uid="uid://20vwxjtg6q45" path="res://objects/battle/battle_resources/toon_attacks/water_glass.gd" id="2_d6tnl"]
+
+[resource]
+script = ExtResource("2_d6tnl")
+icon = ExtResource("1_b40am")
+damage = 10
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Glass of Water"
+one_time_use = false

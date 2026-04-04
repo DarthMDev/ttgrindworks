@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bf73m5f2ov5h8"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bf73m5f2ov5h8"]
 
 [ext_resource type="Texture2D" uid="uid://cghiox11yi3v1" path="res://models/accessories/glasses/cat_eye_glasses/tt_m_chr_avt_acc_msk_catEyeGlasses_tt_t_chr_avt_acc_msk_catEyeGlasses.png" id="1_q0iqh"]
 

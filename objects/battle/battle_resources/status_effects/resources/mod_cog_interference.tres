@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvv7acwfngnpa"]
+[gd_resource type="Resource" format=3 uid="uid://dvv7acwfngnpa"]
 
 [ext_resource type="Texture2D" uid="uid://b71soiqqsnano" path="res://ui_assets/battle/statuses/interference.png" id="1_pptfy"]
 [ext_resource type="Script" uid="uid://bg61lc6ho51ld" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_interference.gd" id="1_vuc0d"]

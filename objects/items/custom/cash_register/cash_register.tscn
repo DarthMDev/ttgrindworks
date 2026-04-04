@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://buad8c4pjl2a2"]
+[gd_scene format=3 uid="uid://buad8c4pjl2a2"]
 
 [ext_resource type="PackedScene" uid="uid://wvtuk43fbdi8" path="res://models/props/facility_objects/cash_register/cash_register.fbx" id="1_dm44a"]
 

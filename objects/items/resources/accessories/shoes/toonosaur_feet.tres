@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemShoe" load_steps=6 format=3 uid="uid://hm8lnevv0lbh"]
+[gd_resource type="Resource" script_class="ItemShoe" format=3 uid="uid://hm8lnevv0lbh"]
 
 [ext_resource type="Texture2D" uid="uid://gn0w6nsa8h3e" path="res://objects/items/resources/accessories/shoes/icons/toonosaur_boots.png" id="1_ytgvh"]
 [ext_resource type="Script" uid="uid://b3be2ehybgyq" path="res://objects/items/custom/item_toonosaur_boots.gd" id="2_ytgvh"]

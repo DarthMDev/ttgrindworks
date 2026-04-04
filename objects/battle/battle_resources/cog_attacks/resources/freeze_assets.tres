@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bpupdhbap1rq"]
+[gd_resource type="Resource" format=3 uid="uid://bpupdhbap1rq"]
 
 [ext_resource type="PackedScene" uid="uid://7374wvctrryy" path="res://objects/battle/effects/cloud_attacks/snow.tscn" id="1_g4d4b"]
 [ext_resource type="Script" uid="uid://cvbmppwfs711e" path="res://objects/battle/battle_resources/cog_attacks/liquidate.gd" id="1_gs3qh"]

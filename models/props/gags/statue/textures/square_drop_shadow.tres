@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3u4yiu1a0eas"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3u4yiu1a0eas"]
 
 [ext_resource type="Texture2D" uid="uid://dhqat08aapjgj" path="res://models/props/gags/statue/textures/square_drop_shadow.png" id="1_jpw22"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dgi15k5ratj5i"]
+[gd_scene format=4 uid="uid://dgi15k5ratj5i"]
 
 [ext_resource type="PackedScene" uid="uid://cmijlbte2ol2q" path="res://models/facilities/molten/molten_connector_spiral.fbx" id="1_qso44"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="2_k2wuf"]

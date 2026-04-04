@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TrapToss" format=3 uid="uid://ctuvtylm8x51g"]
+
+[ext_resource type="Texture2D" uid="uid://c4vottciuoo6o" path="res://ui_assets/battle/gags/inventory_rake.png" id="1_gnm0c"]
+[ext_resource type="PackedScene" uid="uid://cavvmjdli6ww1" path="res://models/props/gags/rake/rake.tscn" id="2_mrucr"]
+[ext_resource type="Script" uid="uid://cgs0v0f7jhwsc" path="res://objects/battle/battle_resources/toon_attacks/trap_toss.gd" id="3_s65tu"]
+[ext_resource type="AudioStream" uid="uid://mj7vdx8oi0dm" path="res://audio/sfx/battle/gags/trap/TL_rake_throw_only.ogg" id="4_64h54"]
+
+[resource]
+script = ExtResource("3_s65tu")
+model = ExtResource("2_mrucr")
+animation = 1
+toss_sfx = ExtResource("4_64h54")
+icon = ExtResource("1_gnm0c")
+damage = 30
+action_name = "Rake"

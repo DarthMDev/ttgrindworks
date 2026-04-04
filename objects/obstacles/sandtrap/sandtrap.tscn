@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f6p3f57tkk11"]
+[gd_scene format=3 uid="uid://f6p3f57tkk11"]
 
 [ext_resource type="Shader" uid="uid://3bv5mj5bjsjm" path="res://objects/obstacles/sandtrap/sandtrap.tres" id="1_8hold"]
 [ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="2_dkymw"]

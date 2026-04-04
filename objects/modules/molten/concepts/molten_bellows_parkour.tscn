@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://djqmq0qse804k"]
+[gd_scene format=3 uid="uid://djqmq0qse804k"]
 
 [ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="2_qlfpe"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="3_bdckf"]

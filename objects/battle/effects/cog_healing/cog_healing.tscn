@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0bi5w6pidhlc"]
+[gd_scene format=3 uid="uid://d0bi5w6pidhlc"]
 
 [ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="1_vnlig"]
 [ext_resource type="Shader" uid="uid://be67knfnj6ao" path="res://objects/battle/effects/cog_healing/cog_healing.tres" id="2_u244y"]

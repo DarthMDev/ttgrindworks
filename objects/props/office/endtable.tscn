@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b1i34vu3l3bj6"]
+[gd_scene format=4 uid="uid://b1i34vu3l3bj6"]
 
 [ext_resource type="Texture2D" uid="uid://ce0mxrmg6t7w4" path="res://models/facilities/office/textures/LB_bookcase_wood.png" id="1_py6m8"]
 [ext_resource type="Texture2D" uid="uid://dpu18m0aw63d5" path="res://models/facilities/office/textures/LB_desk_wood.png" id="2_pglfa"]

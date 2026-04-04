@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FireHose" load_steps=3 format=3 uid="uid://cgu3xv44h8pmc"]
+
+[ext_resource type="Texture2D" uid="uid://raehjcuwardu" path="res://ui_assets/battle/gags/inventory_firehose.png" id="1_3bq1d"]
+[ext_resource type="Script" uid="uid://cmhxdqjvd1726" path="res://objects/battle/battle_resources/toon_attacks/fire_hose.gd" id="2_il8md"]
+
+[resource]
+script = ExtResource("2_il8md")
+icon = ExtResource("1_3bq1d")
+damage = 45
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Fire Hose"
+one_time_use = false

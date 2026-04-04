@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfdmnoogagro2"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cfdmnoogagro2"]
 
 [ext_resource type="Script" uid="uid://boo208cg6s45e" path="res://objects/items/custom/item_moe_setup.gd" id="1_sbp68"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_t6acs"]

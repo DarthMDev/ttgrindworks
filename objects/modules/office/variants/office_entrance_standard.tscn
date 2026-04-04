@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://3a1rn2dg5dw4"]
+[gd_scene format=4 uid="uid://3a1rn2dg5dw4"]
 
 [ext_resource type="PackedScene" uid="uid://k8r4dwm2bay5" path="res://objects/modules/office/base_rooms/office_entrance.tscn" id="1_oayny"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="2_j5x30"]

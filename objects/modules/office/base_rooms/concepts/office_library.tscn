@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://lckbkkuxflod"]
+[gd_scene format=3 uid="uid://lckbkkuxflod"]
 
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="2_e0mjy"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_b7ujw"]

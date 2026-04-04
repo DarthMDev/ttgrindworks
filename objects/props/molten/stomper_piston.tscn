@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhk8f3fvkyuhm"]
+[gd_scene format=3 uid="uid://dhk8f3fvkyuhm"]
 
 [ext_resource type="PackedScene" uid="uid://ddbx8konsqieq" path="res://models/props/facility_objects/stomperpiston/StomperPiston.fbx" id="1_jw08e"]
 

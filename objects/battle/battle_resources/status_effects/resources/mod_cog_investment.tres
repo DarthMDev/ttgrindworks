@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://esv2o7vnbdaf"]
+[gd_resource type="Resource" format=3 uid="uid://esv2o7vnbdaf"]
 
 [ext_resource type="Script" uid="uid://dncagyb1ovp2u" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_investment.gd" id="1_xe128"]
 

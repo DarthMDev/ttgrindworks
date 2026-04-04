@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bnrf8npmyldj6"]
+[gd_scene format=4 uid="uid://bnrf8npmyldj6"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_85mw3"]
 [ext_resource type="Material" uid="uid://b45hb25eo5q6v" path="res://models/facilities/cgc/materials/tree_mat.tres" id="2_jxha7"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="17_cmky1"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="18_q2qby"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="23_iq5kh"]
+[ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="24_df485"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oak32"]
 _surfaces = [{
@@ -675,6 +676,7 @@ force_launch_node = NodePath("../../MoleLaunchPos2")
 grid_size = Vector2i(2, 2)
 launch_cam = NodePath("../../MoleLaunchCamera")
 hole_separation = 2.5
+want_instructions = false
 
 [node name="Game2" type="Area3D" parent="MoleBossManager/MoleGames" index="1" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -12.125, 0, -4.42684)
@@ -684,6 +686,7 @@ force_launch_node = NodePath("../../MoleLaunchPos")
 grid_size = Vector2i(2, 2)
 launch_cam = NodePath("../../MoleLaunchCamera")
 hole_separation = 2.5
+want_instructions = false
 
 [node name="Game3" type="Area3D" parent="MoleBossManager/MoleGames" index="2" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -16.0006, 0, -20.0431)
@@ -692,6 +695,7 @@ game_mode = 2
 force_launch_node = NodePath("../../MoleLaunchPos")
 grid_size = Vector2i(1, 1)
 launch_cam = NodePath("../../MoleLaunchCamera")
+want_instructions = false
 
 [node name="Game6" type="Area3D" parent="MoleBossManager/MoleGames" index="3" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, -15.7528, 0, 18.5432)
@@ -700,6 +704,7 @@ game_mode = 2
 force_launch_node = NodePath("../../MoleLaunchPos")
 grid_size = Vector2i(1, 1)
 launch_cam = NodePath("../../MoleLaunchCamera")
+want_instructions = false
 
 [node name="Game4" type="Area3D" parent="MoleBossManager/MoleGames" index="4" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.02508, 0, -20.9368)
@@ -708,6 +713,7 @@ game_mode = 2
 force_launch_node = NodePath("../../MoleLaunchPos2")
 grid_size = Vector2i(1, 1)
 launch_cam = NodePath("../../MoleLaunchCamera")
+want_instructions = false
 
 [node name="Game5" type="Area3D" parent="MoleBossManager/MoleGames" index="5" node_paths=PackedStringArray("force_launch_node", "launch_cam")]
 transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 5.18134, 0, 19.273)
@@ -716,6 +722,7 @@ game_mode = 2
 force_launch_node = NodePath("../../MoleLaunchPos2")
 grid_size = Vector2i(1, 1)
 launch_cam = NodePath("../../MoleLaunchCamera")
+want_instructions = false
 
 [node name="MoleUI" type="Control" parent="MoleBossManager" index="1"]
 unique_name_in_owner = true
@@ -902,6 +909,8 @@ size = Vector2(8.455, 4.505)
 [node name="ResizeableHedgeCube2" parent="." index="42" instance=ExtResource("23_iq5kh")]
 transform = Transform3D(1, 0, 0, 0, 1.7566582, 0, 0, 0, 1, -37.114326, -0.5520961, -5.8447485)
 size = Vector2(8.455, 4.505)
+
+[node name="DebugPlayerPositionMarker" parent="." index="43" instance=ExtResource("24_df485")]
 
 [connection signal="s_game_won" from="MoleBossManager" to="Props/FenceGate" method="open"]
 [connection signal="s_game_won" from="MoleBossManager" to="GolfDoors/GolfDoor1" method="stop_balls"]

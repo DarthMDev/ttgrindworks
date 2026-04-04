@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bhl72hd7pn8s2"]
+[gd_resource type="Resource" format=3 uid="uid://bhl72hd7pn8s2"]
 
 [ext_resource type="Script" uid="uid://cek2ied0n1mfo" path="res://objects/battle/battle_resources/cog_attacks/workout.gd" id="1_85kx4"]
 

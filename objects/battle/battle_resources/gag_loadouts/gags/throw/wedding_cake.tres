@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GagThrow" load_steps=7 format=3 uid="uid://g1mi6jf6c2a3"]
+
+[ext_resource type="Texture2D" uid="uid://dchh2t3rdfm34" path="res://ui_assets/battle/gags/inventory_wedding.png" id="1_k2lu2"]
+[ext_resource type="AudioStream" uid="uid://csjxqnrh0pi1p" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_miss.ogg" id="2_ev1l8"]
+[ext_resource type="PackedScene" uid="uid://co5xwy40e1sv5" path="res://models/props/gags/wedding_cake/wedding_cake.fbx" id="3_av2ot"]
+[ext_resource type="AudioStream" uid="uid://dp6taj5mnaa3e" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake.ogg" id="4_pccl8"]
+[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="5_iqd11"]
+[ext_resource type="AudioStream" uid="uid://dfh8hagq1yfae" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_cog.ogg" id="6_0xkmn"]
+
+[resource]
+script = ExtResource("5_iqd11")
+model = ExtResource("3_av2ot")
+scale = 4.54
+splat_color = Color(1, 0.454902, 1, 1)
+splat_sfx = ExtResource("6_0xkmn")
+present_sfx = ExtResource("4_pccl8")
+miss_sfx = ExtResource("2_ev1l8")
+icon = ExtResource("1_k2lu2")
+damage = 110
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Wedding Cake"
+one_time_use = false

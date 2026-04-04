@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cenicsw45ina8"]
+[gd_scene format=3 uid="uid://cenicsw45ina8"]
 
 [ext_resource type="PackedScene" uid="uid://dsdmcmhb2ax3c" path="res://models/props/toon_props/white_out/White-out.glb" id="1_awfxw"]
 

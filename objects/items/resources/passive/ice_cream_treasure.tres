@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cpk24jes1t7we"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cpk24jes1t7we"]
 
 [ext_resource type="Texture2D" uid="uid://bdu2rdg517iyi" path="res://objects/items/custom/treasure/ice_cream.png" id="1_o8dfm"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_douir"]

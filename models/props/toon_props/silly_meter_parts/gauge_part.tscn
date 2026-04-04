@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6oh1w7qyispq"]
+[gd_scene format=3 uid="uid://b6oh1w7qyispq"]
 
 [ext_resource type="PackedScene" uid="uid://ehogr5dat8i5" path="res://models/props/toon_props/silly_meter_parts/gaugePart.fbx" id="1_dx6gp"]
 

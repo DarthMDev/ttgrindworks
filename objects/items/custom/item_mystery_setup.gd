@@ -3,8 +3,10 @@ extends ItemCharSetup
 const MIN_HP := 25
 const MAX_HP := 35
 
+
 func first_time_setup(player: Player) -> void:
-	if player.stats.character.starting_items.size() == 1:
+	# It's hacky, I know.
+	if player.stats.character.override_index == -1:
 		randomize_stats(player)
 	else:
 		randomize_gags(player)
@@ -44,6 +46,9 @@ func randomize_stats(player: Player) -> void:
 		if item is ItemActive:
 			player.stats.current_active_item = item.duplicate(true)
 	
+	# Just modifying a value that doesn't matter to us at this stage
+	# Tells us where we are in the initialization process
+	player.character.override_index = 0
 
 func randomize_gags(player: Player) -> void:
 	# Get one random offense and one random support track
@@ -79,3 +84,6 @@ func randomize_gags(player: Player) -> void:
 	if Util.random_stats:
 		for stat in random_stats:
 			player.stats.set(stat, Util.random_stats.get(stat))
+	
+	# Restore default value
+	player.character.override_index = -1

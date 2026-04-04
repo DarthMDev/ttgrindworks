@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://du3dmf0v54os0"]
+[gd_scene format=3 uid="uid://du3dmf0v54os0"]
 
 [ext_resource type="ArrayMesh" uid="uid://vitjqpd0aamm" path="res://models/props/cog_props/coin/cb_coin.tres" id="1_gl8m0"]
 

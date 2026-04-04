@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxmu75wqo46iw"]
+[gd_scene format=3 uid="uid://cxmu75wqo46iw"]
 
 [ext_resource type="PackedScene" uid="uid://csnvhy4yc8ljo" path="res://models/props/toon_props/jellybean_jar/jellybean_jar.fbx" id="1_gbgnw"]
 [ext_resource type="Texture2D" uid="uid://casigl3fby36o" path="res://models/props/toon_props/jellybean_jar/beanBankLid.png" id="2_gbgnw"]

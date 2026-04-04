@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dsgjdbl5ivwss"]
+[gd_scene format=4 uid="uid://dsgjdbl5ivwss"]
 
 [ext_resource type="Texture2D" uid="uid://dydkfakxydji4" path="res://models/props/gags/tnt/tnt_reelstring.png" id="1_sk3q4"]
 [ext_resource type="Texture2D" uid="uid://dtkpoyixdbiil" path="res://models/props/gags/tnt/tnt_tnt_top.png" id="2_evswv"]

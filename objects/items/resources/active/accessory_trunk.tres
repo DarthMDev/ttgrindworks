@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://b84tkx6l2id8o"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://b84tkx6l2id8o"]
 
 [ext_resource type="Texture2D" uid="uid://dlpxfjbax82nr" path="res://ui_assets/player_ui/pocket_prank_icons/trunk.png" id="1_aalwr"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_di541"]

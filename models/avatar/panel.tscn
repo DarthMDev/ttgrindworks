@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://dghrplklwro73"]
+[gd_scene format=4 uid="uid://dghrplklwro73"]
 
 [ext_resource type="PackedScene" uid="uid://dncmgc25wdjrl" path="res://models/avatar/panel.fbx" id="1_mdjqb"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cpa5vpkfj7mq6"]
+[gd_scene format=4 uid="uid://cpa5vpkfj7mq6"]
 
 [ext_resource type="PackedScene" uid="uid://dumm43iwldfhs" path="res://objects/modules/factory/base_rooms/factory_silo_int.tscn" id="1_2e01g"]
 [ext_resource type="PackedScene" uid="uid://b6eexfh4v078o" path="res://objects/interactables/elevators/sellbot_elevator.tscn" id="2_5v41x"]

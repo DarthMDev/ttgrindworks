@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GagSound" load_steps=6 format=3 uid="uid://h6hi3blhr7gf"]
+
+[ext_resource type="Texture2D" uid="uid://c1fgwu0iapunq" path="res://ui_assets/battle/gags/inventory_fog_horn.png" id="1_7hiyh"]
+[ext_resource type="PackedScene" uid="uid://idagtqd5cor5" path="res://models/props/gags/foghorn/foghorn.tscn" id="2_1l8u8"]
+[ext_resource type="Script" uid="uid://c7rpfrvobx8rf" path="res://objects/battle/battle_resources/toon_attacks/gag_sound.gd" id="3_t1uts"]
+[ext_resource type="AudioStream" uid="uid://hgwtecn17iui" path="res://audio/sfx/battle/gags/sound/SZ_DD_foghorn.ogg" id="4_ujfg1"]
+[ext_resource type="AudioStream" uid="uid://bf2xyte2lf8r3" path="res://audio/sfx/battle/gags/sound/mailbox_full_wobble.ogg" id="5_lvh27"]
+
+[resource]
+script = ExtResource("3_t1uts")
+model = ExtResource("2_1l8u8")
+position = Vector3(1.067, 0.213, -1.631)
+rotation = Vector3(0.1, 147.7, 81.8)
+scale = Vector3(0.475, 0.475, 0.475)
+anim_delay = 1.9
+sfx_windup = ExtResource("5_lvh27")
+sfx_blast = ExtResource("4_ujfg1")
+icon = ExtResource("1_7hiyh")
+damage = 76
+crit_chance_mod = 1.0
+target_type = 7
+action_name = "Fog Horn"
+one_time_use = false

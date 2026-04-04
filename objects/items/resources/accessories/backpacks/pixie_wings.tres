@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=9 format=3 uid="uid://b4oity25ord8n"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://b4oity25ord8n"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_h8b75"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_vk0wk"]
@@ -37,12 +37,12 @@ world_scale = 0.11
 ui_cam_offset = 0.4
 item_name = "Pixie Wings"
 item_description = "A gentler touch..."
-big_description = "+ 20% healing effectiveness
+big_description = "+ 35% healing effectiveness
 - 5% damage"
 model = ExtResource("4_h8b75")
 stats_add = {
 "damage": -0.05,
-"healing_effectiveness": 0.2
+"healing_effectiveness": 0.35
 }
 icon = ExtResource("3_swtvt")
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

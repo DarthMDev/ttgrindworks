@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://daq2d1qwhmw4u"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://daq2d1qwhmw4u"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_vq5c8"]
 [ext_resource type="PackedScene" uid="uid://keyc3wuow2q" path="res://models/accessories/hats/fez/tt_m_chr_avt_acc_hat_fez.glb" id="2_apnjg"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cf0211exl150l"]
+[gd_scene format=4 uid="uid://cf0211exl150l"]
 
 [ext_resource type="PackedScene" uid="uid://c7jppdmm30iy2" path="res://models/facilities/mint/mint_obstacle_room.fbx" id="1_ydv4o"]
 

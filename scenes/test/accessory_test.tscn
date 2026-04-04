@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://m3a6f3fr7hxl"]
+[gd_scene format=3 uid="uid://m3a6f3fr7hxl"]
 
 [ext_resource type="PackedScene" uid="uid://dl42o87fbyffw" path="res://models/accessories/backpacks/airplane_backpack/tt_m_chr_avt_acc_pac_airplane.glb" id="1_t3x62"]
 [ext_resource type="PackedScene" uid="uid://b0ax1vrm0l4q3" path="res://models/accessories/backpacks/angel_wings/angel_wings.tscn" id="2_w3e4r"]

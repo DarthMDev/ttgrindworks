@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemShoe" load_steps=6 format=3 uid="uid://cax522x8tlswm"]
+[gd_resource type="Resource" script_class="ItemShoe" format=3 uid="uid://cax522x8tlswm"]
 
 [ext_resource type="Texture2D" uid="uid://cpjkci3rambos" path="res://models/accessories/shoe_textures/boots/tt_t_chr_avt_acc_sho_motorcycleBootsLL.png" id="1_1fwxi"]
 [ext_resource type="Texture2D" uid="uid://cv0ym0uawig5e" path="res://objects/items/resources/accessories/shoes/icons/motorcycle_boots.png" id="1_7c7sj"]

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://dpyyb8fhyp5jd"]
+[gd_resource type="VisualShader" format=3 uid="uid://dpyyb8fhyp5jd"]
 
 [sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_6w12q"]
 output_port_for_preview = 0
@@ -40,64 +40,6 @@ output_port_for_preview = 4
 expanded_output_ports = [0]
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec4 mask_color : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform sampler2D tex_frg_2;
-uniform sampler2D tex_frg_3;
-uniform vec4 base_color : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-
-
-
-void fragment() {
-// ColorParameter:21
-	vec4 n_out21p0 = mask_color;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
-// Texture2D:3
-	vec4 n_out3p0 = texture(tex_frg_3, UV);
-	float n_out3p4 = n_out3p0.a;
-
-
-// VectorFunc:11
-	vec3 n_out11p0 = vec3(1.0) - vec3(n_out3p4);
-
-
-// VectorOp:14
-	vec3 n_out14p0 = vec3(n_out2p0.xyz) * n_out11p0;
-
-
-// VectorOp:17
-	vec3 n_out17p0 = vec3(n_out21p0.xyz) * n_out14p0;
-
-
-// ColorParameter:20
-	vec4 n_out20p0 = base_color;
-
-
-// VectorOp:12
-	vec3 n_out12p0 = vec3(n_out20p0.xyz) * vec3(n_out2p0.xyz);
-
-
-// VectorOp:19
-	vec3 n_out19p0 = n_out12p0 * vec3(n_out3p4);
-
-
-// VectorOp:15
-	vec3 n_out15p0 = n_out17p0 + n_out19p0;
-
-
-// Output:0
-	ALBEDO = n_out15p0;
-
-
-}
-"
 nodes/fragment/0/position = Vector2(1220, -80)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_hvbm3")
 nodes/fragment/2/position = Vector2(-640, -340)

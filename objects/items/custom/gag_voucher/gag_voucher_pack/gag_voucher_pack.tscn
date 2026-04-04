@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://5me85j0pivwk"]
+[gd_scene format=3 uid="uid://5me85j0pivwk"]
 
 [ext_resource type="PackedScene" uid="uid://eqtswktr1h3j" path="res://objects/items/custom/gag_voucher/gag_voucher.tscn" id="1_m4e2v"]
 [ext_resource type="Script" uid="uid://dec3fwrhestgn" path="res://objects/items/custom/gag_voucher/gag_voucher_pack/gag_voucher_pack.gd" id="1_t84gk"]

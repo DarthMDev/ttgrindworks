@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cflddavwqtyv0"]
+[gd_resource type="Resource" format=3 uid="uid://cflddavwqtyv0"]
 
 [ext_resource type="PackedScene" uid="uid://qxr8btpub25g" path="res://objects/battle/battle_resources/misc_movies/bookkeeper/mental_math_particles.tscn" id="1_m5fg8"]
 [ext_resource type="Script" uid="uid://dv8o8migyq05q" path="res://objects/battle/battle_resources/misc_movies/bookkeeper/bk_mental_math.gd" id="1_nh2m8"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://j1j0q0kyp1lc"]
+[gd_resource type="Resource" format=3 uid="uid://j1j0q0kyp1lc"]
 
 [ext_resource type="Script" uid="uid://bmistc2puf3db" path="res://objects/battle/battle_resources/status_effects/status_effect_budget_cuts.gd" id="1_v0abf"]
 

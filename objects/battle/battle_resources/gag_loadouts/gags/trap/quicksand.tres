@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TrapFall" load_steps=5 format=3 uid="uid://bqbc0s71tpdgx"]
+
+[ext_resource type="Texture2D" uid="uid://b738dk1seameu" path="res://ui_assets/battle/gags/inventory_quicksand_icon.png" id="1_biylx"]
+[ext_resource type="PackedScene" uid="uid://bsjwo3t3pgtyw" path="res://models/props/gags/quicksand/quicksand.glb" id="2_ahmij"]
+[ext_resource type="Script" uid="uid://cadbacipbjc11" path="res://objects/battle/battle_resources/toon_attacks/trap_fall.gd" id="3_f676a"]
+[ext_resource type="AudioStream" uid="uid://bxcb1bvyobtls" path="res://audio/sfx/battle/gags/trap/TL_quicksand.ogg" id="4_v21ba"]
+
+[resource]
+script = ExtResource("3_f676a")
+model = ExtResource("2_ahmij")
+sfx = ExtResource("4_v21ba")
+trap_type = 0
+icon = ExtResource("1_biylx")
+damage = 70
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Quicksand"
+one_time_use = false

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://8ewinuqmkhs"]
+[gd_resource type="Resource" format=3 uid="uid://8ewinuqmkhs"]
 
 [ext_resource type="Script" uid="uid://1p1tuxxv7sqr" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_diverse_portfolio.gd" id="1_jmpf3"]
 [ext_resource type="Texture2D" uid="uid://byrqsj82tcnrp" path="res://ui_assets/battle/statuses/overtime.png" id="1_ryehm"]
@@ -8,6 +8,6 @@ script = ExtResource("1_jmpf3")
 quality = 0
 rounds = -1
 icon = ExtResource("1_ryehm")
-description = "+1 Turn, 0.7x Damage multiplier"
+description = "+1 Move, 0.7x Damage multiplier"
 status_name = "Diverse Portfolio"
 id = 23

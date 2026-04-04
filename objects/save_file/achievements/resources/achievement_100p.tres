@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cjf1w66jnvpys"]
+[gd_resource type="Resource" format=3 uid="uid://cjf1w66jnvpys"]
 
 [ext_resource type="Texture2D" uid="uid://clftb8mkqcqyg" path="res://ui_assets/achievements/icon_achievement_one_hundo.png" id="1_0qqjx"]
 [ext_resource type="Script" uid="uid://c43k40t08sm7b" path="res://objects/save_file/achievements/achievement100p.gd" id="2_yjkfb"]

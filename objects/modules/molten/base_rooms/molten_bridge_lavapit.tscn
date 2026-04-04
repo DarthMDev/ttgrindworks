@@ -1,8 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://cw161oiq11ipc"]
+[gd_scene format=3 uid="uid://cw161oiq11ipc"]
 
 [ext_resource type="PackedScene" uid="uid://cd0qr2yj0xeys" path="res://models/facilities/molten/molten_bridge_lavapit.fbx" id="1_3xip0"]
 [ext_resource type="Texture2D" uid="uid://dpxjd734t77ip" path="res://models/facilities/molten/textures/hq_chain.png" id="2_1mqwl"]
-[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_3idh3"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_3idh3"]
 [ext_resource type="Texture2D" uid="uid://b6ghwokk377dn" path="res://models/facilities/molten/textures/FINALFACTORY_67.png" id="2_fmdi4"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_1mqwl"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="4_4p5io"]
@@ -222,35 +222,39 @@ material = SubResource("StandardMaterial3D_8702j")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1mqwl"]
 size = Vector3(26.4143, 43.6709, 41.5801)
 
-[node name="molten_bridge_lavapit" instance=ExtResource("1_3xip0")]
+[sub_resource type="NavigationMesh" id="NavigationMesh_y00mc"]
+vertices = PackedVector3Array(-7.5, 15.371046, -20.291014, -7.5, 15.371046, 20.208986, 7.5, 15.371046, 20.208986, 7.5, 15.371046, -20.291014, -12.5, -13.378954, -6.5410137, -12.5, -13.378954, 6.4589863, 12.5, -13.378954, 6.4589863, 12.5, -13.378954, -6.5410137)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+
+[node name="molten_bridge_lavapit" unique_id=733897317 instance=ExtResource("1_3xip0")]
 
 [node name="BridgePath" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_p6ern")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BridgePath" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BridgePath" index="0" unique_id=1721304565]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgePath/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgePath/StaticBody3D" index="0" unique_id=1351815637]
 shape = SubResource("ConcavePolygonShape3D_1mqwl")
 
 [node name="BridgeSupports" parent="." index="1"]
 surface_material_override/2 = SubResource("StandardMaterial3D_cjarh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BridgeSupports" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BridgeSupports" index="0" unique_id=430091827]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="0" unique_id=1667443309]
 shape = SubResource("ConcavePolygonShape3D_4p5io")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="1"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="1" unique_id=1504765471]
 transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, -0.0801001, -3.87034e-09, 0.0593222)
 shape = SubResource("BoxShape3D_4jp1u")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="2"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BridgeSupports/StaticBody3D" index="2" unique_id=75019148]
 transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0.0804653, -3.87034e-09, 0.0593222)
 shape = SubResource("BoxShape3D_4jp1u")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Chain Supports" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Chain Supports" index="0" unique_id=620961257]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Chain Supports/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chain Supports/StaticBody3D" index="0" unique_id=1304294222]
 shape = SubResource("ConcavePolygonShape3D_3idh3")
 
 [node name="Chains" parent="." index="3"]
@@ -277,55 +281,55 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 7.54978e-08, 0, -7.54978e-0
 [node name="Entryway4" parent="." index="10"]
 transform = Transform3D(-0.999999, 8.74227e-08, 1.04216e-14, 8.74227e-08, 0.999999, 7.54978e-08, -3.82137e-15, 7.54978e-08, -0.999999, 9.53674e-07, 15.0484, 20.791)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" index="0" unique_id=1040905519]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" index="0" unique_id=1411828605]
 shape = SubResource("ConcavePolygonShape3D_cjarh")
 
 [node name="Walls" parent="." index="12"]
 surface_material_override/1 = SubResource("StandardMaterial3D_fmdi4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0" unique_id=958423642]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0" unique_id=1742419034]
 shape = SubResource("ConcavePolygonShape3D_fmdi4")
 
-[node name="BattleNodeDynamic" parent="." index="13" node_paths=PackedStringArray("cogs") instance=ExtResource("3_1mqwl")]
+[node name="BattleNodeDynamic" parent="." index="13" unique_id=235689414 node_paths=PackedStringArray("cogs") instance=ExtResource("3_1mqwl")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 15.0457, -1.19229)
 cog_range = Vector2i(3, 4)
 cog_dist = 3.98
 cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4" unique_id=548822926]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.64398, 0)
 shape = SubResource("BoxShape3D_3idh3")
 
-[node name="BattleNodeDynamic2" parent="." index="14" node_paths=PackedStringArray("cogs") instance=ExtResource("3_1mqwl")]
+[node name="BattleNodeDynamic2" parent="." index="14" unique_id=148717360 node_paths=PackedStringArray("cogs") instance=ExtResource("3_1mqwl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.882399, -13.8621, 0.153442)
 cog_range = Vector2i(3, 4)
 cog_dist = 2.395
 cogs = [NodePath("Cogs/Cog8"), NodePath("Cogs/Cog9"), NodePath("Cogs/Cog10"), NodePath("Cogs/Cog11")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic2" index="4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic2" index="4" unique_id=610605994]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23517e-07, 2.6026, -2.15727)
 shape = SubResource("BoxShape3D_cjarh")
 
-[node name="LavaNode" type="Node3D" parent="." index="15"]
+[node name="LavaNode" type="Node3D" parent="." index="15" unique_id=1472838775]
 transform = Transform3D(0.912434, 0, 0, 0, 1, 0, 0, 0, 2.14872, 0, -29.7758, 0)
 
-[node name="LavaFloor" parent="LavaNode" index="0" instance=ExtResource("4_4p5io")]
+[node name="LavaFloor" parent="LavaNode" index="0" unique_id=986449092 instance=ExtResource("4_4p5io")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0344467, -4.34876, 0.095697)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaNode/LavaFloor" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaNode/LavaFloor" index="0" unique_id=1092388900]
 transform = Transform3D(1, 0, -9.69891e-13, 0, 1, 0, 9.66338e-13, 0, 1, 0.0849009, 18.4269, 0.177942)
 shape = SubResource("BoxShape3D_fmdi4")
 
-[node name="LavaPlane" type="MeshInstance3D" parent="LavaNode" index="1"]
+[node name="LavaPlane" type="MeshInstance3D" parent="LavaNode" index="1" unique_id=1536274371]
 transform = Transform3D(0.691172, 0, 0, 0, 1, 0, 0, 0, 0.710054, 0.221747, 14.8143, 0)
 mesh = SubResource("PlaneMesh_tjgyd")
 
-[node name="LavaParticles" type="GPUParticles3D" parent="LavaNode" index="2"]
+[node name="LavaParticles" type="GPUParticles3D" parent="LavaNode" index="2" unique_id=672788381]
 transform = Transform3D(0.617482, 0, 0, 0, 1, 0, 0, 0, 0.187106, 0.121096, 13.8222, 6.05872)
 amount = 81
 lifetime = 10.65
@@ -334,7 +338,7 @@ visibility_aabb = AABB(-30.4062, -20.4292, -22.1821, 68.5996, 48.2961, 59.6166)
 process_material = SubResource("ParticleProcessMaterial_868jd")
 draw_pass_1 = SubResource("QuadMesh_3k5fn")
 
-[node name="LavaParticles2" type="GPUParticles3D" parent="LavaNode" index="3"]
+[node name="LavaParticles2" type="GPUParticles3D" parent="LavaNode" index="3" unique_id=872045979]
 transform = Transform3D(0.617482, 0, 0, 0, 1, 0, 0, 0, 0.187106, 0.121096, 13.8222, -6.02721)
 amount = 81
 lifetime = 10.65
@@ -343,7 +347,7 @@ visibility_aabb = AABB(-30.4062, -20.4292, -22.1821, 68.5996, 48.2961, 59.6166)
 process_material = SubResource("ParticleProcessMaterial_868jd")
 draw_pass_1 = SubResource("QuadMesh_3k5fn")
 
-[node name="SmokeParticles" type="GPUParticles3D" parent="LavaNode" index="4"]
+[node name="SmokeParticles" type="GPUParticles3D" parent="LavaNode" index="4" unique_id=692703492]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 14.1174, 6.49459)
 amount = 55
 lifetime = 2.75
@@ -352,7 +356,7 @@ visibility_aabb = AABB(-18.2827, -1.2802, -7.91927, 35.6684, 8.12912, 13.9212)
 process_material = SubResource("ParticleProcessMaterial_8702j")
 draw_pass_1 = SubResource("QuadMesh_868jd")
 
-[node name="SmokeParticles2" type="GPUParticles3D" parent="LavaNode" index="5"]
+[node name="SmokeParticles2" type="GPUParticles3D" parent="LavaNode" index="5" unique_id=1652045690]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 14.1174, -5.99812)
 amount = 55
 lifetime = 2.75
@@ -361,18 +365,21 @@ visibility_aabb = AABB(-17.0613, -1.28855, -6.99966, 34.3352, 8.65044, 12.8776)
 process_material = SubResource("ParticleProcessMaterial_8702j")
 draw_pass_1 = SubResource("QuadMesh_868jd")
 
-[node name="PlayerSpawn" type="Node3D" parent="." index="16"]
+[node name="PlayerSpawn" type="Node3D" parent="." index="16" unique_id=1208829346]
 transform = Transform3D(-1.86848e-07, 0, 4.27458, 0, 1, 0, -5.67837, 0, -2.48209e-07, 10.5437, -13.8584, 0.150677)
 
-[node name="RoomArea" type="Area3D" parent="." index="17"]
+[node name="RoomArea" type="Area3D" parent="." index="17" unique_id=1913995661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184658, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0" unique_id=1711483595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.59668, 0)
 shape = SubResource("BoxShape3D_1mqwl")
 
-[node name="treasure_chest" parent="." index="18" instance=ExtResource("7_4jp1u")]
+[node name="treasure_chest" parent="." index="18" unique_id=1093161117 instance=ExtResource("7_4jp1u")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.7096, -13.8625, 9.53674e-07)
 
-[node name="treasure_chest2" parent="." index="19" instance=ExtResource("7_4jp1u")]
+[node name="treasure_chest2" parent="." index="19" unique_id=732710807 instance=ExtResource("7_4jp1u")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.290402, 15.0436, 6.78174)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." index="20" unique_id=1460044346]
+navigation_mesh = SubResource("NavigationMesh_y00mc")

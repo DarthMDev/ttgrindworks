@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0kh641y7aoyt"]
+[gd_scene format=3 uid="uid://c0kh641y7aoyt"]
 
 [ext_resource type="PackedScene" uid="uid://blft1vallmipl" path="res://models/props/cog_props/calculator/calculator.glb" id="1_sb3ly"]
 [ext_resource type="PackedScene" uid="uid://bx2dkich61dwi" path="res://models/props/toon_props/recycle_bin/recycle_bin.tscn" id="2_e11yj"]

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DropBig" load_steps=6 format=3 uid="uid://bjrby3dvsnsqx"]
+
+[ext_resource type="Texture2D" uid="uid://d12bdaxn4rm1e" path="res://ui_assets/battle/gags/inventory_weight.png" id="1_8plu0"]
+[ext_resource type="PackedScene" uid="uid://b0iui2nh3h4wb" path="res://models/props/gags/big_weight/big_weight.tscn" id="2_dm50f"]
+[ext_resource type="Script" uid="uid://bacdlj4c328s6" path="res://objects/battle/battle_resources/toon_attacks/drop_big.gd" id="3_xemtm"]
+[ext_resource type="AudioStream" uid="uid://bgx8rpo052x5q" path="res://audio/sfx/battle/gags/drop/AA_drop_bigweight.ogg" id="4_c8p15"]
+[ext_resource type="AudioStream" uid="uid://ddj4or7ioqguv" path="res://audio/sfx/battle/gags/drop/AA_drop_bigweight_miss.ogg" id="5_pwpap"]
+
+[resource]
+script = ExtResource("3_xemtm")
+model = ExtResource("2_dm50f")
+shadow_scale = 2.0
+sfx_hit = ExtResource("4_c8p15")
+sfx_miss = ExtResource("5_pwpap")
+icon = ExtResource("1_8plu0")
+damage = 36
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Big Weight"
+one_time_use = false

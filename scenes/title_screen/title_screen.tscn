@@ -1,12 +1,15 @@
-[gd_scene load_steps=43 format=3 uid="uid://cqxrerk1d75to"]
+[gd_scene format=3 uid="uid://cqxrerk1d75to"]
 
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="1_6oj83"]
 [ext_resource type="Script" uid="uid://bg0as47hsfrlg" path="res://scenes/title_screen/title_screen.gd" id="1_pgrta"]
 [ext_resource type="FontFile" uid="uid://dyjvd6wmo0bmg" path="res://fonts/vtRemingtonPortable.ttf" id="9_ikkwa"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="10_dmagf"]
 [ext_resource type="Shader" uid="uid://ryrnfqn0ixe5" path="res://scenes/title_screen/hue_shift.gdshader" id="10_ngpco"]
+[ext_resource type="Texture2D" uid="uid://bm5qigyeq42o5" path="res://ui_assets/misc/discord.png" id="10_otspg"]
+[ext_resource type="Texture2D" uid="uid://dnocdkr370nl5" path="res://ui_assets/misc/bluesky.png" id="11_ao3wo"]
 [ext_resource type="PackedScene" uid="uid://cpt2l8o1h70a7" path="res://scenes/title_screen/character_select/character_clipboard.tscn" id="11_fdkeb"]
 [ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="11_iexge"]
+[ext_resource type="Texture2D" uid="uid://bbcgal05es36y" path="res://ui_assets/misc/wikigg.png" id="12_ao3wo"]
 [ext_resource type="PackedScene" uid="uid://drqai807g6637" path="res://objects/ui/crowd_control/CrowdControlLogin.tscn" id="12_hdew4"]
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="12_nwwc5"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="13_glcqf"]
@@ -61,6 +64,21 @@ font_color = Color(1, 1, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.631373)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ao3wo"]
+resource_local_to_scene = true
+font = ExtResource("14_ndcfx")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_1makc"]
+resource_local_to_scene = true
+font = ExtResource("14_ndcfx")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ednl"]
+resource_local_to_scene = true
+font = ExtResource("14_ndcfx")
+font_size = 36
+
 [sub_resource type="LabelSettings" id="LabelSettings_1pg68"]
 font = ExtResource("10_dmagf")
 font_size = 48
@@ -68,7 +86,7 @@ font_color = Color(1, 1, 0, 1)
 shadow_size = 8
 shadow_color = Color(0.411688, 0.411688, 3.85046e-07, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmj2m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynj2y"]
 resource_local_to_scene = true
 shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.585
@@ -84,11 +102,18 @@ shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.045
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_otspg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpant"]
 resource_local_to_scene = true
 shader = ExtResource("10_ngpco")
 shader_parameter/Shift_Hue = 0.585
 shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_otspg"]
+resource_local_to_scene = true
+font = ExtResource("10_dmagf")
+font_size = 32
+font_color = Color(0.454902, 0.658824, 1, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_77gfr"]
 ambient_light_source = 2
@@ -101,7 +126,6 @@ ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
-glow_blend_mode = 1
 glow_hdr_threshold = 4.0
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 28.2
@@ -114,7 +138,7 @@ adjustment_brightness = 2.55
 adjustment_contrast = 8.0
 adjustment_saturation = 8.0
 
-[node name="TitleScreen" type="Control" node_paths=PackedStringArray("AuthPopup", "LoginPanel")]
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("AuthPopup", "LoginPanel") unique_id=1374779253]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,7 +151,7 @@ toon_collision = SubResource("CapsuleShape3D_j5ei2")
 AuthPopup = NodePath("GUI/Popup")
 LoginPanel = NodePath("GUI/Popup/CrowdControlLogin")
 
-[node name="GUI" type="Control" parent="."]
+[node name="GUI" type="Control" parent="." unique_id=2014013117]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +160,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Logo" type="Control" parent="GUI"]
+[node name="Logo" type="Control" parent="GUI" unique_id=1256436441]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ClickLabel" type="Label" parent="GUI/Logo"]
+[node name="ClickLabel" type="Label" parent="GUI/Logo" unique_id=1894347774]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -163,7 +187,7 @@ text = "Click to begin..."
 label_settings = SubResource("LabelSettings_v8joy")
 horizontal_alignment = 1
 
-[node name="VersionLabel" type="Label" parent="GUI/Logo"]
+[node name="VersionLabel" type="Label" parent="GUI/Logo" unique_id=383171215]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
@@ -177,7 +201,7 @@ grow_vertical = 0
 text = "v1.0"
 label_settings = SubResource("LabelSettings_pqt5k")
 
-[node name="ReleaseNotesButton" parent="GUI/Logo" instance=ExtResource("1_6oj83")]
+[node name="ReleaseNotesButton" parent="GUI/Logo" unique_id=1518875982 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gltlf")
 custom_minimum_size = Vector2(150, 70)
@@ -205,7 +229,7 @@ font_size = 24.0
 text = "Release Notes"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="NewVersionLabel" type="Label" parent="GUI/Logo/ReleaseNotesButton"]
+[node name="NewVersionLabel" type="Label" parent="GUI/Logo/ReleaseNotesButton" unique_id=1908363166]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -224,7 +248,7 @@ text = "New Version Available!"
 label_settings = SubResource("LabelSettings_fdkeb")
 horizontal_alignment = 2
 
-[node name="LogoScaler" type="Control" parent="GUI/Logo"]
+[node name="LogoScaler" type="Control" parent="GUI/Logo" unique_id=32617060]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -236,7 +260,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="GameLogo" type="TextureRect" parent="GUI/Logo/LogoScaler"]
+[node name="GameLogo" type="TextureRect" parent="GUI/Logo/LogoScaler" unique_id=2120730523]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -253,13 +277,141 @@ texture = ExtResource("16_yo3if")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CharacterClipboard" parent="GUI" instance=ExtResource("11_fdkeb")]
+[node name="SocialButtons" type="Control" parent="GUI/Logo" unique_id=2009520263]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -55.0
+offset_right = -228.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="DiscordScaler" type="Control" parent="GUI/Logo/SocialButtons" unique_id=1658003430]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="DiscordButton" parent="GUI/Logo/SocialButtons/DiscordScaler" unique_id=1901254779 instance=ExtResource("1_6oj83")]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("10_otspg")
+texture_pressed = ExtResource("10_otspg")
+texture_hover = ExtResource("10_otspg")
+texture_disabled = null
+font_size = 36.0
+
+[node name="Label" parent="GUI/Logo/SocialButtons/DiscordScaler/DiscordButton" index="0"]
+offset_left = 74.5
+offset_right = -74.5
+offset_bottom = -47.0
+label_settings = SubResource("LabelSettings_ao3wo")
+clip_text = true
+
+[node name="BlueskyScaler" type="Control" parent="GUI/Logo/SocialButtons" unique_id=1951772607]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueskyButton" parent="GUI/Logo/SocialButtons/BlueskyScaler" unique_id=2014688396 instance=ExtResource("1_6oj83")]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("11_ao3wo")
+texture_pressed = ExtResource("11_ao3wo")
+texture_hover = ExtResource("11_ao3wo")
+texture_disabled = null
+font_size = 36.0
+
+[node name="Label" parent="GUI/Logo/SocialButtons/BlueskyScaler/BlueskyButton" index="0"]
+offset_left = 74.5
+offset_right = -74.5
+offset_bottom = -47.0
+label_settings = SubResource("LabelSettings_1makc")
+clip_text = true
+
+[node name="WikiScaler" type="Control" parent="GUI/Logo/SocialButtons" unique_id=1556775412]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="WikiButton" parent="GUI/Logo/SocialButtons/WikiScaler" unique_id=830846692 instance=ExtResource("1_6oj83")]
+unique_name_in_owner = true
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -16.0
+offset_right = 23.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("12_ao3wo")
+texture_pressed = ExtResource("12_ao3wo")
+texture_hover = ExtResource("12_ao3wo")
+texture_disabled = null
+font_size = 36.0
+
+[node name="Label" parent="GUI/Logo/SocialButtons/WikiScaler/WikiButton" index="0"]
+offset_left = 74.5
+offset_right = -74.5
+offset_bottom = -47.0
+label_settings = SubResource("LabelSettings_1ednl")
+clip_text = true
+
+[node name="CharacterClipboard" parent="GUI" unique_id=1474844116 instance=ExtResource("11_fdkeb")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 1410.0
 offset_bottom = 1410.0
 
-[node name="NewGameMenu" type="Control" parent="GUI"]
+[node name="NewGameMenu" type="Control" parent="GUI" unique_id=893500153]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -270,7 +422,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PickAToonLabel" type="Label" parent="GUI/NewGameMenu"]
+[node name="PickAToonLabel" type="Label" parent="GUI/NewGameMenu" unique_id=72560795]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -287,7 +439,7 @@ label_settings = SubResource("LabelSettings_1pg68")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonContainer" type="HBoxContainer" parent="GUI/NewGameMenu"]
+[node name="ButtonContainer" type="HBoxContainer" parent="GUI/NewGameMenu" unique_id=508329562]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -298,9 +450,9 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="BackButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
+[node name="BackButton" parent="GUI/NewGameMenu/ButtonContainer" unique_id=844022560 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_wmj2m")
+material = SubResource("ShaderMaterial_ynj2y")
 custom_minimum_size = Vector2(164, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -315,7 +467,7 @@ font_size = 24.0
 text = "Back"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="ExtrasButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
+[node name="ExtrasButton" parent="GUI/NewGameMenu/ButtonContainer" unique_id=668502750 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gltlf")
 custom_minimum_size = Vector2(164, 64)
@@ -332,7 +484,7 @@ font_size = 24.0
 text = "Extras"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="SettingsButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
+[node name="SettingsButton" parent="GUI/NewGameMenu/ButtonContainer" unique_id=1661296602 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_iewbm")
 custom_minimum_size = Vector2(164, 64)
@@ -349,7 +501,7 @@ font_size = 24.0
 text = "Settings"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="QuitButton" parent="GUI/NewGameMenu/ButtonContainer" instance=ExtResource("1_6oj83")]
+[node name="QuitButton" parent="GUI/NewGameMenu/ButtonContainer" unique_id=2006468602 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(164, 64)
 layout_mode = 2
@@ -365,7 +517,7 @@ font_size = 24.0
 text = "	Quit"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="MiddleButtons" type="VBoxContainer" parent="GUI/NewGameMenu"]
+[node name="MiddleButtons" type="VBoxContainer" parent="GUI/NewGameMenu" unique_id=2049018107]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -381,7 +533,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="NewGameButton" parent="GUI/NewGameMenu/MiddleButtons" instance=ExtResource("1_6oj83")]
+[node name="NewGameButton" parent="GUI/NewGameMenu/MiddleButtons" unique_id=651536214 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_qc33f")
 custom_minimum_size = Vector2(164, 64)
@@ -398,9 +550,9 @@ font_size = 24.0
 text = "New Game"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="ContinueButton" parent="GUI/NewGameMenu/MiddleButtons" instance=ExtResource("1_6oj83")]
+[node name="ContinueButton" parent="GUI/NewGameMenu/MiddleButtons" unique_id=1820867292 instance=ExtResource("1_6oj83")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_otspg")
+material = SubResource("ShaderMaterial_lpant")
 custom_minimum_size = Vector2(164, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -432,7 +584,7 @@ font_size = 24.0
 text = "Connect CC"
 label_settings = SubResource("LabelSettings_5vlir")
 
-[node name="FullBlock" type="Control" parent="GUI"]
+[node name="FullBlock" type="Control" parent="GUI" unique_id=1543480811]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -449,426 +601,448 @@ min_size = Vector2i(300, 450)
 
 [node name="CrowdControlLogin" parent="GUI/Popup" instance=ExtResource("12_hdew4")]
 
-[node name="World3D" type="Node3D" parent="."]
+[node name="SecretSeedLabel" type="Label" parent="GUI" unique_id=1557935227]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.5
+offset_top = 207.0
+offset_right = 320.5
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(123.5, 16.5)
+text = "Secret Seed: AAAAAAAAAAAAA"
+label_settings = SubResource("LabelSettings_otspg")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+[node name="World3D" type="Node3D" parent="." unique_id=71594319]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D" unique_id=663343948]
 environment = SubResource("Environment_77gfr")
 
-[node name="CogBuilding" parent="World3D" instance=ExtResource("15_7ysqf")]
+[node name="CogBuilding" parent="World3D" unique_id=450462960 instance=ExtResource("15_7ysqf")]
 unique_name_in_owner = true
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -0.005, 0)
 building_name = "An Ordinary Cog Building"
 
-[node name="SpringArm" type="SpringArm3D" parent="World3D"]
+[node name="SpringArm" type="SpringArm3D" parent="World3D" unique_id=1008395950]
 transform = Transform3D(1, 0, 0, 0, 0.927184, 0.374607, 0, -0.374607, 0.927184, 0, 5, 8.025)
 collision_mask = 0
 spring_length = 24.0
 
-[node name="Camera" type="Camera3D" parent="World3D/SpringArm"]
+[node name="Camera" type="Camera3D" parent="World3D/SpringArm" unique_id=1208868544]
 current = true
 fov = 58.5
 
-[node name="ToonOrigin" type="Node3D" parent="World3D"]
+[node name="ToonOrigin" type="Node3D" parent="World3D" unique_id=1129215137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.99648)
 
-[node name="CharacterDisplay" parent="World3D/ToonOrigin" instance=ExtResource("15_otspg")]
+[node name="CharacterDisplay" parent="World3D/ToonOrigin" unique_id=684477174 node_paths=PackedStringArray("character_clipboard") instance=ExtResource("15_otspg")]
 unique_name_in_owner = true
+character_clipboard = NodePath("../../../GUI/CharacterClipboard")
 
-[node name="Props" type="Node3D" parent="World3D"]
+[node name="Props" type="Node3D" parent="World3D" unique_id=1941781221]
 
-[node name="BuildingProps" type="Node3D" parent="World3D/Props"]
+[node name="BuildingProps" type="Node3D" parent="World3D/Props" unique_id=865103031]
 
-[node name="wood_crate" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate" parent="World3D/Props/BuildingProps" unique_id=664416881 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(1.13865, 0, 0.725235, 0, 1.35, 0, -0.725235, 0, 1.13865, -5.83273, 0, 1.60224)
 
-[node name="wood_crate3" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate3" parent="World3D/Props/BuildingProps" unique_id=29750730 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(1.13865, 0, 0.725235, 0, 1.35, 0, -0.725235, 0, 1.13865, 9.62601, 0, -1.49153)
 
-[node name="wood_crate4" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate4" parent="World3D/Props/BuildingProps" unique_id=573792874 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(0.358672, 0, 0.825442, 0, 0.9, 0, -0.825442, 0, 0.358672, 6.70285, 0, -4.534)
 
-[node name="wood_crate5" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate5" parent="World3D/Props/BuildingProps" unique_id=923714850 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(-0.044323, 0, 0.748689, 0, 0.75, 0, -0.748689, 0, -0.044323, 4.71725, 0, -4.72967)
 
-[node name="wood_crate6" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate6" parent="World3D/Props/BuildingProps" unique_id=44036060 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(-0.0768265, 0, 1.29773, 0, 1.3, 0, -1.29773, 0, -0.0768265, 4.66053, 6.0466, -19.4985)
 
-[node name="wood_crate7" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate7" parent="World3D/Props/BuildingProps" unique_id=2107562727 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(-0.798206, 0, 1.26999, 0, 1.5, 0, -1.26999, 0, -0.798206, 11.3082, 6.0466, -15.5795)
 
-[node name="wood_crate2" parent="World3D/Props/BuildingProps" instance=ExtResource("15_1sq1o")]
+[node name="wood_crate2" parent="World3D/Props/BuildingProps" unique_id=175019748 instance=ExtResource("15_1sq1o")]
 transform = Transform3D(0.897694, 0, -0.064379, 0, 0.9, 0, 0.064379, 0, 0.897694, 5.46997, 0, 3.40269)
 
-[node name="crate_general" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general" parent="World3D/Props/BuildingProps" unique_id=2124221449 instance=ExtResource("16_lphp2")]
 transform = Transform3D(1.91315, 0, -0.582974, 0, 2, 0, 0.582974, 0, 1.91315, 6.35147, 0, 0.826435)
 
-[node name="crate_general5" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general5" parent="World3D/Props/BuildingProps" unique_id=193848854 instance=ExtResource("16_lphp2")]
 transform = Transform3D(1.91315, 0, -0.582974, 0, 2, 0, 0.582974, 0, 1.91315, 16.8093, 6.0301, -16.303)
 
-[node name="crate_general8" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general8" parent="World3D/Props/BuildingProps" unique_id=1587374846 instance=ExtResource("16_lphp2")]
 transform = Transform3D(3.82987, 0, 2.40993, 0, 4.525, 0, -2.40993, 0, 3.82987, 44.6011, 3.9922, 4.40639)
 
-[node name="crate_general6" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general6" parent="World3D/Props/BuildingProps" unique_id=1386675384 instance=ExtResource("16_lphp2")]
 transform = Transform3D(2.76133, 0, 1.879, 0, 3.34, 0, -1.879, 0, 2.76133, 21.7225, 6.0301, -19.6817)
 
-[node name="crate_general7" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general7" parent="World3D/Props/BuildingProps" unique_id=944915947 instance=ExtResource("16_lphp2")]
 transform = Transform3D(-1.16368, 0, 3.13072, 0, 3.34, 0, -3.13072, 0, -1.16368, -23.1255, 6.0301, -20.0753)
 
-[node name="crate_general9" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general9" parent="World3D/Props/BuildingProps" unique_id=2125178890 instance=ExtResource("16_lphp2")]
 transform = Transform3D(-4.82552, 0.27134, 4.16475, 1.00866, 6.2536, 0.761261, -4.04986, 1.23422, -4.77281, -18.3614, 6.48042, -37.2718)
 
-[node name="crate_general10" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general10" parent="World3D/Props/BuildingProps" unique_id=2005107389 instance=ExtResource("16_lphp2")]
 transform = Transform3D(-5.60406, -1.76952, 2.48348, -1.86213, 6.10049, 0.144727, -2.41481, -0.597726, -5.87501, 32.3971, 0.792261, 42.242)
 
-[node name="crate_general3" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general3" parent="World3D/Props/BuildingProps" unique_id=1405543016 instance=ExtResource("16_lphp2")]
 transform = Transform3D(2.5674, 0, 0.31573, 0, 1.3, 0, -0.410449, 0, 1.97492, -6.36731, 0, -3.5628)
 
-[node name="crate_general2" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general2" parent="World3D/Props/BuildingProps" unique_id=244257391 instance=ExtResource("16_lphp2")]
 transform = Transform3D(1.0595, 0, -0.753306, 0, 1.3, 0, 0.753306, 0, 1.0595, 9.3431, 0, 2.50452)
 
-[node name="crate_general4" parent="World3D/Props/BuildingProps" instance=ExtResource("16_lphp2")]
+[node name="crate_general4" parent="World3D/Props/BuildingProps" unique_id=29673338 instance=ExtResource("16_lphp2")]
 transform = Transform3D(1.03154, 0, -0.381989, 0, 1.1, 0, 0.381989, 0, 1.03154, -8.12903, 0, 0.0824487)
 
-[node name="gear" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear" parent="World3D/Props/BuildingProps" unique_id=1147938082 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.989853, -0.0609111, -0.128375, -0.0679164, 0.590764, -0.803981, 0.124811, 0.804542, 0.580633, 8.04491, 2.03292, 4.67847)
 
-[node name="gear2" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear2" parent="World3D/Props/BuildingProps" unique_id=1278315947 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -5.87667, 2.45782, 1.48409)
 
-[node name="gear4" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear4" parent="World3D/Props/BuildingProps" unique_id=460891948 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -5.87667, 3.12411, 1.48409)
 
-[node name="gear3" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear3" parent="World3D/Props/BuildingProps" unique_id=296907548 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.370625, 0, 0.150457, 0, 0.4, 0, -0.150457, 0, 0.370625, -5.87667, 2.79421, 1.48409)
 
-[node name="gear6" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear6" parent="World3D/Props/BuildingProps" unique_id=2131124900 instance=ExtResource("17_tctok")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.0637212, 0.568655, -5.35205)
 
-[node name="gear7" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear7" parent="World3D/Props/BuildingProps" unique_id=1194811200 instance=ExtResource("17_tctok")]
 transform = Transform3D(1.01922, 0, 0.413758, 0, 1.1, 0, -0.413758, 0, 1.01922, -0.0637212, 1.4794, -5.35205)
 
-[node name="gear5" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear5" parent="World3D/Props/BuildingProps" unique_id=231971634 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.370625, 0, 0.150457, 0, 0.4, 0, -0.150457, 0, 0.370625, -5.87667, 3.45108, 1.48409)
 
-[node name="gear_post" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post" parent="World3D/Props/BuildingProps" unique_id=723932416 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(-8.25449e-08, 1.88841, 0.658722, -2, -8.74228e-08, 0, 2.87937e-08, -0.658722, 1.88841, -7.04059, 0.113178, 3.90323)
 
-[node name="gear_post5" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post5" parent="World3D/Props/BuildingProps" unique_id=2019739221 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(-2.40743e-07, 5.50757, -2.38049, -6, -2.62268e-07, 2.52048e-13, -1.04054e-07, 2.38049, 5.50757, 17.2478, 6.37823, -12.9056)
 
-[node name="gear_post7" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post7" parent="World3D/Props/BuildingProps" unique_id=225910441 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(-2.56157e-07, 5.86019, -1.2877, -6, -2.62268e-07, 2.58324e-13, -5.62868e-08, 1.2877, 5.86019, 17.8396, 6.37823, -13.8585)
 
-[node name="gear_post6" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post6" parent="World3D/Props/BuildingProps" unique_id=360890885 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(0.891315, 3.69343, 4.64372, -5.91552, 0.917772, 0.405463, -0.460721, -4.63856, 3.77776, 18.3453, 6.37823, -6.23366)
 
-[node name="gear_post8" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post8" parent="World3D/Props/BuildingProps" unique_id=1795037000 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(9.11223, 4.36669, 6.47297, -6.94344, 9.08198, 3.64779, -3.57155, -6.51535, 9.42307, 14.7459, -0.350792, -39.8967)
 
-[node name="gear_post9" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post9" parent="World3D/Props/BuildingProps" unique_id=697214365 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(8.33581, -8.62045, 0.44956, 5.06543, 5.39093, 9.44878, -6.98969, -6.37383, 7.38366, 4.42539, 4.06445, -39.7909)
 
-[node name="gear_post2" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post2" parent="World3D/Props/BuildingProps" unique_id=204925803 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(-8.67854e-08, 1.98542, 0.241071, -2, -8.74228e-08, 0, 1.05375e-08, -0.241071, 1.98542, -7.59517, 0.113178, 4.43929)
 
-[node name="gear_post3" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post3" parent="World3D/Props/BuildingProps" unique_id=755844177 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(-7.67118e-08, 1.75496, -0.959222, -2, -8.74228e-08, 0, -4.19289e-08, 0.959222, 1.75496, -9.1872, 0.113178, 1.6965)
 
-[node name="gear_post4" parent="World3D/Props/BuildingProps" instance=ExtResource("18_ma6qb")]
+[node name="gear_post4" parent="World3D/Props/BuildingProps" unique_id=545715286 instance=ExtResource("18_ma6qb")]
 transform = Transform3D(1.63745, 1.10018, 0.329186, -1.1326, 1.45249, 0.7794, 0.189672, -0.824532, 1.81223, -8.63024, 0.113178, 3.51962)
 
-[node name="paper_twist_stacks" parent="World3D/Props/BuildingProps" instance=ExtResource("19_71dcx")]
+[node name="paper_twist_stacks" parent="World3D/Props/BuildingProps" unique_id=295537777 instance=ExtResource("19_71dcx")]
 transform = Transform3D(0.664631, 0, -0.747172, 0, 1, 0, 0.747172, 0, 0.664631, 5.6276, 0, 5.95875)
 
-[node name="paper_twist_stacks2" parent="World3D/Props/BuildingProps" instance=ExtResource("19_71dcx")]
+[node name="paper_twist_stacks2" parent="World3D/Props/BuildingProps" unique_id=1896815262 instance=ExtResource("19_71dcx")]
 transform = Transform3D(1.19514, 0, 1.06378, 0, 1.6, 0, -1.06378, 0, 1.19514, -8.94039, 0, 4.80817)
 
-[node name="paper_twist_stacks3" parent="World3D/Props/BuildingProps" instance=ExtResource("19_71dcx")]
+[node name="paper_twist_stacks3" parent="World3D/Props/BuildingProps" unique_id=548220751 instance=ExtResource("19_71dcx")]
 transform = Transform3D(0.867864, 0, 2.23759, 0, 2.4, 0, -2.23759, 0, 0.867864, -35.1329, 6.04271, -4.5029)
 
-[node name="paper_twist_stacks5" parent="World3D/Props/BuildingProps" instance=ExtResource("19_71dcx")]
+[node name="paper_twist_stacks5" parent="World3D/Props/BuildingProps" unique_id=1295497127 instance=ExtResource("19_71dcx")]
 transform = Transform3D(0.361614, 0, -2.3726, 0, 2.4, 0, 2.3726, 0, 0.361614, 30.2719, 6.03369, 6.6528)
 
-[node name="paper_twist_stacks4" parent="World3D/Props/BuildingProps" instance=ExtResource("19_71dcx")]
+[node name="paper_twist_stacks4" parent="World3D/Props/BuildingProps" unique_id=1159941630 instance=ExtResource("19_71dcx")]
 transform = Transform3D(2.23801, 0, -0.86677, 0, 2.4, 0, 0.86677, 0, 2.23801, 6.77494, 6.02635, -18.0906)
 
-[node name="cb_safe" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe" parent="World3D/Props/BuildingProps" unique_id=230687215 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(-0.942075, 0, 0.335402, 0, 1, 0, -0.335402, 0, -0.942075, 6.75124, 0, -2.20778)
 
-[node name="cb_safe2" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe2" parent="World3D/Props/BuildingProps" unique_id=1886169540 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(-0.999999, 0, 0.00113446, 0, 1, 0, -0.00113446, 0, -0.999999, 4.45767, 0, -2.78631)
 
-[node name="cb_safe3" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe3" parent="World3D/Props/BuildingProps" unique_id=1419215537 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(0.605863, 0, 0.795569, 0, 1, 0, -0.795569, 0, 0.605863, -11.3816, 0, 3.53945)
 
-[node name="cb_safe4" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe4" parent="World3D/Props/BuildingProps" unique_id=1559589049 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(0.48209, 0, 0.876122, 0, 1, 0, -0.876122, 0, 0.48209, -10.2622, 0, 1.54939)
 
-[node name="cb_safe5" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe5" parent="World3D/Props/BuildingProps" unique_id=1132869278 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(-0.896285, 0, 0.443477, 0, 1, 0, -0.443477, 0, -0.896285, -14.985, 6.04838, 33.5545)
 
-[node name="cb_safe6" parent="World3D/Props/BuildingProps" instance=ExtResource("20_8bdpp")]
+[node name="cb_safe6" parent="World3D/Props/BuildingProps" unique_id=1434221129 instance=ExtResource("20_8bdpp")]
 transform = Transform3D(-0.951825, 0, 0.306642, 0, 1, 0, -0.306642, 0, -0.951825, -17.1517, 6.04838, 32.8341)
 
-[node name="cardboard_box" parent="World3D/Props/BuildingProps" instance=ExtResource("21_eobd2")]
+[node name="cardboard_box" parent="World3D/Props/BuildingProps" unique_id=43610858 instance=ExtResource("21_eobd2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8547, 0.000422627, 2.96233)
 
-[node name="cardboard_box2" parent="World3D/Props/BuildingProps" instance=ExtResource("21_eobd2")]
+[node name="cardboard_box2" parent="World3D/Props/BuildingProps" unique_id=1793163207 instance=ExtResource("21_eobd2")]
 transform = Transform3D(0.583845, 0, -0.138295, 0, 0.6, 0, 0.138295, 0, 0.583845, 11.8547, 1.67682, 2.96233)
 
-[node name="cardboard_box3" parent="World3D/Props/BuildingProps" instance=ExtResource("21_eobd2")]
+[node name="cardboard_box3" parent="World3D/Props/BuildingProps" unique_id=536903187 instance=ExtResource("21_eobd2")]
 transform = Transform3D(0.57015, 0, 0.186894, 0, 0.6, 0, -0.186894, 0, 0.57015, 11.8547, 0.00107539, 4.75962)
 
-[node name="gear8" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear8" parent="World3D/Props/BuildingProps" unique_id=719213232 instance=ExtResource("17_tctok")]
 transform = Transform3D(1.46304, 0.313269, 0.106599, -0.101875, 0.886146, -1.20597, -0.314838, 1.16902, 0.88559, 2.72641, 9.38625, -23.6013)
 
-[node name="gear10" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear10" parent="World3D/Props/BuildingProps" unique_id=719996937 instance=ExtResource("17_tctok")]
 transform = Transform3D(2.20882, -1.5098, -0.362831, 0.716441, 1.55065, -2.09098, 1.37762, 1.61431, 1.66918, 42.2056, 7.82987, -37.3356)
 
-[node name="gear9" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear9" parent="World3D/Props/BuildingProps" unique_id=1699877290 instance=ExtResource("17_tctok")]
 transform = Transform3D(2.49355, 1.03505, -0.0297048, -0.954487, 2.26755, -1.11228, -0.401444, 1.03773, 2.46007, -49.3609, 7.88959, -23.8768)
 
-[node name="gear11" parent="World3D/Props/BuildingProps" instance=ExtResource("17_tctok")]
+[node name="gear11" parent="World3D/Props/BuildingProps" unique_id=1115670557 instance=ExtResource("17_tctok")]
 transform = Transform3D(0.170006, 0.295988, 2.91005, -2.36012, 1.73587, -0.0386814, -1.72796, -2.3418, 0.339138, -36.4826, 5.2366, 47.9017)
 
-[node name="cardboard_box4" parent="World3D/Props/BuildingProps" instance=ExtResource("21_eobd2")]
+[node name="cardboard_box4" parent="World3D/Props/BuildingProps" unique_id=555826134 instance=ExtResource("21_eobd2")]
 transform = Transform3D(2.01467, 0, -0.592529, 0, 2.1, 0, 0.592529, 0, 2.01467, 8.60216, 6.06639, -20.2415)
 
-[node name="golf_club2" parent="World3D/Props/BuildingProps" instance=ExtResource("22_rarwc")]
+[node name="golf_club2" parent="World3D/Props/BuildingProps" unique_id=406439593 instance=ExtResource("22_rarwc")]
 transform = Transform3D(0.470452, 0.0607564, 0.158061, 0.0589399, 0.378774, -0.321023, -0.158748, 0.320685, 0.349229, 5.81679, 1.73689, 4.49377)
 
-[node name="Pipes" type="Node3D" parent="World3D/Props"]
+[node name="Pipes" type="Node3D" parent="World3D/Props" unique_id=873777073]
 
-[node name="Kit1" type="Node3D" parent="World3D/Props/Pipes"]
+[node name="Kit1" type="Node3D" parent="World3D/Props/Pipes" unique_id=758398314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2773, 0, 5.61431)
 
-[node name="PipeConnector" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector" parent="World3D/Props/Pipes/Kit1" unique_id=321269578 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.399295, 0)
 
-[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit1" unique_id=779131699 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.645684, 0, 0.763604, 0, 1, 0, -0.763604, 0, -0.645684, -5.24496, 7.4193, 1.39788)
 
-[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit1" unique_id=1834954665 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.763604, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763604, -1.99085, 7.4193, 1.63293)
 
-[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit1" unique_id=1618845791 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(5.46657e-09, 0.763604, -0.645684, 1, 2.98023e-08, 4.37114e-08, 5.26211e-08, -0.645684, -0.763604, 0.0312929, 5.10586, 0.0116954)
 
-[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit1" unique_id=545577954 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.645684, -0.763604, -3.33782e-08, 0, -4.37114e-08, 1, -0.763604, 0.645684, 2.82238e-08, -3.57525, 7.42775, 1.87353)
 
-[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit1" unique_id=2022227306 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.470445, 0.875, 0.114264, -0.0607674, -0.0970572, 0.993422, 0.880334, -0.474294, 0.00751133, -8.43857, 7.46389, -3.68464)
 
-[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit1" unique_id=672365674 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.19239, 9.52112, -5.72486)
 
-[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit1" unique_id=857581681 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -10.1545, 12.0637, -7.85623)
 
-[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit1" unique_id=1467883884 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -12.2427, 12.0637, -15.6495)
 
-[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit1" unique_id=1698428749 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.470445, -0.114264, 0.875, -0.0607673, -0.993422, -0.0970572, 0.880334, -0.00751132, -0.474294, -8.99865, 8.51216, -4.95022)
 
-[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit1" unique_id=583314181 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.289836, -0.0754859, 0.954095, 0.0607674, 0.993422, 0.0970573, -0.955145, 0.0861086, -0.283342, -9.59012, 10.8229, -6.32599)
 
-[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit1" unique_id=1078100310 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.227824, 0.973702, 4.37114e-08, 4.80787e-08, -5.61413e-08, 1, 0.973702, -0.227824, -5.96046e-08, -13.731, 12.0663, -17.2021)
 
-[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit1" unique_id=321835167 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.930802, 0.186947, 0.314099, 0.311739, -0.0426744, 0.949209, 0.190856, 0.981443, -0.0185574, -22.9778, 12.2629, -15.7056)
 
-[node name="SmallElbowConnectorPipe6" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe6" parent="World3D/Props/Pipes/Kit1" unique_id=561870339 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.920291, 0.343679, 0.186948, -0.341909, 0.938764, -0.0426743, -0.190166, -0.0246462, 0.981443, -25.0572, 11.8672, -15.3241)
 
-[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit1" unique_id=1640345028 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.763605, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763605, -0.599524, 6.45055, 0.433867)
 
-[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit1" unique_id=205066159 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.38001e-08, -0.194283, 0.776051, -1.3, -3.49691e-08, 1.48942e-15, 5.51236e-08, -0.776051, -0.194283, -0.000751495, 2.37471, -0.00753975)
 
-[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit1" unique_id=1541286517 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(0.65, -0.168254, 0.67208, 1.11948e-07, -0.77605, -0.194283, 1.12583, 0.0971414, -0.388025, -6.83671, 7.48062, -1.00923)
 
-[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit1" unique_id=550713012 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(-0.439993, 0, 0.772741, 0, 0.8, 0, -1.64207, 0, -0.207055, -11.1187, 12.0624, -11.8145)
 
-[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit1" unique_id=659135623 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -15.2153, 12.0637, -17.765)
 
-[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit1" unique_id=931202110 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.64207, 0, 0.207055, 0, 0.8, 0, -0.439992, 0, 0.772741, -19.0502, 12.0624, -16.641)
 
-[node name="PipeConnector11" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector11" parent="World3D/Props/Pipes/Kit1" unique_id=16521612 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.315765, -0.945057, 0.0846091, 0.945728, 0.32069, 0.0524982, -0.076747, 0.0634401, 0.99503, -26.1964, 10.9268, -15.2454)
 
-[node name="LargeStraightPipe5" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe5" parent="World3D/Props/Pipes/Kit1" unique_id=1497845317 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(0.536801, -0.756046, 0.0676873, 1.60774, 0.256552, 0.0419986, -0.13047, 0.0507521, 0.796024, -27.4488, 7.15294, -14.8462)
 
-[node name="PipeShadow" parent="World3D/Props/Pipes/Kit1" instance=ExtResource("24_uev5m")]
+[node name="PipeShadow" parent="World3D/Props/Pipes/Kit1" unique_id=286085225 instance=ExtResource("24_uev5m")]
 
-[node name="Kit2" type="Node3D" parent="World3D/Props/Pipes"]
+[node name="Kit2" type="Node3D" parent="World3D/Props/Pipes" unique_id=209386888]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 14.4459, -0.00975329, 4.80281)
 
-[node name="PipeConnector" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector" parent="World3D/Props/Pipes/Kit2" unique_id=1042276413 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.399295, 0)
 
-[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit2" unique_id=2068563674 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.645684, 0, 0.763604, 0, 1, 0, -0.763604, 0, -0.645684, -5.24496, 7.4193, 1.39788)
 
-[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit2" unique_id=1506826547 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.763604, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763604, -1.99085, 7.4193, 1.63293)
 
-[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit2" unique_id=1473472037 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(5.46657e-09, 0.763604, -0.645684, 1, 2.98023e-08, 4.37114e-08, 5.26211e-08, -0.645684, -0.763604, 0.0312929, 5.10586, 0.0116954)
 
-[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit2" unique_id=354849290 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.645684, -0.763604, -3.33782e-08, 0, -4.37114e-08, 1, -0.763604, 0.645684, 2.82238e-08, -3.57525, 7.42775, 1.87353)
 
-[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit2" unique_id=267298258 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.470445, 0.875, 0.114264, -0.0607674, -0.0970572, 0.993422, 0.880334, -0.474294, 0.00751133, -8.43857, 7.46389, -3.68464)
 
-[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit2" unique_id=1984799275 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.19239, 9.52112, -5.72486)
 
-[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit2" unique_id=1313251617 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -10.1545, 12.0637, -7.85623)
 
-[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit2" unique_id=1459171489 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -12.2427, 12.0637, -15.6495)
 
-[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit2" unique_id=1768445409 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.470445, -0.114264, 0.875, -0.0607673, -0.993422, -0.0970572, 0.880334, -0.00751132, -0.474294, -8.99865, 8.51216, -4.95022)
 
-[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit2" unique_id=1648828738 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.289836, -0.0754859, 0.954095, 0.0607674, 0.993422, 0.0970573, -0.955145, 0.0861086, -0.283342, -9.59012, 10.8229, -6.32599)
 
-[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit2" unique_id=1383467477 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.227824, 0.973702, 4.37114e-08, 4.80787e-08, -5.61413e-08, 1, 0.973702, -0.227824, -5.96046e-08, -13.731, 12.0663, -17.2021)
 
-[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit2" unique_id=1537393546 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.930802, 0.186947, 0.314099, 0.311739, -0.0426744, 0.949209, 0.190856, 0.981443, -0.0185574, -22.9778, 12.2629, -15.7056)
 
-[node name="SmallElbowConnectorPipe6" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe6" parent="World3D/Props/Pipes/Kit2" unique_id=1154366812 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.920291, 0.343679, 0.186948, -0.341909, 0.938764, -0.0426743, -0.190166, -0.0246462, 0.981443, -25.0572, 11.8672, -15.3241)
 
-[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit2" unique_id=2123087938 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.763605, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763605, -0.599524, 6.45055, 0.433867)
 
-[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit2" unique_id=1781044643 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.38001e-08, -0.194283, 0.776051, -1.3, -3.49691e-08, 1.48942e-15, 5.51236e-08, -0.776051, -0.194283, -0.000751495, 2.37471, -0.00753975)
 
-[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit2" unique_id=269234183 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(0.65, -0.168254, 0.67208, 1.11948e-07, -0.77605, -0.194283, 1.12583, 0.0971414, -0.388025, -6.83671, 7.48062, -1.00923)
 
-[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit2" unique_id=1307977683 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(-0.439993, 0, 0.772741, 0, 0.8, 0, -1.64207, 0, -0.207055, -11.1187, 12.0624, -11.8145)
 
-[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit2" unique_id=1832212760 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -15.2153, 12.0637, -17.765)
 
-[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit2" unique_id=288264850 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.64207, 0, 0.207055, 0, 0.8, 0, -0.439992, 0, 0.772741, -19.0502, 12.0624, -16.641)
 
-[node name="PipeConnector11" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector11" parent="World3D/Props/Pipes/Kit2" unique_id=393351375 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.315765, -0.945057, 0.0846091, 0.945728, 0.32069, 0.0524982, -0.076747, 0.0634401, 0.99503, -26.1964, 10.9268, -15.2454)
 
-[node name="LargeStraightPipe5" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe5" parent="World3D/Props/Pipes/Kit2" unique_id=1593959700 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(0.536801, -0.756046, 0.0676873, 1.60774, 0.256552, 0.0419986, -0.13047, 0.0507521, 0.796024, -27.4488, 7.15294, -14.8462)
 
-[node name="PipeShadow" parent="World3D/Props/Pipes/Kit2" instance=ExtResource("24_uev5m")]
+[node name="PipeShadow" parent="World3D/Props/Pipes/Kit2" unique_id=939409909 instance=ExtResource("24_uev5m")]
 
-[node name="Kit3" type="Node3D" parent="World3D/Props/Pipes"]
+[node name="Kit3" type="Node3D" parent="World3D/Props/Pipes" unique_id=1488947302]
 transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, 1.09171, -0.00975329, 20.8182)
 
-[node name="PipeConnector" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector" parent="World3D/Props/Pipes/Kit3" unique_id=1822560155 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.399295, 0)
 
-[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector2" parent="World3D/Props/Pipes/Kit3" unique_id=143570008 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.645684, 0, 0.763604, 0, 1, 0, -0.763604, 0, -0.645684, -5.24496, 7.4193, 1.39788)
 
-[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector3" parent="World3D/Props/Pipes/Kit3" unique_id=815634454 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.763604, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763604, -1.99085, 7.4193, 1.63293)
 
-[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector4" parent="World3D/Props/Pipes/Kit3" unique_id=1818428624 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(5.46657e-09, 0.763604, -0.645684, 1, 2.98023e-08, 4.37114e-08, 5.26211e-08, -0.645684, -0.763604, 0.0312929, 5.10586, 0.0116954)
 
-[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe" parent="World3D/Props/Pipes/Kit3" unique_id=808542872 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.645684, -0.763604, -3.33782e-08, 0, -4.37114e-08, 1, -0.763604, 0.645684, 2.82238e-08, -3.57525, 7.42775, 1.87353)
 
-[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector5" parent="World3D/Props/Pipes/Kit3" unique_id=1363428642 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.470445, 0.875, 0.114264, -0.0607674, -0.0970572, 0.993422, 0.880334, -0.474294, 0.00751133, -8.43857, 7.46389, -3.68464)
 
-[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector6" parent="World3D/Props/Pipes/Kit3" unique_id=1295442388 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.19239, 9.52112, -5.72486)
 
-[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector7" parent="World3D/Props/Pipes/Kit3" unique_id=2101382580 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -10.1545, 12.0637, -7.85623)
 
-[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector8" parent="World3D/Props/Pipes/Kit3" unique_id=241702795 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -12.2427, 12.0637, -15.6495)
 
-[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe3" parent="World3D/Props/Pipes/Kit3" unique_id=640898896 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.470445, -0.114264, 0.875, -0.0607673, -0.993422, -0.0970572, 0.880334, -0.00751132, -0.474294, -8.99865, 8.51216, -4.95022)
 
-[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe4" parent="World3D/Props/Pipes/Kit3" unique_id=794504251 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.289836, -0.0754859, 0.954095, 0.0607674, 0.993422, 0.0970573, -0.955145, 0.0861086, -0.283342, -9.59012, 10.8229, -6.32599)
 
-[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe5" parent="World3D/Props/Pipes/Kit3" unique_id=1403202542 instance=ExtResource("23_felk4")]
 transform = Transform3D(0.227824, 0.973702, 4.37114e-08, 4.80787e-08, -5.61413e-08, 1, 0.973702, -0.227824, -5.96046e-08, -13.731, 12.0663, -17.2021)
 
-[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector10" parent="World3D/Props/Pipes/Kit3" unique_id=2130030788 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(-1.47068, 0.497849, -0.0611041, -0.227141, -0.346152, -0.928615, -0.821885, -0.795188, 0.365978, -22.5771, 11.9192, -17.8892)
 
-[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("23_felk4")]
+[node name="SmallElbowConnectorPipe2" parent="World3D/Props/Pipes/Kit3" unique_id=561915877 instance=ExtResource("23_felk4")]
 transform = Transform3D(-0.763605, 0, -0.645684, 0, 1, 0, 0.645684, 0, -0.763605, -0.599524, 6.45055, 0.433867)
 
-[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe1" parent="World3D/Props/Pipes/Kit3" unique_id=418703466 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.38001e-08, -0.194283, 0.776051, -1.3, -3.49691e-08, 1.48942e-15, 5.51236e-08, -0.776051, -0.194283, -0.000751495, 2.37471, -0.00753975)
 
-[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe2" parent="World3D/Props/Pipes/Kit3" unique_id=1971874648 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(0.65, -0.168254, 0.67208, 1.11948e-07, -0.77605, -0.194283, 1.12583, 0.0971414, -0.388025, -6.83671, 7.48062, -1.00923)
 
-[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe3" parent="World3D/Props/Pipes/Kit3" unique_id=1360828705 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(-0.439993, 0, 0.772741, 0, 0.8, 0, -1.64207, 0, -0.207055, -11.1187, 12.0624, -11.8145)
 
-[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("21_oqgu4")]
+[node name="PipeConnector9" parent="World3D/Props/Pipes/Kit3" unique_id=1267731087 instance=ExtResource("21_oqgu4")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -15.2153, 12.0637, -17.765)
 
-[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_pfcsj")]
+[node name="LargeStraightPipe4" parent="World3D/Props/Pipes/Kit3" unique_id=479598589 instance=ExtResource("24_pfcsj")]
 transform = Transform3D(1.69938, 0, 0.0216814, 0, 0.8, 0, -0.0460727, 0, 0.799706, -18.7765, 12.0624, -17.569)
 
-[node name="PipeShadow" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_uev5m")]
+[node name="PipeShadow" parent="World3D/Props/Pipes/Kit3" unique_id=1254449571 instance=ExtResource("24_uev5m")]
 
-[node name="PipeShadow2" parent="World3D/Props/Pipes/Kit3" instance=ExtResource("24_uev5m")]
+[node name="PipeShadow2" parent="World3D/Props/Pipes/Kit3" unique_id=1420691622 instance=ExtResource("24_uev5m")]
 transform = Transform3D(0.636878, 0.71463, -0.289293, -0.750817, 0.489692, -0.443255, -0.175099, 0.499505, 0.848431, -22.6114, 11.7357, -17.9421)
 
-[node name="Crates" type="Node3D" parent="World3D/Props"]
+[node name="Crates" type="Node3D" parent="World3D/Props" unique_id=1874889559]
 
-[node name="mint_crate" parent="World3D/Props/Crates" instance=ExtResource("25_5he60")]
+[node name="mint_crate" parent="World3D/Props/Crates" unique_id=1486187890 instance=ExtResource("25_5he60")]
 transform = Transform3D(1.80668, 0, 1.42335, 0, 2.3, 0, -1.42335, 0, 1.80668, 31.3745, 6.05127, 1.55057)
 
-[node name="mint_crate3" parent="World3D/Props/Crates" instance=ExtResource("25_5he60")]
+[node name="mint_crate3" parent="World3D/Props/Crates" unique_id=1684207323 instance=ExtResource("25_5he60")]
 transform = Transform3D(2.98494, 0, 2.35162, 0, 3.8, 0, -2.35162, 0, 2.98494, -14.1804, 6.68186, 42.0105)
 
-[node name="mint_crate2" parent="World3D/Props/Crates" instance=ExtResource("25_5he60")]
+[node name="mint_crate2" parent="World3D/Props/Crates" unique_id=1323062120 instance=ExtResource("25_5he60")]
 transform = Transform3D(1.83182, 0, 0.802777, 0, 2, 0, -0.802777, 0, 1.83182, 26.2626, 6.05127, -5.81413)
 
-[node name="da_crate" parent="World3D/Props/Crates" instance=ExtResource("26_7gl7a")]
+[node name="da_crate" parent="World3D/Props/Crates" unique_id=1264560846 instance=ExtResource("26_7gl7a")]
 transform = Transform3D(2.69903, 0, 0.0723736, 0, 2.7, 0, -0.0723736, 0, 2.69903, 34.9027, 6.07583, 6.11248)
 
-[node name="da_crate2" parent="World3D/Props/Crates" instance=ExtResource("26_7gl7a")]
+[node name="da_crate2" parent="World3D/Props/Crates" unique_id=1552767025 instance=ExtResource("26_7gl7a")]
 transform = Transform3D(-2.16387, 0, 0.916595, 0, 2.35, 0, -0.916595, 0, -2.16387, -20.2188, 6.07583, 30.4233)
 
-[node name="da_crate3" parent="World3D/Props/Crates" instance=ExtResource("26_7gl7a")]
+[node name="da_crate3" parent="World3D/Props/Crates" unique_id=1761356670 instance=ExtResource("26_7gl7a")]
 transform = Transform3D(-3.02977, 0, 3.14225, 0, 4.365, 0, -3.14225, 0, -3.02977, -48.6255, 4.53586, 15.8584)
 
-[node name="Moles" type="Node3D" parent="World3D/Props"]
+[node name="Moles" type="Node3D" parent="World3D/Props" unique_id=1088652461]
 
-[node name="MoleStompGame" type="Area3D" parent="World3D/Props/Moles"]
+[node name="MoleStompGame" type="Area3D" parent="World3D/Props/Moles" unique_id=1654144735]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.52527, 6.06798, -12.9551)
 script = ExtResource("27_hepkt")
 game_mode = 1
@@ -880,11 +1054,12 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
-[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame"]
+[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame" unique_id=1319803558]
 gizmo_extents = 1.0
 
-[node name="MoleStompGame2" type="Area3D" parent="World3D/Props/Moles"]
+[node name="MoleStompGame2" type="Area3D" parent="World3D/Props/Moles" unique_id=382002751]
 transform = Transform3D(-0.388229, 0, 1.44889, 0, 1.5, 0, -1.44889, 0, -0.388229, -12.7722, 0.00745916, 11.9889)
 script = ExtResource("27_hepkt")
 game_mode = 1
@@ -896,11 +1071,12 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
-[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame2"]
+[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame2" unique_id=414954786]
 gizmo_extents = 1.0
 
-[node name="MoleStompGame4" type="Area3D" parent="World3D/Props/Moles"]
+[node name="MoleStompGame4" type="Area3D" parent="World3D/Props/Moles" unique_id=746053042]
 transform = Transform3D(0.627253, 0, 1.36255, 0, 1.5, 0, -1.36255, 0, 0.627253, -28.4208, 6.05383, 3.86825)
 script = ExtResource("27_hepkt")
 game_mode = 1
@@ -912,11 +1088,12 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
-[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame4"]
+[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame4" unique_id=1459016824]
 gizmo_extents = 1.0
 
-[node name="MoleStompGame5" type="Area3D" parent="World3D/Props/Moles"]
+[node name="MoleStompGame5" type="Area3D" parent="World3D/Props/Moles" unique_id=333578774]
 transform = Transform3D(-1.06133, 0, -1.05999, 0, 1.5, 0, 1.05999, 0, -1.06133, 23.1339, 6.05383, 27.2544)
 script = ExtResource("27_hepkt")
 game_mode = 1
@@ -928,11 +1105,12 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
-[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame5"]
+[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame5" unique_id=1608435105]
 gizmo_extents = 1.0
 
-[node name="MoleStompGame3" type="Area3D" parent="World3D/Props/Moles"]
+[node name="MoleStompGame3" type="Area3D" parent="World3D/Props/Moles" unique_id=446859583]
 transform = Transform3D(-1.39098, 0.0825893, 0.555283, 0.105821, 1.49565, 0.0426274, -0.551328, 0.0787031, -1.39278, -13.0964, 3.54014, 24.7688)
 script = ExtResource("27_hepkt")
 game_mode = 1
@@ -944,23 +1122,33 @@ game_time = 999.0
 max_tries = 999
 quota = 1
 base_damage = -1
+want_instructions = false
 
-[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame3"]
+[node name="Marker3D" type="Marker3D" parent="World3D/Props/Moles/MoleStompGame3" unique_id=996160266]
 gizmo_extents = 1.0
 
-[node name="MenuTerrain" parent="World3D" instance=ExtResource("21_1byba")]
+[node name="MenuTerrain" parent="World3D" unique_id=1898475282 instance=ExtResource("21_1byba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.97, -41.5)
 
-[node name="FinalCam" type="Camera3D" parent="World3D"]
+[node name="FinalCam" type="Camera3D" parent="World3D" unique_id=1562577582]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 1.133, 3.76)
 fov = 58.5
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1019919040]
 use_threads = true
 
 [connection signal="gui_input" from="." to="." method="gui_input"]
 [connection signal="pressed" from="GUI/Logo/ReleaseNotesButton" to="." method="open_releases"]
+[connection signal="mouse_entered" from="GUI/Logo/SocialButtons/DiscordScaler/DiscordButton" to="." method="discord_hover"]
+[connection signal="mouse_exited" from="GUI/Logo/SocialButtons/DiscordScaler/DiscordButton" to="." method="on_social_unhover" flags=18]
+[connection signal="pressed" from="GUI/Logo/SocialButtons/DiscordScaler/DiscordButton" to="." method="on_social_click" binds= ["https://discord.gg/nHvtN5uYnC"]]
+[connection signal="mouse_entered" from="GUI/Logo/SocialButtons/BlueskyScaler/BlueskyButton" to="." method="bluesky_hover"]
+[connection signal="mouse_exited" from="GUI/Logo/SocialButtons/BlueskyScaler/BlueskyButton" to="." method="on_social_unhover" flags=18]
+[connection signal="pressed" from="GUI/Logo/SocialButtons/BlueskyScaler/BlueskyButton" to="." method="on_social_click" binds= ["https://bsky.app/profile/toontowngrindworks.com"]]
+[connection signal="mouse_entered" from="GUI/Logo/SocialButtons/WikiScaler/WikiButton" to="." method="wiki_hover"]
+[connection signal="mouse_exited" from="GUI/Logo/SocialButtons/WikiScaler/WikiButton" to="." method="on_social_unhover" flags=18]
+[connection signal="pressed" from="GUI/Logo/SocialButtons/WikiScaler/WikiButton" to="." method="on_social_click" binds= ["https://toontowngrindworks.wiki.gg/"]]
 [connection signal="s_character_selected" from="GUI/CharacterClipboard" to="World3D/ToonOrigin/CharacterDisplay" method="character_selected"]
 [connection signal="s_play_pressed" from="GUI/CharacterClipboard" to="." method="new_game"]
 [connection signal="pressed" from="GUI/NewGameMenu/ButtonContainer/BackButton" to="." method="back_pressed"]
@@ -971,6 +1159,9 @@ use_threads = true
 [connection signal="pressed" from="GUI/NewGameMenu/MiddleButtons/CrowdControlButton" to="." method="_on_crowd_control_button_pressed"]
 
 [editable path="GUI/Logo/ReleaseNotesButton"]
+[editable path="GUI/Logo/SocialButtons/DiscordScaler/DiscordButton"]
+[editable path="GUI/Logo/SocialButtons/BlueskyScaler/BlueskyButton"]
+[editable path="GUI/Logo/SocialButtons/WikiScaler/WikiButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/BackButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/ExtrasButton"]
 [editable path="GUI/NewGameMenu/ButtonContainer/SettingsButton"]

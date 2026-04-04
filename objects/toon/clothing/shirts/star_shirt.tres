@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToonShirt" load_steps=4 format=3 uid="uid://ku2bgq1npgus"]
+[gd_resource type="Resource" script_class="ToonShirt" format=3 uid="uid://ku2bgq1npgus"]
 
 [ext_resource type="Script" uid="uid://dfqwh4jmdy0iw" path="res://objects/toon/clothing/toon_shirt.gd" id="1_yb38e"]
 [ext_resource type="Texture2D" uid="uid://dag4lwcjmcn3c" path="res://models/toon/textures/clothes/shirts/desat_shirt_22.png" id="2_8wg8h"]

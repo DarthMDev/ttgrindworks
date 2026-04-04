@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cfmtdq84k5wwh"]
+[gd_scene format=4 uid="uid://cfmtdq84k5wwh"]
 
 [ext_resource type="Texture2D" uid="uid://shflqw7k24gb" path="res://models/facilities/mint/textures/CogIntPlate1b.png" id="1_02bgw"]
 [ext_resource type="Texture2D" uid="uid://bjbr74srlhpan" path="res://models/facilities/mint/textures/CogIntPipeCapTop1.png" id="2_2783w"]

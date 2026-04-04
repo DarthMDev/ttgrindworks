@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://de8cn40noego7"]
+[gd_scene format=3 uid="uid://de8cn40noego7"]
 
 [ext_resource type="Script" uid="uid://tovoesnkrvgf" path="res://scenes/tool_scenes/config_bulk_edit/script_replace_normals.gd" id="1_ke43t"]
 

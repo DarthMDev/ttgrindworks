@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bmwjewy35l45"]
+[gd_scene format=4 uid="uid://bmwjewy35l45"]
 
 [ext_resource type="PackedScene" uid="uid://dv4cetfqoidla" path="res://models/facilities/office/office_boss_room.fbx" id="1_21m3q"]
 [ext_resource type="Texture2D" uid="uid://crg8bsw6rsyri" path="res://models/facilities/office/textures/LB_WoodPanel2.png" id="2_tmn5t"]

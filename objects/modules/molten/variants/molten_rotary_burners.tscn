@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b28jjvfmh2hga"]
+[gd_scene format=3 uid="uid://b28jjvfmh2hga"]
 
 [ext_resource type="PackedScene" uid="uid://jhk4wbj4x47o" path="res://objects/modules/molten/base_rooms/molten_s_room.tscn" id="1_5qcd2"]
 [ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_7tbbv"]

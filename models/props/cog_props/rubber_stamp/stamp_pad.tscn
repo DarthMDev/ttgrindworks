@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cl4a88stp64dw"]
+[gd_scene format=4 uid="uid://cl4a88stp64dw"]
 
 [ext_resource type="Texture2D" uid="uid://dqxl05mkl4n6h" path="res://models/props/cog_props/rubber_stamp/stamp_pad_rubber_stamp_pad.png" id="1_81jfh"]
 [ext_resource type="Texture2D" uid="uid://2y2bjh30wv2e" path="res://models/props/cog_props/rubber_stamp/stamp_pad_rubber_stamp_pad_side.png" id="2_ffw1m"]

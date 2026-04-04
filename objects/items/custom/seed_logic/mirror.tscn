@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://t24ho8me0rd"]
+
+[ext_resource type="Shader" uid="uid://d1vjsxt6ck7h3" path="res://objects/items/custom/seed_logic/mirror.gdshader" id="1_akdso"]
+[ext_resource type="Script" uid="uid://bb58mos1yrhco" path="res://objects/items/custom/seed_logic/mirror.gd" id="1_bxp52"]
+[ext_resource type="Texture2D" uid="uid://bwd5kq0bi6bjh" path="res://ui_assets/cursor.png" id="2_ly27x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxp52"]
+shader = ExtResource("1_akdso")
+
+[node name="Mirror" type="CanvasLayer"]
+process_mode = 3
+layer = 128
+script = ExtResource("1_bxp52")
+
+[node name="FakeMouse" type="TextureRect" parent="."]
+unique_name_in_owner = true
+texture_filter = 3
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("2_ly27x")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bxp52")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

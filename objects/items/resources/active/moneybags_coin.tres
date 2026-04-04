@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://ca25j75xttg4p"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://ca25j75xttg4p"]
 
 [ext_resource type="Texture2D" uid="uid://b1c4it8e1qpnc" path="res://ui_assets/player_ui/pocket_prank_icons/coin.png" id="1_1ml8u"]
 [ext_resource type="Script" uid="uid://dxnw2xjmnqqby" path="res://objects/items/custom/moneybags_coin/item_moneybags_coin.gd" id="1_kbgj7"]

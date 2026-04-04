@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cyiwxplege133"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cyiwxplege133"]
 
 [ext_resource type="Texture2D" uid="uid://bubun4dua8es6" path="res://models/props/toon_props/resistance_fist/badge-pix-1.png" id="1_2wls7"]
 [ext_resource type="PackedScene" uid="uid://bge4d1wrscftk" path="res://models/props/toon_props/resistance_fist/badge.tscn" id="1_50aer"]
@@ -12,7 +12,7 @@ qualitoon = 4
 evergreen = true
 item_name = "Emergency Unite"
 item_description = "Life Insurance."
-big_description = "Prevents the player from going sad one time."
+big_description = "Prevents you from going sad one time."
 model = ExtResource("1_50aer")
 pickup_sfx = ExtResource("3_f2gk4")
 stats_add = {

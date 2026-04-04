@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://v36kuhbfnv5b"]
+[gd_scene format=3 uid="uid://v36kuhbfnv5b"]
 
 [ext_resource type="PackedScene" uid="uid://bdoi572ics05w" path="res://models/accessories/backpacks/standard_backpack/tt_m_chr_avt_acc_pac_backpack.glb" id="1_0wlqb"]
 [ext_resource type="Texture2D" uid="uid://dq4ynqy0htegy" path="res://models/accessories/backpacks/standard_backpack/tt_t_chr_avt_acc_pac_backpackOrange.png" id="2_cmojc"]

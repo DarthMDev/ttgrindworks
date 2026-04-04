@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bucbtu15wyyqa"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bucbtu15wyyqa"]
 
 [ext_resource type="Texture2D" uid="uid://mq0uxk1pgisn" path="res://models/accessories/glasses/heart_glasses/tt_m_chr_avt_acc_msk_heartGlasses_tt_t_chr_avt_acc_msk_heartGlasses.png" id="1_sv0i2"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dm5ow2iwvvc18"]
+[gd_scene format=3 uid="uid://dm5ow2iwvvc18"]
 
 [ext_resource type="Script" uid="uid://cucn50tn6lh8g" path="res://objects/interactables/lawbot_puzzles/puzzle_boss_objects/matching_boss_ui.gd" id="1_6exft"]
 [ext_resource type="Texture2D" uid="uid://5cgeqcjs5tit" path="res://ui_assets/misc/prog_bar_test.png" id="1_qk2l3"]

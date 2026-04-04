@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://lp262s8ae6h4"]
+[gd_scene format=3 uid="uid://lp262s8ae6h4"]
 
 [ext_resource type="PackedScene" uid="uid://ctjrsckatfoug" path="res://objects/modules/mint/base_rooms/mint_bankteller.tscn" id="1_dfmfl"]
 [ext_resource type="PackedScene" uid="uid://dn2240phqf7k2" path="res://objects/props/mint/money_bag.tscn" id="2_6c0wd"]

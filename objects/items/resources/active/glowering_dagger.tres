@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dh87q08enl0bg"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://dh87q08enl0bg"]
 
 [ext_resource type="Texture2D" uid="uid://brkh3dovhepi1" path="res://ui_assets/player_ui/pocket_prank_icons/glowering dagger.png" id="1_hwm4u"]
 [ext_resource type="Script" uid="uid://bmdym0smsnob0" path="res://objects/items/custom/glowering_dagger/item_dagger.gd" id="2_hwm4u"]

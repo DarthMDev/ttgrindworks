@@ -13,6 +13,8 @@ class_name SaveFile
 @export var game_time := 0.0
 @export var floor_choice: FloorVariant = null
 @export var is_custom_seed := false
+@export var score: Dictionary[StringName, int] = {}
+
 
 func save_to(file_name: String):
 	ResourceSaver.save(self, SaveFileService.SAVE_FILE_PATH + file_name)
@@ -31,3 +33,4 @@ func get_run_info():
 	items_in_play = ItemService.items_in_play
 	player_dna = Util.get_player().toon.toon_dna
 	game_time = Util.get_player().game_timer.time
+	score = ScoreTally.score

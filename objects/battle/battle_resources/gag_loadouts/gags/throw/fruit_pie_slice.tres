@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GagThrow" load_steps=5 format=3 uid="uid://kyglym15d4jh"]
+
+[ext_resource type="Texture2D" uid="uid://cs8h6tvalsx8l" path="res://ui_assets/battle/gags/inventory_fruit_pie_slice.png" id="1_3yo57"]
+[ext_resource type="PackedScene" uid="uid://rc0827dqbtyk" path="res://models/props/gags/fruit_slice/fruit_slice.glb" id="2_3ax5m"]
+[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="3_fwdta"]
+[ext_resource type="AudioStream" uid="uid://q717j7rpl4ue" path="res://audio/sfx/battle/gags/throw/AA_tart_only.ogg" id="4_gwxr4"]
+
+[resource]
+script = ExtResource("3_fwdta")
+model = ExtResource("2_3ax5m")
+scale = 1.0
+splat_color = Color(0.207843, 0.196078, 0.592157, 1)
+splat_sfx = ExtResource("4_gwxr4")
+icon = ExtResource("1_3yo57")
+damage = 14
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Fruit Pie Slice"
+one_time_use = false

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cb5p1klyj3qja"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cb5p1klyj3qja"]
 
 [ext_resource type="Texture2D" uid="uid://cd45akjsuqev1" path="res://models/props/cog_props/oil_can/oil_can_0.png" id="1_2bnd6"]
 

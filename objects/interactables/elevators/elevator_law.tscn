@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqo1n7rw85igy"]
+[gd_scene format=3 uid="uid://bqo1n7rw85igy"]
 
 [ext_resource type="PackedScene" uid="uid://civg2db4idfrs" path="res://models/props/facility_objects/transporters/lawbot_elevator/office_elevator.fbx" id="1_5t8n8"]
 [ext_resource type="Script" uid="uid://cpinallk62oiy" path="res://objects/interactables/elevators/elevator.gd" id="1_vw8op"]

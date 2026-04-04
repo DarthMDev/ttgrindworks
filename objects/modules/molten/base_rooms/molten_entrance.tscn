@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://0lyyo5bktlsu"]
+[gd_scene format=3 uid="uid://0lyyo5bktlsu"]
 
 [ext_resource type="PackedScene" uid="uid://dcu5pnhpjgmfk" path="res://models/facilities/molten/molten_entrance.fbx" id="1_ljcv4"]
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="2_ktkdt"]

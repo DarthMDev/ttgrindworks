@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvslagwd6sk4r"]
+[gd_scene format=3 uid="uid://dvslagwd6sk4r"]
 
 [ext_resource type="PackedScene" uid="uid://bbrbj5ev7j0tl" path="res://models/props/toon_props/shop_counter/shop_counter.fbx" id="1_7jwor"]
 [ext_resource type="Texture2D" uid="uid://6ri1njtham8m" path="res://models/props/toon_props/shop_counter/shop_counter_1.png" id="2_rv87e"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SquirtFlower" load_steps=3 format=3 uid="uid://6d2lnauj885s"]
+
+[ext_resource type="Texture2D" uid="uid://b8m26tjpxrgid" path="res://ui_assets/battle/gags/inventory_squirt_flower.png" id="1_5yol7"]
+[ext_resource type="Script" uid="uid://dko4gmutb8gfs" path="res://objects/battle/battle_resources/toon_attacks/squirt_flower.gd" id="2_mwhhn"]
+
+[resource]
+script = ExtResource("2_mwhhn")
+icon = ExtResource("1_5yol7")
+damage = 5
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Squirting Flower"
+one_time_use = false

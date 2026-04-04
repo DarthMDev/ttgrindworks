@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ulji1om2heto"]
+[gd_scene format=3 uid="uid://ulji1om2heto"]
 
 [ext_resource type="PackedScene" uid="uid://ci8pxaissrh5k" path="res://models/accessories/backpacks/supertoon_cape/tt_m_chr_avt_acc_pac_supertoonCape.glb" id="1_4jjuc"]
 

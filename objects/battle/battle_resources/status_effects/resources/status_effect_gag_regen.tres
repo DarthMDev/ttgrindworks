@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatusEffectGagRegen" load_steps=3 format=3 uid="uid://cyb710lywwjnq"]
+[gd_resource type="Resource" script_class="StatusEffectGagRegen" format=3 uid="uid://cyb710lywwjnq"]
 
 [ext_resource type="Texture2D" uid="uid://cvpui52kv2cvg" path="res://ui_assets/battle/statuses/gag_regeneration.png" id="1_jvltj"]
 [ext_resource type="Script" uid="uid://m6jf0ato4xln" path="res://objects/battle/battle_resources/status_effects/status_effect_gag_regen.gd" id="2_fqfer"]

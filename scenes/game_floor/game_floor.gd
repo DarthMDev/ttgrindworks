@@ -112,12 +112,9 @@ func generate_floor() -> void:
 		level_range = floor_variant.level_range
 		cog_pool = floor_variant.cog_pool
 	
-	# Queue reward:
-	if floor_variant.reward:
-		s_floor_ended.connect(func(): floor_variant.reward.apply_item(Util.get_player()))
-		if floor_variant.discard_item:
-			if not floor_variant.discard_item in ItemService.seen_items:
-				ItemService.seen_item(floor_variant.discard_item)
+	# Add reward to seen_items
+	if floor_variant.discard_item:
+		ItemService.seen_item(floor_variant.discard_item)
 	
 	# Set up floor modifiers (debug anomalies set below)
 	for modifier in floor_variant.modifiers + debug_modifiers:

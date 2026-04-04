@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqexm84q4ob0o"]
+[gd_scene format=3 uid="uid://cqexm84q4ob0o"]
 
 [ext_resource type="PackedScene" uid="uid://cf0211exl150l" path="res://objects/modules/mint/base_rooms/mint_obstacle_room.tscn" id="1_7ur5u"]
 [ext_resource type="Texture2D" uid="uid://ntpjxe3t4pl2" path="res://models/facilities/mint/textures/LocomotiveSide5_hot.png" id="2_m0uhm"]

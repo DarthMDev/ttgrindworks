@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://yoes70jpjbky"]
+
+[ext_resource type="PackedScene" uid="uid://ckkjo0gsojwn2" path="res://objects/modules/office/variants/office_shop.tscn" id="1_oo564"]
+[ext_resource type="PackedScene" uid="uid://bolaea3btm1ae" path="res://objects/props/office/da_crate.tscn" id="2_cvpe1"]
+[ext_resource type="PackedScene" uid="uid://dm86vgodo58fx" path="res://objects/props/office/potted_plant.tscn" id="3_bpor8"]
+[ext_resource type="PackedScene" uid="uid://bobgkiuylr6li" path="res://objects/interactables/gag_shop/gag_shop.tscn" id="4_bgld4"]
+
+[node name="office_shop" unique_id=848008038 instance=ExtResource("1_oo564")]
+
+[node name="MeshInstance3D" parent="Props" index="4"]
+transform = Transform3D(-1.85719e-07, 0, 3.88382, 0, 3.88382, 0, -4.24875, 0, -1.69767e-07, -14.3871, 0.564522, 6.7681108)
+
+[node name="shop_counter3" parent="Shop" index="7"]
+visible = false
+
+[node name="da_crate3" parent="Shop" index="8" unique_id=738157720 instance=ExtResource("2_cvpe1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.2226515, 0.0017924309, -0.62151337)
+
+[node name="potted_plant" parent="Shop/da_crate3" index="1" unique_id=1480781082 instance=ExtResource("3_bpor8")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.00858569, 1.65767, 0.0849319)
+
+[node name="GagShop" parent="." index="14" unique_id=1436100389 instance=ExtResource("4_bgld4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.694342, -1.7695245, 6.8243012)

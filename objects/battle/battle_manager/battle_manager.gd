@@ -365,7 +365,7 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	target.stats.set(stat, pre_stat - amount)
 
 	# Damaging action
-	if sign(target.stats.get(stat) - pre_stat) == -1:
+	if not sign(target.stats.get(stat) - pre_stat) == 1:
 		if target is Player:
 			string = str(target.stats.get(stat) - pre_stat)
 			if current_action and current_action.user and current_action.user is Cog:

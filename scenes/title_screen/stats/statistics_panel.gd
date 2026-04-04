@@ -11,6 +11,7 @@ static var stats: Dictionary[String, Dictionary] = {
 		"Pocket Pranks Used": "pocket_pranks_used",
 		"Times Gone Sad": "deaths",
 		"Win Streak": "win_streak",
+		"High Score": "high_score",
 	}
 }
 

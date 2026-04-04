@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://0rlsnj5jgpfa"]
+[gd_scene format=3 uid="uid://0rlsnj5jgpfa"]
 
 [ext_resource type="PackedScene" uid="uid://dgrru3d3e6iq4" path="res://models/props/cog_props/oil_can/oil_can.fbx" id="1_xrjqh"]
 [ext_resource type="Script" uid="uid://bttei13ax1pu6" path="res://objects/props/etc/oil_can/oil_can.gd" id="2_kfxma"]

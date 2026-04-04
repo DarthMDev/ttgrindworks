@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dfotlcburhyqo"]
+[gd_scene format=3 uid="uid://dfotlcburhyqo"]
 
 [ext_resource type="PackedScene" uid="uid://dk4hwps2pe2i4" path="res://objects/modules/mint/base_rooms/mint_lava_room.tscn" id="1_psmdg"]
 [ext_resource type="PackedScene" uid="uid://cdjmlidf0pm6b" path="res://objects/obstacles/sinking_platform/sinking_platform.tscn" id="2_ewjut"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://gdsmbce80vrq"]
+[gd_scene format=3 uid="uid://gdsmbce80vrq"]
 
 [ext_resource type="PackedScene" uid="uid://b5hgufi22sqfs" path="res://objects/battle/misc_battle_objects/pop_quiz/pop_quiz.tscn" id="1_fnbyj"]
 [ext_resource type="Script" uid="uid://e7t1joyjpbps" path="res://objects/general_ui/dialogue_choice/dialogue_choice_box.gd" id="2_qev02"]

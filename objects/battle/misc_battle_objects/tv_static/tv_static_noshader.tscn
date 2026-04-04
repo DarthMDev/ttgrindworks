@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnx5hllemtty1"]
+[gd_scene format=3 uid="uid://dnx5hllemtty1"]
 
 [ext_resource type="Script" uid="uid://cjnerjoyjsedp" path="res://objects/battle/misc_battle_objects/tv_static/tv_static_noshader.gd" id="2_hbvc0"]
 

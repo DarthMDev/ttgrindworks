@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=15 format=3 uid="uid://bg54dry7nlvjo"]
+[gd_resource type="Resource" script_class="PlayerCharacter" format=3 uid="uid://bg54dry7nlvjo"]
 
 [ext_resource type="Resource" uid="uid://44ekli202h8p" path="res://objects/toon/clothing/skirts/snowman_skirt.tres" id="1_4fnso"]
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_5uglb"]

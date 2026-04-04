@@ -49,6 +49,9 @@ var area : Area3D
 var pos : Vector2i
 var collision_box : BoxShape3D
 var select_mesh : MeshInstance3D
+var color_maps: Dictionary
+var mesh_: Mesh:
+	get: return mesh
 
 # Signals
 signal s_player_entered(panel : PuzzlePanel)
@@ -77,6 +80,11 @@ func _ready() -> void:
 	select_mesh.mesh = panel_shapes[PanelShape.BIGSQUARE].to_mesh()
 	select_mesh.mesh.surface_get_material(0).albedo_color = Color.RED
 	select_mesh.hide()
+	
+	Globals.s_colorblind_mode_changed.connect(on_colorblind_mode_changed)
+	while not mesh:
+		await get_tree().process_frame
+	on_colorblind_mode_changed(SaveFileService.settings_file.get_color_blind_mapping())
 
 func set_alpha(alpha : float) -> void:
 	if panel_shape != PanelShape.NOTHING:
@@ -98,10 +106,20 @@ func body_exited(body) -> void:
 		s_player_exited.emit(self)
 		select_mesh.hide()
 
-func set_color(color : Color) -> void:
+func set_color(color: Color) -> void:
+	var alpha := color.a
+	color.a = 1.0
+	if color in color_maps.keys():
+		color = color_maps[color]
+	color.a = alpha
+	
 	if panel_shape != PanelShape.NOTHING:
 		mesh.surface_get_material(0).albedo_color = color
 		s_color_changed.emit(color)
+
+func get_color() -> Color:
+	if not mesh: return Color.WHITE
+	return mesh.surface_get_material(0).albedo_color
 
 var fade_tween : Tween
 func fade(strength : float, time : float) -> Tween:
@@ -123,3 +141,39 @@ func custom_fade(strength : float, time : float) -> Tween:
 	fade_tween.tween_method(set_alpha, get_alpha(), strength, time)
 	fade_tween.finished.connect(fade_tween.kill)
 	return fade_tween
+
+func on_colorblind_mode_changed(new_mode: Dictionary) -> void:
+	# Firstly, undo the previous setting to the default.
+	if select_mesh.mesh.surface_get_material(0).albedo_color in color_maps.values():
+		select_mesh.mesh.surface_get_material(0).albedo_color = color_maps.find_key(select_mesh.mesh.surface_get_material(0).albedo_color)
+	
+	# Panel shape might be nothing. Return if so
+	if panel_shape == PanelShape.NOTHING:
+		color_maps = new_mode
+		return
+	
+	# Get our base color, ignoring alpha
+	var base_color := get_color()
+	base_color.a = 1.0
+	if base_color == Color.TURQUOISE:
+		pass
+	# Undo previous mapping if applicable
+	if base_color in color_maps.values():
+		var new_color: Color = color_maps.find_key(base_color)
+		new_color.a = get_alpha()
+		color_maps = {}
+		set_color(new_color)
+	
+	# Now, resync the select mesh
+	if select_mesh.mesh.surface_get_material(0).albedo_color in new_mode.keys():
+		select_mesh.mesh.surface_get_material(0).albedo_color = new_mode[select_mesh.mesh.surface_get_material(0).albedo_color]
+	
+	# And the base panel color
+	base_color = get_color()
+	base_color.a = 1.0
+	if base_color in new_mode.keys():
+		var new_color: Color = new_mode[base_color]
+		new_color.a = get_alpha()
+		set_color(new_color)
+	
+	color_maps = new_mode

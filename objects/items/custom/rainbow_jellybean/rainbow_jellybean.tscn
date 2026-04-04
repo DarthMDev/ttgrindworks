@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bfuome7pib11g"]
+
+[ext_resource type="Script" uid="uid://csw5hsxlhi6ry" path="res://objects/items/custom/rainbow_jellybean/rainbow_jellybean.gd" id="1_7cic6"]
+[ext_resource type="PackedScene" uid="uid://biosycr5f2tcv" path="res://models/props/pickups/jellybean/jellybean.glb" id="2_istt6"]
+[ext_resource type="Material" uid="uid://djgtifqmvstid" path="res://objects/items/custom/rainbow_jellybean/rainbow_bean_3d.tres" id="3_ramhw"]
+
+[node name="RainbowJellybean" type="Node3D" unique_id=2028881941]
+transform = Transform3D(0.93324226, -0.35924768, 0, 0.35924768, 0.93324226, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_7cic6")
+
+[node name="jellybean2" parent="." unique_id=865451569 instance=ExtResource("2_istt6")]
+transform = Transform3D(0.98270947, 0.13336064, -0.12844147, -0.044917017, 0.8446857, 0.5333748, 0.17962384, -0.51838315, 0.83607066, 0, 0, 0)
+
+[node name="jellybean" parent="jellybean2/Jellybean_all" index="0"]
+surface_material_override/0 = ExtResource("3_ramhw")
+
+[editable path="jellybean2"]

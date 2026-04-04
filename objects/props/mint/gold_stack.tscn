@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://brupbko3w3tbq"]
+[gd_scene format=4 uid="uid://brupbko3w3tbq"]
 
 [ext_resource type="PackedScene" uid="uid://c2ioaac4vp170" path="res://models/props/facility_objects/mint/gold_stack/gold_stack.fbx" id="1_2wc2l"]
 [ext_resource type="Texture2D" uid="uid://dn1c1f6bb7i5" path="res://models/props/facility_objects/mint/gold_stack/gold_stack_1.png" id="2_qey0x"]

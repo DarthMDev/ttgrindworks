@@ -47,6 +47,7 @@ func setup_item() -> void:
 	else:
 		name_label.label_settings.font_size = STANDARD_FONT_SIZE
 	icon.set_texture(item.icon)
+	icon.material = item.icon_material
 	name_label.label_settings.font_color = item.shop_category_color.lightened(0.25)
 
 func update_price() -> void:

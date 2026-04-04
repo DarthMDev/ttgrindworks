@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://be4vavros0suo"]
+[gd_scene format=3 uid="uid://be4vavros0suo"]
 
 [ext_resource type="PackedScene" uid="uid://botwlahodbbmq" path="res://objects/modules/office/base_rooms/office_skull_boss_room.tscn" id="1_6t424"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_1f8b8"]

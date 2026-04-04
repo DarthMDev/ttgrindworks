@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://kry6echp261v"]
+[gd_scene format=3 uid="uid://kry6echp261v"]
 
 [ext_resource type="PackedScene" uid="uid://cqlsdocn7uhsn" path="res://objects/modules/molten/base_rooms/molten_side_lava.tscn" id="1_wupmj"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="4_svtwt"]
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="5_gcdk6"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="5_n7l7x"]
 [ext_resource type="PackedScene" uid="uid://duuriwh75afua" path="res://objects/props/mint/mint_crate.tscn" id="6_thd28"]
+[ext_resource type="Script" uid="uid://bkowveb54cwe" path="res://objects/misc/score_signaler.gd" id="7_015h1"]
 [ext_resource type="PackedScene" uid="uid://dxyq5lb5oineo" path="res://objects/interactables/treasure_chest/treasure_chest.tscn" id="7_thd28"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yfwuj"]
 size = Vector3(13.3224, 9.9873, 5)
 
-[node name="molten_side_lava" instance=ExtResource("1_wupmj")]
+[node name="molten_side_lava" unique_id=1880248955 instance=ExtResource("1_wupmj")]
 
 [node name="Lava" parent="." index="4"]
 transform = Transform3D(-9.21819e-07, 0, -10.9294, 0, 1, 0, 21.0888, 0, -4.77738e-07, 9.27594, -3.22157, -3.34173)
@@ -18,25 +19,34 @@ transform = Transform3D(-9.21819e-07, 0, -10.9294, 0, 1, 0, 21.0888, 0, -4.77738
 [node name="LavaFloor" parent="Lava" index="0" node_paths=PackedStringArray("default_spawn_point")]
 default_spawn_point = NodePath("../PlayerSpawn")
 
-[node name="BattleNodeDynamic" parent="." index="5" node_paths=PackedStringArray("cogs") instance=ExtResource("5_n7l7x")]
+[node name="BattleNodeDynamic" parent="." index="5" unique_id=1796514351 node_paths=PackedStringArray("cogs") instance=ExtResource("5_n7l7x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111744, 2.51681)
 cogs = [NodePath("Cogs/Cog4"), NodePath("Cogs/Cog5"), NodePath("Cogs/Cog6"), NodePath("Cogs/Cog7")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BattleNodeDynamic" index="4" unique_id=1642553509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.661194, 4.49365, -1)
 shape = SubResource("BoxShape3D_yfwuj")
 
-[node name="shelf2" parent="." index="13" instance=ExtResource("5_gcdk6")]
+[node name="shelf2" parent="." index="13" unique_id=1215063282 instance=ExtResource("5_gcdk6")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.6162, 0, 15.1752)
 
-[node name="shelf3" parent="." index="14" instance=ExtResource("5_gcdk6")]
+[node name="shelf3" parent="." index="14" unique_id=396110514 instance=ExtResource("5_gcdk6")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.790303, 0, 15.1752)
 
-[node name="mint_crate" parent="." index="15" instance=ExtResource("6_thd28")]
+[node name="mint_crate" parent="." index="15" unique_id=1913310635 instance=ExtResource("6_thd28")]
 transform = Transform3D(1.31152, 0, 0.165986, 0, 1.54721, 0, -0.165986, 0, 1.31152, 4.26612, 0.15058, 14.1521)
 
-[node name="treasure_chest" parent="." index="16" instance=ExtResource("7_thd28")]
+[node name="treasure_chest" parent="." index="16" unique_id=1999378354 instance=ExtResource("7_thd28")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.568, 4.3676, 15.4353)
 
-[node name="DebugPlayerPositionMarker" parent="." index="21" instance=ExtResource("4_svtwt")]
+[node name="DebugPlayerPositionMarker" parent="." index="21" unique_id=1715842370 instance=ExtResource("4_svtwt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.630299)
+
+[node name="ScoreSignal" type="Node" parent="." index="22" unique_id=914576850]
+script = ExtResource("7_015h1")
+score_channel = &"Secret Sleuther"
+node = NodePath("../treasure_chest")
+signal_name = "s_opened"
+one_shot = true
+point_amount = 200
+metadata/_custom_type_script = "uid://bkowveb54cwe"

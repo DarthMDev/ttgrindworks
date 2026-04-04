@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://g27bai2ju2h5"]
+[gd_scene format=3 uid="uid://g27bai2ju2h5"]
 
 [ext_resource type="Texture2D" uid="uid://dw2k0dmnhs45j" path="res://ui_assets/player_ui/active_item_ui/ActiveMeter_Tick.png" id="1_lhixy"]
 

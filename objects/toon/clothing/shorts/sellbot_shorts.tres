@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ToonBottoms" format=3 uid="uid://bq6aiin2h5lo5"]
+
+[ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="1_lqky1"]
+[ext_resource type="Texture2D" uid="uid://djd86hcc2l2n5" path="res://models/toon/textures/clothes/shorts/tt_t_chr_avt_shorts_sellbotCrusher.jpg" id="2_cnfxh"]
+
+[resource]
+script = ExtResource("1_lqky1")
+texture = ExtResource("2_cnfxh")
+color_type = 1
+metadata/_custom_type_script = "uid://c8kas2j4io1jh"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b7a2nysaw57ri"]
+[gd_scene format=3 uid="uid://b7a2nysaw57ri"]
 
 [ext_resource type="Texture2D" uid="uid://oq4s4vmay61t" path="res://objects/misc/Star.png" id="1_ox5uh"]
 [ext_resource type="Shader" uid="uid://dh4ac4m48bqn8" path="res://objects/battle/effects/pixie_dust/pixiedust_aura.tres" id="2_5owe3"]

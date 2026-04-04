@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=6 format=3 uid="uid://c1fypamyq6b03"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://c1fypamyq6b03"]
 
 [ext_resource type="Resource" uid="uid://b14s6jiqdlynh" path="res://objects/cog/presets/pools/cashbot.tres" id="1_3bs8a"]
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_s40hw"]

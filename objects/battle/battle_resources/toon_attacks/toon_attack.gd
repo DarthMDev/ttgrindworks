@@ -3,6 +3,7 @@ class_name ToonAttack
 
 @export var icon: Texture2D
 @export var damage: int
+@export_multiline var gag_summary := ""
 
 # Used in the UI to temporarily store the price of a gag
 var price: int
@@ -47,7 +48,8 @@ func get_true_damage(dmg_mod := 1.0, base_dmg: int = 0, override_track: Track = 
 	
 	var effectiveness := 1.0
 	if not override_track: override_track = player_stats.character.gag_loadout.get_action_track(self)
-	effectiveness = player_stats.get_track_effectiveness(override_track.track_name)
+	if override_track:
+		effectiveness = player_stats.get_track_effectiveness(override_track.track_name)
 	return str(roundi(float(true_dmg) * effectiveness))
 
 #region MOVIE SCRIPTS
@@ -76,10 +78,14 @@ func get_immunity(cog : Cog) -> bool:
 						return true
 	return false
 
-
 func do_dizzy_stars(cog: Cog, time := 2.0) -> Node3D:
 	var stars: Node3D = load("res://models/props/cog_props/stun_stars/stun_stars.tscn").instantiate()
 	stars.delete_time = time
 	cog.body.head_bone.add_child(stars)
 	stars.rotation_degrees.x = 90.0
 	return stars
+
+func get_store_summary() -> String:
+	if gag_summary.is_empty():
+		return get_stats()
+	return gag_summary

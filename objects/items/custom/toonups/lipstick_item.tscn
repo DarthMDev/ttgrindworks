@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxx831rxwj7ka"]
+[gd_scene format=3 uid="uid://bxx831rxwj7ka"]
 
 [ext_resource type="PackedScene" uid="uid://bht32k578k4sa" path="res://models/props/gags/lipstick/lipstick.glb" id="1_riv2v"]
 [ext_resource type="Script" uid="uid://xsesvqbgiawt" path="res://objects/items/custom/item_toonup_pickup.gd" id="2_uy5vp"]

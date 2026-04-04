@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6sct1j8gf0xq"]
+[gd_scene format=3 uid="uid://c6sct1j8gf0xq"]
 
 [ext_resource type="PackedScene" uid="uid://ddfk765qkh6me" path="res://objects/modules/mint/base_rooms/mint_connector2.tscn" id="1_o244r"]
 

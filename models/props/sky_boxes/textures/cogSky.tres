@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4re1ix44hd74"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4re1ix44hd74"]
 
 [ext_resource type="Texture2D" uid="uid://dwbj3rktxbcvf" path="res://models/props/sky_boxes/textures/cogSky.png" id="1_xqijg"]
 

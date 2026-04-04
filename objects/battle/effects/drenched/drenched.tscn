@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcqyi408k6q77"]
+[gd_scene format=3 uid="uid://bcqyi408k6q77"]
 
 [ext_resource type="Texture2D" uid="uid://dagt56e2uov87" path="res://models/props/gags/storm_cloud/raindrop.png" id="2_d7iyu"]
 

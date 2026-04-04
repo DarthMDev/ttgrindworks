@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c8d6b2t34tjlo"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c8d6b2t34tjlo"]
 
 [ext_resource type="Texture2D" uid="uid://dvqq0fpwa71ar" path="res://models/props/facility_objects/da_office/plant/potted_plant_0.png" id="1_t2q2i"]
 

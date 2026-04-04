@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bvr6t2300kct7"]
+[gd_scene format=3 uid="uid://bvr6t2300kct7"]
 
 [ext_resource type="PackedScene" uid="uid://bhw5tgwdi1c0j" path="res://models/props/stranger/mailbox/stranger_mailbox.fbx" id="1_n1a7y"]
 [ext_resource type="PackedScene" uid="uid://dvgp32vimf8c8" path="res://models/props/stranger/mailbox/stranger_mailbox.glb" id="1_r8kjt"]
@@ -39756,7 +39756,7 @@ _data = {
 &"out-statement": SubResource("Animation_8stwi")
 }
 
-[node name="stranger_mailbox" node_paths=PackedStringArray("scope_meshes", "animator", "sfx_emerge", "sfx_recede") instance=ExtResource("1_r8kjt")]
+[node name="stranger_mailbox" unique_id=1316203978 node_paths=PackedStringArray("scope_meshes", "animator", "sfx_emerge", "sfx_recede") instance=ExtResource("1_r8kjt")]
 script = ExtResource("2_t6ju8")
 scope_meshes = [NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/eyelid_B_L"), NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/eyelid_B_R"), NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/eyelid_T_L"), NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/eyelid_T_R"), NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/eyesScopes"), NodePath("JustForScopesSmile/RIG-Mailbox-Stranger/Skeleton3D/pupils")]
 animator = NodePath("AnimationPlayer")
@@ -39786,94 +39786,95 @@ visible = false
 visible = false
 
 [node name="AnimationPlayer" parent="." index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_1w78m")
-}
+libraries/ = SubResource("AnimationLibrary_1w78m")
 
-[node name="SFX" type="Node3D" parent="." index="2"]
+[node name="SFX" type="Node3D" parent="." index="2" unique_id=154306869]
 
-[node name="SFXEmerge" type="Node3D" parent="SFX" index="0"]
+[node name="SFXEmerge" type="Node3D" parent="SFX" index="0" unique_id=1653732390]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_ywv8b")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXRecede" type="Node3D" parent="SFX" index="1"]
+[node name="SFXRecede" type="Node3D" parent="SFX" index="1" unique_id=1447426993]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_4feru")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXHiccup" type="Node3D" parent="SFX" index="2"]
+[node name="SFXHiccup" type="Node3D" parent="SFX" index="2" unique_id=1318656446]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_typ2l")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXDoink" type="Node3D" parent="SFX" index="3"]
+[node name="SFXDoink" type="Node3D" parent="SFX" index="3" unique_id=766204876]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_v74pp")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXWobble" type="Node3D" parent="SFX" index="4"]
+[node name="SFXWobble" type="Node3D" parent="SFX" index="4" unique_id=261229727]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_q01ti")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXBounce" type="Node3D" parent="SFX" index="5"]
+[node name="SFXBounce" type="Node3D" parent="SFX" index="5" unique_id=1330563307]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_n1a7y")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXJump" type="Node3D" parent="SFX" index="6"]
+[node name="SFXJump" type="Node3D" parent="SFX" index="6" unique_id=2102541596]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_htahs")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXSwoop" type="Node3D" parent="SFX" index="7"]
+[node name="SFXSwoop" type="Node3D" parent="SFX" index="7" unique_id=1944528744]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_t6ju8")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXSwoop2" type="Node3D" parent="SFX" index="8"]
+[node name="SFXSwoop2" type="Node3D" parent="SFX" index="8" unique_id=1860387274]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_kc2y0")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXSwoop3" type="Node3D" parent="SFX" index="9"]
+[node name="SFXSwoop3" type="Node3D" parent="SFX" index="9" unique_id=225841121]
 script = ExtResource("3_fskql")
 snippet = SubResource("Resource_dvc0v")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXCrankNorm" type="AudioStreamPlayer3D" parent="SFX" index="10"]
+[node name="SFXCrankNorm" type="AudioStreamPlayer3D" parent="SFX" index="10" unique_id=919802849]
+unique_name_in_owner = true
 stream = ExtResource("12_kc2y0")
 volume_db = -1.0
 bus = &"SFX"
 
-[node name="SFXCrankHigh" type="AudioStreamPlayer3D" parent="SFX" index="11"]
+[node name="SFXCrankHigh" type="AudioStreamPlayer3D" parent="SFX" index="11" unique_id=856698867]
+unique_name_in_owner = true
 stream = ExtResource("12_kc2y0")
 volume_db = -1.0
 pitch_scale = 1.07
 bus = &"SFX"
 
-[node name="SFXCrankLow" type="AudioStreamPlayer3D" parent="SFX" index="12"]
+[node name="SFXCrankLow" type="AudioStreamPlayer3D" parent="SFX" index="12" unique_id=729930633]
+unique_name_in_owner = true
 stream = ExtResource("12_kc2y0")
 volume_db = -1.0
 pitch_scale = 0.96
 bus = &"SFX"
 
-[node name="AnimationTimer" type="Timer" parent="." index="3"]
+[node name="AnimationTimer" type="Timer" parent="." index="3" unique_id=1388444550]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="JustForScopesSmile" parent="." index="4" instance=ExtResource("1_n1a7y")]
+[node name="JustForScopesSmile" parent="." index="4" unique_id=1215646564 instance=ExtResource("1_n1a7y")]
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="JustForScopesSmile/RIG-Mailbox-Stranger" index="0"]
@@ -40117,9 +40118,7 @@ visible = false
 visible = false
 
 [node name="AnimationPlayer" parent="JustForScopesSmile" index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_a8oro")
-}
+libraries/ = SubResource("AnimationLibrary_a8oro")
 
 [connection signal="timeout" from="AnimationTimer" to="." method="rustle"]
 

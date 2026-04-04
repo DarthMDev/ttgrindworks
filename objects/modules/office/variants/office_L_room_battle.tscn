@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cqrejftx6uyso"]
+[gd_scene format=3 uid="uid://cqrejftx6uyso"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_n4mhl"]
 [ext_resource type="Texture2D" uid="uid://bdq0remkc4roq" path="res://models/facilities/office/textures/LB_Ceiling2.png" id="2_qsgki"]

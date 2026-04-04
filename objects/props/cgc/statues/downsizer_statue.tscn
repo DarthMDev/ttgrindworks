@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqk21fvn4e88d"]
+[gd_scene format=3 uid="uid://bqk21fvn4e88d"]
 
 [ext_resource type="PackedScene" uid="uid://qoo8iaho1i1u" path="res://models/props/facility_objects/cgc/statues/downsizer_statue.fbx" id="1_o5thp"]
 

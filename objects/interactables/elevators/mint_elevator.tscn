@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://3opgp6apv4g0"]
+[gd_scene format=4 uid="uid://3opgp6apv4g0"]
 
 [ext_resource type="Script" uid="uid://cpinallk62oiy" path="res://objects/interactables/elevators/elevator.gd" id="1_1a1gu"]
 [ext_resource type="Texture2D" uid="uid://b2hxebb448x04" path="res://models/props/facility_objects/transporters/mint_elevator/mint_elevator_LocomotiveSide5.png" id="1_22wr8"]

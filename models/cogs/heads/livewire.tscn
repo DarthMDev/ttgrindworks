@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5eycj14dfqbl"]
+[gd_scene format=3 uid="uid://b5eycj14dfqbl"]
 
 [ext_resource type="PackedScene" uid="uid://40avs48mfxix" path="res://models/cogs/heads/Livewire.fbx" id="1_u08q2"]
 [ext_resource type="Texture2D" uid="uid://u37je0xb1jc1" path="res://models/props/gags/tnt/spark.png" id="2_g8jd3"]

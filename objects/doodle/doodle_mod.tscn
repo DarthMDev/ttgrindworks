@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://dbcmfw8e67wkl"]
+[gd_scene format=4 uid="uid://dbcmfw8e67wkl"]
 
 [ext_resource type="Script" uid="uid://dcydfmdl48hhm" path="res://objects/doodle/doodle_mod.gd" id="1_2mmrh"]
 [ext_resource type="Texture2D" uid="uid://chbgl7ncu7ay" path="res://models/doodle/doodle_BeanBirdFeathersTail3.png" id="1_tnwjw"]

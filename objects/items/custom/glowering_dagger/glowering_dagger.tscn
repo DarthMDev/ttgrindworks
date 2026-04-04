@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckbfm60nwrpof"]
+[gd_scene format=3 uid="uid://ckbfm60nwrpof"]
 
 [ext_resource type="PackedScene" uid="uid://c1tcpo7f0qcd7" path="res://models/props/cog_props/dagger/dagger.fbx" id="1_ilecb"]
 

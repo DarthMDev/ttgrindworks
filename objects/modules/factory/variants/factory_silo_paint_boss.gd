@@ -159,6 +159,9 @@ func win_game() -> void:
 	if is_instance_valid(hidden_chest):
 		hidden_chest.queue_free()
 	Util.get_player().stats.charge_active_item(2)
+	SaveFileService.progress_file.paint_silo_victories += 1
+	Globals.s_paint_silo_victory.emit()
+	ScoreTally.modify_score(ScoreTally.ChannelBosses, ScoreTally.BOSS_BONUS)
 
 ## Gets called every 3 seconds until all 3 buttons are pressed
 ## This will for definitely and on real fix the bug with the node

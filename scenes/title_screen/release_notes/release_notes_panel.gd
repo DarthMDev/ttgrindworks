@@ -5,6 +5,9 @@ const RELEASES_PATH := "res://scenes/title_screen/release_notes/releases/"
 
 # Put new releases AT THE TOP
 static var all_releases: Array[ReleaseNote] = [
+	load(RELEASES_PATH + "v1.2.6.tres"),
+	load(RELEASES_PATH + "v1.2.5.tres"),
+	load(RELEASES_PATH + "v1.2.4.tres"),
 	load(RELEASES_PATH + "v1.2.3.tres"),
 	load(RELEASES_PATH + "v1.2.2.tres"),
 	load(RELEASES_PATH + "v1.2.1.tres"),

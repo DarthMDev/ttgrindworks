@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://lvu5df2x84c7"]
+[gd_scene format=3 uid="uid://lvu5df2x84c7"]
 
 [ext_resource type="ArrayMesh" uid="uid://buuvqjv6flvut" path="res://objects/battle/effects/razzle_dazzle/razzledazzle.tres" id="1_dd662"]
 

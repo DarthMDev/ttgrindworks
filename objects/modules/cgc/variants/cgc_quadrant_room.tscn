@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b5be6q4r0cn2l"]
+[gd_scene format=3 uid="uid://b5be6q4r0cn2l"]
 
 [ext_resource type="PackedScene" uid="uid://bln8k5hdfnymx" path="res://objects/props/cgc/resizeable_wall.tscn" id="1_w0qh8"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_qcf8b"]

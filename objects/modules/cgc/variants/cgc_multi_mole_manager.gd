@@ -44,6 +44,9 @@ var ui_tween: Tween:
 func _ready() -> void:
 	if door:
 		door.add_lock()
+	for i in mole_games.size():
+		if i > 0:
+			mole_games[i].want_instructions = false
 
 func body_entered(body: Node3D) -> void:
 	if body is Player and not game_started:

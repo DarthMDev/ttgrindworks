@@ -1,4 +1,4 @@
-[gd_scene load_steps=241 format=3 uid="uid://b3wmyoqcbv6wd"]
+[gd_scene format=3 uid="uid://b3wmyoqcbv6wd"]
 
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="1_uqjo6"]
 [ext_resource type="Script" uid="uid://pe4vewmekb22" path="res://scenes/cog_creator/cog_creator.gd" id="1_xx4e4"]
@@ -246,7 +246,6 @@ ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
-glow_blend_mode = 1
 glow_hdr_threshold = 4.0
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 28.2
@@ -301,7 +300,7 @@ font_size = 24
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
-[node name="CogCreator" type="Control"]
+[node name="CogCreator" type="Control" unique_id=71435194]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -357,25 +356,25 @@ suits = Array[Dictionary]([{
 "custom_leg_tex": ExtResource("193_11wks")
 }])
 
-[node name="World3D" type="Node3D" parent="."]
+[node name="World3D" type="Node3D" parent="." unique_id=657283394]
 
-[node name="Cog" parent="World3D" instance=ExtResource("1_uqjo6")]
+[node name="Cog" parent="World3D" unique_id=257344629 instance=ExtResource("1_uqjo6")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4.504)
 use_floor_pool = false
 dna = ExtResource("126_kct4q")
 skelecog_chance = 0
 
-[node name="Camera3D" type="Camera3D" parent="World3D"]
+[node name="Camera3D" type="Camera3D" parent="World3D" unique_id=149459105]
 transform = Transform3D(-1, 1.52574e-09, -8.74095e-08, 0, 0.999848, 0.0174524, 8.74228e-08, 0.0174524, -0.999848, 0, 2.355, 0)
 projection = 1
 size = 4.765
 
-[node name="Root Scene" parent="World3D" instance=ExtResource("2_5kygc")]
+[node name="Root Scene" parent="World3D" unique_id=642317999 instance=ExtResource("2_5kygc")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D" unique_id=1118568813]
 environment = SubResource("Environment_5pl30")
 
-[node name="Menus" type="Control" parent="."]
+[node name="Menus" type="Control" parent="." unique_id=415084537]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -383,7 +382,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BodySelector" type="Control" parent="Menus"]
+[node name="BodySelector" type="Control" parent="Menus" unique_id=1775793641]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -392,7 +391,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="OptionContainer" type="VBoxContainer" parent="Menus/BodySelector"]
+[node name="OptionContainer" type="VBoxContainer" parent="Menus/BodySelector" unique_id=2037401627]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -407,23 +406,23 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 
-[node name="BodyScroller" parent="Menus/BodySelector/OptionContainer" instance=ExtResource("7_kyrf2")]
+[node name="BodyScroller" parent="Menus/BodySelector/OptionContainer" unique_id=1918944097 instance=ExtResource("7_kyrf2")]
 layout_mode = 2
 options = Array[String](["0", "1", "2"])
 wrap_around = false
 display_option_center = false
 default_center_text = "Body"
 
-[node name="DepartmentScroller" parent="Menus/BodySelector/OptionContainer" instance=ExtResource("7_kyrf2")]
+[node name="DepartmentScroller" parent="Menus/BodySelector/OptionContainer" unique_id=1942543139 instance=ExtResource("7_kyrf2")]
 layout_mode = 2
 options = Array[String](["Sellbot", "Cashbot", "Lawbot", "Bossbot"])
 wrap_around = false
 default_center_text = "Department"
 
-[node name="Scaler" type="VBoxContainer" parent="Menus/BodySelector/OptionContainer"]
+[node name="Scaler" type="VBoxContainer" parent="Menus/BodySelector/OptionContainer" unique_id=854877268]
 layout_mode = 2
 
-[node name="ScaleSlider" type="HSlider" parent="Menus/BodySelector/OptionContainer/Scaler"]
+[node name="ScaleSlider" type="HSlider" parent="Menus/BodySelector/OptionContainer/Scaler" unique_id=549499103]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 min_value = 2.5
@@ -431,13 +430,13 @@ max_value = 8.0
 step = 0.05
 value = 2.5
 
-[node name="ScaleLabel" type="Label" parent="Menus/BodySelector/OptionContainer/Scaler"]
+[node name="ScaleLabel" type="Label" parent="Menus/BodySelector/OptionContainer/Scaler" unique_id=415252426]
 layout_mode = 2
 text = "Scale: 1.0"
 label_settings = SubResource("LabelSettings_w0kd7")
 horizontal_alignment = 1
 
-[node name="HeadModelSelector" type="Control" parent="Menus"]
+[node name="HeadModelSelector" type="Control" parent="Menus" unique_id=1962400120]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -446,7 +445,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HeadModDirectory" parent="Menus/HeadModelSelector" instance=ExtResource("9_3fnlq")]
+[node name="HeadModDirectory" parent="Menus/HeadModelSelector" unique_id=1734790990 instance=ExtResource("9_3fnlq")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -457,7 +456,7 @@ grow_horizontal = 0
 save_dir = "user://save/custom_cogs/"
 allowed_types = Array[String](["gltf", "glb"])
 
-[node name="HeadTextureSelector" type="Control" parent="Menus"]
+[node name="HeadTextureSelector" type="Control" parent="Menus" unique_id=663953928]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -466,7 +465,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HeadTexDirectory" parent="Menus/HeadTextureSelector" instance=ExtResource("9_3fnlq")]
+[node name="HeadTexDirectory" parent="Menus/HeadTextureSelector" unique_id=1230511517 instance=ExtResource("9_3fnlq")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -480,7 +479,7 @@ allowed_types = Array[String](["png", "jpg"])
 [node name="OpenButton" parent="Menus/HeadTextureSelector/HeadTexDirectory/FooterButtons" index="0"]
 font_size = 24.0
 
-[node name="GeneralButton" parent="Menus/HeadTextureSelector/HeadTexDirectory/FooterButtons" index="1" instance=ExtResource("3_ca28p")]
+[node name="GeneralButton" parent="Menus/HeadTextureSelector/HeadTexDirectory/FooterButtons" index="1" unique_id=1693930029 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -497,7 +496,7 @@ label_settings = SubResource("LabelSettings_ujs02")
 [node name="CancelButton" parent="Menus/HeadTextureSelector/HeadTexDirectory/LoadPanel" index="1"]
 font_size = 24.0
 
-[node name="HeadModifiers" type="Control" parent="Menus"]
+[node name="HeadModifiers" type="Control" parent="Menus" unique_id=1703939450]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -506,7 +505,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionContainer" type="VBoxContainer" parent="Menus/HeadModifiers"]
+[node name="OptionContainer" type="VBoxContainer" parent="Menus/HeadModifiers" unique_id=470467238]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -520,29 +519,29 @@ offset_bottom = 101.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="NametagOffset" type="VBoxContainer" parent="Menus/HeadModifiers/OptionContainer"]
+[node name="NametagOffset" type="VBoxContainer" parent="Menus/HeadModifiers/OptionContainer" unique_id=1706338367]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/HeadModifiers/OptionContainer/NametagOffset"]
+[node name="Label" type="Label" parent="Menus/HeadModifiers/OptionContainer/NametagOffset" unique_id=1772514392]
 layout_mode = 2
 text = "Nametag Offset:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="HSlider" type="HSlider" parent="Menus/HeadModifiers/OptionContainer/NametagOffset"]
+[node name="HSlider" type="HSlider" parent="Menus/HeadModifiers/OptionContainer/NametagOffset" unique_id=2044726017]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 max_value = 20.0
 step = 0.1
 
-[node name="NametagOffset2" type="VBoxContainer" parent="Menus/HeadModifiers/OptionContainer"]
+[node name="NametagOffset2" type="VBoxContainer" parent="Menus/HeadModifiers/OptionContainer" unique_id=280744690]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/HeadModifiers/OptionContainer/NametagOffset2"]
+[node name="Label" type="Label" parent="Menus/HeadModifiers/OptionContainer/NametagOffset2" unique_id=1138594730]
 layout_mode = 2
 text = "Head Scale:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="HSlider" type="HSlider" parent="Menus/HeadModifiers/OptionContainer/NametagOffset2"]
+[node name="HSlider" type="HSlider" parent="Menus/HeadModifiers/OptionContainer/NametagOffset2" unique_id=419633306]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 min_value = 0.1
@@ -550,7 +549,7 @@ max_value = 2.0
 step = 0.01
 value = 1.0
 
-[node name="SuitSelector" type="Control" parent="Menus"]
+[node name="SuitSelector" type="Control" parent="Menus" unique_id=1601487768]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -560,7 +559,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="OptionContainer" type="VBoxContainer" parent="Menus/SuitSelector"]
+[node name="OptionContainer" type="VBoxContainer" parent="Menus/SuitSelector" unique_id=1154383022]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -576,19 +575,19 @@ grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 alignment = 1
 
-[node name="ScaleLabel" type="Label" parent="Menus/SuitSelector/OptionContainer"]
+[node name="ScaleLabel" type="Label" parent="Menus/SuitSelector/OptionContainer" unique_id=76915320]
 layout_mode = 2
 text = "Override Suit:"
 label_settings = SubResource("LabelSettings_w0kd7")
 horizontal_alignment = 1
 
-[node name="SuitScroller" parent="Menus/SuitSelector/OptionContainer" instance=ExtResource("7_kyrf2")]
+[node name="SuitScroller" parent="Menus/SuitSelector/OptionContainer" unique_id=1772686023 instance=ExtResource("7_kyrf2")]
 layout_mode = 2
 options = Array[String](["Default", "Sellbot", "Cashbot", "Lawbot", "Bossbot", "Clown", "Slender", "Proxy", "Sales", "Waiter"])
 wrap_around = false
 default_center_text = "Suit"
 
-[node name="BodyColors" type="Control" parent="Menus"]
+[node name="BodyColors" type="Control" parent="Menus" unique_id=1566280403]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -598,7 +597,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="OptionContainer" type="VBoxContainer" parent="Menus/BodyColors"]
+[node name="OptionContainer" type="VBoxContainer" parent="Menus/BodyColors" unique_id=427358787]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -613,35 +612,35 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 
-[node name="HeadColor" type="HBoxContainer" parent="Menus/BodyColors/OptionContainer"]
+[node name="HeadColor" type="HBoxContainer" parent="Menus/BodyColors/OptionContainer" unique_id=2025593030]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/BodyColors/OptionContainer/HeadColor"]
+[node name="Label" type="Label" parent="Menus/BodyColors/OptionContainer/HeadColor" unique_id=439345078]
 layout_mode = 2
 text = "Head Color:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Menus/BodyColors/OptionContainer/HeadColor"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menus/BodyColors/OptionContainer/HeadColor" unique_id=966288768]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 10
 edit_alpha = false
 
-[node name="HandColor" type="HBoxContainer" parent="Menus/BodyColors/OptionContainer"]
+[node name="HandColor" type="HBoxContainer" parent="Menus/BodyColors/OptionContainer" unique_id=2008051327]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/BodyColors/OptionContainer/HandColor"]
+[node name="Label" type="Label" parent="Menus/BodyColors/OptionContainer/HandColor" unique_id=1862179931]
 layout_mode = 2
 text = "Hand Color:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Menus/BodyColors/OptionContainer/HandColor"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Menus/BodyColors/OptionContainer/HandColor" unique_id=628058537]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 10
 edit_alpha = false
 
-[node name="AtrributeSelectors" type="Control" parent="Menus"]
+[node name="AtrributeSelectors" type="Control" parent="Menus" unique_id=776447484]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -650,7 +649,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/AtrributeSelectors"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/AtrributeSelectors" unique_id=2069557398]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -664,119 +663,119 @@ offset_bottom = 91.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="NameSelector" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="NameSelector" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=270014954]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelector"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelector" unique_id=181088573]
 layout_mode = 2
 text = "Name:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelector"]
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelector" unique_id=357870258]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
 placeholder_text = "Enter a name"
 
-[node name="NameSelectorPlural" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="NameSelectorPlural" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=416787956]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural" unique_id=589693177]
 layout_mode = 2
 text = "Name Plural:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural"]
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSelectorPlural" unique_id=137156640]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
 
-[node name="NamePrefix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="NamePrefix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=1161172084]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix" unique_id=1794547575]
 layout_mode = 2
 text = "Name Prefix:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix"]
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NamePrefix" unique_id=1827705110]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
 
-[node name="NameSuffix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="NameSuffix" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=1987655214]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix" unique_id=1945880639]
 layout_mode = 2
 text = "Name Suffix:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix"]
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectors/VBoxContainer/NameSuffix" unique_id=224389250]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
 
-[node name="Spacer" type="Control" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="Spacer" type="Control" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=301986911]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="LevelMinimum" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="LevelMinimum" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=1776152772]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMinimum"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMinimum" unique_id=1189690671]
 layout_mode = 2
 text = "Minimum Level:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMinimum"]
+[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMinimum" unique_id=105055894]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 min_value = 1.0
 max_value = 12.0
 value = 1.0
 
-[node name="LevelMaximum" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="LevelMaximum" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=375153571]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMaximum"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMaximum" unique_id=1946442889]
 layout_mode = 2
 text = "Maximum Level:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMaximum"]
+[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/LevelMaximum" unique_id=1414419336]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 min_value = 1.0
 max_value = 12.0
 value = 1.0
 
-[node name="ProxyToggle" type="HBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="ProxyToggle" type="HBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=1421662706]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/ProxyToggle"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/ProxyToggle" unique_id=2030996340]
 layout_mode = 2
 text = "Is Proxy:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="CheckBox" type="CheckBox" parent="Menus/AtrributeSelectors/VBoxContainer/ProxyToggle"]
+[node name="CheckBox" type="CheckBox" parent="Menus/AtrributeSelectors/VBoxContainer/ProxyToggle" unique_id=989879384]
 layout_mode = 2
 focus_mode = 0
 
-[node name="AbilityCountSlider" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer"]
+[node name="AbilityCountSlider" type="VBoxContainer" parent="Menus/AtrributeSelectors/VBoxContainer" unique_id=391884717]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider" unique_id=145825610]
 layout_mode = 2
 text = "Ability Count:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider"]
+[node name="HSlider" type="HSlider" parent="Menus/AtrributeSelectors/VBoxContainer/AbilityCountSlider" unique_id=1153495419]
 layout_mode = 2
 theme = ExtResource("144_xnv5s")
 max_value = 3.0
 value = 1.0
 
-[node name="AtrributeSelectorsPart2" type="Control" parent="Menus"]
+[node name="AtrributeSelectorsPart2" type="Control" parent="Menus" unique_id=1446819510]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -785,7 +784,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/AtrributeSelectorsPart2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/AtrributeSelectorsPart2" unique_id=753655257]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -799,20 +798,20 @@ offset_bottom = 91.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="NametagSuffix" type="VBoxContainer" parent="Menus/AtrributeSelectorsPart2/VBoxContainer"]
+[node name="NametagSuffix" type="VBoxContainer" parent="Menus/AtrributeSelectorsPart2/VBoxContainer" unique_id=306453465]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menus/AtrributeSelectorsPart2/VBoxContainer/NametagSuffix"]
+[node name="Label" type="Label" parent="Menus/AtrributeSelectorsPart2/VBoxContainer/NametagSuffix" unique_id=1821426950]
 layout_mode = 2
 text = "Custom Nametag Suffix:"
 label_settings = SubResource("LabelSettings_w0kd7")
 
-[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectorsPart2/VBoxContainer/NametagSuffix"]
+[node name="LineEdit" type="LineEdit" parent="Menus/AtrributeSelectorsPart2/VBoxContainer/NametagSuffix" unique_id=1433253686]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_i3p7p")
 placeholder_text = "e.g. \"Director\", \"Administrator\""
 
-[node name="AttackPicker" type="Control" parent="Menus"]
+[node name="AttackPicker" type="Control" parent="Menus" unique_id=420876673]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -821,7 +820,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuA" type="TextureRect" parent="Menus/AttackPicker"]
+[node name="MenuA" type="TextureRect" parent="Menus/AttackPicker" unique_id=1066418334]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -837,7 +836,7 @@ grow_vertical = 2
 texture = ExtResource("7_0ao5x")
 expand_mode = 1
 
-[node name="Title" type="Label" parent="Menus/AttackPicker/MenuA"]
+[node name="Title" type="Label" parent="Menus/AttackPicker/MenuA" unique_id=543701055]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -848,18 +847,18 @@ text = "Attacks"
 label_settings = SubResource("LabelSettings_jadvc")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuA"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuA" unique_id=1892248527]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 50.0
 offset_right = 262.0
 offset_bottom = 324.0
 
-[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuA/ScrollContainer"]
+[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuA/ScrollContainer" unique_id=1909306299]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
-[node name="MenuB" type="TextureRect" parent="Menus/AttackPicker"]
+[node name="MenuB" type="TextureRect" parent="Menus/AttackPicker" unique_id=813875596]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -875,7 +874,7 @@ grow_vertical = 2
 texture = ExtResource("7_0ao5x")
 expand_mode = 1
 
-[node name="Title" type="Label" parent="Menus/AttackPicker/MenuB"]
+[node name="Title" type="Label" parent="Menus/AttackPicker/MenuB" unique_id=565317800]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -886,18 +885,18 @@ text = "Attacks"
 label_settings = SubResource("LabelSettings_jadvc")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuB"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuB" unique_id=1741915788]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 50.0
 offset_right = 262.0
 offset_bottom = 324.0
 
-[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuB/ScrollContainer"]
+[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuB/ScrollContainer" unique_id=283877142]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
-[node name="MenuC" type="TextureRect" parent="Menus/AttackPicker"]
+[node name="MenuC" type="TextureRect" parent="Menus/AttackPicker" unique_id=1491735596]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -913,7 +912,7 @@ grow_vertical = 2
 texture = ExtResource("7_0ao5x")
 expand_mode = 1
 
-[node name="Title" type="Label" parent="Menus/AttackPicker/MenuC"]
+[node name="Title" type="Label" parent="Menus/AttackPicker/MenuC" unique_id=17085116]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -924,18 +923,18 @@ text = "Attacks"
 label_settings = SubResource("LabelSettings_jadvc")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuC"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/AttackPicker/MenuC" unique_id=2027562259]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 50.0
 offset_right = 262.0
 offset_bottom = 324.0
 
-[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuC/ScrollContainer"]
+[node name="AttackContainer" type="VBoxContainer" parent="Menus/AttackPicker/MenuC/ScrollContainer" unique_id=739030266]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
-[node name="CheckBoxContainer" type="HBoxContainer" parent="Menus/AttackPicker"]
+[node name="CheckBoxContainer" type="HBoxContainer" parent="Menus/AttackPicker" unique_id=1765072266]
 visible = false
 layout_mode = 0
 offset_left = 853.0
@@ -943,17 +942,17 @@ offset_top = 201.0
 offset_right = 1093.0
 offset_bottom = 225.0
 
-[node name="Title" type="Label" parent="Menus/AttackPicker/CheckBoxContainer"]
+[node name="Title" type="Label" parent="Menus/AttackPicker/CheckBoxContainer" unique_id=206862319]
 layout_mode = 2
 text = "Finger Wag"
 label_settings = SubResource("LabelSettings_1kkv7")
 horizontal_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="Menus/AttackPicker/CheckBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="Menus/AttackPicker/CheckBoxContainer" unique_id=1638347795]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="BattlePhraseEditor" type="Control" parent="Menus"]
+[node name="BattlePhraseEditor" type="Control" parent="Menus" unique_id=962497847]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -962,7 +961,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="TextureRect" parent="Menus/BattlePhraseEditor"]
+[node name="Panel" type="TextureRect" parent="Menus/BattlePhraseEditor" unique_id=1713100234]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -978,7 +977,7 @@ grow_vertical = 2
 texture = ExtResource("7_0ao5x")
 expand_mode = 1
 
-[node name="Title" type="Label" parent="Menus/BattlePhraseEditor/Panel"]
+[node name="Title" type="Label" parent="Menus/BattlePhraseEditor/Panel" unique_id=907854737]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -989,7 +988,7 @@ text = "Battle Phrases"
 label_settings = SubResource("LabelSettings_jadvc")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menus/BattlePhraseEditor/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/BattlePhraseEditor/Panel" unique_id=408479937]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1003,11 +1002,11 @@ offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PhraseContainer" type="VBoxContainer" parent="Menus/BattlePhraseEditor/Panel/ScrollContainer"]
+[node name="PhraseContainer" type="VBoxContainer" parent="Menus/BattlePhraseEditor/Panel/ScrollContainer" unique_id=240088700]
 custom_minimum_size = Vector2(375, 0)
 layout_mode = 2
 
-[node name="AddButton" parent="Menus/BattlePhraseEditor/Panel" instance=ExtResource("3_ca28p")]
+[node name="AddButton" parent="Menus/BattlePhraseEditor/Panel" unique_id=896440964 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1031,18 +1030,18 @@ font_size = 18.0
 text = "Add"
 label_settings = SubResource("LabelSettings_fyc3q")
 
-[node name="BattlePhraseTemplate" type="HBoxContainer" parent="Menus/BattlePhraseEditor"]
+[node name="BattlePhraseTemplate" type="HBoxContainer" parent="Menus/BattlePhraseEditor" unique_id=2045078066]
 visible = false
 layout_mode = 0
 
-[node name="LineEdit" type="LineEdit" parent="Menus/BattlePhraseEditor/BattlePhraseTemplate"]
+[node name="LineEdit" type="LineEdit" parent="Menus/BattlePhraseEditor/BattlePhraseTemplate" unique_id=326377983]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("9_i3p7p")
 placeholder_text = "Enter a battle phrase."
 
-[node name="DeleteButton" parent="Menus/BattlePhraseEditor/BattlePhraseTemplate" instance=ExtResource("3_ca28p")]
+[node name="DeleteButton" parent="Menus/BattlePhraseEditor/BattlePhraseTemplate" unique_id=691730560 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 texture_normal = ExtResource("36_dblmy")
@@ -1051,12 +1050,12 @@ texture_hover = ExtResource("38_wbtw7")
 texture_disabled = null
 font_size = 36.0
 
-[node name="Header" type="VBoxContainer" parent="."]
+[node name="Header" type="VBoxContainer" parent="." unique_id=1116636016]
 layout_mode = 1
 offset_right = 200.0
 offset_bottom = 372.0
 
-[node name="NewButton" parent="Header" instance=ExtResource("3_ca28p")]
+[node name="NewButton" parent="Header" unique_id=710252207 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -1067,7 +1066,7 @@ ignore_texture_size = false
 text = "New"
 font_size = 36.0
 
-[node name="SaveButton" parent="Header" instance=ExtResource("3_ca28p")]
+[node name="SaveButton" parent="Header" unique_id=94247722 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -1078,7 +1077,7 @@ ignore_texture_size = false
 text = "Save"
 font_size = 36.0
 
-[node name="OpenButton" parent="Header" instance=ExtResource("3_ca28p")]
+[node name="OpenButton" parent="Header" unique_id=1241113537 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -1089,7 +1088,7 @@ ignore_texture_size = false
 text = "Open"
 font_size = 36.0
 
-[node name="HelpButton" parent="Header" instance=ExtResource("3_ca28p")]
+[node name="HelpButton" parent="Header" unique_id=716756575 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -1100,7 +1099,7 @@ ignore_texture_size = false
 text = "Help"
 font_size = 36.0
 
-[node name="ExitButton" parent="Header" instance=ExtResource("3_ca28p")]
+[node name="ExitButton" parent="Header" unique_id=1745080995 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 texture_normal = ExtResource("4_hj08j")
@@ -1111,7 +1110,7 @@ ignore_texture_size = false
 text = "Exit"
 font_size = 36.0
 
-[node name="OpenFolderButton" parent="." instance=ExtResource("3_ca28p")]
+[node name="OpenFolderButton" parent="." unique_id=1366425001 instance=ExtResource("3_ca28p")]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 1
 anchors_preset = 1
@@ -1128,7 +1127,7 @@ ignore_texture_size = false
 text = "Open Folder"
 font_size = 36.0
 
-[node name="FooterButtons" type="Control" parent="."]
+[node name="FooterButtons" type="Control" parent="." unique_id=883037038]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1141,7 +1140,7 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="NextMenuButton" parent="FooterButtons" instance=ExtResource("3_ca28p")]
+[node name="NextMenuButton" parent="FooterButtons" unique_id=155312961 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1159,7 +1158,7 @@ texture_pressed = ExtResource("12_1pytg")
 texture_disabled = ExtResource("13_qtds6")
 font_size = 36.0
 
-[node name="PrevMenuButton" parent="FooterButtons" instance=ExtResource("3_ca28p")]
+[node name="PrevMenuButton" parent="FooterButtons" unique_id=538076965 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1176,7 +1175,7 @@ texture_pressed = ExtResource("12_1pytg")
 texture_disabled = ExtResource("13_qtds6")
 font_size = 36.0
 
-[node name="RotationSlider" type="HSlider" parent="FooterButtons"]
+[node name="RotationSlider" type="HSlider" parent="FooterButtons" unique_id=261625796]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1192,7 +1191,7 @@ theme = ExtResource("144_xnv5s")
 min_value = -180.0
 max_value = 180.0
 
-[node name="MouseBlocker" type="Panel" parent="."]
+[node name="MouseBlocker" type="Panel" parent="." unique_id=60108661]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1201,7 +1200,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MouseBlocker"]
+[node name="Label" type="Label" parent="MouseBlocker" unique_id=1529254071]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1217,12 +1216,12 @@ grow_vertical = 2
 text = "Importing..."
 label_settings = SubResource("LabelSettings_a2uhc")
 
-[node name="Opener" parent="." instance=ExtResource("9_3fnlq")]
+[node name="Opener" parent="." unique_id=1103544491 instance=ExtResource("9_3fnlq")]
 visible = false
 layout_mode = 1
 allow_custom = false
 
-[node name="CancelButton" parent="Opener" instance=ExtResource("3_ca28p")]
+[node name="CancelButton" parent="Opener" unique_id=955433056 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1243,7 +1242,7 @@ ignore_texture_size = false
 text = "Cancel"
 font_size = 36.0
 
-[node name="DeleteButton" parent="Opener" instance=ExtResource("3_ca28p")]
+[node name="DeleteButton" parent="Opener" unique_id=470448897 instance=ExtResource("3_ca28p")]
 visible = false
 layout_mode = 0
 offset_right = 48.0
@@ -1254,7 +1253,7 @@ texture_hover = ExtResource("38_wbtw7")
 texture_disabled = null
 font_size = 36.0
 
-[node name="HelpMenu" type="Panel" parent="."]
+[node name="HelpMenu" type="Panel" parent="." unique_id=169628678]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1263,7 +1262,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="TextureRect" parent="HelpMenu"]
+[node name="Panel" type="TextureRect" parent="HelpMenu" unique_id=548596476]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1279,7 +1278,7 @@ grow_vertical = 2
 texture = ExtResource("7_0ao5x")
 expand_mode = 1
 
-[node name="Pages" type="Control" parent="HelpMenu/Panel"]
+[node name="Pages" type="Control" parent="HelpMenu/Panel" unique_id=2050341617]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1288,7 +1287,7 @@ offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Welcome" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="Welcome" type="Control" parent="HelpMenu/Panel/Pages" unique_id=472800930]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1298,7 +1297,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Welcome"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Welcome" unique_id=1190400061]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1310,7 +1309,7 @@ The Cog Creator!"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Welcome"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Welcome" unique_id=1685011850]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1327,7 +1326,7 @@ label_settings = SubResource("LabelSettings_04ry4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Disclaimer" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="Disclaimer" type="Control" parent="HelpMenu/Panel/Pages" unique_id=1778657694]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1338,7 +1337,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Disclaimer"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Disclaimer" unique_id=990574199]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1349,7 +1348,7 @@ text = "Quick Disclaimer"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Disclaimer"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Disclaimer" unique_id=816385596]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1367,7 +1366,7 @@ label_settings = SubResource("LabelSettings_04ry4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Misc" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="Misc" type="Control" parent="HelpMenu/Panel/Pages" unique_id=1587642379]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1378,7 +1377,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc" unique_id=687300692]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1389,7 +1388,7 @@ text = "General"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc" unique_id=571071447]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1407,7 +1406,7 @@ label_settings = SubResource("LabelSettings_04ry4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Misc2" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="Misc2" type="Control" parent="HelpMenu/Panel/Pages" unique_id=261705429]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1418,7 +1417,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc2"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc2" unique_id=1851273908]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1429,7 +1428,7 @@ text = "General"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc2"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc2" unique_id=1992321788]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1447,7 +1446,7 @@ text = "- Changing the body type of the Cog will remove all of the Cog's attacks
 label_settings = SubResource("LabelSettings_04ry4")
 autowrap_mode = 2
 
-[node name="Misc3" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="Misc3" type="Control" parent="HelpMenu/Panel/Pages" unique_id=870476759]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1458,7 +1457,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc3"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/Misc3" unique_id=1993495459]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1469,7 +1468,7 @@ text = "General"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc3"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/Misc3" unique_id=29008201]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1487,7 +1486,7 @@ label_settings = SubResource("LabelSettings_04ry4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ImportingModels" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="ImportingModels" type="Control" parent="HelpMenu/Panel/Pages" unique_id=557312673]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1498,7 +1497,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels" unique_id=154855749]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1509,7 +1508,7 @@ text = "Importing Models"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels" unique_id=193586935]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1527,7 +1526,7 @@ label_settings = SubResource("LabelSettings_04ry4")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ImportingModels2" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="ImportingModels2" type="Control" parent="HelpMenu/Panel/Pages" unique_id=67009666]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1538,7 +1537,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels2"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels2" unique_id=1029793772]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1549,7 +1548,7 @@ text = "Importing Models"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels2"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels2" unique_id=294301442]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1568,7 +1567,7 @@ text = "1. The model must be centered.
 label_settings = SubResource("LabelSettings_04ry4")
 autowrap_mode = 2
 
-[node name="ImportingModels3" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="ImportingModels3" type="Control" parent="HelpMenu/Panel/Pages" unique_id=1656779948]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1579,7 +1578,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels3"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels3" unique_id=792116056]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1590,7 +1589,7 @@ text = "Importing Models"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Example" type="TextureRect" parent="HelpMenu/Panel/Pages/ImportingModels3"]
+[node name="Example" type="TextureRect" parent="HelpMenu/Panel/Pages/ImportingModels3" unique_id=1576947928]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1606,7 +1605,7 @@ grow_vertical = 0
 texture = ExtResource("42_3jmfr")
 expand_mode = 1
 
-[node name="ImportingModels4" type="Control" parent="HelpMenu/Panel/Pages"]
+[node name="ImportingModels4" type="Control" parent="HelpMenu/Panel/Pages" unique_id=1342260958]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1617,7 +1616,7 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels4"]
+[node name="Title" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels4" unique_id=1573624541]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1628,7 +1627,7 @@ text = "Importing Models"
 label_settings = SubResource("LabelSettings_8bsf2")
 horizontal_alignment = 1
 
-[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels4"]
+[node name="Summary" type="Label" parent="HelpMenu/Panel/Pages/ImportingModels4" unique_id=236751881]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1646,7 +1645,7 @@ text = "4. If your model has a bunch of meshes/surfaces, you should bundle the t
 label_settings = SubResource("LabelSettings_04ry4")
 autowrap_mode = 2
 
-[node name="NextMenuButton" parent="HelpMenu/Panel" instance=ExtResource("3_ca28p")]
+[node name="NextMenuButton" parent="HelpMenu/Panel" unique_id=268712909 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1664,7 +1663,7 @@ texture_pressed = ExtResource("12_1pytg")
 texture_disabled = ExtResource("13_qtds6")
 font_size = 36.0
 
-[node name="PrevMenuButton" parent="HelpMenu/Panel" instance=ExtResource("3_ca28p")]
+[node name="PrevMenuButton" parent="HelpMenu/Panel" unique_id=486029565 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1682,7 +1681,7 @@ texture_pressed = ExtResource("12_1pytg")
 texture_disabled = ExtResource("13_qtds6")
 font_size = 36.0
 
-[node name="Closebutton" parent="HelpMenu/Panel" instance=ExtResource("3_ca28p")]
+[node name="Closebutton" parent="HelpMenu/Panel" unique_id=636591243 instance=ExtResource("3_ca28p")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

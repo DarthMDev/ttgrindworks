@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpt2l8o1h70a7"]
+[gd_scene format=3 uid="uid://cpt2l8o1h70a7"]
 
 [ext_resource type="Script" uid="uid://bmpstolq0xsxw" path="res://scenes/title_screen/character_select/character_clipboard.gd" id="1_idg4e"]
 [ext_resource type="Texture2D" uid="uid://cpo5l0enhf7va" path="res://ui_assets/pick_a_toon/clipboard BACK.png" id="2_r1yg0"]

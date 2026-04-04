@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cdmr8jjfqyd2u"]
+[gd_scene format=4 uid="uid://cdmr8jjfqyd2u"]
 
 [ext_resource type="PackedScene" uid="uid://1kklnj0p5eo2" path="res://models/facilities/office/office_connector_buried.fbx" id="1_kh70j"]
 [ext_resource type="Texture2D" uid="uid://crg8bsw6rsyri" path="res://models/facilities/office/textures/LB_WoodPanel2.png" id="2_f5wd4"]

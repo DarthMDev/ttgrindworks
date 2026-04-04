@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd3uosfksls0q"]
+[gd_scene format=3 uid="uid://bd3uosfksls0q"]
 
 [ext_resource type="PackedScene" uid="uid://ceghombqxco7o" path="res://objects/props/office/bookshelf.tscn" id="1_owhmg"]
 [ext_resource type="Texture2D" uid="uid://cp4aaluignlma" path="res://objects/battle/effects/fire/fire.png" id="2_3qpfy"]

@@ -70,6 +70,7 @@ func game_won() -> void:
 	Util.get_player().stats.charge_active_item(2)
 	AudioManager.set_default_music(facility_music)
 	AudioManager.stop_music()
+	ScoreTally.modify_score(ScoreTally.ChannelBosses, ScoreTally.BOSS_BONUS)
 
 func play_intro() -> Tween:
 	# Remember the facility music

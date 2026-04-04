@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ba4q7epwmww5j"]
+[gd_resource type="Resource" format=3 uid="uid://ba4q7epwmww5j"]
 
 [ext_resource type="Texture2D" uid="uid://eeko3g6xolhv" path="res://ui_assets/battle/statuses/tax_collector.png" id="1_jiu5b"]
 [ext_resource type="Script" uid="uid://c2fsa7s42ph71" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_tax_collector.gd" id="2_nkw8x"]

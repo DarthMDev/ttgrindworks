@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8c0ry7pwl3uy"]
+[gd_scene format=3 uid="uid://8c0ry7pwl3uy"]
 
 [ext_resource type="PackedScene" uid="uid://idagtqd5cor5" path="res://models/props/gags/foghorn/foghorn.tscn" id="1_w8f15"]
 [ext_resource type="Texture2D" uid="uid://tp30drjm5tpt" path="res://objects/items/custom/big_foghorn/foghorn_foghorn_out_silver.png" id="2_qftd3"]

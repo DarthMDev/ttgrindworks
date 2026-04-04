@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://duygfpffob40k"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://duygfpffob40k"]
 
 [ext_resource type="Texture2D" uid="uid://cto8jw1fuwx" path="res://objects/items/custom/treasure/zzz.png" id="1_qehgf"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_s2tpi"]

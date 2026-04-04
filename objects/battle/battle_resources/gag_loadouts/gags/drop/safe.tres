@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DropBig" load_steps=6 format=3 uid="uid://doe7eiwy4sm5y"]
+
+[ext_resource type="Texture2D" uid="uid://d3lgtwpp1y4ev" path="res://ui_assets/battle/gags/inventory_safe_box.png" id="1_x47bq"]
+[ext_resource type="PackedScene" uid="uid://cueenmir23h2" path="res://models/props/gags/safe/safe.tscn" id="2_2yvnp"]
+[ext_resource type="Script" uid="uid://bacdlj4c328s6" path="res://objects/battle/battle_resources/toon_attacks/drop_big.gd" id="3_4qs7x"]
+[ext_resource type="AudioStream" uid="uid://cuvfjvbbukbm3" path="res://audio/sfx/battle/gags/drop/AA_drop_safe.ogg" id="4_se63h"]
+[ext_resource type="AudioStream" uid="uid://cytnpbt1lx7kn" path="res://audio/sfx/battle/gags/drop/AA_drop_safe_miss.ogg" id="5_gbn8g"]
+
+[resource]
+script = ExtResource("3_4qs7x")
+model = ExtResource("2_2yvnp")
+shadow_scale = 3.0
+sfx_hit = ExtResource("4_se63h")
+sfx_miss = ExtResource("5_gbn8g")
+icon = ExtResource("1_x47bq")
+damage = 56
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Safe"
+one_time_use = false

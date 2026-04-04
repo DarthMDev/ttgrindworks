@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=5 format=3 uid="uid://civq6v4d0gyud"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://civq6v4d0gyud"]
 
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_4j4dm"]
 [ext_resource type="Resource" uid="uid://b7svvigolg3sq" path="res://objects/cog/presets/pools/lawbot.tres" id="1_8fhli"]

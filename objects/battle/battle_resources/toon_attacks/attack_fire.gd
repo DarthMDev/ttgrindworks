@@ -67,7 +67,7 @@ func action() -> void:
 	
 	# Rotate cannon to fire position
 	cannon_tween.tween_callback(player.set_animation.bind('duck'))
-	cannon_tween.tween_callback(AudioManager.play_sound.bind(SFX_ADJUST))
+	cannon_tween.tween_callback(AudioManager.play_snippet.bind(SFX_ADJUST))
 	cannon_tween.tween_property(cannon.get_node('cannon/toon_cannon/cannon'),'rotation_degrees:x',145.0,1.25)
 	cannon_tween.tween_interval(1.5)
 	

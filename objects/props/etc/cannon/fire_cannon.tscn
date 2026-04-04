@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://brcncsul5n2cw"]
+[gd_scene format=3 uid="uid://brcncsul5n2cw"]
 
 [ext_resource type="PackedScene" uid="uid://dapvje3lbdhhn" path="res://objects/props/etc/cannon/toon_cannon.tscn" id="1_mk2ub"]
 

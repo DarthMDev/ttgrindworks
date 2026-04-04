@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqrip2gby1012"]
+[gd_scene format=3 uid="uid://cqrip2gby1012"]
 
 [ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="2_w312u"]
 [ext_resource type="PackedScene" uid="uid://cluyiu76brkoi" path="res://objects/interactables/molten_bellows/molten_bellows.tscn" id="3_54l0r"]

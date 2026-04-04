@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8kuklrm1ce6u"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8kuklrm1ce6u"]
 
 [ext_resource type="Texture2D" uid="uid://dgordm12hjkkl" path="res://models/accessories/hats/archer_hat/tt_m_chr_avt_acc_hat_robinHoodHat_tt_t_chr_avt_acc_hat_robinHoodHat.png" id="1_0ueo4"]
 

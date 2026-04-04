@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://prbpuwhiakqv"]
+[gd_scene format=4 uid="uid://prbpuwhiakqv"]
 
 [ext_resource type="Texture2D" uid="uid://40b4lwruwr50" path="res://models/toon/head/pig/pig_heads_0.png" id="1_6mq6s"]
 [ext_resource type="Texture2D" uid="uid://b34fwp8e00rtv" path="res://models/toon/head/pig/pig_heads_1.png" id="2_rf7we"]

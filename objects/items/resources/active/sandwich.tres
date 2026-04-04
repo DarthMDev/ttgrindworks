@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://d4nsekncalswu"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://d4nsekncalswu"]
 
 [ext_resource type="Texture2D" uid="uid://c6wj2u5jcwedo" path="res://ui_assets/player_ui/pocket_prank_icons/sandwich.png" id="1_dcc7e"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_eeh4s"]

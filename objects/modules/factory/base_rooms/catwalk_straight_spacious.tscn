@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drc1ci1o3bkj8"]
+[gd_scene format=3 uid="uid://drc1ci1o3bkj8"]
 
 [ext_resource type="PackedScene" uid="uid://cy42fnt8bw5p3" path="res://models/facilities/factory/Catwalk_Straight_Spacious.fbx" id="1_005mk"]
 

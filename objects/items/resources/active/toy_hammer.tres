@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://cmlaxrdbmxvfu"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://cmlaxrdbmxvfu"]
 
 [ext_resource type="Texture2D" uid="uid://dwaigpqds42pv" path="res://ui_assets/player_ui/pocket_prank_icons/toy_hammer.png" id="1_xra8y"]
 [ext_resource type="Script" uid="uid://sg60xkxtvfnu" path="res://objects/items/custom/item_script_toy_hammer.gd" id="2_xra8y"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://j1ctodg7yi55"]
+[gd_resource type="Resource" script_class="AchievementQuota" format=3 uid="uid://j1ctodg7yi55"]
 
 [ext_resource type="Texture2D" uid="uid://cdhpmims8rxip" path="res://models/props/toon_props/philosophers_stone/philosophers_stone-pix-1.png" id="1_brylt"]
 [ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_qflmo"]

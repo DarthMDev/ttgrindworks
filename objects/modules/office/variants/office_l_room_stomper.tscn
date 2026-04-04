@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7jpg878lyye3"]
+[gd_scene format=3 uid="uid://c7jpg878lyye3"]
 
 [ext_resource type="PackedScene" uid="uid://ywlfb4whkjcx" path="res://objects/modules/office/base_rooms/office_L_room.tscn" id="1_nh7dn"]
 [ext_resource type="PackedScene" uid="uid://kw24drhs7u34" path="res://objects/obstacles/stomper/old_stomper.tscn" id="2_0l3o2"]

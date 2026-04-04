@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://fj2jd0xdm8lo"]
+[gd_scene format=3 uid="uid://fj2jd0xdm8lo"]
 
 [ext_resource type="Script" uid="uid://cmmqw4kcj2w1n" path="res://objects/globals/hover_manager.gd" id="1_2dbno"]
 [ext_resource type="Texture2D" uid="uid://btn8dobxms36g" path="res://ui_assets/misc/chatbox_noarrow.png" id="2_4biba"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="3_rqcir"]
 
-[node name="HoverManager" type="CanvasLayer"]
+[node name="HoverManager" type="CanvasLayer" unique_id=749450370]
 process_mode = 3
-layer = 128
+layer = 127
 visible = false
 script = ExtResource("1_2dbno")
 
-[node name="HoverRoot" type="Control" parent="."]
+[node name="HoverRoot" type="Control" parent="." unique_id=1833428317]
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
@@ -19,7 +19,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Bubble" type="TextureRect" parent="HoverRoot"]
+[node name="Bubble" type="TextureRect" parent="HoverRoot" unique_id=188171445]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = -242.0
@@ -29,7 +29,7 @@ pivot_offset = Vector2(0, 242)
 mouse_filter = 2
 texture = ExtResource("2_4biba")
 
-[node name="TextPos" type="Control" parent="HoverRoot/Bubble"]
+[node name="TextPos" type="Control" parent="HoverRoot/Bubble" unique_id=1298554188]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 30.0
@@ -38,7 +38,7 @@ offset_right = 30.0
 offset_bottom = 20.0
 mouse_filter = 2
 
-[node name="Text" type="RichTextLabel" parent="HoverRoot"]
+[node name="Text" type="RichTextLabel" parent="HoverRoot" unique_id=1343795568]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 3.0
@@ -47,7 +47,6 @@ offset_right = 302.001
 offset_bottom = 214.1
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = -4
 theme_override_constants/paragraph_separation = -4
 theme_override_fonts/normal_font = ExtResource("3_rqcir")
 theme_override_font_sizes/normal_font_size = 20

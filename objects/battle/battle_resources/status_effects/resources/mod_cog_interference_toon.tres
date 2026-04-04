@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bspvd2mqexayy"]
+[gd_resource type="Resource" format=3 uid="uid://bspvd2mqexayy"]
 
 [ext_resource type="Script" uid="uid://c5p5656l8n5wx" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_interference_toon.gd" id="1_w47s8"]
 

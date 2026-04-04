@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqavoi7uhp111"]
+[gd_scene format=3 uid="uid://dqavoi7uhp111"]
 
 [ext_resource type="PackedScene" uid="uid://thl8v03qs1nt" path="res://models/props/gags/magnet/magnet-red.glb" id="1_yfxmt"]
 [ext_resource type="Texture2D" uid="uid://bhfbs7gjohp8k" path="res://models/props/gags/magnet/BlueMagnet.png" id="2_e5ugc"]

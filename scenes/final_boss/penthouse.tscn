@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://5y8g0xyxpr00"]
+[gd_scene format=3 uid="uid://5y8g0xyxpr00"]
 
 [ext_resource type="PackedScene" uid="uid://dmnep8phelnvy" path="res://models/misc_zones/field_office/penthouse/penthouse.fbx" id="1_vkvjg"]
 [ext_resource type="Texture2D" uid="uid://cjcugdtkiwqwy" path="res://models/misc_zones/field_office/penthouse/penthouse_23.png" id="2_8ud3v"]
@@ -62,7 +62,6 @@ ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
-glow_blend_mode = 1
 glow_hdr_threshold = 4.0
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 28.2
@@ -180,7 +179,7 @@ func _ready() -> void:
 	return
 "
 
-[node name="penthouse" instance=ExtResource("1_vkvjg")]
+[node name="penthouse" unique_id=1402887338 instance=ExtResource("1_vkvjg")]
 script = ExtResource("2_bn0hh")
 possible_bosses = Array[ExtResource("3_pu03o")]([ExtResource("4_7haf7"), ExtResource("7_qh8x2"), ExtResource("6_76361"), ExtResource("7_y0ea0")])
 
@@ -211,9 +210,9 @@ visible = false
 [node name="Grp_collisions" parent="." index="1"]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Grp_collisions/pCube3" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Grp_collisions/pCube3" index="0" unique_id=297600123]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Grp_collisions/pCube3/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grp_collisions/pCube3/StaticBody3D" index="0" unique_id=936420676]
 shape = SubResource("ConcavePolygonShape3D_3e38r")
 
 [node name="seq_node_flashON_GRP" parent="Grp_animation/seq_node_counterFlash_GRP" index="0"]
@@ -237,143 +236,141 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wvq2t")
 [node name="cage_door" parent="Grp_animation/toonCage" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wvq2t")
 
-[node name="CagedToon" parent="Grp_animation/toonCage" index="3" instance=ExtResource("5_s3u6r")]
+[node name="CagedToon" parent="Grp_animation/toonCage" index="3" unique_id=1253004309 instance=ExtResource("5_s3u6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94665, 3.4633, -10.426)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4" unique_id=1185687931]
 environment = SubResource("Environment_7vej0")
 
-[node name="ElevatorEntrance" parent="." index="5" instance=ExtResource("6_mrpky")]
+[node name="ElevatorEntrance" parent="." index="5" unique_id=1423401555 instance=ExtResource("6_mrpky")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.83145, -0.03319, 14.9418)
 monitoring = false
 
 [node name="frame" parent="ElevatorEntrance/unnamed1/Grp_elevatorB" index="2"]
 visible = false
 
-[node name="ElevatorExit" parent="." index="6" instance=ExtResource("6_mrpky")]
+[node name="ElevatorExit" parent="." index="6" unique_id=1276638388 instance=ExtResource("6_mrpky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83145, -0.03319, -14.9068)
 monitoring = false
 
 [node name="frame" parent="ElevatorExit/unnamed1/Grp_elevatorB" index="2"]
 visible = false
 
-[node name="BattleNode" parent="." index="7" node_paths=PackedStringArray("cogs") instance=ExtResource("6_eqg7a")]
+[node name="BattleNode" parent="." index="7" unique_id=1897449209 node_paths=PackedStringArray("cogs") instance=ExtResource("6_eqg7a")]
 cogs = [NodePath("BossCog"), NodePath("BossCog2")]
 override_intro = SubResource("Resource_tlo1o")
 item_pool = null
 
-[node name="BossCog" parent="BattleNode" index="3" instance=ExtResource("4_p2l1n")]
+[node name="BossCog" parent="BattleNode" index="3" unique_id=442192048 instance=ExtResource("4_p2l1n")]
 transform = Transform3D(-0.0447878, 0, 0.998996, 0, 1, 0, -0.998996, 0, -0.0447878, -1.5, 0, -7.298)
 dna = ExtResource("15_25tuy")
 skelecog_chance = 0
 
-[node name="BossCog2" parent="BattleNode" index="4" instance=ExtResource("4_p2l1n")]
+[node name="BossCog2" parent="BattleNode" index="4" unique_id=1007844351 instance=ExtResource("4_p2l1n")]
 transform = Transform3D(0.0447877, 0, -0.998996, 0, 1, 0, 0.998996, 0, 0.0447877, 3, 0, -7.413)
 dna = ExtResource("15_25tuy")
 skelecog_chance = 0
 
-[node name="CharPositions" type="Node3D" parent="." index="8"]
+[node name="CharPositions" type="Node3D" parent="." index="8" unique_id=1644959128]
 
-[node name="StartPos" type="Node3D" parent="CharPositions" index="0"]
+[node name="StartPos" type="Node3D" parent="CharPositions" index="0" unique_id=498833900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.813838, 0, 15.7915)
 
-[node name="WalkInPos" type="Node3D" parent="CharPositions" index="1"]
+[node name="WalkInPos" type="Node3D" parent="CharPositions" index="1" unique_id=704102193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.468, 0, 5.447)
 
-[node name="CogPos1" type="Node3D" parent="CharPositions" index="2"]
+[node name="CogPos1" type="Node3D" parent="CharPositions" index="2" unique_id=1543430369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285277, 0, -16.2539)
 
-[node name="CogPos2" type="Node3D" parent="CharPositions" index="3"]
+[node name="CogPos2" type="Node3D" parent="CharPositions" index="3" unique_id=1048808337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54566, 0, -16.2539)
 
-[node name="CogPos3" type="Node3D" parent="CharPositions" index="4"]
+[node name="CogPos3" type="Node3D" parent="CharPositions" index="4" unique_id=1675164234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285277, 0, -15.4412)
 
-[node name="CogPos4" type="Node3D" parent="CharPositions" index="5"]
+[node name="CogPos4" type="Node3D" parent="CharPositions" index="5" unique_id=1181891336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54566, 0, -15.4412)
 
-[node name="BossIdle" type="Node3D" parent="CharPositions" index="6"]
+[node name="BossIdle" type="Node3D" parent="CharPositions" index="6" unique_id=62445409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04125, 0, 0)
 
-[node name="PlayerEndPos" type="Node3D" parent="CharPositions" index="7"]
+[node name="PlayerEndPos" type="Node3D" parent="CharPositions" index="7" unique_id=682532054]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88473, 0, -7.6813)
 
-[node name="PlayerWinPos" type="Node3D" parent="CharPositions" index="8"]
+[node name="PlayerWinPos" type="Node3D" parent="CharPositions" index="8" unique_id=688700761]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6.897)
 
-[node name="InFrontElevatorPos" type="Node3D" parent="CharPositions" index="9"]
+[node name="InFrontElevatorPos" type="Node3D" parent="CharPositions" index="9" unique_id=258766233]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7.999)
 
-[node name="ElevatorLeftPos" type="Node3D" parent="CharPositions" index="10"]
+[node name="ElevatorLeftPos" type="Node3D" parent="CharPositions" index="10" unique_id=1692644486]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44455, 0, -15.8425)
 
-[node name="ElevatorRightPos" type="Node3D" parent="CharPositions" index="11"]
+[node name="ElevatorRightPos" type="Node3D" parent="CharPositions" index="11" unique_id=1493052643]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158406, 0, -15.8425)
 
-[node name="WB_TM_INTRO" type="Node3D" parent="CharPositions" index="12"]
+[node name="WB_TM_INTRO" type="Node3D" parent="CharPositions" index="12" unique_id=1337759583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467618, 0, 4.78265)
 
-[node name="TM_WB_INTRO" type="Node3D" parent="CharPositions" index="13"]
+[node name="TM_WB_INTRO" type="Node3D" parent="CharPositions" index="13" unique_id=1941078000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467618, 0, -2.30226)
 
-[node name="WB_TM_WALKTO" type="Node3D" parent="CharPositions" index="14"]
+[node name="WB_TM_WALKTO" type="Node3D" parent="CharPositions" index="14" unique_id=1139508105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467618, 0, 2.23768)
 
-[node name="CameraAngles" type="Node3D" parent="." index="9"]
+[node name="CameraAngles" type="Node3D" parent="." index="9" unique_id=123769968]
 
-[node name="FocusBoss" type="Camera3D" parent="CameraAngles" index="0"]
+[node name="FocusBoss" type="Camera3D" parent="CameraAngles" index="0" unique_id=2100267600]
 transform = Transform3D(0.999658, 0, 0.0261769, 0, 1, 0, -0.026177, 0, 0.999657, 0.79, 1.76, -0.63)
 fov = 52.0
 
-[node name="DeskFocus" type="Camera3D" parent="CameraAngles" index="1"]
+[node name="DeskFocus" type="Camera3D" parent="CameraAngles" index="1" unique_id=1113628563]
 transform = Transform3D(-4.37114e-08, -0.173648, -0.984808, 0, 0.984808, -0.173648, 1, -7.5904e-09, -4.30473e-08, 3.921, 2.2, -0.015)
 fov = 52.0
 
-[node name="PaintingFocus" type="Camera3D" parent="CameraAngles" index="2"]
+[node name="PaintingFocus" type="Camera3D" parent="CameraAngles" index="2" unique_id=1571846065]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, -0.173648, -0.984808, 0, 0.984808, -0.173648, 1, -7.59039e-09, -4.30473e-08, 3.921, 2.79, -0.015)
 fov = 52.0
 
-[node name="GameWin" type="Camera3D" parent="CameraAngles" index="3"]
+[node name="GameWin" type="Camera3D" parent="CameraAngles" index="3" unique_id=185674]
 transform = Transform3D(1, 0, 0, 0, 0.963631, 0.267238, 0, -0.267238, 0.963631, 3, 2.27, -5.215)
 fov = 52.0
 
-[node name="GameWinElevator" type="Camera3D" parent="CameraAngles" index="4"]
+[node name="GameWinElevator" type="Camera3D" parent="CameraAngles" index="4" unique_id=709370445]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.999656, 0.0262114, 0, -0.0262114, 0.999656, 0.856654, 2.27, -5.215)
 fov = 52.0
 
-[node name="BattleFocus" type="Camera3D" parent="CameraAngles" index="5"]
+[node name="BattleFocus" type="Camera3D" parent="CameraAngles" index="5" unique_id=1546983013]
 transform = Transform3D(0.999658, 0, 0.0261769, 0, 1, 0, -0.026177, 0, 0.999657, 0.79, 1.76, 4.5)
 fov = 52.0
 
-[node name="WBFocus" type="Camera3D" parent="CameraAngles" index="6"]
+[node name="WBFocus" type="Camera3D" parent="CameraAngles" index="6" unique_id=230415639]
 transform = Transform3D(0.999658, 0, 0.0261769, 0, 1, 0, -0.026177, 0, 0.999657, 0.72, 1.76, 5.5)
 fov = 52.0
 
-[node name="SceneAnimator" type="AnimationPlayer" parent="." index="10"]
-libraries = {
-&"": SubResource("AnimationLibrary_tjyyh")
-}
-autoplay = "default"
+[node name="SceneAnimator" type="AnimationPlayer" parent="." index="10" unique_id=607756543]
+libraries/ = SubResource("AnimationLibrary_tjyyh")
+autoplay = &"default"
 
-[node name="DebugPlayerPositionMarker" parent="." index="11" instance=ExtResource("17_0g48c")]
+[node name="DebugPlayerPositionMarker" parent="." index="11" unique_id=536489635 instance=ExtResource("17_0g48c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136871, 0, 9.4144)
 
-[node name="ImportantPortrait" parent="." index="12" instance=ExtResource("17_sk75u")]
+[node name="ImportantPortrait" parent="." index="12" unique_id=534992510 instance=ExtResource("17_sk75u")]
 script = SubResource("GDScript_i03po")
 
-[node name="FadeOutLayer" type="CanvasLayer" parent="." index="13"]
+[node name="FadeOutLayer" type="CanvasLayer" parent="." index="13" unique_id=837813755]
 unique_name_in_owner = true
 layer = 20
 visible = false
 
-[node name="BlackFade" type="ColorRect" parent="FadeOutLayer" index="0"]
+[node name="BlackFade" type="ColorRect" parent="FadeOutLayer" index="0" unique_id=696908715]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0

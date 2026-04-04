@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1wo7un713tlj"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d1wo7un713tlj"]
 
 [ext_resource type="Texture2D" uid="uid://do02bekksstto" path="res://models/props/facility_objects/transporters/golf_cart/cgc_cart_0.png" id="1_awnam"]
 

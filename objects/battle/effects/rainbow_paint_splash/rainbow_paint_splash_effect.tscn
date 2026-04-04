@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csd4mwde1nrhx"]
+[gd_scene format=3 uid="uid://csd4mwde1nrhx"]
 
 [ext_resource type="Texture2D" uid="uid://b625an51rhe7d" path="res://objects/props/factory/raindrop_flipped.png" id="1_13ve3"]
 [ext_resource type="Script" uid="uid://2cpvx2566ywg" path="res://objects/battle/effects/unite/unite.gd" id="2_nuiut"]

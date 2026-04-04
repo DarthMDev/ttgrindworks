@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://baot8pt55l2au"]
+[gd_resource type="Resource" format=3 uid="uid://baot8pt55l2au"]
 
 [ext_resource type="Script" uid="uid://c1m1ucgy3k0cw" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_wheelhouse.gd" id="1_qm1ae"]
 

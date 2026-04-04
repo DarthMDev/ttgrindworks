@@ -44,7 +44,7 @@ func set_item(new_item: WorldItem) -> void:
 		Util.get_player().toon.set_emotion(Toon.Emotion.NEUTRAL)
 		return
 	
-	if Util.get_player().see_descriptions:
+	if SaveFileService.settings_file.item_descriptions:
 		item.description_bubble.force_hide = false
 	
 	if reactions_enabled:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c47w0olqg1qec"]
+[gd_resource type="Resource" format=3 uid="uid://c47w0olqg1qec"]
 
 [ext_resource type="Script" uid="uid://dj1a7mk1cs2qj" path="res://objects/battle/battle_resources/misc_movies/whistleblower/budget_cuts.gd" id="1_63khx"]
 

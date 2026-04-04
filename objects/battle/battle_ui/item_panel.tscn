@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dvch4ydlcxhu6"]
+[gd_scene format=4 uid="uid://dvch4ydlcxhu6"]
 
 [ext_resource type="Texture2D" uid="uid://baybb8c6rgon4" path="res://ui_assets/battle/sos_frame.png" id="1_vxmce"]
 [ext_resource type="Script" uid="uid://e45u8db0ruti" path="res://objects/battle/battle_ui/item_panel.gd" id="2_a3c6l"]
@@ -76,6 +76,15 @@ style_name = "Regular"
 subpixel_positioning = 0
 msdf_pixel_range = 8
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 13.0
 cache/0/16/0/descent = 4.0
 cache/0/16/0/underline_position = 2.28125

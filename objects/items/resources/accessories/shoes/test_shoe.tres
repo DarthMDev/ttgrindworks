@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemShoe" load_steps=3 format=3 uid="uid://cffn7uvfibyv"]
+[gd_resource type="Resource" script_class="ItemShoe" format=3 uid="uid://cffn7uvfibyv"]
 
 [ext_resource type="Script" uid="uid://bb02y647us2n3" path="res://objects/items/classes/item_shoe.gd" id="1_vnwu0"]
 [ext_resource type="Texture2D" uid="uid://dr5bhav65aa2g" path="res://models/accessories/shoe_textures/shoes/tt_t_chr_avt_acc_sho_oxfords.png" id="2_bj0a2"]

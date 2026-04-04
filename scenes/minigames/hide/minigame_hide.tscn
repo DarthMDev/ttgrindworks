@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvrixa71rcpd4"]
+[gd_scene format=3 uid="uid://bvrixa71rcpd4"]
 
 [ext_resource type="Script" uid="uid://jkiopwiqwxl6" path="res://scenes/minigames/hide/minigame_hide.gd" id="1_ge775"]
 [ext_resource type="PackedScene" uid="uid://b1sjkcka65imo" path="res://objects/modules/factory/base_rooms/factory_entrance.tscn" id="2_cp6bn"]

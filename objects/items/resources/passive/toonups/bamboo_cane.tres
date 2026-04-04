@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cp2b6gwnfjlib"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cp2b6gwnfjlib"]
 
 [ext_resource type="PackedScene" uid="uid://d4d0ila1f8k7o" path="res://objects/items/custom/toonups/cane_item.tscn" id="1_atcwe"]
 [ext_resource type="Texture2D" uid="uid://cwpi1cl23exds" path="res://ui_assets/battle/gags/inventory_bamboo_cane.png" id="1_vdbye"]

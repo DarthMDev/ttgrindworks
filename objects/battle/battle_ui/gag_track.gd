@@ -20,6 +20,8 @@ signal s_refreshed(element: TrackElement)
 
 
 func _ready():
+	if not Util.get_player():
+		return
 	var loadout: GagLoadout = Util.get_player().stats.character.gag_loadout
 	var track_index : int = get_parent().get_children().find(self)
 	if track_index >= loadout.loadout.size():
@@ -123,11 +125,11 @@ func refund_gag(gag: ToonAttack):
 	for i in track.gags.size():
 		if track.gags[i].action_name == gag.action_name:
 			if player.gags_cost_beans:
-				player.stats.add_money(gag.price)
+				player.stats.money += gag.price
 				refresh()
 				return
 			var new_balance: int = player.stats.gag_balance[track.track_name]
-			new_balance = clamp(new_balance + gag.price, 0, player.stats.gag_cap)
+			new_balance = new_balance + gag.price
 			player.stats.gag_balance[track.track_name] = new_balance
 			refresh()
 

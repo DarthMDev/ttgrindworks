@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cum8xy8yh01le"]
+[gd_scene format=3 uid="uid://cum8xy8yh01le"]
 
 [ext_resource type="Script" uid="uid://c0bn2pu52n4mh" path="res://objects/interactables/pushable/pushable_trigger.gd" id="1_6e8y4"]
 

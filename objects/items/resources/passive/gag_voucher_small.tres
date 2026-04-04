@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://be4btivsjwqhe"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://be4btivsjwqhe"]
 
 [ext_resource type="PackedScene" uid="uid://eqtswktr1h3j" path="res://objects/items/custom/gag_voucher/gag_voucher.tscn" id="1_47fq5"]
 [ext_resource type="AudioStream" uid="uid://ba7r434bfqtfx" path="res://audio/sfx/items/voucher_pickup.ogg" id="2_6ekd7"]

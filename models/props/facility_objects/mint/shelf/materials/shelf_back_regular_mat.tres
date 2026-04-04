@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8dk6vuxlwx0a"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://8dk6vuxlwx0a"]
 
 [ext_resource type="Texture2D" uid="uid://s12phy1oslxh" path="res://models/props/facility_objects/mint/shelf/shelf_3_0.png" id="1_rr6eq"]
 

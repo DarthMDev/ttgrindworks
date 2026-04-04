@@ -103,6 +103,9 @@ enum ItemSlot {
 ## The icon to display the item on the UI
 @export var icon: Texture2D
 
+## Optional material to apply to the icon on the UI
+@export var icon_material: Material
+
 ## What to display as the shop title for boost items
 ## This is only really used for the doodle item
 @export var shop_category_title := "Boost Item"

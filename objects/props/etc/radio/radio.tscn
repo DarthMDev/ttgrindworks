@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnpgawnj8vd27"]
+[gd_scene format=3 uid="uid://cnpgawnj8vd27"]
 
 [ext_resource type="PackedScene" uid="uid://cctflkqgkyy2c" path="res://models/props/toon_props/radio/radioRigged.fbx" id="1_rhepe"]
 [ext_resource type="Script" uid="uid://bvix770he2f7a" path="res://objects/props/etc/radio/radio.gd" id="2_3l47l"]

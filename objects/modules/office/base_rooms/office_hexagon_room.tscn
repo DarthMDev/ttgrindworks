@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://deucmesgg6wq5"]
+[gd_scene format=3 uid="uid://deucmesgg6wq5"]
 
 [ext_resource type="PackedScene" uid="uid://ceei407eb3vqs" path="res://models/facilities/office/office_hexagon_room.fbx" id="1_hsrri"]
 [ext_resource type="Texture2D" uid="uid://c2ghdma76n5fm" path="res://models/facilities/office/textures/square_drop_shadow.png" id="2_mso41"]

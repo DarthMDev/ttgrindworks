@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bt5le0br8qadm"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bt5le0br8qadm"]
 
 [ext_resource type="Texture2D" uid="uid://c3kdld6ld4rc4" path="res://models/props/facility_objects/conveyor_platform/CVBelt1_hot.png" id="1_ddhwu"]
 

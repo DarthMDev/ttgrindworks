@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GagSound" load_steps=6 format=3 uid="uid://ciw7jmgu6iq05"]
+
+[ext_resource type="Texture2D" uid="uid://b1fm464rbu48m" path="res://ui_assets/battle/gags/inventory_opera_singer.png" id="1_np050"]
+[ext_resource type="PackedScene" uid="uid://brx5luolo4twm" path="res://models/props/gags/opera_singer/opera_singer.tscn" id="2_jknoh"]
+[ext_resource type="Script" uid="uid://c7rpfrvobx8rf" path="res://objects/battle/battle_resources/toon_attacks/gag_sound.gd" id="3_51lvo"]
+[ext_resource type="AudioStream" uid="uid://bes06h30xhwkh" path="res://audio/sfx/battle/gags/sound/AA_sound_Opera_Singer.ogg" id="4_0bvr6"]
+[ext_resource type="AudioStream" uid="uid://bf2xyte2lf8r3" path="res://audio/sfx/battle/gags/sound/mailbox_full_wobble.ogg" id="5_e6qcd"]
+
+[resource]
+script = ExtResource("3_51lvo")
+model = ExtResource("2_jknoh")
+position = Vector3(0.952056, 0.160654, -1.305)
+rotation = Vector3(0, -20, -130)
+scale = Vector3(3, 3, 3)
+anim_delay = 0.01
+sfx_windup = ExtResource("5_e6qcd")
+sfx_blast = ExtResource("4_0bvr6")
+icon = ExtResource("1_np050")
+damage = 100
+crit_chance_mod = 1.0
+target_type = 7
+action_name = "Opera Singer"
+one_time_use = false

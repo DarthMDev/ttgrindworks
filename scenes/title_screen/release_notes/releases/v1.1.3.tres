@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ReleaseNote" load_steps=2 format=3 uid="uid://0yd68mpj3psb"]
+[gd_resource type="Resource" script_class="ReleaseNote" format=3 uid="uid://0yd68mpj3psb"]
 
 [ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_83fe4"]
 

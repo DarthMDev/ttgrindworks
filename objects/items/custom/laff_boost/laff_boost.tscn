@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfwa4083sf5u8"]
+[gd_scene format=3 uid="uid://dfwa4083sf5u8"]
 
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="1_rn331"]
 [ext_resource type="Script" uid="uid://nmobbfdesuun" path="res://objects/items/custom/laff_boost/laff_boost.gd" id="2_bjjby"]

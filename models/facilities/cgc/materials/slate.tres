@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cliv41wabcywl"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cliv41wabcywl"]
 
 [ext_resource type="Texture2D" uid="uid://du4dqnxb80yr" path="res://models/facilities/cgc/textures/BQ_Fireplace_1.png" id="1_m508d"]
 

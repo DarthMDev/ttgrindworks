@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="GagThrow" format=3 uid="uid://bnjfmm1edw015"]
+
+[ext_resource type="Texture2D" uid="uid://bdu2rdg517iyi" path="res://objects/items/custom/treasure/ice_cream.png" id="1_sluo2"]
+[ext_resource type="PackedScene" uid="uid://dj268hnb7rr26" path="res://models/props/gags/pie/pie.glb" id="2_j56ob"]
+[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="2_sluo2"]
+[ext_resource type="Script" uid="uid://bjk46v235jl1" path="res://objects/battle/battle_resources/status_effects/status_effect_brainfreeze.gd" id="3_w8oyj"]
+[ext_resource type="Resource" uid="uid://b05i7fv1yu7vt" path="res://objects/battle/battle_resources/status_effects/resources/status_effect_brainfreeze.tres" id="5_gqlas"]
+
+[sub_resource type="Resource" id="Resource_dw522"]
+script = ExtResource("3_w8oyj")
+turn_skip_chance = 190.0
+quality = 1
+rounds = 2
+icon = ExtResource("1_sluo2")
+status_name = "Brainfreeze"
+id = 44
+metadata/_custom_type_script = "uid://df7irk63ikx4k"
+
+[resource]
+script = ExtResource("2_sluo2")
+model = ExtResource("2_j56ob")
+scale = 0.5
+status_effect = SubResource("Resource_dw522")
+status_effect_base = ExtResource("5_gqlas")
+icon = ExtResource("1_sluo2")
+damage = 4
+action_name = "Ice Cream Cone"
+metadata/_custom_type_script = "uid://cwnjrxjvy5kc3"

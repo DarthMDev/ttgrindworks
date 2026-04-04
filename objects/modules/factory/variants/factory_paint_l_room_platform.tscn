@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dwqhe1xe18u11"]
+[gd_scene format=4 uid="uid://dwqhe1xe18u11"]
 
 [ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_wg33k"]
 [ext_resource type="PackedScene" uid="uid://dg0htgo4qjau2" path="res://objects/obstacles/elevating_platform/elevating_platform.tscn" id="4_edefv"]

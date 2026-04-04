@@ -7,6 +7,7 @@ class_name RunTimer
 
 var time := 0.0
 var current_minute := 0
+var current_second := 0
 
 signal s_minute_passed
 
@@ -32,6 +33,9 @@ func _process(delta: float) -> void:
 	if not current_minute == get_current_minute():
 		current_minute = get_current_minute()
 		s_minute_passed.emit()
+	if not current_second == floori(time):
+		current_second = floori(time)
+		ScoreTally.modify_score(ScoreTally.ChannelTimeBonus, -1)
 
 static func get_time_string(timef: float) -> String:
 	var time_string := "%s:%s:%s"

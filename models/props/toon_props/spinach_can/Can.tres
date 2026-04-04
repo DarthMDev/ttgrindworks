@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8hj8jnd2n5bh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://8hj8jnd2n5bh"]
 
 [ext_resource type="Texture2D" uid="uid://c8ef6laljlvyi" path="res://models/props/toon_props/spinach_can/Can_Spinach.png" id="1_cm21o"]
 

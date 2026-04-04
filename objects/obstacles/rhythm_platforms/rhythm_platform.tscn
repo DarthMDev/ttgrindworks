@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyjstdkuicj0"]
+[gd_scene format=3 uid="uid://dkyjstdkuicj0"]
 
 [ext_resource type="Script" uid="uid://ct0r4std4wbku" path="res://objects/obstacles/rhythm_platforms/rhythm_platform.gd" id="1_3jj4g"]
 

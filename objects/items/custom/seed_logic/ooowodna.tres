@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ToonDNA" format=3 uid="uid://cxerjvm8uuf53"]
+
+[ext_resource type="Resource" uid="uid://bq6aiin2h5lo5" path="res://objects/toon/clothing/shorts/sellbot_shorts.tres" id="1_uxhiu"]
+[ext_resource type="Script" uid="uid://yg7gxug4rab" path="res://objects/toon/toon_dna.gd" id="1_vp7j6"]
+[ext_resource type="Resource" uid="uid://bohy7vmwmcyeg" path="res://objects/toon/clothing/shirts/sellbot_shirt.tres" id="3_u4wko"]
+
+[resource]
+script = ExtResource("1_vp7j6")
+body_type = 1
+leg_type = 1
+species = 7
+head_index = 2
+head_color = Color(0.8980392, 0.6156863, 0.90588236, 1)
+torso_color = Color(0.54901963, 0.8235294, 0.32156864, 1)
+leg_color = Color(0.34509805, 0.81960785, 0.9529412, 1)
+shirt = ExtResource("3_u4wko")
+bottoms = ExtResource("1_uxhiu")
+metadata/_custom_type_script = "uid://yg7gxug4rab"

@@ -46,7 +46,7 @@ func show_item_details(item: Item) -> void:
 	%DescLabel.set_text(item.item_description)
 	%TradeButton.set_disabled(false)
 	%TradeButton.material.set_shader_parameter(&"alpha", 1.0)
-	if not (item is ItemAccessory or item is ItemActive or item.force_show_shop_category):
+	if not (item is ItemAccessory or item is ItemActive or item is ItemShoe or item.force_show_shop_category):
 		return
 	%DescPanel.show()
 	for i in %RatingContainer.get_child_count():

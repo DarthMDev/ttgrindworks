@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://iprh7uid48eg"]
+[gd_scene format=3 uid="uid://iprh7uid48eg"]
 
 [ext_resource type="Texture2D" uid="uid://bnblnoll8svhh" path="res://ui_assets/battle/alarm_clock.png" id="1_ywg0q"]
 [ext_resource type="Script" uid="uid://d1tgqabc877jn" path="res://objects/battle/misc_battle_objects/timer/battle_timer.gd" id="2_ob8ly"]

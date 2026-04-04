@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://cjn8tya2r3xfn"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cjn8tya2r3xfn"]
 
 [ext_resource type="Texture2D" uid="uid://dc01fo2j6ngj2" path="res://models/props/cog_props/lbfo_red_tape/red_tape_pix-1.png" id="1_33242"]
 [ext_resource type="Script" uid="uid://5yrkwspkehik" path="res://objects/items/custom/item_red_tape.gd" id="2_3l1ke"]

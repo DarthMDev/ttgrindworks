@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Track" load_steps=6 format=3 uid="uid://commywykcoirs"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://commywykcoirs"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_t78ts"]
 [ext_resource type="Texture2D" uid="uid://c3ibnqgwvrh03" path="res://ui_assets/misc/BookIcon_OPEN_old.png" id="2_4hd31"]
@@ -16,3 +16,4 @@ track_type = 1
 track_name = "Spell"
 track_color = Color(0.529412, 0, 1, 1)
 gags = Array[ExtResource("1_t78ts")]([SubResource("Resource_a0apr")])
+mod_gags = Dictionary[ExtResource("1_t78ts"), int]({})

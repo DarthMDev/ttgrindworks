@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://c8317ugfvi2s7"]
+[gd_scene format=4 uid="uid://c8317ugfvi2s7"]
 
 [ext_resource type="PackedScene" uid="uid://ch3xs1d1lu117" path="res://objects/modules/cgc/base_rooms/golfcourse_fairway.tscn" id="1_uwh0y"]
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="2_edifh"]
@@ -577,7 +577,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -893.357, 195.334, 525.526)
 
 [node name="gate" parent="BBFairway/Geometry" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1466.34, 466.419, -4.728)
-visible = false
 
 [node name="CollisionShape3D" parent="RoomArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04329, 10.260962, 1.30658)
@@ -906,6 +905,7 @@ force_launch_node = NodePath("../MoleLaunchPos")
 grid_size = Vector2i(4, 4)
 launch_cam = NodePath("LaunchCam")
 hole_separation = 2.0
+want_instructions = false
 
 [node name="LaunchCam" type="Camera3D" parent="MoleStompGame" index="0"]
 
@@ -1235,6 +1235,7 @@ endless_stop_moles = false
 want_launch = false
 grid_size = Vector2i(4, 3)
 hole_separation = 1.6
+want_instructions = false
 
 [node name="UpperPlatformRight" type="Node3D" parent="." index="58"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.166)
@@ -1265,6 +1266,7 @@ endless_stop_moles = false
 want_launch = false
 grid_size = Vector2i(4, 3)
 hole_separation = 1.6
+want_instructions = false
 
 [node name="treasure_chest2" parent="." index="59" instance=ExtResource("17_uns6d")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.20401, 0, 7.93267)

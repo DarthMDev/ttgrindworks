@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlokoiu80vds6"]
+[gd_scene format=3 uid="uid://dlokoiu80vds6"]
 
 [ext_resource type="PackedScene" uid="uid://biosycr5f2tcv" path="res://models/props/pickups/jellybean/jellybean.glb" id="1_kl5o4"]
 [ext_resource type="Texture2D" uid="uid://dmnoqecnruj5t" path="res://models/props/pickups/jellybean/jellybean_jellybean3.png" id="2_oqad6"]

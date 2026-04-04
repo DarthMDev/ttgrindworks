@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvvma15ymq0yp"]
+[gd_scene format=3 uid="uid://bvvma15ymq0yp"]
 
 [ext_resource type="PackedScene" uid="uid://b3pds0y6briet" path="res://models/cogs/heads/statueman.glb" id="1_cqivl"]
 

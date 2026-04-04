@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TrapToss" load_steps=5 format=3 uid="uid://bo731q0esb6yy"]
+
+[ext_resource type="Texture2D" uid="uid://qdx2c3oyhq3w" path="res://ui_assets/battle/gags/inventory_tnt.png" id="1_6vj2d"]
+[ext_resource type="PackedScene" uid="uid://dsgjdbl5ivwss" path="res://models/props/gags/tnt/tnt.tscn" id="2_yiae2"]
+[ext_resource type="Script" uid="uid://cgs0v0f7jhwsc" path="res://objects/battle/battle_resources/toon_attacks/trap_toss.gd" id="3_faiut"]
+[ext_resource type="AudioStream" uid="uid://b6fgn0i8wr1pk" path="res://audio/sfx/battle/gags/trap/TL_dynamite.ogg" id="4_hl8bq"]
+
+[resource]
+script = ExtResource("3_faiut")
+model = ExtResource("2_yiae2")
+toss_time = 1.5
+animation = 2
+toss_sfx = ExtResource("4_hl8bq")
+icon = ExtResource("1_6vj2d")
+damage = 190
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "TNT"
+one_time_use = false

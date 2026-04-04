@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dimhdaxn1tyey"]
+[gd_resource type="Resource" format=3 uid="uid://dimhdaxn1tyey"]
 
 [ext_resource type="Script" uid="uid://mpf2gmahd2fk" path="res://objects/battle/battle_resources/cog_attacks/tee_off.gd" id="1_61n4c"]
 

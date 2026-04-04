@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://ckkjo0gsojwn2"]
+[gd_scene format=4 uid="uid://ckkjo0gsojwn2"]
 
 [ext_resource type="PackedScene" uid="uid://dq2u40qfxmfdh" path="res://models/facilities/office/office_shop.fbx" id="1_s5j2q"]
 [ext_resource type="PackedScene" uid="uid://cng3jffjmwdv8" path="res://objects/props/office/couch.tscn" id="2_d1rs7"]

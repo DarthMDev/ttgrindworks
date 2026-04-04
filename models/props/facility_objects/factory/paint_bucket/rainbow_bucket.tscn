@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxsmv15f1kmgs"]
+[gd_scene format=3 uid="uid://cxsmv15f1kmgs"]
 
 [ext_resource type="PackedScene" uid="uid://d78w7pckox3q" path="res://models/props/facility_objects/factory/paint_bucket/Bucket.fbx" id="1_7k6pv"]
 [ext_resource type="Texture2D" uid="uid://cpnsycbvhgjii" path="res://models/props/facility_objects/factory/paint_bucket/RainbowPaint.png" id="2_hmpjj"]

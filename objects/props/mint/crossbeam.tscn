@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://drpj1lganwu6n"]
+[gd_scene format=4 uid="uid://drpj1lganwu6n"]
 
 [ext_resource type="PackedScene" uid="uid://swjsixjcsyns" path="res://models/props/facility_objects/mint/pipes/pipes_A1.fbx" id="1_tw5o0"]
 [ext_resource type="Texture2D" uid="uid://c4ywkjbuuxyel" path="res://models/props/facility_objects/mint/pipes/textures/CrossBeamTop.png" id="2_xlnn6"]

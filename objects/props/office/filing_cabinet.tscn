@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4h3df6nrryna"]
+[gd_scene format=3 uid="uid://b4h3df6nrryna"]
 
 [ext_resource type="PackedScene" uid="uid://bi6vxyuyp40jd" path="res://models/props/facility_objects/da_office/filing_cabinet/filing_cabinet.fbx" id="1_rmihc"]
 

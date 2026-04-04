@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddslgvj8rri3n"]
+[gd_scene format=3 uid="uid://ddslgvj8rri3n"]
 
 [ext_resource type="Script" uid="uid://cxgu4i8evuad" path="res://objects/interactables/stranger/shop_ui/stranger_item_icon.gd" id="1_aec31"]
 [ext_resource type="Resource" uid="uid://cmjhh4fc3c231" path="res://objects/items/resources/passive/balancing_scale.tres" id="2_1hghc"]

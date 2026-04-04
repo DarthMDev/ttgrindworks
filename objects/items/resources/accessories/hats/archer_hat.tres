@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://3l0d1tcfoepx"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://3l0d1tcfoepx"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_uarig"]
 [ext_resource type="PackedScene" uid="uid://dpypc4xh1nsqs" path="res://models/accessories/hats/archer_hat/tt_m_chr_avt_acc_hat_robinHoodHat.glb" id="2_lak8w"]

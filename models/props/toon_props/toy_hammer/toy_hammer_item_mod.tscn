@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://15p6j6k3110c"]
+[gd_scene format=3 uid="uid://15p6j6k3110c"]
 
 [ext_resource type="PackedScene" uid="uid://c1o3q1hgrjs0y" path="res://models/props/toon_props/toy_hammer/toyHammer.glb" id="1_dvi5l"]
 

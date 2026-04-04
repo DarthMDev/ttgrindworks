@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://yxu25u6bk3mo"]
+[gd_scene format=3 uid="uid://yxu25u6bk3mo"]
 
 [ext_resource type="Texture2D" uid="uid://dyks22nwfa2ow" path="res://ui_assets/battle/gag_button/InventoryButtonUp.png" id="1_1utcq"]
 [ext_resource type="Texture2D" uid="uid://bry0lwouy0leq" path="res://ui_assets/battle/gag_button/InventoryButtonDown.png" id="2_0j5m3"]

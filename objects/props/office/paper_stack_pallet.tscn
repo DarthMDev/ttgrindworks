@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsov0c5ailqgh"]
+[gd_scene format=3 uid="uid://bsov0c5ailqgh"]
 
 [ext_resource type="PackedScene" uid="uid://cc3cl0ysiuupf" path="res://models/props/facility_objects/da_office/paper_stack_pallet/paper_stack_pallet.fbx" id="1_jmgyo"]
 

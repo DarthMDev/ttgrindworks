@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://g50de2joqp6k"]
+[gd_scene format=3 uid="uid://g50de2joqp6k"]
 
 [ext_resource type="Texture2D" uid="uid://d0hyk56ofpvrm" path="res://ui_assets/battle/target_select/ToonBtl_Status_BG.png" id="1_1tuon"]
 [ext_resource type="Script" uid="uid://twsu6btug060" path="res://objects/battle/battle_ui/cog_panel.gd" id="2_luwxf"]

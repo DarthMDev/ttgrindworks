@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DropSmall" load_steps=6 format=3 uid="uid://bsbidil8mdrcx"]
+
+[ext_resource type="Texture2D" uid="uid://dqtqf65k6nxi8" path="res://ui_assets/battle/gags/inventory_anvil.png" id="1_mw1px"]
+[ext_resource type="PackedScene" uid="uid://bbrcfwwkp3uhk" path="res://models/props/gags/anvil/anvil.tscn" id="2_v2ahf"]
+[ext_resource type="Script" uid="uid://dehi0sbejfe52" path="res://objects/battle/battle_resources/toon_attacks/drop_small.gd" id="3_kp0gu"]
+[ext_resource type="AudioStream" uid="uid://omjhv7l4ctpi" path="res://audio/sfx/battle/gags/drop/AA_drop_anvil.ogg" id="4_7m0ro"]
+[ext_resource type="AudioStream" uid="uid://bj15l5kuxgkny" path="res://audio/sfx/battle/gags/drop/AA_drop_anvil_miss.ogg" id="5_abi3b"]
+
+[resource]
+script = ExtResource("3_kp0gu")
+model = ExtResource("2_v2ahf")
+shadow_scale = 1.5
+sfx_hit = ExtResource("4_7m0ro")
+sfx_miss = ExtResource("5_abi3b")
+icon = ExtResource("1_mw1px")
+damage = 20
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Anvil"
+one_time_use = false

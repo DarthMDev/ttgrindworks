@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dr8qrxcwdycmu"]
+[gd_scene format=4 uid="uid://dr8qrxcwdycmu"]
 
 [ext_resource type="PackedScene" uid="uid://kb8bqj0tpkgg" path="res://models/props/toon_props/philosophers_stone/philosophersStone.fbx" id="1_5ovl1"]
 [ext_resource type="PackedScene" uid="uid://b1ebxidhw6o1q" path="res://objects/battle/effects/pixie_dust/pixie_dust.tscn" id="2_vgti3"]

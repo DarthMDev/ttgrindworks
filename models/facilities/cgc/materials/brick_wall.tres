@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvyjl4cr52ulo"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvyjl4cr52ulo"]
 
 [ext_resource type="Texture2D" uid="uid://cjd18xmoljlbm" path="res://models/facilities/cgc/textures/WallBricksBig2.png" id="1_2yo6g"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bkd63g5wly23q"]
+[gd_resource type="Resource" format=3 uid="uid://bkd63g5wly23q"]
 
 [ext_resource type="Script" uid="uid://boqyiu6xgabwa" path="res://objects/battle/battle_resources/misc_movies/whistleblower/compensation.gd" id="1_oldkh"]
 

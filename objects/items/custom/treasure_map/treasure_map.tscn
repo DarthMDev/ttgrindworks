@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://iooedglblfmw"]
+[gd_scene format=3 uid="uid://iooedglblfmw"]
 
 [ext_resource type="PackedScene" uid="uid://d5evl8gp74kq" path="res://models/props/toon_props/treasure_map/trimap.fbx" id="1_l1q5e"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dxpqtt8gh5brv"]
+[gd_resource type="Resource" format=3 uid="uid://dxpqtt8gh5brv"]
 
 [ext_resource type="Script" uid="uid://xaes6j4t2nyu" path="res://objects/battle/battle_resources/cog_attacks/finger_wag.gd" id="1_r5atw"]
 

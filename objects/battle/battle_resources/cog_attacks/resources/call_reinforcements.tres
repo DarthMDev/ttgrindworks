@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bu2vv1aru6dpg"]
+[gd_resource type="Resource" format=3 uid="uid://bu2vv1aru6dpg"]
 
 [ext_resource type="Script" uid="uid://c6itql0dvd0fk" path="res://objects/battle/battle_resources/cog_attacks/reinforcement_call.gd" id="1_1hl4t"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://b0yukeltb8cpc"]
+[gd_scene format=4 uid="uid://b0yukeltb8cpc"]
 
 [ext_resource type="Texture2D" uid="uid://btusl1iklmuqe" path="res://models/toon/head/rabbit/rabbit_heads_0.png" id="1_u1cjq"]
 [ext_resource type="Texture2D" uid="uid://b73a4p2qveak1" path="res://models/toon/head/rabbit/rabbit_heads_1.png" id="2_epa3l"]

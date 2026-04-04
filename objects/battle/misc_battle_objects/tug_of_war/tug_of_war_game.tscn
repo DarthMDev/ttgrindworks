@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6xqpo2ctgbl3"]
+[gd_scene format=3 uid="uid://6xqpo2ctgbl3"]
 
 [ext_resource type="Texture2D" uid="uid://6jo5d4qtcd44" path="res://ui_assets/general/panel.png" id="1_308od"]
 [ext_resource type="Script" uid="uid://eb8u3gmcco24" path="res://objects/battle/misc_battle_objects/tug_of_war/tug_of_war_game.gd" id="1_ejyxt"]

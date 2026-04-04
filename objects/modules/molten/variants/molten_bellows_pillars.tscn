@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bd524gtya7yfm"]
+[gd_scene format=3 uid="uid://bd524gtya7yfm"]
 
 [ext_resource type="PackedScene" uid="uid://yoiyquggqfjn" path="res://objects/modules/molten/base_rooms/molten_bellows_pillars.tscn" id="1_dbwyy"]
 [ext_resource type="Script" uid="uid://bamuflr0smt7f" path="res://objects/modules/molten/variants/molten_bellows_pillars.gd" id="2_upbiw"]

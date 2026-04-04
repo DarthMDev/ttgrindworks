@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://6hjcsu17tt4g"]
+[gd_resource type="Resource" format=3 uid="uid://6hjcsu17tt4g"]
 
 [ext_resource type="Script" uid="uid://cvbmppwfs711e" path="res://objects/battle/battle_resources/cog_attacks/liquidate.gd" id="1_gxmhg"]
 [ext_resource type="PackedScene" uid="uid://d03k2e6a74tko" path="res://objects/battle/effects/cloud_attacks/brain_storm.tscn" id="1_tmsix"]

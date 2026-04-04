@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://djgtifqmvstid"]
+
+[ext_resource type="Shader" uid="uid://dpvg2mulw7ypl" path="res://objects/items/custom/rainbow_jellybean/rainbow_bean_3d.gdshader" id="1_oqyiy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_oqyiy")
+shader_parameter/density = 0.05200000247
+shader_parameter/speed = 0.2000000095
