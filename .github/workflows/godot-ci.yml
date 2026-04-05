@@ -4,7 +4,7 @@ on: push
 # NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
 
 env:
-  GODOT_VERSION: 4.5.1
+  GODOT_VERSION: 4.6.2
   EXPORT_NAME: ttgrindworks
   PROJECT_PATH: .
 
@@ -13,7 +13,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
     container:
-      image: barichello/godot-ci:4.5.1
+      image: barichello/godot-ci:4.6.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
     container:
-      image: barichello/godot-ci:4.5.1
+      image: barichello/godot-ci:4.6.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -68,7 +68,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
     container:
-      image: barichello/godot-ci:4.5.1
+      image: barichello/godot-ci:4.6.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
