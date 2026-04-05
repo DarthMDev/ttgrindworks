@@ -94,10 +94,10 @@ shadow_size = 4
 shadow_color = Color(0, 0.0253333, 0.19, 0.501961)
 
 [sub_resource type="Resource" id="Resource_ttvt2"]
-resource_name = "Evan"
+resource_name = "Chloe"
 script = ExtResource("3_ksngi")
 icon = ExtResource("4_bsh7l")
-name = "Evan"
+name = "Chloe"
 role = "Project Lead, Programmer & Game Designer"
 label_settings = SubResource("LabelSettings_yadbj")
 
@@ -794,7 +794,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ef8ac"]
 font = ExtResource("3_8rgp0")
 
-[node name="CreditsPanel" instance=ExtResource("1_py1ix")]
+[node name="CreditsPanel" unique_id=786446578 instance=ExtResource("1_py1ix")]
 offset_left = -254.0
 offset_top = -260.0
 offset_right = 254.0
@@ -830,7 +830,7 @@ text = ""
 [node name="CancelButton" parent="Panel" index="2"]
 font_size = 36.0
 
-[node name="CreditWindow" type="Control" parent="Panel" index="3"]
+[node name="CreditWindow" type="Control" parent="Panel" index="3" unique_id=709393941]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -844,7 +844,7 @@ offset_bottom = 220.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CreditWindow" index="0"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CreditWindow" index="0" unique_id=1437054662]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -853,14 +853,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("24_gujno")
 
-[node name="CreditContainer" type="VBoxContainer" parent="Panel/CreditWindow/ScrollContainer" index="0"]
+[node name="CreditContainer" type="VBoxContainer" parent="Panel/CreditWindow/ScrollContainer" index="0" unique_id=1885955193]
 layout_mode = 2
 
-[node name="HSizer" type="Control" parent="Panel/CreditWindow/ScrollContainer/CreditContainer" index="0"]
+[node name="HSizer" type="Control" parent="Panel/CreditWindow/ScrollContainer/CreditContainer" index="0" unique_id=392514412]
 custom_minimum_size = Vector2(418, 0)
 layout_mode = 2
 
-[node name="CreditTemplate" type="HBoxContainer" parent="." index="2"]
+[node name="CreditTemplate" type="HBoxContainer" parent="." index="2" unique_id=576185377]
 visible = false
 texture_filter = 2
 layout_mode = 0
@@ -869,27 +869,27 @@ offset_top = 106.0
 offset_right = 446.0
 offset_bottom = 170.0
 
-[node name="Icon" type="TextureRect" parent="CreditTemplate" index="0"]
+[node name="Icon" type="TextureRect" parent="CreditTemplate" index="0" unique_id=1457555798]
 texture_filter = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_s4vxw")
 expand_mode = 1
 
-[node name="LabelContainer" type="VBoxContainer" parent="CreditTemplate" index="1"]
+[node name="LabelContainer" type="VBoxContainer" parent="CreditTemplate" index="1" unique_id=567858917]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="CreditTemplate/LabelContainer" index="0"]
+[node name="Name" type="Label" parent="CreditTemplate/LabelContainer" index="0" unique_id=1935931090]
 layout_mode = 2
 text = "Namey McPersonson"
 label_settings = SubResource("LabelSettings_pa3ay")
 
-[node name="Role" type="Label" parent="CreditTemplate/LabelContainer" index="1"]
+[node name="Role" type="Label" parent="CreditTemplate/LabelContainer" index="1" unique_id=1020611564]
 layout_mode = 2
 text = "Game Designer"
 label_settings = SubResource("LabelSettings_aj6wg")
 
-[node name="AnimatedCredit" type="HBoxContainer" parent="." index="3"]
+[node name="AnimatedCredit" type="HBoxContainer" parent="." index="3" unique_id=716721896]
 unique_name_in_owner = true
 visible = false
 texture_filter = 2
@@ -900,32 +900,32 @@ offset_right = 446.0
 offset_bottom = 170.0
 script = SubResource("GDScript_hqko8")
 
-[node name="Animation" type="AnimatedSprite2D" parent="AnimatedCredit" index="0"]
+[node name="Animation" type="AnimatedSprite2D" parent="AnimatedCredit" index="0" unique_id=1482228534]
 position = Vector2(32, 33)
 scale = Vector2(0.0107239, 0.0107239)
 autoplay = "default"
 
-[node name="Icon" type="TextureRect" parent="AnimatedCredit" index="1"]
+[node name="Icon" type="TextureRect" parent="AnimatedCredit" index="1" unique_id=1782606438]
 texture_filter = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_s4vxw")
 expand_mode = 1
 
-[node name="LabelContainer" type="VBoxContainer" parent="AnimatedCredit" index="2"]
+[node name="LabelContainer" type="VBoxContainer" parent="AnimatedCredit" index="2" unique_id=409895197]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="AnimatedCredit/LabelContainer" index="0"]
+[node name="Name" type="Label" parent="AnimatedCredit/LabelContainer" index="0" unique_id=387053523]
 layout_mode = 2
 text = "Namey McPersonson"
 label_settings = SubResource("LabelSettings_pa3ay")
 
-[node name="Role" type="Label" parent="AnimatedCredit/LabelContainer" index="1"]
+[node name="Role" type="Label" parent="AnimatedCredit/LabelContainer" index="1" unique_id=1158175339]
 layout_mode = 2
 text = "Game Designer"
 label_settings = SubResource("LabelSettings_aj6wg")
 
-[node name="ThanksLabel" type="Label" parent="." index="4"]
+[node name="ThanksLabel" type="Label" parent="." index="4" unique_id=434149917]
 visible = false
 layout_mode = 0
 offset_left = 28.0
@@ -936,7 +936,7 @@ text = "Special Thanks"
 label_settings = SubResource("LabelSettings_mbtjq")
 horizontal_alignment = 1
 
-[node name="FakeoutCredit" type="HBoxContainer" parent="." index="5"]
+[node name="FakeoutCredit" type="HBoxContainer" parent="." index="5" unique_id=216151360]
 visible = false
 layout_mode = 0
 offset_left = 234.91
@@ -944,21 +944,21 @@ offset_top = 255.985
 offset_right = 652.91
 offset_bottom = 322.985
 
-[node name="Icon" type="TextureRect" parent="FakeoutCredit" index="0"]
+[node name="Icon" type="TextureRect" parent="FakeoutCredit" index="0" unique_id=163702104]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("22_x0h0m")
 expand_mode = 1
 
-[node name="LabelContainer" type="VBoxContainer" parent="FakeoutCredit" index="1"]
+[node name="LabelContainer" type="VBoxContainer" parent="FakeoutCredit" index="1" unique_id=584515084]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="FakeoutCredit/LabelContainer" index="0"]
+[node name="Name" type="Label" parent="FakeoutCredit/LabelContainer" index="0" unique_id=1800581085]
 layout_mode = 2
 text = "You!"
 label_settings = SubResource("LabelSettings_fwgh3")
 
-[node name="GeneralButton" parent="FakeoutCredit/LabelContainer" index="1" instance=ExtResource("23_dkcqs")]
+[node name="GeneralButton" parent="FakeoutCredit/LabelContainer" index="1" unique_id=668617 instance=ExtResource("23_dkcqs")]
 custom_minimum_size = Vector2(90.985, 32)
 layout_mode = 2
 texture_normal = ExtResource("24_kw4b7")
@@ -972,7 +972,7 @@ font_size = 16.0
 text = "Really?"
 label_settings = SubResource("LabelSettings_ef8ac")
 
-[node name="Role" type="Label" parent="FakeoutCredit/LabelContainer" index="2"]
+[node name="Role" type="Label" parent="FakeoutCredit/LabelContainer" index="2" unique_id=471614295]
 visible = false
 layout_mode = 2
 text = "No, not you. The guy behind you."

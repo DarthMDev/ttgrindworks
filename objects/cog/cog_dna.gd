@@ -112,10 +112,19 @@ func get_head() -> Node3D:
 	
 	return head_mod
 
+## Names of external asset names to include from the second DNA
+const EXTERNAL_DNA_INCLUSION: Array[String] = [
+	'baked_status_effects',
+	'status_effects',
+	'head_model',
+	'head_textures',
+]
 func combine_attributes(second_dna: CogDNA) -> void:
 	# Copy certain attributes from the second DNA to self
 	head = second_dna.head
-	external_assets = second_dna.external_assets
+	for included_external_asset in EXTERNAL_DNA_INCLUSION:
+		if second_dna.external_assets.has(included_external_asset):
+			external_assets[included_external_asset] = second_dna.external_assets[included_external_asset]
 	head_textures = second_dna.head_textures
 	hand_color = second_dna.hand_color
 	if not second_dna.head_color == Color.WHITE:

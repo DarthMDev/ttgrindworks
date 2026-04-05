@@ -274,7 +274,6 @@ func do_end_cutscene() -> Tween:
 	# Do animation
 	movie.tween_callback(skull_dude.speak.bind("WARNING. WARNING. FIREWALL HAS BEEN DISENGAGED."))
 	movie.tween_callback(skull_dude.set_animation.bind('death'))
-	movie.tween_callback(AudioManager.set_clip.bind(12))
 	movie.tween_interval(3.0)
 	movie.tween_callback(skull_dude.speak.bind("IMPOSSIBLE OUTCOME REACHED."))
 	movie.tween_interval(3.0)
@@ -290,6 +289,56 @@ func do_end_cutscene() -> Tween:
 	movie.tween_property(painting, 'rotation_degrees:y', 0.0, 2.0)
 	movie.parallel().tween_property(screen.get_surface_override_material(0), 'albedo_color', Color.BLACK, 0.1)
 	#movie.parallel().tween_property(tv_static.get_surface_override_material(0), 'albedo_color', Color.BLACK, 0.1)
+	
+	# Cleanup
+	movie.tween_callback(CameraTransition.from_current.bind(self, player.camera.camera, 4.0))
+	movie.tween_interval(4.0)
+	movie.tween_callback(player.camera.make_current)
+	movie.tween_callback(func(): player.state = Player.PlayerState.WALK)
+	movie.tween_callback(func(): player.game_timer_tick = true)
+	movie.finished.connect(movie.kill)
+	
+	return movie
+
+func do_early_win() -> Tween:
+	var player := Util.get_player()
+	
+	# Reset skull rotation
+	watch_player = false
+	
+	AudioManager.set_clip(phase_music_clips[transition_count - 1])
+
+
+	## MOVIE START
+	var movie := create_tween()
+	
+	# Setup
+	movie.tween_callback(func(): Util.stuck_lock = false)
+	movie.tween_callback(func(): player.game_timer_tick = false)
+	movie.tween_callback(camera.set_global_transform.bind(get_camera_angle('SkullFocus').global_transform))
+	movie.tween_callback(camera.make_current)
+	movie.tween_callback(func(): player.state = Player.PlayerState.STOPPED)
+	movie.tween_callback(player.set_animation.bind('neutral'))
+	
+	# Dialogue
+	movie.tween_callback(AudioManager.set_clip.bind(12))
+	movie.tween_callback(skull_dude.set_animation.bind('death'))
+	movie.tween_callback(skull_dude.speak.bind("ERROR: TOON HAS FULLY CLEARED PUZZLE BOARD."))
+	movie.tween_interval(3.0)
+	movie.tween_callback(skull_dude.speak.bind("PROBABILITY THAT SUCCESS WAS DUE TO RANDOM CHANCE: ......0.06%."))
+	movie.tween_interval(3.0)
+	movie.tween_callback(skull_dude.speak.bind("COUNTERMEASURES DEEMED INSUFFICIENT. SHUTTING DOWN."))
+
+	# Move them walls down
+	movie.tween_property(%Walls, 'position:y', -4.197, 2.0)
+	movie.tween_callback(skull_dude.do_explosion)
+	movie.tween_callback(skull_dude.speak.bind("."))
+	
+	# Flip painting back around
+	movie.set_trans(Tween.TRANS_QUAD)
+	movie.set_ease(Tween.EASE_OUT)
+	movie.tween_property(painting, 'rotation_degrees:y', 0.0, 2.0)
+	movie.parallel().tween_property(screen.get_surface_override_material(0), 'albedo_color', Color.BLACK, 0.1)
 	
 	# Cleanup
 	movie.tween_callback(CameraTransition.from_current.bind(self, player.camera.camera, 4.0))

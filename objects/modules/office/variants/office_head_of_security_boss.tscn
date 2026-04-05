@@ -21,7 +21,7 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xknh6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftyqj"]
 resource_local_to_scene = true
 resource_name = "CBStationLightTubes.001"
 vertex_color_use_as_albedo = true
@@ -30,7 +30,7 @@ albedo_texture = ExtResource("3_sr1te")
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 0.25
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e43l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qx1ei"]
 resource_local_to_scene = true
 resource_name = "CogBldgEyes"
 vertex_color_use_as_albedo = true
@@ -83,110 +83,110 @@ font = ExtResource("13_ftyqj")
 font_size = 36
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="OfficeHeadOfSecurityBoss" instance=ExtResource("1_6t424")]
+[node name="OfficeHeadOfSecurityBoss" unique_id=174132829 instance=ExtResource("1_6t424")]
 script = ExtResource("2_gwvhn")
 
-[node name="AmbulanceChaserFrame" parent="." index="0"]
+[node name="AmbulanceChaserFrame" parent="." index="0" unique_id=622795060]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="BloodsuckerFrame" parent="." index="1"]
+[node name="BloodsuckerFrame" parent="." index="1" unique_id=2004609671]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Bookshelves" parent="." index="2"]
+[node name="Bookshelves" parent="." index="2" unique_id=877212611]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Building" parent="." index="3"]
+[node name="Building" parent="." index="3" unique_id=644166514]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Connector" parent="." index="4"]
+[node name="Connector" parent="." index="4" unique_id=2086186057]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Floor" parent="." index="6"]
+[node name="Floor" parent="." index="6" unique_id=2042049379]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="LB_LightPanel" parent="." index="7"]
+[node name="LB_LightPanel" parent="." index="7" unique_id=1862757902]
 unique_name_in_owner = true
 transform = Transform3D(256.704, 0, 0, 0, -4.20739e-06, 100, 0, -96.2538, -4.37114e-06, -21.0055, 9.57381, 0.00722647)
 surface_material_override/0 = null
-surface_material_override/2 = SubResource("StandardMaterial3D_xknh6")
+surface_material_override/2 = SubResource("StandardMaterial3D_ftyqj")
 
-[node name="LB_PictureFrame" parent="." index="8"]
+[node name="LB_PictureFrame" parent="." index="8" unique_id=1361519346]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Screen" parent="." index="9"]
+[node name="Screen" parent="." index="9" unique_id=241787782]
 unique_name_in_owner = true
-surface_material_override/0 = SubResource("StandardMaterial3D_2e43l")
+surface_material_override/0 = SubResource("StandardMaterial3D_qx1ei")
 
 [node name="EXIT" parent="." index="13"]
 visible = false
 
-[node name="Sofa" parent="." index="16"]
+[node name="Sofa" parent="." index="16" unique_id=1327772743]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Static" parent="." index="17"]
+[node name="Static" parent="." index="17" unique_id=1743201119]
 unique_name_in_owner = true
 surface_material_override/0 = SubResource("StandardMaterial3D_liuo2")
 
-[node name="TV" parent="." index="18"]
+[node name="TV" parent="." index="18" unique_id=1638164319]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="WindowShutters" parent="." index="19"]
+[node name="WindowShutters" parent="." index="19" unique_id=1515220535]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="WireHangers" parent="." index="20"]
+[node name="WireHangers" parent="." index="20" unique_id=737301605]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Wires" parent="." index="21"]
+[node name="Wires" parent="." index="21" unique_id=237939047]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Walls" type="Node3D" parent="." index="23"]
+[node name="Walls" type="Node3D" parent="." index="23" unique_id=1770749690]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -4.197, 0)
 visible = false
 
-[node name="WallFront" type="MeshInstance3D" parent="Walls" index="0"]
+[node name="WallFront" type="MeshInstance3D" parent="Walls" index="0" unique_id=1756948412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09624e-07, 2.00113, -13.9466)
 mesh = SubResource("QuadMesh_2e43l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallFront" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallFront" index="0" unique_id=515068959]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallFront/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallFront/StaticBody3D" index="0" unique_id=780965981]
 shape = SubResource("ConcavePolygonShape3D_gb0pg")
 
-[node name="WallBack" type="MeshInstance3D" parent="Walls" index="1"]
+[node name="WallBack" type="MeshInstance3D" parent="Walls" index="1" unique_id=889248652]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97892e-07, 2.00113, 15.9659)
 mesh = SubResource("QuadMesh_2e43l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBack" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/WallBack" index="0" unique_id=1319293132]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBack/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WallBack/StaticBody3D" index="0" unique_id=1132164483]
 shape = SubResource("ConcavePolygonShape3D_gb0pg")
 
-[node name="SkullActor" type="Node3D" parent="." index="24"]
+[node name="SkullActor" type="Node3D" parent="." index="24" unique_id=416026550]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7048, 9.582, 0)
 visible = false
 
-[node name="head_of_security" parent="SkullActor" index="0" instance=ExtResource("3_g3sbm")]
+[node name="head_of_security" parent="SkullActor" index="0" unique_id=1333237831 instance=ExtResource("3_g3sbm")]
 unique_name_in_owner = true
 
-[node name="office_elevator" parent="." index="25" instance=ExtResource("2_1f8b8")]
+[node name="office_elevator" parent="." index="25" unique_id=640376949 instance=ExtResource("2_1f8b8")]
 unique_name_in_owner = true
 transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -21.1426, 0.293851, 0)
 opened = false
 
-[node name="GeometryTransformHelper7" parent="office_elevator/LBElevator1/Doors/left_door" index="0"]
+[node name="GeometryTransformHelper7" parent="office_elevator/LBElevator1/Doors/left_door" parent_id_path=PackedInt32Array(640376949, 1247149068) index="0" unique_id=2107505788]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="GeometryTransformHelper8" parent="office_elevator/LBElevator1/Doors/right_door" index="0"]
+[node name="GeometryTransformHelper8" parent="office_elevator/LBElevator1/Doors/right_door" parent_id_path=PackedInt32Array(640376949, 2089828085) index="0" unique_id=49467709]
 material_overlay = SubResource("StandardMaterial3D_d65n6")
 
-[node name="Puzzle" type="Node3D" parent="." index="26"]
+[node name="Puzzle" type="Node3D" parent="." index="26" unique_id=1516079012]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.469, 0.25, -0.599)
 
-[node name="PuzzleBoss" type="Node3D" parent="Puzzle" index="0"]
+[node name="PuzzleBoss" type="Node3D" parent="Puzzle" index="0" unique_id=1478140410]
 unique_name_in_owner = true
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 18.495, 0.05, -8.45)
 script = ExtResource("4_gwvhn")
@@ -199,58 +199,58 @@ lose_type = 1
 should_heal_player = false
 metadata/_custom_type_script = "uid://wb1dvup51a1q"
 
-[node name="CameraAngles" type="Node3D" parent="." index="27"]
+[node name="CameraAngles" type="Node3D" parent="." index="27" unique_id=872090972]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.469, 0.25, -0.599)
 
-[node name="PaintingFocus" type="Camera3D" parent="CameraAngles" index="0"]
+[node name="PaintingFocus" type="Camera3D" parent="CameraAngles" index="0" unique_id=584538257]
 transform = Transform3D(0.0174524, 0, 0.999848, 0, 1, 0, -0.999848, 0, 0.0174524, -9.955, 9.345, 0.735)
 fov = 52.0
 
-[node name="SkullFocus" type="Camera3D" parent="CameraAngles" index="1"]
+[node name="SkullFocus" type="Camera3D" parent="CameraAngles" index="1" unique_id=13294167]
 transform = Transform3D(0.0174524, 0.382625, 0.923739, 0, 0.92388, -0.382683, -0.999848, 0.00667874, 0.0161239, -5, 6.25, 0.735)
 fov = 52.0
 
-[node name="SkullFurious" type="Camera3D" parent="CameraAngles" index="2"]
+[node name="SkullFurious" type="Camera3D" parent="CameraAngles" index="2" unique_id=59616099]
 transform = Transform3D(0.0174524, 0.382625, 0.923739, 0, 0.92388, -0.382683, -0.999848, 0.00667874, 0.0161239, -4, 5.5, 0.735)
 fov = 52.0
 
-[node name="CharPositions" type="Node3D" parent="." index="28"]
+[node name="CharPositions" type="Node3D" parent="." index="28" unique_id=200970378]
 unique_name_in_owner = true
 
-[node name="PuzzleStart" type="Node3D" parent="CharPositions" index="0"]
+[node name="PuzzleStart" type="Node3D" parent="CharPositions" index="0" unique_id=1034102240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0448, 0.29196, 0)
 
-[node name="CutsceneCamera" type="Camera3D" parent="." index="29"]
+[node name="CutsceneCamera" type="Camera3D" parent="." index="29" unique_id=1463433795]
 unique_name_in_owner = true
 fov = 52.0
 
-[node name="PlayerDetection" type="Area3D" parent="." index="30"]
+[node name="PlayerDetection" type="Area3D" parent="." index="30" unique_id=1791616095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6896, 0.79196, 0)
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" index="0" unique_id=1671991155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.21631, 0)
 shape = SubResource("BoxShape3D_4l7jw")
 
-[node name="CogDoor" parent="." index="31" instance=ExtResource("9_g3sbm")]
+[node name="CogDoor" parent="." index="31" unique_id=1144719732 instance=ExtResource("9_g3sbm")]
 unique_name_in_owner = true
 transform = Transform3D(-3.91217e-08, 0, -1, 0, 1, 0, 0.895, 0, -4.37114e-08, 22.0751, 0.313586, 0)
 
-[node name="Props" type="Node3D" parent="." index="32"]
+[node name="Props" type="Node3D" parent="." index="32" unique_id=1420289871]
 
-[node name="Bookshelves" type="Node3D" parent="Props" index="0"]
+[node name="Bookshelves" type="Node3D" parent="Props" index="0" unique_id=3568870]
 transform = Transform3D(-9.83506e-08, 0, -2.25, 0, 2.25, 0, 2.25, 0, -9.83506e-08, 20.8452, -8.9407e-08, -5.36175)
 
-[node name="BossChestGroup" parent="." index="33" instance=ExtResource("10_gb0pg")]
+[node name="BossChestGroup" parent="." index="33" unique_id=1845787565 instance=ExtResource("10_gb0pg")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.481, 0.33, 0)
 automatic = false
 
-[node name="DebugPlayerPositionMarker" parent="." index="34" instance=ExtResource("10_2e43l")]
+[node name="DebugPlayerPositionMarker" parent="." index="34" unique_id=1316122905 instance=ExtResource("10_2e43l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2533, 0, 0)
 
-[node name="SkipButton" parent="." index="35" instance=ExtResource("12_lgq1c")]
+[node name="SkipButton" parent="." index="35" unique_id=421204232 instance=ExtResource("12_lgq1c")]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 3
@@ -271,7 +271,7 @@ font_size = 36.0
 text = "Skip"
 label_settings = SubResource("LabelSettings_qx1ei")
 
-[node name="TextSprawl" parent="." index="36" instance=ExtResource("14_ftyqj")]
+[node name="TextSprawl" parent="." index="36" unique_id=1914842822 instance=ExtResource("14_ftyqj")]
 unique_name_in_owner = true
 visible = false
 offset_top = 142.0

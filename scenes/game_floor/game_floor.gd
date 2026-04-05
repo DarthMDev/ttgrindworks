@@ -202,7 +202,7 @@ func spawn_player(player: Player) -> void:
 	player.recenter_camera(true)
 
 func get_random_connector_room() -> PackedScene:
-	return load(floor_rooms.connectors[randi() % floor_rooms.connectors.size()])
+	return load(RNG.channel(&'connector_rooms').pick_random(floor_rooms.connectors))
 
 func inject_room_pack(dept_floor: DepartmentFloor, room_pack: RoomPack) -> void:
 	var room_types: Dictionary[String, String] = {

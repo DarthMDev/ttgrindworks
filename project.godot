@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Toontown: The Grindworks"
-config/version="1.2.6"
+config/version="1.2.7"
 run/main_scene="uid://lxi0qm8aebs1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cgljrd8dis8an"

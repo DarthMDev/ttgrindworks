@@ -50,13 +50,11 @@ func get_current_battle() -> BattleManager:
 	return null
 
 func battle_started(battle: BattleManager) -> void:
-	var battle_ui: BattleUI = battle.battle_ui
-	battle_ui.s_turn_complete.connect(scan_gags)
+	battle.s_action_started.connect(on_action_start)
 
-func scan_gags(gags: Array[ToonAttack]) -> void:
-	for gag in gags:
-		if gag is GagTrap:
-			gag.s_activate.connect(add_booster)
+func on_action_start(action: BattleAction) -> void:
+	if action is GagTrap:
+		action.s_activate.connect(add_booster)
 
 func add_booster() -> void:
 	var boost_stats = BOOST_STATS.duplicate(true)

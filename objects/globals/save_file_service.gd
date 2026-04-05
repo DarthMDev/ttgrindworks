@@ -11,6 +11,8 @@ const RUN_FILE_NAME := 'current_save.tres'
 const GLOBALSAVE_FILE_NAME := 'progress.tres'
 const SETTINGS_FILE_NAME := 'settings.tres'
 const SCREENSHOTS_PATH := 'user://screenshots'
+const BACKUPS_PATH := 'user://save/backups/'
+const BACKUP_COUNT := 3
 var ACHIEVEMENT_UI: PackedScene
 var SAVE_GAME_TEXT: PackedScene
 
@@ -52,12 +54,13 @@ func _save_run() -> void:
 	run_file.save_to(RUN_FILE_NAME)
 	print("Run file saved")
 
-
 func _save_progress() -> void:
+	audit_backups(SAVE_FILE_PATH + GLOBALSAVE_FILE_NAME)
 	progress_file.save_to(GLOBALSAVE_FILE_NAME)
 	print("Progress file saved")
 
 func save_settings() -> void:
+	audit_backups(SAVE_FILE_PATH + SETTINGS_FILE_NAME)
 	settings_file.save_to(SETTINGS_FILE_NAME)
 	print("Settings file saved")
 	SaveFileService.s_settings_changed.emit()
@@ -67,6 +70,22 @@ func get_player_state() -> PlayerStats:
 		return Util.get_player().stats
 	else:
 		return null
+
+func audit_backups(file_path: String) -> void:
+	if not FileAccess.file_exists(file_path):
+		return
+	var extension := file_path.get_extension()
+	var file_name := file_path.get_file().trim_suffix(".%s" % extension)
+	for i in range(BACKUP_COUNT - 1, 0, -1):
+		var backup_file := BACKUPS_PATH + file_name + str(i) + "." + extension
+		if FileAccess.file_exists(backup_file):
+			var new_name := BACKUPS_PATH + file_name + str(i + 1) + "." + extension
+			DirAccess.rename_absolute(backup_file, new_name)
+	
+	# Copy the current file into the first backup slot
+	var new_backup := BACKUPS_PATH + file_name + "1." + extension
+	DirAccess.copy_absolute(file_path, new_backup)
+
 
 func delete_run_file() -> void:
 	if FileAccess.file_exists(SAVE_FILE_PATH+RUN_FILE_NAME):
@@ -78,6 +97,8 @@ func delete_run_file() -> void:
 func _ready():
 	if not DirAccess.dir_exists_absolute(SAVE_FILE_PATH):
 		DirAccess.make_dir_absolute(SAVE_FILE_PATH)
+	if not DirAccess.dir_exists_absolute(BACKUPS_PATH):
+		DirAccess.make_dir_absolute(BACKUPS_PATH)
 	
 	# Load our progress
 	var progress_result := load_progress()
@@ -175,7 +196,7 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		_save_progress()
 
-func make_progress(property : String, value : Variant) -> void:
+func make_progress(property: String, value: Variant) -> void:
 	if property in progress_file:
 		progress_file.set(property, value)
 
@@ -194,7 +215,7 @@ func _show_save_text() -> void:
 func _on_tween_all_completed(save_text_instance):
 	save_text_instance.queue_free()
 
-func save_file_error(file_path : String) -> void:
+func save_file_error(file_path: String) -> void:
 	DirAccess.copy_absolute(file_path, file_path.trim_suffix(".tres") + "_BROKEN.tres")
 	DirAccess.remove_absolute(file_path)
 
@@ -214,7 +235,7 @@ func take_screenshot() -> void:
 	
 
 const SAVE_ERROR_PANEL := "res://objects/general_ui/ui_panel/misc_panels/save_error_panel/save_error_panel.tscn"
-func show_save_errors(invalid_paths : Array[String]) -> void:
+func show_save_errors(invalid_paths: Array[String]) -> void:
 	await get_tree().process_frame
 	var error_panel : UIPanel = GameLoader.load(SAVE_ERROR_PANEL).instantiate()
 	get_tree().get_root().add_child(error_panel)

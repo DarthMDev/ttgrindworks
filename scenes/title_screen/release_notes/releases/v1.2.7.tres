@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ReleaseNote" format=3 uid="uid://defkafmb4udc6"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_vp3gf"]
+
+[resource]
+script = ExtResource("1_vp3gf")
+release_version = "v1.2.7"
+notes = "[TITLE]Engine
+Updated to Godot version 4.6.2
+[TITLE]Bosses
+Fully clearing the Skull Finder round of the Head of Security boss fight will end the encounter without needing to face the following two rounds
+[TITLE]Tweaks
+The Organic Gags anomaly now applies a 10% boost to each gag track's effectiveness rather than just your Damage stat
+Added a backups system for save files, saving the three most recent versions of your settings and overall game progress
+  You can find them in the backups folder in the save directory
+The Clowns in the Faulty Factory feel approximately 10% funnier
+Made some visual improvements to the Doodle
+[TITLE]Bugfixes
+Fixed an issue where the \"I'm Stuck!\" button would appear during encounters with The Liquidator
+Fixed the inconsistent timing on the Evil Eye battle movie
+Fixed an issue where Clerk Clara's Trap boost would not apply to Trap gags upgraded by Mini Blinds
+Fixed a few issues where gag points could exceed the carry limit in battle
+Fixed an issue where HP Change text could appear in battle when no HP Change occurred, showing a \"0\"
+Custom Cogs' unique suit textures will no longer override the suit of the base Cog in The Faulty Factory
+Toon speech bubbles no longer animate with the Toon's body
+Connector rooms in facilities are now properly seeded
+[TITLE]For Modders
+The Null Cog department should now be functional"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

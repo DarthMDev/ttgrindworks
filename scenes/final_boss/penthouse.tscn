@@ -183,57 +183,57 @@ func _ready() -> void:
 script = ExtResource("2_bn0hh")
 possible_bosses = Array[ExtResource("3_pu03o")]([ExtResource("4_7haf7"), ExtResource("7_qh8x2"), ExtResource("6_76361"), ExtResource("7_y0ea0")])
 
-[node name="bossChair" parent="Grp_room/props_GRP" index="0"]
+[node name="bossChair" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="0" unique_id=1322688873]
 visible = false
 
-[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp" parent="Grp_room/props_GRP" index="8"]
+[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="8" unique_id=1843251780]
 surface_material_override/0 = SubResource("StandardMaterial3D_4lrhb")
 
-[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp1" parent="Grp_room/props_GRP" index="9"]
+[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp1" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="9" unique_id=806123493]
 surface_material_override/0 = SubResource("StandardMaterial3D_4lrhb")
 
-[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp2" parent="Grp_room/props_GRP" index="10"]
+[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp2" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="10" unique_id=1471653107]
 surface_material_override/0 = SubResource("StandardMaterial3D_4lrhb")
 
-[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp3" parent="Grp_room/props_GRP" index="11"]
+[node name="tt_m_ara_crg_floorLamp_wonky_floorLamp3" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="11" unique_id=657917297]
 surface_material_override/0 = SubResource("StandardMaterial3D_4lrhb")
 
-[node name="wires" parent="Grp_room/props_GRP" index="15"]
+[node name="wires" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="15" unique_id=1026740980]
 visible = false
 
-[node name="tubing" parent="Grp_room/props_GRP" index="16"]
+[node name="tubing" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="16" unique_id=1668758859]
 visible = false
 
-[node name="machine02" parent="Grp_room/props_GRP" index="19"]
+[node name="machine02" parent="Grp_room/props_GRP" parent_id_path=PackedInt32Array(611180784) index="19" unique_id=1144657301]
 visible = false
 
-[node name="Grp_collisions" parent="." index="1"]
+[node name="Grp_collisions" parent="." index="1" unique_id=1780402432]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Grp_collisions/pCube3" index="0" unique_id=297600123]
+[node name="StaticBody3D" type="StaticBody3D" parent="Grp_collisions/pCube3" parent_id_path=PackedInt32Array(1112709094) index="0" unique_id=297600123]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Grp_collisions/pCube3/StaticBody3D" index="0" unique_id=936420676]
 shape = SubResource("ConcavePolygonShape3D_3e38r")
 
-[node name="seq_node_flashON_GRP" parent="Grp_animation/seq_node_counterFlash_GRP" index="0"]
+[node name="seq_node_flashON_GRP" parent="Grp_animation/seq_node_counterFlash_GRP" parent_id_path=PackedInt32Array(1325234421) index="0" unique_id=653983247]
 visible = false
 
-[node name="flicker_02" parent="Grp_animation/seq_node_monitorFlicker_GRP" index="1"]
+[node name="flicker_02" parent="Grp_animation/seq_node_monitorFlicker_GRP" parent_id_path=PackedInt32Array(1472330012) index="1" unique_id=76763481]
 visible = false
 
-[node name="cloudAnimation_GRP" parent="Grp_animation" index="2"]
+[node name="cloudAnimation_GRP" parent="Grp_animation" parent_id_path=PackedInt32Array(1977994392) index="2" unique_id=59845244]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="toonCage" parent="Grp_animation" index="3"]
+[node name="toonCage" parent="Grp_animation" parent_id_path=PackedInt32Array(1977994392) index="3" unique_id=1471681731]
 surface_material_override/0 = SubResource("StandardMaterial3D_wvq2t")
 
-[node name="hook" parent="Grp_animation/toonCage" index="0"]
+[node name="hook" parent="Grp_animation/toonCage" index="0" unique_id=1588621754]
 surface_material_override/0 = SubResource("StandardMaterial3D_yckgi")
 
-[node name="cage" parent="Grp_animation/toonCage" index="1"]
+[node name="cage" parent="Grp_animation/toonCage" index="1" unique_id=63909939]
 surface_material_override/0 = SubResource("StandardMaterial3D_wvq2t")
 
-[node name="cage_door" parent="Grp_animation/toonCage" index="2"]
+[node name="cage_door" parent="Grp_animation/toonCage" index="2" unique_id=704119659]
 surface_material_override/0 = SubResource("StandardMaterial3D_wvq2t")
 
 [node name="CagedToon" parent="Grp_animation/toonCage" index="3" unique_id=1253004309 instance=ExtResource("5_s3u6r")]
@@ -246,14 +246,14 @@ environment = SubResource("Environment_7vej0")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.83145, -0.03319, 14.9418)
 monitoring = false
 
-[node name="frame" parent="ElevatorEntrance/unnamed1/Grp_elevatorB" index="2"]
+[node name="frame" parent="ElevatorEntrance/unnamed1/Grp_elevatorB" parent_id_path=PackedInt32Array(1423401555, 391697018) index="2" unique_id=234584926]
 visible = false
 
 [node name="ElevatorExit" parent="." index="6" unique_id=1276638388 instance=ExtResource("6_mrpky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83145, -0.03319, -14.9068)
 monitoring = false
 
-[node name="frame" parent="ElevatorExit/unnamed1/Grp_elevatorB" index="2"]
+[node name="frame" parent="ElevatorExit/unnamed1/Grp_elevatorB" parent_id_path=PackedInt32Array(1276638388, 391697018) index="2" unique_id=234584926]
 visible = false
 
 [node name="BattleNode" parent="." index="7" unique_id=1897449209 node_paths=PackedStringArray("cogs") instance=ExtResource("6_eqg7a")]

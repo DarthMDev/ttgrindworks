@@ -735,6 +735,15 @@ func finder_player_stepped_on(panel: PuzzlePanel) -> void:
 	if get_panel_coords(panel).y > finder_current_row:
 		finder_current_row = get_panel_coords(panel).y
 		s_finder_row_reached.emit(finder_current_row)
+	
+	# Check for full clear
+	for pnl in get_all_panels():
+		if pnl.panel_shape == PuzzlePanel.PanelShape.SQUARE:
+			if get_panel_coords(pnl) in finder_bombs:
+				continue
+			return
+	# We have full cleared the board. Epic win time.
+	do_early_win()
 
 func finder_check_panel(panel: PuzzlePanel, player_stepped := true) -> void:
 	var pos: Vector2i = finder_panels.get(panel)
@@ -780,5 +789,11 @@ func finder_end() -> void:
 
 func do_phase_transition() -> void:
 	await room_root.do_transition_cutscene().finished
+
+func do_early_win() -> void:
+	set_all_panel_shapes(PuzzlePanel.PanelShape.NOTHING)
+	await room_root.do_early_win().finished
+	s_win.emit()
+	queue_free()
 
 #endregion

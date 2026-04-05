@@ -3,5 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://bqwsksiexwsjb" path="res://scenes/game_floor/game_floor.tscn" id="1_fpnsp"]
 [ext_resource type="Resource" uid="uid://d3bnj680tmqdo" path="res://scenes/game_floor/floor_variants/base_floors/cog_golf_course.tres" id="2_p76an"]
 
-[node name="GameFloor" instance=ExtResource("1_fpnsp")]
+[node name="GameFloor" unique_id=1747344346 instance=ExtResource("1_fpnsp")]
 floor_variant = ExtResource("2_p76an")

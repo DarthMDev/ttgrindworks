@@ -75,9 +75,10 @@ func set_dna(dna: CogDNA):
 	var leg_tex: Texture2D
 	var dept = CogDNA.CogDept.keys()[int(dna.department)].to_lower()
 	# Get each texture
-	torso_tex = load("res://models/cogs/textures/" + dept + "/blazer.png")
-	sleeve_tex = load("res://models/cogs/textures/" + dept + "/sleeve.png")
-	leg_tex = load("res://models/cogs/textures/" + dept + "/leg.png")
+	if not dna.department == CogDNA.CogDept.NULL:
+		torso_tex = load("res://models/cogs/textures/" + dept + "/blazer.png")
+		sleeve_tex = load("res://models/cogs/textures/" + dept + "/sleeve.png")
+		leg_tex = load("res://models/cogs/textures/" + dept + "/leg.png")
 	
 	# Allow for custom textures
 	if get_custom_texture(dna, 'custom_arm_tex'):
@@ -107,7 +108,7 @@ func set_dna(dna: CogDNA):
 	# Get hand material
 	var hand_mat = hands.mesh.surface_get_material(0).duplicate(true)
 	# Apply custom texture
-	if dna.custom_hand_tex: hand_mat.albedo_texture = dna.custom_hand_tex
+	if dna.custom_hand_tex: hand_mat.albedo_texture = load(dna.custom_hand_tex)
 	# Change color
 	hand_mat.albedo_color = dna.hand_color
 	# Place mat on hand meshes
@@ -132,7 +133,7 @@ func set_dna(dna: CogDNA):
 	if dna.custom_wrist_tex:
 		var wrist_mat: StandardMaterial3D = wrists_and_shoes.mesh.surface_get_material(0).duplicate(true)
 		wrist_mat.albedo_texture = load(dna.custom_wrist_tex)
-		wrists_and_shoes.set_surface_override_material(1, wrist_mat)
+		wrists_and_shoes.set_surface_override_material(0, wrist_mat)
 	
 	for child in skeleton.get_children():
 		if child is MeshInstance3D:
@@ -189,4 +190,7 @@ static func get_custom_texture(dna : CogDNA, value : StringName) -> Texture2D:
 	return tex
 
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
+	# Return bossbot as failsafe
+	if dept == CogDNA.CogDept.NULL:
+		return load("res://models/cogs/misc/hp_light/boss.png")
 	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

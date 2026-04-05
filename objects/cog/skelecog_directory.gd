@@ -106,4 +106,7 @@ static func get_custom_texture(dna : CogDNA, value : StringName) -> Texture2D:
 	return tex
 
 static func get_department_emblem(dept: CogDNA.CogDept) -> Texture2D:
+	# Return bossbot as failsafe
+	if dept == CogDNA.CogDept.NULL:
+		return load("res://models/cogs/misc/hp_light/boss.png")
 	return load("res://models/cogs/misc/hp_light/" + Cog.get_department_name(dept) + ".png")

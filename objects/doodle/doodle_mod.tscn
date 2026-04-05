@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5piu0rn00rdp" path="res://models/doodle/doodle_beanMouth.png" id="4_ycfp2"]
 [ext_resource type="Texture2D" uid="uid://c3c0q7icf6uh6" path="res://models/doodle/BeanEyeBoys2.png" id="5_xe38q"]
 [ext_resource type="Texture2D" uid="uid://b5yo0h8no2wkj" path="res://models/doodle/doodle_BeanClownNosePink4.png" id="6_aldft"]
+[ext_resource type="Texture2D" uid="uid://dxhri8rinqsqu" path="res://models/doodle/BeanEyeBoysBlink.png" id="6_l8qhq"]
 [ext_resource type="Texture2D" uid="uid://dehkqmuhohyn4" path="res://models/doodle/doodle_BeanDogNose1.png" id="7_4rfhj"]
 [ext_resource type="Texture2D" uid="uid://cmqrht0bte78c" path="res://models/doodle/beanCatTail6.png" id="7_si4uv"]
 [ext_resource type="Texture2D" uid="uid://cacmqj4fvcy5n" path="res://models/doodle/doodle_BeanAntenna3.png" id="8_66xgy"]
@@ -374,6 +375,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8lla"]
+resource_local_to_scene = true
+resource_name = "pets_cvs_PICTURES_BeanEyeGirls2_picShader"
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("6_l8qhq")
+roughness = 0.552786
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4i6k6"]
 resource_name = "pets_cvs_PICTURES_beanMouth_picShader"
 cull_mode = 2
@@ -578,6 +587,7 @@ blend_shape_mode = 0
 resource_name = "pets_cvs_PICTURES_BeanEyebrow1_picShader"
 transparency = 4
 cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
 albedo_texture = ExtResource("11_jx3wb")
 roughness = 0.552786
 
@@ -628,6 +638,7 @@ blend_shape_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2v2l"]
 resource_name = "pets_cvs_PICTURES_BeaneyeHilites2_picShader"
+render_priority = 1
 transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("13_da1vg")
@@ -677,6 +688,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray("aUeVu8vn+z9YoMk+b74kPFLe5z9HxfE+8oz/PehH5z/QIeI+oaDhPWFR+z/h/Lk++pJjpgIcXkD6kmOmAhxeQPqSY6YCHF5A+pJjpgIcXkA=")
 }]
 blend_shape_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8qhq"]
+resource_local_to_scene = true
+resource_name = "pets_cvs_PICTURES_BeanEyePupils2_picShader"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("14_jcxy3")
+roughness = 0.552786
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6jh5"]
 resource_name = "pets_cvs_PICTURES_beanHornAll_picShader"
@@ -2609,7 +2628,7 @@ _data = {
 &"walk_sad": ExtResource("34_3618f")
 }
 
-[node name="doodle" type="Node3D" node_paths=PackedStringArray("noses", "ears", "tails", "colored_meshes", "shadow_bone")]
+[node name="doodle" type="Node3D" unique_id=794646308 node_paths=PackedStringArray("noses", "ears", "tails", "colored_meshes", "shadow_bone")]
 script = ExtResource("1_2mmrh")
 noses = [NodePath("TT_pets/Skeleton3D/TheClownNose"), NodePath("TT_pets/Skeleton3D/TheDogNose"), NodePath("TT_pets/Skeleton3D/TheOvalNose"), NodePath("TT_pets/Skeleton3D/ThePigNose")]
 ears = [NodePath("TT_pets/Skeleton3D/TheLRabbitEar"), NodePath("TT_pets/Skeleton3D/TheRRabbitEar"), NodePath("TT_pets/Skeleton3D/TheLCatEar"), NodePath("TT_pets/Skeleton3D/TheRCatEar"), NodePath("TT_pets/Skeleton3D/TheLDogEar"), NodePath("TT_pets/Skeleton3D/TheRDogEar"), NodePath("TT_pets/Skeleton3D/TheLAntenna"), NodePath("TT_pets/Skeleton3D/TheRAntenna"), NodePath("TT_pets/Skeleton3D/TheLHorn"), NodePath("TT_pets/Skeleton3D/TheRHorn")]
@@ -2617,154 +2636,10 @@ tails = [NodePath("TT_pets/Skeleton3D/BunnyTail"), NodePath("TT_pets/Skeleton3D/
 colored_meshes = [NodePath("TT_pets/Skeleton3D/TheBeanBody"), NodePath("TT_pets/Skeleton3D/TheLeftFoot"), NodePath("TT_pets/Skeleton3D/TheRightFoot"), NodePath("TT_pets/Skeleton3D/TheCatTail"), NodePath("TT_pets/Skeleton3D/BunnyTail"), NodePath("TT_pets/Skeleton3D/TheLongTail"), NodePath("TT_pets/Skeleton3D/TheLRabbitEar"), NodePath("TT_pets/Skeleton3D/TheRRabbitEar"), NodePath("TT_pets/Skeleton3D/TheLCatEar"), NodePath("TT_pets/Skeleton3D/TheRCatEar")]
 shadow_bone = NodePath("TT_pets/Skeleton3D/ShadowBone")
 
-[node name="TT_pets" type="Node3D" parent="."]
+[node name="TT_pets" type="Node3D" parent="." unique_id=274653432]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="BackSpine1" type="Node3D" parent="TT_pets"]
-
-[node name="BackSpine2" type="Node3D" parent="TT_pets"]
-
-[node name="BallR" type="Node3D" parent="TT_pets"]
-
-[node name="CONS_BasicPet" type="Node3D" parent="TT_pets"]
-
-[node name="CONS_Ears" type="Node3D" parent="TT_pets"]
-
-[node name="CONS_smile" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_AllBasic" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_Antennae" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_DogEars" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_RabbitEars" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_TheCatTail" type="Node3D" parent="TT_pets"]
-
-[node name="GEO_TheLongTail" type="Node3D" parent="TT_pets"]
-
-[node name="Head" type="Node3D" parent="TT_pets"]
-
-[node name="Jaw" type="Node3D" parent="TT_pets"]
-
-[node name="LAntenna1" type="Node3D" parent="TT_pets"]
-
-[node name="LAntennaBase" type="Node3D" parent="TT_pets"]
-
-[node name="LAntennaTip" type="Node3D" parent="TT_pets"]
-
-[node name="LBall" type="Node3D" parent="TT_pets"]
-
-[node name="LDogEar1" type="Node3D" parent="TT_pets"]
-
-[node name="LDogEar2" type="Node3D" parent="TT_pets"]
-
-[node name="LDogEarBase" type="Node3D" parent="TT_pets"]
-
-[node name="LEar1" type="Node3D" parent="TT_pets"]
-
-[node name="LEar2" type="Node3D" parent="TT_pets"]
-
-[node name="LEarBase" type="Node3D" parent="TT_pets"]
-
-[node name="LEarTip" type="Node3D" parent="TT_pets"]
-
-[node name="LegR" type="Node3D" parent="TT_pets"]
-
-[node name="LEyebrow" type="Node3D" parent="TT_pets"]
-
-[node name="LKnee" type="Node3D" parent="TT_pets"]
-
-[node name="LLeg" type="Node3D" parent="TT_pets"]
-
-[node name="LPupil" type="Node3D" parent="TT_pets"]
-
-[node name="LSmile" type="Node3D" parent="TT_pets"]
-
-[node name="MAIN" type="Node3D" parent="TT_pets"]
-
-[node name="Move_ALL" type="Node3D" parent="TT_pets"]
-
-[node name="RAntenna1" type="Node3D" parent="TT_pets"]
-
-[node name="RAntennaBase" type="Node3D" parent="TT_pets"]
-
-[node name="RAntennaTip" type="Node3D" parent="TT_pets"]
-
-[node name="RDogEar1" type="Node3D" parent="TT_pets"]
-
-[node name="RDogEar2" type="Node3D" parent="TT_pets"]
-
-[node name="RDogEarBase" type="Node3D" parent="TT_pets"]
-
-[node name="REar1" type="Node3D" parent="TT_pets"]
-
-[node name="REar2" type="Node3D" parent="TT_pets"]
-
-[node name="REarBase" type="Node3D" parent="TT_pets"]
-
-[node name="REarTip" type="Node3D" parent="TT_pets"]
-
-[node name="REyebrow" type="Node3D" parent="TT_pets"]
-
-[node name="RKnee" type="Node3D" parent="TT_pets"]
-
-[node name="ROT_TailBase" type="Node3D" parent="TT_pets"]
-
-[node name="RPupil" type="Node3D" parent="TT_pets"]
-
-[node name="RSmile" type="Node3D" parent="TT_pets"]
-
-[node name="SCALE_Pelvis" type="Node3D" parent="TT_pets"]
-
-[node name="SKELETON_All" type="Node3D" parent="TT_pets"]
-
-[node name="Tail1" type="Node3D" parent="TT_pets"]
-
-[node name="Tail2" type="Node3D" parent="TT_pets"]
-
-[node name="Tail3" type="Node3D" parent="TT_pets"]
-
-[node name="TailSpine1" type="Node3D" parent="TT_pets"]
-
-[node name="TailSpine2" type="Node3D" parent="TT_pets"]
-
-[node name="TailSpine3" type="Node3D" parent="TT_pets"]
-
-[node name="TailTip" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallBody" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallEyes" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallEyeWhites" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallEyeWhites1" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallMouth" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallMouth1" type="Node3D" parent="TT_pets"]
-
-[node name="TheBallMouth_1" type="Node3D" parent="TT_pets"]
-
-[node name="TheSquashBallBody" type="Node3D" parent="TT_pets"]
-
-[node name="TheSquashEyes" type="Node3D" parent="TT_pets"]
-
-[node name="TheStretchBallBody" type="Node3D" parent="TT_pets"]
-
-[node name="TheStretchEyes" type="Node3D" parent="TT_pets"]
-
-[node name="Tongue1" type="Node3D" parent="TT_pets"]
-
-[node name="Tongue2" type="Node3D" parent="TT_pets"]
-
-[node name="TongueBase" type="Node3D" parent="TT_pets"]
-
-[node name="TongueTip" type="Node3D" parent="TT_pets"]
-
-[node name="Skeleton3D" type="Skeleton3D" parent="TT_pets"]
+[node name="Skeleton3D" type="Skeleton3D" parent="TT_pets" unique_id=1571954360]
 bones/0/name = "attachNametag"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
@@ -3291,161 +3166,166 @@ bones/74/position = Vector3(0, 0, 0)
 bones/74/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/74/scale = Vector3(1, 1, 1)
 
-[node name="birdFeatherTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="birdFeatherTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1785386787]
 visible = false
 mesh = SubResource("ArrayMesh_e4np7")
 skin = SubResource("Skin_yuqre")
 
-[node name="BunnyTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="BunnyTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1422322467]
 visible = false
 mesh = SubResource("ArrayMesh_536an")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheBeanBody" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheBeanBody" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=443707437]
 mesh = SubResource("ArrayMesh_j4rl7")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheBeanEyes" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheBeanEyes" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=671080139]
 mesh = SubResource("ArrayMesh_5n0y7")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheBeanMouth" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="ClosedEyes" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=171777470]
+visible = false
+mesh = SubResource("ArrayMesh_5n0y7")
+skin = SubResource("Skin_yuqre")
+surface_material_override/0 = SubResource("StandardMaterial3D_k8lla")
+
+[node name="TheBeanMouth" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=2133649398]
 mesh = SubResource("ArrayMesh_vtl6n")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheBirdHeadFeathers" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheBirdHeadFeathers" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=615911551]
 visible = false
 mesh = SubResource("ArrayMesh_uno21")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheCatTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheCatTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1726903031]
 visible = false
 mesh = SubResource("ArrayMesh_ixwyc")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheClownNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheClownNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1076537376]
 visible = false
 mesh = SubResource("ArrayMesh_fjom2")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheDogNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheDogNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1321385597]
 visible = false
 mesh = SubResource("ArrayMesh_royvd")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLAntenna" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLAntenna" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1964838240]
 visible = false
 mesh = SubResource("ArrayMesh_8ao0g")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLCatEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLCatEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1092202547]
 visible = false
 mesh = SubResource("ArrayMesh_2xulk")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLDogEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLDogEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1429615062]
 visible = false
 mesh = SubResource("ArrayMesh_5dkfk")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLeftEyebrow" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLeftEyebrow" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1269237078]
 mesh = SubResource("ArrayMesh_421xk")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLeftFoot" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLeftFoot" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=202858504]
 mesh = SubResource("ArrayMesh_0dgx8")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLeftHiLite" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
-visible = false
+[node name="TheLeftHiLite" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1272847893]
 mesh = SubResource("ArrayMesh_m3gog")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLeftPupil" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLeftPupil" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1709580459]
 mesh = SubResource("ArrayMesh_ago1i")
 skin = SubResource("Skin_yuqre")
+surface_material_override/0 = SubResource("StandardMaterial3D_l8qhq")
 
-[node name="TheLHorn" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLHorn" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=543671468]
 visible = false
 mesh = SubResource("ArrayMesh_xjlnt")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLongTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLongTail" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=167260183]
 visible = false
 mesh = SubResource("ArrayMesh_2gjbn")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheLRabbitEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheLRabbitEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=957960431]
 visible = false
 mesh = SubResource("ArrayMesh_u7i2r")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheOvalNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheOvalNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1780389976]
 visible = false
 mesh = SubResource("ArrayMesh_j7fi8")
 skin = SubResource("Skin_yuqre")
 
-[node name="ThePigNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="ThePigNose" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=716860137]
 visible = false
 mesh = SubResource("ArrayMesh_baq6u")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRAntenna" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRAntenna" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1747792917]
 visible = false
 mesh = SubResource("ArrayMesh_elqrv")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRCatEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRCatEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=2094355686]
 visible = false
 mesh = SubResource("ArrayMesh_gaw8q")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRDogEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRDogEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1638085232]
 visible = false
 mesh = SubResource("ArrayMesh_s8mey")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRHorn" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRHorn" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1617977603]
 visible = false
 mesh = SubResource("ArrayMesh_wa3xu")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRightEyebrow" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRightEyebrow" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1679107072]
 mesh = SubResource("ArrayMesh_x8dbl")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRightFoot" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRightFoot" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1391737119]
 mesh = SubResource("ArrayMesh_kgyb5")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRightHiLite" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRightHiLite" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=662053590]
 mesh = SubResource("ArrayMesh_hqltr")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheRightPupil" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRightPupil" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=1626472324]
 mesh = SubResource("ArrayMesh_b505s")
 skin = SubResource("Skin_yuqre")
+surface_material_override/0 = SubResource("StandardMaterial3D_l8qhq")
 
-[node name="TheRRabbitEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheRRabbitEar" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=622275128]
 visible = false
 mesh = SubResource("ArrayMesh_vreas")
 skin = SubResource("Skin_yuqre")
 
-[node name="TheTongue" type="MeshInstance3D" parent="TT_pets/Skeleton3D"]
+[node name="TheTongue" type="MeshInstance3D" parent="TT_pets/Skeleton3D" unique_id=951341229]
 mesh = SubResource("ArrayMesh_mmw28")
 skin = SubResource("Skin_yuqre")
 
-[node name="ShadowBone" type="BoneAttachment3D" parent="TT_pets/Skeleton3D"]
+[node name="ShadowBone" type="BoneAttachment3D" parent="TT_pets/Skeleton3D" unique_id=1996461579]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 bone_name = "attachShadow"
 bone_idx = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nxukc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1280242200]
+libraries/ = SubResource("AnimationLibrary_nxukc")
 
-[node name="BlinkTimer" type="Timer" parent="."]
+[node name="BlinkTimer" type="Timer" parent="." unique_id=1381139001]
 wait_time = 8.0
 one_shot = true
 autostart = true

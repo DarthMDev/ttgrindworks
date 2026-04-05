@@ -2110,10 +2110,11 @@ _data = {
 &"walknreach": ExtResource("43_4bpsk")
 }
 
-[node name="suitb" node_paths=PackedStringArray("skeleton", "animator", "department_emblem", "health_meter", "nametag_node", "nametag", "head_node", "head_bone", "left_hand_bone", "right_hand_bone", "right_index_bone", "shadow_bone", "health_bone", "color_overlay_meshes") instance=ExtResource("1_4876t")]
+[node name="suitb" unique_id=1284424966 node_paths=PackedStringArray("skeleton", "animator", "wrists_and_shoes", "department_emblem", "health_meter", "nametag_node", "nametag", "head_node", "head_bone", "left_hand_bone", "right_hand_bone", "right_index_bone", "shadow_bone", "health_bone", "color_overlay_meshes") instance=ExtResource("1_4876t")]
 script = ExtResource("2_vk3iu")
 skeleton = NodePath("rig_deform/Skeleton3D")
 animator = NodePath("AnimationPlayer")
+wrists_and_shoes = NodePath("rig_deform/Skeleton3D/Object")
 department_emblem = NodePath("rig_deform/Skeleton3D/HealthBone/DeptEmblem")
 health_meter = NodePath("rig_deform/Skeleton3D/HealthBone/HpLight")
 nametag_node = NodePath("NameTag")
@@ -2127,7 +2128,7 @@ shadow_bone = NodePath("rig_deform/Skeleton3D/ShadowBone")
 health_bone = NodePath("rig_deform/Skeleton3D/HealthBone")
 color_overlay_meshes = [NodePath("rig_deform/Skeleton3D/arms"), NodePath("rig_deform/Skeleton3D/hands"), NodePath("rig_deform/Skeleton3D/legs"), NodePath("rig_deform/Skeleton3D/Object"), NodePath("rig_deform/Skeleton3D/torso")]
 
-[node name="Skeleton3D" parent="rig_deform" index="0"]
+[node name="Skeleton3D" parent="rig_deform" parent_id_path=PackedInt32Array(1495470051) index="0" unique_id=775655942]
 bones/4/rotation = Quaternion(-0.70710677, 8.545856e-07, 8.545856e-07, 0.70710677)
 bones/6/rotation = Quaternion(-0.70710677, -2.2705638e-08, -2.2705638e-08, 0.70710677)
 bones/7/rotation = Quaternion(-0.70710677, -8.545856e-07, -8.545856e-07, 0.70710677)
@@ -2137,59 +2138,57 @@ bones/28/rotation = Quaternion(-0.49780118, 0.49778157, 0.49778163, 0.5065777)
 bones/34/rotation = Quaternion(-0.70710677, 1.9549137e-07, 1.9549137e-07, 0.70710677)
 bones/43/rotation = Quaternion(-0.49780118, -0.49778157, -0.49778163, 0.5065777)
 
-[node name="HeadBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="5"]
+[node name="HeadBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="5" unique_id=1532298774]
 transform = Transform3D(0.9998898, -0.010448962, -0.010540224, 0.010446868, -0.008949161, 0.99990535, -0.010542299, -0.9999054, -0.00883901, 0.0045347447, 6.483595, 0.0008084276)
 bone_name = "ATTACH-head"
 bone_idx = 49
 
-[node name="HealthBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="6"]
+[node name="HealthBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="6" unique_id=1013509446]
 transform = Transform3D(1, -4.8182365e-14, 0, 0, 0, 1, -4.8182365e-14, -1, 0, 0, 5.179657, -0.73489827)
 bone_name = "ATTACH-meter"
 bone_idx = 18
 
-[node name="HpLight" parent="rig_deform/Skeleton3D/HealthBone" index="0" instance=ExtResource("9_scc6t")]
+[node name="HpLight" parent="rig_deform/Skeleton3D/HealthBone" index="0" unique_id=2013145314 instance=ExtResource("9_scc6t")]
 transform = Transform3D(-0.77, 1.16267e-07, 5.08218e-15, 0, -3.36578e-08, 0.77, 1.16267e-07, 0.77, 3.36578e-08, -0.02, 0.01, -0.03)
 visible = false
 mesh = SubResource("QuadMesh_sqfsj")
 surface_material_override/0 = SubResource("StandardMaterial3D_mg3tb")
 
-[node name="DeptEmblem" type="Sprite3D" parent="rig_deform/Skeleton3D/HealthBone" index="1"]
+[node name="DeptEmblem" type="Sprite3D" parent="rig_deform/Skeleton3D/HealthBone" index="1" unique_id=917286794]
 transform = Transform3D(-1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.01, 0)
 pixel_size = 0.003
 shaded = true
 texture = ExtResource("10_c5qto")
 
-[node name="LeftHandBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="7"]
+[node name="LeftHandBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="7" unique_id=2049970134]
 transform = Transform3D(1, 5.5293316e-07, 0, 0, 0, 1, 5.5293316e-07, -1, 0, -4.5037127, 6.009948, 0.35503194)
 bone_name = "ATTACH-hold.L"
 bone_idx = 19
 
-[node name="RightHandBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="8"]
+[node name="RightHandBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="8" unique_id=1851554010]
 transform = Transform3D(1, -5.5293316e-07, 0, 0, 0, 1, -5.5293316e-07, -1, 0, 4.5037127, 6.009948, 0.35503194)
 bone_name = "ATTACH-hold.R"
 bone_idx = 34
 
-[node name="RightIndexBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="9"]
+[node name="RightIndexBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="9" unique_id=1443736754]
 transform = Transform3D(0.008853913, 0.99992275, -0.008737475, -0.008737595, 0.008814872, 0.999923, 0.99992275, -0.008776904, 0.0088149905, 4.8069057, 6.1224, 0.0015128864)
 bone_name = "DEF-f_index.02.R"
 bone_idx = 43
 
-[node name="ShadowBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="10"]
+[node name="ShadowBone" type="BoneAttachment3D" parent="rig_deform/Skeleton3D" index="10" unique_id=337563107]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 bone_name = "ATTACH-shadow"
 bone_idx = 0
 
-[node name="AnimationPlayer" parent="." index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_wfm7p")
-}
+[node name="AnimationPlayer" parent="." index="1" unique_id=422864784]
+libraries/ = SubResource("AnimationLibrary_wfm7p")
 
-[node name="Head" type="Node3D" parent="." index="2"]
+[node name="Head" type="Node3D" parent="." index="2" unique_id=1409102584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.40951, 0)
 
-[node name="NameTag" type="Node3D" parent="." index="3"]
+[node name="NameTag" type="Node3D" parent="." index="3" unique_id=1375166447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4365, 0)
 top_level = true
 script = ExtResource("10_gny0p")
 
-[node name="CogNametag" parent="NameTag" index="0" instance=ExtResource("13_3psfa")]
+[node name="CogNametag" parent="NameTag" index="0" unique_id=1328853013 instance=ExtResource("13_3psfa")]

@@ -15,8 +15,11 @@ class_name Doodle
 @onready var skeleton := $TT_pets/Skeleton3D
 @onready var animator := $AnimationPlayer
 @onready var eye_mesh := $TT_pets/Skeleton3D/TheBeanEyes
-@onready var left_pupil := $TT_pets/LPupil
-@onready var right_pupil := $TT_pets/RPupil
+@onready var left_pupil := $TT_pets/Skeleton3D/TheLeftPupil
+@onready var right_pupil := $TT_pets/Skeleton3D/TheRightPupil
+@onready var left_highlight := $TT_pets/Skeleton3D/TheLeftHiLite
+@onready var right_highlight := $TT_pets/Skeleton3D/TheRightHiLite
+@onready var closed_eyes := $TT_pets/Skeleton3D/ClosedEyes
 @onready var body := $TT_pets/Skeleton3D/TheBeanBody
 @onready var blink_timer := $BlinkTimer
 @onready var hair : MeshInstance3D = $TT_pets/Skeleton3D/TheBirdHeadFeathers
@@ -68,6 +71,11 @@ func apply_dna():
 	body.set_surface_override_material(0,body.mesh.surface_get_material(0).duplicate(true))
 	body.get_surface_override_material(0).albedo_texture = dna.texture
 	
+	closed_eyes.get_surface_override_material(0).albedo_color = dna.color
+	left_pupil.get_surface_override_material(0).albedo_color = dna.color
+	if dna.eye_lashes:
+		closed_eyes.get_surface_override_material(0).albedo_texture = load("res://models/doodle/BeanEyeGirlsBlinkNew.png")
+	
 	for mesh in colored_meshes:
 		if not mesh.get_surface_override_material(0):
 			mesh.set_surface_override_material(0,mesh.mesh.surface_get_material(0).duplicate(true))
@@ -87,13 +95,17 @@ func blink():
 func close_eyes() -> void:
 	left_pupil.hide()
 	right_pupil.hide()
-	if eyes.size() > 1:
-		eye_mesh.get_surface_override_material(0).albedo_texture = eyes[1]
+	left_highlight.hide()
+	right_highlight.hide()
+	closed_eyes.show()
+	eye_mesh.hide()
 	eyes_open = false
 
 func open_eyes() -> void:
-	if not eyes.is_empty():
-		eye_mesh.get_surface_override_material(0).albedo_texture = eyes[0]
-		left_pupil.show()
-		right_pupil.show()
+	eye_mesh.show()
+	closed_eyes.hide()
+	left_pupil.show()
+	right_pupil.show()
+	left_highlight.show()
+	right_highlight.show()
 	eyes_open = true
