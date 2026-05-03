@@ -82,6 +82,7 @@ func hover_item() -> void:
 func complete_quest() -> void:
 	quest.item_reward.apply_item(Util.get_player())
 	s_quest_completed.emit()
+	Globals.s_quest_completed.emit()
 	reset_quest()
 
 func reroll_quest() -> void:

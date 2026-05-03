@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://uc6lmaoadv1p"]
+[gd_scene format=3 uid="uid://uc6lmaoadv1p"]
 
 [ext_resource type="PackedScene" uid="uid://djsp1edyihjnt" path="res://models/facilities/molten/molten_connector_straight.fbx" id="1_s388i"]
 [ext_resource type="Texture2D" uid="uid://xq7dvm0xhhhw" path="res://models/facilities/molten/textures/FINALFACTORY_9.png" id="2_10kov"]

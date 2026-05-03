@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh0hmi51080a6"]
+[gd_scene format=3 uid="uid://dh0hmi51080a6"]
 
 [ext_resource type="Texture2D" uid="uid://ctaua6ow4jask" path="res://ui_assets/stranger/trade_item_selection_bar.png" id="1_w37if"]
 [ext_resource type="Script" uid="uid://e0thj63tuh3q" path="res://objects/interactables/stranger/shop_ui/stranger_item_bar.gd" id="2_dk2hp"]

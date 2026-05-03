@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c642577lwnvot"]
+[gd_scene format=4 uid="uid://c642577lwnvot"]
 
 [ext_resource type="Texture2D" uid="uid://cyhmxktk82rwp" path="res://models/props/gags/cubes/cubes_juggling_cube_1.png" id="1_bh15u"]
 [ext_resource type="Texture2D" uid="uid://cca61qrvfggks" path="res://models/props/gags/cubes/cubes_juggling_cube_3.png" id="1_y3beu"]

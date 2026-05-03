@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://chehnymhm3svv"]
+[gd_scene format=3 uid="uid://chehnymhm3svv"]
 
 [ext_resource type="PackedScene" uid="uid://ils3ro658lhb" path="res://models/props/facility_objects/da_office/law_book/lawbook.glb" id="1_11st6"]
 

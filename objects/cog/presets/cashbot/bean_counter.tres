@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=8 format=3 uid="uid://c5hx67omlpw2u"]
+[gd_resource type="Resource" script_class="CogDNA" format=3 uid="uid://c5hx67omlpw2u"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_tf2qs"]
 [ext_resource type="Resource" uid="uid://bik8l6ycrnufq" path="res://objects/battle/battle_resources/cog_attacks/resources/calculate.tres" id="2_0t4gw"]

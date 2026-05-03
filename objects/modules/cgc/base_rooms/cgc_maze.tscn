@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vj40bldpstks"]
+[gd_scene format=3 uid="uid://vj40bldpstks"]
 
 [ext_resource type="PackedScene" uid="uid://cd5icrga08ox0" path="res://models/facilities/cgc/cgc_maze.fbx" id="1_es08k"]
 

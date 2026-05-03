@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bciqgx0fnsiw3"]
+[gd_resource type="Resource" format=3 uid="uid://bciqgx0fnsiw3"]
 
 [ext_resource type="Script" uid="uid://d2wvwyt7lhfoq" path="res://objects/battle/battle_resources/status_effects/status_effect_drenched.gd" id="1_5uj7t"]
 

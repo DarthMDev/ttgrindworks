@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SeltzerBottle" load_steps=3 format=3 uid="uid://l45knio5jpal"]
+
+[ext_resource type="Texture2D" uid="uid://br65lhmxanr63" path="res://ui_assets/battle/gags/inventory_seltzer_bottle.png" id="1_kad6d"]
+[ext_resource type="Script" uid="uid://bhbpv6eeiwsoj" path="res://objects/battle/battle_resources/toon_attacks/seltzer_bottle.gd" id="2_hsbcx"]
+
+[resource]
+script = ExtResource("2_hsbcx")
+icon = ExtResource("1_kad6d")
+damage = 30
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Seltzer Bottle"
+one_time_use = false

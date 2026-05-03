@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b8ufig62co2je"]
+[gd_scene format=4 uid="uid://b8ufig62co2je"]
 
 [ext_resource type="PackedScene" uid="uid://b5thphhw61f4t" path="res://objects/modules/factory/base_rooms/factory_long_paint_room.tscn" id="1_y3q68"]
 [ext_resource type="Texture2D" uid="uid://bgewi8moafg3y" path="res://models/misc_zones/menu/Menu Area Textures/FootFactoryMetalPlate.png" id="2_wohnq"]

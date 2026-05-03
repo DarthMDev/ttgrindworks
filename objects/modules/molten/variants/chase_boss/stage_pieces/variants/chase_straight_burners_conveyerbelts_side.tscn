@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d054ke2blploi"]
+[gd_scene format=3 uid="uid://d054ke2blploi"]
 
 [ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_hp4bx"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="2_bvmko"]

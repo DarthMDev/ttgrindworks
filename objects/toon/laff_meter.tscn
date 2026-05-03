@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cumojo4vtowmv"]
+[gd_scene format=3 uid="uid://cumojo4vtowmv"]
 
 [ext_resource type="Script" uid="uid://plr0fl4706tw" path="res://objects/toon/laff_meter.gd" id="1_k1sjt"]
 [ext_resource type="Texture2D" uid="uid://dy5ow0hhwlmlw" path="res://ui_assets/player_ui/laff_meter/dog.png" id="2_0oixq"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://c7g34v8mxjqyt"]
+[gd_scene format=4 uid="uid://c7g34v8mxjqyt"]
 
 [ext_resource type="PackedScene" uid="uid://bwm67lsp8m00r" path="res://objects/modules/office/base_rooms/office_battle_room.tscn" id="1_4tbuy"]
 [ext_resource type="Texture2D" uid="uid://dmelmjyqb5mqh" path="res://models/facilities/office/textures/LB_Carpet.png" id="2_8d1sk"]

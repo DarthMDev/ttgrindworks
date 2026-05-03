@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0oc1jjduxeqc"]
+[gd_scene format=3 uid="uid://0oc1jjduxeqc"]
 
 [ext_resource type="Script" uid="uid://diyoxb4bfa7m6" path="res://scenes/stranger_shop/gameplay_test/stranger_shop.gd" id="1_1q66g"]
 [ext_resource type="PackedScene" uid="uid://3opgp6apv4g0" path="res://objects/interactables/elevators/mint_elevator.tscn" id="2_1q66g"]

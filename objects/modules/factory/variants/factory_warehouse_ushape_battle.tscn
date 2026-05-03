@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://leno865v10ht"]
+[gd_scene format=3 uid="uid://leno865v10ht"]
 
 [ext_resource type="PackedScene" uid="uid://82yclxx45fat" path="res://objects/modules/factory/base_rooms/factory_warehouse_ushape.tscn" id="1_77ja2"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="15_iqrra"]

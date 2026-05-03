@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://idagtqd5cor5"]
+[gd_scene format=4 uid="uid://idagtqd5cor5"]
 
 [ext_resource type="Texture2D" uid="uid://cvt4j7gbo7dyn" path="res://models/props/gags/foghorn/foghorn_foghorn_out.png" id="1_xcnk4"]
 [ext_resource type="Texture2D" uid="uid://bch447qsewyhe" path="res://models/props/gags/foghorn/foghorn_foghorn_mouth.png" id="2_euwmy"]

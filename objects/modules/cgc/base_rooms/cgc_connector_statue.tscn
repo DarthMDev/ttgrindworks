@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://by6ch1pydfvtu"]
+[gd_scene format=3 uid="uid://by6ch1pydfvtu"]
 
 [ext_resource type="PackedScene" uid="uid://dj1yno02e0bho" path="res://models/facilities/cgc/cgc_connector_statue.fbx" id="1_u3750"]
 [ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="3_eb52e"]

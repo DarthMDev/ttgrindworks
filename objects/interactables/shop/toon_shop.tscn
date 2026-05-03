@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciesu8xyj70oc"]
+[gd_scene format=3 uid="uid://ciesu8xyj70oc"]
 
 [ext_resource type="PackedScene" uid="uid://dvslagwd6sk4r" path="res://objects/props/etc/shop_counter.tscn" id="1_qcbok"]
 [ext_resource type="Script" uid="uid://daaahmd3o4n3n" path="res://objects/interactables/shop/toon_shop.gd" id="2_vftls"]

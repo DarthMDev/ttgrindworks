@@ -1,6 +1,6 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bmk2tuidlpq8i"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmk2tuidlpq8i"]
 
-[ext_resource type="Texture2D" uid="uid://d2x2eeywn613c" path="res://models/facilities/factory/FINALFACTORY_67.png" id="1_3m0uw"]
+[ext_resource type="Texture2D" uid="uid://cmyvdjy6okiuy" path="res://models/facilities/factory/FINALFACTORY_67.png" id="1_3m0uw"]
 
 [resource]
 resource_name = "FINALFACTORY_67"

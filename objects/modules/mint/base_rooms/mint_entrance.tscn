@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://wcbaaifovixx"]
+[gd_scene format=4 uid="uid://wcbaaifovixx"]
 
 [ext_resource type="PackedScene" uid="uid://ctcfdlms56nvr" path="res://models/facilities/mint/mint_entrance.fbx" id="1_hn7ka"]
 

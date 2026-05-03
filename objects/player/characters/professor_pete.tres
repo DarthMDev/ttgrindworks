@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerCharacter" load_steps=18 format=3 uid="uid://br1jbg7nriqi6"]
+[gd_resource type="Resource" script_class="PlayerCharacter" format=3 uid="uid://br1jbg7nriqi6"]
 
 [ext_resource type="Script" uid="uid://ts8xpgftpmty" path="res://objects/player/character.gd" id="1_7qil3"]
 [ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="1_4024h"]

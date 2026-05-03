@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bolaea3btm1ae"]
+[gd_scene format=3 uid="uid://bolaea3btm1ae"]
 
 [ext_resource type="PackedScene" uid="uid://r6k73rh3bsl6" path="res://models/props/facility_objects/da_office/crate/da_crate.fbx" id="1_tlbto"]
 

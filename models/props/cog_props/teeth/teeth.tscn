@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dxjmp8jiwlcmm"]
+[gd_scene format=4 uid="uid://dxjmp8jiwlcmm"]
 
 [ext_resource type="Texture2D" uid="uid://6ieoxbt7y7ku" path="res://models/props/cog_props/teeth/teeth_Sparkle.png" id="1_ivo7a"]
 [ext_resource type="Texture2D" uid="uid://cx8qh60s40mtg" path="res://models/props/cog_props/teeth/teeth_Smile.png" id="2_usvcq"]

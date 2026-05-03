@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6cxtx7q47vyr"]
+[gd_scene format=3 uid="uid://b6cxtx7q47vyr"]
 
 [ext_resource type="PackedScene" uid="uid://cu7d1xjys77kl" path="res://models/facilities/cgc/cgc_connector_pillarhedge.fbx" id="1_u67tq"]
 [ext_resource type="PackedScene" uid="uid://clv56dyp5d7ub" path="res://objects/props/cgc/gateway_v2/cgc_gateway.tscn" id="2_uet0u"]

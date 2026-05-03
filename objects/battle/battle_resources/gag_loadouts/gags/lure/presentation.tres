@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LureGroup" format=3 uid="uid://du7u0oljwrd3h"]
+
+[ext_resource type="Texture2D" uid="uid://beakxy2vgxlc1" path="res://ui_assets/battle/gags/inventory_screen.png" id="1_ld7sc"]
+[ext_resource type="Script" uid="uid://gpeto6dx1eja" path="res://objects/battle/battle_resources/status_effects/lured.gd" id="2_omt53"]
+[ext_resource type="Script" uid="uid://cseo0ntw14rkk" path="res://objects/battle/battle_resources/toon_attacks/lure_group.gd" id="3_v37wc"]
+[ext_resource type="AudioStream" uid="uid://bgddqhaprr7vo" path="res://audio/sfx/battle/gags/lure/TL_presentation.ogg" id="4_3uy82"]
+
+[sub_resource type="Resource" id="Resource_y4t06"]
+script = ExtResource("2_omt53")
+lure_type = 1
+knockback_effect = 80
+damage_nerf = -1.25
+quality = 1
+id = 2
+
+[resource]
+script = ExtResource("3_v37wc")
+sfx = ExtResource("4_3uy82")
+lure_effect = SubResource("Resource_y4t06")
+icon = ExtResource("1_ld7sc")
+target_type = 7
+action_name = "Presentation"

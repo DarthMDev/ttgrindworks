@@ -165,11 +165,9 @@ func roll_for_level() -> void:
 			custom_level_range = Vector2i(dna.level_low, dna.level_high)
 		level = RNG.channel(RNG.ChannelCogLevels).randi_range(custom_level_range.x, custom_level_range.y)
 	
-	# Allow for Cogs to be higher level than the floor intends
-	if sign(level_range_offset) == 1:
+	# Allow for Cogs to be higher/lower level than the floor intends
+	if not signi(level_range_offset) == 0:
 		level = custom_level_range.y + level_range_offset
-	elif sign(level_range_offset) == -1:
-		level = (custom_level_range.y - level_range_offset) + 1
 
 func roll_for_dna() -> void:
 	pool = Globals.GRUNT_COG_POOL  # Default
@@ -305,9 +303,8 @@ func construct_cog():
 	animator = body.animator
 	animator.animation_finished.connect(animation_end)
 	
-	# Set the department emblem
+	# Get the department emblem
 	department_emblem = body.department_emblem
-	department_emblem.texture = Cog.get_department_emblem(dna.department)
 	hp_light = body.health_meter
 	
 	if virtual_cog:

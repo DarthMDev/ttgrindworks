@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://c8wjy8fdkxarx"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://c8wjy8fdkxarx"]
 
 [ext_resource type="Texture2D" uid="uid://b8vyudhdyu5e" path="res://ui_assets/player_ui/pocket_prank_icons/gag button.png" id="1_pqv1w"]
 [ext_resource type="Script" uid="uid://cktwtmwoiu3ko" path="res://objects/items/custom/item_gag_button.gd" id="2_2w4li"]

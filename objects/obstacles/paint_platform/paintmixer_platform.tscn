@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://q13pfs05aior"]
+[gd_scene format=4 uid="uid://q13pfs05aior"]
 
 [ext_resource type="Script" uid="uid://dmfcl80cfloh8" path="res://objects/obstacles/paint_platform/paintmixer_platform.gd" id="1_cx3te"]
 [ext_resource type="Texture2D" uid="uid://cg73nmwwywaxm" path="res://models/props/facility_objects/mint/paint_platform/paintmixer_platform_GearCapJoint.png" id="1_d07dt"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c7ect6170hman"]
+[gd_scene format=4 uid="uid://c7ect6170hman"]
 
 [ext_resource type="Texture2D" uid="uid://du4dqnxb80yr" path="res://models/facilities/cgc/textures/BQ_Fireplace_1.png" id="1_o1nqk"]
 [ext_resource type="Texture2D" uid="uid://csmkpukc6maca" path="res://models/facilities/cgc/textures/StoneWall1e.png" id="2_1nmys"]

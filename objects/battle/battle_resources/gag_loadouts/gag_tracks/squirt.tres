@@ -1,67 +1,27 @@
-[gd_resource type="Resource" script_class="Track" load_steps=24 format=3 uid="uid://dvxiqtapdvmj4"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dvxiqtapdvmj4"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_51n6n"]
-[ext_resource type="Texture2D" uid="uid://b8m26tjpxrgid" path="res://ui_assets/battle/gags/inventory_squirt_flower.png" id="2_tu7dg"]
-[ext_resource type="Script" uid="uid://dko4gmutb8gfs" path="res://objects/battle/battle_resources/toon_attacks/squirt_flower.gd" id="3_hv7q2"]
-[ext_resource type="Texture2D" uid="uid://cgteesdi0svcp" path="res://ui_assets/battle/gags/inventory_glass_of_water.png" id="4_vcmre"]
-[ext_resource type="Script" uid="uid://20vwxjtg6q45" path="res://objects/battle/battle_resources/toon_attacks/water_glass.gd" id="5_wjegy"]
-[ext_resource type="Texture2D" uid="uid://h6jqac2vi0hb" path="res://ui_assets/battle/gags/inventory_water_gun.png" id="6_j2ouf"]
-[ext_resource type="Script" uid="uid://dcf30lcach2kf" path="res://objects/battle/battle_resources/toon_attacks/squirt_gun.gd" id="7_t8v1q"]
-[ext_resource type="Texture2D" uid="uid://br65lhmxanr63" path="res://ui_assets/battle/gags/inventory_seltzer_bottle.png" id="8_a6b12"]
-[ext_resource type="Script" uid="uid://bhbpv6eeiwsoj" path="res://objects/battle/battle_resources/toon_attacks/seltzer_bottle.gd" id="9_gey65"]
-[ext_resource type="Texture2D" uid="uid://raehjcuwardu" path="res://ui_assets/battle/gags/inventory_firehose.png" id="10_462cx"]
-[ext_resource type="Script" uid="uid://cmhxdqjvd1726" path="res://objects/battle/battle_resources/toon_attacks/fire_hose.gd" id="11_q7k61"]
-[ext_resource type="Texture2D" uid="uid://d7gsim4q6a7k" path="res://ui_assets/battle/gags/inventory_storm_cloud.png" id="12_ycp05"]
-[ext_resource type="Script" uid="uid://dobaevw1g5kro" path="res://objects/battle/battle_resources/toon_attacks/storm_cloud.gd" id="13_kyxsx"]
-[ext_resource type="Texture2D" uid="uid://bwcofickxhmrk" path="res://ui_assets/battle/gags/inventory_geyser.png" id="14_crcck"]
+[ext_resource type="Resource" uid="uid://6d2lnauj885s" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/squirt_flower.tres" id="2_g8epq"]
+[ext_resource type="Resource" uid="uid://ogf18kx0knl5" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/water_glass.tres" id="3_2gomu"]
+[ext_resource type="Resource" uid="uid://d1725jt347v4e" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/squirt_gun.tres" id="4_2y2va"]
+[ext_resource type="Resource" uid="uid://l45knio5jpal" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/seltzer_bottle.tres" id="5_vjd65"]
+[ext_resource type="Resource" uid="uid://cgu3xv44h8pmc" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/fire_hose.tres" id="6_07xhk"]
+[ext_resource type="Resource" uid="uid://cug4jv7oh22w3" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/storm_cloud.tres" id="7_vfs08"]
+[ext_resource type="Resource" uid="uid://c0ch4wycmdgui" path="res://objects/battle/battle_resources/gag_loadouts/gags/squirt/geyser.tres" id="8_0tnwq"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="14_mkclo"]
-[ext_resource type="Script" uid="uid://b8hp1enjdi1s" path="res://objects/battle/battle_resources/toon_attacks/squirt_geyser.gd" id="15_85oaq"]
-
-[sub_resource type="Resource" id="Resource_kig6x"]
-script = ExtResource("3_hv7q2")
-icon = ExtResource("2_tu7dg")
-damage = 5
-action_name = "Squirting Flower"
-
-[sub_resource type="Resource" id="Resource_teoux"]
-script = ExtResource("5_wjegy")
-icon = ExtResource("4_vcmre")
-damage = 10
-action_name = "Glass of Water"
-
-[sub_resource type="Resource" id="Resource_0fqpw"]
-script = ExtResource("7_t8v1q")
-icon = ExtResource("6_j2ouf")
-damage = 18
-action_name = "Squirt Gun"
-
-[sub_resource type="Resource" id="Resource_we2gn"]
-script = ExtResource("9_gey65")
-icon = ExtResource("8_a6b12")
-damage = 30
-action_name = "Seltzer Bottle"
-
-[sub_resource type="Resource" id="Resource_qj0t3"]
-script = ExtResource("11_q7k61")
-icon = ExtResource("10_462cx")
-damage = 45
-action_name = "Fire Hose"
-
-[sub_resource type="Resource" id="Resource_mgg2q"]
-script = ExtResource("13_kyxsx")
-icon = ExtResource("12_ycp05")
-damage = 60
-action_name = "Storm Cloud"
-
-[sub_resource type="Resource" id="Resource_lmjjy"]
-script = ExtResource("15_85oaq")
-icon = ExtResource("14_crcck")
-damage = 80
-action_name = "Geyser"
 
 [resource]
 script = ExtResource("14_mkclo")
 track_type = 1
 track_name = "Squirt"
 track_color = Color(0.968627, 0.2, 0.721569, 1)
-gags = Array[ExtResource("1_51n6n")]([SubResource("Resource_kig6x"), SubResource("Resource_teoux"), SubResource("Resource_0fqpw"), SubResource("Resource_we2gn"), SubResource("Resource_qj0t3"), SubResource("Resource_mgg2q"), SubResource("Resource_lmjjy")])
+gags = Array[ExtResource("1_51n6n")]([ExtResource("2_g8epq"), ExtResource("3_2gomu"), ExtResource("4_2y2va"), ExtResource("5_vjd65"), ExtResource("6_07xhk"), ExtResource("7_vfs08"), ExtResource("8_0tnwq")])
+mod_gags = Dictionary[ExtResource("1_51n6n"), int]({
+ExtResource("2_g8epq"): 0,
+ExtResource("3_2gomu"): 1,
+ExtResource("4_2y2va"): 2,
+ExtResource("5_vjd65"): 3,
+ExtResource("6_07xhk"): 4,
+ExtResource("7_vfs08"): 5,
+ExtResource("8_0tnwq"): 6
+})

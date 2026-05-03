@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2gppbjx0k8f7"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b2gppbjx0k8f7"]
 
 [ext_resource type="Texture2D" uid="uid://d03n2nehf7qb4" path="res://models/props/cog_props/propeller2/tt_t_ara_cfg_propellerPickup.png" id="1_s4rru"]
 

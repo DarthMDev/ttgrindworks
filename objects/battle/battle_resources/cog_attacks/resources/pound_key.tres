@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c27ek2anjbx88"]
+[gd_resource type="Resource" format=3 uid="uid://c27ek2anjbx88"]
 
 [ext_resource type="Script" uid="uid://cppcm3kli1ipt" path="res://objects/battle/battle_resources/cog_attacks/pound_key.gd" id="1_al1dt"]
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LureFish" format=3 uid="uid://b4t7upshin64v"]
+
+[ext_resource type="Texture2D" uid="uid://dgxng3jvlh473" path="res://ui_assets/battle/gags/inventory_10dollarbill2.png" id="1_b5g5e"]
+[ext_resource type="Script" uid="uid://gpeto6dx1eja" path="res://objects/battle/battle_resources/status_effects/lured.gd" id="2_2t0uq"]
+[ext_resource type="Material" uid="uid://4pjn47k3ssbd" path="res://models/props/gags/fishing_rod/dollar_bill_10.tres" id="3_yauvv"]
+[ext_resource type="Script" uid="uid://td2akjfqd0r3" path="res://objects/battle/battle_resources/toon_attacks/lure_fish.gd" id="4_y83u0"]
+
+[sub_resource type="Resource" id="Resource_37cp3"]
+script = ExtResource("2_2t0uq")
+knockback_effect = 60
+quality = 1
+id = 2
+
+[resource]
+script = ExtResource("4_y83u0")
+override_mat = ExtResource("3_yauvv")
+lure_effect = SubResource("Resource_37cp3")
+icon = ExtResource("1_b5g5e")
+action_name = "10 Dollar Bill"

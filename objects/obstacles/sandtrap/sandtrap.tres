@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://3bv5mj5bjsjm"]
+[gd_resource type="VisualShader" format=3 uid="uid://3bv5mj5bjsjm"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_03h0m"]
 output_port_for_preview = 0
@@ -83,73 +83,6 @@ fill_to = Vector2(0, 1)
 texture = SubResource("GradientTexture2D_l4j0x")
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha;
-
-uniform vec4 ColorParameter : source_color;
-uniform vec2 uv_scale;
-uniform sampler2D ImageTexture : source_color, hint_default_black;
-uniform sampler2D NoiseTexture;
-uniform sampler2D tex_frg_27;
-uniform sampler2D tex_frg_3;
-
-
-
-void fragment() {
-// ColorParameter:25
-	vec4 n_out25p0 = ColorParameter;
-
-
-// Input:19
-	vec2 n_out19p0 = UV;
-
-
-// Vector2Parameter:21
-	vec2 n_out21p0 = uv_scale;
-
-
-// UVFunc:18
-	vec2 n_in18p2 = vec2(0.00000, 0.00000);
-	vec2 n_out18p0 = (n_out19p0 - n_in18p2) * n_out21p0 + n_in18p2;
-
-
-	vec4 n_out17p0;
-// Texture2D:17
-	n_out17p0 = texture(ImageTexture, n_out18p0);
-
-
-// VectorOp:24
-	vec4 n_out24p0 = max(n_out25p0, n_out17p0);
-
-
-	vec4 n_out15p0;
-// Texture2D:15
-	n_out15p0 = texture(NoiseTexture, UV);
-
-
-// Texture2D:27
-	vec4 n_out27p0 = texture(tex_frg_27, UV);
-
-
-// VectorOp:28
-	vec4 n_out28p0 = max(n_out15p0, n_out27p0);
-
-
-// Texture2D:3
-	vec4 n_out3p0 = texture(tex_frg_3, UV);
-
-
-// VectorOp:26
-	vec4 n_out26p0 = n_out28p0 * n_out3p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out24p0.xyz);
-	ALPHA = n_out26p0.x;
-
-
-}
-"
 flags/depth_prepass_alpha = true
 nodes/fragment/0/position = Vector2(780, 200)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_dgbv0")

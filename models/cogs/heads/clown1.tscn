@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://byxlrkmrk4vbr"]
+[gd_scene format=3 uid="uid://byxlrkmrk4vbr"]
 
 [ext_resource type="PackedScene" uid="uid://bwf2uxvybg7hk" path="res://models/cogs/heads/clown1.glb" id="1_o26jf"]
 

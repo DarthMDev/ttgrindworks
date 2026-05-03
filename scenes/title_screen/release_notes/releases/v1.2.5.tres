@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ReleaseNote" format=3 uid="uid://cct5c2wnyxw2m"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_r7drd"]
+
+[resource]
+script = ExtResource("1_r7drd")
+release_version = "v1.2.5"
+notes = "[TITLE]Tweaks
+Some settings now display percentages where applicable
+Added a setting for colorblind accessibility
+  It is very simple for now, please let us know if you have any requests for improving this feature
+Slightly modified a secret seed
+[TITLE]Bugfixes
+Shoe items now display their descriptions in shops
+Fixed an issue where colliding with two burners on the same frame could cause damage to occur twice
+Fixed one of the secret seeds
+Fixed Skelecog department emblems not displaying properly
+[TITLE]Cog Creator
+Custom Cogs now support custom skelecog tie textures (only through manual editing, the attribute name is \"custom_skelecog_tie_tex\")
+[TITLE]For Modders
+The level_range_offset value on Cogs now correctly scales into the negatives
+[TITLE]Hotfix #1
+Fixed a crash related to the new colorblind D.A. Office puzzles
+[TITLE]Hotfix #2
+Fixed an issue where Cogs would only spawn at the highest level in facilities"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

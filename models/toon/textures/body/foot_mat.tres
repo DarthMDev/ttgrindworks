@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bx3igev4qqjf0"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bx3igev4qqjf0"]
 
 [ext_resource type="Texture2D" uid="uid://qf1hnsvl1rsx" path="res://models/toon/textures/body/avatar_palette_1lmla_1.png" id="1_vyflt"]
 

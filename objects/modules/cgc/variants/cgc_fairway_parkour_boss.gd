@@ -208,6 +208,7 @@ func win_game() -> void:
 	AudioManager.stop_music()
 	AudioManager.set_music_volume(0.0)
 	Util.get_player().stats.charge_active_item(2)
+	ScoreTally.modify_score(ScoreTally.ChannelBosses, ScoreTally.BOSS_BONUS)
 
 func lose_game() -> void:
 	# Remove half of their health if they lose

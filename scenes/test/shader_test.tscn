@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://daf3wurixvucj"]
+[gd_scene format=4 uid="uid://daf3wurixvucj"]
 
 [ext_resource type="Texture2D" uid="uid://mxt1dt43lqfm" path="res://models/cogs/heads/gladhander_tt_t_ene_hed_yesMan.png" id="1_llwci"]
 [ext_resource type="Texture2D" uid="uid://0pfwdalkeotx" path="res://models/cogs/heads/gladhander_mask.png" id="2_hk4ib"]
@@ -68,7 +68,6 @@ ssao_power = 1000000.0
 glow_normalized = true
 glow_intensity = 8.0
 glow_bloom = 1.0
-glow_blend_mode = 1
 glow_hdr_threshold = 4.0
 glow_hdr_scale = 4.0
 glow_hdr_luminance_cap = 28.2

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://belo6m0e71tv2"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://belo6m0e71tv2"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_i63nw"]
 [ext_resource type="Texture2D" uid="uid://br5dvo2q2y246" path="res://models/accessories/glasses/heart_glasses/tt_m_chr_avt_acc_msk_heartGlasses.glb-pix-1.png" id="1_u6r7w"]

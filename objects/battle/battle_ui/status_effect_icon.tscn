@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu0okv1jydf5c"]
+[gd_scene format=3 uid="uid://bu0okv1jydf5c"]
 
 [ext_resource type="Script" uid="uid://citga8di56ecl" path="res://objects/battle/battle_ui/status_effect_icon.gd" id="1_kmxcj"]
 [ext_resource type="Texture2D" uid="uid://c10rbf13ht1p3" path="res://ui_assets/battle/neutral_icon.png" id="2_i4y0p"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf8apgo7a2ajs"]
+[gd_scene format=3 uid="uid://bf8apgo7a2ajs"]
 
 [ext_resource type="Texture2D" uid="uid://kglxu2p1axhw" path="res://objects/battle/effects/finger_wag/blah.png" id="1_go3l8"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://eifnkm72ardh"]
+[gd_scene format=3 uid="uid://eifnkm72ardh"]
 
 [ext_resource type="Script" uid="uid://c0md0xr3httka" path="res://scenes/game_floor/music_controller/facility_music_controller.gd" id="1_jedq8"]
 

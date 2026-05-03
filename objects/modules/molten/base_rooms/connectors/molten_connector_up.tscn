@@ -1,10 +1,10 @@
-[gd_scene load_steps=69 format=3 uid="uid://c0ewn6h07rd4a"]
+[gd_scene format=3 uid="uid://c0ewn6h07rd4a"]
 
 [ext_resource type="PackedScene" uid="uid://dgkofsymebxw0" path="res://models/facilities/molten/molten_connector_up.fbx" id="1_m5buk"]
 [ext_resource type="Texture2D" uid="uid://n1trapjb4fq6" path="res://models/facilities/molten/textures/FINALFACTORY_52.png" id="2_eeier"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="2_so7rf"]
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="2_te6cc"]
-[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_opfxv"]
+[ext_resource type="Texture2D" uid="uid://cukeb4lk6t7ro" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_opfxv"]
 [ext_resource type="Texture2D" uid="uid://xq7dvm0xhhhw" path="res://models/facilities/molten/textures/FINALFACTORY_9.png" id="4_34bw1"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="5_d8jvx"]
 [ext_resource type="PackedScene" uid="uid://dbip8tydrs1a3" path="res://objects/interactables/water_bucket/water_bucket.tscn" id="6_ntmsi"]
@@ -339,7 +339,11 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_rkfw1"]
 material = SubResource("StandardMaterial3D_h014o")
 
-[node name="molten_connector_up" instance=ExtResource("1_m5buk")]
+[sub_resource type="NavigationMesh" id="NavigationMesh_san3t"]
+vertices = PackedVector3Array(-1.780098, 0.27532387, 8.684437, -1.530098, 0.27532387, 12.934437, 1.469902, 0.27532387, 12.934437, 1.719902, 0.27532387, 8.934437, 1.719902, 0.27532387, -1.0655632, -1.780098, 0.27532387, -1.0655632, -4.780098, 12.775324, 4.684437, -4.780098, 12.775324, 8.184437, 4.719902, 12.775324, 8.184437, 4.719902, 12.775324, 4.684437, -2.030098, 0.27532387, 9.184437, -8.280098, 1.5253239, 15.184437, -5.280098, 1.5253239, 15.184437, -5.030098, 0.27532387, 12.934437, -8.280098, 0.27532387, 9.184437, -8.280098, 0.27532387, 12.784437, 5.219902, 0.27532387, 12.934437, 5.469902, 1.5253239, 15.184437, 8.469902, 1.5253239, 15.184437, 8.469902, 0.27532387, 9.184437, 8.469902, 0.27532387, 12.784437, -8.280098, 7.275324, 25.184437, -5.280098, 7.275324, 25.184437, 5.469902, 7.275324, 25.184437, 8.469902, 7.275324, 25.184437, -2.030098, 8.275324, 30.684437, -1.780098, 8.275324, 31.184437, -1.530098, 8.275324, 27.434437, -5.030098, 8.275324, 27.434437, -6.113431, 8.275324, 26.684437, -8.280098, 8.275324, 30.684437, -8.280098, 8.025324, 26.559437, 1.469902, 8.275324, 27.434437, 1.719902, 8.275324, 31.184437, 1.969902, 8.275324, 30.684437, 5.219902, 8.275324, 27.434437, 8.469902, 8.275324, 30.684437, 8.469902, 8.025324, 26.559437, -1.780098, 8.275324, 40.934437, 1.719902, 8.275324, 40.934437)
+polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Array(3, 0, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(9, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(10, 0, 1), PackedInt32Array(13, 12, 11), PackedInt32Array(10, 1, 13), PackedInt32Array(11, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(13, 14, 10), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 20), PackedInt32Array(20, 16, 19), PackedInt32Array(2, 3, 16), PackedInt32Array(16, 3, 19), PackedInt32Array(11, 12, 21), PackedInt32Array(21, 12, 22), PackedInt32Array(17, 18, 23), PackedInt32Array(23, 18, 24), PackedInt32Array(25, 27, 26), PackedInt32Array(28, 29, 22), PackedInt32Array(22, 29, 21), PackedInt32Array(28, 27, 25), PackedInt32Array(21, 29, 31), PackedInt32Array(31, 29, 28), PackedInt32Array(31, 28, 30), PackedInt32Array(30, 28, 25), PackedInt32Array(34, 33, 32), PackedInt32Array(24, 37, 23), PackedInt32Array(23, 37, 35), PackedInt32Array(35, 37, 36), PackedInt32Array(32, 35, 34), PackedInt32Array(34, 35, 36), PackedInt32Array(32, 33, 27), PackedInt32Array(27, 33, 26), PackedInt32Array(26, 33, 39), PackedInt32Array(26, 39, 38)]
+
+[node name="molten_connector_up" unique_id=615239259 instance=ExtResource("1_m5buk")]
 
 [node name="Bearings" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_jl350")
@@ -347,66 +351,66 @@ surface_material_override/1 = SubResource("StandardMaterial3D_rtbn3")
 surface_material_override/2 = SubResource("StandardMaterial3D_qjjn0")
 surface_material_override/3 = SubResource("StandardMaterial3D_g64q0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bearings" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bearings" index="0" unique_id=108005007]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bearings/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bearings/StaticBody3D" index="0" unique_id=639862264]
 shape = SubResource("ConcavePolygonShape3D_eeier")
 
 [node name="BigPipe" parent="." index="1"]
 transform = Transform3D(1.65986e-05, 92.8263, -8.53134e-06, 92.8263, -1.10658e-05, 1.20438e-12, -6.59571e-13, -1.40164e-05, -56.5005, 0.00924337, 0.0228634, 24.6827)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BigPipe" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BigPipe" index="0" unique_id=1867654538]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BigPipe/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BigPipe/StaticBody3D" index="0" unique_id=1053172190]
 shape = SubResource("ConcavePolygonShape3D_d8jvx")
 
 [node name="Bridge" parent="." index="2"]
 surface_material_override/1 = SubResource("StandardMaterial3D_86dkv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bridge" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bridge" index="0" unique_id=468289450]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge/StaticBody3D" index="0" unique_id=625051901]
 shape = SubResource("ConcavePolygonShape3D_opfxv")
 
 [node name="ENTRANCE" parent="." index="3"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0224195, -0.0515332, -1.56557)
 
-[node name="door_frame" parent="ENTRANCE" index="0" instance=ExtResource("2_so7rf")]
+[node name="door_frame" parent="ENTRANCE" index="0" unique_id=371568002 instance=ExtResource("2_so7rf")]
 
 [node name="EXIT" parent="." index="4"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0018689632, 7.8546586, 41.405895)
 
-[node name="door_frame" parent="EXIT" index="0" instance=ExtResource("2_so7rf")]
+[node name="door_frame" parent="EXIT" index="0" unique_id=2018128965 instance=ExtResource("2_so7rf")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="GatedWindow" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="GatedWindow" index="0" unique_id=1852974089]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GatedWindow/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GatedWindow/StaticBody3D" index="0" unique_id=2101648756]
 shape = SubResource("ConcavePolygonShape3D_a8usu")
 
-[node name="RoomArea" type="Area3D" parent="." index="6"]
+[node name="RoomArea" type="Area3D" parent="." index="6" unique_id=1065472596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.3715)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0" unique_id=1075014102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0156, 0)
 shape = SubResource("BoxShape3D_qer0i")
 
-[node name="LavaNode" type="Node3D" parent="." index="7"]
+[node name="LavaNode" type="Node3D" parent="." index="7" unique_id=1484204434]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-06, -15.6909, 20.4049)
 
-[node name="LavaFloor" parent="LavaNode" index="0" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("5_d8jvx")]
+[node name="LavaFloor" parent="LavaNode" index="0" unique_id=1138535384 node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("5_d8jvx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0344467, 14.7787, 0.0956964)
 default_spawn_point = NodePath("../PlayerSpawn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaNode/LavaFloor" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaNode/LavaFloor" index="0" unique_id=274404066]
 transform = Transform3D(1, 0, -9.69891e-13, 0, 1, 0, 9.5568e-13, 0, 1, 0.0849009, -0.152458, 0.177942)
 shape = SubResource("BoxShape3D_ntmsi")
 debug_color = Color(0, 0.0933332, 0.7, 1)
 
-[node name="LavaPlane" type="MeshInstance3D" parent="LavaNode" index="1"]
+[node name="LavaPlane" type="MeshInstance3D" parent="LavaNode" index="1" unique_id=1381090845]
 transform = Transform3D(0.691172, 0, 0, 0, 1, 0, 0, 0, 0.625271, 0.221747, 14.8143, 0)
 mesh = SubResource("PlaneMesh_0u0ut")
 
-[node name="LavaParticles" type="GPUParticles3D" parent="LavaNode" index="2"]
+[node name="LavaParticles" type="GPUParticles3D" parent="LavaNode" index="2" unique_id=221295782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121096, 14.2712, -0.102809)
 amount = 86
 lifetime = 10.65
@@ -415,13 +419,13 @@ visibility_aabb = AABB(-7.165, -4, -4, 13.97, 17.39, 8)
 process_material = SubResource("ParticleProcessMaterial_d8jvx")
 draw_pass_1 = SubResource("QuadMesh_34bw1")
 
-[node name="PlayerSpawn" type="Node3D" parent="LavaNode" index="3"]
+[node name="PlayerSpawn" type="Node3D" parent="LavaNode" index="3" unique_id=750301962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 15.669, -9.74683)
 
-[node name="WaterBucket" parent="." index="8" instance=ExtResource("6_ntmsi")]
+[node name="WaterBucket" parent="." index="8" unique_id=1322708755 instance=ExtResource("6_ntmsi")]
 transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 0.0761105, 8.70646, 33.8173)
 
-[node name="SmokeParticles" type="GPUParticles3D" parent="." index="9"]
+[node name="SmokeParticles" type="GPUParticles3D" parent="." index="9" unique_id=985925779]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, -1.62491, 19.5147)
 amount = 48
 lifetime = 3.6
@@ -433,9 +437,9 @@ draw_pass_1 = SubResource("QuadMesh_rsvjd")
 [node name="Pipes" parent="." index="10"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ikog2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipes" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipes" index="0" unique_id=582814504]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipes/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipes/StaticBody3D" index="0" unique_id=1305193900]
 shape = SubResource("ConcavePolygonShape3D_0u0ut")
 
 [node name="Walls" parent="." index="11"]
@@ -443,13 +447,13 @@ surface_material_override/3 = SubResource("StandardMaterial3D_eeier")
 surface_material_override/5 = SubResource("ShaderMaterial_k1to3")
 surface_material_override/6 = SubResource("StandardMaterial3D_opfxv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0" unique_id=516695435]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0" unique_id=461406994]
 shape = SubResource("ConcavePolygonShape3D_viydu")
 debug_color = Color(0.98, 0, 0.31033328, 0.4509804)
 
-[node name="SmokeParticles2" type="GPUParticles3D" parent="." index="12"]
+[node name="SmokeParticles2" type="GPUParticles3D" parent="." index="12" unique_id=1333143600]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, -1.41452, 3.784793)
 amount = 16
 lifetime = 2.75
@@ -458,7 +462,7 @@ visibility_aabb = AABB(-12.9314, -1.2835, -12.9589, 29.5337, 13.0822, 25.9428)
 process_material = SubResource("ParticleProcessMaterial_26e5f")
 draw_pass_1 = SubResource("QuadMesh_rkfw1")
 
-[node name="SmokeParticles3" type="GPUParticles3D" parent="." index="13"]
+[node name="SmokeParticles3" type="GPUParticles3D" parent="." index="13" unique_id=179370650]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, 6.3757935, 36.23307)
 amount = 16
 lifetime = 2.75
@@ -467,4 +471,7 @@ visibility_aabb = AABB(-12.9314, -1.2835, -12.9589, 29.5337, 13.0822, 25.9428)
 process_material = SubResource("ParticleProcessMaterial_26e5f")
 draw_pass_1 = SubResource("QuadMesh_rkfw1")
 
-[node name="DebugPlayerPositionMarker" parent="." index="14" instance=ExtResource("14_34bw1")]
+[node name="DebugPlayerPositionMarker" parent="." index="14" unique_id=1303547712 instance=ExtResource("14_34bw1")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." index="15" unique_id=1667693930]
+navigation_mesh = SubResource("NavigationMesh_san3t")

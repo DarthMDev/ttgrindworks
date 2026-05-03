@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpjnelniqhk0j"]
+[gd_scene format=3 uid="uid://dpjnelniqhk0j"]
 
 [ext_resource type="PackedScene" uid="uid://ciwai68e418er" path="res://models/facilities/mint/mint_skele_room1.fbx" id="1_fhhmi"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bik8l6ycrnufq"]
+[gd_resource type="Resource" format=3 uid="uid://bik8l6ycrnufq"]
 
 [ext_resource type="Script" uid="uid://hamb7hsc7s4i" path="res://objects/battle/battle_resources/cog_attacks/tabulate.gd" id="1_kr51v"]
 

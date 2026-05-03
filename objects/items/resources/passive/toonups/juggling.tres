@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cect5lwmu08mv"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cect5lwmu08mv"]
 
 [ext_resource type="PackedScene" uid="uid://d3nmg5rjfpsf" path="res://objects/items/custom/toonups/juggling_item.tscn" id="1_en8ih"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_25hrb"]

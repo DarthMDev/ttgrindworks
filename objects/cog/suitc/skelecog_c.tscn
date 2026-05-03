@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://2prwa2iepi20"]
+[gd_scene format=3 uid="uid://2prwa2iepi20"]
 
 [ext_resource type="PackedScene" uid="uid://xcyr0niya7l2" path="res://models/cogs/suitc/skelecog/suitC-skelecog.glb" id="1_jcyw3"]
 [ext_resource type="Script" uid="uid://djrvaa2pgbrps" path="res://objects/cog/skelecog_directory.gd" id="2_phtya"]

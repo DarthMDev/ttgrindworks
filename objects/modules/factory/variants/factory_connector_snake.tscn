@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7w5ajbenmohl"]
+[gd_scene format=3 uid="uid://c7w5ajbenmohl"]
 
 [ext_resource type="PackedScene" uid="uid://becnyi3ke1i55" path="res://objects/modules/factory/base_rooms/catwalk_snake.tscn" id="1_wa4u0"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterWinAchievement" load_steps=3 format=3 uid="uid://bw5q7rncjn8gs"]
+[gd_resource type="Resource" script_class="CharacterWinAchievement" format=3 uid="uid://bw5q7rncjn8gs"]
 
 [ext_resource type="Texture2D" uid="uid://dojc0hrcrx15i" path="res://ui_assets/player_ui/pocket_prank_icons/book_of_laws.png" id="1_71p2n"]
 [ext_resource type="Script" uid="uid://bly70o6230roo" path="res://objects/save_file/achievements/character_win_achievement.gd" id="1_a6fty"]

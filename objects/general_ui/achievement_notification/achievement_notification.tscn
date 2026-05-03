@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://qlk7r45fgpsy"]
+[gd_scene format=3 uid="uid://qlk7r45fgpsy"]
 
 [ext_resource type="Script" uid="uid://curecccs1fqhh" path="res://objects/general_ui/achievement_notification/achievement_notification.gd" id="1_kx0ri"]
 [ext_resource type="PackedScene" uid="uid://dkd6dg5s5uuef" path="res://objects/general_ui/base_panel.tscn" id="2_8w5fi"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="3_bw5ve"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="4_um8dm"]
 [ext_resource type="Texture2D" uid="uid://qfltts6duk0u" path="res://ui_assets/achievements/achievement_bg.png" id="5_0vtu3"]
-[ext_resource type="Texture2D" uid="uid://dtmyral8bum8s" path="res://ui_assets/achievements/icon_achievement_gear.png" id="5_y4xuc"]
+[ext_resource type="Texture2D" uid="uid://dtmyral8bum8s" path="res://ui_assets/achievements/icon_achievement_gear.png" id="6_0vtu3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ecfr"]
 font = ExtResource("3_bw5ve")
@@ -21,7 +21,7 @@ font = ExtResource("4_um8dm")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
 
-[node name="AchievementNotification" type="Control"]
+[node name="AchievementNotification" type="Control" unique_id=1404791701]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,9 +31,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kx0ri")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1325192847]
 
-[node name="Origin" type="Control" parent="CanvasLayer"]
+[node name="Origin" type="Control" parent="CanvasLayer" unique_id=528129778]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelMask" type="Control" parent="CanvasLayer/Origin"]
+[node name="PanelMask" type="Control" parent="CanvasLayer/Origin" unique_id=31247395]
 clip_contents = true
 anchors_preset = 0
 offset_left = 71.0
@@ -51,13 +51,13 @@ offset_right = 680.0
 offset_bottom = 183.59
 mouse_filter = 2
 
-[node name="Panel" type="Control" parent="CanvasLayer/Origin/PanelMask"]
+[node name="Panel" type="Control" parent="CanvasLayer/Origin/PanelMask" unique_id=1234994361]
 anchors_preset = 0
 offset_top = -3.0
 offset_right = 460.0
 offset_bottom = 177.0
 
-[node name="Panel" parent="CanvasLayer/Origin/PanelMask/Panel" instance=ExtResource("2_8w5fi")]
+[node name="Panel" parent="CanvasLayer/Origin/PanelMask/Panel" unique_id=868842046 instance=ExtResource("2_8w5fi")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +67,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="CanvasLayer/Origin/PanelMask/Panel"]
+[node name="Title" type="Label" parent="CanvasLayer/Origin/PanelMask/Panel" unique_id=1355964958]
 layout_mode = 0
 offset_left = 93.0
 offset_top = 48.0
@@ -78,7 +78,7 @@ label_settings = SubResource("LabelSettings_1ecfr")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Summary" type="Label" parent="CanvasLayer/Origin/PanelMask/Panel"]
+[node name="Summary" type="Label" parent="CanvasLayer/Origin/PanelMask/Panel" unique_id=215173524]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -97,7 +97,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="IconOrigin" type="Control" parent="CanvasLayer/Origin"]
+[node name="IconOrigin" type="Control" parent="CanvasLayer/Origin" unique_id=1082289212]
 anchors_preset = 0
 offset_left = 84.0
 offset_top = 92.0
@@ -105,7 +105,7 @@ offset_right = 84.0
 offset_bottom = 92.0
 mouse_filter = 2
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/Origin/IconOrigin"]
+[node name="Background" type="TextureRect" parent="CanvasLayer/Origin/IconOrigin" unique_id=331612138]
 visible = false
 texture_filter = 4
 layout_mode = 1
@@ -123,7 +123,7 @@ grow_vertical = 2
 texture = ExtResource("5_0vtu3")
 expand_mode = 1
 
-[node name="Icon" type="TextureRect" parent="CanvasLayer/Origin/IconOrigin"]
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Origin/IconOrigin" unique_id=1448335279]
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -138,5 +138,5 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(81.5, 81.5)
-texture = ExtResource("5_y4xuc")
+texture = ExtResource("6_0vtu3")
 expand_mode = 1

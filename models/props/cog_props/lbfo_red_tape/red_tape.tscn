@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://df3iylwnk0k5w"]
+[gd_scene format=3 uid="uid://df3iylwnk0k5w"]
 
 [ext_resource type="PackedScene" uid="uid://u0b2uevrxq0v" path="res://models/props/cog_props/lbfo_red_tape/red_tape.fbx" id="1_0pi1o"]
 

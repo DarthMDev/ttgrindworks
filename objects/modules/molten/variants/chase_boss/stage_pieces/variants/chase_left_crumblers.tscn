@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhwqwmbqj3b5o"]
+[gd_scene format=3 uid="uid://bhwqwmbqj3b5o"]
 
 [ext_resource type="PackedScene" uid="uid://m2rpyyk4h6xo" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_left.tscn" id="1_8rmcr"]
 [ext_resource type="PackedScene" uid="uid://y1emadjev56j" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_chase_platform_metal.tscn" id="2_bcwaf"]

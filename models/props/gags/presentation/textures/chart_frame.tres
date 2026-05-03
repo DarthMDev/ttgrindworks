@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhjhiuv7abqkp"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhjhiuv7abqkp"]
 
 [ext_resource type="Texture2D" uid="uid://684a2w60seiw" path="res://models/props/gags/presentation/textures/chart_frame.png" id="1_2maip"]
 

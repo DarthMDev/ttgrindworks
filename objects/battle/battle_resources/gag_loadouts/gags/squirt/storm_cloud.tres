@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StormCloud" load_steps=3 format=3 uid="uid://cug4jv7oh22w3"]
+
+[ext_resource type="Texture2D" uid="uid://d7gsim4q6a7k" path="res://ui_assets/battle/gags/inventory_storm_cloud.png" id="1_3l3ou"]
+[ext_resource type="Script" uid="uid://dobaevw1g5kro" path="res://objects/battle/battle_resources/toon_attacks/storm_cloud.gd" id="2_s8n74"]
+
+[resource]
+script = ExtResource("2_s8n74")
+icon = ExtResource("1_3l3ou")
+damage = 60
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Storm Cloud"
+one_time_use = false

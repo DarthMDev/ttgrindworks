@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bycg7kp5uocp"]
+[gd_scene format=3 uid="uid://bycg7kp5uocp"]
 
 [ext_resource type="Texture2D" uid="uid://b7w555y1lykjx" path="res://models/props/facility_objects/barrier/metalgrate_rusted.png" id="2_ulyu0"]
 [ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="3_ulyu0"]

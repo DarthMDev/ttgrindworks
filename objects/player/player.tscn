@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://wpoc3xs1yy0"]
+[gd_scene format=3 uid="uid://wpoc3xs1yy0"]
 
 [ext_resource type="Script" uid="uid://b4cxlqwfntoba" path="res://objects/player/player.gd" id="1_nexlg"]
 [ext_resource type="Script" uid="uid://o2fe7ud1faj6" path="res://objects/battle/battle_resources/stats.gd" id="2_mf0eg"]
+[ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="2_px1tj"]
 [ext_resource type="Script" uid="uid://c8kas2j4io1jh" path="res://objects/toon/clothing/toon_bottoms.gd" id="3_h0xpu"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="3_hfcpd"]
 [ext_resource type="Script" uid="uid://b68uqtpqs73wk" path="res://objects/player/player_stats.gd" id="4_f7fek"]

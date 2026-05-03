@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bc08fxq8e26fx"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bc08fxq8e26fx"]
 
 [ext_resource type="Texture2D" uid="uid://17fwg03lkhif" path="res://models/props/cog_props/lbfo_red_tape/red_tape_0.png" id="1_73wty"]
 

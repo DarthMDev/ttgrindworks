@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bx2dkich61dwi"]
+[gd_scene format=4 uid="uid://bx2dkich61dwi"]
 
 [ext_resource type="PackedScene" uid="uid://ctm4sadocmoqc" path="res://models/props/toon_props/recycle_bin/recycle_bin.glb" id="1_kcc2h"]
 [ext_resource type="Texture2D" uid="uid://dfcyqo5n63yg6" path="res://models/props/toon_props/recycle_bin/recycle_bin_tex.png" id="2_xw3x1"]

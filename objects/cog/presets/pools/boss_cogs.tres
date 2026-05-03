@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogPool" load_steps=14 format=3 uid="uid://dygkbemtyushf"]
+[gd_resource type="Resource" script_class="CogPool" format=3 uid="uid://dygkbemtyushf"]
 
 [ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="1_j6060"]
 [ext_resource type="Script" uid="uid://buc4y0vtgydo" path="res://objects/cog/cog_pool.gd" id="2_jyne8"]

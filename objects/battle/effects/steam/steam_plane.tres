@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=6 format=4 uid="uid://bnkhjh0bealr4"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://bnkhjh0bealr4"]
 
 [ext_resource type="Shader" uid="uid://dtbt3ftkxelk5" path="res://objects/interactables/molten_bellows/bellows_steam.tres" id="1_d6f5p"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://dwxw7pxsu8i2y"]
+[gd_scene format=4 uid="uid://dwxw7pxsu8i2y"]
 
 [ext_resource type="PackedScene" uid="uid://5cys4v0p1jgj" path="res://models/facilities/factory/sales_director_boss_room.fbx" id="1_egp1p"]
 [ext_resource type="Material" uid="uid://c0edym63lw3aj" path="res://models/facilities/general/materials/paint_mat.tres" id="2_0268j"]

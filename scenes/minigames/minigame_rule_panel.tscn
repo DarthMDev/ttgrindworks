@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgm6q66n3yxns"]
+[gd_scene format=3 uid="uid://bgm6q66n3yxns"]
 
 [ext_resource type="Texture2D" uid="uid://cwipl485c3b73" path="res://ui_assets/misc/minigame-rules-panel.png" id="1_33h1p"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_32bgk"]

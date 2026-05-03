@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://csvhi0yaukmli"]
+[gd_resource type="Resource" format=3 uid="uid://csvhi0yaukmli"]
 
 [ext_resource type="Texture2D" uid="uid://u5ifm51uptou" path="res://ui_assets/battle/statuses/witness_protection.png" id="1_4me18"]
 [ext_resource type="Script" uid="uid://mf8liu70ry13" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_witness_protection.gd" id="2_4me18"]

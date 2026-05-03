@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://ctav50x05ve87"]
+[gd_resource type="Resource" script_class="ToonSpeechSounds" format=3 uid="uid://ctav50x05ve87"]
 
 [ext_resource type="AudioStream" uid="uid://co03t7rptq6rd" path="res://audio/sfx/toon/pig/AV_pig_exclaim.ogg" id="1_rb6jr"]
 [ext_resource type="Script" uid="uid://cjyrcemaxrvse" path="res://audio/sfx/toon/toon_speech_sounds.gd" id="1_w0ep8"]

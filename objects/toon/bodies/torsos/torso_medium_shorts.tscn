@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://8b3a4xq3y1an"]
+[gd_scene format=3 uid="uid://8b3a4xq3y1an"]
 
 [ext_resource type="PackedScene" uid="uid://di1iowjhecp75" path="res://models/toon/body/med/shorts/tt_a_chr_dgm_shorts_torso_1000.fbx" id="1_fig25"]
 [ext_resource type="Script" uid="uid://lrvtj7qrqxhd" path="res://objects/toon/toon_body.gd" id="2_vmday"]

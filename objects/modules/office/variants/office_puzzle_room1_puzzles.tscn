@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgtwlg02hp5fy"]
+[gd_scene format=3 uid="uid://cgtwlg02hp5fy"]
 
 [ext_resource type="PackedScene" uid="uid://cyai35bfek33x" path="res://objects/modules/office/base_rooms/office_puzzle_room1.tscn" id="1_kmlvh"]
 [ext_resource type="PackedScene" uid="uid://btajacdw0exth" path="res://objects/props/office/partition.tscn" id="2_2bflx"]

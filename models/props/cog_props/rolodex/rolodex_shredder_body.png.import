@@ -2,21 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bin6vohx4br4r"
-path="res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.ctex"
+uid="uid://dhceovnbfkmgm"
+path.s3tc="res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.s3tc.ctex"
+path.etc2="res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "649c8f97a7f8bf8daa0d79690c9e129c"
 }
 
 [deps]
 
 source_file="res://models/props/cog_props/rolodex/rolodex_shredder_body.png"
-dest_files=["res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.ctex"]
+dest_files=["res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.s3tc.ctex", "res://.godot/imported/rolodex_shredder_body.png-4929175790bb99abb24e0d786986f750.etc2.ctex"]
 
 [params]
 
-compress/mode=3
-compress/high_quality=true
+compress/mode=2
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6i7vwfl3cc6r"]
+
+[ext_resource type="Texture2D" uid="uid://b7s4tdk3f23en" path="res://objects/interactables/gag_shop/assets/GS_sign.png" id="1_vrfcu"]
+
+[node name="GagShopSign" type="Sprite3D"]
+texture = ExtResource("1_vrfcu")

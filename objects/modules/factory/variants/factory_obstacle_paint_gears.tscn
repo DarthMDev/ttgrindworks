@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ec3fmvj5p3qp"]
+[gd_scene format=4 uid="uid://ec3fmvj5p3qp"]
 
 [ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_3d7e4"]
 [ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="2_0nqtm"]

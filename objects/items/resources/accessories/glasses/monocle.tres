@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://csl6v00ytdmb7"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://csl6v00ytdmb7"]
 
 [ext_resource type="Script" uid="uid://dvu24b3o8i3sj" path="res://objects/items/classes/item_accessory.gd" id="1_wh3jq"]
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_wllcp"]
@@ -237,17 +237,14 @@ scale = Vector3(1.2, 1.2, 1.2)
 script = ExtResource("1_wh3jq")
 accessory_placements = Array[ExtResource("1_wllcp")]([SubResource("Resource_2syit"), SubResource("Resource_q6iyj"), SubResource("Resource_t73d7"), SubResource("Resource_ge67y"), SubResource("Resource_3htkm"), SubResource("Resource_r3kyg"), SubResource("Resource_6jt2q"), SubResource("Resource_8t7dc"), SubResource("Resource_qma0p"), SubResource("Resource_n6uwk"), SubResource("Resource_g0ndh"), SubResource("Resource_6um5u"), SubResource("Resource_ungsy"), SubResource("Resource_a0ig6"), SubResource("Resource_2hxnw"), SubResource("Resource_g74ay"), SubResource("Resource_dij6e"), SubResource("Resource_xfo6m"), SubResource("Resource_cvjf0"), SubResource("Resource_r7kqv"), SubResource("Resource_f8ajr"), SubResource("Resource_koqgl"), SubResource("Resource_wq01w"), SubResource("Resource_uoiks"), SubResource("Resource_1fuib"), SubResource("Resource_pno4l"), SubResource("Resource_di4h0"), SubResource("Resource_r87bd"), SubResource("Resource_v83vd"), SubResource("Resource_v3l0n"), SubResource("Resource_0mkhr"), SubResource("Resource_5tjoq"), SubResource("Resource_kjc8m"), SubResource("Resource_q4eei")])
 qualitoon = 2
-rarity = 2
 slot = 2
 world_scale = 0.5
 item_name = "Monocle"
-item_description = "Gift of insight"
-big_description = "- Shows a detailed description for items when you're nearby them.
-- Reveals anomalies before selecting the next floor."
+item_description = "Gift of insight."
+big_description = "Reveals anomalies before selecting the next floor."
 model = ExtResource("2_x6de0")
 player_values = {
-"see_anomalies": true,
-"see_descriptions": true
+"see_anomalies": true
 }
 icon = ExtResource("3_myi3x")
 shop_category_color = Color(0.196078, 0.580392, 0.917647, 1)

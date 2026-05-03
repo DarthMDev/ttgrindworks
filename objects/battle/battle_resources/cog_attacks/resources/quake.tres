@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cae3lr6y4rrb8"]
+[gd_resource type="Resource" format=3 uid="uid://cae3lr6y4rrb8"]
 
 [ext_resource type="Script" uid="uid://chapsu358g1bt" path="res://objects/battle/battle_resources/cog_attacks/quake.gd" id="1_e4ii2"]
 

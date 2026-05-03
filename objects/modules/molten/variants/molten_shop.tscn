@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://draymh55180rj"]
+[gd_scene format=3 uid="uid://draymh55180rj"]
 
 [ext_resource type="PackedScene" uid="uid://b5ag2bxnkogge" path="res://objects/modules/molten/base_rooms/molten_shop.tscn" id="1_6d760"]
 [ext_resource type="Script" uid="uid://b4uiuvnm04smj" path="res://objects/modules/molten/variants/molten_shop.gd" id="2_3wd6a"]

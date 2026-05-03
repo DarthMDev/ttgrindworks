@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://utwlvgq8mlgv"]
+[gd_scene format=3 uid="uid://utwlvgq8mlgv"]
 
 [ext_resource type="Script" uid="uid://cxr2mqjkvrlhg" path="res://objects/doodle/roaming_doodle/roaming_doodle.gd" id="1_dy8iu"]
 [ext_resource type="PackedScene" uid="uid://dbcmfw8e67wkl" path="res://objects/doodle/doodle_mod.tscn" id="2_57yw2"]

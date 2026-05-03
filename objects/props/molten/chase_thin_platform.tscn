@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy15pco0hx21c"]
+[gd_scene format=3 uid="uid://dy15pco0hx21c"]
 
 [ext_resource type="PackedScene" uid="uid://7yrjvfb0b8ed" path="res://models/props/facility_objects/molten/chase_objects/chase_thin_platform.fbx" id="1_wgqm7"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalAchievement" load_steps=3 format=3 uid="uid://bsujh2q7oo3kn"]
+[gd_resource type="Resource" script_class="SignalAchievement" format=3 uid="uid://bsujh2q7oo3kn"]
 
 [ext_resource type="Script" uid="uid://bu0ypaddtve76" path="res://objects/save_file/achievements/signal_achievement.gd" id="1_exmdd"]
 [ext_resource type="Texture2D" uid="uid://pnlm5nq7l2ej" path="res://ui_assets/achievements/icon_achievement_timer.png" id="1_id2ki"]

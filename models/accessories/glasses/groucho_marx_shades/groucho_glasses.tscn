@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ne88fy6cubpk"]
+[gd_scene format=3 uid="uid://ne88fy6cubpk"]
 
 [ext_resource type="PackedScene" uid="uid://d1xl87xsi8bk5" path="res://models/accessories/glasses/groucho_marx_shades/tt_m_chr_avt_acc_msk_grouchoMarxEyebrow.glb" id="1_57w10"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cluyiu76brkoi"]
+[gd_scene format=3 uid="uid://cluyiu76brkoi"]
 
 [ext_resource type="PackedScene" uid="uid://cowvqq34m0acm" path="res://models/props/facility_objects/molten/bellows/MoltenBellows.fbx" id="1_j2phe"]
 [ext_resource type="Script" uid="uid://b1kwvcr15ieyv" path="res://objects/interactables/molten_bellows/molten_bellows.gd" id="2_4k0bo"]
@@ -573,6 +573,7 @@ update_scale = false
 [node name="StaticBody3D" type="StaticBody3D" parent="Spring" index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Spring/StaticBody3D" index="0"]
+transform = Transform3D(1.225, 0, 0, 0, 1.225, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_hln1b")
 
 [node name="DisableTimer" type="Timer" parent="." index="3"]

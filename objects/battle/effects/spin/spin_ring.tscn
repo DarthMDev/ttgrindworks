@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bca551sy21kpn"]
+[gd_scene format=3 uid="uid://bca551sy21kpn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obj75"]
 emission_shape = 6

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://bn7136sot67pu"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://bn7136sot67pu"]
 
 [ext_resource type="Script" uid="uid://j4cinvsg016f" path="res://objects/items/custom/spinach_can/item_spinach_can.gd" id="1_6kkve"]
 [ext_resource type="Texture2D" uid="uid://bd7ygcftkrtdm" path="res://ui_assets/player_ui/pocket_prank_icons/spinach_can.png" id="1_06ut2"]

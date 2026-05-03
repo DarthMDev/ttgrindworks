@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtt6wufe1nbkt"]
+[gd_scene format=3 uid="uid://dtt6wufe1nbkt"]
 
 [ext_resource type="Texture2D" uid="uid://6jo5d4qtcd44" path="res://ui_assets/general/panel.png" id="1_vimnd"]
 [ext_resource type="Script" uid="uid://dhc7mwrcd48x2" path="res://scenes/cog_creator/directory_template.gd" id="2_0hv1k"]

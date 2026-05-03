@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DropSmall" load_steps=6 format=3 uid="uid://b36jh0mm8fske"]
+
+[ext_resource type="Texture2D" uid="uid://b0ur80pn0rlga" path="res://ui_assets/battle/gags/inventory_sandbag.png" id="1_b64jr"]
+[ext_resource type="PackedScene" uid="uid://bqcn6woo6faw3" path="res://models/props/gags/sandbag/sandbag.tscn" id="2_48lc5"]
+[ext_resource type="Script" uid="uid://dehi0sbejfe52" path="res://objects/battle/battle_resources/toon_attacks/drop_small.gd" id="3_mlduc"]
+[ext_resource type="AudioStream" uid="uid://daregunub3lk2" path="res://audio/sfx/battle/gags/drop/AA_drop_sandbag.ogg" id="4_j60m7"]
+[ext_resource type="AudioStream" uid="uid://d216a4hd3dteb" path="res://audio/sfx/battle/gags/drop/AA_drop_sandbag_miss.ogg" id="5_fdkqi"]
+
+[resource]
+script = ExtResource("3_mlduc")
+model = ExtResource("2_48lc5")
+shadow_scale = 1.25
+sfx_hit = ExtResource("4_j60m7")
+sfx_miss = ExtResource("5_fdkqi")
+icon = ExtResource("1_b64jr")
+damage = 14
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Sandbag"
+one_time_use = false

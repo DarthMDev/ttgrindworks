@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://c7w0fjy28qcvr"]
+[gd_scene format=4 uid="uid://c7w0fjy28qcvr"]
 
 [ext_resource type="Script" uid="uid://10vbkw1hokq8" path="res://models/props/gags/water_splash/water_splash_untextured.gd" id="1_4pyjo"]
 

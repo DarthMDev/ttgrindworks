@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciyyhun2e5nmf"]
+[gd_scene format=3 uid="uid://ciyyhun2e5nmf"]
 
 [ext_resource type="PackedScene" uid="uid://scqvvooyr7fi" path="res://models/props/facility_objects/crate/crate_general.fbx" id="1_68eox"]
 [ext_resource type="Texture2D" uid="uid://b4cid5klcomtk" path="res://models/props/facility_objects/crate/crate_general_0.png" id="2_8r6j4"]

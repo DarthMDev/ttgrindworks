@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://eqtswktr1h3j"]
+[gd_scene format=3 uid="uid://eqtswktr1h3j"]
 
 [ext_resource type="Texture2D" uid="uid://cgfb42t3nnpsa" path="res://objects/items/custom/gag_voucher/ticket.png" id="1_jf8cw"]
 [ext_resource type="Script" uid="uid://cvnlku24shuw5" path="res://objects/items/custom/gag_voucher/gag_voucher.gd" id="1_q17vp"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3t2jabfpohqy"]
+[gd_scene format=3 uid="uid://d3t2jabfpohqy"]
 
 [ext_resource type="PackedScene" uid="uid://bm6qaqxeuixld" path="res://models/props/cog_props/big_watercooler/Big_Watercooler.fbx" id="1_glexm"]
 [ext_resource type="Texture2D" uid="uid://bgjd5hp0j5aot" path="res://models/props/cog_props/big_watercooler/Watercooler.png" id="2_kv4fj"]

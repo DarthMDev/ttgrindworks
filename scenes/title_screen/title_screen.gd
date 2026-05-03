@@ -181,6 +181,8 @@ func new_game() -> void:
 	await character_select_fsm.finish()
 	CameraTransition.from_current(SceneLoader.current_scene, %FinalCam, 2.0)
 	clipboard_out()
+	if clipboard.custom_seed in Globals.custom_seeds.keys():
+		show_secret_seed(clipboard.custom_seed)
 	var toon_tween := create_tween()
 	toon_tween.tween_callback(make_toon_look.bind(selected_toon, elevator.player_pos.global_position))
 	toon_tween.tween_callback(selected_toon.set_animation.bind('run'))
@@ -207,10 +209,18 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	if has_existing_run and SaveFileService.progress_file.win_streak > 0:
 		SaveFileService.progress_file.win_streak = 0
 
+	var seed_items: Array[Item] = []
 	SaveFileService.delete_run_file()
 	if clipboard.custom_seed == "":
 		RNG.generate_seed()
 		RNG.is_custom_seed = false
+	elif clipboard.custom_seed in Globals.custom_seeds.keys():
+		RNG.generate_seed()
+		RNG.is_custom_seed = true
+		var seed_result = Globals.custom_seeds[clipboard.custom_seed]
+		if seed_result is Array:
+			seed_items.append_array(seed_result.map(func(x): return load(x)))
+		elif seed_result is String: seed_items.append(load(seed_result))
 	else:
 		RNG._str_seed = clipboard.custom_seed
 		RNG.set_seed(RNG.get_numerical_seed_from_string(clipboard.custom_seed))
@@ -222,6 +232,8 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 	var player: Player = PLAYER.instantiate()
 	player.stats = PlayerStats.new()
 	player.stats.character = character.duplicate(true)
+	for item in seed_items:
+		player.stats.character.starting_items.append(item)
 	player.reset_stats()
 	SceneLoader.add_persistent_node(player)
 	DiscordManager.update_presence()
@@ -232,6 +244,14 @@ func begin_game(character: PlayerCharacter, falling_scene := false) -> void:
 		SceneLoader.load_into_scene("res://scenes/falling_scene/falling_scene.tscn", GameLoader.Phase.FALLING_SEQ)
 	else:
 		SceneLoader.load_into_scene("res://scenes/cog_building/cog_building_floor.tscn", GameLoader.Phase.COG_BLDG_FLOOR)
+
+func show_secret_seed(secret: String) -> void:
+	%SecretSeedLabel.set_text("Secret Seed: %s" % secret)
+	var secret_tween := create_tween().set_trans(Tween.TRANS_QUAD)
+	secret_tween.tween_callback(AudioManager.play_sound.bind(load("res://audio/sfx/misc/MG_pairing_match_bonus_both.ogg")))
+	secret_tween.tween_property(%SecretSeedLabel, 'modulate:a', 1.0, 0.5)
+	secret_tween.tween_property(%SecretSeedLabel, 'modulate:a', 0.0, 2.0)
+	secret_tween.finished.connect(secret_tween.kill)
 
 func update_state() -> void:
 	new_game_menu.visible = (state == MenuState.TOON_SELECT or state == MenuState.NEW_GAME)
@@ -366,3 +386,33 @@ func _on_request_completed(_result, _response_code, _headers, body) -> void:
 	var version = json["tag_name"]
 	if version != Globals.VERSION_NUMBER:
 		%NewVersionLabel.show()
+
+func discord_hover() -> void:
+	HoverManager.hover("Join the Discord!")
+	%DiscordButton.mouse_exited.connect(HoverManager.stop_hover, CONNECT_ONE_SHOT)
+	on_social_hover(%DiscordButton, Color("#5865f2"))
+
+func bluesky_hover() -> void:
+	HoverManager.hover("Follow us on Bluesky!")
+	%BlueskyButton.mouse_exited.connect(HoverManager.stop_hover, CONNECT_ONE_SHOT)
+	on_social_hover(%BlueskyButton, Color("#1185fe"))
+
+func wiki_hover() -> void:
+	HoverManager.hover("Check out the Wiki!")
+	%WikiButton.mouse_exited.connect(HoverManager.stop_hover, CONNECT_ONE_SHOT)
+	on_social_hover(%WikiButton, Color("#ff1985"))
+
+func on_social_hover(social: GeneralButton, color: Color) -> void:
+	var tween_time := 0.4
+	var social_popup := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	social_popup.tween_property(social.get_parent(), 'scale', Vector2(1.1, 1.1), tween_time)
+	social_popup.parallel().tween_property(social, 'self_modulate', color, tween_time)
+
+func on_social_unhover(social: GeneralButton) -> void:
+	var tween_time := 0.4
+	var social_popdown := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	social_popdown.tween_property(social.get_parent(), 'scale', Vector2.ONE, tween_time)
+	social_popdown.parallel().tween_property(social, 'self_modulate', Color.WHITE, tween_time)
+
+func on_social_click(url: String) -> void:
+	OS.shell_open(url) 

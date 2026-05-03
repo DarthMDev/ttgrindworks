@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s4ya4ge25pbp"]
+[gd_scene format=3 uid="uid://s4ya4ge25pbp"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_jb6nm"]
 [ext_resource type="PackedScene" uid="uid://bqo1n7rw85igy" path="res://objects/interactables/elevators/elevator_law.tscn" id="2_rf3ng"]

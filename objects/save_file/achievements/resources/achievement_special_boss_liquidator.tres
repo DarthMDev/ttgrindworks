@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SignalAchievement" load_steps=3 format=3 uid="uid://cc124m0rwayj"]
+[gd_resource type="Resource" script_class="SignalAchievement" format=3 uid="uid://cc124m0rwayj"]
 
 [ext_resource type="Texture2D" uid="uid://c6y5heevevvce" path="res://ui_assets/achievements/icon_achievement_liquidator.png" id="1_8oj1f"]
 [ext_resource type="Script" uid="uid://bu0ypaddtve76" path="res://objects/save_file/achievements/signal_achievement.gd" id="2_qbr6n"]
@@ -11,5 +11,4 @@ achievement_name = "Hot Pursuit"
 achievement_summary = "Defeat The Liquidator in the Molten Mint."
 achievement_index = 29
 achievement_icon = ExtResource("1_8oj1f")
-override_index = 12
 metadata/_custom_type_script = "uid://bu0ypaddtve76"

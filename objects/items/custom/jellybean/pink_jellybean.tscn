@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf80j11m31apb"]
+[gd_scene format=3 uid="uid://cf80j11m31apb"]
 
 [ext_resource type="PackedScene" uid="uid://dsj8qebkjj6wm" path="res://objects/items/custom/jellybean/red_jellybean.tscn" id="1_e6apk"]
 

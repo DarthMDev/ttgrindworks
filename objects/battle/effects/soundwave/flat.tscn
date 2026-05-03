@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmmejrar177u6"]
+[gd_scene format=3 uid="uid://dmmejrar177u6"]
 
 [ext_resource type="Texture2D" uid="uid://b2111o0dlwcvh" path="res://objects/misc/CircleHollow.png" id="1_18xtp"]
 

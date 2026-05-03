@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://dndma8e0dtm5l"]
+[gd_scene format=4 uid="uid://dndma8e0dtm5l"]
 
-[ext_resource type="Texture2D" uid="uid://bgph2bpxr2f7c" path="res://models/props/gags/water_gun/water_gun_gun_body.png" id="1_3y5sv"]
+[ext_resource type="Texture2D" uid="uid://ynumtv3fhpmi" path="res://models/props/gags/water_gun/water_gun_gun_body.png" id="1_3y5sv"]
 [ext_resource type="Texture2D" uid="uid://lqnqhvflun6r" path="res://models/props/gags/water_gun/water_gun_barrel.png" id="2_trg50"]
 [ext_resource type="Texture2D" uid="uid://dv74eduvoildi" path="res://models/props/gags/water_gun/water_gun_neutral_gradient.png" id="3_c1se7"]
 

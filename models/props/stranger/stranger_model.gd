@@ -16,6 +16,12 @@ const ANIMATION_BUFFER_RANGE := Vector2(4.0, 10.0)
 	set(x):
 		set_scopes_visible(x)
 
+@onready var crank_sfx: Array[AudioStreamPlayer3D] = [
+	%SFXCrankHigh,
+	%SFXCrankNorm,
+	%SFXCrankLow,
+]
+
 var disable_rustle := false
 
 
@@ -55,6 +61,8 @@ func scopes_emerge() -> void:
 func scopes_recede() -> void:
 	animator.play_backwards('intro')
 	animator.animation_finished.connect(on_recede_finish, CONNECT_ONE_SHOT)
+	for sfx in crank_sfx:
+		sfx.stop()
 
 func on_recede_finish(_anim) -> void:
 	set_scopes_visible(false)

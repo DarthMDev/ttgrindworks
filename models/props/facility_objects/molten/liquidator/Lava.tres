@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxa4jrsm0xsac"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxa4jrsm0xsac"]
 
 [ext_resource type="Texture2D" uid="uid://b2cun8urdr1mo" path="res://models/props/facility_objects/molten/liquidator/lava_hicontrast.png" id="1_ytp3k"]
 

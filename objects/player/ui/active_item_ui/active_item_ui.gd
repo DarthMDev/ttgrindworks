@@ -45,6 +45,7 @@ func _ready() -> void:
 func setup_item(new_item: ItemActive) -> void:
 	if new_item.icon:
 		item_icon.set_texture(new_item.icon)
+		item_icon.material = new_item.icon_material
 	else:
 		printerr("ERR: Active item %s has no icon to display!" % new_item.item_name)
 	
@@ -150,8 +151,8 @@ func input_to_text(input: InputEvent) -> String:
 	var text := input.as_text()
 	if text.begins_with("Joypad"):
 		return "Q"
-	elif text.ends_with(" (Physical)"):
-		return text.trim_suffix(" (Physical)")
+	elif text.ends_with(" - Physical"):
+		return text.trim_suffix(" - Physical")
 	return input.as_text()
 
 func get_button_prompt_visible() -> bool:
@@ -170,4 +171,5 @@ func check_reserve() -> void:
 	if player.stats.actives_in_reserve.is_empty():
 		return
 	%ReservePrank.set_texture(player.stats.actives_in_reserve[0].icon)
+	%ReservePrank.material = player.stats.actives_in_reserve[0].icon_material
 	%ReserveBox.self_modulate = CATEGORY_COLORS[player.stats.actives_in_reserve[0].active_type]

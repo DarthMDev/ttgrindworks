@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://b057pepdja8q2"]
+[gd_scene format=4 uid="uid://b057pepdja8q2"]
 
 [ext_resource type="PackedScene" uid="uid://b1snay24b1xbj" path="res://models/misc_zones/menu/MenuTerrain.fbx" id="1_i65jj"]
 [ext_resource type="Texture2D" uid="uid://ddujmxghl4aa8" path="res://models/misc_zones/menu/Menu Area Textures/HorizBillBoards.png" id="2_odsme"]

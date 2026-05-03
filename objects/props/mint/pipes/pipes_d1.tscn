@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://byrmf687ynghb"]
+[gd_scene format=4 uid="uid://byrmf687ynghb"]
 
 [ext_resource type="PackedScene" uid="uid://bw08pwf748cd2" path="res://models/props/facility_objects/mint/pipes/pipes_D1.fbx" id="1_qx1n2"]
 [ext_resource type="Texture2D" uid="uid://cg2uccg6r4tku" path="res://models/props/facility_objects/mint/pipes/textures/CogIntPlate1b.png" id="2_xhwk2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bf48srbmn1uti"]
+[gd_scene format=3 uid="uid://bf48srbmn1uti"]
 
 [ext_resource type="Texture2D" uid="uid://dtb1wxg7cs2sj" path="res://models/cogs/misc/explosion/gear.png" id="1_sngxv"]
 [ext_resource type="Texture2D" uid="uid://p2rex785q4qy" path="res://models/props/gags/geyser-revamp/geyser_5.png" id="2_16rmw"]

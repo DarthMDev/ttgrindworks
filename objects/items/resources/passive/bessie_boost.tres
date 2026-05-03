@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://w2jk7lsyrodm"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://w2jk7lsyrodm"]
 
 [ext_resource type="Script" uid="uid://dew2i6wu8unmt" path="res://objects/items/custom/item_bessie_boost.gd" id="1_80khx"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_cjveb"]

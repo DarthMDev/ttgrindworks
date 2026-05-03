@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ktka8nwybead"]
+[gd_scene format=3 uid="uid://ktka8nwybead"]
 
 [ext_resource type="PackedScene" uid="uid://djt2mhgxahh5k" path="res://models/props/facility_objects/cgc/moles/mole_hole.fbx" id="1_nu0kn"]
 [ext_resource type="Script" uid="uid://bi24p7yxpr0ow" path="res://objects/interactables/mole_stomp/mole_hole.gd" id="2_38kih"]

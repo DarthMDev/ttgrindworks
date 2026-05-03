@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://ebeuqck2p8de"]
+[gd_scene format=4 uid="uid://ebeuqck2p8de"]
 
 [ext_resource type="PackedScene" uid="uid://chdkp682v5kgu" path="res://objects/modules/factory/base_rooms/factory_paint_mixer.tscn" id="1_jvvjw"]
 [ext_resource type="Texture2D" uid="uid://bq3p655m2hvhy" path="res://models/props/facility_objects/factory/paint/PaintStream_SB_Paint.png" id="2_bnm5x"]

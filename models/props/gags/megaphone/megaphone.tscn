@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://j6islxt27d70"]
+[gd_scene format=4 uid="uid://j6islxt27d70"]
 
 [ext_resource type="Texture2D" uid="uid://d1fs4h0rafq2x" path="res://models/props/gags/megaphone/megaphone_magaphone_handel.png" id="1_in6nm"]
 [ext_resource type="Texture2D" uid="uid://c7qvckeramqky" path="res://models/props/gags/megaphone/megaphone_megaphone_new.png" id="2_42k7r"]

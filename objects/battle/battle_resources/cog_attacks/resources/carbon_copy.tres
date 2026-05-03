@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CarbonCopy" load_steps=2 format=3 uid="uid://3l28x2fofrgl"]
+[gd_resource type="Resource" script_class="CarbonCopy" format=3 uid="uid://3l28x2fofrgl"]
 
 [ext_resource type="Script" uid="uid://c12r8q5jjmf38" path="res://objects/battle/battle_resources/cog_attacks/carbon_copy.gd" id="1_2ndfv"]
 

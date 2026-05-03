@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://6tfgkr33627l"]
+[gd_scene format=3 uid="uid://6tfgkr33627l"]
 
 [ext_resource type="PackedScene" uid="uid://decktf3m5p26w" path="res://models/props/toon_props/pbj/PBJ.fbx" id="1_jqxvt"]
 

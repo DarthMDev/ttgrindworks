@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b73jbd1blrd3h"]
+[gd_scene format=4 uid="uid://b73jbd1blrd3h"]
 
 [ext_resource type="PackedScene" uid="uid://b4wf014bfbpgb" path="res://models/facilities/factory/factory_silo_doublefacing.fbx" id="1_kgla4"]
 [ext_resource type="Texture2D" uid="uid://c82dhpdhopvet" path="res://models/facilities/factory/FINALFACTORY_7.png" id="2_wh5ul"]

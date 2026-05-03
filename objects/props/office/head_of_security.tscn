@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw40g4r5ql7yj"]
+[gd_scene format=3 uid="uid://bw40g4r5ql7yj"]
 
 [ext_resource type="PackedScene" uid="uid://kv4qkxah7otf" path="res://models/props/facility_objects/da_office/head_of_security/head_of_security.glb" id="1_bagpu"]
 [ext_resource type="Material" uid="uid://bs35ff21limfb" path="res://models/props/facility_objects/da_office/head_of_security/hos_shader.tres" id="2_fb5r0"]

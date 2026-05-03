@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdjmlidf0pm6b"]
+[gd_scene format=3 uid="uid://cdjmlidf0pm6b"]
 
 [ext_resource type="Script" uid="uid://y8162bivi546" path="res://objects/obstacles/sinking_platform/sinking_platform.gd" id="1_866e6"]
 [ext_resource type="PackedScene" uid="uid://d0o37sg2xvqe6" path="res://models/props/facility_objects/conveyor_platform/platform.glb" id="2_eg61r"]

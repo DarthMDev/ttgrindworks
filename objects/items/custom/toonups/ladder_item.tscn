@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdfhi2qb2lm0h"]
+[gd_scene format=3 uid="uid://cdfhi2qb2lm0h"]
 
 [ext_resource type="PackedScene" uid="uid://b13buybqltsvk" path="res://models/props/gags/ladder/ladder.fbx" id="1_ifbq4"]
 [ext_resource type="Script" uid="uid://xsesvqbgiawt" path="res://objects/items/custom/item_toonup_pickup.gd" id="2_pbg5b"]

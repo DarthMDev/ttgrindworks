@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://kn8t8j3sb02n"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://kn8t8j3sb02n"]
 
 [ext_resource type="Texture2D" uid="uid://c0ovwv71nldcl" path="res://models/props/toon_props/philosophers_stone/philosophersStone.png" id="1_fbm0e"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3vi6h4mq71ow"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3vi6h4mq71ow"]
 
 [ext_resource type="Texture2D" uid="uid://e8g0mpv54yrs" path="res://models/facilities/cgc/textures/CogHedgeMaze3.png" id="1_sy6i1"]
 

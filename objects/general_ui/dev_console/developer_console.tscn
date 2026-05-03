@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckoi0smkjdncl"]
+[gd_scene format=3 uid="uid://ckoi0smkjdncl"]
 
 [ext_resource type="Script" uid="uid://b2gkgm1xqt5dp" path="res://objects/general_ui/dev_console/developer_console.gd" id="1_yekhd"]
 

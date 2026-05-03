@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://ck66os8hfom1c"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ck66os8hfom1c"]
 
 [ext_resource type="Texture2D" uid="uid://cqx2ellqku7do" path="res://objects/items/custom/treasure/snow_particle.png" id="1_hn3le"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_ito7a"]

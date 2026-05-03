@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cowmk5nu2yli0"]
+[gd_scene format=3 uid="uid://cowmk5nu2yli0"]
 
 [ext_resource type="Shader" uid="uid://dn57gjno78ipp" path="res://models/props/gags/hypno_goggles/hypno_flipbook_effect/hypno_swirl.gdshader" id="1_j8a53"]
 [ext_resource type="Texture2D" uid="uid://bstofxn23y2wa" path="res://models/props/gags/hypno_goggles/hypno_flipbook_effect/Hypno_Effect.png" id="2_3t4gu"]

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brxydrl4ou87j"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://brxydrl4ou87j"]
 
 [ext_resource type="Texture2D" uid="uid://onho1h0opxx2" path="res://models/accessories/backpacks/supertoon_cape/tt_m_chr_avt_acc_pac_supertoonCape_tt_t_chr_avt_acc_pac_supertoonCape.png" id="1_452h2"]
 

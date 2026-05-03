@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CogPool" load_steps=11 format=3 uid="uid://b14s6jiqdlynh"]
+[gd_resource type="Resource" script_class="CogPool" format=3 uid="uid://b14s6jiqdlynh"]
 
 [ext_resource type="Resource" uid="uid://deum0qw8ucod3" path="res://objects/cog/presets/cashbot/short_change.tres" id="1_6ecc5"]
 [ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="1_g5rlm"]

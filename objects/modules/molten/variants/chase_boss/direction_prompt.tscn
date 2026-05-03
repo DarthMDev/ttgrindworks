@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://duuirfsgnfytm"]
+[gd_scene format=3 uid="uid://duuirfsgnfytm"]
 
 [ext_resource type="Script" uid="uid://dvq8tyri31d8r" path="res://objects/modules/molten/variants/chase_boss/direction_prompt.gd" id="1_d5x8a"]
 [ext_resource type="Texture2D" uid="uid://crhfvqyw7kbdg" path="res://ui_assets/misc/arrow_red.png" id="1_m6600"]

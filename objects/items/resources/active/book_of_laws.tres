@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dvlis7mm2c6qn"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://dvlis7mm2c6qn"]
 
 [ext_resource type="PackedScene" uid="uid://chehnymhm3svv" path="res://models/props/facility_objects/da_office/law_book/lawbook.tscn" id="1_14iix"]
 [ext_resource type="Texture2D" uid="uid://dojc0hrcrx15i" path="res://ui_assets/player_ui/pocket_prank_icons/book_of_laws.png" id="1_cos3f"]

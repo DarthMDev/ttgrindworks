@@ -10,6 +10,8 @@ const FALLBACK_THROW_SFX := preload('res://audio/sfx/battle/gags/throw/AA_pie_th
 @export var present_sfx: AudioStream
 @export var throw_sfx: AudioStream
 @export var miss_sfx: AudioStream
+@export var status_effect: StatusEffect
+@export var status_effect_base: StatusEffect
 
 func action():
 	user = Util.get_player()
@@ -51,6 +53,8 @@ func action():
 		
 		if not immune:
 			var throw_damage: int = manager.affect_target(cog, damage)
+			if status_effect:
+				apply_status_effect()
 			if user.throw_heals:
 				user.quick_heal(roundi(throw_damage * user.stats.get_stat("throw_heal_boost")))
 		else:
@@ -105,3 +109,14 @@ func get_stats() -> String:
 		string += "\nSelf-Heal: %s%%" % roundi(player_stats.get_stat('throw_heal_boost') * 100)
 
 	return string
+
+func apply_status_effect() -> void:
+	var base_effect = status_effect_base.duplicate()
+	if not base_effect is StatusEffect:
+		printerr("GagThrow: Status Effect path does not lead to status effect!!!")
+		return
+	StatusEffect.safe_copy_effect(status_effect, base_effect)
+	for target in targets:
+		var effect: StatusEffect = base_effect.duplicate()
+		effect.target = target
+		manager.add_status_effect(effect)

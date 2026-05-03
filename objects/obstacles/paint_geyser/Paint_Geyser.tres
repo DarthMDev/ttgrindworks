@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://dw8xtbkqgxrtl"]
+[gd_resource type="VisualShader" format=3 uid="uid://dw8xtbkqgxrtl"]
 
 [ext_resource type="Texture2D" uid="uid://cpbkf8ufeb8lr" path="res://objects/obstacles/paint_geyser/SB_Paint.png" id="1_jaisk"]
 
@@ -60,72 +60,6 @@ operator = 3
 [sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_6d42t"]
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx;
-
-uniform sampler2D tex_frg_2 : source_color;
-uniform sampler2D tex_frg_6 : source_color;
-uniform sampler2D tex_frg_7;
-uniform sampler2D tex_frg_12;
-
-
-
-void fragment() {
-// Input:3
-	float n_out3p0 = TIME;
-
-
-// UVFunc:5
-	vec2 n_in5p1 = vec2(0.00000, 1.50000);
-	vec2 n_out5p0 = vec2(n_out3p0) * n_in5p1 + UV;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, n_out5p0);
-
-
-// Input:10
-	float n_out10p0 = TIME;
-
-
-// UVFunc:11
-	vec2 n_in11p1 = vec2(0.00000, 0.60000);
-	vec2 n_out11p0 = vec2(n_out10p0) * n_in11p1 + UV;
-
-
-// Texture2D:6
-	vec4 n_out6p0 = texture(tex_frg_6, n_out11p0);
-
-
-// Texture2D:7
-	vec4 n_out7p0 = texture(tex_frg_7, UV);
-
-
-// FloatOp:8
-	float n_out8p0 = n_out6p0.x / n_out7p0.x;
-
-
-// Texture2D:12
-	vec4 n_out12p0 = texture(tex_frg_12, UV);
-
-
-// FloatOp:13
-	float n_out13p0 = n_out8p0 - n_out12p0.x;
-
-
-// Clamp:9
-	float n_in9p1 = 0.00000;
-	float n_in9p2 = 1.00000;
-	float n_out9p0 = clamp(n_out13p0, n_in9p1, n_in9p2);
-
-
-// Output:0
-	ALBEDO = vec3(n_out2p0.xyz);
-	ALPHA = n_out9p0;
-
-
-}
-"
 modes/cull = 2
 nodes/fragment/0/position = Vector2(1280, 480)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_patgr")

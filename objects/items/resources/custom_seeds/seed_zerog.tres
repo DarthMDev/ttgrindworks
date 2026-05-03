@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cxiw1uwsyfqn8"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_13djd"]
+[ext_resource type="Script" uid="uid://bu7nq54ud8j5d" path="res://objects/items/custom/seed_logic/seed_zerog.gd" id="1_cs104"]
+
+[resource]
+script = ExtResource("1_13djd")
+item_script = ExtResource("1_cs104")
+metadata/_custom_type_script = "uid://combwqypom1ru"

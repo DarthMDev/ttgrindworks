@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://b73ax0fohafiu"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://b73ax0fohafiu"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_atnpb"]
 [ext_resource type="Texture2D" uid="uid://b56pxwmba5ahh" path="res://models/accessories/hats/toonosaur_hat/tt_m_chr_avt_acc_hat_dinosaur.glb-pix-1.png" id="2_2gngu"]

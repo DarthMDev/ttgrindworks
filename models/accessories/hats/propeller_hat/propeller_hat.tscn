@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b61sdpjlxhti6"]
+[gd_scene format=3 uid="uid://b61sdpjlxhti6"]
 
 [ext_resource type="PackedScene" uid="uid://dhwy6ghlh4lhe" path="res://models/accessories/hats/propeller_hat/tt_m_chr_avt_acc_hat_propellerHat.glb" id="1_chpcs"]
 [ext_resource type="Texture2D" uid="uid://breppmo8kfcf8" path="res://models/accessories/hats/propeller_hat/tt_m_chr_avt_acc_hat_propellerHat_tt_t_chr_avt_acc_hat_propellerHat.png" id="2_fwfq7"]

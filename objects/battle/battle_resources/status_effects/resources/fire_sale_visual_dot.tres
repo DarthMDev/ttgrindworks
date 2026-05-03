@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatusEffect" load_steps=3 format=3 uid="uid://uwa64uwceg1l"]
+[gd_resource type="Resource" script_class="StatusEffect" format=3 uid="uid://uwa64uwceg1l"]
 
 [ext_resource type="Script" uid="uid://df7irk63ikx4k" path="res://objects/battle/battle_resources/status_effect.gd" id="1_cu0lu"]
 [ext_resource type="Texture2D" uid="uid://d23er1qplly1g" path="res://ui_assets/battle/statuses/fire_sale_dot.png" id="1_eabt4"]

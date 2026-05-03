@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://cuw0j7rwy4nur"]
+[gd_resource type="VisualShader" format=3 uid="uid://cuw0j7rwy4nur"]
 
 [ext_resource type="Texture2D" uid="uid://cli1hthh4labi" path="res://models/props/gags/geyser-revamp/golf_waterfall.png" id="1_gx040"]
 
@@ -75,81 +75,6 @@ operator = 3
 [sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_awdih"]
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec4 color_parameter : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform sampler2D tex_frg_2 : source_color;
-uniform sampler2D tex_frg_6 : source_color;
-uniform sampler2D tex_frg_7;
-uniform sampler2D tex_frg_12;
-
-
-
-void fragment() {
-// ColorParameter:14
-	vec4 n_out14p0 = color_parameter;
-
-
-// Input:3
-	float n_out3p0 = TIME;
-
-
-// UVFunc:5
-	vec2 n_in5p1 = vec2(0.20000, 1.50000);
-	vec2 n_out5p0 = vec2(n_out3p0) * n_in5p1 + UV;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, n_out5p0);
-
-
-// VectorOp:15
-	vec3 n_out15p0 = vec3(n_out14p0.xyz) * vec3(n_out2p0.xyz);
-
-
-// Input:10
-	float n_out10p0 = TIME;
-
-
-// UVFunc:11
-	vec2 n_in11p1 = vec2(0.60000, 0.60000);
-	vec2 n_out11p0 = vec2(n_out10p0) * n_in11p1 + UV;
-
-
-// Texture2D:6
-	vec4 n_out6p0 = texture(tex_frg_6, n_out11p0);
-
-
-// Texture2D:7
-	vec4 n_out7p0 = texture(tex_frg_7, UV);
-
-
-// FloatOp:8
-	float n_out8p0 = n_out6p0.x / n_out7p0.x;
-
-
-// Texture2D:12
-	vec4 n_out12p0 = texture(tex_frg_12, UV);
-
-
-// FloatOp:13
-	float n_out13p0 = n_out8p0 - n_out12p0.x;
-
-
-// Clamp:9
-	float n_in9p1 = 0.00000;
-	float n_in9p2 = 1.00000;
-	float n_out9p0 = clamp(n_out13p0, n_in9p1, n_in9p2);
-
-
-// Output:0
-	ALBEDO = n_out15p0;
-	ALPHA = n_out9p0;
-
-
-}
-"
 modes/cull = 2
 nodes/fragment/0/position = Vector2(1840, 620)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_mt226")

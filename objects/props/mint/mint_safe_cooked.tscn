@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v0ki0toqb35k"]
+[gd_scene format=3 uid="uid://v0ki0toqb35k"]
 
 [ext_resource type="PackedScene" uid="uid://dj6hdk57qvxnq" path="res://models/props/facility_objects/mint/safe/cb_safe.fbx" id="1_wsfg1"]
 [ext_resource type="Texture2D" uid="uid://ngcq6r6rnjbn" path="res://models/props/facility_objects/mint/safe/CBSafe2.png" id="2_blgbs"]

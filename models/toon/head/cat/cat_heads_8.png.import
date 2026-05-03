@@ -2,20 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4dwjkkcpo1av"
-path="res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.ctex"
+uid="uid://bsirw80dqa0qi"
+path.bptc="res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.bptc.ctex"
+path.astc="res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "79bee36afeeaa2891656c33aa843e1ce"
 }
 
 [deps]
 
 source_file="res://models/toon/head/cat/cat_heads_8.png"
-dest_files=["res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.ctex"]
+dest_files=["res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.bptc.ctex", "res://.godot/imported/cat_heads_8.png-1f4de5adf950c45684c1df1c553f501c.astc.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0

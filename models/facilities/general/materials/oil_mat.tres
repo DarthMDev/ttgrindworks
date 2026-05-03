@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cp8vv8al3i6nl"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cp8vv8al3i6nl"]
 
 [ext_resource type="Shader" uid="uid://b3xje7jv3si6v" path="res://general_resources/shaders/liquid_shader.gdshader" id="1_q1aqf"]
 [ext_resource type="Texture2D" uid="uid://bdf3g7nyxirat" path="res://models/facilities/cgc/textures/oil.png" id="2_4hpg5"]

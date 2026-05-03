@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://k44r7tk128hb"]
+[gd_scene format=3 uid="uid://k44r7tk128hb"]
 
 [ext_resource type="PackedScene" uid="uid://ddtouup2q1rgt" path="res://models/props/facility_objects/molten/towers/MovingTower.fbx" id="1_ohsji"]
 [ext_resource type="Texture2D" uid="uid://nmuxgdvu0rjq" path="res://models/props/facility_objects/molten/towers/CBStationStripes2.png" id="2_p1y4m"]

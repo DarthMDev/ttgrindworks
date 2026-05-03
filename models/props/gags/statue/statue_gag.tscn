@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://gnotwb20f4fk"]
+[gd_scene format=3 uid="uid://gnotwb20f4fk"]
 
 [ext_resource type="PackedScene" uid="uid://cueenmir23h2" path="res://models/props/gags/safe/safe.tscn" id="1_7vs5e"]
 [ext_resource type="PackedScene" uid="uid://ciq5p8obil7ti" path="res://models/props/gags/statue/statue.tscn" id="2_kfnq8"]

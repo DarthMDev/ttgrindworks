@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://2e5ggjkttymp"]
+[gd_scene format=3 uid="uid://2e5ggjkttymp"]
 
 [ext_resource type="PackedScene" uid="uid://bp1pyx4u065a5" path="res://models/props/stranger/trashcan/stranger_trashcan.glb" id="1_gsmxr"]
 [ext_resource type="Script" uid="uid://ouk6kn03ou06" path="res://models/props/stranger/stranger_model.gd" id="2_tbq2u"]
@@ -11565,7 +11565,7 @@ start_time = 3.58
 end_time = 4.31
 metadata/_custom_type_script = "uid://b55u2wxwx511g"
 
-[node name="stranger_trashcan" node_paths=PackedStringArray("scope_meshes", "animator", "sfx_emerge", "sfx_recede") instance=ExtResource("1_gsmxr")]
+[node name="stranger_trashcan" unique_id=717392278 node_paths=PackedStringArray("scope_meshes", "animator", "sfx_emerge", "sfx_recede") instance=ExtResource("1_gsmxr")]
 script = ExtResource("2_tbq2u")
 scope_meshes = [NodePath("RIG-Trashcan-Stranger/Skeleton3D/eyelid_B_L"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/eyelid_B_R"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/eyelid_T_L"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/eyelid_T_R"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/Stranger-Pupils"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/Stranger-Pupils_001"), NodePath("RIG-Trashcan-Stranger/Skeleton3D/Stranger-Scopes")]
 animator = NodePath("AnimationPlayer")
@@ -11674,78 +11674,79 @@ blend_shapes/Closed = 0.790686
 blend_shapes/Closed = 0.790686
 
 [node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_doxkf")
-}
+libraries/ = SubResource("AnimationLibrary_doxkf")
 
-[node name="AnimationTimer" type="Timer" parent="." index="3"]
+[node name="AnimationTimer" type="Timer" parent="." index="3" unique_id=635871432]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="SFX" type="Node3D" parent="." index="4"]
+[node name="SFX" type="Node3D" parent="." index="4" unique_id=1702126094]
 
-[node name="SFXEmerge" type="Node3D" parent="SFX" index="0"]
+[node name="SFXEmerge" type="Node3D" parent="SFX" index="0" unique_id=853973282]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_nhvh6")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXRecede" type="Node3D" parent="SFX" index="1"]
+[node name="SFXRecede" type="Node3D" parent="SFX" index="1" unique_id=1914861849]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_pkdgn")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXHiccup" type="Node3D" parent="SFX" index="2"]
+[node name="SFXHiccup" type="Node3D" parent="SFX" index="2" unique_id=1062502387]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_oiunu")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXDoink" type="Node3D" parent="SFX" index="3"]
+[node name="SFXDoink" type="Node3D" parent="SFX" index="3" unique_id=1160103411]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_hi5ua")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXWobble" type="Node3D" parent="SFX" index="4"]
+[node name="SFXWobble" type="Node3D" parent="SFX" index="4" unique_id=790229420]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_rncar")
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXCrankNorm" type="AudioStreamPlayer3D" parent="SFX" index="5"]
+[node name="SFXCrankNorm" type="AudioStreamPlayer3D" parent="SFX" index="5" unique_id=1964474129]
+unique_name_in_owner = true
 stream = ExtResource("8_hi5ua")
 volume_db = -1.0
 bus = &"SFX"
 
-[node name="SFXCrankHigh" type="AudioStreamPlayer3D" parent="SFX" index="6"]
+[node name="SFXCrankHigh" type="AudioStreamPlayer3D" parent="SFX" index="6" unique_id=304853200]
+unique_name_in_owner = true
 stream = ExtResource("8_hi5ua")
 volume_db = -1.0
 pitch_scale = 1.07
 bus = &"SFX"
 
-[node name="SFXCrankLow" type="AudioStreamPlayer3D" parent="SFX" index="7"]
+[node name="SFXCrankLow" type="AudioStreamPlayer3D" parent="SFX" index="7" unique_id=1453243140]
+unique_name_in_owner = true
 stream = ExtResource("8_hi5ua")
 volume_db = -1.0
 pitch_scale = 0.96
 bus = &"SFX"
 
-[node name="SFXSwoop" type="Node3D" parent="SFX" index="8"]
+[node name="SFXSwoop" type="Node3D" parent="SFX" index="8" unique_id=1567390557]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_wcwut")
 volume_db = -1.0
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXGlance" type="Node3D" parent="SFX" index="9"]
+[node name="SFXGlance" type="Node3D" parent="SFX" index="9" unique_id=1256958271]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_unxm5")
 volume_db = -1.0
 bus = 2
 metadata/_custom_type_script = "uid://5y2ogc7vjp2w"
 
-[node name="SFXRecenter" type="Node3D" parent="SFX" index="10"]
+[node name="SFXRecenter" type="Node3D" parent="SFX" index="10" unique_id=1080540253]
 script = ExtResource("3_pw6et")
 snippet = SubResource("Resource_bpmml")
 volume_db = -1.0

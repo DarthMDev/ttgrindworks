@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=8 format=4 uid="uid://vitjqpd0aamm"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://vitjqpd0aamm"]
 
 [ext_resource type="Texture2D" uid="uid://bgc3bqs4ugtpu" path="res://models/props/cog_props/coin/CBCoin_CB1CoinEdge_SHD.png" id="1_jtq35"]
 [ext_resource type="Texture2D" uid="uid://c0uyni48ky6h0" path="res://models/props/cog_props/coin/CBCoin_BCCoinFront_SHD.png" id="2_rbqia"]

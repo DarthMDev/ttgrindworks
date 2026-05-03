@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c7aem6mwvs65v"]
+[gd_scene format=4 uid="uid://c7aem6mwvs65v"]
 
 [ext_resource type="PackedScene" uid="uid://cd1kgvvuot8ec" path="res://models/facilities/office/office_connector_stairs.fbx" id="1_bdeh7"]
 [ext_resource type="PackedScene" uid="uid://d3t2jabfpohqy" path="res://objects/props/etc/big_watercooler/big_watercooler.tscn" id="2_44tx2"]

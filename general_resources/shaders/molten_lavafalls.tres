@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=26 format=3 uid="uid://463makg7epmn"]
+[gd_resource type="VisualShader" format=3 uid="uid://463makg7epmn"]
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_p6wfh"]
 default_input_values = [1, Vector2(0.2, 1), 2, Vector2(0, 0)]
@@ -96,92 +96,6 @@ op_type = 0
 operator = 7
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec2 Vector2Parameter;
-uniform sampler2D tex_frg_3;
-uniform sampler2D tex_frg_12;
-uniform sampler2D tex_frg_8;
-uniform sampler2D tex_frg_2;
-uniform vec2 Vector2Parameter2;
-uniform sampler2D tex_frg_13;
-
-
-
-void fragment() {
-// Vector2Parameter:7
-	vec2 n_out7p0 = Vector2Parameter;
-
-
-// Input:6
-	float n_out6p0 = TIME;
-
-
-// UVFunc:5
-	vec2 n_out5p0 = vec2(n_out6p0) * n_out7p0 + UV;
-
-
-// Texture2D:3
-	vec4 n_out3p0 = texture(tex_frg_3, n_out5p0);
-
-
-// Texture2D:12
-	vec4 n_out12p0 = texture(tex_frg_12, vec2(n_out3p0.xy));
-
-
-// UVFunc:10
-	vec2 n_in10p1 = vec2(0.20000, 1.00000);
-	vec2 n_in10p2 = vec2(0.00000, 0.00000);
-	vec2 n_out10p0 = (n_out5p0 - n_in10p2) * n_in10p1 + n_in10p2;
-
-
-// Texture2D:8
-	vec4 n_out8p0 = texture(tex_frg_8, n_out10p0);
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
-// Vector2Parameter:17
-	vec2 n_out17p0 = Vector2Parameter2;
-
-
-// Input:15
-	float n_out15p0 = TIME;
-
-
-// UVFunc:16
-	vec2 n_out16p0 = vec2(n_out15p0) * n_out17p0 + UV;
-
-
-// Texture2D:13
-	vec4 n_out13p0 = texture(tex_frg_13, n_out16p0);
-
-
-// VectorOp:14
-	vec2 n_out14p0 = vec2(n_out2p0.xy) * vec2(n_out13p0.xy);
-	float n_out14p1 = n_out14p0.r;
-
-
-// VectorOp:4
-	vec2 n_out4p0 = vec2(n_out3p0.xy) * vec2(n_out14p1);
-	float n_out4p1 = n_out4p0.r;
-
-
-// VectorOp:9
-	vec2 n_out9p0 = min(vec2(n_out8p0.xy), vec2(n_out4p1));
-	float n_out9p1 = n_out9p0.r;
-
-
-// Output:0
-	ALBEDO = vec3(n_out12p0.xyz);
-	ALPHA = n_out9p1;
-
-
-}
-"
 nodes/fragment/0/position = Vector2(780, 20)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_cb7fj")
 nodes/fragment/2/position = Vector2(-560, 380)

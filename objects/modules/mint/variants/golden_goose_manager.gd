@@ -268,6 +268,7 @@ func win_game() -> void:
 	set_conveyor_coll_enabled.call_deferred(false)
 	%BossChestGroup.make_chests()
 	BattleService.s_boss_died.emit(%Goose)
+	ScoreTally.modify_score(ScoreTally.ChannelBosses, ScoreTally.BOSS_BONUS)
 	SaveFileService.progress_file.cogs_defeated[%Goose.dna.cog_name] = SaveFileService.progress_file.cogs_defeated.get_or_add(%Goose.dna.cog_name, 0) + 1
 	%DeadGoose.set_animation('goose-lose')
 	%DeadGoose.animator.pause()

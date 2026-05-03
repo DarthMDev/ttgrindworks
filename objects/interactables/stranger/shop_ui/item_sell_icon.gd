@@ -13,6 +13,7 @@ func set_item(new_item: Item) -> void:
 	var star_total := 0
 	if item:
 		%Icon.set_texture(item.icon)
+		%Icon.material = item.icon_material
 		star_total = item.qualitoon as int + 1
 		cancel_button.show()
 		%ValueContainer.show()

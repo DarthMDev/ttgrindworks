@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3unsf5htchx0"]
+[gd_scene format=3 uid="uid://c3unsf5htchx0"]
 
 [ext_resource type="PackedScene" uid="uid://cgrypuxsadhy5" path="res://models/props/cog_props/propeller/propeller.fbx" id="1_j06yx"]
 [ext_resource type="Animation" uid="uid://c7yqdntjak4sw" path="res://models/props/cog_props/propeller/retract.res" id="2_xvug0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://clty1e5563d3u"]
+[gd_scene format=3 uid="uid://clty1e5563d3u"]
 
 [ext_resource type="PackedScene" uid="uid://nnrcjp5qaxv0" path="res://models/props/toon_props/accessory_trunk/accessory_trunk.glb" id="1_6hanm"]
 

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d24kpkm0vxdlb"]
+
+[ext_resource type="Script" uid="uid://dqdvlwknplnxi" path="res://addons/moon-dfx/fx/dfx_reverb.gd" id="1_7om5g"]
+
+[node name="Sketched" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="DFXReverb" type="Node" parent="."]
+script = ExtResource("1_7om5g")
+_effect_kwargs = {
+&"damping": 1.0,
+&"dry": 0.5,
+&"hipass": 0.0,
+&"predelay_feedback": 0.4,
+&"predelay_msec": 150.0,
+&"room_size": 0.65,
+&"spread": 1.0,
+&"wet": 0.5
+}
+metadata/_custom_type_script = "uid://dqdvlwknplnxi"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b7savjh5s8l4d"]
+
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_k8exc"]
+
+[resource]
+script = ExtResource("1_k8exc")
+stats_add = {
+"anomaly_boost": 3
+}
+metadata/_custom_type_script = "uid://combwqypom1ru"

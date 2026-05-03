@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dag5hn213d5m"]
+[gd_scene format=4 uid="uid://dag5hn213d5m"]
 
 [ext_resource type="Texture2D" uid="uid://hxcsfh5axjdq" path="res://models/props/gags/piano/piano_piano_side.png" id="1_akav7"]
 [ext_resource type="Texture2D" uid="uid://75bxiq4u3wiw" path="res://models/props/gags/piano/piano_piano_top.png" id="2_5nii5"]

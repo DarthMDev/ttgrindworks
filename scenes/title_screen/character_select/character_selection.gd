@@ -5,6 +5,7 @@ var next_character: PlayerCharacter
 
 @onready var selected_toon: Toon = %Toon
 @onready var teleport_hole: Node3D = %TeleportHole
+@export var character_clipboard: Control
 
 class FallAnim:
 	static var anims: Array[FallAnim]
@@ -45,6 +46,12 @@ func finish():
 	request(&'')
 
 func character_selected(character: PlayerCharacter):
+	# This can only happen with Mystery Toon
+	if next_character.character_id == character.character_id:
+		if current_state_name == &'Idle':
+			poof_refresh()
+			return
+	
 	next_character = character
 	if current_state_name == &'Idle':
 		request(&'Melt')
@@ -68,3 +75,11 @@ func _fall_or_idle(character: PlayerCharacter):
 
 func _ready() -> void:
 	teleport_hole.get_node('AnimationPlayer').play('shrink')
+
+func poof_refresh() -> void:
+	var dust_cloud: Node3D = Globals.DUST_CLOUD.instantiate()
+	selected_toon.add_child(dust_cloud)
+	dust_cloud.position += Vector3(0.0, 1.0, 0.4)
+	dust_cloud.scale *= 1.5
+	selected_toon.construct_toon(character_clipboard.character.dna)
+	selected_toon.set_animation('neutral')

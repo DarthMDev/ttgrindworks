@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://cnunxyfcwf878"]
+[gd_resource type="Resource" script_class="ToonSpeechSounds" format=3 uid="uid://cnunxyfcwf878"]
 
 [ext_resource type="AudioStream" uid="uid://tviw8einbkar" path="res://audio/sfx/toon/bear/AV_bear_exclaim.ogg" id="1_2ix8a"]
 [ext_resource type="AudioStream" uid="uid://ck2d0jlu7wyg6" path="res://audio/sfx/toon/bear/AV_bear_howl.ogg" id="2_r03ce"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp2ncy4ta6ubt"]
+[gd_scene format=3 uid="uid://cp2ncy4ta6ubt"]
 
 [ext_resource type="PackedScene" uid="uid://b7504o1ma7vu8" path="res://models/props/drop_shadow/drop_shadow.glb" id="1_lj6lr"]
 [ext_resource type="Texture2D" uid="uid://1fotk4key644" path="res://models/props/drop_shadow/drop_shadow_drop-shadow.png" id="2_dlsek"]

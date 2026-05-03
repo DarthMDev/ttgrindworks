@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciabqn4r1h12x"]
+[gd_scene format=3 uid="uid://ciabqn4r1h12x"]
 
 [ext_resource type="Script" uid="uid://brn0a8d5qj76c" path="res://objects/battle/misc_battle_objects/static_meter/static_meter.gd" id="1_ysewc"]
 [ext_resource type="Shader" uid="uid://ceacskf8dckie" path="res://objects/battle/misc_battle_objects/static_meter/static_meter.gdshader" id="2_7osf2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c81lrwygbqosa"]
+[gd_scene format=3 uid="uid://c81lrwygbqosa"]
 
 [ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_qhxj5"]
 [ext_resource type="PackedScene" uid="uid://p33fqws4qewy" path="res://objects/obstacles/conveyer_belt/conveyer_belt.tscn" id="17_udttr"]

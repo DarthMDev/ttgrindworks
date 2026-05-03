@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://bablbd6r8nx4u"]
+[gd_scene format=4 uid="uid://bablbd6r8nx4u"]
 
 [ext_resource type="PackedScene" uid="uid://d0l3ucdou3gof" path="res://objects/modules/factory/base_rooms/factory_silo.tscn" id="1_kwh8e"]
 [ext_resource type="Script" uid="uid://c45m4ugolua3j" path="res://objects/modules/factory/variants/factory_silo_paint_boss.gd" id="2_7yupl"]

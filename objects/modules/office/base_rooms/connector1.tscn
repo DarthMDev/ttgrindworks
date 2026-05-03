@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1nbdcg8lvn4k"]
+[gd_scene format=4 uid="uid://b1nbdcg8lvn4k"]
 
 [ext_resource type="PackedScene" uid="uid://cb63550stuygg" path="res://models/facilities/office/office_connector1.fbx" id="1_ory61"]
 

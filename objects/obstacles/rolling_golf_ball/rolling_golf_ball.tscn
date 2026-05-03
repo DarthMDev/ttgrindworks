@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0yk8glamf62r"]
+[gd_scene format=3 uid="uid://d0yk8glamf62r"]
 
 [ext_resource type="PackedScene" uid="uid://3m2s0be13ij7" path="res://models/props/facility_objects/cgc/golf_ball/golf_ball.fbx" id="1_cc0jn"]
 [ext_resource type="AudioStream" uid="uid://d1gwpylfuttix" path="res://audio/sfx/objects/golf/heavy_move_sound.ogg" id="2_mgmre"]

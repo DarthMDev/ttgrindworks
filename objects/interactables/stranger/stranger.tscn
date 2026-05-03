@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://j80phpewtwx7"]
+[gd_scene format=3 uid="uid://j80phpewtwx7"]
 
 [ext_resource type="Script" uid="uid://dnkgxi68rq7by" path="res://objects/interactables/stranger/stranger.gd" id="1_3d5lw"]
 [ext_resource type="AudioStream" uid="uid://c73dirlrtih8y" path="res://audio/sfx/stranger/VO_stranger_shortgrunt.ogg" id="3_xcktj"]

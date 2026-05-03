@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://b05i7fv1yu7vt"]
+
+[ext_resource type="Texture2D" uid="uid://bdu2rdg517iyi" path="res://objects/items/custom/treasure/ice_cream.png" id="1_mjwb7"]
+[ext_resource type="Script" path="res://objects/battle/battle_resources/status_effects/status_effect_brainfreeze.gd" id="1_rrves"]
+
+[resource]
+script = ExtResource("1_rrves")
+quality = 1
+icon = ExtResource("1_mjwb7")
+status_name = "Brainfreeze"
+id = 44
+metadata/_custom_type_script = "uid://df7irk63ikx4k"

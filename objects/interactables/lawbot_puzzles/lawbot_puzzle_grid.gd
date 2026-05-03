@@ -51,9 +51,9 @@ enum LoseType {
 
 ## Locals
 var grid := []
-var player_cells : Array[PuzzlePanel] = []
-var panel_node : Node3D
-var beam_node : Node3D
+var player_cells: Array[PuzzlePanel] = []
+var panel_node: Node3D
+var beam_node: Node3D
 var LABEL: PackedScene
 
 const BLUE := Color("4d4dff")
@@ -139,7 +139,7 @@ func _pre_player_stepped_on(_panel: PuzzlePanel) -> void:
 	player_stepped_on(_panel)
 
 func show_game_title() -> void:
-	var label : Control = LABEL.instantiate()
+	var label: Control = LABEL.instantiate()
 	add_child(label)
 	label.set_text(get_game_text())
 

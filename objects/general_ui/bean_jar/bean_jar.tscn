@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvnev7qmiu3dq"]
+[gd_scene format=3 uid="uid://bvnev7qmiu3dq"]
 
 [ext_resource type="Texture2D" uid="uid://degibjq5gudrf" path="res://ui_assets/misc/Jar.png" id="1_1cs4i"]
 [ext_resource type="Script" uid="uid://cjfkqqpdr5anf" path="res://objects/general_ui/bean_jar/bean_jar.gd" id="1_gi3jj"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d20abt3jbvx3r"]
+[gd_scene format=3 uid="uid://d20abt3jbvx3r"]
 
 [ext_resource type="PackedScene" uid="uid://cxj4gdkxgwknm" path="res://models/props/cog_props/pink_slip/pink_slip.glb" id="1_p1xlr"]
 

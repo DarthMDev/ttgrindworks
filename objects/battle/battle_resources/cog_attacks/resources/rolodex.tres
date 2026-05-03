@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://erbbarg5bxm8"]
+[gd_resource type="Resource" format=3 uid="uid://erbbarg5bxm8"]
 
 [ext_resource type="Script" uid="uid://d0qjwtfreiful" path="res://objects/battle/battle_resources/cog_attacks/rolodex.gd" id="1_koc33"]
 

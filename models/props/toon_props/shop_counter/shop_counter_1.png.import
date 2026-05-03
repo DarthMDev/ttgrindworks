@@ -2,10 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbo4ku2u2u4oo"
+uid="uid://6ri1njtham8m"
 path="res://.godot/imported/shop_counter_1.png-b4b4bdbd351091102b6366fc20ec56e4.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "3bd2cf79ba371ec31e7f002853233d4d"
 }
 
 [deps]

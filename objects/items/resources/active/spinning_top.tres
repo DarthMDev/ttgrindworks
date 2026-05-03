@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://c8hbpj5bgfuem"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://c8hbpj5bgfuem"]
 
 [ext_resource type="Texture2D" uid="uid://dpi7l2sgsayvr" path="res://ui_assets/player_ui/pocket_prank_icons/spinning_top.png" id="1_fhb30"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_if86y"]

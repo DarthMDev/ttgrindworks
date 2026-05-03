@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm86vgodo58fx"]
+[gd_scene format=3 uid="uid://dm86vgodo58fx"]
 
 [ext_resource type="PackedScene" uid="uid://dhhqh31svadc4" path="res://models/props/facility_objects/da_office/plant/potted_plant.fbx" id="1_2ruep"]
 

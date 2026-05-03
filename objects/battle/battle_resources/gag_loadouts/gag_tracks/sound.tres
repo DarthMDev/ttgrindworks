@@ -1,131 +1,26 @@
-[gd_resource type="Resource" script_class="Track" load_steps=38 format=3 uid="uid://cvaos6ucteefy"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://cvaos6ucteefy"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_63h6s"]
-[ext_resource type="Texture2D" uid="uid://b42plu52oeyaq" path="res://ui_assets/battle/gags/inventory_bikehorn.png" id="2_imaop"]
-[ext_resource type="PackedScene" uid="uid://ctpd48nalncug" path="res://models/props/gags/bike_horn/bike_horn.tscn" id="3_5rs2c"]
-[ext_resource type="Script" uid="uid://c7rpfrvobx8rf" path="res://objects/battle/battle_resources/toon_attacks/gag_sound.gd" id="4_yqb18"]
-[ext_resource type="AudioStream" uid="uid://2juxx4rstg62" path="res://audio/sfx/battle/gags/sound/AA_sound_bikehorn.ogg" id="5_algv4"]
-[ext_resource type="AudioStream" uid="uid://bav2i3kvvbiqc" path="res://audio/sfx/battle/gags/sound/MG_tag_1.ogg" id="6_5smqy"]
-[ext_resource type="Texture2D" uid="uid://dlpwdg5qa3cuo" path="res://ui_assets/battle/gags/inventory_whistle.png" id="7_xnr2d"]
-[ext_resource type="PackedScene" uid="uid://it2qq8y17ofu" path="res://models/props/gags/whistle/whistle.tscn" id="8_oscmx"]
-[ext_resource type="AudioStream" uid="uid://v37rahjv8tsf" path="res://audio/sfx/battle/gags/sound/AA_sound_whistle.ogg" id="9_fb10j"]
-[ext_resource type="AudioStream" uid="uid://dopl2o1rv7ww0" path="res://audio/sfx/battle/gags/sound/LB_receive_evidence.ogg" id="10_4xcct"]
-[ext_resource type="Texture2D" uid="uid://b3w7npbkc8fod" path="res://ui_assets/battle/gags/inventory_bugle.png" id="11_ml1oa"]
-[ext_resource type="PackedScene" uid="uid://2p6r48esch8k" path="res://models/props/gags/bugle/bugle.tscn" id="12_ijr87"]
-[ext_resource type="AudioStream" uid="uid://qkkn3wwjof" path="res://audio/sfx/battle/gags/sound/AA_sound_bugle.ogg" id="13_72j78"]
-[ext_resource type="AudioStream" uid="uid://cl3ynyl2nshg2" path="res://audio/sfx/battle/gags/sound/m_match_trumpet.ogg" id="14_w2nj4"]
-[ext_resource type="Texture2D" uid="uid://b6fgd8mo03x7e" path="res://ui_assets/battle/gags/inventory_aoogah.png" id="15_5e8bk"]
-[ext_resource type="PackedScene" uid="uid://clb5aeit6u56k" path="res://models/props/gags/aoogah/aoogah.tscn" id="16_p4fck"]
-[ext_resource type="AudioStream" uid="uid://ur6jb4ibpc4w" path="res://audio/sfx/battle/gags/sound/AA_sound_aoogah.ogg" id="17_8cfsv"]
-[ext_resource type="AudioStream" uid="uid://s5dcxjy2p7c1" path="res://audio/sfx/battle/gags/trap/TL_step_on_rake.ogg" id="18_kq0ib"]
-[ext_resource type="Texture2D" uid="uid://gk2n47vnr3qd" path="res://ui_assets/battle/gags/inventory_elephant.png" id="19_6pc21"]
-[ext_resource type="PackedScene" uid="uid://bec6xrbnsppvu" path="res://models/props/gags/elephant_trunk/elephant_trunk.tscn" id="20_wm63o"]
-[ext_resource type="AudioStream" uid="uid://6vlq57anbp5d" path="res://audio/sfx/battle/gags/sound/AA_sound_elephant.ogg" id="21_63rtj"]
-[ext_resource type="AudioStream" uid="uid://b6dqkw3abota0" path="res://audio/sfx/battle/gags/sound/toonbldg_grow.ogg" id="22_prynh"]
-[ext_resource type="Texture2D" uid="uid://c1fgwu0iapunq" path="res://ui_assets/battle/gags/inventory_fog_horn.png" id="23_5s38g"]
-[ext_resource type="PackedScene" uid="uid://idagtqd5cor5" path="res://models/props/gags/foghorn/foghorn.tscn" id="24_cs6j1"]
-[ext_resource type="AudioStream" uid="uid://hgwtecn17iui" path="res://audio/sfx/battle/gags/sound/SZ_DD_foghorn.ogg" id="25_lsdff"]
-[ext_resource type="AudioStream" uid="uid://bf2xyte2lf8r3" path="res://audio/sfx/battle/gags/sound/mailbox_full_wobble.ogg" id="26_vt617"]
-[ext_resource type="Texture2D" uid="uid://b1fm464rbu48m" path="res://ui_assets/battle/gags/inventory_opera_singer.png" id="27_4ye62"]
+[ext_resource type="Resource" uid="uid://4vss2qycp4rk" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/bike_horn.tres" id="2_bc7m3"]
+[ext_resource type="Resource" uid="uid://ckr8uplo6wg5h" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/whistle.tres" id="3_jbygq"]
+[ext_resource type="Resource" uid="uid://bawjqrc07c6o2" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/bugle.tres" id="4_ojnyc"]
+[ext_resource type="Resource" uid="uid://fcegry5yokp5" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/aoogah.tres" id="5_6hpd8"]
+[ext_resource type="Resource" uid="uid://l777pylc7632" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/elephant_trunk.tres" id="6_11ba6"]
+[ext_resource type="Resource" uid="uid://h6hi3blhr7gf" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/foghorn.tres" id="7_aq72y"]
+[ext_resource type="Resource" uid="uid://ciw7jmgu6iq05" path="res://objects/battle/battle_resources/gag_loadouts/gags/sound/opera_singer.tres" id="8_5wh40"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="27_mb0m2"]
-[ext_resource type="PackedScene" uid="uid://brx5luolo4twm" path="res://models/props/gags/opera_singer/opera_singer.tscn" id="28_3b0st"]
-[ext_resource type="AudioStream" uid="uid://bes06h30xhwkh" path="res://audio/sfx/battle/gags/sound/AA_sound_Opera_Singer.ogg" id="29_tm062"]
-
-[sub_resource type="Resource" id="Resource_jd3vv"]
-script = ExtResource("4_yqb18")
-model = ExtResource("3_5rs2c")
-position = Vector3(0.995, 0.114, -1.444)
-rotation = Vector3(0, 149.9, 0)
-scale = Vector3(0.625, 0.625, 0.625)
-sfx_windup = ExtResource("6_5smqy")
-sfx_blast = ExtResource("5_algv4")
-icon = ExtResource("2_imaop")
-damage = 6
-target_type = 7
-action_name = "Bike Horn"
-
-[sub_resource type="Resource" id="Resource_1lrld"]
-script = ExtResource("4_yqb18")
-model = ExtResource("8_oscmx")
-position = Vector3(1.084, 0.254, -1.617)
-rotation = Vector3(-26.8, -172.9, 91)
-scale = Vector3(0.145, 0.145, 0.145)
-anim_delay = 2.4
-sfx_windup = ExtResource("10_4xcct")
-sfx_blast = ExtResource("9_fb10j")
-icon = ExtResource("7_xnr2d")
-damage = 12
-target_type = 7
-action_name = "Whistle"
-
-[sub_resource type="Resource" id="Resource_hif7k"]
-script = ExtResource("4_yqb18")
-model = ExtResource("12_ijr87")
-position = Vector3(1.676, -0.28, -2.665)
-rotation = Vector3(11.8, 142.8, 110)
-scale = Vector3(0.7, 0.7, 0.7)
-sfx_windup = ExtResource("14_w2nj4")
-sfx_blast = ExtResource("13_72j78")
-icon = ExtResource("11_ml1oa")
-damage = 20
-target_type = 7
-action_name = "Bugle"
-
-[sub_resource type="Resource" id="Resource_bh76t"]
-script = ExtResource("4_yqb18")
-model = ExtResource("16_p4fck")
-position = Vector3(1.552, -0.055, -2.513)
-rotation = Vector3(-5.2, -28.2, -28)
-scale = Vector3(0.525, 0.525, 0.525)
-sfx_windup = ExtResource("18_kq0ib")
-sfx_blast = ExtResource("17_8cfsv")
-icon = ExtResource("15_5e8bk")
-damage = 34
-target_type = 7
-action_name = "Aoogah"
-
-[sub_resource type="Resource" id="Resource_nrnmj"]
-script = ExtResource("4_yqb18")
-model = ExtResource("20_wm63o")
-position = Vector3(1.156, 0.099, -1.468)
-rotation = Vector3(16.7, 139.4, 90)
-scale = Vector3(0.325, 0.325, 0.325)
-sfx_windup = ExtResource("22_prynh")
-sfx_blast = ExtResource("21_63rtj")
-icon = ExtResource("19_6pc21")
-damage = 56
-target_type = 7
-action_name = "Elephant Trunk"
-
-[sub_resource type="Resource" id="Resource_rinr7"]
-script = ExtResource("4_yqb18")
-model = ExtResource("24_cs6j1")
-position = Vector3(1.067, 0.213, -1.631)
-rotation = Vector3(0.1, 147.7, 52)
-scale = Vector3(0.475, 0.475, 0.475)
-sfx_windup = ExtResource("26_vt617")
-sfx_blast = ExtResource("25_lsdff")
-icon = ExtResource("23_5s38g")
-damage = 76
-target_type = 7
-action_name = "Fog Horn"
-
-[sub_resource type="Resource" id="Resource_e4pdi"]
-script = ExtResource("4_yqb18")
-model = ExtResource("28_3b0st")
-position = Vector3(0.952056, 0.160654, -1.305)
-rotation = Vector3(0, -20, -90)
-scale = Vector3(3, 3, 3)
-anim_delay = 0.01
-sfx_windup = ExtResource("26_vt617")
-sfx_blast = ExtResource("29_tm062")
-icon = ExtResource("27_4ye62")
-damage = 100
-target_type = 7
-action_name = "Opera Singer"
 
 [resource]
 script = ExtResource("27_mb0m2")
 track_name = "Sound"
 track_color = Color(0.309804, 0.388235, 0.835294, 1)
-gags = Array[ExtResource("1_63h6s")]([SubResource("Resource_jd3vv"), SubResource("Resource_1lrld"), SubResource("Resource_hif7k"), SubResource("Resource_bh76t"), SubResource("Resource_nrnmj"), SubResource("Resource_rinr7"), SubResource("Resource_e4pdi")])
+gags = Array[ExtResource("1_63h6s")]([ExtResource("2_bc7m3"), ExtResource("3_jbygq"), ExtResource("4_ojnyc"), ExtResource("5_6hpd8"), ExtResource("6_11ba6"), ExtResource("7_aq72y"), ExtResource("8_5wh40")])
+mod_gags = Dictionary[ExtResource("1_63h6s"), int]({
+ExtResource("2_bc7m3"): 0,
+ExtResource("3_jbygq"): 1,
+ExtResource("4_ojnyc"): 2,
+ExtResource("5_6hpd8"): 3,
+ExtResource("6_11ba6"): 4,
+ExtResource("7_aq72y"): 5,
+ExtResource("8_5wh40"): 6
+})

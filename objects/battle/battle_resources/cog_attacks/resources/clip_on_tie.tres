@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bruosr4c0bash"]
+[gd_resource type="Resource" format=3 uid="uid://bruosr4c0bash"]
 
 [ext_resource type="Script" uid="uid://y48dsoiqjqw5" path="res://objects/battle/battle_resources/cog_attacks/clip_on_tie.gd" id="1_ahr11"]
 [ext_resource type="PackedScene" uid="uid://g8y8nk27j6d2" path="res://models/props/cog_props/clip_on_tie/clip_on_tie.fbx" id="1_yvdfa"]

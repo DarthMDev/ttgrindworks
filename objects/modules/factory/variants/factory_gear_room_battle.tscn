@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dui2hdkuqux28"]
+[gd_scene format=3 uid="uid://dui2hdkuqux28"]
 
 [ext_resource type="PackedScene" uid="uid://7dgrh0jdr7k5" path="res://objects/modules/factory/base_rooms/factory_gear_room.tscn" id="1_bp8xq"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_yk5og"]

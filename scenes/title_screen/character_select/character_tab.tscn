@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0byrnygaiqa3"]
+[gd_scene format=3 uid="uid://0byrnygaiqa3"]
 
 [ext_resource type="Texture2D" uid="uid://fydxgamjsfty" path="res://ui_assets/pick_a_toon/TAB.png" id="1_wvfa3"]
 [ext_resource type="Script" uid="uid://1bjcyfu1h3rc" path="res://scenes/title_screen/character_select/character_tab.gd" id="2_a3mh6"]

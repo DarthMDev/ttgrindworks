@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://81mw21i7cj4u"]
+[gd_resource type="VisualShader" format=3 uid="uid://81mw21i7cj4u"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ivjba"]
 parameter_name = "fire_color"
@@ -44,66 +44,6 @@ operator = 1
 [sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_ewqdt"]
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec4 fire_color : source_color;
-uniform vec2 speed;
-uniform sampler2D tex_frg_6 : source_color;
-uniform sampler2D tex : source_color, repeat_disable;
-
-
-
-void fragment() {
-// ColorParameter:10
-	vec4 n_out10p0 = fire_color;
-
-
-// Input:2
-	float n_out2p0 = TIME;
-
-
-// Vector2Parameter:4
-	vec2 n_out4p0 = speed;
-
-
-// VectorOp:3
-	vec2 n_out3p0 = vec2(n_out2p0) * n_out4p0;
-
-
-// UVFunc:5
-	vec2 n_in5p1 = vec2(1.00000, 1.00000);
-	vec2 n_out5p0 = n_out3p0 * n_in5p1 + UV;
-
-
-// Texture2D:6
-	vec4 n_out6p0 = texture(tex_frg_6, n_out5p0);
-	float n_out6p1 = n_out6p0.r;
-
-
-	vec4 n_out7p0;
-// Texture2D:7
-	n_out7p0 = texture(tex, UV);
-	float n_out7p1 = n_out7p0.r;
-
-
-// FloatOp:8
-	float n_out8p0 = n_out6p1 - n_out7p1;
-
-
-// Clamp:9
-	float n_in9p1 = 0.00000;
-	float n_in9p2 = 1.00000;
-	float n_out9p0 = clamp(n_out8p0, n_in9p1, n_in9p2);
-
-
-// Output:0
-	ALBEDO = vec3(n_out10p0.xyz);
-	ALPHA = n_out9p0;
-
-
-}
-"
 nodes/fragment/0/position = Vector2(1580, 500)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_ivjba")
 nodes/fragment/2/position = Vector2(-900, 340)

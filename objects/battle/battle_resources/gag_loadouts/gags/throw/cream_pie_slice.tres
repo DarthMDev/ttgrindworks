@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GagThrow" load_steps=5 format=3 uid="uid://bjvx6ycaurqql"]
+
+[ext_resource type="Texture2D" uid="uid://bxp6c7raxg5ic" path="res://ui_assets/battle/gags/inventory_cream_pie_slice.png" id="1_18081"]
+[ext_resource type="PackedScene" uid="uid://b0mkdwaiua3ye" path="res://models/props/gags/cream_slice/cream_slice.glb" id="2_em07s"]
+[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="3_liqpu"]
+[ext_resource type="AudioStream" uid="uid://q717j7rpl4ue" path="res://audio/sfx/battle/gags/throw/AA_tart_only.ogg" id="4_qcddl"]
+
+[resource]
+script = ExtResource("3_liqpu")
+model = ExtResource("2_em07s")
+scale = 1.0
+splat_color = Color(1, 1, 0, 1)
+splat_sfx = ExtResource("4_qcddl")
+icon = ExtResource("1_18081")
+damage = 24
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Cream Pie Slice"
+one_time_use = false

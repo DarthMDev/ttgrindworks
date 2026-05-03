@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d2ks7bswj5vsh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d2ks7bswj5vsh"]
 
 [ext_resource type="Texture2D" uid="uid://bi5b3lvee6vti" path="res://models/props/facility_objects/mint/pipes/textures/square_drop_shadow.png" id="1_c8v7p"]
 

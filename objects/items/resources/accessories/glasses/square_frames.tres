@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=41 format=3 uid="uid://cs5v54jdptmge"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://cs5v54jdptmge"]
 
 [ext_resource type="PackedScene" uid="uid://bv5gpcr4y01bf" path="res://models/accessories/glasses/square_rims/square_frames.tscn" id="1_1q7q5"]
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_a866r"]

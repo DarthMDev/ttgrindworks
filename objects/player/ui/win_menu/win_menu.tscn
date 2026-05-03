@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://chcg8hu4rtiry"]
+
+[ext_resource type="Script" uid="uid://bn1jvcrjwxbn2" path="res://objects/player/ui/win_menu/win_menu.gd" id="1_aee0c"]
+[ext_resource type="Shader" uid="uid://dri3mi0a32658" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="1_oqy66"]
+[ext_resource type="Shader" uid="uid://gc03x7kb6le6" path="res://objects/player/ui/lose_menu.gdshader" id="2_225qw"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="4_b23gx"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="5_eiinh"]
+[ext_resource type="PackedScene" uid="uid://3wpuwo50gkt" path="res://objects/player/ui/item_display.tscn" id="6_hgu3r"]
+[ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="7_clcsv"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="8_kkrdg"]
+[ext_resource type="Texture2D" uid="uid://ddcktpjy3gdew" path="res://ui_assets/misc/uiAccessoryDelete_up.png" id="9_85osf"]
+[ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="10_6l56w"]
+[ext_resource type="Theme" uid="uid://dhqxwi6busihb" path="res://objects/general_ui/settings_menu/slider_theme.tres" id="11_77l1u"]
+[ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="11_ja441"]
+[ext_resource type="AudioStream" uid="uid://rs4etqsf4eqv" path="res://audio/sfx/battle/gags/MG_cannon_adjust.ogg" id="13_s2bvx"]
+[ext_resource type="AudioStream" uid="uid://dlk0j3rj3k8py" path="res://audio/sfx/misc/typewriter-1.ogg" id="14_be5ls"]
+[ext_resource type="AudioStream" uid="uid://dactilomfch3u" path="res://audio/sfx/misc/typewriter-2.ogg" id="15_s3a8m"]
+[ext_resource type="AudioStream" uid="uid://ci5febotl6042" path="res://audio/sfx/misc/typewriter-3.ogg" id="16_prixe"]
+[ext_resource type="AudioStream" uid="uid://bh0u0jn6v285h" path="res://audio/sfx/misc/MG_sfx_travel_game_bonus.ogg" id="17_prixe"]
+[ext_resource type="AudioStream" uid="uid://b5nhosx2j6l4k" path="res://audio/sfx/misc/Golf_Crowd_Applause.ogg" id="18_prixe"]
+[ext_resource type="AudioStream" uid="uid://shqakyunkki2" path="res://audio/music/beta_hall_of_fame.ogg" id="19_naek7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s822u"]
+shader = ExtResource("1_oqy66")
+shader_parameter/strength = 10.0
+shader_parameter/sample_power = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naek7"]
+shader = ExtResource("2_225qw")
+shader_parameter/motion = Vector2(-20, -20)
+shader_parameter/scale = 2.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/alpha = 0.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_aen5p"]
+font = ExtResource("4_b23gx")
+font_size = 48
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhk66"]
+font = ExtResource("4_b23gx")
+font_size = 24
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vmbai"]
+font = ExtResource("4_b23gx")
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_naek7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aee0c"]
+bg_color = Color(1, 1, 1, 1)
+shadow_size = 1
+shadow_offset = Vector2(0.695, 0.595)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_naek7"]
+streams_count = 3
+stream_0/stream = ExtResource("14_be5ls")
+stream_1/stream = ExtResource("15_s3a8m")
+stream_2/stream = ExtResource("16_prixe")
+
+[sub_resource type="LabelSettings" id="LabelSettings_usn63"]
+font = ExtResource("5_eiinh")
+font_size = 24
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="WinMenu" type="CanvasLayer" unique_id=1856463136]
+process_mode = 3
+layer = 40
+script = ExtResource("1_aee0c")
+
+[node name="Root" type="Control" parent="." unique_id=1546849248]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="Root" unique_id=319638453]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_s822u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.893444e-06, 0.64411336, 0.86815673, 1)
+
+[node name="TilingBackground" type="TextureRect" parent="Root" unique_id=960341659]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_naek7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VictoryTitle" type="Label" parent="Root" unique_id=474264655]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -229.0
+offset_top = 30.0
+offset_right = 230.0
+offset_bottom = 79.0
+grow_horizontal = 2
+text = "Victory!"
+label_settings = SubResource("LabelSettings_aen5p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Congratulation" type="Label" parent="Root" unique_id=391159205]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.0
+offset_top = 76.0
+offset_right = 262.0
+offset_bottom = 125.0
+grow_horizontal = 2
+text = "You defeated the Executive Office!"
+label_settings = SubResource("LabelSettings_rhk66")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemTitle" type="Label" parent="Root" unique_id=1393914643]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -123.0
+offset_right = 230.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Your Items:"
+label_settings = SubResource("LabelSettings_vmbai")
+horizontal_alignment = 1
+
+[node name="ItemDisplay" parent="Root" unique_id=1959052976 instance=ExtResource("6_hgu3r")]
+custom_minimum_size = Vector2(128, 68)
+layout_mode = 1
+offset_top = -68.0
+
+[node name="NodeViewer" parent="Root" unique_id=964607916 instance=ExtResource("7_clcsv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -286.0
+offset_right = 423.0
+offset_bottom = 114.0
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_naek7")
+expand_mode = 1
+
+[node name="ScoreTally" type="VBoxContainer" parent="Root" unique_id=1789093348]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -595.0
+offset_top = -180.5
+offset_right = -45.0
+offset_bottom = 180.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="ScoreLabel" type="RichTextLabel" parent="Root/ScoreTally" unique_id=109321967]
+unique_name_in_owner = true
+auto_translate_mode = 1
+clip_contents = false
+custom_minimum_size = Vector2(550, 310)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+theme = ExtResource("11_77l1u")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5529412)
+theme_override_constants/line_separation = 3
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("4_b23gx")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+autowrap_mode = 0
+horizontal_alignment = 3
+vertical_alignment = 2
+
+[node name="TotalLine" type="Panel" parent="Root/ScoreTally" unique_id=1166927012]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aee0c")
+
+[node name="TotalLabelOrigin" type="Control" parent="Root/ScoreTally" unique_id=1655497878]
+custom_minimum_size = Vector2(0, 39)
+layout_mode = 2
+
+[node name="TotalLabelScaler" type="Control" parent="Root/ScoreTally/TotalLabelOrigin" unique_id=74562648]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TotalLabel" type="RichTextLabel" parent="Root/ScoreTally/TotalLabelOrigin/TotalLabelScaler" unique_id=53085413]
+unique_name_in_owner = true
+auto_translate_mode = 1
+self_modulate = Color(1, 1, 1, 0)
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.9825
+offset_top = -19.5
+offset_right = 242.9825
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5529412)
+theme_override_constants/line_separation = 3
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("4_b23gx")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "[table=1][cell]Total Score[/cell][/table] 100"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 3
+
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="Root/ScoreTally" unique_id=358932021]
+unique_name_in_owner = true
+stream = ExtResource("13_s2bvx")
+bus = &"SFX"
+
+[node name="TypeSFX" type="AudioStreamPlayer" parent="Root/ScoreTally" unique_id=994000637]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_naek7")
+bus = &"SFX"
+
+[node name="CelebrationSFX" type="AudioStreamPlayer" parent="Root/ScoreTally" unique_id=852780136]
+unique_name_in_owner = true
+stream = ExtResource("17_prixe")
+bus = &"SFX"
+
+[node name="ApplauseSFX" type="AudioStreamPlayer" parent="Root/ScoreTally" unique_id=975743091]
+unique_name_in_owner = true
+stream = ExtResource("18_prixe")
+bus = &"SFX"
+
+[node name="Menu" type="VBoxContainer" parent="Root" unique_id=1129377932]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = 93.0
+offset_right = 374.0
+offset_bottom = 263.0
+grow_vertical = 2
+
+[node name="TimeLabel" type="Label" parent="Root/Menu" unique_id=119788721]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your time: 00:00:00"
+label_settings = SubResource("LabelSettings_usn63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeedLabel" type="Label" parent="Root/Menu" unique_id=1278250386]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Seed: 123456789000"
+label_settings = SubResource("LabelSettings_usn63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeedButton" type="Button" parent="Root/Menu/SeedLabel" unique_id=2040179255]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Buttons" type="VBoxContainer" parent="Root/Menu" unique_id=2046984692]
+custom_minimum_size = Vector2(340, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -12
+alignment = 1
+
+[node name="Quit" parent="Root/Menu/Buttons" unique_id=177301233 instance=ExtResource("8_kkrdg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+texture_normal = ExtResource("9_85osf")
+texture_pressed = ExtResource("10_6l56w")
+texture_hover = ExtResource("11_ja441")
+texture_disabled = ExtResource("10_6l56w")
+text = "Back to Menu"
+font_size = 36.0
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1467044467]
+stream = ExtResource("19_naek7")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Root/Menu/Buttons/Quit" to="." method="exit"]

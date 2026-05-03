@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8xccla84x6gh"]
+[gd_scene format=3 uid="uid://b8xccla84x6gh"]
 
 [ext_resource type="Script" uid="uid://b1rtxomvik1rl" path="res://objects/quests/quest_notification/quest_notification.gd" id="1_ixna2"]
 [ext_resource type="Texture2D" uid="uid://bfms6y76d307c" path="res://ui_assets/quests/questCard.png" id="2_ckw3c"]

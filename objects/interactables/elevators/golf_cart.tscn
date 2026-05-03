@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcxxijtaocc15"]
+[gd_scene format=3 uid="uid://dcxxijtaocc15"]
 
 [ext_resource type="PackedScene" uid="uid://bl73ti2b4kpwe" path="res://models/props/facility_objects/transporters/golf_cart/cgc_cart.fbx" id="2_0k7bn"]
 [ext_resource type="Script" uid="uid://cjsg34fbbtjao" path="res://objects/interactables/elevators/golf_cart.gd" id="2_yiqmu"]

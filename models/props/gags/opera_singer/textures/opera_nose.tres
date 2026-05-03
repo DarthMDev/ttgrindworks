@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://coxnwg0v41rka"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://coxnwg0v41rka"]
 
 [ext_resource type="Texture2D" uid="uid://bh2lj8obmbgsj" path="res://models/props/gags/opera_singer/textures/opera_nose.png" id="1_je0sk"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://8o81eupsmxm4"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://8o81eupsmxm4"]
 
 [ext_resource type="PackedScene" uid="uid://cl1ahysqqwxwo" path="res://objects/items/custom/jellybean/green_jellybean.tscn" id="1_ml2et"]
 [ext_resource type="AudioStream" uid="uid://b8pshap2d5xwv" path="res://audio/sfx/ui/tick_counter.ogg" id="2_6pgkm"]

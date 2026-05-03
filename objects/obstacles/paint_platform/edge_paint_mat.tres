@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://3vaa7lwfnthq"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3vaa7lwfnthq"]
 
 [ext_resource type="Texture2D" uid="uid://bn12ag1jvn03j" path="res://models/props/facility_objects/mint/paint_platform/paintmixer_platform_GearEdgePaint.png" id="1_76w6x"]
 

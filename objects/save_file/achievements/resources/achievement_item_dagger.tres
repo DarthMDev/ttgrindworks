@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterWinAchievement" load_steps=3 format=3 uid="uid://cb7vs0jsemnx2"]
+[gd_resource type="Resource" script_class="CharacterWinAchievement" format=3 uid="uid://cb7vs0jsemnx2"]
 
 [ext_resource type="Texture2D" uid="uid://brkh3dovhepi1" path="res://ui_assets/player_ui/pocket_prank_icons/glowering dagger.png" id="1_3ijk6"]
 [ext_resource type="Script" uid="uid://bly70o6230roo" path="res://objects/save_file/achievements/character_win_achievement.gd" id="2_12xnq"]

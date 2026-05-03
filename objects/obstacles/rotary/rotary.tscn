@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddpdpl8wr11gn"]
+[gd_scene format=3 uid="uid://ddpdpl8wr11gn"]
 
 [ext_resource type="PackedScene" uid="uid://b4ts0deo2yrq6" path="res://models/props/facility_objects/molten/rotary/rotary.fbx" id="1_5s5b2"]
 [ext_resource type="Texture2D" uid="uid://cq8hhx0f4ct7r" path="res://models/props/facility_objects/molten/rotary/Molten_CompiledSet1.png" id="2_ykaq1"]

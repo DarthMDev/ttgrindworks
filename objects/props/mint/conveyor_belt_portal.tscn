@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://6w7qnjyug5fe"]
+[gd_scene format=3 uid="uid://6w7qnjyug5fe"]
 
 [ext_resource type="PackedScene" uid="uid://cvdy66nm5xl3v" path="res://models/props/facility_objects/mint/conveyor_belt_portal/conveyor_belt_portal.fbx" id="1_umg7s"]
 [ext_resource type="Script" uid="uid://bwouq015wh5e2" path="res://objects/props/mint/conveyor_belt_portal.gd" id="2_ugxt3"]

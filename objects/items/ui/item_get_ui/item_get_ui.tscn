@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflf1vu4s4p3"]
+[gd_scene format=3 uid="uid://bflf1vu4s4p3"]
 
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="1_1puav"]
 [ext_resource type="Script" uid="uid://c5qpbkfrvs0x2" path="res://objects/items/ui/item_get_ui/item_get_ui.gd" id="1_cufp3"]
 [ext_resource type="PackedScene" uid="uid://dkd6dg5s5uuef" path="res://objects/general_ui/base_panel.tscn" id="2_uhlix"]
+[ext_resource type="Resource" uid="uid://dtd056b4ln2ui" path="res://objects/items/resources/accessories/hats/anti_cog_control_hat.tres" id="2_xurin"]
 [ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="3_e8b6i"]
 [ext_resource type="PackedScene" uid="uid://bwnrw7jcf01kq" path="res://objects/general_ui/node_viewer/node_viewer.tscn" id="4_df0qy"]
 
@@ -12,7 +13,7 @@ font_size = 28
 font_color = Color(0.890196, 0.392157, 0.113725, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c8itp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_agw5k"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8a6q"]
@@ -21,7 +22,7 @@ font = ExtResource("1_1puav")
 font_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 shadow_color = Color(0, 0, 0, 0.0941176)
 
-[node name="ItemGetUI" type="Control"]
+[node name="ItemGetUI" type="Control" unique_id=1134056594]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,8 +31,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_cufp3")
+item = ExtResource("2_xurin")
 
-[node name="Banner" type="Control" parent="."]
+[node name="Banner" type="Control" parent="." unique_id=1899603883]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -42,7 +44,7 @@ grow_horizontal = 2
 scale = Vector2(0.85, 0.85)
 mouse_filter = 2
 
-[node name="Panel" parent="Banner" instance=ExtResource("2_uhlix")]
+[node name="Panel" parent="Banner" unique_id=132519372 instance=ExtResource("2_uhlix")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 
-[node name="Name" type="Label" parent="Banner"]
+[node name="Name" type="Label" parent="Banner" unique_id=1297463214]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -72,25 +74,24 @@ label_settings = SubResource("LabelSettings_u1nle")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NodeViewer" parent="Banner" instance=ExtResource("4_df0qy")]
+[node name="NodeViewer" parent="Banner" unique_id=1342851346 instance=ExtResource("4_df0qy")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(138, 138)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -61.5
-offset_right = 69.0
-offset_bottom = 76.5
+offset_left = -43.529358
+offset_top = -36.029358
+offset_right = 43.529358
+offset_bottom = 51.029358
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_c8itp")
+texture = SubResource("ViewportTexture_agw5k")
 expand_mode = 1
 
-[node name="Description" type="Label" parent="Banner"]
+[node name="Description" type="Label" parent="Banner" unique_id=1526256873]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

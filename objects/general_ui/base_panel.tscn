@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkd6dg5s5uuef"]
+[gd_scene format=3 uid="uid://dkd6dg5s5uuef"]
 
 [ext_resource type="Texture2D" uid="uid://6jo5d4qtcd44" path="res://ui_assets/general/panel.png" id="1_j2xdi"]
 

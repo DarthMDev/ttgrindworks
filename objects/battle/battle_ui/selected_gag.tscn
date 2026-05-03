@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3ylkd1s4kncx"]
+[gd_scene format=3 uid="uid://3ylkd1s4kncx"]
 
 [ext_resource type="Texture2D" uid="uid://32cwmb236pju" path="res://ui_assets/battle/queued_gags/gag_panel.png" id="1_y0eee"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="2_s6w1k"]

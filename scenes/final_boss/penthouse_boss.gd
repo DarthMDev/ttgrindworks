@@ -177,10 +177,8 @@ func end_game() -> void:
 	Globals.s_game_win.emit()
 	for partner in Util.get_player().partners:
 		partner.queue_free()
-	Util.get_player().queue_free()
-	SaveFileService.delete_run_file()
-	SaveFileService._save_progress()
-	SceneLoader.load_into_scene(TITLE_SCREEN_SCENE)
+	SceneLoader.change_scene_to_file('res://objects/player/ui/win_menu/win_menu.tscn')
+	
 
 func fill_elevator(cog_count: int, dna: CogDNA = null) -> Array[Cog]:
 	var roll_for_proxies : bool = SaveFileService.progress_file.proxies_unlocked and darkened_sky

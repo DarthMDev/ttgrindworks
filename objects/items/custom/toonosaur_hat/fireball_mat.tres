@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dawlu5y68usj2"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dawlu5y68usj2"]
 
 [ext_resource type="Shader" uid="uid://81mw21i7cj4u" path="res://objects/items/custom/toonosaur_hat/fireball.tres" id="1_0tebt"]
 

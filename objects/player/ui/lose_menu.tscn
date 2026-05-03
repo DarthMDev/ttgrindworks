@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddo2yudkaj10v"]
+[gd_scene format=3 uid="uid://ddo2yudkaj10v"]
 
 [ext_resource type="Shader" uid="uid://dri3mi0a32658" path="res://objects/pause_menu/canvas_blur_shader.gdshader" id="1_ei3qn"]
 [ext_resource type="Script" uid="uid://dfwjppf3fwupi" path="res://objects/player/ui/lose_menu.gd" id="1_qgeyt"]

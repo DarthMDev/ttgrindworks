@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b77qp325baypa"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b77qp325baypa"]
 
 [ext_resource type="PackedScene" uid="uid://d20abt3jbvx3r" path="res://objects/items/custom/pink_slip/pink_slip_mod.tscn" id="1_6k08u"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_vhofi"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dw37trywm0aks"]
+[gd_resource type="Resource" format=3 uid="uid://dw37trywm0aks"]
 
 [ext_resource type="Texture2D" uid="uid://cy6g7ocsfrurx" path="res://ui_assets/battle/statuses/sturdy.png" id="1_5hlpf"]
 [ext_resource type="Script" uid="uid://rndejsy7xfuy" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_sturdy.gd" id="2_5hlpf"]

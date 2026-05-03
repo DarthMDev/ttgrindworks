@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6vh5kpg3smtr"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6vh5kpg3smtr"]
 
 [ext_resource type="Texture2D" uid="uid://bi0uh7xyrxg5l" path="res://models/props/sky_boxes/textures/FinalPanoramaBuildings1.png" id="1_p0j2m"]
 

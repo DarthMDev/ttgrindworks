@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://56384y1xd5uq"]
+[gd_scene format=3 uid="uid://56384y1xd5uq"]
 
 [ext_resource type="PackedScene" uid="uid://wlm1xmexjdrc" path="res://models/props/gags/geyser-revamp/Geyser.fbx" id="1_nlsrc"]
 [ext_resource type="Script" uid="uid://wihfblnkhqky" path="res://models/props/gags/geyser-revamp/geyser.gd" id="2_j8oiw"]

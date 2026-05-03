@@ -27,5 +27,7 @@ func play_animation(achievement: Achievement) -> void:
 		animation.get_node('CanvasLayer/Origin/IconOrigin/Background').show()
 		animation.get_node('CanvasLayer/Origin/IconOrigin/Background').self_modulate = achievement.custom_background_color.lerp(Color.WHITE, 0.4)
 		animation.get_node('CanvasLayer/Origin/IconOrigin/Icon').scale *= 0.7
+	if achievement.custom_material:
+		animation.get_node('CanvasLayer/Origin/IconOrigin/Icon').material = achievement.custom_material
 	add_child(animation)
 	await animation.s_animation_finished

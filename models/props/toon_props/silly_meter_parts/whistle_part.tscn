@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d355gogwnfyw8"]
+[gd_scene format=3 uid="uid://d355gogwnfyw8"]
 
 [ext_resource type="PackedScene" uid="uid://dqjmilwwvaraf" path="res://models/props/toon_props/silly_meter_parts/whistlePart.fbx" id="1_vcf4s"]
 

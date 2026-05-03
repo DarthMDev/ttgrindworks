@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SquirtGun" load_steps=3 format=3 uid="uid://d1725jt347v4e"]
+
+[ext_resource type="Texture2D" uid="uid://h6jqac2vi0hb" path="res://ui_assets/battle/gags/inventory_water_gun.png" id="1_krv5g"]
+[ext_resource type="Script" uid="uid://dcf30lcach2kf" path="res://objects/battle/battle_resources/toon_attacks/squirt_gun.gd" id="2_o5uaa"]
+
+[resource]
+script = ExtResource("2_o5uaa")
+icon = ExtResource("1_krv5g")
+damage = 18
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Squirt Gun"
+one_time_use = false

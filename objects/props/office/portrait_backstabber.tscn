@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c6mq4831rc0uj"]
+[gd_scene format=4 uid="uid://c6mq4831rc0uj"]
 
 [ext_resource type="Texture2D" uid="uid://ba21osgmobh" path="res://models/facilities/office/textures/BACKSTABBER.png" id="1_tisnf"]
 [ext_resource type="Texture2D" uid="uid://bnu540et1chgh" path="res://models/facilities/office/textures/LB_frameA_01.png" id="2_5obw1"]

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bscobdyd8dvpl"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bscobdyd8dvpl"]
 
 [ext_resource type="Texture2D" uid="uid://ci03n7rdhd0ym" path="res://models/accessories/hats/conductor_hat/tt_m_chr_avt_acc_hat_mickeysBandConductorHat_tt_t_chr_avt_acc_hat_mickeysBandConductorHat.png" id="1_0nbds"]
 

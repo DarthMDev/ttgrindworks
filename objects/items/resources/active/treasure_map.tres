@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://w47mu07t0gki"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://w47mu07t0gki"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_irxac"]
 [ext_resource type="Texture2D" uid="uid://djpyvs5sy15jr" path="res://ui_assets/player_ui/pocket_prank_icons/treasure map.png" id="1_ph8hn"]

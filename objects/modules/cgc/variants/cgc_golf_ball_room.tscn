@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqiggaoxn1c3e"]
+[gd_scene format=3 uid="uid://dqiggaoxn1c3e"]
 
 [ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_3ee0u"]
 [ext_resource type="PackedScene" uid="uid://b35wcbrb3kc82" path="res://objects/obstacles/golf_door/golf_door.tscn" id="2_whdq6"]

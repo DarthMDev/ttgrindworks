@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlp6mtytyn20m"]
+[gd_scene format=3 uid="uid://dlp6mtytyn20m"]
 
 [ext_resource type="Texture2D" uid="uid://lyhs775rihha" path="res://ui_assets/misc/tt_t_gui_cmg_bossCog_bossBackground.png" id="1_1fbip"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="1_ruv55"]

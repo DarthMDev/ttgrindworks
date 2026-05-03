@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://py701ha4ds3k"]
+[gd_scene format=3 uid="uid://py701ha4ds3k"]
 
 [ext_resource type="PackedScene" uid="uid://c28sqcqv2w3cv" path="res://models/props/toon_props/flowers/daisy/daisy.fbx" id="1_yaaid"]
 

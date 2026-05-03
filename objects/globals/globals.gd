@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION_NUMBER := "v1.2.2"
+const VERSION_NUMBER := "v1.2.7"
 
 ## Holds any value you may want accessible globally and quickly
 
@@ -75,10 +75,11 @@ func _init():
 		'mint_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/mint.tres',
 		'da_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/da_office.tres',
 		'cgc_floor_variant': 'res://scenes/game_floor/floor_variants/base_floors/cog_golf_course.tres',
-		
+		'molten_floor_variant': 'res://scenes/game_floor/floor_variants/alt_floors/molten_mint.tres',
 	})
 
 func _ready() -> void:
+	Util.search_directory_recursive(COG_SAVE_PATH, "cog")
 	import_custom_cogs()
 	Util.s_floor_started.connect(on_floor_start)
 	print("Game Version: %s" % VERSION_NUMBER)
@@ -194,15 +195,15 @@ func cog_to_file_name(cog_name : String) -> String:
 	return COG_SAVE_PATH + file_name + ".cog"
 
 func import_cog_dna() -> void:
-	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
+	for file_name in Util.search_directory_recursive(COG_SAVE_PATH, "cog"):
 		if not file_name.get_extension() == "cog":
 			continue
-		var loaded_file := FileAccess.open(COG_SAVE_PATH + file_name, FileAccess.READ)
+		var loaded_file := FileAccess.open(file_name, FileAccess.READ)
 		var json_string := ""
 		while loaded_file.get_position() < loaded_file.get_length():
 			json_string += loaded_file.get_line()
 		var new_dna := CogDNA.from_json(json_string)
-		loaded_custom_cogs[COG_SAVE_PATH + file_name] = new_dna
+		loaded_custom_cogs[file_name] = new_dna
 		if SaveFileService.settings_file.use_custom_cogs:
 			if new_dna.is_mod_cog:
 				add_proxy(new_dna)
@@ -525,6 +526,7 @@ var factory_floor_variant: FloorVariant
 var mint_floor_variant: FloorVariant
 var da_floor_variant: FloorVariant
 var cgc_floor_variant: FloorVariant
+var molten_floor_variant: FloorVariant # Not added to FLOOR_VARIANTS as it's an alt floor
 var reward_chest_chance := 0.4
 var floor_difficulty_increase := 1.0 / 3.0
 var FLOOR_VARIANTS: Array[FloorVariant]:
@@ -581,6 +583,7 @@ signal s_liquidator_boss_defeated
 signal s_pocket_prank_used(prank: ItemActive)
 signal s_special_chest_opened(chest: TreasureChest)
 signal s_player_jumped
+signal s_paint_silo_victory
 
 func on_floor_start(game_floor: GameFloor) -> void:
 	if game_floor.floor_variant.is_alt_floor:
@@ -603,4 +606,72 @@ signal s_radio_spawned(radio: Node3D)
 signal s_slendercog_boss_initialized(directory: Node3D)
 signal s_shop_spawned(shop: ToonShop)
 signal s_game_win
+signal s_im_stuck
+signal s_colorblind_mode_changed(new_mode: Dictionary)
+signal s_quest_completed
 #endregion
+
+
+## Custom Seeds
+## Input one of these to get a wacky effect
+var custom_seeds: Dictionary[String, Variant] = {
+	# Guaranteed Motorcycle Boots (hi boots)
+	"boots": "res://objects/items/resources/custom_seeds/seed_boots.tres",
+	
+	# Start with 1 laff, terrible stats
+	"maxtoon": "res://objects/items/resources/custom_seeds/seed_maxtoon.tres",
+	
+	# Start with +3 Anomaly Boost
+	"anomalous": "res://objects/items/resources/custom_seeds/seed_anomalous.tres",
+	
+	# Start with a 50% Defense Mult & 200% Evasiveness Mult
+	"fedora": "res://objects/items/resources/custom_seeds/seed_fedora.tres",
+	
+	# Play with a mirrored camera
+	"mirror": "res://objects/items/resources/custom_seeds/seed_mirror.tres",
+	
+	# Fake "Connecting..." screen
+	"multiplayer": "res://objects/items/resources/custom_seeds/seed_multiplayer.tres",
+	
+	# All grunt Cogs are proxies
+	"proxy": "res://objects/items/resources/custom_seeds/seed_proxy.tres",
+	
+	# Haunted by the phrase: "I'm neoNote."
+	"neonote": "res://objects/items/resources/custom_seeds/seed_neonote.tres",
+	
+	# Mouse shopkeeper every floor :)
+	"mouse": "res://objects/items/resources/custom_seeds/seed_mouse.tres",
+	
+	# All floors have the blackout effect
+	"blackout": "res://objects/items/resources/custom_seeds/seed_blackout.tres",
+	
+	# All floors have the low gravity effect
+	"zerog": "res://objects/items/resources/custom_seeds/seed_zerog.tres",
+	
+	# Resistance Ranger Ripley is your shopkeeper
+	"ooowo": "res://objects/items/resources/custom_seeds/seed_ooowo.tres",
+	
+	# Collision Blunder Counter
+	"kelblock": "res://objects/items/resources/custom_seeds/seed_kelblock.tres",
+	
+	# Sends you to heaven
+	"2014": "res://objects/items/resources/custom_seeds/seed_sketched.tres",
+	
+	# Purple filter, Toon emits a purple glow
+	"lavender": "res://objects/items/resources/custom_seeds/seed_lavender.tres",
+	
+	# Golden Goose is added as a grunt Cog
+	"misty": "res://objects/items/resources/custom_seeds/seed_misty.tres",
+	
+	# Mirrored AND Blackout (we hate you)
+	"blackmirror": [
+		"res://objects/items/resources/custom_seeds/seed_blackout.tres",
+		"res://objects/items/resources/custom_seeds/seed_mirror.tres"
+	],
+	
+	# Mirrored AND 2014 (we love you)
+	"whitemirror": [
+		"res://objects/items/resources/custom_seeds/seed_sketched.tres",
+		"res://objects/items/resources/custom_seeds/seed_mirror.tres"
+	]
+}

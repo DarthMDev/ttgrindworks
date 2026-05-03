@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://4y7layju65hi"]
+[gd_scene format=3 uid="uid://4y7layju65hi"]
 
 [ext_resource type="Script" uid="uid://dgjhpf8rmk65x" path="res://objects/interactables/big_pipe/big_pipe.gd" id="1_fu1ei"]
 [ext_resource type="PackedScene" uid="uid://l60ypclghdla" path="res://models/facilities/molten/Big_Pipe.fbx" id="2_xqkwf"]
-[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_onh0p"]
+[ext_resource type="Texture2D" uid="uid://cukeb4lk6t7ro" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="3_onh0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu1ei"]
 resource_name = "Molten_CompiledSet1"

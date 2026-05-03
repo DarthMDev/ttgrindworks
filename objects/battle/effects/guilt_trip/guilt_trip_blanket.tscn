@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bgqnfooh0ticb"]
+[gd_scene format=4 uid="uid://bgqnfooh0ticb"]
 
 [ext_resource type="Script" uid="uid://dh2t45816c7vi" path="res://objects/battle/effects/sparkle_effect.gd" id="1_58ji7"]
 

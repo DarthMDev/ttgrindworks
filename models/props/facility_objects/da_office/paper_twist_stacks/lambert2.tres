@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bm7b3vdlbxvqe"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bm7b3vdlbxvqe"]
 
 [ext_resource type="Texture2D" uid="uid://bns3vhcjcwh83" path="res://models/props/facility_objects/da_office/paper_twist_stacks/paper_twist_stacks_1.png" id="1_3oyv6"]
 

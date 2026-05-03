@@ -70,8 +70,10 @@ func search_node(node : Node) -> Array[BattleNode]:
 			battles.append_array(search_node(child))
 	return battles
 
-func destroy_battle(battle : BattleNode) -> void:
+func destroy_battle(battle: BattleNode) -> void:
+	if not is_instance_valid(battle): return
 	for cog in battle.cogs:
+		if not is_instance_valid(cog): continue
 		BattleService.battle_participant_died(cog)
 		cog.explode()
 	
@@ -82,10 +84,13 @@ func destroy_battle(battle : BattleNode) -> void:
 	else:
 		chest.item_pool = load(BATTLE_CLEAR_POOL)
 	battle.add_child(chest)
-	chest.reparent(Util.floor_manager)
+	if is_instance_valid(Util.floor_manager):
+		chest.reparent(Util.floor_manager.get_current_room())
+	else:
+		chest.reparent(SceneLoader.current_scene)
 	battle.s_battle_end.emit()
 	battle.set_monitoring.call_deferred(false)
-	await Task.delay(10.0)
+	await Task.delay(3.0)
 	battle.queue_free()
 
 

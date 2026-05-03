@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://wxle3imysyb1"]
+[gd_resource type="Resource" format=3 uid="uid://wxle3imysyb1"]
 
 [ext_resource type="Script" uid="uid://c2yy7gfukolva" path="res://objects/battle/battle_resources/misc_movies/sales_director/sd_rebrand.gd" id="1_niadr"]
 

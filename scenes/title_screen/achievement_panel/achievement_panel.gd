@@ -61,11 +61,13 @@ static var achievement_order: Dictionary[String, Array] = {
 		## Accessory Unlocks
 		ProgressFile.GameAchievement.UNLOCK_BIRD_WINGS,
 		ProgressFile.GameAchievement.UNLOCK_WEIRD_GLASSES,
+		ProgressFile.GameAchievement.UNLOCK_WINGTIPS,
 		
 		## Passive Unlocks
 		ProgressFile.GameAchievement.UNLOCK_ROLODEX,
 		ProgressFile.GameAchievement.UNLOCK_DILLY_DIAL,
 		ProgressFile.GameAchievement.UNLOCK_PHILOSOPHERS_STONE,
+		ProgressFile.GameAchievement.UNLOCK_RAINBOW_JELLYBEAN,
 		
 		## Pocket Prank Unlocks
 		ProgressFile.GameAchievement.UNLOCK_LAW_BOOK,
@@ -135,6 +137,8 @@ func create_achievement(achievement: Achievement) -> Control:
 		new_achievement.get_node('Elements/Background').show()
 		new_achievement.get_node('Elements/Background').self_modulate = achievement.custom_background_color.lerp(Color.WHITE, 0.4)
 		new_achievement.get_node('Elements/Icon').scale *= 0.7
+	if achievement.custom_material:
+		new_achievement.get_node('Elements/Icon').material = achievement.custom_material
 	new_achievement.get_node('Elements/Summary').set_text(achievement.achievement_summary)
 	return new_achievement
 

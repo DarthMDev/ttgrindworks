@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b87j2e2rsu88h"]
+[gd_scene format=3 uid="uid://b87j2e2rsu88h"]
 
 [ext_resource type="PackedScene" uid="uid://cu152iitwfet2" path="res://objects/modules/cgc/base_rooms/cgc_finale_room.tscn" id="1_mmshg"]
 [ext_resource type="PackedScene" uid="uid://direah3lbjuu5" path="res://objects/battle/battle_node/battle_node.tscn" id="2_rx16n"]

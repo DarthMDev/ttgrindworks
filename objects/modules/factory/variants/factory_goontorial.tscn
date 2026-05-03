@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bugcden6bpfgd"]
+[gd_scene format=3 uid="uid://bugcden6bpfgd"]
 
 [ext_resource type="PackedScene" uid="uid://dpjnelniqhk0j" path="res://objects/modules/mint/base_rooms/mint_skele_room.tscn" id="1_72t12"]
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="2_aeqad"]

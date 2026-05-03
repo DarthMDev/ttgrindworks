@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cnv0g3myicpik"]
+[gd_scene format=4 uid="uid://cnv0g3myicpik"]
 
 [ext_resource type="Animation" uid="uid://cyofsr2lwilui" path="res://models/cogs/suitc/animations/lose.res" id="1_56hdu"]
 [ext_resource type="Script" uid="uid://cqkt0omtc1wel" path="res://objects/cog/suit_directory.gd" id="1_dmjlk"]

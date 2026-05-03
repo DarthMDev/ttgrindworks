@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="CogDNA" load_steps=3 format=3 uid="uid://c4f4cuaxtbd46"]
+[gd_resource type="Resource" script_class="CogDNA" format=3 uid="uid://c4f4cuaxtbd46"]
 
 [ext_resource type="Script" uid="uid://bb27him60xtnk" path="res://objects/battle/battle_resources/cog_attacks/cog_attack.gd" id="1_sbqdr"]
 [ext_resource type="Script" uid="uid://yc46vrmyfql1" path="res://objects/cog/cog_dna.gd" id="2_kgbbr"]
+[ext_resource type="Resource" uid="uid://dc3wprcrjg58t" path="res://objects/battle/battle_resources/cog_attacks/resources/audit.tres" id="2_qw0fx"]
+[ext_resource type="Resource" uid="uid://bddy50xh8sfc8" path="res://objects/battle/battle_resources/cog_attacks/resources/tremor.tres" id="3_ul518"]
+[ext_resource type="Resource" uid="uid://b8evcct5837aq" path="res://objects/battle/battle_resources/cog_attacks/resources/pick_pocket_money.tres" id="4_d4dru"]
 
 [resource]
 script = ExtResource("2_kgbbr")
@@ -14,8 +17,10 @@ head_scale = Vector3(0.7, 0.7, 0.7)
 scale = 9.2
 hand_color = Color(0.827451, 0.521569, 0.12549, 1)
 custom_nametag_height = 8.8
+attacks = Array[ExtResource("1_sbqdr")]([ExtResource("2_qw0fx"), ExtResource("3_ul518"), ExtResource("4_d4dru")])
 level_high = 20
 is_admin = true
+battle_phrases = Array[String](["Money is power, and my wealth is immeasurable.", "I'll cut your wild goose chase short.", "HOOONK!!!"])
 external_assets = {
 &"head_model": "",
 &"head_textures": []

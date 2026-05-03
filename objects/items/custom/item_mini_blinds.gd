@@ -1,6 +1,6 @@
 extends ItemScript
 
-const CHANGE_CHANCE := 0.1
+const CHANGE_CHANCE := 1.0
 ## Some tracks should try to increment multiple levels
 const STEPPED_TRACKS: Dictionary = {
 	'Lure': 2

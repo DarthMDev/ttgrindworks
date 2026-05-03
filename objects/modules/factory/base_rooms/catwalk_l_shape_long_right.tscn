@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dblbyu0olmeet"]
+[gd_scene format=3 uid="uid://dblbyu0olmeet"]
 
 [ext_resource type="PackedScene" uid="uid://ccc7o36g7boqg" path="res://models/facilities/factory/Catwalk_LShape_Long_Right.fbx" id="1_dgold"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="2_77law"]

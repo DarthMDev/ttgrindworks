@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TrapFall" load_steps=5 format=3 uid="uid://c86syhj0hylkc"]
+
+[ext_resource type="Texture2D" uid="uid://bnp25lefvy2ta" path="res://ui_assets/battle/gags/inventory_portable_hole.png" id="1_whips"]
+[ext_resource type="PackedScene" uid="uid://cp2ncy4ta6ubt" path="res://objects/misc/teleport_hole/teleport_hole.tscn" id="2_v7ojk"]
+[ext_resource type="Script" uid="uid://cadbacipbjc11" path="res://objects/battle/battle_resources/toon_attacks/trap_fall.gd" id="3_5s4qr"]
+[ext_resource type="AudioStream" uid="uid://d1fg8oarn1xpo" path="res://audio/sfx/toon/AV_teleport.ogg" id="4_pcofk"]
+
+[resource]
+script = ExtResource("3_5s4qr")
+model = ExtResource("2_v7ojk")
+sfx = ExtResource("4_pcofk")
+trap_type = 2
+icon = ExtResource("1_whips")
+damage = 150
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Portable Hole"
+one_time_use = false

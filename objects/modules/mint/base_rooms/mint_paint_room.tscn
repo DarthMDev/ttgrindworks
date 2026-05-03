@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tyh04q1b13e1"]
+[gd_scene format=3 uid="uid://tyh04q1b13e1"]
 
 [ext_resource type="PackedScene" uid="uid://d023f4q1oirrw" path="res://models/facilities/mint/mint_paint_room.fbx" id="1_d1hfl"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="2_cd24e"]

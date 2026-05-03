@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AchievementQuota" load_steps=3 format=3 uid="uid://0kgfyif7h0jo"]
+[gd_resource type="Resource" script_class="AchievementQuota" format=3 uid="uid://0kgfyif7h0jo"]
 
 [ext_resource type="Texture2D" uid="uid://bpg0puwo37xo4" path="res://ui_assets/achievements/icon_achievement_oldman.png" id="1_v2vhp"]
 [ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="2_v2vhp"]

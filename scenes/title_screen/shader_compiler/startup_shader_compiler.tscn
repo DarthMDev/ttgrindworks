@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lxi0qm8aebs1"]
+[gd_scene format=3 uid="uid://lxi0qm8aebs1"]
 
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="1_5jrqf"]
 [ext_resource type="Script" uid="uid://y0twj7etu87x" path="res://scenes/title_screen/shader_compiler/startup_shader_compiler.gd" id="1_85l3m"]
@@ -19,7 +19,7 @@ font_size = 36
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.41960785)
 
-[node name="StartupShaderCompiler" type="Control"]
+[node name="StartupShaderCompiler" type="Control" unique_id=1591143018]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ grow_vertical = 2
 script = ExtResource("1_85l3m")
 files_to_load = Array[String](["res://objects/items/custom/toonosaur_hat/meteor.tscn", "res://objects/items/custom/toonosaur_hat/meteor_explosion.tscn", "res://objects/battle/effects/cog_healing/cog_healing.tscn", "res://objects/battle/effects/rainbow_paint_splash/rainbow_paint_splash_effect.tscn", "res://objects/battle/effects/coin/coinspill.tscn", "res://objects/battle/effects/fire/fireburst.tscn", "res://objects/battle/effects/unite/unite.tscn", "res://objects/battle/effects/pixie_dust/pixie_dust_battle_effect.tscn", "res://objects/battle/effects/poison/poison_cog.tscn", "res://models/props/gags/geyser-revamp/geyser_gag.tscn", "res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/mole_movement.tscn", "res://objects/obstacles/sandtrap/sandtrap_dust.tscn"])
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=707614026]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1wgck")
 
-[node name="GameLogo" type="TextureRect" parent="."]
+[node name="GameLogo" type="TextureRect" parent="." unique_id=1525882190]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,7 +55,7 @@ texture = ExtResource("3_t11c4")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=453548741]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
@@ -76,7 +76,7 @@ max_value = 1.0
 step = 1.0
 show_percentage = false
 
-[node name="Label2" type="Label" parent="ProgressBar"]
+[node name="Label2" type="Label" parent="ProgressBar" unique_id=1523753993]
 layout_mode = 0
 offset_top = -49.0
 offset_right = 149.0
@@ -84,10 +84,10 @@ offset_bottom = -3.0
 text = "Optimizing Shaders..."
 label_settings = SubResource("LabelSettings_ydl26")
 
-[node name="LoadedObjects" type="Node" parent="."]
+[node name="LoadedObjects" type="Node" parent="." unique_id=356075603]
 unique_name_in_owner = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2002762990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6664603)
 
 [connection signal="value_changed" from="ProgressBar" to="." method="on_progress_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://bvbt81mbhu8bq"]
+[gd_scene format=4 uid="uid://bvbt81mbhu8bq"]
 
 [ext_resource type="PackedScene" uid="uid://b7aw7imipew0b" path="res://models/facilities/molten/boss_chase/v2/molten_hall_final.fbx" id="1_f3ora"]
 [ext_resource type="PackedScene" uid="uid://gn43bdjs6n45" path="res://objects/props/molten/big_door.tscn" id="2_ddbib"]

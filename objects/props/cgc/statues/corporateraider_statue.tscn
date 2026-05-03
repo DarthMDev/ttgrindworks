@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ts8f02rqos0"]
+[gd_scene format=3 uid="uid://c4ts8f02rqos0"]
 
 [ext_resource type="PackedScene" uid="uid://inx1gsy4x4vv" path="res://models/props/facility_objects/cgc/statues/corporateraider_statue.fbx" id="1_hkdqq"]
 

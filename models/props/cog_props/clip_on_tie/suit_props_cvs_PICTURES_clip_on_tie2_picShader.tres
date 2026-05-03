@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://blhoo77e22lti"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blhoo77e22lti"]
 
 [ext_resource type="Texture2D" uid="uid://ch8u0r86by3ia" path="res://models/props/cog_props/clip_on_tie/clip_on_tie_0.png" id="1_aydyi"]
 

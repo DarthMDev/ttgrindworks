@@ -1,127 +1,27 @@
-[gd_resource type="Resource" script_class="Track" load_steps=33 format=3 uid="uid://dqldfsmn7g606"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://dqldfsmn7g606"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_txqk2"]
-[ext_resource type="Texture2D" uid="uid://0y0we63o3mb8" path="res://ui_assets/battle/gags/inventory_1dollarbill.png" id="2_xul6d"]
-[ext_resource type="Script" uid="uid://gpeto6dx1eja" path="res://objects/battle/battle_resources/status_effects/lured.gd" id="3_even4"]
-[ext_resource type="Script" uid="uid://td2akjfqd0r3" path="res://objects/battle/battle_resources/toon_attacks/lure_fish.gd" id="4_utcx5"]
-[ext_resource type="Texture2D" uid="uid://d2w1gqvkuqair" path="res://ui_assets/battle/gags/inventory_5dollarbill.png" id="5_a2j3b"]
-[ext_resource type="Texture2D" uid="uid://dgxng3jvlh473" path="res://ui_assets/battle/gags/inventory_10dollarbill2.png" id="6_5viup"]
-[ext_resource type="Texture2D" uid="uid://fydnwdcn422y" path="res://ui_assets/battle/gags/inventory_small_magnet.png" id="7_gxtv4"]
-[ext_resource type="Script" uid="uid://cseo0ntw14rkk" path="res://objects/battle/battle_resources/toon_attacks/lure_group.gd" id="8_ulqlg"]
-[ext_resource type="Material" uid="uid://c6k1h8avpta45" path="res://models/props/gags/fishing_rod/dollar_bill_5.tres" id="9_gbckk"]
-[ext_resource type="AudioStream" uid="uid://uh2gtpwij832" path="res://audio/sfx/battle/gags/lure/TL_small_magnet.ogg" id="9_kmvue"]
-[ext_resource type="Texture2D" uid="uid://b7b444pvm24pb" path="res://ui_assets/battle/gags/inventory_big_magnet.png" id="10_tffnr"]
-[ext_resource type="AudioStream" uid="uid://b63m273mnsnin" path="res://audio/sfx/battle/gags/lure/TL_large_magnet.ogg" id="11_owhks"]
-[ext_resource type="Texture2D" uid="uid://bs3kjucuht6gm" path="res://ui_assets/battle/gags/inventory_hypno_goggles.png" id="12_w77q0"]
-[ext_resource type="Material" uid="uid://4pjn47k3ssbd" path="res://models/props/gags/fishing_rod/dollar_bill_10.tres" id="13_ej7ys"]
-[ext_resource type="AudioStream" uid="uid://bn752ikuawdl0" path="res://audio/sfx/battle/gags/lure/TL_hypnotize.ogg" id="13_gdqi7"]
+[ext_resource type="Resource" uid="uid://cj73wfn7qlr5p" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/1_dollar_bill.tres" id="2_a0v0m"]
+[ext_resource type="Resource" uid="uid://bhdchdf1hjd0c" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/small_magnet.tres" id="3_lm2mb"]
+[ext_resource type="Resource" uid="uid://baf06bjnmwsh5" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/5_dollar_bill.tres" id="4_6h8l6"]
+[ext_resource type="Resource" uid="uid://ga3j6hwgxeys" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/big_magnet.tres" id="5_ple67"]
+[ext_resource type="Resource" uid="uid://b4t7upshin64v" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/10_dollar_bill.tres" id="6_p4v71"]
+[ext_resource type="Resource" uid="uid://5vn3fn3ys5kt" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/hypno_goggles.tres" id="7_wy8xf"]
+[ext_resource type="Resource" uid="uid://du7u0oljwrd3h" path="res://objects/battle/battle_resources/gag_loadouts/gags/lure/presentation.tres" id="8_rqkk5"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="14_tulk0"]
-[ext_resource type="Texture2D" uid="uid://beakxy2vgxlc1" path="res://ui_assets/battle/gags/inventory_screen.png" id="14_uk03k"]
-[ext_resource type="AudioStream" uid="uid://bgddqhaprr7vo" path="res://audio/sfx/battle/gags/lure/TL_presentation.ogg" id="15_2ony2"]
-
-[sub_resource type="Resource" id="Resource_voata"]
-script = ExtResource("3_even4")
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_c2yol"]
-script = ExtResource("4_utcx5")
-lure_effect = SubResource("Resource_voata")
-icon = ExtResource("2_xul6d")
-action_name = "1 Dollar Bill"
-
-[sub_resource type="Resource" id="Resource_orvgm"]
-script = ExtResource("3_even4")
-lure_type = 1
-damage_nerf = -0.5
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_1ai11"]
-script = ExtResource("8_ulqlg")
-sfx = ExtResource("9_kmvue")
-lure_effect = SubResource("Resource_orvgm")
-icon = ExtResource("7_gxtv4")
-target_type = 7
-action_name = "Small Magnet"
-
-[sub_resource type="Resource" id="Resource_4kntx"]
-script = ExtResource("3_even4")
-knockback_effect = 30
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_ufcuq"]
-script = ExtResource("4_utcx5")
-override_mat = ExtResource("9_gbckk")
-lure_effect = SubResource("Resource_4kntx")
-icon = ExtResource("5_a2j3b")
-action_name = "5 Dollar Bill"
-
-[sub_resource type="Resource" id="Resource_e3sel"]
-script = ExtResource("3_even4")
-lure_type = 1
-knockback_effect = 30
-damage_nerf = -0.75
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_tjb7b"]
-script = ExtResource("8_ulqlg")
-sfx = ExtResource("11_owhks")
-lure_effect = SubResource("Resource_e3sel")
-icon = ExtResource("10_tffnr")
-target_type = 7
-action_name = "Big Magnet"
-
-[sub_resource type="Resource" id="Resource_37cp3"]
-script = ExtResource("3_even4")
-knockback_effect = 60
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_qe7sj"]
-script = ExtResource("4_utcx5")
-override_mat = ExtResource("13_ej7ys")
-lure_effect = SubResource("Resource_37cp3")
-icon = ExtResource("6_5viup")
-action_name = "10 Dollar Bill"
-
-[sub_resource type="Resource" id="Resource_41ybs"]
-script = ExtResource("3_even4")
-lure_type = 1
-knockback_effect = 60
-damage_nerf = -1.0
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_f7y4b"]
-script = ExtResource("8_ulqlg")
-sfx = ExtResource("13_gdqi7")
-lure_effect = SubResource("Resource_41ybs")
-icon = ExtResource("12_w77q0")
-target_type = 7
-action_name = "Hypno Goggles"
-
-[sub_resource type="Resource" id="Resource_y4t06"]
-script = ExtResource("3_even4")
-lure_type = 1
-knockback_effect = 80
-damage_nerf = -1.25
-quality = 1
-id = 2
-
-[sub_resource type="Resource" id="Resource_xifqg"]
-script = ExtResource("8_ulqlg")
-sfx = ExtResource("15_2ony2")
-lure_effect = SubResource("Resource_y4t06")
-icon = ExtResource("14_uk03k")
-target_type = 7
-action_name = "Presentation"
 
 [resource]
 script = ExtResource("14_tulk0")
 track_type = 1
 track_name = "Lure"
 track_color = Color(0.282353, 0.623529, 0.247059, 1)
-gags = Array[ExtResource("1_txqk2")]([SubResource("Resource_c2yol"), SubResource("Resource_1ai11"), SubResource("Resource_ufcuq"), SubResource("Resource_tjb7b"), SubResource("Resource_qe7sj"), SubResource("Resource_f7y4b"), SubResource("Resource_xifqg")])
+gags = Array[ExtResource("1_txqk2")]([ExtResource("2_a0v0m"), ExtResource("3_lm2mb"), ExtResource("4_6h8l6"), ExtResource("5_ple67"), ExtResource("6_p4v71"), ExtResource("7_wy8xf"), ExtResource("8_rqkk5")])
+mod_gags = Dictionary[ExtResource("1_txqk2"), int]({
+ExtResource("2_a0v0m"): 0,
+ExtResource("3_lm2mb"): 1,
+ExtResource("4_6h8l6"): 2,
+ExtResource("5_ple67"): 3,
+ExtResource("6_p4v71"): 4,
+ExtResource("7_wy8xf"): 5,
+ExtResource("8_rqkk5"): 6
+})

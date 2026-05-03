@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://rcqimumx25c4"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rcqimumx25c4"]
 
 [ext_resource type="Texture2D" uid="uid://cg2uccg6r4tku" path="res://models/props/facility_objects/mint/pipes/textures/CogIntPlate1b.png" id="1_pl7ni"]
 

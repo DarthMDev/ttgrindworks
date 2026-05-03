@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://06fotrmiu7r5"]
+[gd_scene format=3 uid="uid://06fotrmiu7r5"]
 
 [ext_resource type="PackedScene" uid="uid://bj5amoerd44or" path="res://models/props/facility_objects/stomper/stomper.fbx" id="1_ce0fy"]
 [ext_resource type="Script" uid="uid://cd8lpb2il8b6b" path="res://objects/obstacles/pusher/pusher.gd" id="2_ahggo"]

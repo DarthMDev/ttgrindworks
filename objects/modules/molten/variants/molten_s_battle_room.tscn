@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dssh2k2ptyhgi"]
+[gd_scene format=3 uid="uid://dssh2k2ptyhgi"]
 
 [ext_resource type="PackedScene" uid="uid://jhk4wbj4x47o" path="res://objects/modules/molten/base_rooms/molten_s_room.tscn" id="1_xxjpe"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="3_jponw"]

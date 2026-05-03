@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://devfa8s6hrb8m"]
+[gd_scene format=3 uid="uid://devfa8s6hrb8m"]
 
 [ext_resource type="PackedScene" uid="uid://fijwyiv0x7q4" path="res://models/accessories/backpacks/butterfly_wings/butterfly_wings.tscn" id="1_fe1gq"]
 [ext_resource type="Texture2D" uid="uid://5sqij7rumhn8" path="res://models/accessories/backpacks/pixie_wings/pixie_wings.png" id="2_7dlnw"]

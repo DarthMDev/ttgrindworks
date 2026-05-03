@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bgmijmxyy2ydt"]
+[gd_scene format=3 uid="uid://bgmijmxyy2ydt"]
 
 [ext_resource type="PackedScene" uid="uid://do401g5eumgfr" path="res://models/facilities/mint/mint_conveyer_lava_jump.fbx" id="1_brbj7"]
 [ext_resource type="Script" uid="uid://jgx532lrof2u" path="res://objects/modules/mint/base_rooms/mint_conveyor_lava_jump.gd" id="2_jc25x"]

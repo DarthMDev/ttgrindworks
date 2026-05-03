@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkpqpf2xflniq"]
+[gd_scene format=3 uid="uid://dkpqpf2xflniq"]
 
 [ext_resource type="Texture2D" uid="uid://cp4aaluignlma" path="res://objects/battle/effects/fire/fire.png" id="1_6fhjj"]
 [ext_resource type="Script" uid="uid://bv5gwwvignatc" path="res://objects/misc/thermometer/molten_thermometer.gd" id="1_gdhw0"]

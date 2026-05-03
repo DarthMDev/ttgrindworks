@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8tjg61wyhrh"]
+[gd_scene format=3 uid="uid://c8tjg61wyhrh"]
 
 [ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="1_8gdvv"]
 [ext_resource type="PackedScene" uid="uid://dflwjcy6fj0av" path="res://objects/cog/cog.tscn" id="2_q8b1f"]

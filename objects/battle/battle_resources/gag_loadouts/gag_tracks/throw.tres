@@ -1,96 +1,28 @@
-[gd_resource type="Resource" script_class="Track" load_steps=27 format=3 uid="uid://0528viy6hdsv"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://0528viy6hdsv"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_rtmtp"]
-[ext_resource type="Texture2D" uid="uid://b02dgcnkrbbtx" path="res://ui_assets/battle/gags/inventory_tart.png" id="2_8lmnt"]
-[ext_resource type="PackedScene" uid="uid://dj268hnb7rr26" path="res://models/props/gags/pie/pie.glb" id="3_g4lam"]
-[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="4_d1roh"]
-[ext_resource type="AudioStream" uid="uid://q717j7rpl4ue" path="res://audio/sfx/battle/gags/throw/AA_tart_only.ogg" id="5_gqxes"]
-[ext_resource type="Texture2D" uid="uid://cs8h6tvalsx8l" path="res://ui_assets/battle/gags/inventory_fruit_pie_slice.png" id="6_xbtyl"]
-[ext_resource type="PackedScene" uid="uid://rc0827dqbtyk" path="res://models/props/gags/fruit_slice/fruit_slice.glb" id="7_lt3v7"]
-[ext_resource type="Texture2D" uid="uid://bxp6c7raxg5ic" path="res://ui_assets/battle/gags/inventory_cream_pie_slice.png" id="8_vd332"]
-[ext_resource type="PackedScene" uid="uid://b0mkdwaiua3ye" path="res://models/props/gags/cream_slice/cream_slice.glb" id="9_7m8q7"]
-[ext_resource type="Texture2D" uid="uid://bqis01vyse0vq" path="res://ui_assets/battle/gags/inventory_fruitpie.png" id="10_ir7nk"]
-[ext_resource type="Texture2D" uid="uid://d2eh7ur04xhve" path="res://ui_assets/battle/gags/inventory_creampie.png" id="11_lg5ck"]
-[ext_resource type="Texture2D" uid="uid://b8tdy4qthmv3t" path="res://ui_assets/battle/gags/inventory_cake_1.png" id="12_gekow"]
-[ext_resource type="Texture2D" uid="uid://dchh2t3rdfm34" path="res://ui_assets/battle/gags/inventory_wedding.png" id="12_k5872"]
-[ext_resource type="PackedScene" uid="uid://dd75urtji65pw" path="res://models/props/gags/bday_cake/bday_cake.tscn" id="13_mauup"]
+[ext_resource type="Resource" uid="uid://c2h15gk437pf4" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/cupcake.tres" id="2_gn6nt"]
+[ext_resource type="Resource" uid="uid://kyglym15d4jh" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/fruit_pie_slice.tres" id="3_st2xv"]
+[ext_resource type="Resource" uid="uid://bjvx6ycaurqql" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/cream_pie_slice.tres" id="4_ja1ia"]
+[ext_resource type="Resource" uid="uid://yr56ehgsd3fc" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/whole_fruit_pie.tres" id="5_fs2by"]
+[ext_resource type="Resource" uid="uid://j4n5n6omljxv" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/whole_cream_pie.tres" id="6_8ib0w"]
+[ext_resource type="Resource" uid="uid://itjq3hljgdry" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/birthday_cake.tres" id="7_s8xnx"]
+[ext_resource type="Resource" uid="uid://g1mi6jf6c2a3" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/wedding_cake.tres" id="8_s8o63"]
+[ext_resource type="Resource" uid="uid://bnjfmm1edw015" path="res://objects/battle/battle_resources/gag_loadouts/gags/throw/ice_cream_cone.tres" id="9_fs2by"]
 [ext_resource type="Script" uid="uid://b6b6pfoqyolr" path="res://objects/battle/battle_resources/gag_loadouts/track.gd" id="14_8sa22"]
-[ext_resource type="AudioStream" uid="uid://dfh8hagq1yfae" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_cog.ogg" id="14_t7csw"]
-[ext_resource type="AudioStream" uid="uid://csjxqnrh0pi1p" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_miss.ogg" id="16_p0ejo"]
-[ext_resource type="PackedScene" uid="uid://co5xwy40e1sv5" path="res://models/props/gags/wedding_cake/wedding_cake.fbx" id="17_st2xv"]
-[ext_resource type="AudioStream" uid="uid://dp6taj5mnaa3e" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake.ogg" id="18_k0b62"]
-
-[sub_resource type="Resource" id="Resource_cf3iq"]
-script = ExtResource("4_d1roh")
-model = ExtResource("3_g4lam")
-scale = 0.5
-splat_color = Color(0.207843, 0.196078, 0.592157, 1)
-splat_sfx = ExtResource("5_gqxes")
-icon = ExtResource("2_8lmnt")
-damage = 7
-action_name = "Cupcake"
-
-[sub_resource type="Resource" id="Resource_uxcic"]
-script = ExtResource("4_d1roh")
-model = ExtResource("7_lt3v7")
-splat_color = Color(0.207843, 0.196078, 0.592157, 1)
-splat_sfx = ExtResource("5_gqxes")
-icon = ExtResource("6_xbtyl")
-damage = 14
-action_name = "Fruit Pie Slice"
-
-[sub_resource type="Resource" id="Resource_auxgd"]
-script = ExtResource("4_d1roh")
-model = ExtResource("9_7m8q7")
-splat_color = Color(1, 1, 0, 1)
-splat_sfx = ExtResource("5_gqxes")
-icon = ExtResource("8_vd332")
-damage = 24
-action_name = "Cream Pie Slice"
-
-[sub_resource type="Resource" id="Resource_7vpdx"]
-script = ExtResource("4_d1roh")
-model = ExtResource("3_g4lam")
-scale = 0.75
-splat_color = Color(0.207843, 0.196078, 0.592157, 1)
-splat_sfx = ExtResource("5_gqxes")
-icon = ExtResource("10_ir7nk")
-damage = 40
-action_name = "Whole Fruit Pie"
-
-[sub_resource type="Resource" id="Resource_f3d0w"]
-script = ExtResource("4_d1roh")
-model = ExtResource("3_g4lam")
-scale = 0.9
-splat_color = Color(1, 1, 0, 1)
-splat_sfx = ExtResource("5_gqxes")
-icon = ExtResource("11_lg5ck")
-damage = 60
-action_name = "Whole Cream Pie"
-
-[sub_resource type="Resource" id="Resource_u5wiq"]
-script = ExtResource("4_d1roh")
-model = ExtResource("13_mauup")
-splat_color = Color(1, 0.454902, 1, 1)
-splat_sfx = ExtResource("14_t7csw")
-icon = ExtResource("12_gekow")
-damage = 85
-action_name = "Birthday Cake"
-
-[sub_resource type="Resource" id="Resource_4x2ni"]
-script = ExtResource("4_d1roh")
-model = ExtResource("17_st2xv")
-scale = 4.54
-splat_color = Color(1, 0.454902, 1, 1)
-splat_sfx = ExtResource("14_t7csw")
-present_sfx = ExtResource("18_k0b62")
-miss_sfx = ExtResource("16_p0ejo")
-icon = ExtResource("12_k5872")
-damage = 110
-action_name = "Wedding Cake"
 
 [resource]
 script = ExtResource("14_8sa22")
 track_name = "Throw"
 track_color = Color(0.929412, 0.541176, 0.258824, 1)
-gags = Array[ExtResource("1_rtmtp")]([SubResource("Resource_cf3iq"), SubResource("Resource_uxcic"), SubResource("Resource_auxgd"), SubResource("Resource_7vpdx"), SubResource("Resource_f3d0w"), SubResource("Resource_u5wiq"), SubResource("Resource_4x2ni")])
+gags = Array[ExtResource("1_rtmtp")]([ExtResource("2_gn6nt"), ExtResource("3_st2xv"), ExtResource("4_ja1ia"), ExtResource("5_fs2by"), ExtResource("6_8ib0w"), ExtResource("7_s8xnx"), ExtResource("8_s8o63")])
+mod_gags = Dictionary[ExtResource("1_rtmtp"), int]({
+ExtResource("2_gn6nt"): 0,
+ExtResource("3_st2xv"): 1,
+ExtResource("4_ja1ia"): 2,
+ExtResource("5_fs2by"): 3,
+ExtResource("6_8ib0w"): 4,
+ExtResource("7_s8xnx"): 5,
+ExtResource("8_s8o63"): 6,
+ExtResource("9_fs2by"): 0
+})

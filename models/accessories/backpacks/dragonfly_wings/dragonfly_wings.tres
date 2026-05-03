@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctyvyrv6iqvgt"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctyvyrv6iqvgt"]
 
 [ext_resource type="Texture2D" uid="uid://bpj7wkpys1oqg" path="res://models/accessories/backpacks/dragonfly_wings/tt_m_chr_avt_acc_pac_dragonFlyWings_tt_t_chr_avt_acc_pac_dragonFlyWings.png" id="1_onmgk"]
 

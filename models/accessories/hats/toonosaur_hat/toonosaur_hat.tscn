@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo5okbth0iwhm"]
+[gd_scene format=3 uid="uid://bo5okbth0iwhm"]
 
 [ext_resource type="PackedScene" uid="uid://coyfr1rv1j81" path="res://models/accessories/hats/toonosaur_hat/tt_m_chr_avt_acc_hat_dinosaur.glb" id="1_iqhke"]
 

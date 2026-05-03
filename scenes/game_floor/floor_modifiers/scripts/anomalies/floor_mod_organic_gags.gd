@@ -3,10 +3,14 @@ extends FloorModifier
 const BOOST_AMT := 0.1
 
 func modify_floor() -> void:
-	Util.get_player().stats.damage += BOOST_AMT
+	for track in Util.get_player().stats.gag_effectiveness:
+		Util.get_player().stats.gag_effectiveness[track] += BOOST_AMT
+	await Task.delay(10.0)
+	clean_up()
 
 func clean_up() -> void:
-	Util.get_player().stats.damage -= BOOST_AMT
+	for track in Util.get_player().stats.gag_effectiveness:
+		Util.get_player().stats.gag_effectiveness[track] -= BOOST_AMT
 
 
 func get_mod_name() -> String:
