@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bgvvhpnbd3nqe"]
+[gd_scene format=3 uid="uid://bgvvhpnbd3nqe"]
 
 [ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="1_bwryn"]
 [ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="2_0hji2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b7ri5sq021cvo" path="res://ui_assets/misc/uiAccessoryDelete_down.png" id="6_bs0ac"]
 [ext_resource type="Texture2D" uid="uid://dn8vndd37lqom" path="res://ui_assets/misc/uiAccessoryDelete_rollover.png" id="7_nxqst"]
 [ext_resource type="Theme" uid="uid://dhqxwi6busihb" path="res://objects/general_ui/settings_menu/slider_theme.tres" id="9_dnno6"]
+[ext_resource type="Texture2D" uid="uid://qfltts6duk0u" path="res://ui_assets/achievements/achievement_bg.png" id="11_5vuyg"]
+[ext_resource type="Texture2D" uid="uid://d4nd5tsflit5c" path="res://ui_assets/pick_a_toon/questionmark.png" id="12_5k7uv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ddgja"]
 font = ExtResource("3_7uwv2")
@@ -56,6 +58,11 @@ shader = ExtResource("5_07ilt")
 shader_parameter/Shift_Hue = 0.585
 shader_parameter/alpha = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vuyg"]
+shader = ExtResource("5_07ilt")
+shader_parameter/Shift_Hue = 0.585
+shader_parameter/alpha = 1.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_ha7rp"]
 font = ExtResource("3_7uwv2")
 font_size = 12
@@ -75,10 +82,10 @@ font = ExtResource("2_0hji2")
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 
-[node name="SettingsMenu" instance=ExtResource("1_bwryn")]
-offset_left = -266.0
+[node name="SettingsMenu" unique_id=162920558 instance=ExtResource("1_bwryn")]
+offset_left = -273.0
 offset_top = -284.0
-offset_right = 266.0
+offset_right = 273.0
 offset_bottom = 284.0
 script = ExtResource("2_2jdde")
 title = "Settings"
@@ -94,7 +101,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-pivot_offset = Vector2(266, 284)
+pivot_offset = Vector2(273, 284)
 
 [node name="Title" parent="Panel" index="0"]
 offset_top = 48.0
@@ -108,53 +115,53 @@ text = ""
 [node name="CancelButton" parent="Panel" index="2"]
 font_size = 36.0
 
-[node name="SettingScroller" type="ScrollContainer" parent="Panel" index="3"]
+[node name="SettingScroller" type="ScrollContainer" parent="Panel" index="3" unique_id=813636767]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -222.0
+offset_left = -230.0
 offset_top = -184.5
-offset_right = 222.0
+offset_right = 230.0
 offset_bottom = 184.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_dnno6")
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/SettingScroller" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/SettingScroller" index="0" unique_id=1709154953]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="SettingContainer" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer" index="0"]
+[node name="SettingContainer" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer" index="0" unique_id=1059493650]
 layout_mode = 2
 
-[node name="HSizer" type="Control" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="0"]
+[node name="HSizer" type="Control" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="0" unique_id=464222906]
 layout_mode = 2
 
-[node name="VideoSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="1"]
+[node name="VideoSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="1" unique_id=434051279]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="0"]
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="0" unique_id=2066216230]
 layout_mode = 2
 text = "Video"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Fullscreen" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="1"]
+[node name="Fullscreen" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="1" unique_id=643506391]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen" index="0" unique_id=1028952946]
 layout_mode = 2
 text = "Fullscreen:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="FullscreenButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen" index="1" instance=ExtResource("4_aygce")]
+[node name="FullscreenButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/Fullscreen" index="1" unique_id=1638068048 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
@@ -172,15 +179,15 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="FPSLimit" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="2"]
+[node name="FPSLimit" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="2" unique_id=993994018]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit" index="0" unique_id=44773628]
 layout_mode = 2
 text = "FPS Limit:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="FPSButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit" index="1" instance=ExtResource("4_aygce")]
+[node name="FPSButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit" index="1" unique_id=615217214 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_mtv11")
 custom_minimum_size = Vector2(160, 60)
@@ -198,15 +205,15 @@ font_size = 24.0
 text = "60"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="AntiAliasing" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="3"]
+[node name="AntiAliasing" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="3" unique_id=644656452]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing" index="0" unique_id=91222960]
 layout_mode = 2
 text = "Anti-Aliasing:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="AliasButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing" index="1" instance=ExtResource("4_aygce")]
+[node name="AliasButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing" index="1" unique_id=524020521 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
@@ -224,15 +231,15 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="CameraShake" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="4"]
+[node name="CameraShake" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="4" unique_id=376736113]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake" index="0" unique_id=1794695795]
 layout_mode = 2
 text = "Camera Shake:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="CameraShakeButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake" index="1" instance=ExtResource("4_aygce")]
+[node name="CameraShakeButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake" index="1" unique_id=1200868189 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
@@ -250,25 +257,90 @@ font_size = 24.0
 text = "Standard"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="AudioSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="2"]
+[node name="ColorblindToggle" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings" index="5" unique_id=451256271]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle" index="0" unique_id=329117733]
+layout_mode = 2
+text = "Color Blind Mode:"
+label_settings = SubResource("LabelSettings_n41hl")
+
+[node name="ColorblindHover" type="Control" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle" index="1" unique_id=611570538]
+custom_minimum_size = Vector2(50.195, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorblindHover" index="0" unique_id=681783862]
+modulate = Color(0.8509804, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.500004
+offset_top = -14.5
+offset_right = 14.500004
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_5vuyg")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorblindHover" index="1" unique_id=2054601863]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.097473
+offset_top = -11.097473
+offset_right = 11.097473
+offset_bottom = 11.097473
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_5k7uv")
+expand_mode = 1
+
+[node name="ColorBlindButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle" index="2" unique_id=466999832 instance=ExtResource("4_aygce")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vnbpc")
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("5_p4xtr")
+texture_pressed = ExtResource("6_bs0ac")
+texture_hover = ExtResource("7_nxqst")
+texture_disabled = ExtResource("6_bs0ac")
+text = "Disabled"
+font_size = 24.0
+
+[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorBlindButton" index="0"]
+text = "Disabled"
+label_settings = SubResource("LabelSettings_xxrhd")
+
+[node name="AudioSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="2" unique_id=1769018407]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="0" unique_id=713291133]
 layout_mode = 2
 text = "Audio"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MasterVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="1"]
+[node name="MasterVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="1" unique_id=1295284823]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MasterVolume" index="0"]
+[node name="MasterLabel" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MasterVolume" index="0" unique_id=1965869855]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 text = "Master Volume:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="MasterSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MasterVolume" index="1"]
+[node name="MasterSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MasterVolume" index="1" unique_id=1628278212]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -279,15 +351,16 @@ max_value = 1.0
 step = 0.01
 scrollable = false
 
-[node name="MusicVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="2"]
+[node name="MusicVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="2" unique_id=482529547]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MusicVolume" index="0"]
+[node name="MusicLabel" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MusicVolume" index="0" unique_id=912646410]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Music Volume:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="MusicSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MusicVolume" index="1"]
+[node name="MusicSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MusicVolume" index="1" unique_id=1915329761]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -298,15 +371,16 @@ max_value = 1.0
 step = 0.01
 scrollable = false
 
-[node name="SFXVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="3"]
+[node name="SFXVolume" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="3" unique_id=1543628810]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/SFXVolume" index="0"]
+[node name="SFXLabel" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/SFXVolume" index="0" unique_id=1699307082]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SFX Volume:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="SFXSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/SFXVolume" index="1"]
+[node name="SFXSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/SFXVolume" index="1" unique_id=1339078819]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -317,15 +391,15 @@ max_value = 1.0
 step = 0.01
 scrollable = false
 
-[node name="AmbientSound" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="4"]
+[node name="AmbientSound" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings" index="4" unique_id=627801260]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound" index="0" unique_id=436351430]
 layout_mode = 2
 text = "Ambient SFX:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="AmbientButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound" index="1" instance=ExtResource("4_aygce")]
+[node name="AmbientButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound" index="1" unique_id=16729715 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
@@ -343,21 +417,21 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="GameplaySettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="3"]
+[node name="GameplaySettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="3" unique_id=246528304]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="0"]
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="0" unique_id=1590874076]
 layout_mode = 2
 text = "Gameplay"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ImStuck" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="1"]
+[node name="ImStuck" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="1" unique_id=1724826000]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StuckButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ImStuck" index="0" instance=ExtResource("4_aygce")]
+[node name="StuckButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ImStuck" index="0" unique_id=1374247872 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
@@ -374,15 +448,15 @@ font_size = 24.0
 text = "I'M STUCK!"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="BattleSpeed" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="2"]
+[node name="BattleSpeed" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="2" unique_id=864618133]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed" index="0" unique_id=1683304553]
 layout_mode = 2
 text = "Battle Speed:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="SpeedButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed" index="1" instance=ExtResource("4_aygce")]
+[node name="SpeedButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed" index="1" unique_id=1599006513 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_mtv11")
 custom_minimum_size = Vector2(160, 60)
@@ -400,15 +474,15 @@ font_size = 24.0
 text = "1.0x"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ControlStyle" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="3"]
+[node name="ControlStyle" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="3" unique_id=1329623212]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle" index="0" unique_id=510911514]
 layout_mode = 2
 text = "Control Style:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="ControlStyleButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle" index="1" instance=ExtResource("4_aygce")]
+[node name="ControlStyleButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle" index="1" unique_id=1458425912 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_r8twx")
 custom_minimum_size = Vector2(160, 60)
@@ -426,15 +500,17 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="CameraSensitivity" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="4"]
+[node name="CameraSensitivity" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="4" unique_id=247291036]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CameraSensitivity" index="0"]
+[node name="CamSensitivityLabel" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CameraSensitivity" index="0" unique_id=2098791759]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(232, 0)
 layout_mode = 2
 text = "Cam Sensitivity:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="CamSensSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CameraSensitivity" index="1"]
+[node name="CamSensSlider" type="HSlider" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CameraSensitivity" index="1" unique_id=267735313]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -447,15 +523,15 @@ step = 0.01
 value = 1.0
 scrollable = false
 
-[node name="AutoSprint" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="5"]
+[node name="AutoSprint" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="5" unique_id=1711092512]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint" index="0" unique_id=325497875]
 layout_mode = 2
 text = "Auto-sprint:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="AutoSprintButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint" index="1" instance=ExtResource("4_aygce")]
+[node name="AutoSprintButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint" index="1" unique_id=210412899 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_csi57")
 custom_minimum_size = Vector2(160, 60)
@@ -473,15 +549,67 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ItemReactions" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="6"]
+[node name="ItemDescriptions" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="6" unique_id=1403727000]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemDescriptions" index="0" unique_id=1132651567]
+layout_mode = 2
+text = "Item Descriptions:"
+label_settings = SubResource("LabelSettings_n41hl")
+
+[node name="DescriptionButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemDescriptions" index="1" unique_id=1904247396 instance=ExtResource("4_aygce")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xvvqb")
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("5_p4xtr")
+texture_pressed = ExtResource("6_bs0ac")
+texture_hover = ExtResource("7_nxqst")
+texture_disabled = ExtResource("6_bs0ac")
+text = "Default"
+font_size = 24.0
+
+[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemDescriptions/DescriptionButton" index="0"]
+text = "Default"
+label_settings = SubResource("LabelSettings_xxrhd")
+
+[node name="ItemPopups" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="7" unique_id=66737586]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemPopups" index="0" unique_id=2046466546]
+layout_mode = 2
+text = "Collection Pop-Ups:"
+label_settings = SubResource("LabelSettings_n41hl")
+
+[node name="PopupsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemPopups" index="1" unique_id=1125845595 instance=ExtResource("4_aygce")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xvvqb")
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("5_p4xtr")
+texture_pressed = ExtResource("6_bs0ac")
+texture_hover = ExtResource("7_nxqst")
+texture_disabled = ExtResource("6_bs0ac")
+text = "On"
+font_size = 24.0
+
+[node name="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemPopups/PopupsButton" index="0"]
+text = "On"
+label_settings = SubResource("LabelSettings_xxrhd")
+
+[node name="ItemReactions" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="8" unique_id=345482329]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions" index="0" unique_id=1869547200]
 layout_mode = 2
 text = "Item Reactions:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="ReactionButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions" index="1" instance=ExtResource("4_aygce")]
+[node name="ReactionButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions" index="1" unique_id=945745349 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xvvqb")
 custom_minimum_size = Vector2(160, 60)
@@ -499,15 +627,15 @@ font_size = 24.0
 text = "Default"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ShowTimer" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="7"]
+[node name="ShowTimer" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="9" unique_id=1399960822]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer" index="0" unique_id=34184805]
 layout_mode = 2
 text = "Show Timer:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="TimerButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer" index="1" instance=ExtResource("4_aygce")]
+[node name="TimerButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer" index="1" unique_id=486758038 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xvvqb")
 custom_minimum_size = Vector2(160, 60)
@@ -525,18 +653,18 @@ font_size = 24.0
 text = "Off"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="IntroSkip" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="8"]
+[node name="IntroSkip" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="10" unique_id=306739049]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip" index="0" unique_id=739880452]
 layout_mode = 2
 text = "Skip Intro:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="IntroSkipButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip" index="1" instance=ExtResource("4_aygce")]
+[node name="IntroSkipButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip" index="1" unique_id=1769116458 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_xvvqb")
+material = SubResource("ShaderMaterial_5vuyg")
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -552,15 +680,15 @@ font_size = 24.0
 text = "Off"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="CustomCogs" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="9"]
+[node name="CustomCogs" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="11" unique_id=1424584944]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs" index="0" unique_id=1409517348]
 layout_mode = 2
 text = "Custom Cogs:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="CustomCogsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs" index="1" instance=ExtResource("4_aygce")]
+[node name="CustomCogsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CustomCogs" index="1" unique_id=1816715490 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xvvqb")
 custom_minimum_size = Vector2(160, 60)
@@ -578,15 +706,15 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ButtonPrompts" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="10"]
+[node name="ButtonPrompts" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="12" unique_id=1517785839]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="0"]
+[node name="Label" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="0" unique_id=1782631033]
 layout_mode = 2
 text = "Show Button Prompts:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="ButtonPromptsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="1" instance=ExtResource("4_aygce")]
+[node name="ButtonPromptsButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ButtonPrompts" index="1" unique_id=1117758914 instance=ExtResource("4_aygce")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xvvqb")
 custom_minimum_size = Vector2(160, 60)
@@ -604,7 +732,7 @@ font_size = 24.0
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="DiscordRPC" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="11"]
+[node name="DiscordRPC" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings" index="13"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -630,20 +758,20 @@ text = "On"
 text = "On"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="SaveFileSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4"]
+[node name="SaveFileSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="4" unique_id=1145017814]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="0"]
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="0" unique_id=480920961]
 layout_mode = 2
 text = "Save Files"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OpenFolder" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="1"]
+[node name="OpenFolder" type="HBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings" index="1" unique_id=61576325]
 layout_mode = 2
 
-[node name="SaveFolderButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder" index="0" instance=ExtResource("4_aygce")]
+[node name="SaveFolderButton" parent="Panel/SettingScroller/MarginContainer/SettingContainer/SaveFileSettings/OpenFolder" index="0" unique_id=1968029349 instance=ExtResource("4_aygce")]
 custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -659,29 +787,29 @@ font_size = 24.0
 text = "Open Save Folder"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="5"]
+[node name="ControlSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="5" unique_id=1899503098]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ControlSettings" index="0"]
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ControlSettings" index="0" unique_id=178823544]
 layout_mode = 2
 text = "Controls"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ModSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="6"]
+[node name="ModSettings" type="VBoxContainer" parent="Panel/SettingScroller/MarginContainer/SettingContainer" index="6" unique_id=1729466842]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ModSettings" index="0"]
+[node name="Title" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ModSettings" index="0" unique_id=888311642]
 layout_mode = 2
 text = "Mods"
 label_settings = SubResource("LabelSettings_0uktb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ModSettings" index="1"]
+[node name="Subtitle" type="Label" parent="Panel/SettingScroller/MarginContainer/SettingContainer/ModSettings" index="1" unique_id=1339753680]
 layout_mode = 2
 text = "CHANGING MOD SETTINGS REQUIRES 
 A RESTART BEFORE THEY TAKE EFFECT!"
@@ -689,7 +817,7 @@ label_settings = SubResource("LabelSettings_ha7rp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SaveButton" parent="Panel" index="4" instance=ExtResource("4_aygce")]
+[node name="SaveButton" parent="Panel" index="4" unique_id=649529490 instance=ExtResource("4_aygce")]
 material = SubResource("ShaderMaterial_01sws")
 layout_mode = 1
 anchors_preset = 7
@@ -714,17 +842,17 @@ font_size = 24.0
 text = "Save"
 label_settings = SubResource("LabelSettings_pmgey")
 
-[node name="ControlTemplate" type="HBoxContainer" parent="." index="2"]
+[node name="ControlTemplate" type="HBoxContainer" parent="." index="2" unique_id=1878283605]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
-[node name="Label" type="Label" parent="ControlTemplate" index="0"]
+[node name="Label" type="Label" parent="ControlTemplate" index="0" unique_id=578527180]
 layout_mode = 2
 text = "Forward:"
 label_settings = SubResource("LabelSettings_n41hl")
 
-[node name="GeneralButton" parent="ControlTemplate" index="1" instance=ExtResource("4_aygce")]
+[node name="GeneralButton" parent="ControlTemplate" index="1" unique_id=628033935 instance=ExtResource("4_aygce")]
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
@@ -741,16 +869,16 @@ font_size = 24.0
 text = "W"
 label_settings = SubResource("LabelSettings_xxrhd")
 
-[node name="ModTemplate" type="HBoxContainer" parent="." index="3"]
+[node name="ModTemplate" type="HBoxContainer" parent="." index="3" unique_id=8893580]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
-[node name="ModNameContainer" type="VBoxContainer" parent="ModTemplate" index="0"]
+[node name="ModNameContainer" type="VBoxContainer" parent="ModTemplate" index="0" unique_id=749828635]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Title" type="Label" parent="ModTemplate/ModNameContainer" index="0"]
+[node name="Title" type="Label" parent="ModTemplate/ModNameContainer" index="0" unique_id=1842235203]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -758,13 +886,13 @@ text = "ModName:"
 label_settings = SubResource("LabelSettings_n41hl")
 text_overrun_behavior = 3
 
-[node name="Author" type="Label" parent="ModTemplate/ModNameContainer" index="1"]
+[node name="Author" type="Label" parent="ModTemplate/ModNameContainer" index="1" unique_id=1937430031]
 layout_mode = 2
 text = "ModAuthor"
 label_settings = SubResource("LabelSettings_o7wve")
 text_overrun_behavior = 3
 
-[node name="GeneralButton" parent="ModTemplate" index="1" instance=ExtResource("4_aygce")]
+[node name="GeneralButton" parent="ModTemplate" index="1" unique_id=665578285 instance=ExtResource("4_aygce")]
 material = SubResource("ShaderMaterial_vnbpc")
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
@@ -785,6 +913,9 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit/FPSButton" to="." method="change_fps"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing/AliasButton" to="." method="toggle_anti_aliasing"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake/CameraShakeButton" to="." method="toggle_camera_shake"]
+[connection signal="mouse_entered" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorblindHover" to="." method="colorblind_hover"]
+[connection signal="mouse_exited" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorblindHover" to="." method="colorblind_unhover"]
+[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorBlindButton" to="." method="toggle_colorblind"]
 [connection signal="value_changed" from="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MasterVolume/MasterSlider" to="." method="set_bus_volume" binds= ["Master"]]
 [connection signal="value_changed" from="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/MusicVolume/MusicSlider" to="." method="set_bus_volume" binds= ["Music"]]
 [connection signal="value_changed" from="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/SFXVolume/SFXSlider" to="." method="set_bus_volume" binds= ["SFX"]]
@@ -794,6 +925,8 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle/ControlStyleButton" to="." method="toggle_control_style"]
 [connection signal="value_changed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/CameraSensitivity/CamSensSlider" to="." method="set_cam_sens"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint/AutoSprintButton" to="." method="toggle_auto_sprint"]
+[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemDescriptions/DescriptionButton" to="." method="toggle_item_descriptions"]
+[connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemPopups/PopupsButton" to="." method="toggle_item_popups"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions/ReactionButton" to="." method="toggle_item_reactions"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer/TimerButton" to="." method="toggle_timer"]
 [connection signal="pressed" from="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton" to="." method="toggle_intro_skip"]
@@ -807,11 +940,14 @@ label_settings = SubResource("LabelSettings_xxrhd")
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/FPSLimit/FPSButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/AntiAliasing/AliasButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/CameraShake/CameraShakeButton"]
+[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/VideoSettings/ColorblindToggle/ColorBlindButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/AudioSettings/AmbientSound/AmbientButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ImStuck/StuckButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/BattleSpeed/SpeedButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ControlStyle/ControlStyleButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/AutoSprint/AutoSprintButton"]
+[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemDescriptions/DescriptionButton"]
+[editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemPopups/PopupsButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ItemReactions/ReactionButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/ShowTimer/TimerButton"]
 [editable path="Panel/SettingScroller/MarginContainer/SettingContainer/GameplaySettings/IntroSkip/IntroSkipButton"]

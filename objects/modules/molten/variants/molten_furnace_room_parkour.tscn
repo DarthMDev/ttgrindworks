@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://vqg68r3d6nu5"]
+[gd_scene format=3 uid="uid://vqg68r3d6nu5"]
 
 [ext_resource type="PackedScene" uid="uid://clvxp66ubtn1i" path="res://objects/modules/molten/base_rooms/molten_furnace_room.tscn" id="1_kmajh"]
 [ext_resource type="PackedScene" uid="uid://drpj1lganwu6n" path="res://objects/props/mint/crossbeam.tscn" id="2_hmxgo"]

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://mfnn2i5i6yka"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://mfnn2i5i6yka"]
 
 [ext_resource type="Texture2D" uid="uid://bxku0b35cc71g" path="res://models/props/facility_objects/stomper/stomper_2.png" id="1_cpof5"]
 

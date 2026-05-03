@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatusEffectGagImmunity" load_steps=2 format=3 uid="uid://syalbwxlbrg1"]
+[gd_resource type="Resource" script_class="StatusEffectGagImmunity" format=3 uid="uid://syalbwxlbrg1"]
 
 [ext_resource type="Script" uid="uid://cp0l2m4s3ao36" path="res://objects/battle/battle_resources/status_effects/gag_immunity.gd" id="1_v53hh"]
 

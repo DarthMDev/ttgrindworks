@@ -6,6 +6,13 @@ class_name SettingsFile
 const FPSOptions = [60, 90, 120, 144, 165, 240, 360, 0]
 static var SpeedOptions = [1.0, 1.25, 1.5, 1.75, 2.0]
 
+## String = Setting name
+## Dictionary = {Color1: Color2}, remaps Color1 to Color2 where applicable 
+static var ColorBlindOptions: Dictionary[String, Dictionary] = {
+	"Disabled": {},
+	"Red/Green": {Color.RED: Color.TURQUOISE},
+}
+
 @export var fullscreen := false
 @export var fps_idx := 0:
 	set(x):
@@ -17,6 +24,15 @@ static var SpeedOptions = [1.0, 1.25, 1.5, 1.75, 2.0]
 @export var anti_aliasing := false
 enum CameraShakeSetting {Standard, Reduced, None}
 @export var camera_shake_setting := CameraShakeSetting.Standard
+@export var color_blind_mode := 0:
+	set(x):
+		color_blind_mode = x
+		var new_mode: Dictionary = ColorBlindOptions[ColorBlindOptions.keys()[x]]
+		Globals.s_colorblind_mode_changed.emit(new_mode)
+
+func get_color_blind_mapping() -> Dictionary:
+	var key: String = ColorBlindOptions.keys()[color_blind_mode]
+	return ColorBlindOptions[key]
 
 ## AUDIO SETTINGS
 @export var master_volume := 0.5
@@ -37,6 +53,8 @@ enum CameraShakeSetting {Standard, Reduced, None}
 	set(x):
 		camera_sensitivity = clampf(x, 0.5, 1.5)
 @export var item_reactions := true
+@export var item_descriptions := true
+@export var item_popups := true
 @export var auto_sprint := true
 @export var show_timer := false
 @export var skip_intro := false
@@ -83,6 +101,7 @@ func sync_settings() -> void:
 		print('FPS Limit set to: %s' % FPSOptions[fps_idx])
 	RenderingServer.viewport_set_msaa_3d(SaveFileService.get_viewport().get_viewport_rid(),
 				RenderingServer.VIEWPORT_MSAA_4X if anti_aliasing else RenderingServer.VIEWPORT_MSAA_DISABLED)
+	Globals.s_colorblind_mode_changed.emit(ColorBlindOptions[ColorBlindOptions.keys()[color_blind_mode]])
 	
 	# Audio
 	set_bus_volume('Master', linear_to_db(master_volume))

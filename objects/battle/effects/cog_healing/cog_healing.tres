@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=31 format=3 uid="uid://be67knfnj6ao"]
+[gd_resource type="VisualShader" format=3 uid="uid://be67knfnj6ao"]
 
 [ext_resource type="Texture2D" uid="uid://tyjutuxwdlop" path="res://ui_assets/quests/gear2.png" id="1_mabqx"]
 
@@ -114,98 +114,6 @@ op_type = 0
 operator = 2
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform sampler2D tex_frg_6;
-uniform sampler2D tex_frg_12 : source_color;
-uniform sampler2D tex_frg_2;
-uniform sampler2D tex_frg_15;
-uniform sampler2D tex_frg_18 : source_color;
-
-
-
-void fragment() {
-// Texture2D:6
-	vec4 n_out6p0 = texture(tex_frg_6, UV);
-
-
-// Input:10
-	float n_out10p0 = TIME;
-
-
-// VectorOp:9
-	vec2 n_in9p1 = vec2(0.00000, 1.00000);
-	vec2 n_out9p0 = vec2(n_out10p0) * n_in9p1;
-
-
-// UVFunc:8
-	vec2 n_in8p1 = vec2(0.00000, 0.30000);
-	vec2 n_out8p0 = n_out9p0 * n_in8p1 + UV;
-
-
-// UVFunc:13
-	vec2 n_in13p1 = vec2(0.00000, 16.00000);
-	vec2 n_in13p2 = vec2(0.00000, 0.00000);
-	vec2 n_out13p0 = (n_out8p0 - n_in13p2) * n_in13p1 + n_in13p2;
-
-
-// Texture2D:12
-	vec4 n_out12p0 = texture(tex_frg_12, n_out13p0);
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
-// FloatOp:14
-	float n_out14p0 = n_out12p0.x * n_out2p0.x;
-
-
-// Texture2D:15
-	vec4 n_out15p0 = texture(tex_frg_15, UV);
-
-
-// Input:21
-	float n_out21p0 = TIME;
-
-
-// VectorOp:20
-	vec2 n_in20p1 = vec2(0.00000, 1.00000);
-	vec2 n_out20p0 = vec2(n_out21p0) * n_in20p1;
-
-
-// UVFunc:19
-	vec2 n_in19p1 = vec2(0.00000, 0.10000);
-	vec2 n_out19p0 = n_out20p0 * n_in19p1 + UV;
-
-
-// UVFunc:22
-	vec2 n_in22p1 = vec2(0.00000, 60.00000);
-	vec2 n_in22p2 = vec2(0.00000, 0.00000);
-	vec2 n_out22p0 = (n_out19p0 - n_in22p2) * n_in22p1 + n_in22p2;
-
-
-// Texture2D:18
-	vec4 n_out18p0 = texture(tex_frg_18, n_out22p0);
-
-
-// FloatOp:23
-	float n_out23p0 = n_out15p0.x * n_out18p0.x;
-
-
-// Mix:17
-	vec2 n_in17p2 = vec2(0.10000, 1.00000);
-	vec2 n_out17p0 = mix(vec2(n_out14p0), vec2(n_out23p0), n_in17p2);
-
-
-// Output:0
-	ALBEDO = vec3(n_out6p0.xyz);
-	ALPHA = n_out17p0.x;
-
-
-}
-"
 nodes/fragment/0/position = Vector2(760, 140)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_gxg8y")
 nodes/fragment/2/position = Vector2(-220, 360)

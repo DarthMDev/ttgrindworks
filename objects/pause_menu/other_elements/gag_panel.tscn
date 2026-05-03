@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://h4r7aiy77ko3"]
+[gd_scene format=3 uid="uid://h4r7aiy77ko3"]
 
 [ext_resource type="Script" uid="uid://om28f6sp3ba4" path="res://objects/pause_menu/other_elements/gag_panel.gd" id="1_11w8s"]
 [ext_resource type="PackedScene" uid="uid://b530aevsguwxr" path="res://objects/battle/battle_ui/track_frame.tscn" id="2_n7m4o"]
@@ -16,7 +16,7 @@ line_spacing = -3.97
 font = ExtResource("4_n7m4o")
 font_color = Color(0, 0, 0.454902, 1)
 
-[node name="GagPanel" type="Control"]
+[node name="GagPanel" type="Control" unique_id=1711143977]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -27,7 +27,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_11w8s")
 
-[node name="GagTracks" type="Control" parent="."]
+[node name="GagTracks" type="Control" parent="." unique_id=1599330935]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Scaler" type="Control" parent="GagTracks"]
+[node name="Scaler" type="Control" parent="GagTracks" unique_id=735259375]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
-[node name="Tracks" type="VBoxContainer" parent="GagTracks/Scaler"]
+[node name="Tracks" type="VBoxContainer" parent="GagTracks/Scaler" unique_id=771716254]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -70,25 +70,25 @@ grow_vertical = 2
 scale = Vector2(1, 1.01)
 theme_override_constants/separation = 0
 
-[node name="Trap" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Trap" parent="GagTracks/Scaler/Tracks" unique_id=1315794171 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="Lure" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Lure" parent="GagTracks/Scaler/Tracks" unique_id=546372787 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="Sound" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Sound" parent="GagTracks/Scaler/Tracks" unique_id=268239790 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="Throw" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Throw" parent="GagTracks/Scaler/Tracks" unique_id=986369700 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="Squirt" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Squirt" parent="GagTracks/Scaler/Tracks" unique_id=1417011569 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="Drop" parent="GagTracks/Scaler/Tracks" instance=ExtResource("2_n7m4o")]
+[node name="Drop" parent="GagTracks/Scaler/Tracks" unique_id=1894296975 instance=ExtResource("2_n7m4o")]
 layout_mode = 2
 
-[node name="GagSummary" type="Control" parent="."]
+[node name="GagSummary" type="Control" parent="." unique_id=1273427679]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Elements" type="Control" parent="GagSummary"]
+[node name="Elements" type="Control" parent="GagSummary" unique_id=1924405035]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,7 +111,7 @@ offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelScaler" type="Control" parent="GagSummary/Elements"]
+[node name="PanelScaler" type="Control" parent="GagSummary/Elements" unique_id=1059724305]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,7 +122,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
-[node name="Panel" parent="GagSummary/Elements/PanelScaler" instance=ExtResource("3_b86qr")]
+[node name="Panel" parent="GagSummary/Elements/PanelScaler" unique_id=875178822 instance=ExtResource("3_b86qr")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -135,7 +135,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GagInfo" type="Control" parent="GagSummary/Elements"]
+[node name="GagInfo" type="Control" parent="GagSummary/Elements" unique_id=1237499221]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -145,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GagName" type="Label" parent="GagSummary/Elements/GagInfo"]
+[node name="GagName" type="Label" parent="GagSummary/Elements/GagInfo" unique_id=2145287249]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -160,7 +160,7 @@ text = "Aoogah"
 label_settings = SubResource("LabelSettings_bfqkj")
 horizontal_alignment = 1
 
-[node name="GagIcon" type="TextureRect" parent="GagSummary/Elements/GagInfo"]
+[node name="GagIcon" type="TextureRect" parent="GagSummary/Elements/GagInfo" unique_id=999976551]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -176,7 +176,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="GagStats" type="Label" parent="GagSummary/Elements/GagInfo"]
+[node name="GagStats" type="Label" parent="GagSummary/Elements/GagInfo" unique_id=2051587242]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -195,7 +195,7 @@ Accuracy: 0% lol
 Affects: No one"
 label_settings = SubResource("LabelSettings_fnl1u")
 
-[node name="PlayerInfo" type="Control" parent="GagSummary/Elements"]
+[node name="PlayerInfo" type="Control" parent="GagSummary/Elements" unique_id=968103366]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -204,7 +204,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerInfoLabel" type="Label" parent="GagSummary/Elements/PlayerInfo"]
+[node name="PlayerInfoLabel" type="Label" parent="GagSummary/Elements/PlayerInfo" unique_id=1032912522]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8

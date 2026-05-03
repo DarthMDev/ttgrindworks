@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://drm7n8ce5entv"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://drm7n8ce5entv"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_caqps"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_6sofy"]

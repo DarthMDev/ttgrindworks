@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://4tnbltasjda3"]
+[gd_scene format=4 uid="uid://4tnbltasjda3"]
 
 [ext_resource type="PackedScene" uid="uid://du44f34bf0nmq" path="res://objects/modules/factory/base_rooms/factory_warehouse_empty.tscn" id="1_qsn1m"]
 [ext_resource type="PackedScene" uid="uid://celxj5u1aay0l" path="res://objects/props/etc/wood_crate.tscn" id="2_5tyui"]

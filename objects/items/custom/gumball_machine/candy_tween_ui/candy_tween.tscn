@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dutn60sqbusqn"]
+[gd_scene format=3 uid="uid://dutn60sqbusqn"]
 
 [ext_resource type="PackedScene" uid="uid://bp85n6hjpnf11" path="res://models/props/pickups/candy/candy.tscn" id="1_akxob"]
 [ext_resource type="Script" uid="uid://bg1c8wfhp8pha" path="res://objects/items/custom/gumball_machine/candy_tween_ui/candy_tween.gd" id="1_yvsna"]

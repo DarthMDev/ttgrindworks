@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dlpxkpdxfucv1"]
+[gd_resource type="Resource" format=3 uid="uid://dlpxkpdxfucv1"]
 
 [ext_resource type="Texture2D" uid="uid://cojeoyknhl7vv" path="res://ui_assets/battle/statuses/leverage.png" id="1_qm452"]
 [ext_resource type="Script" uid="uid://8ohptk516o3l" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_leverage.gd" id="1_r0j11"]

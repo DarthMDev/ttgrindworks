@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://botwlahodbbmq"]
+[gd_scene format=3 uid="uid://botwlahodbbmq"]
 
 [ext_resource type="PackedScene" uid="uid://djro62h1yob65" path="res://models/facilities/office/office_skull_boss_room.fbx" id="1_h2s5u"]
 [ext_resource type="Texture2D" uid="uid://bsyw18ph00mex" path="res://models/facilities/office/textures/Legal_Eagle_Front_Edit.png" id="2_mgm1d"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqamcxorlapkk"]
+[gd_scene format=4 uid="uid://bqamcxorlapkk"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfq7nkpejum" path="res://models/props/facility_objects/molten/rotating_cylinder/RotatingCylinder.fbx" id="1_k47k5"]
 [ext_resource type="Texture2D" uid="uid://jnxb62du5548" path="res://models/props/facility_objects/molten/rotating_cylinder/Molten_CompiledSet1.png" id="2_gknvf"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbip8tydrs1a3"]
+[gd_scene format=3 uid="uid://dbip8tydrs1a3"]
 
 [ext_resource type="PackedScene" uid="uid://hdgcpsw2wjd8" path="res://objects/items/custom/paint_bucket/paint_bucket.tscn" id="1_ghm6y"]
 [ext_resource type="Script" uid="uid://cxdh23qwrtymw" path="res://objects/interactables/water_bucket/water_bucket.gd" id="1_s2drs"]

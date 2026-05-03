@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gn43bdjs6n45"]
+[gd_scene format=3 uid="uid://gn43bdjs6n45"]
 
 [ext_resource type="PackedScene" uid="uid://btva4l2pppfts" path="res://models/props/facility_objects/molten/big_door/big_door.fbx" id="1_dvnbs"]
 [ext_resource type="Texture2D" uid="uid://cn1w5vkqcw23k" path="res://models/props/facility_objects/molten/big_door/FINALFACTORY_37.png" id="2_b5j7u"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://brnb8h6sm4vgr"]
+[gd_scene format=3 uid="uid://brnb8h6sm4vgr"]
 
 [ext_resource type="Script" uid="uid://bo3egw3rjv8jl" path="res://objects/cog/nametag/cog_nametag.gd" id="1_t52pj"]
 [ext_resource type="PackedScene" uid="uid://dghrplklwro73" path="res://models/avatar/panel.tscn" id="2_5v68y"]

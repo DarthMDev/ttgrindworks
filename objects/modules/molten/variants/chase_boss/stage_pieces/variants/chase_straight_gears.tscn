@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dwdrtd8dlbqwu"]
+[gd_scene format=4 uid="uid://dwdrtd8dlbqwu"]
 
 [ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_uie3b"]
 [ext_resource type="PackedScene" uid="uid://dhk8f3fvkyuhm" path="res://objects/props/molten/stomper_piston.tscn" id="3_00n37"]

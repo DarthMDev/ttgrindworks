@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dv0b3yegxd4m0"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dv0b3yegxd4m0"]
 
 [ext_resource type="Texture2D" uid="uid://cd2hjcuupjhib" path="res://models/cogs/suitb/suitb_s_blazer.png" id="1_w7bhb"]
 

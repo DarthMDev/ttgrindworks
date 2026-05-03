@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bobov0bwqpp1d"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bobov0bwqpp1d"]
 
 [ext_resource type="Shader" uid="uid://bavtx1x5xshbm" path="res://general_resources/common/uv_scroll.gdshader" id="1_cdla4"]
 [ext_resource type="Texture2D" uid="uid://b3rk7oancky20" path="res://objects/obstacles/sandtrap/sandtrap.png" id="2_fv661"]

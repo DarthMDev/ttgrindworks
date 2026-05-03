@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://i8bse5rgrba5"]
+[gd_scene format=3 uid="uid://i8bse5rgrba5"]
 
 [ext_resource type="Script" uid="uid://noiym1q5snm0" path="res://objects/items/custom/white_out/white_out_transition.gd" id="1_8rtqw"]
 [ext_resource type="Texture2D" uid="uid://djotodeya2n7r" path="res://ui_assets/misc/tileable_brush_stroke.png" id="2_rf75i"]

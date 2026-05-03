@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://lnxi1lh0ol3y"]
+[gd_scene format=3 uid="uid://lnxi1lh0ol3y"]
 
 [ext_resource type="Script" uid="uid://jjl0hdcx3p46" path="res://objects/misc/lava_splash_effect/lava_splash.gd" id="1_6f2qf"]
 [ext_resource type="Texture2D" uid="uid://cal7815hb1tqv" path="res://objects/misc/Circle.png" id="1_ixr4k"]

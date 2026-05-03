@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Track" load_steps=28 format=3 uid="uid://ct1l0ln1js2xw"]
+[gd_resource type="Resource" script_class="Track" format=3 uid="uid://ct1l0ln1js2xw"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_4e6pq"]
 [ext_resource type="Texture2D" uid="uid://d287ggcuhiolk" path="res://ui_assets/battle/gags/inventory_feather.png" id="2_mk5mw"]

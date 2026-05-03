@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dq4ef0mvddbch"]
+[gd_scene format=3 uid="uid://dq4ef0mvddbch"]
 
 [ext_resource type="PackedScene" uid="uid://dsks3a0fuqagm" path="res://models/facilities/molten/boss_chase/v2/molten_hall_beginning.fbx" id="1_1cvif"]
 [ext_resource type="Script" uid="uid://hfo2bmrxogws" path="res://objects/modules/molten/variants/chase_boss/molten_lava_boss_chase.gd" id="1_woo3v"]

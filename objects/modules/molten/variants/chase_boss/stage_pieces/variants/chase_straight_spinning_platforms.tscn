@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bjhs2by5wtrvm"]
+[gd_scene format=4 uid="uid://bjhs2by5wtrvm"]
 
 [ext_resource type="PackedScene" uid="uid://2hcmvkkhbl6x" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_straight.tscn" id="1_sils5"]
 [ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="2_clegk"]

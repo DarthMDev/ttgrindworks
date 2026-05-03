@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://klxlslni1hnn"]
+[gd_scene format=4 uid="uid://klxlslni1hnn"]
 
 [ext_resource type="Texture2D" uid="uid://0gst6yv86tg5" path="res://models/props/facility_objects/mint/door_frame/door_frame_CBWallVault.png" id="1_p1ee5"]
 

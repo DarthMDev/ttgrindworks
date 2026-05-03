@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LureGroup" format=3 uid="uid://ga3j6hwgxeys"]
+
+[ext_resource type="Texture2D" uid="uid://b7b444pvm24pb" path="res://ui_assets/battle/gags/inventory_big_magnet.png" id="1_u4vab"]
+[ext_resource type="Script" uid="uid://gpeto6dx1eja" path="res://objects/battle/battle_resources/status_effects/lured.gd" id="2_uv4ns"]
+[ext_resource type="Script" uid="uid://cseo0ntw14rkk" path="res://objects/battle/battle_resources/toon_attacks/lure_group.gd" id="3_scii4"]
+[ext_resource type="AudioStream" uid="uid://b63m273mnsnin" path="res://audio/sfx/battle/gags/lure/TL_large_magnet.ogg" id="4_gvrbu"]
+
+[sub_resource type="Resource" id="Resource_e3sel"]
+script = ExtResource("2_uv4ns")
+lure_type = 1
+knockback_effect = 30
+damage_nerf = -0.75
+quality = 1
+id = 2
+
+[resource]
+script = ExtResource("3_scii4")
+sfx = ExtResource("4_gvrbu")
+lure_effect = SubResource("Resource_e3sel")
+icon = ExtResource("1_u4vab")
+target_type = 7
+action_name = "Big Magnet"

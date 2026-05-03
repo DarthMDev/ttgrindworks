@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bhr54g3wafqjk"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bhr54g3wafqjk"]
 
 [ext_resource type="Texture2D" uid="uid://csr2ds5cl1std" path="res://models/props/pickups/candy/CandyOverlay_Arrows.png" id="1_h7pq8"]
 

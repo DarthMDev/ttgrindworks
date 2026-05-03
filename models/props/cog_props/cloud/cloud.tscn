@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dakdlmj0ghx26"]
+[gd_scene format=4 uid="uid://dakdlmj0ghx26"]
 
 [ext_resource type="Texture2D" uid="uid://c5ck5denj4ic6" path="res://models/props/gags/storm_cloud/stormcloud.png" id="1_bjut7"]
 [ext_resource type="Texture2D" uid="uid://b6htwsnh4x0r6" path="res://models/props/gags/storm_cloud/gold.png" id="2_xrm0s"]

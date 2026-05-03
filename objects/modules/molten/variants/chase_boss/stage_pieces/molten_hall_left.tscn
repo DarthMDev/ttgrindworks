@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://m2rpyyk4h6xo"]
+[gd_scene format=3 uid="uid://m2rpyyk4h6xo"]
 
 [ext_resource type="PackedScene" uid="uid://b3yu7n6wi5n41" path="res://models/facilities/molten/boss_chase/v2/molten_hall_left.fbx" id="1_d5nvs"]
 [ext_resource type="Script" uid="uid://q2krlo3jvtvd" path="res://objects/modules/molten/variants/chase_boss/stage_pieces/molten_hall_piece.gd" id="2_qyqlw"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="3_6j868"]
 [ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="3_qyqlw"]
 [ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="4_fh6k4"]
-[ext_resource type="Texture2D" uid="uid://dh14xv8mgissq" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="5_fagte"]
+[ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="5_fagte"]
 [ext_resource type="Texture2D" uid="uid://v7y7mef5rs2i" path="res://models/facilities/molten/textures/FINALFACTORY_118.png" id="6_kvgby"]
 [ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="7_6byiv"]
 [ext_resource type="Texture2D" uid="uid://dd48imdhejrx8" path="res://models/facilities/molten/textures/FINALFACTORY_65.png" id="8_eg4aq"]

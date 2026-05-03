@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3g3evro83qm7"]
+[gd_scene format=3 uid="uid://3g3evro83qm7"]
 
 [ext_resource type="PackedScene" uid="uid://b6cvjwnt2mmx8" path="res://models/props/facility_objects/mint/cog_nation_crate/cog_nation_crate.fbx" id="1_fw3e1"]
 [ext_resource type="Script" uid="uid://brg4426ad80b" path="res://objects/props/mint/cog_nation_crate.gd" id="2_63jhq"]

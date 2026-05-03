@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnionBusterLogic" load_steps=2 format=3 uid="uid://d3i0k8gaybnbp"]
+[gd_resource type="Resource" script_class="UnionBusterLogic" format=3 uid="uid://d3i0k8gaybnbp"]
 
 [ext_resource type="Script" uid="uid://cfep0d3jo2lcn" path="res://objects/battle/battle_resources/status_effects/boss_effects/boss_logic_union_buster.gd" id="1_ko6e5"]
 

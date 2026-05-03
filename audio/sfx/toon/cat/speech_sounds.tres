@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://cwwn1whndc3ec"]
+[gd_resource type="Resource" script_class="ToonSpeechSounds" format=3 uid="uid://cwwn1whndc3ec"]
 
 [ext_resource type="AudioStream" uid="uid://bwtyjod6lefoi" path="res://audio/sfx/toon/cat/AV_cat_exclaim.ogg" id="1_ffnw1"]
 [ext_resource type="Script" uid="uid://cjyrcemaxrvse" path="res://audio/sfx/toon/toon_speech_sounds.gd" id="1_h5e2a"]

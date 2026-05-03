@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c24yy1wqmg24o"]
+[gd_resource type="Resource" format=3 uid="uid://c24yy1wqmg24o"]
 
 [ext_resource type="Script" uid="uid://c2qfjciw1gith" path="res://objects/battle/battle_resources/cog_attacks/razzle_dazzle.gd" id="1_onvw8"]
 

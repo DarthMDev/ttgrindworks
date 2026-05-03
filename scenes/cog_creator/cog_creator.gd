@@ -60,13 +60,13 @@ func _ready_header() -> void:
 
 func populate_dna_files() -> void:
 	var files : Array[UIFile] = []
-	for file_name in DirAccess.get_files_at(COG_SAVE_PATH):
+	for file_name in Util.search_directory_recursive(COG_SAVE_PATH, "cog"):
 		if not file_name.get_extension() == "cog":
 			continue
-		var loaded_file = Globals.loaded_custom_cogs[COG_SAVE_PATH + file_name]
+		var loaded_file = Globals.loaded_custom_cogs[file_name]
 		if loaded_file is CogDNA:
 			var new_file := UIFile.new()
-			new_file.file_path = COG_SAVE_PATH + file_name
+			new_file.file_path =  file_name
 			new_file.model = loaded_file.get_head()
 			files.append(new_file)
 	file_opener.show_custom_file_list(files)

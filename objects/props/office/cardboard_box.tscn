@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4kk4sdrhkn2g"]
+[gd_scene format=3 uid="uid://b4kk4sdrhkn2g"]
 
 [ext_resource type="PackedScene" uid="uid://bt2sc7fmx1mxa" path="res://models/props/facility_objects/da_office/cardboard_box/cardboard_box.fbx" id="1_senm4"]
 

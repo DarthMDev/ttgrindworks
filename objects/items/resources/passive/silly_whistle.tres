@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://dse2n0j4e6k6p"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dse2n0j4e6k6p"]
 
 [ext_resource type="Texture2D" uid="uid://sxghalxerr16" path="res://models/props/toon_props/silly_meter_parts/whistle_part-pix-1.png" id="1_0ykyl"]
 [ext_resource type="Script" uid="uid://dowqf2q1yc7xw" path="res://objects/items/custom/item_silly_whistle.gd" id="2_q3wbv"]

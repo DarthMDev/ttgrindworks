@@ -340,6 +340,7 @@ class PlayerSetterCommand extends SetterCommand:
 			"revives_are_hp",
 			"use_accuracy",
 			"ignore_battles",
+			"alt_gag_hotswap",
 		]
 
 class PlayerStatsSetterCommand extends SetterCommand:

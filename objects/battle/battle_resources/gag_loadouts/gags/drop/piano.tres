@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DropBig" load_steps=6 format=3 uid="uid://c67xcvusaysdi"]
+
+[ext_resource type="Texture2D" uid="uid://u70efnid5wvk" path="res://ui_assets/battle/gags/inventory_piano.png" id="1_w7u7w"]
+[ext_resource type="PackedScene" uid="uid://dag5hn213d5m" path="res://models/props/gags/piano/piano.tscn" id="2_kn7sm"]
+[ext_resource type="Script" uid="uid://bacdlj4c328s6" path="res://objects/battle/battle_resources/toon_attacks/drop_big.gd" id="3_prjxv"]
+[ext_resource type="AudioStream" uid="uid://cg7wh45vhpg8x" path="res://audio/sfx/battle/gags/drop/AA_drop_piano.ogg" id="4_jq6m2"]
+[ext_resource type="AudioStream" uid="uid://10qtggbu7xha" path="res://audio/sfx/battle/gags/drop/AA_drop_piano_miss.ogg" id="5_78pip"]
+
+[resource]
+script = ExtResource("3_prjxv")
+model = ExtResource("2_kn7sm")
+shadow_scale = 4.0
+sfx_hit = ExtResource("4_jq6m2")
+sfx_miss = ExtResource("5_78pip")
+icon = ExtResource("1_w7u7w")
+damage = 76
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Grand Piano"
+one_time_use = false

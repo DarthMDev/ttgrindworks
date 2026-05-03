@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cnaxuobd7tdne"]
+[gd_resource type="Resource" format=3 uid="uid://cnaxuobd7tdne"]
 
 [ext_resource type="Texture2D" uid="uid://byrqsj82tcnrp" path="res://ui_assets/battle/statuses/overtime.png" id="1_e0jig"]
 [ext_resource type="Script" uid="uid://b0b68efa61prk" path="res://objects/battle/battle_resources/status_effects/status_effect_overtime.gd" id="1_w67l5"]
@@ -8,6 +8,6 @@ script = ExtResource("1_w67l5")
 quality = 0
 rounds = 2
 icon = ExtResource("1_e0jig")
-description = "+1 Turn"
+description = "+1 Move"
 status_name = "Overtime"
 id = 27

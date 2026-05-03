@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1ebxidhw6o1q"]
+[gd_scene format=3 uid="uid://b1ebxidhw6o1q"]
 
 [ext_resource type="ArrayMesh" uid="uid://csh56luyoqs5r" path="res://objects/battle/effects/pixie_dust/pixiedust.tres" id="1_tek5w"]
 

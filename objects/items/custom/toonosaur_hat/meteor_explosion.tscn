@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://c5w1diysbjcsv"]
+[gd_scene format=3 uid="uid://c5w1diysbjcsv"]
 
 [ext_resource type="Shader" uid="uid://81mw21i7cj4u" path="res://objects/items/custom/toonosaur_hat/fireball.tres" id="1_cpag1"]
 [ext_resource type="Texture2D" uid="uid://c8bfaamunyg74" path="res://objects/misc/impact.png" id="2_yk6ft"]

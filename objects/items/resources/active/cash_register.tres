@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://cyq101ymuq6la"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://cyq101ymuq6la"]
 
 [ext_resource type="Texture2D" uid="uid://dsdu43yo8t8r" path="res://ui_assets/player_ui/pocket_prank_icons/cash register.png" id="1_6vhg4"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_hhhbl"]

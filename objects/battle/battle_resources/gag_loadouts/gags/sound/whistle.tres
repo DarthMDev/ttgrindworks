@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GagSound" load_steps=6 format=3 uid="uid://ckr8uplo6wg5h"]
+
+[ext_resource type="Texture2D" uid="uid://dlpwdg5qa3cuo" path="res://ui_assets/battle/gags/inventory_whistle.png" id="1_mr628"]
+[ext_resource type="PackedScene" uid="uid://it2qq8y17ofu" path="res://models/props/gags/whistle/whistle.tscn" id="2_on3ip"]
+[ext_resource type="Script" uid="uid://c7rpfrvobx8rf" path="res://objects/battle/battle_resources/toon_attacks/gag_sound.gd" id="3_1wv8q"]
+[ext_resource type="AudioStream" uid="uid://v37rahjv8tsf" path="res://audio/sfx/battle/gags/sound/AA_sound_whistle.ogg" id="4_b6gdu"]
+[ext_resource type="AudioStream" uid="uid://dopl2o1rv7ww0" path="res://audio/sfx/battle/gags/sound/LB_receive_evidence.ogg" id="5_1rp04"]
+
+[resource]
+script = ExtResource("3_1wv8q")
+model = ExtResource("2_on3ip")
+position = Vector3(1.084, 0.254, -1.617)
+rotation = Vector3(-26.8, -172.9, 121)
+scale = Vector3(0.145, 0.145, 0.145)
+anim_delay = 2.4
+sfx_windup = ExtResource("5_1rp04")
+sfx_blast = ExtResource("4_b6gdu")
+icon = ExtResource("1_mr628")
+damage = 12
+crit_chance_mod = 1.0
+target_type = 7
+action_name = "Whistle"
+one_time_use = false

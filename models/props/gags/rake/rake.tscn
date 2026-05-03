@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://cavvmjdli6ww1"]
+[gd_scene format=4 uid="uid://cavvmjdli6ww1"]
 
-[ext_resource type="Texture2D" uid="uid://bu25mnscogr2j" path="res://models/props/gags/rake/rake_crate2.png" id="1_g4xoc"]
+[ext_resource type="Texture2D" uid="uid://c0xyaa0dw4q07" path="res://models/props/gags/rake/rake_crate2.png" id="1_g4xoc"]
 [ext_resource type="Texture2D" uid="uid://cr1g7e7nc1l0o" path="res://models/props/gags/rake/rake_rake_face.png" id="2_e2rvc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2amd"]

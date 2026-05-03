@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cguhsh73e8vok"]
+[gd_scene format=3 uid="uid://cguhsh73e8vok"]
 
 [ext_resource type="Script" uid="uid://cxowdgmf72ub7" path="res://objects/obstacles/sandtrap/sand_trap_with_moles/sand_mole/sand_mole.gd" id="1_ai42s"]
 [ext_resource type="PackedScene" uid="uid://c83iwrx6mdta7" path="res://models/cogs/heads/mole_cog.tscn" id="1_dpcda"]

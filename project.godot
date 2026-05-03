@@ -12,22 +12,27 @@ config_version=5
 
 warnings/check_invalid_track_paths=false
 warnings/check_angle_interpolation_type_conflicting=false
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="Toontown: The Grindworks"
-config/version="1.2.4"
+config/version="1.2.7"
 run/main_scene="uid://lxi0qm8aebs1"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cgljrd8dis8an"
 config/windows_native_icon="res://ui_assets/general/icon.ico"
+
+[audio]
+
+buses/default_bus_layout="uid://qhb87bk2er4r"
 
 [autoload]
 
 ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
-TaskContainer="*res://addons/task/task_container.gd"
-Logging="*res://addons/toonlike_tools/logging/logging.gd"
+TaskContainer="*uid://po72gio503ch"
+Logging="*uid://cgb7n0kr5y44f"
 GameLoader="*res://objects/globals/game_loader.gd"
 Util="*res://objects/globals/util.gd"
 ItemService="*res://objects/globals/item_service.gd"
@@ -40,6 +45,7 @@ RNG="*res://objects/globals/rng.gd"
 HoverManager="*res://objects/globals/hover_manager.tscn"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 DiscordManager="*res://objects/globals/discord_manager.gd"
+ScoreTally="*uid://cfat42na3w60v"
 
 [debug]
 
@@ -55,7 +61,7 @@ mouse_cursor/custom_image="res://ui_assets/cursor.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/mod_tool/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/scene_lock/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/graphedit2/plugin.cfg", "res://addons/intervals/plugin.cfg", "res://addons/mod_loader/_export_plugin/plugin.cfg", "res://addons/mod_tool/plugin.cfg", "res://addons/moon-dfx/plugin.cfg", "res://addons/node_screenshot_tool/plugin.cfg", "res://addons/scene_lock/plugin.cfg", "res://addons/script-tabs/plugin.cfg", "res://addons/task/plugin.cfg", "res://addons/toonlike_tools/plugin.cfg")
 
 [file_customization]
 
@@ -242,6 +248,7 @@ common/physics_interpolation=true
 
 [rendering]
 
+rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/msaa_3d=2
 environment/glow/upscale_mode=0

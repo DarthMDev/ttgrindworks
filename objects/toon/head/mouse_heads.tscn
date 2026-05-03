@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://csosi2w2v0y5a"]
+[gd_scene format=4 uid="uid://csosi2w2v0y5a"]
 
 [ext_resource type="Texture2D" uid="uid://c7si0hphl6g8s" path="res://models/toon/head/mouse/mouse_heads_0.png" id="1_8n8bs"]
 [ext_resource type="Texture2D" uid="uid://bqhx3yc3h6jk5" path="res://models/toon/head/mouse/mouse_heads_1.png" id="2_pfua2"]

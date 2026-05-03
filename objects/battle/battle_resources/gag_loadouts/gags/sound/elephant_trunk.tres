@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GagSound" load_steps=6 format=3 uid="uid://l777pylc7632"]
+
+[ext_resource type="Texture2D" uid="uid://gk2n47vnr3qd" path="res://ui_assets/battle/gags/inventory_elephant.png" id="1_npgmh"]
+[ext_resource type="PackedScene" uid="uid://bec6xrbnsppvu" path="res://models/props/gags/elephant_trunk/elephant_trunk.tscn" id="2_iw28s"]
+[ext_resource type="Script" uid="uid://c7rpfrvobx8rf" path="res://objects/battle/battle_resources/toon_attacks/gag_sound.gd" id="3_6h3ba"]
+[ext_resource type="AudioStream" uid="uid://6vlq57anbp5d" path="res://audio/sfx/battle/gags/sound/AA_sound_elephant.ogg" id="4_rftmk"]
+[ext_resource type="AudioStream" uid="uid://b6dqkw3abota0" path="res://audio/sfx/battle/gags/sound/toonbldg_grow.ogg" id="5_bg2bf"]
+
+[resource]
+script = ExtResource("3_6h3ba")
+model = ExtResource("2_iw28s")
+position = Vector3(1.156, 0.099, -1.468)
+rotation = Vector3(16.7, 139.4, 120.6)
+scale = Vector3(0.325, 0.325, 0.325)
+anim_delay = 1.9
+sfx_windup = ExtResource("5_bg2bf")
+sfx_blast = ExtResource("4_rftmk")
+icon = ExtResource("1_npgmh")
+damage = 56
+crit_chance_mod = 1.0
+target_type = 7
+action_name = "Elephant Trunk"
+one_time_use = false

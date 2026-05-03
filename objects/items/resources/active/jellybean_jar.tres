@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://b6h44ufinocuu"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://b6h44ufinocuu"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_ba1lv"]
 [ext_resource type="PackedScene" uid="uid://cxmu75wqo46iw" path="res://models/props/toon_props/jellybean_jar/jellybean_jar.tscn" id="1_hqykl"]

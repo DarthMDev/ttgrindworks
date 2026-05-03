@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dbrst2twjd0pu"]
+[gd_scene format=4 uid="uid://dbrst2twjd0pu"]
 
 [ext_resource type="Script" uid="uid://be46mgxc70khx" path="res://objects/interactables/button/cog_button.gd" id="1_21ejp"]
 [ext_resource type="Texture2D" uid="uid://d046bnroqh3a8" path="res://models/props/facility_objects/button/button_button3.png" id="1_74im7"]

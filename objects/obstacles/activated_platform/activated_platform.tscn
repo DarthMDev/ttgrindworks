@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3dlpvi042k41"]
+[gd_scene format=3 uid="uid://c3dlpvi042k41"]
 
 [ext_resource type="PackedScene" uid="uid://d0o37sg2xvqe6" path="res://models/props/facility_objects/conveyor_platform/platform.glb" id="1_7h0d3"]
 [ext_resource type="Script" uid="uid://bm5n88pudkmxj" path="res://objects/obstacles/activated_platform/activated_platform.gd" id="2_65cwc"]

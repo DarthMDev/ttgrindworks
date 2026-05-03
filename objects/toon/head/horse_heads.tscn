@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://blbhnvv22nrkg"]
+[gd_scene format=4 uid="uid://blbhnvv22nrkg"]
 
 [ext_resource type="Texture2D" uid="uid://cv8yxoo8w1stn" path="res://models/toon/head/horse/horse_heads_0.png" id="1_rolmq"]
 [ext_resource type="Texture2D" uid="uid://cfwkq26f2ujhd" path="res://models/toon/head/horse/horse_heads_1.png" id="2_4axkt"]

@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://vx331u20gujm"]
+
+[ext_resource type="Script" uid="uid://bcb0tenc0hhgp" path="res://objects/interactables/gag_shop/gag_shop_ui.gd" id="1_hmj5d"]
+[ext_resource type="PackedScene" uid="uid://h4r7aiy77ko3" path="res://objects/pause_menu/other_elements/gag_panel.tscn" id="1_ug8ap"]
+[ext_resource type="FontFile" uid="uid://cup2yr5w7or1l" path="res://fonts/Minnie.TTF" id="2_vl72t"]
+[ext_resource type="Texture2D" uid="uid://baybb8c6rgon4" path="res://ui_assets/battle/sos_frame.png" id="3_vl72t"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="4_hmj5d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0k5y"]
+font = ExtResource("2_vl72t")
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.666667)
+
+[node name="GagShopUI" type="Control" unique_id=1113856646]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmj5d")
+
+[node name="Pages" type="Control" parent="." unique_id=581930188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GagChoice" type="Control" parent="Pages" unique_id=690438849]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GagPanel" parent="Pages/GagChoice" unique_id=632479726 instance=ExtResource("1_ug8ap")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GagTracks" parent="Pages/GagChoice/GagPanel" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 19.0
+offset_bottom = 14.0
+
+[node name="GagSummary" parent="Pages/GagChoice/GagPanel" index="1"]
+visible = false
+
+[node name="StockLabel" type="Label" parent="Pages/GagChoice" unique_id=2111602704]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -168.0
+offset_right = 104.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "In Stock:"
+label_settings = SubResource("LabelSettings_n0k5y")
+
+[node name="GeneralButton" parent="Pages/GagChoice" unique_id=1403242917 instance=ExtResource("4_hmj5d")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = 163.0
+offset_right = 87.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+font_size = 36.0
+
+[node name="AltChoices" type="Control" parent="Pages" unique_id=2005329520]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="Pages/AltChoices" unique_id=542878839]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -225.0
+offset_right = 310.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vl72t")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pages/AltChoices/Panel" unique_id=1319165437]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -196.0
+offset_right = 281.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GagContainer" type="VBoxContainer" parent="Pages/AltChoices/Panel/ScrollContainer" unique_id=1100801361]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Pages/GagChoice/GeneralButton" to="." method="exit_pressed"]
+
+[editable path="Pages/GagChoice/GagPanel"]

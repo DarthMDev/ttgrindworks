@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatEffectBKCooked" load_steps=3 format=3 uid="uid://bym756qv26oub"]
+[gd_resource type="Resource" script_class="StatEffectBKCooked" format=3 uid="uid://bym756qv26oub"]
 
 [ext_resource type="Script" uid="uid://cdih22qb0uf7h" path="res://objects/battle/battle_resources/status_effects/boss_effects/status_effect_bk_cooked.gd" id="1_c5rea"]
 [ext_resource type="Texture2D" uid="uid://vu8qo2uocf23" path="res://ui_assets/battle/statuses/cooked.png" id="1_jwwh5"]

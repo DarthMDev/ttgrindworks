@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xgodn67fgp8l"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xgodn67fgp8l"]
 
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="1_snpj2"]
 

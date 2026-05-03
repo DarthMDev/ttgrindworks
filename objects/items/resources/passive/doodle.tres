@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://r5ubyo8osu6k"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://r5ubyo8osu6k"]
 
 [ext_resource type="PackedScene" uid="uid://cvqrdnwudqe35" path="res://objects/items/custom/doodle/doodle_item.tscn" id="1_six8q"]
 [ext_resource type="Script" uid="uid://d4mqbgxg7i1rw" path="res://objects/items/custom/doodle/doodle_script.gd" id="1_tr8a2"]

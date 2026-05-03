@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgakumo14442k"]
+[gd_scene format=3 uid="uid://dgakumo14442k"]
 
 [ext_resource type="ArrayMesh" uid="uid://bnkhjh0bealr4" path="res://objects/battle/effects/steam/steam_plane.tres" id="1_vtfue"]
 [ext_resource type="Texture2D" uid="uid://lpqo478g33r8" path="res://objects/props/factory/tt_t_efx_ext_smoke.png" id="2_vtfue"]

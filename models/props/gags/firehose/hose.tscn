@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciw3ulsdnhv7o"]
+[gd_scene format=3 uid="uid://ciw3ulsdnhv7o"]
 
 [ext_resource type="PackedScene" uid="uid://bb5ulrvrgceen" path="res://models/props/gags/firehose/hose.glb" id="1_ymsl3"]
 [ext_resource type="PackedScene" uid="uid://cgp17fj3x3s5v" path="res://models/props/gags/firehose/hydrant.glb" id="3_w8l3e"]

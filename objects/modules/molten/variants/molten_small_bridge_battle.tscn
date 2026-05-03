@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b17ylhiqo4l5h"]
+[gd_scene format=3 uid="uid://b17ylhiqo4l5h"]
 
 [ext_resource type="PackedScene" uid="uid://cm5jv55t2wnby" path="res://objects/modules/molten/base_rooms/molten_small_bridge.tscn" id="1_djvp6"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="5_f4w7y"]

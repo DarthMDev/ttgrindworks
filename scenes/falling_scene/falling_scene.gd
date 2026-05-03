@@ -170,7 +170,7 @@ func get_first_floor() -> FloorVariant:
 	var floor_var: FloorVariant = RNG.channel(RNG.ChannelFloors).pick_random(Globals.FLOOR_VARIANTS).duplicate(true)
 	# Guarantee 0 difficulty floor to start
 	floor_var.floor_difficulty = 0
-	floor_var.randomize_details(false)
+	floor_var.randomize_details(Util.get_player().stats.anomaly_boost > 0)
 	floor_var.reward = null
 	
 	return floor_var

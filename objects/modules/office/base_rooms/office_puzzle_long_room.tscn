@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blrbxv7xr3fhq"]
+[gd_scene format=3 uid="uid://blrbxv7xr3fhq"]
 
 [ext_resource type="PackedScene" uid="uid://bj4barvnsq24u" path="res://models/facilities/office/office_puzzle_long_room.fbx" id="1_lmil1"]
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bvqwf4pamj6yx"]
+
+[ext_resource type="Script" uid="uid://r8wfv66r0uvr" path="res://objects/items/custom/seed_logic/seed_neonote.gd" id="1_2axra"]
+[ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_ecrqt"]
+
+[resource]
+script = ExtResource("1_ecrqt")
+item_script = ExtResource("1_2axra")
+metadata/_custom_type_script = "uid://combwqypom1ru"

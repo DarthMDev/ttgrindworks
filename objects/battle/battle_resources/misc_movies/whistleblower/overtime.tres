@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ylh88fnudabv"]
+[gd_resource type="Resource" format=3 uid="uid://ylh88fnudabv"]
 
 [ext_resource type="Script" uid="uid://dmrgjccrwlakh" path="res://objects/battle/battle_resources/misc_movies/whistleblower/overtime.gd" id="1_5j55b"]
 
 [resource]
 script = ExtResource("1_5j55b")
-summary = "Grants a Cog +1 Turn"
+summary = "Grants a Cog +1 Move"
 attack_lines = Array[String](["You'll be working double to clean this mess up!", "I better not hear any complaints out of you!", "You're slacking. Pick up the pace!"])
 action_name = "Overtime"

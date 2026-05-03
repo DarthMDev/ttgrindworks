@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5thphhw61f4t"]
+[gd_scene format=3 uid="uid://b5thphhw61f4t"]
 
 [ext_resource type="PackedScene" uid="uid://5jeob8ddu6hk" path="res://models/facilities/factory/factory_paint_gear_room.fbx" id="1_72dbe"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="2_mokwe"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bkifup6k18tov"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkifup6k18tov"]
 
 [ext_resource type="Script" uid="uid://rvwk3o6b5q58" path="res://objects/items/custom/item_oldman_logic.gd" id="1_pr7pw"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="1_t0frx"]

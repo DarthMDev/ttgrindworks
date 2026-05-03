@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmatxx12oy1u3"]
+[gd_scene format=3 uid="uid://dmatxx12oy1u3"]
 
 [ext_resource type="Script" uid="uid://cbv5ay4tfr3gi" path="res://objects/general_ui/model_viewer/model_viewer.gd" id="1_ovc0q"]
 

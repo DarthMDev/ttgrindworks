@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ig4sxydkyni"]
+[gd_scene format=3 uid="uid://ig4sxydkyni"]
 
 [ext_resource type="PackedScene" uid="uid://bhfjcfwvkuwhl" path="res://objects/modules/molten/base_rooms/molten_large_room.tscn" id="1_swwns"]
 [ext_resource type="Script" uid="uid://0o2mkcd8d7d7" path="res://objects/modules/molten/variants/molten_large_bridge_battle_room.gd" id="2_e4h67"]

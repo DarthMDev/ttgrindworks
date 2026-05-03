@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=8 format=4 uid="uid://dybg436in2p0c"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://dybg436in2p0c"]
 
 [ext_resource type="Shader" uid="uid://qybhd3hbo1gn" path="res://objects/props/molten/lava_bubble/dissolve_over_time.gdshader" id="1_sof0c"]
 [ext_resource type="Texture2D" uid="uid://bf8hovft1w7xh" path="res://objects/props/molten/bubble_dissolve.png" id="2_gr4pc"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlekgotajg8er"]
+[gd_scene format=3 uid="uid://dlekgotajg8er"]
 
 [ext_resource type="PackedScene" uid="uid://cu8l26aip0qsd" path="res://models/facilities/molten/molten_spinning_platforms.fbx" id="1_qiodn"]
-[ext_resource type="Texture2D" uid="uid://dffrrakhq2nvo" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_fctd8"]
+[ext_resource type="Texture2D" uid="uid://b23d20tc3fen5" path="res://models/facilities/molten/textures/metalgrate_rusted.png" id="2_fctd8"]
 [ext_resource type="Script" uid="uid://bjpvoeoqgifga" path="res://objects/modules/molten/base_rooms/window_door.gd" id="3_fctd8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3d6k"]

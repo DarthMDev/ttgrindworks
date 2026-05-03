@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6smgrhefhpdk"]
+[gd_resource type="Resource" format=3 uid="uid://b6smgrhefhpdk"]
 
 [ext_resource type="Script" uid="uid://mvuo3yfxfmlb" path="res://objects/battle/battle_resources/cog_attacks/sink_hole.gd" id="1_b8y5x"]
 

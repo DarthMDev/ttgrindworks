@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=6 format=3 uid="uid://df43weflq762n"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://df43weflq762n"]
 
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_6f465"]
 [ext_resource type="Texture2D" uid="uid://d37hnib3h7pup" path="res://models/cogs/misc/hp_light/cash.png" id="1_ejshq"]

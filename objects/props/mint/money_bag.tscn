@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn2240phqf7k2"]
+[gd_scene format=3 uid="uid://dn2240phqf7k2"]
 
 [ext_resource type="PackedScene" uid="uid://c88dmm2kxjukk" path="res://models/props/facility_objects/mint/money_bag/money_bag.fbx" id="1_86iwr"]
 [ext_resource type="Texture2D" uid="uid://dhaochs3j8wgp" path="res://models/props/facility_objects/mint/money_bag/money_bag_0.png" id="2_p7o5f"]

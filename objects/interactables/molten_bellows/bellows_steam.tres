@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=22 format=3 uid="uid://dtbt3ftkxelk5"]
+[gd_resource type="VisualShader" format=3 uid="uid://dtbt3ftkxelk5"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5ffq3"]
 output_port_for_preview = 0
@@ -71,90 +71,6 @@ operator = 2
 input_name = "output_is_srgb"
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha, vertex_lighting;
-
-uniform vec2 Steam_Speed;
-uniform sampler2D Texture2DParameter;
-uniform sampler2D tex_frg_8;
-uniform sampler2D tex_frg_16;
-uniform float Steam_Visibility : hint_range(0.0, 1.0) = 0.0;
-
-
-
-void fragment() {
-// Vector2Parameter:11
-	vec2 n_out11p0 = Steam_Speed;
-
-
-// Input:6
-	float n_out6p0 = TIME;
-
-
-// UVFunc:5
-	vec2 n_out5p0 = vec2(n_out6p0) * n_out11p0 + UV;
-
-
-	vec4 n_out3p0;
-// Texture2D:3
-	n_out3p0 = texture(Texture2DParameter, n_out5p0);
-
-
-// SmoothStep:4
-	float n_in4p0 = 0.30000;
-	float n_in4p1 = 1.00000;
-	float n_out4p0 = smoothstep(n_in4p0, n_in4p1, n_out3p0.x);
-
-
-// Input:10
-	vec2 n_out10p0 = UV2;
-
-
-// Texture2D:8
-	vec4 n_out8p0 = texture(tex_frg_8, n_out10p0);
-
-
-// Input:20
-	float n_out20p0 = TIME;
-
-
-// UVFunc:21
-	vec2 n_in21p1 = vec2(1.00000, 0.00000);
-	vec2 n_out21p0 = vec2(n_out20p0) * n_in21p1 + UV;
-
-
-// Texture2D:16
-	vec4 n_out16p0 = texture(tex_frg_16, n_out21p0);
-
-
-// SmoothStep:17
-	float n_in17p0 = 0.00000;
-	float n_in17p1 = 0.80000;
-	float n_out17p0 = smoothstep(n_in17p0, n_in17p1, n_out16p0.x);
-
-
-// FloatOp:15
-	float n_out15p0 = n_out8p0.x * n_out17p0;
-
-
-// FloatParameter:14
-	float n_out14p0 = Steam_Visibility;
-
-
-// FloatOp:12
-	float n_out12p0 = n_out15p0 * n_out14p0;
-
-
-// FloatOp:9
-	float n_out9p0 = n_out4p0 * n_out12p0;
-
-
-// Output:0
-	ALPHA = n_out9p0;
-
-
-}
-"
 modes/cull = 2
 flags/depth_prepass_alpha = true
 flags/vertex_lighting = true

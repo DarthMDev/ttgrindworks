@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfqkm6eljjh2b"]
+[gd_scene format=3 uid="uid://dfqkm6eljjh2b"]
 
 [ext_resource type="PackedScene" uid="uid://tyh04q1b13e1" path="res://objects/modules/mint/base_rooms/mint_paint_room.tscn" id="1_mr5os"]
 [ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="2_4rbvj"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c31yj6hc78hh3"]
+[gd_resource type="Resource" format=3 uid="uid://c31yj6hc78hh3"]
 
 [ext_resource type="PackedScene" uid="uid://ceg2xgfw3sggn" path="res://models/props/cog_props/shredder_paper/shredder_paper.fbx" id="1_do6ww"]
 [ext_resource type="Script" uid="uid://itkxki65d0v7" path="res://objects/battle/battle_resources/cog_attacks/throw_paper.gd" id="1_sib8b"]

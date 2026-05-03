@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://ci1opo4yecvx4"]
+
+[ext_resource type="Script" uid="uid://b52qhhggqsov1" path="res://objects/items/custom/seed_logic/disconnect_joke/authenticating.gd" id="1_hoyb5"]
+[ext_resource type="PackedScene" uid="uid://d1qs8nf0s0y85" path="res://objects/general_ui/ui_panel/ui_panel.tscn" id="2_tibwp"]
+[ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="3_cm0pc"]
+[ext_resource type="Texture2D" uid="uid://c14h8cr0mcyb7" path="res://ui_assets/general/CheckButtonUp.png" id="4_6r4dm"]
+[ext_resource type="Texture2D" uid="uid://i8dbmhyj5akn" path="res://ui_assets/general/CheckButtonDown.png" id="5_gnfie"]
+[ext_resource type="Texture2D" uid="uid://cuxdebgtthepu" path="res://ui_assets/general/CheckButtonRollover.png" id="6_5xvll"]
+[ext_resource type="Texture2D" uid="uid://e5com3vf5py6" path="res://ui_assets/general/CheckIcon.png" id="7_3wpno"]
+[ext_resource type="FontFile" uid="uid://815gwlftl5ik" path="res://fonts/impress-bt.ttf" id="8_8m7lk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_28gct"]
+font = ExtResource("8_8m7lk")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[node name="Authenticating" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hoyb5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[node name="ConnectingPanel" parent="." instance=ExtResource("2_tibwp")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -154.25
+offset_top = -132.0
+offset_right = 154.25
+offset_bottom = 132.0
+script = null
+
+[node name="Panel" parent="ConnectingPanel" index="0"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+pivot_offset = Vector2(154.25, 132)
+
+[node name="Title" parent="ConnectingPanel/Panel" index="0"]
+text = ""
+
+[node name="Body" parent="ConnectingPanel/Panel" index="1"]
+offset_top = -139.0
+offset_bottom = 123.0
+text = "Connecting..."
+
+[node name="CancelButton" parent="ConnectingPanel/Panel" index="2"]
+visible = false
+font_size = 36.0
+
+[node name="BrokenPanel" parent="." instance=ExtResource("2_tibwp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -288.0
+offset_top = -132.0
+offset_right = 288.0
+offset_bottom = 132.0
+script = null
+
+[node name="Panel" parent="BrokenPanel" index="0"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 0.0
+offset_right = 13.0
+offset_bottom = 0.0
+pivot_offset = Vector2(288, 132)
+
+[node name="Title" parent="BrokenPanel/Panel" index="0"]
+text = ""
+
+[node name="Body" parent="BrokenPanel/Panel" index="1"]
+offset_left = -235.0
+offset_top = -162.0
+offset_right = 229.0
+offset_bottom = 100.0
+text = "Your internet connection to the servers
+has been unexpectedly broken."
+
+[node name="CancelButton" parent="BrokenPanel/Panel" index="2"]
+visible = false
+font_size = 36.0
+
+[node name="GeneralButton" parent="BrokenPanel" instance=ExtResource("3_cm0pc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -110.0
+offset_right = 27.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_6r4dm")
+texture_pressed = ExtResource("5_gnfie")
+texture_hover = ExtResource("6_5xvll")
+texture_disabled = null
+font_size = 36.0
+
+[node name="TextureRect" type="TextureRect" parent="BrokenPanel/GeneralButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_3wpno")
+expand_mode = 1
+
+[node name="OK" type="Label" parent="BrokenPanel/GeneralButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -15.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "OK"
+label_settings = SubResource("LabelSettings_28gct")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BrokenPanel/GeneralButton" to="." method="ok"]
+
+[editable path="ConnectingPanel"]
+[editable path="BrokenPanel"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://sey860nn14jg"]
+[gd_resource type="Resource" format=3 uid="uid://sey860nn14jg"]
 
 [ext_resource type="Script" uid="uid://cjunlfb0wvfkq" path="res://objects/battle/battle_resources/cog_attacks/pickpocket.gd" id="1_wq3yw"]
 

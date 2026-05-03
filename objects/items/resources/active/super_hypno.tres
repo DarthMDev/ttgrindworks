@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://des2gks6nsuxn"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://des2gks6nsuxn"]
 
 [ext_resource type="Texture2D" uid="uid://bs3kjucuht6gm" path="res://ui_assets/battle/gags/inventory_hypno_goggles.png" id="1_3pysm"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_t50da"]

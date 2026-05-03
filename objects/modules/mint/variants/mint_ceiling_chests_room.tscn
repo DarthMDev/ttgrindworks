@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dqaa0qju4et1a"]
+[gd_scene format=3 uid="uid://dqaa0qju4et1a"]
 
 [ext_resource type="PackedScene" uid="uid://dxa3077q0m2lo" path="res://objects/modules/mint/base_rooms/mint_shelf_room.tscn" id="1_rc1k0"]
 [ext_resource type="Texture2D" uid="uid://dai74xkx6u3dv" path="res://models/facilities/factory/FINALFACTORY_107.png" id="2_u3r3o"]

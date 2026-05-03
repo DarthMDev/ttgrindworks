@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://vndcua2dbph2"]
+[gd_scene format=4 uid="uid://vndcua2dbph2"]
 
 [ext_resource type="Texture2D" uid="uid://ckbyo72pe45tw" path="res://models/facilities/cgc/textures/GogFlag.png" id="1_8kkki"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://upc7hs70n6ul"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://upc7hs70n6ul"]
 
 [ext_resource type="PackedScene" uid="uid://cwenep5602lsh" path="res://objects/items/custom/extra_turn/extra_turn.tscn" id="1_7wpae"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_m68nj"]

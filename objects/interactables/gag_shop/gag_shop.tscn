@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bobgkiuylr6li"]
+
+[ext_resource type="Script" uid="uid://b0rwe0678oer" path="res://objects/interactables/gag_shop/gag_shop.gd" id="1_ob2px"]
+[ext_resource type="PackedScene" uid="uid://dvslagwd6sk4r" path="res://objects/props/etc/shop_counter.tscn" id="1_ulq0q"]
+[ext_resource type="PackedScene" uid="uid://cy4iox7mj5ei0" path="res://objects/toon/toon.tscn" id="2_bii4a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bii4a"]
+size = Vector3(3.75098, 0.639999, 0.426056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ob2px"]
+size = Vector3(3.686, 1.3689, 0.980285)
+
+[node name="GagShop" type="Node3D"]
+script = ExtResource("1_ob2px")
+
+[node name="shop_counter" parent="." instance=ExtResource("1_ulq0q")]
+
+[node name="CounterCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CounterCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13623, 0.299568, 0.154861)
+shape = SubResource("BoxShape3D_bii4a")
+
+[node name="ShopKeeper" parent="." instance=ExtResource("2_bii4a")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.650361)
+randomize_dna = true
+auto_build = true
+
+[node name="ShopCam" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04033, 1.07211)
+fov = 52.0
+
+[node name="InteractArea" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.210986, -0.268533, -0.553707)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129959, 0.837524, -1.31612)
+shape = SubResource("BoxShape3D_ob2px")
+
+[connection signal="body_entered" from="InteractArea" to="." method="body_entered"]

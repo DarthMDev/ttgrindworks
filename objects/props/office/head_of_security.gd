@@ -33,6 +33,8 @@ func set_animation(anim: String) -> void:
 func speak(phrase: String) -> void:
 	if is_instance_valid(speech_bubble):
 		speech_bubble.queue_free()
+	if phrase == ".":
+		return
 	speech_bubble = SPEECH_BUBBLE.instantiate()
 	%SpeechNode.add_child(speech_bubble)
 	speech_bubble.target = %SpeechNode

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://b0vs7sw1hsjj4"]
+[gd_scene format=4 uid="uid://b0vs7sw1hsjj4"]
 
 [ext_resource type="PackedScene" uid="uid://c15o12mturg1w" path="res://models/facilities/molten/molten_diamond_room.fbx" id="1_ug77i"]
 [ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="2_73b5c"]

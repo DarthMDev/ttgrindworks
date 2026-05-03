@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c274ukuqy7wgd"]
+[gd_scene format=3 uid="uid://c274ukuqy7wgd"]
 
 [ext_resource type="PackedScene" uid="uid://ck48vd3vy1n80" path="res://models/props/facility_objects/cgc/tree/cgc_tree.fbx" id="1_gv2ir"]
 [ext_resource type="PackedScene" uid="uid://b7504o1ma7vu8" path="res://models/props/drop_shadow/drop_shadow.glb" id="2_d41r0"]

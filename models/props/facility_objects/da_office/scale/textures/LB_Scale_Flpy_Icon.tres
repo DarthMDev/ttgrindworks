@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccx1t62xod0qu"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ccx1t62xod0qu"]
 
 [ext_resource type="Texture2D" uid="uid://nhfliv3wvtot" path="res://models/props/facility_objects/da_office/scale/textures/LB_Scale_Flpy_Icon.png" id="1_cwluu"]
 

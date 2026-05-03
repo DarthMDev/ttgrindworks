@@ -11,7 +11,7 @@ const WAIT_TIME := Vector2(0.25,1.0)
 const MOLE_SCENE := preload('res://objects/interactables/mole_stomp/mole_hole.tscn')
 const UI_SCENE := preload('res://objects/interactables/mole_stomp/mole_display.tscn')
 const MG_LOSE = preload("res://audio/sfx/misc/MG_lose.ogg")
-const INSTRUCTION_TEXT := "MOLE STOMP!\nJump on the red moles!"
+const INSTRUCTION_TEXT := "MOLE STOMP!\nStomp the red moles!"
 var LABEL: PackedScene
 
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://bjtq481jok2t4"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://bjtq481jok2t4"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_2tdn3"]
 [ext_resource type="Texture2D" uid="uid://fd3appdve2xm" path="res://ui_assets/player_ui/pocket_prank_icons/big foghorn.png" id="1_iuutl"]
@@ -13,7 +13,7 @@ charge_count = 12
 current_charge = 12
 qualitoon = 4
 world_scale = 0.15
-item_name = "BIG Foghorn"
+item_name = "Silver Foghorn"
 item_description = "Blow them all away!"
 big_description = "Defeats all of the Cogs in the room (doesn't affect Boss Fights)"
 model = ExtResource("3_iuutl")

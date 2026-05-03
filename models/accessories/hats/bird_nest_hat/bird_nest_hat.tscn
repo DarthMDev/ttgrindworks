@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpfdrgvphitv4"]
+[gd_scene format=3 uid="uid://bpfdrgvphitv4"]
 
 [ext_resource type="PackedScene" uid="uid://bwe4syfc5rue4" path="res://models/accessories/hats/bird_nest_hat/tt_m_chr_avt_acc_hat_birdNest.glb" id="1_nt8oa"]
 [ext_resource type="Texture2D" uid="uid://d0etd52oqa6fr" path="res://models/accessories/hats/bird_nest_hat/tt_m_chr_avt_acc_hat_birdNest_tt_t_chr_avt_acc_hat_birdNest.png" id="2_kar2b"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=10 format=3 uid="uid://bfkuxhwhi17r4"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://bfkuxhwhi17r4"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_to132"]
 [ext_resource type="Script" uid="uid://duxq3xtgnln43" path="res://objects/items/classes/body_placement.gd" id="2_yauy7"]

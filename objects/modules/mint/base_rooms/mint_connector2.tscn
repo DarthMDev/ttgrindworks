@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ddfk765qkh6me"]
+[gd_scene format=4 uid="uid://ddfk765qkh6me"]
 
 [ext_resource type="PackedScene" uid="uid://bt7m3kg6es7j0" path="res://models/facilities/mint/mint_connector2.fbx" id="1_od2t3"]
 [ext_resource type="PackedScene" uid="uid://klxlslni1hnn" path="res://objects/props/mint/door_frame.tscn" id="2_l6io6"]

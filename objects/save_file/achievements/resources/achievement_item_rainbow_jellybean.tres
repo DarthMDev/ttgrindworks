@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AchievementQuota" format=3 uid="uid://bytdinyuxgfr1"]
+
+[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="1_8fg5x"]
+[ext_resource type="Texture2D" uid="uid://c5lf8nnqyw8h3" path="res://objects/items/custom/rainbow_jellybean/rainbow_jellybean-pix-1.png" id="1_p3cic"]
+[ext_resource type="Material" uid="uid://beyj4wws86ddy" path="res://objects/items/custom/rainbow_jellybean/rainbow_bean_mat.tres" id="2_jplfq"]
+
+[resource]
+script = ExtResource("1_8fg5x")
+progress_value = "high_score"
+quota = 15000
+signal_source = 1
+signal_name = "s_game_win"
+achievement_name = "Rainbow Jellybean"
+achievement_summary = "Unlocked Rainbow Jellybean."
+hint = "Give an impressive performance."
+achievement_index = 39
+achievement_icon = ExtResource("1_p3cic")
+use_achievement_background = true
+custom_background_color = Color(0.6, 0.2, 1, 1)
+custom_material = ExtResource("2_jplfq")
+metadata/_custom_type_script = "uid://bma611yu4pdu8"

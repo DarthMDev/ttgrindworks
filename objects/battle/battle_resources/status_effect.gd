@@ -95,3 +95,12 @@ static func load_registry() -> void:
 
 static func get_registry_path() -> String:
 	return "res://objects/battle/battle_resources/status_effects/resources"
+
+static func safe_copy_effect(effect_base: StatusEffect, effect_new: StatusEffect) -> void:
+	var test_res := Resource.new()
+	if not effect_base.get_script() == effect_new.get_script():
+		print("StatusEffect: Could not safe copy effect, because they use different scripts.")
+	for dict in effect_base.get_property_list():
+		if dict['name'] in test_res or dict['name'] == 'id': continue
+		if not effect_base.get(dict['name']) == effect_new.get(dict['name']):
+			effect_new.set(dict['name'], effect_base.get(dict['name']))

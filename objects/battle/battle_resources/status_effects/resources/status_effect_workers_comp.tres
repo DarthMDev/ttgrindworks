@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0iwjtp23fp0f"]
+[gd_resource type="Resource" format=3 uid="uid://c0iwjtp23fp0f"]
 
 [ext_resource type="Texture2D" uid="uid://cysapqyycwptl" path="res://ui_assets/battle/statuses/workers_comp.png" id="1_c8gsi"]
 [ext_resource type="Script" uid="uid://cni51fbo1x14f" path="res://objects/battle/battle_resources/status_effects/status_effect_workers_comp.gd" id="2_c8gsi"]

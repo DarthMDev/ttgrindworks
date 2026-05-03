@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://c2tvsb3jbhug7"]
+[gd_scene format=3 uid="uid://c2tvsb3jbhug7"]
 
 [ext_resource type="PackedScene" uid="uid://d2vc73r8xebmf" path="res://models/toon/body/med/head/tt_a_chr_dgm_shorts_head_1000.fbx" id="1_y65ot"]
 [ext_resource type="Script" uid="uid://b7odverggc1un" path="res://objects/toon/toon_ears.gd" id="2_srvop"]

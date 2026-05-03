@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dxa3077q0m2lo"]
+[gd_scene format=4 uid="uid://dxa3077q0m2lo"]
 
 [ext_resource type="PackedScene" uid="uid://bxg561lds58fu" path="res://models/facilities/mint/mint_shelf_room.fbx" id="1_ehiom"]
 

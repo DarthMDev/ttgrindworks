@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://btu7nhoclq3kg"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://btu7nhoclq3kg"]
 
 [ext_resource type="Texture2D" uid="uid://cogx1p46x0v8n" path="res://models/props/gags/water_glass/textures/water_cooler_water_top.png" id="1_n76kr"]
 

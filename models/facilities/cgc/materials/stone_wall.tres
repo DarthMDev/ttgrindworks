@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xbihtj11aaah"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xbihtj11aaah"]
 
 [ext_resource type="Texture2D" uid="uid://csmkpukc6maca" path="res://models/facilities/cgc/textures/StoneWall1e.png" id="1_8nfys"]
 

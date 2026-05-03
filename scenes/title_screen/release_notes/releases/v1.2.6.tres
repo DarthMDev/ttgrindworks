@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ReleaseNote" format=3 uid="uid://chtx3172jtj8f"]
+
+[ext_resource type="Script" uid="uid://d1j0hh6tsgy0r" path="res://scenes/title_screen/release_notes/release_note.gd" id="1_ieb33"]
+
+[resource]
+script = ExtResource("1_ieb33")
+release_version = "v1.2.6"
+notes = "[TITLE]One Year Later
+Happy birthday, Toontown: The Grindworks!
+[TITLE]Engine
+Updated to Godot version 4.6.1
+Swapped to rendering with DirectX on Windows
+  If you were unable to launch older versions of the game on a Windows device, this may have resolved your issue
+[TITLE]Game
+Runs now have scores
+  Your highest score will be tracked in the Statistics menu
+Added a win screen to the end of the game
+[TITLE]Items
+Added Rainbow Jellybean (5-Star) (Locked)
+Monocle no longer shows detailed item descriptions
+  Item descriptions can now be toggled on/off via the settings menu
+Wingtips now additionally grant +10% Speed
+Renamed BIG Foghorn to Silver Foghorn
+[TITLE]Tweaks
+Added buttons to visit game resources on the Title Screen
+The \"Skip Intro\" button in settings will no longer hide if you haven't completed your first run, but will be disabled until you do
+You can now disable the item pickup notification in settings
+Slightly modified the achievement notification animation
+[TITLE]Cog Creator
+The Cog Creator can now import and edit Cogs stored in subdirectories under the custom_cogs folder
+[TITLE]Bugfixes
+Fixed an issue where Gag Vouchers would be displayed out of order on the item panel upon reloading a saved game
+Fixed an issue with one of The Stranger's sound effects
+Addressed some minor collision issues
+Added Navigation Regions for the Doodle in some rooms where they were not present before
+Minor text fixes
+[TITLE]For Modders
+Added in the back-end for a canceled expansion to gags, includes:
+  The ability to swap out individual gags for new ones
+  Gag Shops that roll and offer random \"alt gags\" for the player to choose
+  Some miscellaneous additions to gag scripts (Throw gags now have the optional ability to apply status effects)
+[TITLE]Hotfix #1
+Fixed a regression in Lure's damage/accuracy nerf values
+Fixed the Gag Panel on the pause menu not responding to player input
+[TITLE]Hotfix #2
+The win screen will now display your Toon's name
+Rainbow Jellybean will no longer allow Professor Pete to gain infinite jellybeans
+Cash Register will also now refresh the battle UI to reflect your current bean balance as Professor Pete
+Fixed a mishap that occurred when White-Out spawned secret floors
+Fixed a Mole Stomp game that did not charge your Pocket Prank upon victory
+Shoes will now show their taglines in the Stranger Shop
+Modders: The Gag Shop is now properly functional. Rejoice!"
+metadata/_custom_type_script = "uid://d1j0hh6tsgy0r"

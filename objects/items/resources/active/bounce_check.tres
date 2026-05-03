@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=5 format=3 uid="uid://dyt4cqi2xkctw"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://dyt4cqi2xkctw"]
 
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_1xod0"]
 [ext_resource type="PackedScene" uid="uid://ckstshgoiqux3" path="res://models/props/cog_props/bounce_check/bouncecheck.tscn" id="1_a6y8c"]

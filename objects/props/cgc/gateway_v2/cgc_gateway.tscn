@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clv56dyp5d7ub"]
+[gd_scene format=3 uid="uid://clv56dyp5d7ub"]
 
 [ext_resource type="PackedScene" uid="uid://bifyfsihnr0hn" path="res://models/props/facility_objects/cgc/gateway/Gateways.fbx" id="1_ei5k7"]
 [ext_resource type="Script" uid="uid://dsewqfm70uess" path="res://objects/interactables/node_randomizer/node_randomizer.gd" id="2_5vf58"]

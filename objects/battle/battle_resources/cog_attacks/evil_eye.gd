@@ -1,5 +1,11 @@
 extends CogAttack
 
+const HIT_TIME := 0.5
+const MISS_TIME := 0.8
+
+func get_tween_time(hit: bool) -> float:
+	if hit: return HIT_TIME
+	return MISS_TIME
 
 func action():
 	# Setup
@@ -26,11 +32,10 @@ func action():
 	if not hit:
 		distance -= 4.0
 	var destination := eye.global_position + (forward_vec*distance)
-	var speed := 3.25
 	grow_tween.tween_property(eye, 'scale', Vector3(3, 3, 3), 1.0)
 	grow_tween.tween_interval(0.5)
 	grow_tween.tween_callback(user.animator.play)
-	grow_tween.tween_property(eye, 'global_position', destination, abs(distance / speed))
+	grow_tween.tween_property(eye, 'global_position', destination, get_tween_time(hit))
 	
 	# Hit or miss
 	if hit:

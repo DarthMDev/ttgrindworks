@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://3lycchsyw1g"]
+[gd_scene format=3 uid="uid://3lycchsyw1g"]
 
 [ext_resource type="Texture2D" uid="uid://cp4aaluignlma" path="res://objects/battle/effects/fire/fire.png" id="1_if7o5"]
 [ext_resource type="Texture2D" uid="uid://dw0ovgcnsmkqi" path="res://objects/misc/spotlight_1.png" id="2_wveu0"]

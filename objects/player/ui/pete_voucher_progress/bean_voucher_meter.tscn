@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcln3bdfllhra"]
+[gd_scene format=3 uid="uid://dcln3bdfllhra"]
 
 [ext_resource type="Script" uid="uid://blalimn2ay2nj" path="res://objects/player/ui/pete_voucher_progress/bean_voucher_meter.gd" id="1_heugu"]
 [ext_resource type="Texture2D" uid="uid://b1ktnp1esto6k" path="res://objects/items/custom/jellybean_voucher/jellybean_voucher_grayscale.png" id="2_s1xf2"]

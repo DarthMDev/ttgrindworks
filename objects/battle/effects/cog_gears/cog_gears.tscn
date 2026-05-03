@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu0mb68t7unr8"]
+[gd_scene format=3 uid="uid://bu0mb68t7unr8"]
 
 [ext_resource type="Texture2D" uid="uid://dtb1wxg7cs2sj" path="res://models/cogs/misc/explosion/gear.png" id="1_gt2ta"]
 

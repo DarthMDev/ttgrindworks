@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dw0lmnkhuaqwq"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dw0lmnkhuaqwq"]
 
 [ext_resource type="Texture2D" uid="uid://b5a0s8vx6acil" path="res://models/facilities/cgc/textures/Brickpath_golf.png" id="1_f2c54"]
 

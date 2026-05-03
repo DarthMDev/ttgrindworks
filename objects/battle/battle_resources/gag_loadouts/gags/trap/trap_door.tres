@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TrapFall" load_steps=5 format=3 uid="uid://cktfkn8wvmlqv"]
+
+[ext_resource type="Texture2D" uid="uid://dllr28f4s08g" path="res://ui_assets/battle/gags/inventory_trapdoor.png" id="1_avft3"]
+[ext_resource type="PackedScene" uid="uid://54b8v4xqohhn" path="res://models/props/gags/trapdoor/trapdoor.glb" id="2_gfroe"]
+[ext_resource type="Script" uid="uid://cadbacipbjc11" path="res://objects/battle/battle_resources/toon_attacks/trap_fall.gd" id="3_ewhcy"]
+[ext_resource type="AudioStream" uid="uid://bq1wtlespqeec" path="res://audio/sfx/battle/gags/trap/TL_trap_door.ogg" id="4_1sjcf"]
+
+[resource]
+script = ExtResource("3_ewhcy")
+model = ExtResource("2_gfroe")
+sfx = ExtResource("4_1sjcf")
+trap_type = 1
+icon = ExtResource("1_avft3")
+damage = 110
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Trap Door"
+one_time_use = false

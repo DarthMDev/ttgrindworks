@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhj54p3gmarce"]
+[gd_scene format=3 uid="uid://bhj54p3gmarce"]
 
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_efubc"]
 [ext_resource type="Script" uid="uid://bka0wxvhofnac" path="res://objects/modules/molten/concepts/molten_stacked_bellows.gd" id="1_hr1yy"]

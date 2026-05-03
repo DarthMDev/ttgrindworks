@@ -147,6 +147,7 @@ func on_body_entered(body: Node3D) -> void:
 		hurt_player(body)
 
 func hurt_player(player: Player) -> void:
+	if player.is_invincible(): return
 	player.quick_heal(Util.get_hazard_damage(base_damage))
 	AudioManager.play_sound(player.toon.yelp)
 	player.last_damage_source = "Burner"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bbt6o1b1xao18"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bbt6o1b1xao18"]
 
 [ext_resource type="Texture2D" uid="uid://dsvvo2p2h2tml" path="res://objects/items/custom/treasure/starfish.png" id="1_vip01"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_r4a12"]

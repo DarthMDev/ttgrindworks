@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dd3kxhrft4nrt"]
+[gd_resource type="Resource" format=3 uid="uid://dd3kxhrft4nrt"]
 
 [ext_resource type="Script" uid="uid://btbh3h74ycrie" path="res://objects/battle/battle_resources/misc_movies/union_buster/liability_waiver.gd" id="1_j1soo"]
 

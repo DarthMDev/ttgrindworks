@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dflwjcy6fj0av"]
+[gd_scene format=3 uid="uid://dflwjcy6fj0av"]
 
 [ext_resource type="Script" uid="uid://bd8ylbfqcwfjt" path="res://objects/cog/cog.gd" id="1_datdb"]
 [ext_resource type="PackedScene" uid="uid://suibio7o1avg" path="res://objects/misc/drop_shadow/drop_shadow.tscn" id="9_bjhmd"]

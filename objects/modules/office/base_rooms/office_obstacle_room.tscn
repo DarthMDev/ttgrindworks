@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c8flauti1cf1p"]
+[gd_scene format=4 uid="uid://c8flauti1cf1p"]
 
 [ext_resource type="PackedScene" uid="uid://krml2hasdfb8" path="res://models/facilities/office/office_obstacle_room.fbx" id="1_sf5gu"]
 

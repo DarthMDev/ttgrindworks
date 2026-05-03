@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dmdqg6q7wf1ie"]
+[gd_scene format=3 uid="uid://dmdqg6q7wf1ie"]
 
 [ext_resource type="PackedScene" uid="uid://cfeju7cmcun3o" path="res://models/facilities/molten/molten_Lshape.fbx" id="1_crjec"]
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="3_jtdxy"]
@@ -165,37 +165,37 @@ shader_parameter/height_scale = 0.0
 shader_parameter/displacement = SubResource("NoiseTexture2D_15r6x")
 shader_parameter/emission_color = Vector3(2, 0, 0)
 
-[node name="molten_connector_Lshape" instance=ExtResource("1_crjec")]
+[node name="molten_connector_Lshape" unique_id=542982982 instance=ExtResource("1_crjec")]
 
-[node name="PlayerSpawn" type="Node3D" parent="." index="0"]
+[node name="PlayerSpawn" type="Node3D" parent="." index="0" unique_id=1334527554]
 transform = Transform3D(1, 0, 0, 0, 1, 7.27596e-12, 0, 1.11022e-16, 1, -11.793084, 0.24889857, -14.610627)
 
-[node name="LavaFloor" parent="." index="1" node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("4_jtdxy")]
+[node name="LavaFloor" parent="." index="1" unique_id=1605846224 node_paths=PackedStringArray("default_spawn_point") instance=ExtResource("4_jtdxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6589668, 0)
 default_spawn_point = NodePath("../PlayerSpawn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaFloor" index="0" unique_id=202292427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4483337, 0, 0)
 shape = SubResource("BoxShape3D_63gwk")
 
-[node name="RoomArea" type="Area3D" parent="." index="3"]
+[node name="RoomArea" type="Area3D" parent="." index="3" unique_id=1364380009]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" index="0" unique_id=2051533658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.548233, 8.77991, 1.770885)
 shape = SubResource("BoxShape3D_01lab")
 
-[node name="Props" type="Node3D" parent="." index="4"]
+[node name="Props" type="Node3D" parent="." index="4" unique_id=1151047529]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204273, 9.53674e-07, 8.70439)
 
-[node name="shelf2" parent="." index="5" instance=ExtResource("8_f2jlf")]
+[node name="shelf2" parent="." index="5" unique_id=1303909962 instance=ExtResource("8_f2jlf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56615, 0.283029, 15.66)
 
-[node name="CogDoor2" parent="." index="6" instance=ExtResource("14_ssxct")]
+[node name="CogDoor2" parent="." index="6" unique_id=413717511 instance=ExtResource("14_ssxct")]
 transform = Transform3D(-0.00393245, -0.0024077, -1.50587, 0.00312499, 1.50587, -0.00241587, 1.50587, -0.0031313, -0.00392743, -17.5627, 0, 9.82711)
 monitoring = false
 add_locks = 3
 
-[node name="SmokeParticles" type="GPUParticles3D" parent="." index="7"]
+[node name="SmokeParticles" type="GPUParticles3D" parent="." index="7" unique_id=396614233]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0, -1.79111, -4.86972)
 amount = 55
 lifetime = 2.75
@@ -204,7 +204,7 @@ visibility_aabb = AABB(-18.2827, -1.2802, -7.91927, 35.6684, 8.12912, 13.9212)
 process_material = SubResource("ParticleProcessMaterial_o3620")
 draw_pass_1 = SubResource("QuadMesh_djiyx")
 
-[node name="SmokeParticles2" type="GPUParticles3D" parent="." index="8"]
+[node name="SmokeParticles2" type="GPUParticles3D" parent="." index="8" unique_id=1517675620]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.8479, -1.79111, 7.53107)
 amount = 23
 lifetime = 2.75
@@ -213,11 +213,11 @@ visibility_aabb = AABB(-18.2827, -1.2802, -7.91927, 35.6684, 8.12912, 13.9212)
 process_material = SubResource("ParticleProcessMaterial_0ave0")
 draw_pass_1 = SubResource("QuadMesh_djiyx")
 
-[node name="shelf3" parent="." index="9" instance=ExtResource("8_f2jlf")]
+[node name="shelf3" parent="." index="9" unique_id=1895051821 instance=ExtResource("8_f2jlf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.03886, 0.283029, 15.66)
 Type = 1
 
-[node name="Node3D" type="Node3D" parent="." index="10"]
+[node name="Node3D" type="Node3D" parent="." index="10" unique_id=327343294]
 
 [node name="Boiler" parent="." index="13"]
 instance_shader_parameters/speed = 6.0

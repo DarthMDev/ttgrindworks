@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b5ag2bxnkogge"]
+[gd_scene format=3 uid="uid://b5ag2bxnkogge"]
 
 [ext_resource type="PackedScene" uid="uid://bi7ftg5y2l0iy" path="res://models/facilities/molten/molten_shop.fbx" id="1_6g0b7"]
 [ext_resource type="PackedScene" uid="uid://cy4iox7mj5ei0" path="res://objects/toon/toon.tscn" id="2_mfhxh"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://62mqao2o2egv" path="res://objects/props/mint/shelf_gold.tscn" id="14_tyva1"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="15_7ldrp"]
 [ext_resource type="Texture2D" uid="uid://c6ybgfq0buj8i" path="res://models/facilities/molten/textures/CFOCeiling2.png" id="17_m0uta"]
-[ext_resource type="Texture2D" uid="uid://djg4yaniinjt3" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="17_n2m07"]
+[ext_resource type="Texture2D" uid="uid://cukeb4lk6t7ro" path="res://models/facilities/molten/textures/Molten_CompiledSet1.png" id="17_n2m07"]
 [ext_resource type="PackedScene" uid="uid://co0wshh25yrlm" path="res://objects/props/etc/square_drop_shadow.tscn" id="18_n3bd1"]
 [ext_resource type="Texture2D" uid="uid://bqt3mggfvixqf" path="res://models/facilities/mint/textures/square_drop_shadow.png" id="19_sug8i"]
 

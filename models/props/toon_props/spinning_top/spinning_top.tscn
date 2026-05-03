@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bphml0rxvewmm"]
+[gd_scene format=3 uid="uid://bphml0rxvewmm"]
 
 [ext_resource type="PackedScene" uid="uid://7ggsca03iqsg" path="res://models/props/toon_props/spinning_top/spinningtop.glb" id="1_1vycm"]
 [ext_resource type="Texture2D" uid="uid://bm6mwqg7xldoj" path="res://models/props/toon_props/spinning_top/spinning top texture.png" id="2_3jb8r"]

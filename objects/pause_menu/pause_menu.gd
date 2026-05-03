@@ -18,6 +18,7 @@ const INPUT_DELAY := 0.25
 
 @onready var seed_label: Label = %SeedLabel
 @onready var seed_button: Button = %SeedButton
+@onready var score_label: Label = %ScoreLabel
 @onready var reward_view: TextureRect = %RewardView
 @onready var no_reward: TextureRect = %NoReward
 
@@ -78,6 +79,7 @@ func _ready() -> void:
 	seed_button.mouse_entered.connect(_hover_seed_label)
 	seed_button.mouse_exited.connect(_stop_hover_seed_label)
 	seed_button.pressed.connect(_seed_label_clicked)
+	score_label.set_text("Score: %s" % str(ScoreTally.get_point_total(false)))
 	%VersionLabel.text = Globals.VERSION_NUMBER
 	
 	AudioManager.set_fx_music_lpfilter()

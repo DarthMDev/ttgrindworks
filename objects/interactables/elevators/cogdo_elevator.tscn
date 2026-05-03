@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8mtvfipu1qsg"]
+[gd_scene format=3 uid="uid://b8mtvfipu1qsg"]
 
 [ext_resource type="PackedScene" uid="uid://by0o2v7at52hb" path="res://models/props/facility_objects/transporters/cogdo_elevator/cogdo_elevator.fbx" id="1_us7nt"]
 [ext_resource type="Script" uid="uid://cpinallk62oiy" path="res://objects/interactables/elevators/elevator.gd" id="2_twhhj"]

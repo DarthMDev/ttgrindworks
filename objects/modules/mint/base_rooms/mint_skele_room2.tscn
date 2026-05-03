@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://srxbjtdik0jv"]
+[gd_scene format=3 uid="uid://srxbjtdik0jv"]
 
 [ext_resource type="PackedScene" uid="uid://ltt5u3gwoj5y" path="res://models/facilities/mint/mint_skele_room2.fbx" id="1_vib5e"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="2_bx0on"]

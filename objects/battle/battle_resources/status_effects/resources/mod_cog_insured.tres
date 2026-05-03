@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cqwbk3hewd43u"]
+[gd_resource type="Resource" format=3 uid="uid://cqwbk3hewd43u"]
 
 [ext_resource type="Texture2D" uid="uid://6nj3dyqfuxwn" path="res://ui_assets/battle/statuses/track_immunity.png" id="1_0qcwm"]
 [ext_resource type="Script" uid="uid://dus5lakpu06ok" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_insured.gd" id="1_w0doo"]

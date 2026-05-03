@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5ts7ju33gg1v"]
+[gd_scene format=3 uid="uid://b5ts7ju33gg1v"]
 
 [ext_resource type="PackedScene" uid="uid://clvxp66ubtn1i" path="res://objects/modules/molten/base_rooms/molten_furnace_room.tscn" id="1_qlcx2"]
 [ext_resource type="PackedScene" uid="uid://dbrst2twjd0pu" path="res://objects/interactables/button/button.tscn" id="2_qme6i"]
 [ext_resource type="PackedScene" uid="uid://dunq1mgh6t4kc" path="res://objects/interactables/chq_door/chq_door.tscn" id="3_b3nae"]
 
-[node name="molten_furnace_room" instance=ExtResource("1_qlcx2")]
+[node name="molten_furnace_room" unique_id=207813015 instance=ExtResource("1_qlcx2")]
 
 [node name="LavaPipe" parent="." index="5"]
 visible = false
@@ -12,9 +12,9 @@ visible = false
 [node name="DebugPlayerPositionMarker" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1545, 0, -20.5078)
 
-[node name="CogButton" parent="." index="14" node_paths=PackedStringArray("connected_objects") instance=ExtResource("2_qme6i")]
+[node name="CogButton" parent="." index="14" unique_id=2091918340 node_paths=PackedStringArray("connected_objects") instance=ExtResource("2_qme6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.228476, 14.0584)
 connected_objects = [NodePath("../CogDoor")]
 
-[node name="CogDoor" parent="." index="15" instance=ExtResource("3_b3nae")]
+[node name="CogDoor" parent="." index="15" unique_id=524168002 instance=ExtResource("3_b3nae")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24.079, -0.319641, -20.3837)

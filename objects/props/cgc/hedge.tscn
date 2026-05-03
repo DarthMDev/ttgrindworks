@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://p8gvfa1hsxhc"]
+[gd_scene format=3 uid="uid://p8gvfa1hsxhc"]
 
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="1_10ek5"]
 

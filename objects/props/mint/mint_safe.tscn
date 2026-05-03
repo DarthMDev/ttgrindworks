@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca5iu2h5u2ltv"]
+[gd_scene format=3 uid="uid://ca5iu2h5u2ltv"]
 
 [ext_resource type="PackedScene" uid="uid://dj6hdk57qvxnq" path="res://models/props/facility_objects/mint/safe/cb_safe.fbx" id="1_6s1a1"]
 

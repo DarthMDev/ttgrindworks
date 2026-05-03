@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7c0fae8r6pia"]
+[gd_scene format=3 uid="uid://b7c0fae8r6pia"]
 
 [ext_resource type="PackedScene" uid="uid://tg54d6it6s0q" path="res://models/props/facility_objects/mint/pipes/pipes_B.fbx" id="1_m4blq"]
 

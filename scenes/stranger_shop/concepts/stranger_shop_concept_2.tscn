@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b17vna7ayscdj"]
+[gd_scene format=3 uid="uid://b17vna7ayscdj"]
 
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_hpaxo"]
 [ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="2_a6mwo"]

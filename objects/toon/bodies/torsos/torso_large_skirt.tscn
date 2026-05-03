@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://boqaikav0fu5f"]
+[gd_scene format=3 uid="uid://boqaikav0fu5f"]
 
 [ext_resource type="PackedScene" uid="uid://buxdt0lhipedu" path="res://models/toon/body/lrg/skirt/tt_a_chr_dgl_skirt_torso_1000.fbx" id="1_t88j1"]
 [ext_resource type="Script" uid="uid://lrvtj7qrqxhd" path="res://objects/toon/toon_body.gd" id="2_4ld15"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://berwbvcnp521g"]
+[gd_resource type="Resource" format=3 uid="uid://berwbvcnp521g"]
 
 [ext_resource type="PackedScene" uid="uid://cxj4gdkxgwknm" path="res://models/props/cog_props/pink_slip/pink_slip.glb" id="1_nhdfy"]
 [ext_resource type="Script" uid="uid://itkxki65d0v7" path="res://objects/battle/battle_resources/cog_attacks/throw_paper.gd" id="1_ob8ys"]

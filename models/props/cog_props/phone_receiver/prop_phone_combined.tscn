@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dccabtq3oebib"]
+[gd_scene format=3 uid="uid://dccabtq3oebib"]
 
 [ext_resource type="PackedScene" uid="uid://dta7wjpl4253v" path="res://models/props/cog_props/phone_receiver/prop_phone.glb" id="1_arngf"]
 [ext_resource type="PackedScene" uid="uid://bnciyvb4a4elu" path="res://models/props/cog_props/phone_receiver/prop_receiver.glb" id="2_8xyty"]

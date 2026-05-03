@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3dqjnq45op7a"]
+[gd_scene format=3 uid="uid://b3dqjnq45op7a"]
 
 [ext_resource type="PackedScene" uid="uid://crmy1cc4qn461" path="res://models/accessories/hats/beehive_hairdo/tt_m_chr_avt_acc_hat_beeHiveHairdo.glb" id="1_2joan"]
 [ext_resource type="Script" uid="uid://dk0lf1haog4y5" path="res://models/accessories/hats/beehive_hairdo/bee_hive_hairdo.gd" id="2_b5rrt"]

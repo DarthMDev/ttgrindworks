@@ -289,9 +289,7 @@ func barrier(_signal: Signal, timeout: float = 10.0) -> Signal:
 	return SignalBarrier.new([_signal, Task.delay(timeout)], SignalBarrier.BarrierType.ANY).s_complete
 
 func do_item_hover(item: Item) -> void:
-	var big_description: bool = false
-	if is_instance_valid(player):
-		big_description = player.see_descriptions
+	var big_description := SaveFileService.settings_file.item_descriptions
 	var desc: String = item.big_description if big_description else item.item_description
 	HoverManager.hover(desc, 18, 0.025, item.item_name, item.shop_category_color.darkened(0.3))
 
@@ -340,27 +338,32 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 	# 4. A jellybean consumable, if they have less than 20 beans. If they have 20 or more, give a progressive instead
 	if not player:
 		await s_player_assigned
-	var spacing := 2.5
-	var chest_count := 4
+	var spacing := 2.0
+	var chest_types: Array[String] = [
+		'candy',
+		'gag',
+		'toonup',
+		'bean'
+	]
 	# This is very funny and stupid
 	if is_instance_valid(floor_manager):
 		if floor_manager.floor_variant:
 			if floor_manager.floor_variant.reward:
-				chest_count += 1
+				chest_types.insert(2, 'floor_reward')
 	var chest_scene: PackedScene = load('res://objects/interactables/treasure_chest/treasure_chest.tscn')
 	var light_beam: Gradient = load("res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres")
-	for i in range(chest_count):
+	for type in chest_types:
 		var chest: TreasureChest = chest_scene.instantiate()
 		chest.item_pool = ItemService.PROGRESSIVE_POOL
 		chest.override_replacement_rolls = true
-		match i:
-			0:
+		match type:
+			'candy':
 				# Give a random super candy
 				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/super_candies.tres")
-			1:
+			'gag':
 				# Give a random track frame
 				chest.override_item = load("res://objects/items/resources/passive/track_frame.tres")
-			2:
+			'toonup':
 				# Give a toon-up consumable of a type that they don't have any of, except high dive
 				# If they have one of each non-high dive one, it gives a progressive instead
 				if player.stats.toonups[ToonUp.MovieType.LIPSTICK] == 0:
@@ -375,19 +378,19 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 					chest.override_item = load("res://objects/items/resources/passive/toonups/juggling.tres")
 				elif player.stats.toonups[ToonUp.MovieType.MEGAPHONE] == 0:
 					chest.override_item = load("res://objects/items/resources/passive/toonups/megaphone.tres")
-			3:
+			'bean':
 				# Always give players a little bit of money
 				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/jellybeans.tres")
-			4:
+			'floor_reward':
 				chest.item_pool = ItemService.pool_from_path("res://objects/items/pools/floor_clears.tres")
 				chest.override_item = floor_manager.floor_variant.reward
 		
-		var leftest_position := -spacing * ((float(chest_count) - 0.5) / 2.0)
-		var chest_position := leftest_position + (spacing * i)
+		var leftest_position := -spacing * ((float(chest_types.size()) - 0.5) / 2.0)
+		var chest_position := leftest_position + (spacing * chest_types.find(type))
 		holder_node.add_child(chest)
 		chest.global_position = pos_node.to_global(Vector3(chest_position, 0, 0))
 		chest.global_rotation = pos_node.global_rotation
-		if i < 4:
+		if not type == 'floor_reward':
 			chest.update_texture(chest.BOSS_TEXTURE)
 			chest.set_ray_gradient(light_beam)
 
@@ -402,3 +405,17 @@ func vec3_to_quat(vec3: Vector3, node: Node3D, use_rotation_degrees := true) -> 
 	var quat := node.quaternion
 	node.rotation = pre_rotation
 	return quat
+
+func search_directory_recursive(directory: String, type: String) -> PackedStringArray:
+	var files := DirAccess.get_files_at(directory)
+	for i in range(files.size() -1, -1, -1):
+		var file := files[i]
+		if not file.get_extension() == type:
+			files.erase(file)
+		else:
+			files[i] = directory + file
+	for folder in DirAccess.get_directories_at(directory):
+		var new_dir := directory + "%s/" % folder
+		files.append_array(search_directory_recursive(new_dir, type))
+	
+	return files

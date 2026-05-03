@@ -31,6 +31,8 @@ func add_new_item(item: Item) -> void:
 	new_tex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	new_tex.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	new_tex.texture = item.icon
+	if item.icon_material:
+		new_tex.material = item.icon_material
 	new_tex.mouse_entered.connect(hover_item.bind(item, new_tex))
 	new_tex.mouse_exited.connect(stop_hover.bind(new_tex))
 	item_container.add_child(new_tex)

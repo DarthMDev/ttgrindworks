@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnlvl7iyl4kj"]
+[gd_scene format=3 uid="uid://dnlvl7iyl4kj"]
 
 [ext_resource type="PackedScene" uid="uid://b7dvpgeux6p70" path="res://models/props/sky_boxes/bbhq_skybox.fbx" id="1_kn4fe"]
 

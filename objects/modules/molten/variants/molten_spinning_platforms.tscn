@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://m1s4w76ce6gt"]
+[gd_scene format=3 uid="uid://m1s4w76ce6gt"]
 
 [ext_resource type="PackedScene" uid="uid://dlekgotajg8er" path="res://objects/modules/molten/base_rooms/molten_spinning_platforms.tscn" id="1_b28fu"]
 [ext_resource type="Texture2D" uid="uid://b6ghwokk377dn" path="res://models/facilities/molten/textures/FINALFACTORY_67.png" id="2_2qq5k"]

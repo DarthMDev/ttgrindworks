@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=7 format=3 uid="uid://d3bnj680tmqdo"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://d3bnj680tmqdo"]
 
 [ext_resource type="Resource" uid="uid://brhahnbakm60" path="res://scenes/game_floor/floor_variants/alt_floors/haunted_golf_course.tres" id="1_4ytks"]
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_i4cca"]

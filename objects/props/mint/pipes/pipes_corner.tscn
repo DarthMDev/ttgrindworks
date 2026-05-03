@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bx6mubx7yx00x"]
+[gd_scene format=4 uid="uid://bx6mubx7yx00x"]
 
 [ext_resource type="PackedScene" uid="uid://bi4g7g3i40ln3" path="res://models/props/facility_objects/mint/pipes/pipes_D2.fbx" id="1_ld7y1"]
 [ext_resource type="Texture2D" uid="uid://c6crsry4n2agx" path="res://models/props/facility_objects/mint/pipes/textures/LocomotiveDetail1.png" id="2_g6gik"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://dunq1mgh6t4kc"]
+[gd_scene format=4 uid="uid://dunq1mgh6t4kc"]
 
 [ext_resource type="Script" uid="uid://djotlquer5gy0" path="res://objects/interactables/chq_door/chq_door.gd" id="1_kr1fc"]
 [ext_resource type="Texture2D" uid="uid://ufw0rm8val7g" path="res://models/props/facility_objects/door/chq_door_0.png" id="2_dryf5"]

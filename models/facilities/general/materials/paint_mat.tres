@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c0edym63lw3aj"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c0edym63lw3aj"]
 
 [ext_resource type="Shader" uid="uid://b3xje7jv3si6v" path="res://general_resources/shaders/liquid_shader.gdshader" id="1_egvya"]
 [ext_resource type="Texture2D" uid="uid://dj5lnvim0vwrs" path="res://models/facilities/factory/SB_Paint.png" id="2_12itp"]

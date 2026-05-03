@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bchcm0txqesmn"]
+[gd_scene format=3 uid="uid://bchcm0txqesmn"]
 
 [ext_resource type="PackedScene" uid="uid://dbcgynfy3r1tk" path="res://objects/obstacles/burner/BurnerFlame.fbx" id="1_58dy6"]
 [ext_resource type="Shader" uid="uid://vgg5px6wnyc" path="res://objects/obstacles/burner/shaders/outerburner.tres" id="1_ao7jf"]

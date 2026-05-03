@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dfhgbjrdoxhau"]
+[gd_scene format=4 uid="uid://dfhgbjrdoxhau"]
 
 [ext_resource type="PackedScene" uid="uid://cuythjlqcxl75" path="res://models/facilities/mint/mint_goon_room.fbx" id="1_6j43f"]
 

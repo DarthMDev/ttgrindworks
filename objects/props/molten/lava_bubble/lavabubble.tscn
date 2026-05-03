@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcijrwwpli7qf"]
+[gd_scene format=3 uid="uid://bcijrwwpli7qf"]
 
 [ext_resource type="ArrayMesh" uid="uid://dybg436in2p0c" path="res://objects/props/molten/lava_bubble/bubble.tres" id="4_sa4bu"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dbj0775ait8hp"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dbj0775ait8hp"]
 
 [ext_resource type="Texture2D" uid="uid://bj3b5ekuhv4yu" path="res://models/toon/textures/body/handGeneric.png" id="1_dxms6"]
 

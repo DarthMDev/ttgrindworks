@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5d0mrdvwx3cp"]
+[gd_scene format=3 uid="uid://b5d0mrdvwx3cp"]
 
 [ext_resource type="Script" uid="uid://bihpriq7phgkn" path="res://objects/items/boss_chest_group.gd" id="1_x1fjg"]
 

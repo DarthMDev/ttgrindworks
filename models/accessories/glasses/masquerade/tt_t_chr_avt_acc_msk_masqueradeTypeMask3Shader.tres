@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://flaeru5lvvgl"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://flaeru5lvvgl"]
 
 [ext_resource type="Texture2D" uid="uid://cju2lnx7qne23" path="res://models/accessories/glasses/masquerade/masquerade_mask_0.png" id="1_txlyq"]
 

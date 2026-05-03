@@ -54,7 +54,7 @@ var POOL_GRADIENTS : Dictionary[String, String] = {
 	"res://objects/items/pools/progressives.tres": "res://models/props/treasure_chest/sunrays/silverchest_sunrays.tres",
 	"res://objects/items/pools/doodle_treasure.tres": "res://models/props/treasure_chest/sunrays/doodlechest_sunrays.tres",
 	"res://objects/items/pools/special_items.tres": "res://models/props/treasure_chest/sunrays/specialchest_sunrays.tres",
-	"res://objects/items/pools/floor_clears.tres": "res://models/props/treasure_chest/sunrays/bosschest_sunrays.tres",
+	"res://objects/items/pools/floor_clears.tres": "res://models/props/treasure_chest/sunrays/floorclearchest_sunrays.tres",
 	"default": "res://models/props/treasure_chest/sunrays/goldchest_sunrays.tres"
 }
 
@@ -235,7 +235,8 @@ func make_duplicate_chest() -> void:
 	var new_chest: TreasureChest = load("res://objects/interactables/treasure_chest/treasure_chest.tscn").instantiate()
 	new_chest.override_replacement_rolls = true
 	new_chest.item_pool = item_pool
-	new_chest.override_item = override_item
+	if override_item and not (override_item is ItemShoe or override_item is ItemAccessory or override_item is ItemActive):
+		new_chest.override_item = override_item
 	get_parent().add_child(new_chest)
 	new_chest.update_texture(get_current_texture())
 	new_chest.set_ray_gradient(ray_tex.gradient)

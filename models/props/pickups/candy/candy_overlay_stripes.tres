@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bpwjqyosqb7ns"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpwjqyosqb7ns"]
 
 [ext_resource type="Texture2D" uid="uid://ie3illjh1klw" path="res://models/props/pickups/candy/CandyOverlay_Stripes.png" id="1_5qd23"]
 

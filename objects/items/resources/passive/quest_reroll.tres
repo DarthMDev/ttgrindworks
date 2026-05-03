@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://23im0r4wxo0l"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://23im0r4wxo0l"]
 
 [ext_resource type="PackedScene" uid="uid://b3pi12n08d0rr" path="res://objects/items/custom/quest_reroll/quest_reroll.tscn" id="1_fp5v0"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_txjhk"]

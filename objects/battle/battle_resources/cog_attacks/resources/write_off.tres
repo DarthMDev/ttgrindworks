@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cfwymrymjx7s5"]
+[gd_resource type="Resource" format=3 uid="uid://cfwymrymjx7s5"]
 
 [ext_resource type="Script" uid="uid://erc57tb4sxa4" path="res://objects/battle/battle_resources/cog_attacks/write_off.gd" id="1_6jsip"]
 

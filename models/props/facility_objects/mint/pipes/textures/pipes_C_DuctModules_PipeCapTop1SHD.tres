@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dnd7tvt48u4c"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dnd7tvt48u4c"]
 
 [ext_resource type="Texture2D" uid="uid://df5qrrkvi3ijy" path="res://models/props/facility_objects/mint/pipes/textures/CogIntPipeCapTop1.png" id="1_25mys"]
 

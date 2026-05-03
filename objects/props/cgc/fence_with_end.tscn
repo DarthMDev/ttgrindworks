@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://5m1a0suouie8"]
+[gd_scene format=3 uid="uid://5m1a0suouie8"]
 
 [ext_resource type="PackedScene" uid="uid://c2xo6c1e7brhg" path="res://models/props/facility_objects/cgc/fence/fence.glb" id="1_6d7nu"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ksciix5yj6x1"]
+[gd_scene format=4 uid="uid://ksciix5yj6x1"]
 
 [ext_resource type="Material" uid="uid://do7bpsdy2nk" path="res://models/facilities/cgc/materials/branch_mat.tres" id="1_ms784"]
 [ext_resource type="Material" uid="uid://c3vi6h4mq71ow" path="res://models/facilities/cgc/materials/hedge_mat_partial.tres" id="2_6hmye"]

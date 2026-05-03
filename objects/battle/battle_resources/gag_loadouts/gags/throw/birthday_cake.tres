@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GagThrow" load_steps=5 format=3 uid="uid://itjq3hljgdry"]
+
+[ext_resource type="Texture2D" uid="uid://b8tdy4qthmv3t" path="res://ui_assets/battle/gags/inventory_cake_1.png" id="1_yrfsl"]
+[ext_resource type="PackedScene" uid="uid://dd75urtji65pw" path="res://models/props/gags/bday_cake/bday_cake.tscn" id="2_diu74"]
+[ext_resource type="Script" uid="uid://dbdc7jnq3xams" path="res://objects/battle/battle_resources/toon_attacks/gag_throw.gd" id="3_1qk7s"]
+[ext_resource type="AudioStream" uid="uid://dfh8hagq1yfae" path="res://audio/sfx/battle/gags/throw/AA_throw_wedding_cake_cog.ogg" id="4_cvgh6"]
+
+[resource]
+script = ExtResource("3_1qk7s")
+model = ExtResource("2_diu74")
+scale = 1.0
+splat_color = Color(1, 0.454902, 1, 1)
+splat_sfx = ExtResource("4_cvgh6")
+icon = ExtResource("1_yrfsl")
+damage = 85
+crit_chance_mod = 1.0
+target_type = 0
+action_name = "Birthday Cake"
+one_time_use = false

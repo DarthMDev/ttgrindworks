@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwm67lsp8m00r"]
+[gd_scene format=4 uid="uid://bwm67lsp8m00r"]
 
 [ext_resource type="PackedScene" uid="uid://cc3r57b0cr5up" path="res://models/facilities/office/office_battle_room.fbx" id="1_iik52"]
 

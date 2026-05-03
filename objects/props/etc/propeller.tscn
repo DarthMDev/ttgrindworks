@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkt5x3vk2hd24"]
+[gd_scene format=3 uid="uid://dkt5x3vk2hd24"]
 
 [ext_resource type="PackedScene" uid="uid://b4ypodk3bfxr7" path="res://models/props/cog_props/propeller2/propeller2.fbx" id="1_ejadm"]
 

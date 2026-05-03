@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo2dpsqnqpolc"]
+[gd_scene format=3 uid="uid://bo2dpsqnqpolc"]
 
 [ext_resource type="Script" uid="uid://c4nmwglrc1ejv" path="res://objects/general_ui/achievement_notification/achievement_ui.gd" id="1_pc3pv"]
 

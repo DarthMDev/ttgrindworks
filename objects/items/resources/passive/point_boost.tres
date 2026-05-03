@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cbjesspt1h0ts"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cbjesspt1h0ts"]
 
 [ext_resource type="PackedScene" uid="uid://dv8i1reerxfpp" path="res://objects/items/custom/point_boost/point_boost.tscn" id="1_tn7fb"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_mxr2c"]

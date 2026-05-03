@@ -23,3 +23,5 @@ func use() -> void:
 	stat_boost.target = player
 	BattleService.ongoing_battle.add_status_effect(stat_boost)
 	BattleService.s_refresh_statuses.emit()
+	if player.gags_cost_beans:
+		BattleService.ongoing_battle.battle_ui.refresh_tracks()

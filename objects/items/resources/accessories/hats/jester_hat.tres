@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemAccessory" load_steps=40 format=3 uid="uid://dqf8pl3hm68rp"]
+[gd_resource type="Resource" script_class="ItemAccessory" format=3 uid="uid://dqf8pl3hm68rp"]
 
 [ext_resource type="Script" uid="uid://fb0tqfojo57q" path="res://objects/items/classes/accessory_placement.gd" id="1_2uef3"]
 [ext_resource type="PackedScene" uid="uid://bbokxwl67ep8m" path="res://models/accessories/hats/jester_hat/tt_m_chr_avt_acc_hat_jugheadHat.glb" id="2_5q7km"]

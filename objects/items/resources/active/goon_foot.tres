@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemActive" load_steps=6 format=3 uid="uid://08861uv78r5r"]
+[gd_resource type="Resource" script_class="ItemActive" format=3 uid="uid://08861uv78r5r"]
 
 [ext_resource type="PackedScene" uid="uid://b53wsrolr42l5" path="res://objects/items/custom/goon_foot/goon_foot.tscn" id="1_3g22k"]
 [ext_resource type="Script" uid="uid://5uwfsntxdag6" path="res://objects/items/classes/item_active.gd" id="1_pjx1j"]

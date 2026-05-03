@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vqyn38aio7i2"]
+[gd_scene format=3 uid="uid://vqyn38aio7i2"]
 
 [ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_oc3ju"]
 [ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="2_ferxm"]

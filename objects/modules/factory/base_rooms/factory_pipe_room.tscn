@@ -1,4 +1,4 @@
-[gd_scene load_steps=244 format=4 uid="uid://mqjhe3oc1xup"]
+[gd_scene format=4 uid="uid://mqjhe3oc1xup"]
 
 [ext_resource type="Texture2D" uid="uid://d35gru1sglser" path="res://models/facilities/factory/FINALFACTORY_24.png" id="1_53kjr"]
 [ext_resource type="Texture2D" uid="uid://bsqgi6xsqq4bv" path="res://models/facilities/factory/FINALFACTORY_78.png" id="2_hbhk0"]

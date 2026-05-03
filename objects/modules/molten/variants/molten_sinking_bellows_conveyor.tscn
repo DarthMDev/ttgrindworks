@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cgyslvxe7j0wr"]
+[gd_scene format=3 uid="uid://cgyslvxe7j0wr"]
 
 [ext_resource type="PackedScene" uid="uid://c3wmk5472uct3" path="res://objects/modules/molten/base_rooms/molten_sinking_bellows_conveyor.tscn" id="1_u615d"]
 [ext_resource type="Texture2D" uid="uid://bj0ye0oxq1fea" path="res://models/props/facility_objects/conveyor_platform/platform_CVBelt1.png" id="2_krnyo"]

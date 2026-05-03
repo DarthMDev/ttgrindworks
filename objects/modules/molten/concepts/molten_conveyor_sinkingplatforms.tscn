@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7noit2nib8xr"]
+[gd_scene format=3 uid="uid://c7noit2nib8xr"]
 
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_6q3a1"]
 [ext_resource type="Texture2D" uid="uid://58hn0ewqd1s0" path="res://models/facilities/molten/textures/StoneSquares_Hot.png" id="1_eboua"]

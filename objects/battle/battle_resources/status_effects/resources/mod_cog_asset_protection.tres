@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ccs0a7uydoa8r"]
+[gd_resource type="Resource" format=3 uid="uid://ccs0a7uydoa8r"]
 
 [ext_resource type="Script" uid="uid://b4kal1wktg3pd" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_asset_protection.gd" id="1_346vy"]
 [ext_resource type="Texture2D" uid="uid://bda668sdljrwa" path="res://ui_assets/battle/statuses/asset_protection.png" id="1_bh01g"]

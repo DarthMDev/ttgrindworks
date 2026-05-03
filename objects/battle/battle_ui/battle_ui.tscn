@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://balc52bcsmal1"]
+[gd_scene format=3 uid="uid://balc52bcsmal1"]
 
 [ext_resource type="Script" uid="uid://bfgdfp2aa06ym" path="res://objects/battle/battle_ui/battle_ui.gd" id="1_8x8hy"]
 [ext_resource type="Texture2D" uid="uid://dysxmakm72jwy" path="res://ui_assets/battle/BATTLE_Menu.png" id="1_ahgpo"]

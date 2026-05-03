@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cujhmlouwwpla"]
+[gd_scene format=4 uid="uid://cujhmlouwwpla"]
 
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="1_6gspn"]
 [ext_resource type="Texture2D" uid="uid://bybwlevpkmfua" path="res://models/misc_zones/cog_building/cog_building_floor1_0.png" id="1_36sdd"]

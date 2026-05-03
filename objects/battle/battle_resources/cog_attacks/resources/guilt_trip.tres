@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qk4f4h40o5u1"]
+[gd_resource type="Resource" format=3 uid="uid://qk4f4h40o5u1"]
 
 [ext_resource type="Script" uid="uid://81v5sdu0ir1n" path="res://objects/battle/battle_resources/cog_attacks/guilt_trip.gd" id="1_q0jxy"]
 

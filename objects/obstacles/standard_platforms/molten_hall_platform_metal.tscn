@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://gnesxsphxwp7"]
+[gd_scene format=3 uid="uid://gnesxsphxwp7"]
 
 [ext_resource type="PackedScene" uid="uid://huj4gk0f6iej" path="res://models/facilities/molten/boss_chase/v2/molten_hall_platform_metal.fbx" id="1_8b0pu"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://f4j4f5kpnfbk"]
+[gd_scene format=3 uid="uid://f4j4f5kpnfbk"]
 
 [ext_resource type="PackedScene" uid="uid://cpiib04mrtkk8" path="res://objects/obstacles/spinning_gear/spinning_gear.tscn" id="1_8c3sk"]
 [ext_resource type="Texture2D" uid="uid://58hn0ewqd1s0" path="res://models/facilities/molten/textures/StoneSquares_Hot.png" id="1_qq88e"]

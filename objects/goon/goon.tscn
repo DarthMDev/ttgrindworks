@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bqvkntyk0ljsq"]
+[gd_scene format=3 uid="uid://bqvkntyk0ljsq"]
 
 [ext_resource type="PackedScene" uid="uid://dbtow4wy8edpb" path="res://models/goon/goon.fbx" id="1_ctsld"]
 [ext_resource type="Script" uid="uid://didfhp7vr700l" path="res://objects/goon/goon.gd" id="2_3wkhj"]

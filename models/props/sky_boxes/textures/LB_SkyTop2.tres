@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4yi211e48ljh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4yi211e48ljh"]
 
 [ext_resource type="Texture2D" uid="uid://dhet8ox11d8ja" path="res://models/props/sky_boxes/textures/LB_SkyTop2.png" id="1_dct8e"]
 

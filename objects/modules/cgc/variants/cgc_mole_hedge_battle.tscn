@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://e3lbnnyh7pga"]
+[gd_scene format=3 uid="uid://e3lbnnyh7pga"]
 
 [ext_resource type="PackedScene" uid="uid://461ajltncxsc" path="res://objects/modules/cgc/base_rooms/cgc_mole_room.tscn" id="1_a8dbm"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="2_615d1"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://5m1a0suouie8" path="res://objects/props/cgc/fence_with_end.tscn" id="9_0ebtw"]
 [ext_resource type="Script" uid="uid://dyt7mhhg2lwrv" path="res://objects/interactables/mole_stomp/mole_stomp.gd" id="10_iq6ek"]
 [ext_resource type="PackedScene" uid="uid://c1g5f6yxujvef" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.tscn" id="11_50pf2"]
-[ext_resource type="Script" uid="uid://dax7hby88nkbu" path="res://addons/toonlike_tools/injectors/player/debug_player_position_marker.gd" id="12_trgaf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_615d1"]
 size = Vector3(16.408936, 9.01416, 6.3031616)
@@ -48,6 +47,7 @@ game_mode = 1
 endless_stop_moles = false
 difficulty = 0.04
 grid_size = Vector2i(1, 1)
+want_instructions = false
 metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
 
 [node name="SecretMole2" type="Area3D" parent="." index="23"]
@@ -57,11 +57,11 @@ game_mode = 1
 endless_stop_moles = false
 difficulty = 0.04
 grid_size = Vector2i(1, 1)
+want_instructions = false
 metadata/_custom_type_script = "uid://dyt7mhhg2lwrv"
 
-[node name="DebugPlayerPositionMarker" type="Marker3D" parent="." index="24" instance=ExtResource("11_50pf2")]
+[node name="DebugPlayerPositionMarker" parent="." index="24" instance=ExtResource("11_50pf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.211983, 0, -0.729856)
-script = ExtResource("12_trgaf")
 
 [node name="Props" type="Node3D" parent="." index="25"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dmafgykr0wfb3"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dmafgykr0wfb3"]
 
 [ext_resource type="Shader" uid="uid://bwqy10j7lib06" path="res://general_resources/shaders/lava_shader.gdshader" id="1_ub7mi"]
 [ext_resource type="Texture2D" uid="uid://dutf3tiqr8h1t" path="res://models/facilities/mint/textures/lava7.png" id="2_xlrn8"]

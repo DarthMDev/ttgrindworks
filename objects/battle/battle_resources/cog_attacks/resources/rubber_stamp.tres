@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://doowiij7lpxy1"]
+[gd_resource type="Resource" format=3 uid="uid://doowiij7lpxy1"]
 
 [ext_resource type="Script" uid="uid://4w25g8obmlh" path="res://objects/battle/battle_resources/cog_attacks/rubber_stamp.gd" id="1_ie2h0"]
 

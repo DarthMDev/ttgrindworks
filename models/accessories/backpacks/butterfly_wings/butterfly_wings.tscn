@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://fijwyiv0x7q4"]
+[gd_scene format=3 uid="uid://fijwyiv0x7q4"]
 
 [ext_resource type="PackedScene" uid="uid://cav343xljlq80" path="res://models/accessories/backpacks/butterfly_wings/tt_m_chr_avt_acc_pac_butterflyWings.glb" id="1_byta7"]
 [ext_resource type="Texture2D" uid="uid://bdar88a4uly0a" path="res://models/accessories/backpacks/butterfly_wings/tt_m_chr_avt_acc_pac_butterflyWings_tt_t_chr_avt_acc_pac_butterflyWingsStyle1.png" id="2_hdyt0"]

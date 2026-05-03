@@ -38,6 +38,7 @@ func setup_towel_toon() -> void:
 	%TowelToon.close_eyes()
 	%TowelToon.speak(". . . . ZZZ . . .")
 	var bubble: SpeechBubble = %TowelToon.speech_bubble_node.get_child(0)
+	%TowelToon.speech_bubble_node.position.y -= 1.0
 	bubble.auto_expire = false
 
 func chair1_toon_interaction(body: Node3D) -> void:

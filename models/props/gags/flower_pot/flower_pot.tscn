@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b83bdoxnutfks"]
+[gd_scene format=4 uid="uid://b83bdoxnutfks"]
 
 [ext_resource type="Texture2D" uid="uid://djwauv4un8d8a" path="res://models/props/gags/flower_pot/flower_pot_ceter.png" id="1_01gp6"]
 [ext_resource type="Texture2D" uid="uid://bsvmyeasctwep" path="res://models/props/gags/flower_pot/flower_pot_leaf.png" id="2_qxeoy"]

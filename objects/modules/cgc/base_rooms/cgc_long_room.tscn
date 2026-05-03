@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbmpk0bcnkij1"]
+[gd_scene format=3 uid="uid://bbmpk0bcnkij1"]
 
 [ext_resource type="PackedScene" uid="uid://cwldqwunkk4ar" path="res://objects/props/cgc/resizeable_ground.tscn" id="1_nv3i1"]
 [ext_resource type="PackedScene" uid="uid://b3p8q3fhmuo35" path="res://objects/props/cgc/resizeable_hedge_cube.tscn" id="3_0tm26"]
@@ -18,201 +18,201 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_ne4dp"]
 size = Vector3(27.9658, 14.6949, 51.8071)
 
-[node name="CGCLongRoom" type="Node3D"]
+[node name="CGCLongRoom" type="Node3D" unique_id=441159754]
 
-[node name="ENTRANCE" type="Node3D" parent="."]
+[node name="ENTRANCE" type="Node3D" parent="." unique_id=1606172860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.5012)
 
-[node name="EntrancePlacer" parent="ENTRANCE" instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
+[node name="EntrancePlacer" parent="ENTRANCE" unique_id=1003820885 instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
 visible = false
 
-[node name="EXIT" type="Node3D" parent="."]
+[node name="EXIT" type="Node3D" parent="." unique_id=1509963167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.4779)
 
-[node name="EntrancePlacer" parent="EXIT" instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
+[node name="EntrancePlacer" parent="EXIT" unique_id=1474938575 instance_placeholder="res://scenes/tool_scenes/entrance_placer/entrance_placer.tscn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0486946)
 
-[node name="Navigation" type="NavigationRegion3D" parent="."]
+[node name="Navigation" type="NavigationRegion3D" parent="." unique_id=276163972]
 navigation_mesh = SubResource("NavigationMesh_nr662")
 use_edge_connections = false
 
-[node name="ResizeableGround" parent="Navigation" instance=ExtResource("1_nv3i1")]
+[node name="ResizeableGround" parent="Navigation" unique_id=28317974 instance=ExtResource("1_nv3i1")]
 size = Vector2(25, 45)
 
-[node name="Hedges" type="Node3D" parent="Navigation"]
+[node name="Hedges" type="Node3D" parent="Navigation" unique_id=1418652393]
 
-[node name="ResizeableHedgeCube" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube" parent="Navigation/Hedges" unique_id=1975477588 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 15.6113, 0, 0)
 size = Vector2(4.57, 33.885)
 
-[node name="ResizeableHedgeCube2" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube2" parent="Navigation/Hedges" unique_id=1985691903 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -15.24, 0, 0)
 size = Vector2(4.57, 33.885)
 
-[node name="ResizeableHedgeCube3" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube3" parent="Navigation/Hedges" unique_id=426821006 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 8.8434, 0, -23.5134)
 size = Vector2(5.81, 2.18)
 
-[node name="ResizeableHedgeCube4" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube4" parent="Navigation/Hedges" unique_id=2095995550 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -8.98106, 0, -23.5134)
 size = Vector2(5.81, 2.18)
 
-[node name="ResizeableHedgeCube5" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube5" parent="Navigation/Hedges" unique_id=8994584 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 8.8434, 0, 23.5904)
 size = Vector2(5.81, 2.18)
 
-[node name="ResizeableHedgeCube6" parent="Navigation/Hedges" instance=ExtResource("3_0tm26")]
+[node name="ResizeableHedgeCube6" parent="Navigation/Hedges" unique_id=1381993541 instance=ExtResource("3_0tm26")]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -8.98106, 0, 23.5904)
 size = Vector2(5.81, 2.18)
 
-[node name="Gateway" parent="Navigation" instance=ExtResource("4_v5a5g")]
+[node name="Gateway" parent="Navigation" unique_id=554844804 instance=ExtResource("4_v5a5g")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -22.5491)
 visible = false
 
-[node name="Pillars" type="Node3D" parent="Navigation"]
+[node name="Pillars" type="Node3D" parent="Navigation" unique_id=898602077]
 
-[node name="Pillar" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar" parent="Navigation/Pillars" unique_id=1229695518 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.7172, 0, 22.6053)
 
-[node name="Pillar2" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar2" parent="Navigation/Pillars" unique_id=1353895445 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.7172, 0, 0.313461)
 
-[node name="Pillar3" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar3" parent="Navigation/Pillars" unique_id=249847382 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.7172, 0, -21.5588)
 
-[node name="Pillar4" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar4" parent="Navigation/Pillars" unique_id=1073899780 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.961, 0, 22.6053)
 
-[node name="Pillar5" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar5" parent="Navigation/Pillars" unique_id=1765853687 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.961, 0, 0.313461)
 
-[node name="Pillar6" parent="Navigation/Pillars" instance=ExtResource("5_53jm0")]
+[node name="Pillar6" parent="Navigation/Pillars" unique_id=1933374179 instance=ExtResource("5_53jm0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.961, 0, -21.5588)
 
-[node name="Walls" type="Node3D" parent="Navigation"]
+[node name="Walls" type="Node3D" parent="Navigation" unique_id=1917097108]
 
-[node name="ResizeableWall" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
+[node name="ResizeableWall" parent="Navigation/Walls" unique_id=1691028478 instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6918, 0, -10.9478)
 volume = Vector3(3.34, 6.865, 19.995)
 
-[node name="ResizeableWall2" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
+[node name="ResizeableWall2" parent="Navigation/Walls" unique_id=327986509 instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5031, 0, -10.9478)
 volume = Vector3(3.34, 6.865, 19.995)
 
-[node name="ResizeableWall3" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
+[node name="ResizeableWall3" parent="Navigation/Walls" unique_id=174844792 instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77344, 0, -22.096)
 volume = Vector3(6.05, 6.875, 1)
 
-[node name="ResizeableWall4" parent="Navigation/Walls" instance=ExtResource("7_cn5je")]
+[node name="ResizeableWall4" parent="Navigation/Walls" unique_id=1232287985 instance=ExtResource("7_cn5je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04316, 0, -22.096)
 volume = Vector3(6.46, 6.875, 1)
 
-[node name="Branches" type="Node3D" parent="."]
+[node name="Branches" type="Node3D" parent="." unique_id=178791934]
 
-[node name="CGCFlatBranch" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch" parent="Branches" unique_id=1708267667 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.55671e-08, 0, -1, 0, 2.8, 0, 1.5, 0, -4.37114e-08, 12.4038, 0, 17.0325)
 
-[node name="CGCFlatBranch2" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch2" parent="Branches" unique_id=1154869225 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-5.24537e-08, 0, -1, 0, 3.7, 0, 1.2, 0, -4.37114e-08, 11.8323, 0, -16.2689)
 
-[node name="CGCFlatBranch3" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch3" parent="Branches" unique_id=1975654089 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.11959e-08, 0, -1, 0, 3.1, 0, 1.4, 0, -4.37114e-08, 11.8323, 0, -9.12905)
 
-[node name="CGCFlatBranch4" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch4" parent="Branches" unique_id=976438202 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.55671e-08, 0, -1, 0, 2.8, 0, 1.5, 0, -4.37114e-08, 11.8323, 0, -4.62678)
 
-[node name="CGCFlatBranch5" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch5" parent="Branches" unique_id=841492807 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-8.30516e-08, 0, -1, 0, 2.6, 0, 1.9, 0, -4.37114e-08, 12.4038, 0, 7.54483)
 
-[node name="CGCFlatBranch6" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch6" parent="Branches" unique_id=1699273503 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.55671e-08, 0, 1, 0, 2.8, 0, -1.5, 0, -4.37114e-08, -11.0265, 0, -16.108)
 
-[node name="CGCFlatBranch7" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch7" parent="Branches" unique_id=583467642 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-5.24537e-08, 0, 1, 0, 3.7, 0, -1.2, 0, -4.37114e-08, -12.0363, 0, 17.1934)
 
-[node name="CGCFlatBranch8" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch8" parent="Branches" unique_id=1111119690 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.11959e-08, 0, 1, 0, 3.1, 0, -1.4, 0, -4.37114e-08, -12.0363, 0, 10.0536)
 
-[node name="CGCFlatBranch9" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch9" parent="Branches" unique_id=1207726306 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-6.55671e-08, 0, 1, 0, 2.8, 0, -1.5, 0, -4.37114e-08, -12.0363, 0, 5.55129)
 
-[node name="CGCFlatBranch10" parent="Branches" instance=ExtResource("6_c38t1")]
+[node name="CGCFlatBranch10" parent="Branches" unique_id=1353162346 instance=ExtResource("6_c38t1")]
 transform = Transform3D(-8.30516e-08, 0, 1, 0, 2.6, 0, -1.9, 0, -4.37114e-08, -11.0265, 0, -6.62032)
 
-[node name="FlatTrees" type="Node3D" parent="."]
+[node name="FlatTrees" type="Node3D" parent="." unique_id=562690475]
 
-[node name="CGCFlatTreeA" parent="FlatTrees" instance=ExtResource("8_7hg8y")]
+[node name="CGCFlatTreeA" parent="FlatTrees" unique_id=532472476 instance=ExtResource("8_7hg8y")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.93248, 0, -21.5696)
 
-[node name="CGCFlatTreeB" parent="FlatTrees" instance=ExtResource("9_2ghgl")]
+[node name="CGCFlatTreeB" parent="FlatTrees" unique_id=152940924 instance=ExtResource("9_2ghgl")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.85134, 0, -21.5714)
 
-[node name="CGCFlatTreeA2" parent="FlatTrees" instance=ExtResource("8_7hg8y")]
+[node name="CGCFlatTreeA2" parent="FlatTrees" unique_id=1707925990 instance=ExtResource("8_7hg8y")]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, -7.7786, 0, 22.0132)
 
-[node name="CGCFlatTreeB2" parent="FlatTrees" instance=ExtResource("9_2ghgl")]
+[node name="CGCFlatTreeB2" parent="FlatTrees" unique_id=590893725 instance=ExtResource("9_2ghgl")]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 8.00522, 0, 22.0151)
 
-[node name="BranchWalls" type="Node3D" parent="."]
+[node name="BranchWalls" type="Node3D" parent="." unique_id=1504850854]
 
-[node name="CgcBrushWall" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall" parent="BranchWalls" unique_id=566765657 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(12.293936, 0, -4.2259455, 0, 13, 0, 4.2259455, 0, 12.293936, 36.474, 3.812, 16.966)
 length = 0.77
 
-[node name="CgcBrushWall3" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall3" parent="BranchWalls" unique_id=1149227399 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(4.16883, 0, -12.3134, 0, 13, 0, 12.3134, 0, 4.16883, 28.7886, 3.81163, 6.41855)
 length = 1.46
 
-[node name="CgcBrushWall4" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall4" parent="BranchWalls" unique_id=1325995795 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(-4.63823, 0, -12.1444, 0, 13, 0, 12.1444, 0, -4.63823, 30.4237, 3.81163, -14.6668)
 length = 2.0
 
-[node name="CgcBrushWall6" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall6" parent="BranchWalls" unique_id=1932229215 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(4.13894, 0, 12.3235, 0, 13, 0, -12.3235, 0, 4.13894, -24.9789, 3.81163, -14.5895)
 length = 1.46
 
-[node name="CgcBrushWall7" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall7" parent="BranchWalls" unique_id=1932612300 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(-4.16883, 0, 12.3134, 0, 13, 0, -12.3134, 0, -4.16883, -24.9864, 3.81163, 3.36684)
 length = 1.46
 
-[node name="CgcBrushWall8" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall8" parent="BranchWalls" unique_id=16798838 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(4.63823, 0, 12.1444, 0, 13, 0, -12.1444, 0, 4.63823, -24.17633, 3.81163, 18.05011)
 length = 0.945
 
-[node name="CgcBrushWall10" parent="BranchWalls" instance=ExtResource("10_c4e6l")]
+[node name="CgcBrushWall10" parent="BranchWalls" unique_id=2041588558 instance=ExtResource("10_c4e6l")]
 transform = Transform3D(-7.57239, 0, 10.5669, 0, 13, 0, -10.5669, 0, -7.57239, -27.5713, 3.81163, -31.2856)
 visible = false
 length = 1.46
 
-[node name="Trees" type="Node3D" parent="."]
+[node name="Trees" type="Node3D" parent="." unique_id=2145707680]
 
-[node name="Tree1" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree1" parent="Trees" unique_id=1227459437 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(1.7, 0, 0, 0, 3, 0, 0, 0, 1, 27.172, 4.19734, 19.911)
 
-[node name="Tree2" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree2" parent="Trees" unique_id=13831612 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(1.7, 0, 0, 0, 3, 0, 0, 0, 1, 23.4181, 4.19734, 7.56629)
 
-[node name="Tree3" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree3" parent="Trees" unique_id=549945044 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2, 0, 0, 0, 3.6, 0, 0, 0, 1, -21.119, 4.19734, -28.865)
 visible = false
 
-[node name="Tree4" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree4" parent="Trees" unique_id=948957058 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2.2, 0, 0, 0, 3.6, 0, 0, 0, 1, -23.143, 4.19734, -9.84345)
 
-[node name="Tree5" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree5" parent="Trees" unique_id=2119313968 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2.2, 0, 0, 0, 3, 0, 0, 0, 1, -23.143, 4.19734, 1.38735)
 
-[node name="Tree7" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree7" parent="Trees" unique_id=295113926 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(-2, 0, -8.74228e-08, 0, 3.6, 0, 1.74846e-07, 0, -1, 24.8395, 4.19734, -11.9786)
 
-[node name="Tree8" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree8" parent="Trees" unique_id=603972979 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(-2.2, 0, -8.74228e-08, 0, 3, 0, 1.9233e-07, 0, -1, 28.8237, 4.19734, -22.8931)
 
-[node name="Tree6" parent="Trees" instance=ExtResource("11_2ow3x")]
+[node name="Tree6" parent="Trees" unique_id=1576913706 instance=ExtResource("11_2ow3x")]
 transform = Transform3D(2.2, 0, 0, 0, 3.9, 0, 0, 0, 1, -23.5323, 4.19734, 25.4749)
 
-[node name="RoomArea" type="Area3D" parent="."]
+[node name="RoomArea" type="Area3D" parent="." unique_id=1582096217]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomArea" unique_id=1877993685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706635, 6.84744, -0.438721)
 shape = SubResource("BoxShape3D_ne4dp")

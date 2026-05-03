@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://7tchlbvjru0d"]
+[gd_scene format=3 uid="uid://7tchlbvjru0d"]
 
 [ext_resource type="FontFile" uid="uid://bjwx8qxk27v4y" path="res://fonts/vtRemingtonPortableMipmaps.ttf" id="1_osu58"]
 [ext_resource type="Script" uid="uid://dk6lih3r73g1s" path="res://ui_assets/misc/text_sprawl.gd" id="2_osu58"]

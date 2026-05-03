@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dutlohe40lm4o"]
+[gd_scene format=3 uid="uid://dutlohe40lm4o"]
 
 [ext_resource type="PackedScene" uid="uid://dhtjj36hm6wa1" path="res://models/props/gags/hypno_goggles/HypnoGoggles.glb" id="1_v45yt"]
 

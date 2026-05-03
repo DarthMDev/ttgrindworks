@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxnsyppa38vgy"]
+[gd_scene format=3 uid="uid://bxnsyppa38vgy"]
 
 [ext_resource type="PackedScene" uid="uid://c2qy76wccuv4r" path="res://models/props/cog_props/stun_stars/stun_stars.fbx" id="1_i33sl"]
 [ext_resource type="Script" uid="uid://503cqmqe654x" path="res://models/props/cog_props/stun_stars/stun_stars.gd" id="2_qeolw"]

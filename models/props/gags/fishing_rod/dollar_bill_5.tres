@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6k1h8avpta45"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6k1h8avpta45"]
 
 [ext_resource type="Texture2D" uid="uid://cnbatuh3go4is" path="res://models/props/gags/fishing_rod/dollar_5.png" id="1_sebeq"]
 

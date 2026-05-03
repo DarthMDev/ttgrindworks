@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=20 format=3 uid="uid://vgg5px6wnyc"]
+[gd_resource type="VisualShader" format=3 uid="uid://vgg5px6wnyc"]
 
 [ext_resource type="Texture2D" uid="uid://hehbahi6y51q" path="res://objects/obstacles/burner/textures/flamemap.png" id="1_ueesx"]
 
@@ -69,88 +69,6 @@ default_value_enabled = true
 default_value = 1.0
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
-
-uniform vec4 ColorParameter : source_color = vec4(0.254902, 0.639216, 1.000000, 1.000000);
-uniform vec2 fire_panning_speed;
-uniform sampler2D tex_frg_2;
-uniform float FirePanningVisibility = 1.0;
-uniform float AddFresnelVisibility = 1.0;
-uniform sampler2D Noise_Texture;
-
-
-
-void fragment() {
-// ColorParameter:7
-	vec4 n_out7p0 = ColorParameter;
-
-
-// Vector2Parameter:17
-	vec2 n_out17p0 = fire_panning_speed;
-
-
-// Input:3
-	float n_out3p0 = TIME;
-
-
-// UVFunc:4
-	vec2 n_out4p0 = vec2(n_out3p0) * n_out17p0 + UV;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
-
-
-// FloatParameter:8
-	float n_out8p0 = FirePanningVisibility;
-
-
-// Fresnel:5
-	float n_out5p0 = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), n_out8p0);
-
-
-// VectorOp:6
-	vec3 n_out6p0 = min(vec3(n_out2p0.xyz), vec3(n_out5p0));
-
-
-// FloatParameter:18
-	float n_out18p0 = AddFresnelVisibility;
-
-
-// Fresnel:12
-	float n_out12p0 = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), n_out18p0);
-
-
-// Input:19
-	float n_out19p0 = TIME;
-
-
-// UVFunc:20
-	vec2 n_in20p1 = vec2(0.00000, 0.50000);
-	vec2 n_out20p0 = vec2(n_out19p0) * n_in20p1 + UV;
-
-
-	vec4 n_out15p0;
-// Texture2D:15
-	n_out15p0 = texture(Noise_Texture, n_out20p0);
-
-
-// FloatOp:16
-	float n_out16p0 = n_out12p0 * n_out15p0.x;
-
-
-// FloatOp:13
-	float n_out13p0 = n_out6p0.x + n_out16p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out7p0.xyz);
-	ALPHA = n_out13p0;
-
-
-}
-"
 nodes/fragment/0/position = Vector2(1500, 560)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_8qxji")
 nodes/fragment/2/position = Vector2(-20, 160)

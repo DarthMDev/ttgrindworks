@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://ckiulk3hjj35n"]
+[gd_scene format=3 uid="uid://ckiulk3hjj35n"]
 
 [ext_resource type="PackedScene" uid="uid://capl8g8uykjs5" path="res://models/misc_zones/stranger_shop/stranger_shop.fbx" id="1_nxxi2"]
 [ext_resource type="Texture2D" uid="uid://3um3lnik25b0" path="res://models/misc_zones/stranger_shop/textures/FINALFACTORY_67.png" id="2_e6mba"]
@@ -152,7 +152,7 @@ emission_energy_multiplier = 0.0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3e174"]
 data = PackedVector3Array(0.0671, -0.0672, -0.0076, 0.0671, -0.0672, 0.0076, 0.0671, -0.099, 0.0076, 0.0671, -0.099, 0.0076, 0.0671, -0.099, -0.0076, 0.0671, -0.0672, -0.0076, -0.0671, -0.099, -0.0076, -0.0671, -0.099, 0.0076, -0.0671, -0.0672, 0.0076, -0.0671, -0.0672, 0.0076, -0.0671, -0.0672, -0.0076, -0.0671, -0.099, -0.0076, 0.0671, -0.099, -0.0076, 0.0671, -0.099, 0.0076, 0, -0.099, 0.0076, 0, -0.099, 0.0076, 0, -0.099, -0.0076, 0.0671, -0.099, -0.0076, 0, -0.099, -0.0076, 0, -0.099, 0.0076, -0.0671, -0.099, 0.0076, -0.0671, -0.099, 0.0076, -0.0671, -0.099, -0.0076, 0, -0.099, -0.0076, -0.0671, 0.099, -0.0076, -0.0671, 0.099, 0.0076, 0, 0.099, 0.0076, 0, 0.099, 0.0076, 0, 0.099, -0.0076, -0.0671, 0.099, -0.0076, 0, 0.099, -0.0076, 0, 0.099, 0.0076, 0.0671, 0.099, 0.0076, 0.0671, 0.099, 0.0076, 0.0671, 0.099, -0.0076, 0, 0.099, -0.0076, 0, -0.0672, -0.0076, 0, -0.0672, 0.0076, 0.0671, -0.0672, 0.0076, 0.0671, -0.0672, 0.0076, 0.0671, -0.0672, -0.0076, 0, -0.0672, -0.0076, 0, -0.0672, 0.0076, 0, -0.0672, -0.0076, -0.0671, -0.0672, -0.0076, -0.0671, -0.0672, -0.0076, -0.0671, -0.0672, 0.0076, 0, -0.0672, 0.0076, 0.0671, 0.099, -0.0076, 0.0671, 0.099, 0.0076, 0.0671, 0.0672, 0.0076, 0.0671, 0.0672, 0.0076, 0.0671, 0.0672, -0.0076, 0.0671, 0.099, -0.0076, -0.0671, 0.0672, -0.0076, -0.0671, 0.0672, 0.0076, -0.0671, 0.099, 0.0076, -0.0671, 0.099, 0.0076, -0.0671, 0.099, -0.0076, -0.0671, 0.0672, -0.0076, 0.0671, 0.0672, -0.0076, 0.0671, 0.0672, 0.0076, 0, 0.0672, 0.0076, 0, 0.0672, 0.0076, 0, 0.0672, -0.0076, 0.0671, 0.0672, -0.0076, 0, 0.0672, -0.0076, 0, 0.0672, 0.0076, -0.0671, 0.0672, 0.0076, -0.0671, 0.0672, 0.0076, -0.0671, 0.0672, -0.0076, 0, 0.0672, -0.0076, 0, 0.099, -0.0076, 0, 0.0672, -0.0076, -0.0671, 0.0672, -0.0076, -0.0671, 0.0672, -0.0076, -0.0671, 0.099, -0.0076, 0, 0.099, -0.0076, 0, 0.0672, -0.0076, 0, 0.099, -0.0076, 0.0671, 0.099, -0.0076, 0.0671, 0.099, -0.0076, 0.0671, 0.0672, -0.0076, 0, 0.0672, -0.0076, 0, -0.0672, -0.0076, 0, -0.099, -0.0076, -0.0671, -0.099, -0.0076, -0.0671, -0.099, -0.0076, -0.0671, -0.0672, -0.0076, 0, -0.0672, -0.0076, 0, -0.099, -0.0076, 0, -0.0672, -0.0076, 0.0671, -0.0672, -0.0076, 0.0671, -0.0672, -0.0076, 0.0671, -0.099, -0.0076, 0, -0.099, -0.0076, 0.0671, 0.0672, 0.0076, 0.0671, 0.099, 0.0076, 0.0799, 0.1151, 0.0076, 0.0671, 0.0672, 0.0076, 0.0799, 0.1151, 0.0076, 0.0799, 0, 0.0076, 0.0799, 0, 0.0076, 0.0671, 0, 0.0076, 0.0671, 0.0672, 0.0076, 0.0921, 0, 0.0076, 0.0799, 0, 0.0076, 0.0799, 0.1151, 0.0076, 0.0799, 0.1151, 0.0076, 0.0921, 0.1402, 0.0076, 0.0921, 0, 0.0076, 0.0799, -0.1164, 0.0076, 0.0799, 0, 0.0076, 0.0921, 0, 0.0076, 0, 0.1402, 0.0076, 0.0921, 0.1402, 0.0076, 0.0799, 0.1151, 0.0076, 0.0921, 0, 0.0076, 0.0921, -0.1402, 0.0076, 0.0799, -0.1164, 0.0076, 0.0799, -0.1164, 0.0076, 0.0921, -0.1402, 0.0076, 0, -0.1402, 0.0076, 0, 0.1151, 0.0076, 0.0799, 0.1151, 0.0076, 0.0671, 0.099, 0.0076, 0.0799, 0.1151, 0.0076, 0, 0.1151, 0.0076, 0, 0.1402, 0.0076, 0.0671, 0.099, 0.0076, 0, 0.099, 0.0076, 0, 0.1151, 0.0076, 0, 0.1151, 0.0076, 0, 0.099, 0.0076, -0.0671, 0.099, 0.0076, 0, 0.1402, 0.0076, 0, 0.1151, 0.0076, -0.0799, 0.1151, 0.0076, -0.0671, 0.099, 0.0076, -0.0799, 0.1151, 0.0076, 0, 0.1151, 0.0076, -0.0799, 0.1151, 0.0076, -0.0921, 0.1402, 0.0076, 0, 0.1402, 0.0076, -0.0921, 0, 0.0076, -0.0921, 0.1402, 0.0076, -0.0799, 0.1151, 0.0076, -0.0671, 0.099, 0.0076, -0.0671, 0.0672, 0.0076, -0.0799, 0.1151, 0.0076, -0.0799, 0.1151, 0.0076, -0.0799, 0, 0.0076, -0.0921, 0, 0.0076, -0.0799, 0, 0.0076, -0.0799, 0.1151, 0.0076, -0.0671, 0.0672, 0.0076, -0.0921, 0, 0.0076, -0.0799, 0, 0.0076, -0.0799, -0.1164, 0.0076, -0.0671, 0.0672, 0.0076, -0.0671, 0, 0.0076, -0.0799, 0, 0.0076, -0.0799, -0.1164, 0.0076, -0.0921, -0.1402, 0.0076, -0.0921, 0, 0.0076, 0, -0.1402, 0.0076, -0.0921, -0.1402, 0.0076, -0.0799, -0.1164, 0.0076, 0, 0, 0.0076, -0.0671, 0, 0.0076, -0.0671, 0.0672, 0.0076, -0.0671, 0.0672, 0.0076, 0, 0.0672, 0.0076, 0, 0, 0.0076, 0, 0, 0.0076, 0, 0.0672, 0.0076, 0.0671, 0.0672, 0.0076, 0.0671, 0.0672, 0.0076, 0.0671, 0, 0.0076, 0, 0, 0.0076, -0.0671, 0, 0.0076, 0, 0, 0.0076, 0, -0.0672, 0.0076, 0, -0.0672, 0.0076, 0, 0, 0.0076, 0.0671, 0, 0.0076, 0, -0.0672, 0.0076, -0.0671, -0.0672, 0.0076, -0.0671, 0, 0.0076, 0.0671, 0, 0.0076, 0.0671, -0.0672, 0.0076, 0, -0.0672, 0.0076, -0.0671, -0.099, 0.0076, -0.0799, -0.1164, 0.0076, -0.0671, -0.0672, 0.0076, -0.0799, -0.1164, 0.0076, 0, -0.1164, 0.0076, 0, -0.1402, 0.0076, 0, -0.1164, 0.0076, -0.0799, -0.1164, 0.0076, -0.0671, -0.099, 0.0076, -0.0671, -0.099, 0.0076, 0, -0.099, 0.0076, 0, -0.1164, 0.0076, 0, -0.1402, 0.0076, 0, -0.1164, 0.0076, 0.0799, -0.1164, 0.0076, 0.0799, -0.1164, 0.0076, 0.0671, -0.099, 0.0076, 0.0671, -0.0672, 0.0076, 0, -0.1164, 0.0076, 0, -0.099, 0.0076, 0.0671, -0.099, 0.0076, 0.0671, -0.099, 0.0076, 0.0799, -0.1164, 0.0076, 0, -0.1164, 0.0076, 0.0671, -0.0672, 0.0076, 0.0671, 0, 0.0076, 0.0799, 0, 0.0076, 0.0799, 0, 0.0076, 0.0799, -0.1164, 0.0076, 0.0671, -0.0672, 0.0076, -0.0671, -0.0672, 0.0076, -0.0799, -0.1164, 0.0076, -0.0799, 0, 0.0076, -0.0799, 0, 0.0076, -0.0671, 0, 0.0076, -0.0671, -0.0672, 0.0076)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1xfo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ppnt"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -161,11 +161,11 @@ albedo_texture = ExtResource("14_3yema")
 uv1_scale = Vector3(1, 0.945, 1)
 uv1_offset = Vector3(0, 0.048, 0)
 
-[sub_resource type="QuadMesh" id="QuadMesh_7j8re"]
+[sub_resource type="QuadMesh" id="QuadMesh_c0g2v"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_u1xfo")
+material = SubResource("StandardMaterial3D_5ppnt")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkplq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdm1v"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -174,11 +174,11 @@ albedo_texture = ExtResource("14_3yema")
 uv1_scale = Vector3(1, 0.945, 1)
 uv1_offset = Vector3(0, 0.048, 0)
 
-[sub_resource type="QuadMesh" id="QuadMesh_qjplq"]
+[sub_resource type="QuadMesh" id="QuadMesh_npjy2"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_pkplq")
+material = SubResource("StandardMaterial3D_gdm1v")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0x82r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1468d"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -187,11 +187,11 @@ albedo_texture = ExtResource("14_3yema")
 uv1_scale = Vector3(1, 0.945, 1)
 uv1_offset = Vector3(0, 0.048, 0)
 
-[sub_resource type="QuadMesh" id="QuadMesh_2ci3j"]
+[sub_resource type="QuadMesh" id="QuadMesh_4j3v5"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_0x82r")
+material = SubResource("StandardMaterial3D_1468d")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfot2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1710"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -200,9 +200,9 @@ albedo_texture = ExtResource("14_3yema")
 uv1_scale = Vector3(1, 0.945, 1)
 uv1_offset = Vector3(0, 0.048, 0)
 
-[sub_resource type="QuadMesh" id="QuadMesh_m718k"]
+[sub_resource type="QuadMesh" id="QuadMesh_kqdy5"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_hfot2")
+material = SubResource("StandardMaterial3D_u1710")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqvpb"]
 resource_name = "CBMoneyBag1_SHD2"
@@ -486,20 +486,20 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_puw2p")
 size = Vector2(0.4, 0.4)
 
-[node name="StrangerShop" instance=ExtResource("1_nxxi2")]
+[node name="StrangerShop" unique_id=573056619 instance=ExtResource("1_nxxi2")]
 script = ExtResource("2_qxodn")
 
 [node name="Big Vent Covering" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_l4gs0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Big Vent Covering" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Big Vent Covering" index="0" unique_id=1391066508]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Big Vent Covering/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Big Vent Covering/StaticBody3D" index="0" unique_id=1472107052]
 shape = SubResource("ConcavePolygonShape3D_vomp0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bucket2" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bucket2" index="0" unique_id=1352195387]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bucket2/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bucket2/StaticBody3D" index="0" unique_id=1054287023]
 shape = SubResource("ConcavePolygonShape3D_0x82r")
 
 [node name="Cobwebs" parent="." index="2"]
@@ -509,9 +509,9 @@ surface_material_override/1 = SubResource("StandardMaterial3D_qncen")
 [node name="Collision" parent="." index="3"]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Collision" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision" index="0" unique_id=181247396]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBody3D" index="0" unique_id=388112593]
 shape = SubResource("ConcavePolygonShape3D_m718k")
 
 [node name="Cube" parent="." index="4"]
@@ -520,9 +520,9 @@ surface_material_override/1 = SubResource("StandardMaterial3D_kpyfh")
 surface_material_override/2 = SubResource("StandardMaterial3D_x7pa6")
 surface_material_override/3 = SubResource("StandardMaterial3D_2oba7")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=2013786666]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=903534288]
 shape = SubResource("ConcavePolygonShape3D_45ad1")
 
 [node name="Floor" parent="." index="5"]
@@ -530,29 +530,29 @@ surface_material_override/0 = SubResource("StandardMaterial3D_leqsn")
 surface_material_override/1 = SubResource("StandardMaterial3D_7alu4")
 surface_material_override/2 = SubResource("StandardMaterial3D_f6jt3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" index="0" unique_id=26534163]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" index="0" unique_id=768362335]
 shape = SubResource("ConcavePolygonShape3D_3e174")
 
-[node name="GradientPlane" parent="." index="6" instance=ExtResource("13_nx42x")]
+[node name="GradientPlane" parent="." index="6" unique_id=327608835 instance=ExtResource("13_nx42x")]
 transform = Transform3D(-8.50132e-07, 0, -19.4488, 1.70026e-06, -37.6671, -7.43209e-14, -19.4488, -3.29296e-06, 8.50132e-07, 5.24148, 36.6916, -0.515817)
-mesh = SubResource("QuadMesh_7j8re")
+mesh = SubResource("QuadMesh_c0g2v")
 color = Color(0.586274, 0.730752, 0.77447, 1)
 
-[node name="GradientPlane2" parent="." index="7" instance=ExtResource("13_nx42x")]
+[node name="GradientPlane2" parent="." index="7" unique_id=686734324 instance=ExtResource("13_nx42x")]
 transform = Transform3D(-8.50132e-07, -2.8788e-13, 19.4488, 1.70026e-06, -37.6671, -7.43209e-14, 19.4488, 3.29296e-06, 8.50132e-07, -4.79181, 36.6916, -0.515817)
-mesh = SubResource("QuadMesh_qjplq")
+mesh = SubResource("QuadMesh_npjy2")
 color = Color(0.586274, 0.730752, 0.77447, 1)
 
-[node name="GradientPlane3" parent="." index="8" instance=ExtResource("13_nx42x")]
+[node name="GradientPlane3" parent="." index="8" unique_id=147160330 instance=ExtResource("13_nx42x")]
 transform = Transform3D(12.028, 3.29296e-06, -5.68434e-14, 1.05152e-06, -37.6671, -7.43209e-14, -3.51545e-14, 1.4394e-13, -19.4488, 0.224836, 36.6916, 8.21959)
-mesh = SubResource("QuadMesh_2ci3j")
+mesh = SubResource("QuadMesh_4j3v5")
 color = Color(0.586274, 0.730752, 0.77447, 1)
 
-[node name="GradientPlane4" parent="." index="9" instance=ExtResource("13_nx42x")]
+[node name="GradientPlane4" parent="." index="9" unique_id=1391986773 instance=ExtResource("13_nx42x")]
 transform = Transform3D(-12.028, -3.29296e-06, -1.70026e-06, 1.05152e-06, -37.6671, -7.43209e-14, -1.05152e-06, -4.3182e-13, 19.4488, 0.225, 36.692, -8.48844)
-mesh = SubResource("QuadMesh_m718k")
+mesh = SubResource("QuadMesh_kqdy5")
 color = Color(0.586274, 0.730752, 0.77447, 1)
 
 [node name="JunkBarrier" parent="." index="10"]
@@ -569,17 +569,17 @@ surface_material_override/0 = SubResource("ShaderMaterial_2oba7")
 [node name="Pallet" parent="." index="13"]
 surface_material_override/0 = SubResource("StandardMaterial3D_7mhyt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pallet" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pallet" index="0" unique_id=1024393284]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pallet/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pallet/StaticBody3D" index="0" unique_id=142461727]
 shape = SubResource("ConvexPolygonShape3D_vomp0")
 
 [node name="Pallet_001" parent="." index="14"]
 surface_material_override/0 = SubResource("StandardMaterial3D_4oqkk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pallet_001" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pallet_001" index="0" unique_id=1301910150]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pallet_001/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pallet_001/StaticBody3D" index="0" unique_id=993250600]
 shape = SubResource("ConvexPolygonShape3D_2oba7")
 
 [node name="Pipes" parent="." index="15"]
@@ -606,9 +606,9 @@ surface_material_override/3 = SubResource("StandardMaterial3D_8lijk")
 surface_material_override/0 = SubResource("StandardMaterial3D_qxodn")
 surface_material_override/1 = SubResource("StandardMaterial3D_7j8re")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Vent Covering" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Vent Covering" index="0" unique_id=1891681022]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Vent Covering/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vent Covering/StaticBody3D" index="0" unique_id=1235815224]
 shape = SubResource("ConcavePolygonShape3D_qbmpx")
 
 [node name="Vent Pipes" parent="." index="22"]
@@ -618,148 +618,148 @@ surface_material_override/0 = SubResource("StandardMaterial3D_58gd2")
 surface_material_override/0 = SubResource("StandardMaterial3D_qbmpx")
 surface_material_override/1 = SubResource("StandardMaterial3D_jeci0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" index="0" unique_id=1690964101]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" index="0" unique_id=353247914]
 shape = SubResource("ConcavePolygonShape3D_2ci3j")
 
 [node name="Walls Grime" parent="." index="24"]
 surface_material_override/0 = SubResource("StandardMaterial3D_6i1rn")
 
-[node name="StrangerShop" type="Node3D" parent="." index="26"]
+[node name="StrangerShop" type="Node3D" parent="." index="26" unique_id=1859487420]
 
-[node name="Stranger" parent="StrangerShop" index="0" instance=ExtResource("31_qjplq")]
+[node name="Stranger" parent="StrangerShop" index="0" unique_id=915115515 instance=ExtResource("31_qjplq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263161, 0, -0.988905)
 
-[node name="StrangerCam" type="Camera3D" parent="StrangerShop" index="1"]
+[node name="StrangerCam" type="Camera3D" parent="StrangerShop" index="1" unique_id=717056074]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.249, 1.071, -3.153)
 fov = 52.0
 
-[node name="WorldItems" type="Node3D" parent="StrangerShop" index="2"]
+[node name="WorldItems" type="Node3D" parent="StrangerShop" index="2" unique_id=1388418878]
 unique_name_in_owner = true
 
-[node name="Item1" parent="StrangerShop/WorldItems" index="0" instance=ExtResource("32_0x82r")]
+[node name="Item1" parent="StrangerShop/WorldItems" index="0" unique_id=1157735357 instance=ExtResource("32_0x82r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.143, 1.3, -1.841)
 pool = ExtResource("33_2ci3j")
 override_replacement_rolls = true
 
-[node name="Item2" parent="StrangerShop/WorldItems" index="1" instance=ExtResource("32_0x82r")]
+[node name="Item2" parent="StrangerShop/WorldItems" index="1" unique_id=324018294 instance=ExtResource("32_0x82r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.112, 1.158, -1.841)
 pool = ExtResource("33_2ci3j")
 override_replacement_rolls = true
 
-[node name="Item3" parent="StrangerShop/WorldItems" index="2" instance=ExtResource("32_0x82r")]
+[node name="Item3" parent="StrangerShop/WorldItems" index="2" unique_id=1437768531 instance=ExtResource("32_0x82r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.863, 1.063, -1.841)
 pool = ExtResource("33_2ci3j")
 override_replacement_rolls = true
 
-[node name="Item4" parent="StrangerShop/WorldItems" index="3" instance=ExtResource("32_0x82r")]
+[node name="Item4" parent="StrangerShop/WorldItems" index="3" unique_id=2053432787 instance=ExtResource("32_0x82r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.933, 1.553, -1.841)
 pool = ExtResource("33_2ci3j")
 override_replacement_rolls = true
 
-[node name="ItemCameras" type="Node3D" parent="StrangerShop" index="3"]
+[node name="ItemCameras" type="Node3D" parent="StrangerShop" index="3" unique_id=730867028]
 unique_name_in_owner = true
 
-[node name="1" type="Camera3D" parent="StrangerShop/ItemCameras" index="0"]
+[node name="1" type="Camera3D" parent="StrangerShop/ItemCameras" index="0" unique_id=1654278322]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.131, 1.441, -3.153)
 fov = 52.0
 
-[node name="2" type="Camera3D" parent="StrangerShop/ItemCameras" index="1"]
+[node name="2" type="Camera3D" parent="StrangerShop/ItemCameras" index="1" unique_id=106106116]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.144, 1.231, -3.153)
 fov = 52.0
 
-[node name="3" type="Camera3D" parent="StrangerShop/ItemCameras" index="2"]
+[node name="3" type="Camera3D" parent="StrangerShop/ItemCameras" index="2" unique_id=2049807201]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.951, 1.196, -3.153)
 fov = 52.0
 
-[node name="4" type="Camera3D" parent="StrangerShop/ItemCameras" index="3"]
+[node name="4" type="Camera3D" parent="StrangerShop/ItemCameras" index="3" unique_id=1923458378]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.986, 1.571, -3.153)
 fov = 52.0
 
-[node name="StrangerUI" parent="StrangerShop" index="4" instance=ExtResource("34_hfot2")]
+[node name="StrangerUI" parent="StrangerShop" index="4" unique_id=95032214 instance=ExtResource("34_hfot2")]
 unique_name_in_owner = true
 visible = false
 
-[node name="PlayerShopPos" type="Node3D" parent="StrangerShop" index="5"]
+[node name="PlayerShopPos" type="Node3D" parent="StrangerShop" index="5" unique_id=692836563]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223204, -0.00206208, -3.70471)
 
-[node name="ElevatorEnter" parent="." index="27" instance=ExtResource("17_3e174")]
+[node name="ElevatorEnter" parent="." index="27" unique_id=552571802 instance=ExtResource("17_3e174")]
 unique_name_in_owner = true
 transform = Transform3D(1.972, 0, 1.56385e-13, 0, 1.972, 0, -1.56385e-13, 0, 1.972, 0, 0, -13.8265)
 floor_count = 5
 monitoring = false
 opened = false
 
-[node name="ElevatorExit" parent="." index="28" instance=ExtResource("17_3e174")]
+[node name="ElevatorExit" parent="." index="28" unique_id=694606258 instance=ExtResource("17_3e174")]
 unique_name_in_owner = true
 transform = Transform3D(-1.972, 0, 2.97764e-07, 0, 1.972, 0, -2.97764e-07, 0, -1.972, 0, 0, 13.7555)
 floor_count = 5
 scene_path = "res://scenes/elevator_scene/elevator_scene.tscn"
 
-[node name="WalkInCutscene" type="Node3D" parent="." index="29"]
+[node name="WalkInCutscene" type="Node3D" parent="." index="29" unique_id=671913814]
 unique_name_in_owner = true
 physics_interpolation_mode = 2
 
-[node name="PlayerStartPos" type="Node3D" parent="WalkInCutscene" index="0"]
+[node name="PlayerStartPos" type="Node3D" parent="WalkInCutscene" index="0" unique_id=1210190388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.255)
 
-[node name="PlayerEnterPos" type="Node3D" parent="WalkInCutscene" index="1"]
+[node name="PlayerEnterPos" type="Node3D" parent="WalkInCutscene" index="1" unique_id=803720373]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.4984)
 
-[node name="IntroCam" type="Camera3D" parent="WalkInCutscene" index="2"]
+[node name="IntroCam" type="Camera3D" parent="WalkInCutscene" index="2" unique_id=492842363]
 transform = Transform3D(-1, 0, -5.96047e-08, 0, 1, 0, 5.96047e-08, 0, -1, 0, 1.437, -17.912)
 fov = 52.0
 
-[node name="PlayerWalkToPos" type="Node3D" parent="WalkInCutscene" index="3"]
+[node name="PlayerWalkToPos" type="Node3D" parent="WalkInCutscene" index="3" unique_id=764858973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.769655, 0, -3.20306)
 
-[node name="PlayerCam" type="Camera3D" parent="WalkInCutscene" index="4"]
+[node name="PlayerCam" type="Camera3D" parent="WalkInCutscene" index="4" unique_id=1225897567]
 transform = Transform3D(0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 1.805, 1.593, -9.5)
 fov = 52.0
 
-[node name="PlayerCamMovePos" type="Camera3D" parent="WalkInCutscene" index="5"]
+[node name="PlayerCamMovePos" type="Camera3D" parent="WalkInCutscene" index="5" unique_id=45831468]
 transform = Transform3D(0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 0.803, 1.593, -4.07042)
 fov = 52.0
 
-[node name="PlayerItemCam" type="Camera3D" parent="WalkInCutscene" index="6"]
+[node name="PlayerItemCam" type="Camera3D" parent="WalkInCutscene" index="6" unique_id=2053663431]
 transform = Transform3D(0.898794, -0.106052, 0.42535, 0, 0.970296, 0.241922, -0.438371, -0.217438, 0.872096, 0.335, 1.305, 0.145)
 fov = 52.0
 
-[node name="StrangerCam" type="Camera3D" parent="WalkInCutscene" index="7"]
+[node name="StrangerCam" type="Camera3D" parent="WalkInCutscene" index="7" unique_id=1102947537]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.249, 1.071, -2)
 fov = 52.0
 
-[node name="ShopCounterCam" type="Camera3D" parent="WalkInCutscene" index="8"]
+[node name="ShopCounterCam" type="Camera3D" parent="WalkInCutscene" index="8" unique_id=1871757199]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.054, 1.071, -5.507)
 fov = 52.0
 
-[node name="PlayerBeanCam" type="Camera3D" parent="WalkInCutscene" index="9"]
+[node name="PlayerBeanCam" type="Camera3D" parent="WalkInCutscene" index="9" unique_id=1539742483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249, 1.071, -2)
 fov = 52.0
 
-[node name="PlayerShopPos" type="Node3D" parent="WalkInCutscene" index="10"]
+[node name="PlayerShopPos" type="Node3D" parent="WalkInCutscene" index="10" unique_id=91749608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26252, 0, -4)
 
-[node name="StrangerLeaveCam" type="Camera3D" parent="WalkInCutscene" index="11"]
+[node name="StrangerLeaveCam" type="Camera3D" parent="WalkInCutscene" index="11" unique_id=147276532]
 transform = Transform3D(-0.382683, 0.468904, -0.796042, 0, 0.861629, 0.507538, 0.92388, 0.194227, -0.329731, -4, 3.5, -4.3)
 fov = 52.0
 
-[node name="StrangerLeaveCamPos" type="Camera3D" parent="WalkInCutscene" index="12"]
+[node name="StrangerLeaveCamPos" type="Camera3D" parent="WalkInCutscene" index="12" unique_id=1418294979]
 transform = Transform3D(-0.382683, 0.468904, -0.796042, 0, 0.861629, 0.507538, 0.92388, 0.194227, -0.329731, -5, 4.5, -5.3)
 fov = 52.0
 
-[node name="ElevatorLightTimer" type="Timer" parent="." index="30"]
+[node name="ElevatorLightTimer" type="Timer" parent="." index="30" unique_id=1393027363]
 wait_time = 0.25
 autostart = true
 
-[node name="DebugPlayerPositionMarker" parent="." index="31" instance=ExtResource("5_nxxi2")]
+[node name="DebugPlayerPositionMarker" parent="." index="31" unique_id=251372571 instance=ExtResource("5_nxxi2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.88246)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="32"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="32" unique_id=590286374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9461412, 0)
 amount = 122
 lifetime = 9.61

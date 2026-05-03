@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://btajacdw0exth"]
+[gd_scene format=4 uid="uid://btajacdw0exth"]
 
 [ext_resource type="Texture2D" uid="uid://dyiy7t6ry26h5" path="res://models/props/facility_objects/da_office/partition/partition_0.png" id="1_w4mpl"]
 [ext_resource type="Texture2D" uid="uid://d1dq1kku7ic5l" path="res://models/props/facility_objects/da_office/partition/partition_1.png" id="2_0go8v"]

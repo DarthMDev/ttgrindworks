@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://03of6axg5d8o"]
+[gd_scene format=3 uid="uid://03of6axg5d8o"]
 
 [ext_resource type="Texture2D" uid="uid://x6wnu2wjf8im" path="res://objects/props/etc/dust_cloud/Dust_01.png" id="1_llbgs"]
 [ext_resource type="Texture2D" uid="uid://c3yaclchm8wrp" path="res://objects/props/etc/dust_cloud/Dust_02.png" id="2_svo6f"]

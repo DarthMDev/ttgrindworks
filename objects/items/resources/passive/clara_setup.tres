@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://qhrcvp4qwyx2"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://qhrcvp4qwyx2"]
 
 [ext_resource type="Script" uid="uid://d26qcyn30pet6" path="res://objects/items/custom/item_clara_setup.gd" id="1_l6yip"]
 [ext_resource type="Script" uid="uid://combwqypom1ru" path="res://objects/items/classes/item.gd" id="2_7se2o"]

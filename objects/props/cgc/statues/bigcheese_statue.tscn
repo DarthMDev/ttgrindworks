@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://742f5b4k1y1m"]
+[gd_scene format=3 uid="uid://742f5b4k1y1m"]
 
 [ext_resource type="PackedScene" uid="uid://c780k5aai1113" path="res://models/props/facility_objects/cgc/statues/bigcheese_statue.fbx" id="1_taw28"]
 

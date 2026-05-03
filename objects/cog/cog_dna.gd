@@ -24,6 +24,7 @@ enum SuitType {
 @export_custom(GameLoader.FILE, GameLoader.TEXTURE) var custom_hand_tex: String
 @export_custom(GameLoader.FILE, GameLoader.TEXTURE) var custom_shoe_tex: String
 @export_custom(GameLoader.FILE, GameLoader.TEXTURE) var custom_emblem_tex: String
+@export_custom(GameLoader.FILE, GameLoader.TEXTURE) var custom_skelecog_tie_tex: String
 
 @export var cog_name: String = "Cog"
 @export var name_plural: String = ""
@@ -63,6 +64,7 @@ enum SuitType {
 	custom_hand_tex = "",
 	custom_shoe_tex = "",
 	custom_emblem_tex = "",
+	custom_skelecog_tie_tex = "",
 }
 
 const DEFAULT_HEAD := "res://models/cogs/heads/flunky.glb"
@@ -75,10 +77,12 @@ func get_head() -> Node3D:
 	elif not external_assets['head_model'] == "":
 		var head_path : String = external_assets['head_model']
 		if head_path.begins_with('res://'):
-			head_mod = load(head_path).instantiate()
+			if ResourceLoader.exists(head_path):
+				head_mod = load(head_path).instantiate()
 		elif Globals.custom_cog_head_directory.has(head_path):
 			head_mod = Globals.custom_cog_head_directory.get(head_path).instantiate()
-	else:
+	
+	if not head_mod:
 		head_mod = load(DEFAULT_HEAD).instantiate()
 	
 	var head_tex: Array[Texture2D]
@@ -86,7 +90,8 @@ func get_head() -> Node3D:
 		head_tex.append(load(path))
 	for path: String in external_assets['head_textures']:
 		if path.begins_with('res://'):
-			head_tex.append(load(path))
+			if ResourceLoader.exists(path):
+				head_tex.append(load(path))
 		else:
 			head_tex.append(ImageTexture.create_from_image(Image.load_from_file(path)))
 	
@@ -110,10 +115,19 @@ func get_head() -> Node3D:
 	
 	return head_mod
 
+## Names of external asset names to include from the second DNA
+const EXTERNAL_DNA_INCLUSION: Array[String] = [
+	'baked_status_effects',
+	'status_effects',
+	'head_model',
+	'head_textures',
+]
 func combine_attributes(second_dna: CogDNA) -> void:
 	# Copy certain attributes from the second DNA to self
 	head = second_dna.head
-	external_assets = second_dna.external_assets
+	for included_external_asset in EXTERNAL_DNA_INCLUSION:
+		if second_dna.external_assets.has(included_external_asset):
+			external_assets[included_external_asset] = second_dna.external_assets[included_external_asset]
 	head_textures = second_dna.head_textures
 	hand_color = second_dna.hand_color
 	if not second_dna.head_color == Color.WHITE:
@@ -216,6 +230,7 @@ const PATH_ATTRIBUTE_LIST : Array[String] = [
 	"custom_hand_tex",
 	"custom_shoe_tex",
 	"custom_emblem_tex",
+	"custom_skelecog_tie_tex",
 	"head_textures",
 	"head",
 	"attacks",
@@ -290,9 +305,9 @@ static func from_json(string : String) -> CogDNA:
 			var dna_attribute_name: String = ATTRIBUTE_REMAP.get(attribute_name, attribute_name)
 			var attribute : Variant = externals[attribute_name]
 			if attribute is String:
-				if is_image_file(attribute) and not attribute.begins_with("res://"):
+				if is_image_file(attribute):
 					pass
-				elif Util.file_exists(attribute) or attribute.begins_with('res://'):
+				elif Util.file_exists(attribute):
 					dna.set(dna_attribute_name, load(attribute))
 			elif attribute is Array:
 				if typeof(dna.get(dna_attribute_name)) != TYPE_PACKED_STRING_ARRAY:

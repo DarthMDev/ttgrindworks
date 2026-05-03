@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dhsw2gdj1qmpx"]
+[gd_scene format=3 uid="uid://dhsw2gdj1qmpx"]
 
 [ext_resource type="PackedScene" uid="uid://beiqhw4no4fsh" path="res://models/props/facility_objects/molten/liquidator/Liquidator_v1b.glb" id="1_kt6ro"]
 [ext_resource type="Script" uid="uid://dakrs0r3opfqk" path="res://objects/props/molten/liquidator.gd" id="2_ijjr2"]

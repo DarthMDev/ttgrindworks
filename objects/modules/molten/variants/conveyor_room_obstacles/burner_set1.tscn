@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hvvko2vguyj0"]
+[gd_scene format=3 uid="uid://hvvko2vguyj0"]
 
 [ext_resource type="PackedScene" uid="uid://bchcm0txqesmn" path="res://objects/obstacles/burner/burner.tscn" id="1_6jr0v"]
 [ext_resource type="Shader" uid="uid://b4l5edm0sdpba" path="res://objects/obstacles/burner/shaders/innerburner.tres" id="2_42hrd"]

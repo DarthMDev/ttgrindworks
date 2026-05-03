@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcqbvvtyoqxfn"]
+[gd_scene format=3 uid="uid://bcqbvvtyoqxfn"]
 
 [ext_resource type="PackedScene" uid="uid://cshy462gxl2no" path="res://models/accessories/hats/princess_hat/tt_m_chr_avt_acc_hat_princess.glb" id="1_kuk0p"]
 [ext_resource type="Texture2D" uid="uid://l5lkr42m7gdv" path="res://models/accessories/hats/princess_hat/tt_m_chr_avt_acc_hat_princess_tt_t_chr_avt_acc_hat_princess.png" id="2_fnd0w"]

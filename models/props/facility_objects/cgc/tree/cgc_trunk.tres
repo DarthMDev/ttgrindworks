@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsxecxaohgwef"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dsxecxaohgwef"]
 
 [ext_resource type="Texture2D" uid="uid://ci7mht76qg2sy" path="res://models/props/facility_objects/cgc/tree/CGC_Trunk.png" id="1_1bi4h"]
 

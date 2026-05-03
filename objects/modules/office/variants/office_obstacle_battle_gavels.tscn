@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://p377w16ialr0"]
+[gd_scene format=3 uid="uid://p377w16ialr0"]
 
 [ext_resource type="PackedScene" uid="uid://c8flauti1cf1p" path="res://objects/modules/office/base_rooms/office_obstacle_room.tscn" id="1_odi4v"]
 [ext_resource type="Texture2D" uid="uid://ctah67pj0irrs" path="res://models/facilities/office/textures/CFOCeiling2.png" id="2_crcuk"]

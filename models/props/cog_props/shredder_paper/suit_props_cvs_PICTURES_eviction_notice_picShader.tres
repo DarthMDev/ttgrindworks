@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctt3tl8sycehk"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctt3tl8sycehk"]
 
 [ext_resource type="Texture2D" uid="uid://bhgn3bh0cf5rk" path="res://models/props/cog_props/shredder_paper/shredder_paper_0.png" id="1_iqs1u"]
 

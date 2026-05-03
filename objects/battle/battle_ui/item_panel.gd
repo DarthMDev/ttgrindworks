@@ -60,7 +60,11 @@ func get_voucher_counts() -> Dictionary:
 	var player := Util.get_player()
 	if not is_instance_valid(player):
 		return {}
-	return player.stats.gag_vouchers
+	var gag_vouchers := {}
+	for track in player.character.gag_loadout.loadout:
+		if track.track_name in player.stats.gag_vouchers:
+			gag_vouchers[track.track_name] = player.stats.gag_vouchers[track.track_name]
+	return gag_vouchers
 
 func create_new_voucher(track: Track, count: int) -> Control:
 	var button_copy := voucher_template.duplicate()

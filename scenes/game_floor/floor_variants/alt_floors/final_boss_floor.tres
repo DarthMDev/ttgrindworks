@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=4 format=3 uid="uid://bbpyhg16jluas"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://bbpyhg16jluas"]
 
 [ext_resource type="PackedScene" uid="uid://djdspcssaqo6b" path="res://scenes/final_boss/barrel_room.tscn" id="1_0mwni"]
 [ext_resource type="Script" uid="uid://cxvrtrods5hgg" path="res://scenes/game_floor/floor_variants/floor_variant.gd" id="1_u2mkg"]

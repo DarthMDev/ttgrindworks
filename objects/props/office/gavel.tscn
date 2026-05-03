@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7l1mxomebm5y"]
+[gd_scene format=3 uid="uid://7l1mxomebm5y"]
 
 [ext_resource type="PackedScene" uid="uid://twertctibgra" path="res://models/props/facility_objects/da_office/gavel/gavel.fbx" id="1_uy4ii"]
 

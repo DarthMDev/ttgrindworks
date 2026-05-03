@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=2 format=3 uid="uid://dixbsy1ngy5xs"]
+[gd_resource type="Resource" script_class="ItemPool" format=3 uid="uid://dixbsy1ngy5xs"]
 
 [ext_resource type="Script" uid="uid://bllywk0dq1ug3" path="res://objects/items/classes/item_pool.gd" id="2_qetba"]
 

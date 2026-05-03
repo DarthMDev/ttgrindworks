@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://om18k2dw6gdl"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://om18k2dw6gdl"]
 
 [ext_resource type="Texture2D" uid="uid://djwrglfk55yfb" path="res://models/accessories/glasses/mini_blinds/tt_m_chr_avt_acc_msk_miniblinds_tt_t_chr_avt_acc_msk_miniblindsWhite.png" id="1_eqyf3"]
 

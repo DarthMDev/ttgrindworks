@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c66x2l5k572kt"]
+[gd_scene format=3 uid="uid://c66x2l5k572kt"]
 
 [ext_resource type="PackedScene" uid="uid://bs24a1pbm1pba" path="res://objects/modules/factory/base_rooms/factory_paint_l_room.tscn" id="1_a56l5"]
 [ext_resource type="PackedScene" uid="uid://c1rus4vu8jrlg" path="res://objects/battle/battle_node/dynamic/battle_node_dynamic.tscn" id="2_syy1l"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6eci400go3qt"]
+[gd_scene format=3 uid="uid://c6eci400go3qt"]
 
 [ext_resource type="PackedScene" uid="uid://chdkp682v5kgu" path="res://objects/modules/factory/base_rooms/factory_paint_mixer.tscn" id="1_owb7g"]
 [ext_resource type="PackedScene" uid="uid://q13pfs05aior" path="res://objects/obstacles/paint_platform/paintmixer_platform.tscn" id="2_718mm"]

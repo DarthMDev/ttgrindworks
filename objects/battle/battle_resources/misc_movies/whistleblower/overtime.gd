@@ -19,7 +19,7 @@ func action() -> void:
 	movie.tween_callback(battle_node.focus_character.bind(target))
 	movie.tween_callback(target.speak.bind("Yes, ma'am..."))
 	movie.tween_callback(apply_effect)
-	movie.tween_callback(manager.battle_text.bind(target, "+1 Turn!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
+	movie.tween_callback(manager.battle_text.bind(target, "+1 Move!", BattleText.colors.orange[0], BattleText.colors.orange[1]))
 	movie.tween_interval(3.0)
 	
 	# Cleanup

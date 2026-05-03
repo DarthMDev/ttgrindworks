@@ -169,15 +169,16 @@ func collect(player: Player) -> void:
 	apply_item()
 	
 	# Show UI
-	var ui = load('res://objects/items/ui/item_get_ui/item_get_ui.tscn').instantiate()
-	ui.item = item
-	get_tree().get_root().add_child(ui)
+	if SaveFileService.settings_file.item_popups:
+		var ui = load('res://objects/items/ui/item_get_ui/item_get_ui.tscn').instantiate()
+		ui.item = item
+		get_tree().get_root().add_child(ui)
+		if model.has_method('modify'):
+			model.modify(ui.model)
 	
 	# Play the item collection sound
 	item.play_collection_sound()
 	
-	if model.has_method('modify'):
-		model.modify(ui.model)
 	
 	if model.has_method('custom_collect'):
 		await model.custom_collect()

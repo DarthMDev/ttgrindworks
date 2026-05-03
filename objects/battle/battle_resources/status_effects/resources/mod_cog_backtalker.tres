@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dcwlh2f28xmrj"]
+[gd_resource type="Resource" format=3 uid="uid://dcwlh2f28xmrj"]
 
 [ext_resource type="Texture2D" uid="uid://b8qhlknbgmk55" path="res://ui_assets/battle/statuses/backtalker.png" id="1_h6old"]
 [ext_resource type="Script" uid="uid://2miftlk6n005" path="res://objects/battle/battle_resources/status_effects/mod_cog_effects/cog_mod_backtalker.gd" id="1_s5kj7"]

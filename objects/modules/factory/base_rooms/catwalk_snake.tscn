@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://becnyi3ke1i55"]
+[gd_scene format=3 uid="uid://becnyi3ke1i55"]
 
 [ext_resource type="PackedScene" uid="uid://crocd4wjg6ilp" path="res://models/facilities/factory/Catwalk_Snake.fbx" id="1_ro6xg"]
 [ext_resource type="Texture2D" uid="uid://lug01s8ijo22" path="res://models/facilities/factory/FINALFACTORY_2.png" id="2_1ajtx"]

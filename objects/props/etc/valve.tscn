@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0k8c68p74k6s"]
+[gd_scene format=3 uid="uid://d0k8c68p74k6s"]
 
 [ext_resource type="PackedScene" uid="uid://brxfur0k0rtq8" path="res://models/props/facility_objects/valve/Valve.fbx" id="1_ppwgb"]
 [ext_resource type="Texture2D" uid="uid://3f86w3gwdkw5" path="res://models/props/facility_objects/valve/FINALFACTORY_33.png" id="2_pmvo3"]

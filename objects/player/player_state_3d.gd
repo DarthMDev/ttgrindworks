@@ -147,7 +147,9 @@ const EXTRA_JUMP_DELAY := 0.6
 var can_jump := true
 var jump_velocity := 7.0
 var jump_velocity_mult := 1.0
-var gravity := 16.0
+var gravity:
+	get:
+		return player.gravity
 var last_floor_time: float = 0.0
 
 var _extra_jump_task: Task
@@ -173,7 +175,7 @@ func handle_jump(_delta: float) -> void:
 			jump_pressed = Input.is_action_just_pressed('mouse_jump')
 		
 		if jump_pressed and can_jump:
-			velocity.y = jump_velocity * jump_velocity_mult
+			velocity.y = (jump_velocity * jump_velocity_mult) * stats.agility
 			var platform_velocity := player.get_platform_velocity().y
 			if platform_velocity > 0.0:
 				velocity.y += platform_velocity

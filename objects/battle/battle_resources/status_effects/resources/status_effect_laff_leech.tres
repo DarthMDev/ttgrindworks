@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cgpq4b3m7a2u3"]
+[gd_resource type="Resource" format=3 uid="uid://cgpq4b3m7a2u3"]
 
 [ext_resource type="Texture2D" uid="uid://dk0omu7fvg1j" path="res://ui_assets/battle/statuses/laff_leech.png" id="1_ocsfs"]
 [ext_resource type="Script" uid="uid://7v5i07ydtm21" path="res://objects/battle/battle_resources/status_effects/status_effect_laff_leech.gd" id="2_maddc"]

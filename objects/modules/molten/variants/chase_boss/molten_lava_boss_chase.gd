@@ -91,6 +91,8 @@ func begin_chase() -> void:
 	await get_tree().process_frame
 	player.global_position = %PlayerBossStartPoint.global_position
 	player.state = Player.PlayerState.CHASE
+	
+	Util.stuck_lock = true
 
 func do_liquidator_spit_cycle() -> void:
 	fireballs_enabled = true
@@ -200,6 +202,8 @@ func end_boss() -> void:
 	%RecoveryBellows.position = Vector3(-2.877, 0.893, 0.899)
 	AudioManager.stop_music(true)
 	AudioManager.set_default_music(load('res://audio/music/molten_mint/molten_mint.ogg'))
+	ScoreTally.modify_score(ScoreTally.ChannelBosses, ScoreTally.BOSS_BONUS)
+	Util.stuck_lock = false
 
 func unload_chase() -> void:
 	for room in rooms.get_children():

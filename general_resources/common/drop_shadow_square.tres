@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://il08msjlhggs"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://il08msjlhggs"]
 
 [ext_resource type="Texture2D" uid="uid://dppobbfs0r248" path="res://general_resources/common/drop_shadow_square.png" id="1_lyebm"]
 

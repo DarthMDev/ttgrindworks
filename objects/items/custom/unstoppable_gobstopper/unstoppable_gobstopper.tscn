@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://deej7mg0ny1wu"]
+[gd_scene format=3 uid="uid://deej7mg0ny1wu"]
 
 [ext_resource type="Texture2D" uid="uid://mijy3ahll8ch" path="res://objects/items/custom/unstoppable_gobstopper/gob_stop_rough.png" id="1_pgiot"]
 

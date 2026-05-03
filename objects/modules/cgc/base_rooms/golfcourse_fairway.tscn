@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ch3xs1d1lu117"]
+[gd_scene format=4 uid="uid://ch3xs1d1lu117"]
 
 [ext_resource type="PackedScene" uid="uid://xu0uv037rwgr" path="res://models/facilities/cgc/cgc_fairway.fbx" id="1_1vt43"]
 [ext_resource type="PackedScene" uid="uid://c274ukuqy7wgd" path="res://objects/props/cgc/tree/cgc_tree.tscn" id="2_s3e10"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://co0wshh25yrlm"]
+[gd_scene format=3 uid="uid://co0wshh25yrlm"]
 
 [ext_resource type="Texture2D" uid="uid://bqt3mggfvixqf" path="res://models/facilities/mint/textures/square_drop_shadow.png" id="1_72gfl"]
 

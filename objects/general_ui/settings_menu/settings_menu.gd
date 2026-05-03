@@ -60,6 +60,7 @@ func _sync_video_settings() -> void:
 	fps_button.text = FPSOptionText[get_setting('fps_idx')]
 	alias_button.text = get_toggle_text(get_setting('anti_aliasing'))
 	camera_shake_button.text = SettingsFile.CameraShakeSetting.keys()[get_setting('camera_shake_setting')]
+	%ColorBlindButton.text = SettingsFile.ColorBlindOptions.keys()[get_setting('color_blind_mode')]
 
 func toggle_full_screen() -> void:
 	toggle_setting('fullscreen')
@@ -94,6 +95,18 @@ func toggle_camera_shake() -> void:
 	camera_shake_button.text = new_value
 	update_setting('camera_shake_setting', index as SettingsFile.CameraShakeSetting)
 
+func toggle_colorblind() -> void:
+	var index: int = SaveFileService.settings_file.color_blind_mode + 1
+	if index >= SettingsFile.ColorBlindOptions.keys().size(): index = 0
+	SaveFileService.settings_file.color_blind_mode = index
+	%ColorBlindButton.text = SettingsFile.ColorBlindOptions.keys()[index]
+
+func colorblind_hover() -> void:
+	HoverManager.hover("Affects the puzzle colors in the D.A. Office.")
+
+func colorblind_unhover() -> void:
+	HoverManager.stop_hover()
+
 ## AUDIO SETTINGS
 
 @onready var master_slider: HSlider = %MasterSlider
@@ -106,13 +119,25 @@ func _sync_audio_settings() -> void:
 	music_slider.value = get_setting("music_volume")
 	sfx_slider.value = get_setting("sfx_volume")
 	ambient_button.text = get_toggle_text(get_setting('ambient_sfx_enabled'))
+	%MasterLabel.set_text("Master Volume: %s" % Util.float_to_perc(master_slider.value))
+	%MusicLabel.set_text("Music Volume: %s" % Util.float_to_perc(music_slider.value))
+	%SFXLabel.set_text("SFX Volume: %s" % Util.float_to_perc(sfx_slider.value))
 
 func set_bus_volume(volume: float, bus: String) -> void:
 	AudioServer.set_bus_volume_db(get_bus_index(bus), linear_to_db(volume))
 	if OS.has_feature('debug'):
 		print(bus + " volume set to: " + str(AudioServer.get_bus_volume_db(get_bus_index(bus))))
 	update_setting(bus.to_lower() + '_volume', volume)
-
+	
+	# Update our label
+	var slider: HSlider
+	var label: Label
+	match bus:
+		'Master': slider = master_slider; label = %MasterLabel
+		'Music': slider = music_slider; label = %MusicLabel
+		'SFX': slider = sfx_slider; label = %SFXLabel
+	label.set_text("%s Volume: %s" % [bus, Util.float_to_perc(slider.value)])
+	
 func get_bus_index(bus : String) -> int:
 	for i in AudioServer.bus_count:
 		if AudioServer.get_bus_name(i) == bus:
@@ -129,6 +154,8 @@ func toggle_ambient_sfx() -> void:
 
 @onready var speed_button: GeneralButton = %SpeedButton
 @onready var reaction_button: GeneralButton = %ReactionButton
+@onready var description_button: GeneralButton = %DescriptionButton
+@onready var popups_button: GeneralButton = %PopupsButton
 @onready var auto_sprint_button: GeneralButton = %AutoSprintButton
 @onready var control_style_button: GeneralButton = %ControlStyleButton
 @onready var cam_sens_slider: HSlider = %CamSensSlider
@@ -144,19 +171,24 @@ func toggle_ambient_sfx() -> void:
 func _sync_gameplay_settings() -> void:
 	speed_button.text = get_speed_string(SaveFileService.settings_file.SpeedOptions[get_setting("battle_speed_idx")])
 	reaction_button.text = get_toggle_text(get_setting('item_reactions'))
+	description_button.text = get_toggle_text(get_setting('item_descriptions'))
 	auto_sprint_button.text = get_toggle_text(get_setting('auto_sprint'))
 	control_style_button.text = get_control_style(get_setting('control_style'))
 	cam_sens_slider.value = get_setting("camera_sensitivity")
+	%CamSensitivityLabel.set_text("Cam Sensitivity: %s" % Util.float_to_perc(cam_sens_slider.value))
 	timer_button.text = get_toggle_text(get_setting('show_timer'))
 	intro_skip_button.text = get_toggle_text(get_setting('skip_intro'))
 	custom_cogs_button.text = get_toggle_text(get_setting('use_custom_cogs'))
 	button_prompts_button.text = get_toggle_text(get_setting('button_prompts'))
-	
+	popups_button.text = get_toggle_text(get_setting('item_popups'))
+	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
+
 	if not is_instance_valid(Util.floor_manager) or Util.stuck_lock:
 		stuck_element.queue_free()
 	if not SaveFileService.progress_file.characters_unlocked > 1:
-		intro_skip_element.queue_free()
-	discord_rpc_button.text = get_toggle_text(get_setting('discord_rpc'))
+		intro_skip_button.disabled = true
+		intro_skip_button.modulate.a = 0.5
+		intro_skip_button.material.set_shader_parameter('alpha', 0.5)
 
 func change_speed() -> void:
 	var curr_idx: int = get_setting('battle_speed_idx')
@@ -175,6 +207,14 @@ func toggle_item_reactions() -> void:
 	toggle_setting('item_reactions')
 	reaction_button.text = get_toggle_text(get_setting('item_reactions'))
 
+func toggle_item_popups() -> void:
+	toggle_setting('item_popups')
+	popups_button.text = get_toggle_text(get_setting('item_popups'))
+
+func toggle_item_descriptions() -> void:
+	toggle_setting('item_descriptions')
+	description_button.text = get_toggle_text(get_setting('item_descriptions'))
+
 func toggle_auto_sprint() -> void:
 	toggle_setting('auto_sprint')
 	auto_sprint_button.text = get_toggle_text(get_setting('auto_sprint'))
@@ -185,6 +225,7 @@ func toggle_control_style() -> void:
 
 func set_cam_sens(value: float) -> void:
 	update_setting('camera_sensitivity', value)
+	%CamSensitivityLabel.set_text("Cam Sensitivity: %s" % Util.float_to_perc(cam_sens_slider.value))
 
 func toggle_timer() -> void:
 	toggle_setting('show_timer')
@@ -220,6 +261,7 @@ func cry_for_help() -> void:
 	if is_instance_valid(Util.floor_manager) and is_instance_valid(Util.player):
 		Util.floor_manager.player_out_of_bounds(Util.get_player())
 		Util.get_player().camera.make_current()
+	Globals.s_im_stuck.emit()
 
 func get_control_style(style : bool) -> String:
 	if style:
@@ -269,8 +311,8 @@ func input_to_text(input : InputEvent) -> String:
 	if not input: 
 		return "<UNBOUND>"
 	var base_string := input.as_text()
-	if base_string.ends_with(" (Physical)"):
-		base_string = base_string.trim_suffix(" (Physical)")
+	if base_string.ends_with(" - Physical"):
+		base_string = base_string.trim_suffix(" - Physical")
 	return base_string
 
 func set_keybind(action_name: String, input: InputEvent) -> void:

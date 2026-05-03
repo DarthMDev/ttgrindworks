@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqhaniv0lvn07"]
+[gd_scene format=3 uid="uid://dqhaniv0lvn07"]
 
 [ext_resource type="Texture2D" uid="uid://32cwmb236pju" path="res://ui_assets/battle/queued_gags/gag_panel.png" id="1_inu5p"]
 [ext_resource type="Script" uid="uid://w2py1e6gxjyu" path="res://objects/interactables/stranger/shop_ui/item_sell_icon.gd" id="2_nia2k"]

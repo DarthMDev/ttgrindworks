@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://85lbg5hd54yc"]
+[gd_scene format=3 uid="uid://85lbg5hd54yc"]
 
 [ext_resource type="Texture2D" uid="uid://4bsg4bkaqald" path="res://ui_assets/general/tt_t_gui_mat_shuffleFrame.png" id="1_j3mru"]
 [ext_resource type="Script" uid="uid://dig6demeji2tc" path="res://objects/general_ui/scroll_button/scroll_button.gd" id="2_ewenx"]

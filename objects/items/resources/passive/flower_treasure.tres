@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://d0n6coya2868f"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://d0n6coya2868f"]
 
 [ext_resource type="Texture2D" uid="uid://b1vjvn313in36" path="res://objects/items/custom/treasure/flower.png" id="1_neans"]
 [ext_resource type="PackedScene" uid="uid://bmkdj1ocsunjm" path="res://objects/items/custom/treasure/treasure.tscn" id="2_kado5"]

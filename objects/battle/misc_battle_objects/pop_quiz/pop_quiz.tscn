@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5hgufi22sqfs"]
+[gd_scene format=3 uid="uid://b5hgufi22sqfs"]
 
 [ext_resource type="PackedScene" uid="uid://dkd6dg5s5uuef" path="res://objects/general_ui/base_panel.tscn" id="2_8t5ff"]
 [ext_resource type="Script" uid="uid://dcamidi03onc7" path="res://objects/battle/misc_battle_objects/pop_quiz/pop_quiz.gd" id="2_cfnds"]

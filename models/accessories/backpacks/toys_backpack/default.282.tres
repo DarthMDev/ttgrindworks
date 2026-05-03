@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://56nbsr6d2wwq"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://56nbsr6d2wwq"]
 
 [ext_resource type="Texture2D" uid="uid://cu85haqtfihwl" path="res://models/accessories/backpacks/toys_backpack/tt_m_chr_avt_acc_pac_backpackWithToys_tt_t_chr_avt_acc_pac_backpackWithToys.png" id="1_ed5ao"]
 

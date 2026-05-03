@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtsw4nfjdp0s3"]
+[gd_resource type="Resource" format=3 uid="uid://dtsw4nfjdp0s3"]
 
 [ext_resource type="Texture2D" uid="uid://dukeuvs66w1cs" path="res://ui_assets/battle/statuses/poison.png" id="1_8awle"]
 [ext_resource type="Script" uid="uid://rae1ckj2sbpy" path="res://objects/battle/battle_resources/status_effects/status_effect_poison.gd" id="1_pesur"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bp85n6hjpnf11"]
+[gd_scene format=4 uid="uid://bp85n6hjpnf11"]
 
 [ext_resource type="PackedScene" uid="uid://nxbhnd4nvt85" path="res://models/props/pickups/candy/Candy.glb" id="1_d3srj"]
 [ext_resource type="Texture2D" uid="uid://dm2najag24ptd" path="res://models/props/pickups/candy/Candy_CandyWrapper.png" id="2_e3cmc"]

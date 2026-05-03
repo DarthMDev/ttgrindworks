@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://brx5luolo4twm"]
+[gd_scene format=4 uid="uid://brx5luolo4twm"]
 
 [ext_resource type="PackedScene" uid="uid://b6vb4aui5a324" path="res://models/props/gags/opera_singer/opera_singer.fbx" id="1_06q7i"]
 [ext_resource type="Material" uid="uid://ci6tfpxgltig6" path="res://models/props/gags/opera_singer/textures/opera_head.tres" id="2_ewhsv"]

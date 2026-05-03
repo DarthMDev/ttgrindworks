@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnaq5b3x7k1lo"]
+[gd_scene format=3 uid="uid://bnaq5b3x7k1lo"]
 
 [ext_resource type="PackedScene" uid="uid://c8btjoekf0vw3" path="res://models/accessories/glasses/masquerade/masquerade_mask.fbx" id="1_l2ukx"]
 [ext_resource type="Script" uid="uid://dxcxpag64skd0" path="res://models/accessories/glasses/masquerade/masquerade_mask.gd" id="2_t3glr"]

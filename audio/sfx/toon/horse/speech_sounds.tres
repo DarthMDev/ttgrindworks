@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ToonSpeechSounds" load_steps=8 format=3 uid="uid://b0wgmcfae0cxx"]
+[gd_resource type="Resource" script_class="ToonSpeechSounds" format=3 uid="uid://b0wgmcfae0cxx"]
 
 [ext_resource type="AudioStream" uid="uid://btme71om02thl" path="res://audio/sfx/toon/horse/AV_horse_exclaim.ogg" id="1_i8413"]
 [ext_resource type="Script" uid="uid://cjyrcemaxrvse" path="res://audio/sfx/toon/toon_speech_sounds.gd" id="1_m1q84"]

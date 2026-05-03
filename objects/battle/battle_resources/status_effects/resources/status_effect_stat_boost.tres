@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StatBoost" load_steps=2 format=3 uid="uid://b1v72pqtitib3"]
+[gd_resource type="Resource" script_class="StatBoost" format=3 uid="uid://b1v72pqtitib3"]
 
 [ext_resource type="Script" uid="uid://csl6saufv84ri" path="res://objects/battle/battle_resources/status_effects/stat_boost.gd" id="1_22ksl"]
 

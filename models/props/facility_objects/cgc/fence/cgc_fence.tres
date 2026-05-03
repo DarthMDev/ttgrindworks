@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bagbtftt7lt77"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bagbtftt7lt77"]
 
 [ext_resource type="Texture2D" uid="uid://c0h1rx2srwrd8" path="res://models/props/facility_objects/cgc/fence/fence_bbhq_fenceFile.png" id="1_ng7f2"]
 

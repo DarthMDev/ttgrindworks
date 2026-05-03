@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bc1chueh2m57j"]
+[gd_resource type="Resource" format=3 uid="uid://bc1chueh2m57j"]
 
 [ext_resource type="Script" uid="uid://cwnjrxjvy5kc3" path="res://objects/battle/battle_resources/toon_attacks/toon_attack.gd" id="1_4mmou"]
 [ext_resource type="Script" uid="uid://byo8ok8qshtyi" path="res://objects/battle/battle_resources/status_effects/status_effect_gag_ban.gd" id="2_pkvv5"]

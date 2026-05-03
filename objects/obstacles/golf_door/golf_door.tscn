@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b35wcbrb3kc82"]
+[gd_scene format=3 uid="uid://b35wcbrb3kc82"]
 
 [ext_resource type="Script" uid="uid://cygqh2ohiurcv" path="res://objects/obstacles/golf_door/golf_door.gd" id="1_2qrjy"]
 [ext_resource type="PackedScene" uid="uid://d0yk8glamf62r" path="res://objects/obstacles/rolling_golf_ball/rolling_golf_ball.tscn" id="2_6swar"]

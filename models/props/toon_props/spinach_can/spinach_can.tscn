@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://csmy8xqck4s1v"]
+[gd_scene format=3 uid="uid://csmy8xqck4s1v"]
 
 [ext_resource type="PackedScene" uid="uid://28pebnrd0pn7" path="res://models/props/toon_props/spinach_can/spinachCan.fbx" id="1_8bjtm"]
 

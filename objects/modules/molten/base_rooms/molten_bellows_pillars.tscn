@@ -1,8 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://yoiyquggqfjn"]
+[gd_scene format=3 uid="uid://yoiyquggqfjn"]
 
 [ext_resource type="PackedScene" uid="uid://vcl0pavlmo3h" path="res://models/facilities/molten/molten_bellows_pillars.fbx" id="1_ih0ok"]
 [ext_resource type="Texture2D" uid="uid://cy3fxmvaei2ls" path="res://models/facilities/molten/textures/BoxCarSide2.png" id="2_j70n1"]
-[ext_resource type="Texture2D" uid="uid://dh14xv8mgissq" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="2_y0kxa"]
+[ext_resource type="Texture2D" uid="uid://biiqghubrrka7" path="res://models/facilities/molten/textures/LocomotiveSide5_hot.png" id="2_y0kxa"]
 [ext_resource type="Texture2D" uid="uid://db8mdta7t83hi" path="res://models/facilities/molten/textures/FINALFACTORY_121.png" id="2_ygr8h"]
 [ext_resource type="Texture2D" uid="uid://v7y7mef5rs2i" path="res://models/facilities/molten/textures/FINALFACTORY_118.png" id="3_j70n1"]
 [ext_resource type="Texture2D" uid="uid://dofus4ypmdqx6" path="res://models/facilities/molten/textures/FINALFACTORY_143.png" id="3_paixi"]

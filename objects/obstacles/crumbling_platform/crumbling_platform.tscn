@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://djvrtjc5rtti4"]
+[gd_scene format=4 uid="uid://djvrtjc5rtti4"]
 
 [ext_resource type="Script" uid="uid://cm68mf4prm05" path="res://objects/obstacles/crumbling_platform/crumbling_platform.gd" id="2_ia533"]
 [ext_resource type="PackedScene" uid="uid://bprs5ef3i3x8t" path="res://models/props/facility_objects/molten/crumbling_platform/CrumblingPlatform.glb" id="2_jp6dc"]

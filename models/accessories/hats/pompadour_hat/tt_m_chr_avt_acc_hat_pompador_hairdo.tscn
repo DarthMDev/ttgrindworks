@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bphggrbr8gdw0"]
+[gd_scene format=3 uid="uid://bphggrbr8gdw0"]
 
 [ext_resource type="PackedScene" uid="uid://gg0ypao1c7nv" path="res://models/accessories/hats/pompadour_hat/tt_m_chr_avt_acc_hat_pompadorHairdo.glb" id="1_m4u8d"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FloorVariant" load_steps=11 format=3 uid="uid://dk64pnype64ch"]
+[gd_resource type="Resource" script_class="FloorVariant" format=3 uid="uid://dk64pnype64ch"]
 
 [ext_resource type="Script" uid="uid://ci1am4p7axbxy" path="res://objects/modules/facility_room.gd" id="1_6lg5s"]
 [ext_resource type="Resource" uid="uid://c1kumm74qwmtf" path="res://scenes/game_floor/department_floors/rooms_sell.tres" id="1_g2dp2"]

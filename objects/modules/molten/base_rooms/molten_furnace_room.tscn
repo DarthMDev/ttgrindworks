@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://clvxp66ubtn1i"]
+[gd_scene format=4 uid="uid://clvxp66ubtn1i"]
 
 [ext_resource type="PackedScene" uid="uid://q54useatvfkt" path="res://models/facilities/molten/molten_furnace_room.fbx" id="1_w1ofj"]
 [ext_resource type="PackedScene" uid="uid://dmv7dbgr2b2nr" path="res://objects/obstacles/lava_floor/lava_floor.tscn" id="2_i8whu"]

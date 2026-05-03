@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AchievementQuota" format=3 uid="uid://dmxxcgy6ossd3"]
+
+[ext_resource type="Script" uid="uid://bma611yu4pdu8" path="res://objects/save_file/achievements/quota_achievement.gd" id="1_h1f6l"]
+[ext_resource type="Texture2D" uid="uid://b6q6beasso23f" path="res://objects/items/resources/accessories/shoes/icons/wingtips.png" id="1_kup1e"]
+
+[resource]
+script = ExtResource("1_h1f6l")
+progress_value = "paint_silo_victories"
+quota = 10
+signal_source = 1
+signal_name = "s_paint_silo_victory"
+achievement_name = "Parkour Perfectionist"
+achievement_summary = "Unlocked Wingtips."
+hint = "Dry up the paint reserve."
+achievement_index = 38
+achievement_icon = ExtResource("1_kup1e")
+use_achievement_background = true
+custom_background_color = Color(0.19607843, 0.5803922, 0.91764706, 1)
+metadata/_custom_type_script = "uid://bma611yu4pdu8"

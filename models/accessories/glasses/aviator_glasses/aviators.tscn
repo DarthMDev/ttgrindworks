@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj7s81liuuqp1"]
+[gd_scene format=3 uid="uid://dj7s81liuuqp1"]
 
 [ext_resource type="PackedScene" uid="uid://clx5o10oq0fup" path="res://models/accessories/glasses/aviator_glasses/tt_m_chr_avt_acc_msk_aviator.glb" id="1_neatn"]
 [ext_resource type="Texture2D" uid="uid://cqtvnq5wu36pl" path="res://models/accessories/glasses/aviator_glasses/tt_m_chr_avt_acc_msk_aviator_tt_t_chr_avt_acc_msk_aviator.png" id="2_li4wk"]
